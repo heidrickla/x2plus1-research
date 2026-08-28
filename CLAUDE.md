@@ -406,6 +406,18 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   right. Only reading past the clause finds them. The normalisation convention
   behind the second was inside the very sentence `fm-no-admissible-theta-at-
   density-half` is built on.
+- **A control is not a classifier.** A control shows an argument does not prove
+  too much and needs exactly two points: a²+b⁴ has mean G 3.59 where x²+1 has
+  0.022, so the mean-o(1) objection does not rule out dispersion for the sequence
+  it demonstrably works on. That is sound. Reading it as *mean G > 1 separates
+  captured from uncaptured* is a different claim about a whole population, and it
+  was false — x³+2y³ is captured and sits at 0.1888, below the sequence with no
+  known outcome. The tell was in the construction: the "law" was built from two
+  points and confirmed on two more, one of which had no known outcome, so the real
+  confirmation set was **one sequence**. And it generated its own supporting
+  evidence — a literature quotation was gathered for a statement already false.
+  When testing a proposed classifier, pick the case the incumbent invariant
+  *cannot* see (here κ is equal for x³+2y³ and a²+b⁶), not the next case to hand.
 - **If the values reproduce but no law does, record the values.** One quantity —
   the mean of G over cofactor bands — took four corrections in one session
   because three different laws were fitted to it and all three failed: 1/N, then
