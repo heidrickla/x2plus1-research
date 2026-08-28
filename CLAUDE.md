@@ -493,8 +493,9 @@ figure is over classes with ≥3 moduli (60 of 1,815,154 at X = 3000 — anythin
 quoted over all classes is ~30,000× inflated), and the **two-term** strengthening
 v_p(V₁₂)+v_p(V₂₃) ≥ e does *not* give M | V_aV_b for a fixed pair — the ordering
 is per-prime, 5 of 216 triples witness it, and the fixed-pair version would
-close the conjecture in one line via 3ab < b−a. It is `refuted` in the registry
-for exactly that reason.
+close the conjecture in one line via 3ab < b−a. Recorded as
+`the-two-term-strengthening-of-the-valuation-argument-is-blocked`
+(`rigorous_finite`, with all five witnesses) so it cannot be quietly retried.
 
 Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
 `python -m pytest -q` before trusting any measurement.
