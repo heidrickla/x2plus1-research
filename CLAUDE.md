@@ -399,8 +399,9 @@ is the shape a D^{4/3} loosening predicts and not the shape of a sporadic set.
 **So x²+1 is the D = 1 end of a one-parameter family — the point where every
 bound in the apparatus is tightest.** **And M·D gives O.12's exact reach on that
 axis**: the pair condition becomes (u−1)·D/√u > V·√3 against a band's
-(u−1)/√u < 1/√2, so O.12 covers **D ≤ V√6** — **D = 1, 2** unconditionally and
-**D ≤ 4** with the parity lemma's |V| ≥ 2. So the theorem also proves the
+(u−1)/√u < 1/√2, so O.12 covers **D·g(D) ≤ 2√2·V** with g(D) = √(2+D) −
+1/√(2+D) — **D = 1** unconditionally at X₁ = 1 and
+**D ≤ 3** with the parity lemma's |V| ≥ 2 *(⚠ this read D = 1, 2 and D ≤ 4, from the premise τ_V² < 3 — which is the D = 1 case, since the window condition gives τ_V² < 2 + D at X₁ = 1. **Asymptotically D ≤ 4V is unchanged.** D = 2 still never fails at any X run; it loses its proof, not its status)*. So the theorem also proves the
 statement for **x²+2**, and stops there. *(This reconciles with the line-family
 result computed before M·D was known: D = c², so D ≤ 4 is c ≤ 2.)* **|V| is even
 on this axis too** — min |V| = 2, 4, 6, 4, 2, 4 over D = 1…6 with no odd value in
@@ -409,9 +410,10 @@ fail**. ⚠ **That bounds the uniqueness conjecture**: the parallel session's
 attrition argument (larger X gives more candidate cofactor classes at fixed D)
 cannot reach small D, because there the condition **(u−1)D/√u > V√3** is not
 merely tight against a band's 1/√2 but **unsatisfiable** — at D = 2 it is
-1.41421 < 1.73205, a 22% margin. So the conjecture is **"every D > 4 fails"**,
+1.41421 < 1.73205, a 22% margin. So the conjecture is **"every D > 3 fails"** on
+the all-X reading (D > 4 asymptotically),
 not "every D > 1", and the two regimes differ in kind rather than in where a
-sweep stopped. **D = 5 is the first value the argument does not reach**, so if
+sweep stopped. **D = 4 is the first value the all-X argument does not reach** (D = 5 asymptotically), so if
 the attrition picture is right it should be the first survivor to fall. The twelve theorems are not weakened by
 that; they are *located*. ⚠ And **the right axis is the discriminant**:
 4(x²+bx+c) = (2x+b)² + |Δ|, so the line family (Δ = −4c²), the D family

@@ -1452,6 +1452,31 @@ b·m = Y² + D we get b(X²+D) = abm = a(Y²+D), hence
 over 5354 pairs in the parallel session — together with **V·W = D·M·(m_i − m_j)**,
 the pair identity with D in place of the c² found earlier along the line family.)*
 
+> ### ⚠ WHICH FORMULAS IN THIS NOTE CARRY THE D — read before reusing any of them
+>
+> The invariant is stated once, here, and used **implicitly** everywhere else, so
+> every formula elsewhere in this note looks like its D = 1 form. **Three separate
+> errors in about one hour came from reading one of them as general**, across both
+> sessions, each after having read this section:
+>
+> | formula, as written elsewhere | D = 1 form of | correct for general D |
+> |---|---|---|
+> | aY² − bX² = M | the conic | **M·D** |
+> | U² − DV² = M² | the multiplier | U² − abV² = **(M·D)²** |
+> | window premise τ_V² < 3 at X₁ = 1 | R² < 2 + 1/X₁² | τ_V² < **2 + D** |
+> | τ₁ = (√b+√a)/(√b−√a) | the fundamental multiplier | **not** τ₁ for D ≠ 1 |
+> | V = 1 ⟺ a² − ab + b² square | U² = M² + ab | U² = **(M·D)² + ab** |
+> | reach D ≤ V√6 (all X) | from τ_V² < 3 | **D·g(D) ≤ 2√2·V**, g = √(2+D) − 1/√(2+D) |
+>
+> The **asymptotic** statements (τ_V² < 2, reach D ≤ 4V) are the exception: both
+> window forms tend to 2 as X₁ grows, so those transfer unchanged.
+>
+> **The failure mode is not carelessness.** Each of the three was found by
+> checking a derivation against *this* section, never by a test failing and never
+> by re-reading the formula itself — because the D = 1 form is what the
+> surrounding text looks like, and a correct-looking formula surrounded by
+> correct-looking formulas raises nothing.
+
 **So the quantity Note O calls M is really M·D**, and every bound built on it
 weakens by a factor of D. O.9 becomes **3ab < (M·D)^{4/3}**, and that separates
 the cases exactly. At the cofactor pair (5, 8), where M = 3:
@@ -1526,10 +1551,20 @@ while a dyadic band supplies only (u−1)/√u < 1/√2. So O.12 covers D exactl
 
 | input | bound | covers |
 |---|---|---|
-| \|V\| ≥ 1 (unconditional) | D ≤ √6 = 2.4495 | **D = 1, 2** |
-| \|V\| ≥ 2 (the parity lemma) | D ≤ 2√6 = 4.8990 | **D = 1, 2, 3, 4** |
+| \|V\| ≥ 1 (unconditional) | D·g(D) ≤ 2√2 | **D = 1** |
+| \|V\| ≥ 2 (the parity lemma) | D·g(D) ≤ 4√2 | **D = 1, 2, 3** |
 
-**So O.12 is not only about x²+1 — it proves the same statement for x²+2**, and
+*with g(D) = √(2+D) − 1/√(2+D). **⚠ These rows previously read D ≤ √6 (D ≤ 2)
+and D ≤ 2√6 (D ≤ 4), from the premise τ_V² < 3.** That premise is the D = 1
+case: the window condition is m_j/m_i = (X_j²+D)/(X_i²+D) < 2, so at X₁ = 1 it
+is **τ_V² < 2 + D**, not 3. Sanity check on the correction — under the
+asymptotic premise c = 2 the same formula gives g = 1/√2 and D ≤ 4V exactly,
+which is the row below. **D = 2 survives empirically at every X either session
+has run; what it loses is its proof at X₁ = 1.***
+
+**So O.12 proves the same statement for x²+2 asymptotically, and for x²+1 at
+every X.** ⚠ *The unconditional-at-X₁ = 1 claim for x²+2 is withdrawn: it rested
+on τ_V² < 3, which is the D = 1 premise.* And
 stops there unconditionally. *(Thresholds: u must exceed 4.7913 at D = 1 and
 2.3187 at D = 2, both above the 2 a band supplies; at D = 3 it is 1.7676, below
 it, and the argument fails.)*
@@ -1539,7 +1574,7 @@ window condition is R² < 2 + 1/X₁², so:
 
 | | condition | \|V\| ≥ 1 | \|V\| ≥ 2 |
 |---|---|---|---|
-| **all X** (X₁ ≥ 1) | τ_V² < 3 | D ≤ √6, i.e. **D ≤ 2** | D ≤ 2√6, i.e. **D ≤ 4** |
+| **all X** (X₁ ≥ 1) | τ_V² < **2 + D** | D·g(D) ≤ 2√2, i.e. **D = 1** | D·g(D) ≤ 4√2, i.e. **D ≤ 3** |
 | **asymptotic** (X₁ → ∞) | τ_V² < 2 | D ≤ 4V, i.e. **D ≤ 4** | D ≤ 4V, i.e. **D ≤ 8** |
 
 The asymptotic row is the M·D invariant applied to the threshold family: the
@@ -1628,11 +1663,13 @@ for D = 1; the general-D statement is observed here, not proved.)*
 > triple, one level down: the bound permits failure and no failure is found. That bears directly on the conjecture that
 > D = 1 is the unique survivor: at small D the bound is not merely tight but
 > **unsatisfiable**, so no number of candidate classes at larger X can produce a
-> configuration. The attrition argument reaches D > 4, not D > 1.
+> configuration. The attrition argument reaches D > 3 on the all-X
+> reading (D > 4 asymptotically), not D > 1.
 
 **And this reconciles exactly with the line-family analysis above.** There D = c²,
-so |V| ≥ 2 covering D ≤ 4 is c ≤ 2 — precisely the earlier finding that |V| ≥ 2
-extends O.12 to c = 2 and no further. Two routes to the same boundary, computed
+so |V| ≥ 2 covering D ≤ 3 admits only c = 1, while the asymptotic D ≤ 8 gives
+c ≤ 2 — the earlier finding that |V| ≥ 2 extends O.12 to c = 2 and no further is
+therefore the **asymptotic** statement, not the all-X one. Two routes to the same boundary, computed
 independently before the M·D invariant was known.
 
 **And the same axis refutes the O.2 analogue outright, at D = 39.**
