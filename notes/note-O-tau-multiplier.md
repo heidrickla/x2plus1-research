@@ -1887,6 +1887,15 @@ magnitude apart:
 residual is exactly the finite +1 correction that Theorem O.4 found load-bearing.
 The two mechanisms differ by a factor of 8.95×10⁶.)*
 
+**And the unit-free witness carries the *identical* τ, not an analogue.**
+τ₁ = (√u + 1)/(√u − 1) depends only on **u = b/a**, so it is scale-invariant:
+(2, 82) = 2·(1, 41) has u = 41 in both cases and therefore
+**τ₁ = 1.370156212 to nine places in both**, with U² = M² + 4D a perfect square
+either way (42² at M = 40, 84² at M = 80). So the unit-free pair is a **drop-in
+replacement** for the orbit story, not a parallel example — a reader meeting the
+structure there never has to dispose of the objection that the witness leans on a
+cofactor the Type II hypothesis excludes.
+
 **So the two moduli in that window are in different orbits, brought together by
 τ and not by ε** — and the whole structure becomes legible:
 
