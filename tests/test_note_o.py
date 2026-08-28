@@ -232,28 +232,34 @@ def test_M_is_never_two_mod_four():
     assert seen > 1000
 
 
-def test_the_non_fundamental_close_pair_of_1_423125():
-    """A live class whose close pair sits at k = 91, not k = 1.
+def test_the_non_fundamental_close_pair_is_53_423125():
+    """A live class whose close pair sits at k = 12, not k = 1.
 
     Shows a triple's multipliers need not include tau_1 -- the p,q >= 2 gap
-    Theorem O.3 does not cover -- and M = 423124 is even, so O.3 is mute here.
-    Any extension to even M must still PERMIT these two in a window.
+    Theorem O.3 does not cover.  M = 423072 is even AND non-squarefree, so O.3
+    is mute, while O.3' reaches it: c = gcd(M, 2X) is 2 and 12, both <= 16, so
+    it must PERMIT these two and forbid only a third.
+
+    NOT (1, 423125), which has the same modulus values from different x and is
+    one of 12 unexplained close pairs -- its nearest index k = 91 is 2.2% off.
     """
-    a, b = 1, 423125
+    from math import gcd
+    a, b = 53, 423125
     for m in (10, 17):
         assert isqrt(a * m - 1) ** 2 == a * m - 1
         assert isqrt(b * m - 1) ** 2 == b * m - 1
-    assert 17 < 2 * 10                       # both in one dyadic window
+    assert 17 < 2 * 10
     M, D = b - a, a * b
-    assert M % 2 == 0 and M % 4 == 0         # outside O.3's hypothesis
-    ks = [k for k in range(1, 120)
+    assert M % 4 == 0                                   # outside O.3
+    ks = [k for k in range(1, 4000)
           if isqrt(M * M + 4 * k * k * D) ** 2 == M * M + 4 * k * k * D]
-    assert ks == [1, 91], ks
+    assert ks == [1, 12], ks
     tau1_sq = ((sqrt(b) + sqrt(a)) / (sqrt(b) - sqrt(a))) ** 2
-    assert tau1_sq == pytest.approx(1.00617, rel=1e-3)
-    s = 4 * 91 * sqrt(D) / M
-    r91 = ((s + sqrt(s * s + 4)) / 2) ** 2
-    assert r91 == pytest.approx(17 / 10, rel=0.03)   # the REALISED ratio
+    assert abs(tau1_sq - 1.7) / 1.7 > 0.3               # tau_1 EXCLUDED
+    s = 4 * 12 * sqrt(D) / M
+    assert ((s + sqrt(s * s + 4)) / 2) ** 2 == pytest.approx(1.7, rel=1e-3)
+    for m in (10, 17):                                  # O.3' applies
+        assert gcd(M, 2 * isqrt(a * m - 1)) <= 16
 
 
 def test_theorem_O3_prime_identity_and_rho_bound():

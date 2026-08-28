@@ -689,17 +689,33 @@ empty parameter space — that is what went wrong with the 95 and the 322. Runni
 it the other way cannot. The method's first product is the sharpest object
 either of us has:
 
-> **(1, 423125)**, live, with shared moduli m = 10 and m = 17 at ratio 1.70 —
-> inside a window — where τ₁² = 1.00617 and the realised close pair sits at
-> **k = 91**, r₉₁² = 1.73765. (Both verified: 10−1 = 3², 423125·10−1 = 2057²;
-> 17−1 = 4², 423125·17−1 = 2682².)
+> **(53, 423125)**, live, with shared moduli m = 10 and m = 17 at ratio 1.70000
+> — inside a window — where τ₁² = 1.045787 and the realised close pair sits at
+> **k = 12**, r₁₂² = 1.70066 (relative error 3.9×10⁻⁴). Its only multipliers
+> below k = 4000 are k = 1 and k = 12. Verified with no parameterisation:
+> 53·10−1 = 23², 423125·10−1 = 2057², 53·17−1 = 30², 423125·17−1 = 2682².
 
-This is one of the three |V| ∉ {2} cases from the top of this note — |V| = 182 =
-2·91 — seen from the other end. It shows the close pair of a live class can be
+This is one of the three |V| ∉ {2} cases from the top of this note — |V| = 24 =
+2·12 — seen from the other end. It shows the close pair of a live class can be
 realised at a **non-fundamental** multiplier, so a triple's two multipliers need
 not include τ₁, which is exactly the p, q ≥ 2 gap O.3 does not cover. And
-M = 423124 = 4 × 105781 is even, so O.3 is mute on it: it is a test case for any
-extension, which must permit *two* moduli in a window there.
+M = 423072 = 2⁵·3²·13·113 is both even and non-squarefree, so O.3 is mute on it
+— while **O.3′ reaches it**: c = gcd(M, 2X) is 2 at m = 10 and 12 at m = 17,
+both ≤ 16, so O.3′ correctly permits those two and forbids only a third.
+
+**The sibling is the caution, and it caught a misattribution.** (1, 423125) has
+the *same* two modulus values, 10 and 17, reached from different x — and for it
+**no** multiplier below k = 4000 explains the ratio: the nearest, k = 91, is
+2.2% off. It is one of 12 unexplained close pairs at X = 3000, all small-m,
+where the O(1/m) correction dominates. An earlier version of this paragraph
+named (1, 423125) at k = 91 as the non-fundamental case; that was an index read
+off a list without checking the residual, and it is wrong. The robust content is
+the **exclusion of k = 1**, which holds either way.
+
+Census from the inverted method at X = 3000: 379 close pairs, 367 explained by
+some multiplier index — **366 at k = 1 and exactly one at k ≥ 2** — with 12
+unexplained within k ≤ 4000. So the non-fundamental shape is realised, and
+realised **once**. Rare, not absent.
 
 ## Adversarial review
 
