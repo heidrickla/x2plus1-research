@@ -595,6 +595,24 @@ for a sequence of density x^{1/2} at all.** Computed rather than argued:
 `x2plus1.exponents.ford_maynard_theta` returns [1/4, 1/2) at α = 3/4 and
 [1/3, 1/2) at α = 2/3, and raises at α = 1/2.
 
+**Re-verified at source.** (1.1) reads verbatim
+`0 < γ < 1, 0 ⩽ θ < 1/2, 0 < ν ⩽ 1 − θ` (p. 1), so θ < 1/2 is exact and **ν > 0
+is strict** — ν = 0 is not an admissible parameter, quite apart from Selberg's
+example driving C⁻ to 0. That example is also on p. 2 in their words: "whenever
+ν = 0, there are examples of a_n with b_n = 1 … but with Σ_p a_p = 0
+(specifically, take a_n = 1 + λ(n) and b_n = 1)".
+
+**One detail this note states more weakly than the paper.** (II) quantifies over
+"any complex numbers ξ_m, κ_n with **|ξ_m| ⩽ τ^B(m)** and **|κ_n| ⩽ τ^B(n)**"
+(p. 2) — *divisor*-bounded on both sides, not 1-bounded. Since τ^B ≥ 1 that is a
+**strictly stronger hypothesis** than the 1-bounded version tabulated above, so
+[Note F](note-F-failure-localisation.md)'s obstruction — proved for arbitrary
+1-bounded coefficients — applies *a fortiori*. Nothing downstream changes; the
+table's "1-bounded" is a safe understatement rather than an error. Note also
+that this is a different object from the divisor-bounded **weight** escape of
+their Theorems 2.4/2.7 discussed above: that concerns a_n, this concerns the
+bilinear coefficients.
+
 The first half of that sentence is worth noticing on its own: γ < 1 − c = 1/2
 is [Note B](note-B-type-I.md)'s ceiling, reached from the other direction and
 by different means. The repo derived it; Ford–Maynard state it as what one can
