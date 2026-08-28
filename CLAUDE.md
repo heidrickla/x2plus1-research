@@ -559,7 +559,12 @@ instance is degenerate — one of its four values is 0²+1 = **1**, the unit
 modulus. D = 5 escapes separately, on the modulus ratio 2.333. Every k ≥ 2 is a
 genuine counterexample with both ratios falling toward 1. So O.12's conclusion is
 not general, and the survivor survives for the same reason the unit cofactor is
-excluded everywhere else here.
+excluded everywhere else here. **And the same holds one level up: x²+39 has
+cofactors (5,8) — one band — sharing three moduli 8, 11, 15 — one window**, so
+the analogues of Conjecture O.2 *and* O.12 both fail there; seven unit-free
+triples over D ≤ 60, and D = 1 in none of them. Neither result touches x²+1,
+where O.12 is proved and O.2 has no counterexample to X = 8000; what they remove
+is any reading of the Note O theorems as general facts about degree-2 sequences.
 It also explains Note K's κ threshold as a coincidence of
 parameterisation — κ = |B|² counts lines, C₄-freeness permits one, so both are
 functions of the same integer. **Two points settle that κ is not doing the work**:

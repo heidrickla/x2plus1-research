@@ -205,6 +205,37 @@ infinite explicit family of degree-2 sequences, and **x²+1's escape has a cause
 Machine-checked in
 `test_four_consecutive_x_give_a_cycle_exactly_when_D_is_k2_plus_3k_plus_1`.
 
+### The same move settles the triple question: x²+39 has a banded triple
+
+Extending the D axis to *three* moduli rather than two:
+
+> **x² + 39.  Cofactors (5, 8)** — ratio 1.6, one dyadic **band**.
+> **Moduli 8, 11, 15** — 15 < 16, one dyadic **window**.
+>
+> 5·8 = 40 = 1²+39  8·8 = 64 = 5²+39
+> 5·11 = 55 = 4²+39  8·11 = 88 = 7²+39
+> 5·15 = 75 = 6²+39  8·15 = 120 = 9²+39
+
+All six verified. Three shared moduli in one window with both cofactors inside
+one band — which refutes the analogue of **Conjecture O.2** (no window holds
+three) *and* of **Theorem O.12** (banded cofactors share at most one), in a
+single configuration, with cofactors as small as 5 and 8.
+
+Over D ≤ 60 there are **seven** unit-free triples — D = 29, 39, 42, 44, 52, 53,
+59 — and **D = 1 is not among them**. The unit-free restriction carries the
+weight: *35 of 60* admit a triple if the unit cofactor is allowed, and the unit
+is exactly what no Type II hypothesis admits.
+
+**This does not refute O.2 or O.12 for x²+1**, and neither is weakened by a
+digit: O.12 is proved, and O.2 has no counterexample to X = 8000 with its
+two-step floor unmoved at 13.0000 across five sizes. What it removes is any
+reading of either as an instance of something general. **The Note O thread's
+twelve theorems establish a fact about x²+1, not about degree-2 sequences** — the
+same correction the D = k²+3k+1 family makes one level down, where x²+1 was the
+degenerate member of a failing family and here is simply not in the failing set.
+Machine-checked in
+`test_x2_plus_39_has_a_banded_triple_so_O2_is_special_to_D_equals_one`.
+
 ### And two points are enough — so κ does not see it even at the threshold
 
 The A_B family ties κ to the line count, so nothing measured *inside* it can
