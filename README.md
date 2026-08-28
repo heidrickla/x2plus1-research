@@ -110,9 +110,23 @@ can only hope for (I) to hold for γ < 1 − c and (II) for θ > c" (p. 7), whil
 admissible triple at all.** Two earlier readings of this paper are `refuted` in
 the registry; the γ = 1/2 − ε argument was the second of them.
 
-**Read that correctly.** C⁻ = 0 says *these axioms cannot prove primality* —
-there exists an admissible sequence with no primes. It says nothing about
-whether x² + 1 is prime infinitely often.
+**And C⁻ is the lower-bound constant, so this closes infinitude, not just the
+asymptotic.** Ford–Maynard define it on p. 2: "We have an asymptotic formula for
+Σ_p a_p whenever C⁻ = C⁺ = 1 and **a non-trivial lower bound for primes whenever
+C⁻ > 0**." Landau's problem asks only for infinitude, so a reader can fairly ask
+whether a lower-bound method survives where an asymptotic one fails — Li's
+density-2/3 statement is explicitly about *asymptotic* estimates. C⁻ = 0 answers
+it: no non-trivial lower bound follows either. The same page subsumes the obvious
+candidate, since they argue "in contrast with … especially those relying on the
+iterative techniques of the Harman sieve … demonstrating general limitations of
+the Type I/Type II setup" — which is why Merikoski's Harman-sieve lower bound is
+a Table 1 *entry* rather than an exception to it.
+
+**Read that correctly, and read both halves.** C⁻ = 0 says *these axioms cannot
+prove infinitude* — there exists an admissible sequence with no primes. It says
+nothing about whether x² + 1 is prime infinitely often. Stating only the first
+half overclaims; stating only the second understates what is closed. Both are
+true and they sit uncomfortably close together.
 
 ### What survives, and it is narrow
 
