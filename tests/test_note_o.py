@@ -10,6 +10,11 @@ X = 1600   # >= 1507, so (1,53) shows both of its close pairs
 CLASSES = ratio_classes(X)
 PAIRS = list(close_pairs(CLASSES))
 
+# Module-level vacuity guard.  Most tests below iterate PAIRS and would pass
+# silently if it were ever empty -- a green result with no work behind it.
+assert PAIRS, "no close pairs at this X -- every PAIRS-based test below is vacuous"
+assert CLASSES, "no ratio classes at this X"
+
 
 def test_the_pair_invariant_is_an_identity():
     """U^2 - D V^2 = M^2 for every pair of shared moduli, with no exceptions."""
@@ -144,10 +149,17 @@ def test_M_exceeds_a_times_gcd_UV_squared():
 
 
 def test_V_is_even_when_a_and_b_are_both_odd():
-    """Parity lemma: X_k = Y_k mod 2, so V is even.  Explains g = 2."""
+    """Parity lemma: X_k = Y_k mod 2, so V is even.  Explains g = 2.
+
+    The filter can empty independently of PAIRS, so the count is asserted --
+    otherwise this passes vacuously if no pair happens to have a, b both odd.
+    """
+    seen = 0
     for a, b, mi, mj, V, _t in PAIRS:
         if a % 2 and b % 2:
+            seen += 1
             assert V % 2 == 0, (a, b, mi, mj, V)
+    assert seen > 0, "no pair with a, b both odd -- this test proved nothing"
 
 
 # --- Theorem O.3: the divisibility and the geometry are incompatible ---------
