@@ -29,9 +29,11 @@ re-measured on the cofactor side: the values reproduce exactly, but **1/N and
 exponent itself moves (0.80 to 0.88) with the range, so no clean power fits. The
 mean is also **U-shaped**, bottoming near N ≈ X and climbing back to 0.51 by
 N ≈ X²/4. And **max G is 3, not 2**: G(17, 26) = 3 with shared moduli 1, 85,
-2 966 965, all verified as t²+1. That is consistent with
-`rational-gram-bounded-on-windows` — those span seven orders, so no *window*
-holds two — but max-2 is a statement about windows, not about G.
+2 966 965, all verified as t²+1 — but one is the **unit modulus m = 1**, which no
+Type II hypothesis admits, so **excluding units it is 2**. It is also consistent
+with `rational-gram-bounded-on-windows`, since those span seven orders and no
+*window* holds two. Max-2 is a statement about windows, not about G, and a
+cofactor-band sweep reporting 2 has not gone to small enough N.
 **None of it touches the argument**: (B1) forces M ≥ √x = X, hence cofactor
 n ≤ X, which is exactly where the mean is small and falling. Any bounded integer-valued count with mean o(1) has no
 decomposition into main term plus smaller error, so this survives a bound of 2 or
