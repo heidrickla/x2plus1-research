@@ -286,7 +286,16 @@ and says **nothing** about O.2. The cleanest witness is **unit-free**: cofactors
 2·365 = 27²+1, 82·365 = 173²+1, 2·685 = 37²+1, 82·685 = 237²+1 — cofactor ratio
 41, far above O.12's 4.7913, so consistent with it. *(Usually written (1,41) with
 730 and 1370, which a reader dismisses in a line because the unit cofactor is
-inadmissible; the maxima are 2 with or without the unit.)* A genuine G′ = 2,
+inadmissible; the maxima are 2 with or without the unit.)* **And it is not the
+extremal one, which is what says how loose O.12 is.** The smallest cofactor
+ratio realising a windowed 4-cycle is **34.0811, at (37, 1261) sharing moduli
+866 and 1730** — 37·866 = 179²+1, 37·1730 = 253²+1, 1261·866 = 1045²+1,
+1261·1730 = 1477²+1 — and it **does not move across X = 1500…12000**, a factor
+of 8, with no smaller witness appearing. So **O.12's (5+√21)/2 is loose by
+7.11× and shows no sign of being approached**, which is the size-argument theme
+of the whole thread made quantitative on the one theorem that touches the main
+line. *(A minimum over a finite range: a bound's silence is not evidence about
+what lies outside it.)* A genuine G′ = 2,
 with 41/1 far outside any band.
 
 **And O.12 makes Ford–Maynard's footnote-2 counting function a 0/1 indicator over
@@ -820,6 +829,19 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   motivation. **The countermeasure that works unattended is the one whose success
   makes it more likely to be repeated.** Nobody had to be reminded to extend the D
   axis a second and third time; the second happened because the first had paid.
+
+- **Two negatives from two restricted views are not two pieces of evidence if
+  they share the restriction.** The D axis was nearly retired as an artefact on
+  the strength of two independent-looking measurements: the singly-windowed
+  cofactor Gram is **flat in D**, and the canonical incidence with its default
+  cofactor floor gives **max G = 1 for every D**. Both correct, both computed
+  separately, and both agreeing — and neither is the Type II shape, because each
+  restricts a different *single* variable while the hypothesis bands **both**.
+  Requiring cofactors ≥ 200 **and** moduli ≥ 200 finds four D that still fail, at
+  cofactor ratios 1.27–1.71 and modulus ratios 1.28–1.92. **Agreement between two
+  restricted views is evidence about the restriction, not about the question.**
+  The check is not "did another measurement agree" but "does any of them range
+  over what the claim ranges over".
 
 - **A bounded search that finds a clean pattern is the most persuasive way to
   talk yourself out of a caution you had already got right.** The other session
