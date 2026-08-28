@@ -225,10 +225,33 @@ one inside a window, **zero with two**, smallest competing ratio 14.91 against
 the 2 required. The bound on the window Gram entry stays **O_ε(N^ε)** with the
 measured 2 unproved.
 
-**Two routes to it are closed rather than open.** The ideal-theoretic one needs
-two ideals to be coprime, and coprimality holds in 5 of 65 observable cases — the
-exception, not the rule. And there is **no local obstruction**: all candidates are
-satisfiable mod M, so the question is not a congruence statement.
+Extended by [`exp17`](experiments/exp17_sharp_form.py), which restricts to the
+slice y/x ≥ 3+2√2 where a second in-window multiplier is geometrically possible
+at all: at X = 14000, **2 093 solutions each carry exactly one in-window
+multiplier and zero carry two**. Those are not a sample — acting is
+orbit-invariant, so one solution settles its whole infinite class, and each of the
+2 093 is **decided completely**. What the run misses is classes whose least
+solution exceeds X, and nothing bounds how many of those there are.
+
+**The one unconditional constraint on a triple** is Plücker plus parity. V is a
+2×2 determinant, so three solutions satisfy V_ij X_k − V_ik X_j + V_jk X_i = 0;
+with X_k/X_i < √2 that forces |V_ik| > 2 + 2/√2, hence ≥ 4 by parity, hence
+**M/√D ≥ 11.484** — against the 5.657 a mere pair needs. It contains no ideal
+theory, so it does not share the failure mode of the arguments above.
+
+**Eight routes are closed with reasons** ([Note O](notes/note-O-tau-multiplier.md)),
+and the two most likely to look worth retrying are not. The ideal-theoretic one
+needs two ideals to be coprime, and coprimality holds in **5 of 65** observable
+cases — the exception, not the rule. And there is **no residue obstruction at
+all**: the exact linear conditions plus the conic are simultaneously solvable for
+every one of the 21 pairs that survive the cheap filter, so O.2 is not a
+congruence statement and **any proof must be about occupancy**.
+
+**And the evidence is thinner than the sweeps suggest, which is worth stating
+plainly.** A class can exhibit a triple only if it clears M/√D ≥ 11.484 *and* has
+three shared moduli at all. At X = 4000 that is **31 classes**, not the 278 939
+above the threshold — the rest are silent. "Verified over hundreds of thousands
+of ratio classes" would be true and thoroughly misleading.
 
 **The methodological finding cost a day and is the most transferable thing here.**
 Generating candidates from *multipliers* and testing occupancy afterwards searches
