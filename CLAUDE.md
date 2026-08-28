@@ -995,6 +995,20 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   over-reporting claims-diff grep was the first). Against a peer, self-limiting
   is not the same as harmless.
 
+- **An invariant stated once and used implicitly everywhere gets substituted
+  wrongly by everyone.** Both sessions made the *same* M·D error within an hour,
+  each after reading the section that states it: the invariant for x²+D is
+  aY² − bX² = **M·D**, but every downstream formula in the note is written in its
+  D = 1 form, so the surrounding text *looks* like the general case. Theirs was
+  in a τ₁² comparison; mine was in the window condition, where the modulus ratio
+  (X_j²+D)/(X_i²+D) < 2 gives **R² < 2 + D/X₁²** and I used 2 + 1/X₁². Neither
+  was a careless reading — the D = 1 form is what the page trains you on.
+  **Where an invariant is defined, say which downstream formulas carry the
+  parameter and which are already specialised.** And note the failure signature:
+  both errors produced *apparent violations of a correct bound*, which is what
+  sent each of us back to the derivation. A wrong invariant that happened to
+  produce no violation would still be there.
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified

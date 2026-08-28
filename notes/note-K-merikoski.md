@@ -467,8 +467,16 @@ gives **D > V√6** instead:
 
 | | \|V\| ≥ 1 | \|V\| ≥ 2 |
 |---|---|---|
-| X₁ = 1, all X | D ≤ 2 | **D ≤ 4** |
+| X₁ = 1, all X | **D = 1** | **D ≤ 3** |
 | asymptotic | D ≤ 4 | **D ≤ 8** |
+
+*(The worst-case row was first recorded as D ≤ 2 and D ≤ 4, from the window
+condition R² < 2 + 1/X₁² — which is the **D = 1** case. For x²+D the modulus
+ratio is (X_j²+D)/(X_i²+D), giving **R² < 2 + D/X₁²**, and at X₁ = 1 the
+no-banded-pair condition becomes D·g(D) ≤ 2√2·V with g(D) = √(2+D) − 1/√(2+D).
+The asymptotic row is unaffected, since both forms tend to 2. And every |V| ≥ 2
+entry is conditional on the parity lemma, which is **proved only at D = 1** and
+**fails at D = 7** — 192 odd |V| out of 1018 pairs — and at D = 39.)*
 
 both **inclusive**, because a band gives u < 2 **strictly**: at D = 4V the
 requirement is exactly 1/√2 and no banded u attains it. So **D = 8 is the last
