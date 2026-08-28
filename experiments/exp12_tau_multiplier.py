@@ -72,6 +72,14 @@ def main(X=4000):
     pairs = list(close_pairs(classes))
     print(f"X = {X}   ratio classes {len(classes)}   pairs inside a window {len(pairs)}\n")
 
+    # Self-check: the invariant every number below rests on.  If a library change
+    # ever breaks it, this run fails loudly instead of printing a wrong table.
+    for _a, _b, _mi, _mj, _V, _t in pairs:
+        Xi, Yi = isqrt(_a * _mi - 1), isqrt(_b * _mi - 1)
+        Xj, Yj = isqrt(_a * _mj - 1), isqrt(_b * _mj - 1)
+        U = _b * Xi * Xj - _a * Yi * Yj
+        assert U * U - (_a * _b) * _V * _V == (_b - _a) ** 2, (_a, _b, _mi, _mj)
+
     # -- 1. the rigidity of V ------------------------------------------------
     vs = Counter(abs(p[4]) for p in pairs)
     print(f"|V| distribution: {dict(sorted(vs.items()))}")

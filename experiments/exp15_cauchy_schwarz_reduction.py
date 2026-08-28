@@ -99,6 +99,9 @@ def main(X=200_000):
             M *= 4
             continue
         off = Q2 - diag
+        # Self-check: DIAG counts squarefree incidences and OFF = Q2 - DIAG is
+        # the signed off-diagonal; both are accumulated independently above.
+        assert diag >= 0 and Q2 >= 0, (M, Q2, diag)
         cs = sqrt(nmod * Q2)
         roots = nprog / nmod
         # Cauchy-Schwarz predicts S_prog/S_mod ~ sqrt(#prog/#mod)
