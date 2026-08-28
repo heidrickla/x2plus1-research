@@ -55,11 +55,30 @@ would sit at
 > (γ, θ, ν) = (1/2, 0, ν) for any ν < 1/2,
 
 which is **above** Duke–Friedlander–Iwaniec's (1/2, 0, 1/3) in [FM]'s own
-Table 1 — and DFI's row is a success. Their Theorem 2.5 (p. 7) gives
-C⁻_bd(P_ε; ϱ) = 1 + O(ε) for P = (1/2, 0, ν) with 1/3 ≤ ν < 1/2 and
-divisor-bounded weights, and this sequence's indicator *is* divisor-bounded
-(registry: `divisor-bounded-escape-unavailable`, where that fact is recorded
-while being useless for the arbitrary-coefficient version).
+Table 1 — and DFI's row is a success.
+
+~~Their Theorem 2.5 (p. 7) gives C⁻_bd(P_ε; ϱ) = 1 + O(ε) for P = (1/2, 0, ν)
+with 1/3 ≤ ν < 1/2 and divisor-bounded weights, and this sequence's indicator
+*is* divisor-bounded.~~ **Struck — the appeal to the divisor-bounded constants
+is not available to this sequence.** [FM] p. 13, (4.1), restricts C±_bd to pairs
+satisfying **two** conditions at once:
+
+> |w_n| ≤ τ(n)^ϱ  (x/2 < n ≤ x),   and   Σ_p b_p ≥ x/(ϱ log x).
+
+The second forces b to carry ≍ x/log x primes, hence mass ≍ x; then
+a_n = b_n + w_n has mass ≍ x too, so **C±_bd is a class of dense sequences**. A
+sparse sequence enters [FM]'s frame only after normalisation to mass ≍ x — which
+is what (I) and (II) having right-hand side x/log^B x requires — and then
+|w_n| ≍ x^{1/2} on A, violating the first condition. Unnormalised, |w_n| ≤ 1
+satisfies the first and fails the second. **The two halves of (4.1) cannot both
+hold for a sequence of density x^{1/2}**, so "the indicator is divisor-bounded"
+was true in a sense (4.1) does not use. **[VERIFY]** — the normalisation step is
+read off the x/log^B x scaling in (I), (II), (b.1) and Lemma 4.6's
+b_n = xq/(2yφ(q))·1[·], not from a sentence in [FM] stating it; that inference is
+the one thing here not quoted.
+
+This removes a support, not the conditional. The parameters still land above
+DFI's row, which is all §2 ever claimed.
 
 **Read this correctly.** Substituting a weaker hypothesis into a theorem is not
 valid reasoning, and no claim is being made that Theorem 2.5 applies. The

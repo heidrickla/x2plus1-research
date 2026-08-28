@@ -397,7 +397,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "Answers the [VERIFY] this repo carried as 'the sharpest live question': the indicator weight IS divisor-bounded, and it does not help."
+      "notes": "Answers the [VERIFY] this repo carried as 'the sharpest live question': the indicator weight IS divisor-bounded, and it does not help. SHARPENED, and the reason recorded here was not the strongest one. FM p.13 (4.1) puts TWO conditions on the C_bd class -- |w_n| <= tau(n)^rho and sum_p b_p >= x/(rho log x) -- and the second forces b, hence a, to have mass ~ x. So C_bd is a class of DENSE sequences and x^2+1 is not in it under any normalisation: scaled to mass x the weights are ~x^{1/2} and fail the first condition, unscaled they fail the second. The conclusion (the divisor-bounded escape buys nothing here) is unchanged and now holds a fortiori -- the escape is unavailable because the hypothesis fails, not only because Theorem 2.7(c) drives the constant to 0. See fm-divisor-bounded-class-is-dense."
     },
     {
       "id": "mu-typeII-is-outside-their-axioms",
@@ -664,7 +664,7 @@
     {
       "id": "mu-typeII-would-land-above-dfi",
       "status": "inferred",
-      "statement": "CONDITIONAL. If [FM]'s (II) could be weakened from arbitrary bounded xi_m, kappa_n to arbitrary xi_m with kappa_n = mu(n), the measured law would supply a Type II range on any [theta, theta+nu] inside [0, 1/2), placing x^2+1 at (gamma, theta, nu) = (1/2, 0, nu) for nu < 1/2 -- above Duke-Friedlander-Iwaniec's (1/2, 0, 1/3) in [FM] Table 1, inside the region their Theorem 2.5 (p.7) handles for divisor-bounded weights, which this sequence's indicator is.",
+      "statement": "CONDITIONAL. If [FM]'s (II) could be weakened from arbitrary bounded xi_m, kappa_n to arbitrary xi_m with kappa_n = mu(n), the measured law would supply a Type II range on any [theta, theta+nu] inside [0, 1/2), placing x^2+1 at (gamma, theta, nu) = (1/2, 0, nu) for nu < 1/2 -- above Duke-Friedlander-Iwaniec's (1/2, 0, 1/3) in [FM] Table 1.",
       "depends_on": [
         "mu-window-is-fm-not-asp",
         "fm-table1-every-entry-has-positive-nu"
@@ -672,7 +672,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "NOT a claim that Theorem 2.5 applies -- substituting a weaker hypothesis into a theorem is not valid reasoning. The content is where the parameters land: the whole distance between 'x^2+1 is open' and 'x^2+1 is inside a solved parameter regime' is arbitrary kappa_n versus kappa_n = mu, which is exactly the gap [FM] p.18 names as missing. Two things would make it unconditional and both are hard: the mu-Type II as a theorem (see chowla-for-x2plus1-is-open -- its easiest endpoint is open), and a sieve needing only mu-coefficients (Note F proves the specialised result cannot upgrade here)."
+      "notes": "NOT a claim that any FM theorem applies -- substituting a weaker hypothesis into a theorem is not valid reasoning. The content is where the parameters land. CORRECTION: an earlier version added 'inside the region their Theorem 2.5 (p.7) handles for divisor-bounded weights, which this sequence's indicator is'. STRUCK -- see fm-divisor-bounded-class-is-dense. FM p.13 (4.1) restricts C_bd to pairs satisfying BOTH |w_n| <= tau(n)^rho AND sum_p b_p >= x/(rho log x), and those cannot both hold at density x^{1/2}. Removing that support does not touch the conditional, which only ever claimed where the parameters land. The two blockers are unchanged: the mu-Type II as a theorem (its easiest endpoint is chowla-for-x2plus1-is-open) and a sieve needing only mu-coefficients (Note F proves the specialised result cannot upgrade here)."
     },
     {
       "id": "kappa-off-by-an-exponent",
@@ -1148,6 +1148,16 @@
         "literature"
       ],
       "notes": "Closes the Harman question at source. Their C^+ and C^- are the precise values over all methods whose inputs are (I) and (II), Harman-style Buchstab iteration included -- which is why Merikoski's Harman-sieve lower bound appears as a Table 1 ENTRY rather than an exception. Stronger than the coverage previously recorded, which rested on Xiannan Li's remark that ASP and 'Harman's alternative sieve as used in Heath-Brown's work' fail below exponential density 2/3: Li's statement is about ASYMPTOTIC estimates and FM's is about lower bounds, which is what was at issue. See c-minus-is-the-lower-bound-constant."
+    },
+    {
+      "id": "fm-divisor-bounded-class-is-dense",
+      "status": "inferred",
+      "statement": "Ford-Maynard's divisor-bounded constants C^+-_bd are defined (p.13, (4.1)) over pairs satisfying BOTH |w_n| <= tau(n)^rho for x/2 < n <= x AND sum_p b_p >= x/(rho log x). The second forces b to carry ~ x/log x primes, hence mass ~ x, hence a = b + w has mass ~ x. So C_bd is a class of DENSE sequences, and x^2+1 is in it under no normalisation: rescaled to mass ~ x its weights are ~ x^{1/2} and violate the first condition; unscaled they satisfy the first and violate the second.",
+      "experiment": "",
+      "tags": [
+        "literature"
+      ],
+      "notes": "Both halves of (4.1) are QUOTED from p.13; what is INFERRED is that a sparse sequence must be normalised to mass ~ x to enter FM's frame at all. That is read off the scaling rather than from a sentence in FM: (I) and (II) both have right-hand side x/log^B x, (b.1) is sum_p b_p >= x/(log x)^varpi, and Lemma 4.6's admissible b_n is xq/(2 y phi(q)) times an indicator, of mass ~ x/2. Marked [VERIFY] in Note M. Consequence: the general class Psi and hence Theorem 2.1's C^- = 0 are untouched -- the repo's main position does not rest on C_bd -- but any appeal to the divisor-bounded THEOREMS (2.5, 2.7) for this sequence is misplaced, including one this repo made in mu-typeII-would-land-above-dfi and has now struck."
     }
   ]
 }
