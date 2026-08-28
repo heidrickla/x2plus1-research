@@ -55,8 +55,10 @@ factor of two and a half. What is zero is the exponent.
 
 ### The Cauchy–Schwarz chain predicts that 2.41, to 0.7%
 
-§4's reduction is exact algebra; whether it is *quantitatively* right had not been
-tested. It is, and the test needs one correction first.
+The Cauchy–Schwarz reduction below (*The law's upper bound is a Cauchy–Schwarz
+reduction, not a fit*) is exact algebra; whether it is *quantitatively* right had
+not been tested. This section is out of order with it deliberately — the 2.41 is
+measured here, so its explanation belongs here too. It is, and the test needs one correction first.
 
 **T is not DIAG.** The trivial incidence count and the Cauchy–Schwarz diagonal
 differ by a μ² weight, and the difference is not the obvious one:
@@ -364,9 +366,9 @@ pair in OFF is y = x + h for an admissible shift h, and
 The inner object is a **two-point correlation of μ(x²+1)**. So OFF = o(DIAG) is a
 Chowla-type statement for μ(x²+1) — which is `chowla-for-x2plus1-is-open`, whose
 easiest endpoint Teräväinen calls "wide open for any polynomials with nonlinear
-irreducible factors". The reduction therefore lands exactly on the blocker
-[Note M §1](#) already identifies, having travelled through the Gram axis to get
-there.
+irreducible factors". The reduction therefore lands exactly on the blocker this note's opening
+section already identifies — *The two windows are complements* — having
+travelled through the Gram axis to get there.
 
 That is worth recording precisely because it is negative: the Cauchy–Schwarz
 route is closed, and closed by the same obstruction as everything else here
