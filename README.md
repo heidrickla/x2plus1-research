@@ -375,6 +375,14 @@ Z[i] bound exactly. It does **not** close the bridge's remaining inference
 ("both give no main term, so the conclusion is unchanged"), and it says nothing
 about O.2: (1,41) shares 730 and 1370 with 41/1 far outside any band.
 
+**And it makes Ford–Maynard's footnote-2 counting function a 0/1 indicator over
+Z.** That footnote asks for #{n : nm₁, nm₂ ∈ J} with **"an error term better than
+O(1)"** on average over m₁, m₂ ∼ x^{1−2c+ε} — both variables banded, so O.12
+applies and the count is 0 or 1, where "better than O(1)" means knowing it
+exactly. Note F's pointwise reading is thus available over Z, not only Z[i].
+*(The "mean ≥ 1" line in `fm-barrier-range-is-small-moduli` is this repo's
+paraphrase, not the footnote's — checked at source.)*
+
 **Read the coverage over the right denominator.** A class with fewer than three
 shared moduli cannot host a triple, and at X = 3000 only **60 of 1,815,154**
 classes have three at all — so the 99% a sweep over all classes reports is

@@ -284,6 +284,24 @@ bridge's inference ("both give no main term, so the conclusion is unchanged"),
 and says **nothing** about O.2: (1,41) shares 730 and 1370, a genuine G′ = 2,
 with 41/1 far outside any band.
 
+**And O.12 makes Ford–Maynard's footnote-2 counting function a 0/1 indicator over
+Z.** Their footnote (arXiv:2407.14368v1 p. 7) asks for #{n : nm₁, nm₂ ∈ J} with
+**"an error term better than O(1)"** on average over m₁, m₂ ∼ x^{1−2c+ε} — it
+bands both variables, so O.12 applies and the count is 0 or 1. For a 0/1 integer
+"better than O(1)" means knowing it exactly. **Note F's reading — the count is 0
+or 1, so the error term *is* O(1) and no averaging can improve it — is therefore
+available over Z and not only over Z[i]**, and it is *pointwise*, hence immune to
+the objection that would sink a mean argument.
+
+> **⚠ The "mean ≥ 1" line in `fm-barrier-range-is-small-moduli` is this repo's
+> paraphrase, not the footnote's**, which is a condition on the error term and
+> says nothing about a mean. The measured means (2.000/1.333/0.810/0.577 free;
+> **1.000/0.667/0.476/0.410 doubly banded, max 1**) are evidence about *how often
+> the count is 1*, **not** about a threshold being crossed. Caught by asking
+> whether the number in our claim is the number in their paper — the Plücker
+> question aimed at a citation. **Paraphrases drift in the direction that makes
+> the local argument work.**
+
 **What is left of O.2.** Nothing structural — no hypothesis on M survives. What
 remains is quantitative: at X = 8000, 13 of 109 informative classes clear O.11,
 all with a = 1, and none holds three moduli in a window. **The bounds are not
