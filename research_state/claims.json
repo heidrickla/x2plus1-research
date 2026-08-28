@@ -1927,6 +1927,19 @@
       ],
       "notes": "This is the first CONCRETE counterexample the repo has to the transfer pattern, and it changes how the c-family evidence reads. The parallel session's `line-family-tests-the-gaussian-to-rational-transfer` cites c = 2,3,4,5 as four instances where the Z[i] side is proved and the Z side holds; those instances are real, and c = 6 is a refuting instance found by extending the same sweep by one. So the line family does not SUPPORT the transfer -- it BOUNDS it, and the honest evidential base is four supporting against fourteen refuting over c <= 20. Theorem O.12 at c = 1 is therefore not an instance of a general principle about lines; it is specific, which is what my derivation already said about its argument and now holds of the fact. It does NOT refute `gaussian-to-rational-bridge` for x^2+1: there the Z-side statement is PROVED by O.12 rather than transferred, so the bridge's numerical content does not rely on the pattern that fails here. What it removes is any reading of the c-family as evidence that the pattern is reliable.",
       "proof_site": "notes/note-K-merikoski.md; tests/test_arithmetic_facts.py::test_doubly_dyadic_c4_freeness_fails_at_c_equals_six"
+    },
+    {
+      "id": "footnote-2-is-corroboration-not-a-load-bearing-step",
+      "status": "proved",
+      "statement": "Ford-Maynard's footnote 2 is NOT on the path to nu = 0 or C^- = 0, so its 'closely related to' hedge carries no weight in this repo's argument. Traced in the registry: `fm-footnote2-is-note-F-G` has exactly one dependent, and `selberg-nu-zero-binds` is `quoted` with an empty depends_on -- nu = 0 is established from Selberg via [FM] p.2 and their Theorem 2.1, independently of the footnote. What the footnote supplies is corroboration that the object this repo measures, G(n_1,n_2), is the object the literature's own survey names as the barrier. Corroboration of relevance, not a step in a derivation.",
+      "citation": "arXiv:2407.14368v1, footnote 2 p.7; p.2 (Selberg); Theorem 2.1 p.3",
+      "depends_on": [],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Answers a question the parallel session raised and asked to have checked: whether reading 'closely related to' as a genuine hedge manufactures a gap. The reading is defensible -- the repo holds a dozen [FM] quotes and NONE makes the theta+nu / counting relation precise -- but absence of a quote is not absence in the paper, and I cannot settle that from what is recorded here. What I CAN settle is that it does not matter: the inference the hedge would block is one this repo does not make. It reaches nu = 0 through Selberg, which is quoted and unconditional. So the honest status is that the hedge is real, is the source's, and is off the path -- which is a better answer than either 'the gap is ours' or 'the gap is theirs'. Recorded because 'what would it take to promote gaussian-to-rational-bridge out of inferred' is a good question with a different answer than it appeared to have.",
+      "proof_site": "notes/note-C-requirements.md; tests/test_claims.py",
+      "experiment": ""
     }
   ]
 }
