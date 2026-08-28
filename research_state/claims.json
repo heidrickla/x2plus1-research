@@ -1190,6 +1190,16 @@
         "type_ii"
       ],
       "notes": "Run in-session over M from X divided by 32 up to 8X at X = 4e5, using exp16's mobius_of_x2plus1 sieve with the trivial bound accumulated alongside. The first measurement of sqrt-MX-law THROUGH its boundary; everything prior was below it (exp16 stops at M = X/2), so theta = 1/2 was an extrapolation from one side. Three results: T flat is the 'each x has O(1) divisors per dyadic band' fact measured rather than assumed; the constant 2.3 in saving = 2.3 sqrt(X/M) is new; and sqrt(X/M) genuinely stops applying above theta = 1/2 rather than degrading through it, which is what the law asserts and had not been checked. PRECISION the numbers force: 'the saving is exactly zero at theta = 1/2' is about the POWER and is correct (Q^{(1/2-theta)/2} = Q^0), but it does NOT mean S reaches the trivial bound -- the measured saving at M = X is 2.41, a constant factor. A reader could take 'no saving' as 'S = T', which is false by a factor of two and a half."
+    },
+    {
+      "id": "incidence-count-and-squarefreeness-are-correlated",
+      "status": "rigorous_finite",
+      "statement": "The trivial incidence count T(M) = sum_{m~M} #{x <= X : m | x^2+1} and the Cauchy-Schwarz diagonal DIAG = sum_x mu^2(x^2+1) #{m~M : m | x^2+1} are NOT the same object. At X = 2e5 over M = X/8 .. 2X, DIAG/T = 0.7658, 0.7649, 0.7651, 0.7681, 0.7658 -- constant across a factor of 16 in M, and NOT the plain squarefree density 0.8948. T = 0.331 X and DIAG = 0.253 X.",
+      "experiment": "experiments/exp16_m_exponent.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Run in-session with exp16's sieve, accumulating both counts over the same incidences. The gap between 0.765 and 0.8948 is a genuine correlation: among all (m,x) incidences with m in a dyadic band, only 76.5% have x^2+1 squarefree, against 89.5% among all x. So values of x^2+1 with more divisors in a band are MORE likely to be non-squarefree -- more prime factors at fixed size means smaller primes, and small primes are likelier to appear squared. WHY IT MATTERS: the parallel session's Cauchy-Schwarz reduction assumes DIAG ~ X as 'a standard divisor count', and saving-law-measured-through-theta-half measures T ~ X; the two constants differ by 24% and equating them would put that factor into a bound. Their measured DIAG ~ 5.05e4 at X = 2e5 is confirmed here independently at 5.07e4."
     }
   ]
 }
