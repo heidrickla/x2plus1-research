@@ -434,6 +434,18 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     multiplier has nothing to pair with. Both were quoted at the inflated figure,
     the second by the session that had just written the first correction into the
     README. **Before quoting N, ask what the N−k silent ones were silent about.**
+  - *a statement about **proofs** read as a statement about the **object*** — a
+    new pair of registers, and it had Note G's Step 2 checkpoint (a plan
+    deliverable) asserting the opposite of the truth. "The trivial bound has
+    never been beaten by any amount" is true of the *literature*; the checkpoint
+    then said a reader "would conclude it is **untouched**". Measured,
+    |Σ_{x≤X} μ(x²+1)|/√X sits between 0.21 and 1.34 over two decades, |S|/X down
+    to 1.7×10⁻⁴ — **square-root cancellation, unmistakably.** The estimate at
+    θ = 0 is *visibly true and unprovable by current methods*, a different
+    position entirely from a sequence that misbehaves. Nobody had measured a sum
+    everyone assumed was hopeless. **Say "no proof is known", never "it is not
+    known to hold" — and measure before writing either.** (Nothing is fitted;
+    `chowla-for-x2plus1-is-open` is untouched.)
   Nothing checks a proposition's statement against its own proof, because the
   tests test the proof. The one checkable habit: **a correction that reaches only
   a claim's `notes` has not landed** — notes are where history goes, the statement
