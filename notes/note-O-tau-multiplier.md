@@ -1961,6 +1961,31 @@ M/√D = (u−1)/√u with u = b/a, so each converts to a cofactor ratio:
 exactly as it must, since a triple needs a chain **and something more**. The
 8√2 is the determinant route's constant, |V| ≥ 4 read as k ≥ 2.
 
+**Two of the three are the same formula.** Since |V| ≥ V₀ requires
+M/√D > 2√2·V₀, and M/√D = (u−1)/√u, the threshold is
+
+> **u > (√2·V₀ + √(2V₀² + 1))²**
+
+| V₀ | M/√D > | u > | 8V₀²+2 | gap |
+|---:|---:|---:|---:|---:|
+| **2** | 5.656854 | **33.970563** | 34 | 0.0294 |
+| **4** | 11.313708 | **129.992307** | 130 | 0.0077 |
+| 6 | 16.970563 | 289.996552 | 290 | 0.0034 |
+| 8 | 22.627417 | 513.998054 | 514 | 0.0019 |
+
+**And it closes exactly at the seam**: √2·2 + √9 = 2√2 + 3 = **(1+√2)²**
+*(verified symbolically)*, so V₀ = 2 gives u > (1+√2)⁴ — the pair threshold, on the
+nose. **So the doubling 4√2 → 8√2 is precisely |V| ≥ 2 → |V| ≥ 4**: not a
+coincidence between two derivations made at different times, but **one input read
+twice**. The family runs to 8V₀² + 2 from below.
+
+> **⚠ And the triple threshold is genuinely NOT in the family**, which is what
+> keeps this honest rather than merely tidy. 133.8748 falls **strictly between
+> V₀ = 4 (129.992) and V₀ = 5 (201.995)** — it comes from O.4's *composite*
+> τ₁² < √2, not from any |V| bound. Two of the three rows are one mechanism; the
+> third is a different one, and their interleaving (chain below triple) is a
+> **consistency check, not a pattern**.
+
 **And that is why the 43 are empty: the two requirements pull opposite ways.**
 
 | u = b/a | classes | max shared moduli |
