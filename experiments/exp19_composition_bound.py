@@ -58,7 +58,7 @@ def main(X=4000):
         print(f"     {xi:5}    {thr:8.4f}   {t*t:9.4f}")
 
     classes = ratio_classes(X)
-    steps = bad_step = bad_weak = 0
+    steps = bad_step = bad_weak = bad_pell = 0
     gaps = bad_exact = bad_clean = 0
     tight_step = tight_gap = 9e9
     ws = wg = wclean = None
@@ -72,6 +72,12 @@ def main(X=4000):
             if xs[i] < 1:
                 continue
             V = abs(xs[i] * ys[i + 1] - xs[i + 1] * ys[i])
+            # STEP 1, asserted rather than assumed: the pair invariant.
+            # U = b X_i X_j - a Y_i Y_j and V = X_i Y_j - X_j Y_i satisfy
+            # U^2 - D V^2 = M^2 -- including across orbits, which is not
+            # obvious and is what makes the composition argument legitimate.
+            Upair = b * xs[i] * xs[i + 1] - a * ys[i] * ys[i + 1]
+            bad_pell += Upair * Upair - D * V * V != M * M
             tau = (sqrt(M * M + D * V * V) + V * sqrt(D)) / M
             # the weaker constant the symmetric route yields: tau at V/a
             wk = V / a
@@ -99,6 +105,10 @@ def main(X=4000):
     print(f"\nX = {X}:  {len(classes)} ratio classes")
     print(f"  STEP  X_j > tau(|V|) X_i        : {steps} steps,"
           f" {bad_step} violations   (tightest {tight_step:.6f} at {ws})")
+    print(f"  PELL  U^2 - D V^2 = M^2 on the same pairs: {steps} pairs,"
+          f" {bad_pell} failures")
+    print("        -- asserted, not assumed, and it holds ACROSS ORBITS, not"
+          " only within one.")
     print(f"        the weaker tau(|V|/a) form: {bad_weak} violations"
           f" -- true but not sharp, which is why the proof goes via the map")
     print(f"  GAP   exact  m3/m1 > (tau_1^4 X^2+1)/(X^2+1): {gaps} gaps,"

@@ -237,3 +237,54 @@ def test_retracted_wording_is_not_still_in_the_statement():
             if needle in haystack:
                 offenders.append(f"{claim.id}: statement still contains {retracted[:60]!r}")
     assert not offenders, "retracted wording left in the statement: " + "; ".join(offenders)
+
+
+# Claims whose `experiment` field is prose rather than a runnable path. The
+# registry says `rigorous_finite` requires "`experiment` naming the script", and
+# prose names nothing runnable -- so these numbers cannot be reproduced, let
+# alone at a second size, which is the whole purpose of the convention. Six
+# others in the Note O area were repointed to exp21; two of those had counts that
+# did NOT reproduce, precisely because no range had been stated.
+#
+# THIS LIST MUST ONLY SHRINK. Do not add to it: write the experiment instead.
+PROSE_EXPERIMENT_FIELDS = {
+    "kappa-threshold-is-sharp",
+    "c4-freeness-is-arithmetic-not-density",
+    "squarefree-density-of-x2plus1-is-flat",
+    "rational-graph-thickens-one-side-not-both",
+    "orbit-walk-covers-a-small-part-of-the-candidates",   # refuted; kept as-is
+}
+
+
+def _resolve_experiment(field):
+    """The file an `experiment` field names, or None if it names prose."""
+    head = field.split("::")[0].split(";")[0].strip()
+    if " " in head:          # a sentence, not a path
+        return None
+    for base in ("", "tests", "experiments"):
+        p = REPO / base / head if base else REPO / head
+        if p.exists():
+            return p
+    return None
+
+
+@pytest.mark.parametrize("claim", CLAIMS, ids=lambda c: c.id)
+def test_experiment_field_names_a_runnable_artefact(claim):
+    """A `rigorous_finite` claim must name a script, not describe one.
+
+    'verified in-session via x2plus1.typeII.incidence' satisfies the letter of
+    the status rule and none of its purpose: nothing can be rerun. This guard is
+    what makes the `experiment` field mean what the registry says it means.
+    """
+    if not claim.experiment:
+        return
+    if claim.id in PROSE_EXPERIMENT_FIELDS:
+        assert _resolve_experiment(claim.experiment) is None, (
+            f"{claim.id} now names a runnable artefact -- remove it from "
+            "PROSE_EXPERIMENT_FIELDS; that list must only shrink"
+        )
+        return
+    assert _resolve_experiment(claim.experiment) is not None, (
+        f"{claim.id}: experiment field {claim.experiment!r} names no runnable "
+        "file. Write the experiment rather than describing the computation."
+    )
