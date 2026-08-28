@@ -144,7 +144,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "A law fitted from finite data, not a theorem: the extrapolation from the measured range to all X is the unsupported step, and that is unchanged. What DID change is the range on record. The statement previously cited only exp02's 2e4..1e5 -- less than one decade -- while carrying Note M's whole theta-axis argument, which needs the shape to hold across the range where the saving Q^{(1/2-theta)/2} is claimed. exp05's four decades were already in the repo under no-log-power-correction; the two claims measure the same law in two normalisations and only one of them said so. RANGE UPGRADED, and the earlier wording undersold it. exp02 and exp05 are not 'one law in two normalisations' -- they are the SAME SUM up to the non-squarefree x, because mu((x^2+1)/m) = mu(m) mu(x^2+1) on squarefree values (proved: cofactor-mobius-factors-on-squarefree-values) and mu(m) has modulus 1 so it dies under the absolute value. The residue is governed by squarefree-density-of-x2plus1-is-flat, measured at 0.8948 to four places across 1e4..1e7, i.e. an asymptotic CONSTANT -- which cannot move an exponent. So the exponent in this law has four decades of direct support. The extrapolation to all X is untouched and remains the unsupported step."
+      "notes": "A law fitted from finite data, not a theorem: the extrapolation from the measured range to all X is the unsupported step, and that is unchanged. What DID change is the range on record. The statement previously cited only exp02's 2e4..1e5 -- less than one decade -- while carrying Note M's whole theta-axis argument, which needs the shape to hold across the range where the saving Q^{(1/2-theta)/2} is claimed. exp05's four decades were already in the repo under no-log-power-correction; the two claims measure the same law in two normalisations and only one of them said so. RANGE UPGRADED, and the earlier wording undersold it. exp02 and exp05 are not 'one law in two normalisations' -- they are the SAME SUM up to the non-squarefree x, because mu((x^2+1)/m) = mu(m) mu(x^2+1) on squarefree values (proved: cofactor-mobius-factors-on-squarefree-values) and mu(m) has modulus 1 so it dies under the absolute value. The residue is governed by squarefree-density-of-x2plus1-is-flat, measured at 0.8948 to four places across 1e4..1e7, i.e. an asymptotic CONSTANT -- which cannot move an exponent. So the exponent in this law has four decades of direct support. The extrapolation to all X is untouched and remains the unsupported step. FURTHER CORRECTION, same day: the 'same sum' claim was too strong. See root-grouping-splits-the-two-normalisations -- exp05's grouping gives M-exponent 0.5046, S_mu's own grouping gives 0.4803, and the gap is exact root cancellation. exp05's four decades support the PER-PROGRESSION law; the aggregate S_mu is slightly below sqrt(MX), which is the conservative direction for Note M."
     },
     {
       "id": "no-saving-in-required-window",
@@ -1081,12 +1081,12 @@
     {
       "id": "cofactor-mobius-factors-on-squarefree-values",
       "status": "proved",
-      "statement": "For x^2+1 squarefree and any m | x^2+1, mu((x^2+1)/m) = mu(m) mu(x^2+1). Hence inside S_mu(M) = sum_m |sum_x mu((x^2+1)/m)| the factor mu(m) has modulus 1 and drops out under the absolute value, leaving S_mu(M) = sum_m |sum_{x = +-r mod m} mu(x^2+1)| -- exactly the quantity exp05 measures per progression.",
+      "statement": "For x^2+1 squarefree and any m | x^2+1, mu((x^2+1)/m) = mu(m) mu(x^2+1). Hence inside S_mu(M) = sum_m |sum_x mu((x^2+1)/m)| the factor mu(m) has modulus 1 and drops out under the absolute value, leaving S_mu(M) = sum_m |sum_{x = +-r mod m, r over ALL roots} mu(x^2+1)| -- a sum needing only mu(x^2+1), which sieves.",
       "proof_site": "notes/note-M-where-mu-lives.md; tests/test_arithmetic_facts.py::test_mobius_of_the_cofactor_factors_when_the_value_is_squarefree",
       "tags": [
         "type_ii"
       ],
-      "notes": "Elementary: N squarefree and m | N force gcd(m, N/m) = 1, so mu(N) = mu(m) mu(N/m), and mu(m)^2 = 1 rearranges it. Recorded because it changes the standing of sqrt-MX-law: exp02 and exp05 were described as measuring one law in two normalisations, and they measure the same sum up to the non-squarefree x."
+      "notes": "Elementary: N squarefree and m | N force gcd(m, N/m) = 1, so mu(N) = mu(m) mu(N/m), and mu(m)^2 = 1 rearranges it. CORRECTION: an earlier version added 'which is exactly what exp05 measures per progression'. That is FALSE and it is the point of root-grouping-splits-the-two-normalisations: S_mu takes one absolute value per MODULUS, spanning all its roots, while exp05 takes one per (q,root) PROGRESSION, so inter-root cancellation is invisible to exp05. The identity above stands; only the identification with exp05's quantity was wrong."
     },
     {
       "id": "squarefree-density-of-x2plus1-is-flat",
@@ -1097,6 +1097,16 @@
         "type_ii"
       ],
       "notes": "Load-bearing for sqrt-MX-law's range. With cofactor-mobius-factors-on-squarefree-values, exp02's S_mu and exp05's per-progression sums agree exactly on the squarefree x, so the whole discrepancy is this density -- and a constant factor cannot move an exponent. At X = 4000 over the band [300,600) the aggregate ratio of the two sums is 0.884, consistent with the density. Measured here, not quoted: the constant is presumably classical but no source has been read for it in this repo."
+    },
+    {
+      "id": "root-grouping-splits-the-two-normalisations",
+      "status": "rigorous_finite",
+      "statement": "S_mu(M) puts one absolute value per MODULUS, spanning every root of -1 mod m; exp05's rho is per (q,root) PROGRESSION. Measured at X = 1e6 over ten doublings of M (512..524288): per-progression M-exponent 0.5046 with S/sqrt(MX) drifting by x1.032; per-modulus M-exponent 0.4803 with S/sqrt(MX) drifting by x0.873. The gap is inter-root cancellation at exactly the square-root rate: S_prog/S_mod tracks sqrt(#prog/#mod) to within 2% across the range, while the mean root count per modulus rises 2.652 -> 3.694.",
+      "experiment": "sieve of mu(x^2+1) to X = 1e6 plus per-band summation in both groupings; Note M",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Corrects an overstatement made the same day, that exp02's S_mu and exp05's per-progression sums are the same sum. The mu((x^2+1)/m) = mu(m) mu(x^2+1) reduction is right and stands; the identification of the result with exp05's quantity is not. Consequence for Note M is favourable and worth stating in that direction: S_mu ~ sqrt(MX)/sqrt(mean roots per modulus) is slightly BELOW sqrt(MX), i.e. slightly more cancellation than the law claims, so the saving X/S_mu is if anything larger than Note M quotes. The measurement also reaches X = 1e6, an order of magnitude past exp02's Gaussian-incidence route, which is what the mu(x^2+1) reduction buys."
     }
   ]
 }

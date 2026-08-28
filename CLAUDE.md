@@ -30,12 +30,17 @@ saving Q^{(1/2−θ)/2}: a power for every θ < 1/2, exactly zero at θ = 1/2. A
 holds on precisely the range FM admits and dies precisely where ASP begins**,
 and θ = 1/2 is where M = |A| and κ = 1. Its θ → 0 endpoint is Chowla for x²+1,
 which Teräväinen calls wide open — so the easiest case of the input this repo
-needs is a named open problem. **The law's range is four decades, not one**:
-exp02 and exp05 measure the *same sum*, since μ((x²+1)/m) = μ(m)·μ(x²+1) on
-squarefree values and μ(m) dies under the absolute value, and the residual
-non-squarefree density is flat at 0.8948 across 10⁴…10⁷ — a constant factor,
-which cannot move an exponent. Still `extrapolated`: the step to all X is
-untouched.
+needs is a named open problem. **The law's range is four decades, not one.**
+μ((x²+1)/m) = μ(m)·μ(x²+1) on squarefree values and μ(m) dies under the absolute
+value, so S_μ reduces to sums of μ(x²+1), which sieve — reaching X = 10⁶,
+an order past exp02's incidence route. The non-squarefree residue is flat at
+0.8948 across 10⁴…10⁷, a constant factor. **But the grouping matters**: S_μ takes
+one absolute value per *modulus* (all roots at once), exp05 one per *progression*,
+and inter-root cancellation is square-root exact. Measured M-exponents at
+X = 10⁶: **0.5046 per progression, 0.4803 per modulus**. So exp05's four decades
+support the per-progression law, and the aggregate S_μ sits slightly *below*
+√(MX) — more cancellation than claimed, i.e. the saving is conservative. Still
+`extrapolated`: the step to all X is untouched.
 
 **Note J** reduces the Type II input to a Bombieri–Vinogradov statement for
 μ(x²+1) in arithmetic progressions, and then measures that **the whole

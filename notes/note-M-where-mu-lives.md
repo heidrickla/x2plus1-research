@@ -158,10 +158,30 @@ normalisation" (exp05). That understates it. **The two are the same sum.**
 Inside S_μ(M) = Σ_m |Σ_x μ((x²+1)/m)| the factor μ(m) is a constant of modulus 1
 on the inner sum, so it **drops out under the absolute value**, leaving
 
-    S_μ(M) = Σ_m |Σ_{x ≡ ±r (mod m)} μ(x²+1)|,
+    S_μ(M) = Σ_m |Σ_{x ≡ ±r (mod m), r over ALL roots} μ(x²+1)|.
 
-which is exactly what exp05 measures per progression. Machine-checked in
+Machine-checked in
 `tests/test_arithmetic_facts.py::test_mobius_of_the_cofactor_factors_when_the_value_is_squarefree`.
+
+**But that is not quite exp05's quantity, and an earlier version of this section
+said it was.** S_μ puts **one absolute value per modulus**, spanning every root
+of −1 mod m at once; exp05 computes ρ **per (q, root) progression**. When a
+modulus carries several roots they cancel against each other inside S_μ's
+absolute value, and exp05 never sees that. Measured at X = 10⁶ over ten
+doublings of M:
+
+| | M-exponent | S/√(MX) drift |
+|---|---:|---:|
+| per progression (exp05's grouping) | **0.5046** | ×1.032 |
+| per modulus (S_μ's own definition) | **0.4803** | ×0.873 |
+
+The gap is entirely the root cancellation, and it is square-root exact:
+S_prog/S_mod tracks √(#prog/#mod) to within 2% across the range, while the mean
+root count per modulus climbs from 2.652 to 3.694. So
+
+> **S_μ(M) ≍ √(MX) / √(mean roots per modulus)** — very slightly *below* √(MX),
+> i.e. slightly *more* cancellation than the law claims, which makes Note M's
+> saving a conservative estimate rather than an optimistic one.
 
 **The two differ only on the non-squarefree x, and that correction is an
 asymptotic constant.** Only p = 2 and p ≡ 1 (mod 4) admit p² | x²+1, each
@@ -179,8 +199,9 @@ Flat to four places. At X = 4000 over the band [300, 600) the aggregate ratio of
 the two sums is 0.884 — a constant-order correction, as the density predicts.
 
 > **A constant factor cannot move an exponent.** So exp05's four decades bear on
-> the exponent in S_μ(M) ≍ √(MX) directly, and the range behind §1 is four
-> decades rather than one.
+> the exponent of the *per-progression* law directly, and the range behind §1 is
+> four decades rather than one — with the root-grouping caveat above, which
+> shifts the aggregate exponent by −0.02 in the conservative direction.
 
 What is *not* improved: the law is still `extrapolated`. Extrapolating a fitted
 exponent from 10⁷ to all X is the unsupported step, and it is unchanged. What
