@@ -294,7 +294,29 @@ with the box, so quote the box.)*
 > predict the window behaviour of the occupied ones. **All of it is withdrawn as
 > evidence about triples.** What survives is stated at the end of this note.
 >
-> **Theorem O.3 is untouched**, because it is conditional: *if* ξ exists and both
+> ### A structural fact about the rational graph: K_{s,2} but no K_{3,3}
+
+Over Z[i], [Note F](note-F-failure-localisation.md) forbids **K₂,₂** outright —
+that is C₄-freeness. Over Z the merging of several primitive Gaussian ideals into
+one rational modulus breaks that, and the parallel session's K₆,₂ shows it breaks
+it unboundedly. Measured at X = 6000 over the full incidence graph:
+
+| | |
+|---|---|
+| largest K_{2,s} (two cofactors, s shared moduli) | **s = 9**, at cofactors (1, 5), moduli 2, 10, 65, 442, 3026, 20737, … |
+| **K₃,₃ instances** (three cofactors sharing three moduli) | **0** |
+
+So the row-merging **thickens one side of the bipartite graph and not both**: the
+rational graph is K₂,₂-rich and, in this range, K₃,₃-free. That is a sharper
+statement of the Z-vs-Z[i] gap than "max Gram 2 instead of 1", because it says
+*which* completeness survives the transfer and which does not.
+
+*(A first version of this search reported 19 K₃,₃ instances. All were spurious —
+the third cofactor equalled the first, because the loop guarded n₃ > n₂ while
+n₁, n₂ came from `combinations` over a set in hash order rather than sorted
+order. With strictly increasing indices the count is 0.)*
+
+**Theorem O.3 is untouched**, because it is conditional: *if* ξ exists and both
 > multipliers act on it, contradiction. Nothing here weakens a conditional
 > negative result; it says only that the candidate lists were never the right
 > place to hunt for its counterexamples.
@@ -867,6 +889,12 @@ argument, reached without it.
    - they are a **close pair**: ratio 1.06398, inside a window;
    - τ₁ **explains it exactly**: r₁ = 1.06398, agreeing to five decimals;
    - a **second in-window multiplier exists**: k = 9, U₉ = 8637, r₉ = 1.73542 < 2;
+
+   *(r is the **modulus** ratio throughout, per the convention 400 lines above —
+   the multipliers themselves are τ₁ = 1.03150 and τ₉ = 1.31735, and it is their
+   squares that are listed. Restated here because a convention stated once at the
+   top of a long note is the same trap as DFI's determinant, and the parallel
+   session read these as τ.)*
    - the **residues permit both** — this pair is one of route 8's 21;
    - so a third modulus at 8065 × 1.73542 ≈ 13996 would sit inside the window.
 
