@@ -848,7 +848,7 @@
     {
       "id": "two-step-ratio-floor",
       "status": "rigorous_finite",
-      "statement": "Three moduli in one dyadic window is exactly m_{i+2}/m_i < 2. Over every ratio class: at X = 1500, 3000, 5000 the minimum CONSECUTIVE ratio falls 1.0783, 1.0547, 1.0412 while the minimum TWO-STEP ratio is pinned at exactly 13.0000, attained at (a,b) = (1,85) with m = 2, 17, 26, as the triple count doubles from 55 to 109. The lower tail is a cluster, not an approach: the nine smallest two-step ratios at X = 5000 are 13.00, 14.50, 14.80, 14.90, 15.16, 16.40, 17.06, 17.55, 18.02, and the next is 32.5 -- nothing in (18.02, 32.5), nothing below 13, median 819. And ALL twenty smallest have a = 1, i.e. n1 | n2, so the extremal object is the conic y^2 - b x^2 = b - 1.",
+      "statement": "Three moduli in one dyadic window is exactly m_{i+2}/m_i < 2. Over every ratio class: at X = 1500, 3000, 5000 the minimum CONSECUTIVE ratio falls 1.0783, 1.0547, 1.0412 while the minimum TWO-STEP ratio is pinned at exactly 13.0000, attained at (a,b) = (1,85) with m = 2, 17, 26, as the triple count doubles from 55 to 109. The lower tail is a cluster, not an approach: the nine smallest two-step ratios at X = 5000 are 13.00, 14.50, 14.80, 14.90, 15.16, 16.40, 17.06, 17.55, 18.02, and the next is 32.5 -- nothing in (18.02, 32.5), nothing below 13, median 819. And ALL twenty smallest have a = 1, i.e. n1 | n2, so the extremal object is the conic y^2 - b x^2 = b - 1. RESTRICTED to pairs a Type II split can actually meet -- both cofactors >= 2, since a = 1 with d = 1 is the unit cofactor -- the floor rises to 66.4923 at (a,b) = (5,4033) over 59 triples and 2996 classes, a margin of 33x over the threshold 2 rather than 6.5x. Window maximum is 2 in both populations.",
       "experiment": "two-step ratio sweep over all ratio classes, in-session; see Note L",
       "depends_on": [
         "classes-separate-across-windows"
@@ -856,7 +856,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "A gap of 6.5x, stable in X, with an empty bin below it. Both sessions independently built a probability model predicting three-in-a-window should be merely improbable; this refutes it -- improbability does not pin a minimum at 13.0000 across a doubling of the sample. The reduction the floor points at is a GAP PRINCIPLE separating distinct proper classes of a fixed binary quadratic form; neither session has the citation. The extremal triple is not three near-coincident solutions but a tight pair (m = 17, 26, ratio 1.53) plus a distant third (m = 2)."
+      "notes": "A gap of 6.5x, stable in X, with an empty bin below it. Both sessions independently built a probability model predicting three-in-a-window should be merely improbable; this refutes it -- improbability does not pin a minimum at 13.0000 across a doubling of the sample. The reduction the floor points at is a GAP PRINCIPLE separating distinct proper classes of a fixed binary quadratic form; neither session has the citation. The extremal triple is not three near-coincident solutions but a tight pair (m = 17, 26, ratio 1.53) plus a distant third (m = 2). The a = 1 concentration is structural, not a counting artefact: 59 triples exist with a >= 2 and their floor is five times higher. So a gap principle covering only the a = 1 family y^2 + 1 = b(x^2+1) would settle the extremal case but not the case the sieve meets, where the margin is wider."
     }
   ]
 }

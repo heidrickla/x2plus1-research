@@ -254,9 +254,29 @@ statement about the conic **y² − b x² = b − 1**, and the extremal case is
 (a, b) = (1, 85) with x = 1, 4, 5 — which is not three near-coincident solutions
 at all, but a tight pair (m = 17, 26, ratio 1.53) plus a distant third (m = 2).
 
+**And the extremals are exactly the configurations a Type II split excludes.**
+a = 1 means n₁ = d, so at d = 1 it is the *unit cofactor* — the same degenerate
+case that drives the full graph's log X growth. Restricting to pairs that can
+actually occur, both cofactors ≥ 2, changes the floor by a factor of five:
+
+| population | classes | triples | min two-step ratio | margin over the threshold 2 |
+|---|---:|---:|---:|---:|
+| all | 3 319 | 157 | 13.00 at (1, 85) | 6.5× |
+| **both cofactors ≥ 2** | 2 996 | 59 | **66.49** at (5, 4033) | **33×** |
+
+with window maximum 2 in both. Fifty-nine triples is not a small sample, so the
+a = 1 concentration is structural and not an artefact of counting: the
+application-relevant floor is 66.5, five times the unrestricted one, and the
+restricted extremals are (5, 4033), (5, 481), (2, 145), (2, 925), (2, 65),
+(5, 442), (13, 6161), (2, 5) — small a, and every odd one ≡ 1 (mod 4).
+
 That is the reduction worth attacking: a **gap principle** separating distinct
 proper classes of a fixed binary quadratic form. Neither session has the
-citation, and the measurement stands on its own until one turns up.
+citation, and the measurement stands on its own until one turns up. What the
+restriction shows is that a gap principle covering only the a = 1 family
+y² + 1 = b(x²+1) would settle the extremal case but *not* the case the sieve
+actually meets — where the margin is wider and the question correspondingly
+less delicate.
 
 **Dickson's side condition does not recover it.** The condition that would force
 the class bound to 2 is |a−b| odd with at most one odd prime factor. Of the
