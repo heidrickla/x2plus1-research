@@ -1456,15 +1456,20 @@ def test_the_D_reach_has_two_versions_and_D_equals_eight_is_the_crossover():
         r = 2 * sqrt(2) * V / D
         return ((r + sqrt(r * r + 4)) / 2) ** 2
 
-    assert abs(u0(8) - 2.0) < 1e-12                    # exact crossover
-    assert u0(7) > 2 and u0(9) < 2                     # brackets it
+    # D = 8 is the LAST COVERED value, not the crossover: the threshold there is
+    # 4 sqrt2/8 = 1/sqrt2 exactly, u0 = 2 exactly, and a band gives u < 2
+    # STRICTLY -- so no banded u attains it. Note the float trap: u0(8) evaluates
+    # to 1.9999999998, so a bare `< 2` test reports D = 8 as uncovered.
+    assert abs(u0(8) - 2.0) < 1e-9                     # exactly 2, up to float
     for D in (5, 6, 7):
         assert u0(D) > 2, D                            # banded impossible
-    for D in (8, 9, 10, 11, 39):
-        assert u0(D) <= 2, D                           # banded possible
+    for D in (9, 10, 11, 39):
+        assert u0(D) < 2 - 1e-6, D                     # banded possible, strictly
+    # and the first uncovered value is D = 9, witnessed at u = 1.9
+    assert (1.9 - 1) / sqrt(1.9) > 2 * sqrt(2) * 2 / 9
     assert abs(u0(11) - 1.6632) < 1e-4
     assert abs(u0(39) - 1.1559) < 1e-4
 
-    # the two reaches
+    # the two reaches: worst case D <= V sqrt6, asymptotic D <= 4V (inclusive)
     assert int(1 * sqrt(6)) == 2 and int(2 * sqrt(6)) == 4      # worst case
     assert 4 * 1 == 4 and 4 * 2 == 8                            # asymptotic
