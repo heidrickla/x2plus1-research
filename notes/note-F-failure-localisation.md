@@ -194,6 +194,30 @@ the method identifies as the barrier — and where they say "typically very
 difficult", the lemma above says, for this sequence, **impossible**: the count
 is 0 or 1, so the error term *is* O(1) and no averaging can improve it.
 
+**Where the residual inference actually lives, and it is not ours.** Two distinct
+steps sit in that quotation and only the first is exact:
+
+1. **The identification of the object.** Their #{n : nm₁, nm₂ ∈ J} *is* G, with
+   the variables named the other way round. That is an equality of definitions,
+   not an inference, and Theorem O.12 now proves the 0/1 property over **Z** on
+   exactly the configuration their average runs over — m₁, m₂ banded and n
+   banded — so it no longer needs the Gaussian-to-rational transfer either.
+2. **The implication from that object to the (θ, ν) parameters.** Ford–Maynard
+   write that θ + ν ⩾ 1 − 2c is **"closely related to"** estimating it. They do
+   not write *equivalent to*, and the hedge is theirs, not a looseness in this
+   note's reading of them.
+
+> So the step from "the count is 0 or 1, so the error term is O(1) and
+> unimprovable" to "**ν = 0 in Ford–Maynard's sense**" rests on a four-word phrase
+> in the source. That is why `gaussian-to-rational-bridge` and
+> `fm-barrier-is-unconditional-at-density-half` are `inferred` and why **no amount
+> of further computation here can promote them** — the missing link is a precise
+> statement of the relation, which would have to come from the literature or from
+> a direct argument, not from measuring this sequence more carefully.
+
+*Naming it matters because the two steps had been read as one.* The first is now
+proved on both sides; the second was never ours to close.
+
 Two consequences worth stating separately:
 
 - It is external evidence that the repo is measuring the right thing. Note F was

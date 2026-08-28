@@ -302,6 +302,20 @@ the objection that would sink a mean argument.
 > question aimed at a citation. **Paraphrases drift in the direction that makes
 > the local argument work.**
 
+**Where the residual inference lives, now that O.12 has closed the other half.**
+Ford–Maynard's footnote 2 contains **two** steps and only the first is exact.
+(1) Their #{n : nm₁, nm₂ ∈ J} **is** Note F's G with the variables named the
+other way — an equality of definitions — and O.12 proves the 0/1 property over Z
+on exactly the configuration their average runs over, so that step needs neither
+an inference nor the transfer. (2) The implication from that object to (θ, ν) is
+stated by them as **"closely related to"**, not as an equivalence. So
+"count is 0/1, error O(1) unimprovable" ⟹ **ν = 0 in their sense** rests on a
+four-word hedge *in the source*. **That is why `gaussian-to-rational-bridge` and
+`fm-barrier-is-unconditional-at-density-half` cannot be promoted by more work of
+the kind this repo does** — what is missing is a precise statement of the
+relation, which must come from the literature or a direct argument, not from
+measuring this sequence more carefully. The two steps had been read as one.
+
 **Positive control — the 0/1 property is not generic.** Doubly-dyadic max Gram at
 Q = 2.5×10⁴ / 5×10⁴ / 10⁵: **x²+1 = 1, 1, 1** (proved, 0 banded pairs sharing
 two); a²+b⁶ = 6, 7, 11; x³+2y³ = 5, 9, 15; a²+b⁴ = 26, 60, 66; a²+(b²+1)² = 33,
