@@ -562,7 +562,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "The Pell identity is arithmetic and depends on nothing measured; the measurement in rational-gram-bounded-on-windows is what pointed at the pair, not what supports the claim. (The dependency guard rejected the other ordering, correctly.) n1 = 1 cannot occur in a Type II hypothesis, where both variables are confined to ranges, so the log-growth is an artefact of admitting a unit cofactor -- which makes the windowed statement the faithful one rather than a patch."
+      "notes": "The Pell identity is arithmetic and depends on nothing measured; the measurement in rational-gram-bounded-on-windows is what pointed at the pair, not what supports the claim. (The dependency guard rejected the other ordering, correctly.) n1 = 1 cannot occur in a Type II hypothesis, where both variables are confined to ranges, so the log-growth is an artefact of admitting a unit cofactor -- which makes the windowed statement the faithful one rather than a patch. CONSTANT PINNED, on the sweep for order-statements read as equalities: the growth is G'(1,5) = log X / log(phi^2) + O(1), slope 1.0390, with the offset between -0.96 and -0.18 over X = 500 .. 1e6. Unlike the other three instances found by that sweep -- 2.41 against 1, 0.253 against 1, 1/(2pi) against 1 -- the constant here is near enough to 1 that the loose reading misleads nobody, so the category does NOT apply. Recorded because 'it does not apply here' is only worth saying with the number attached. The same computation reproduces the repo's recorded full-graph maxima 6, 7, 7, 8, 9 at X = 500..8000 from the Pell family directly."
     },
     {
       "id": "gaussian-to-rational-bridge",

@@ -441,3 +441,38 @@ def test_the_type_I_sum_constant_is_one_over_two_pi():
     assert pairs > 15_000, f"only {pairs} pairs; range too small"
     assert total / pairs == pytest.approx(1 / 3, rel=0.02), total / pairs
     assert total / D == pytest.approx(1 / (2 * math.pi), rel=0.02), total / D
+
+
+def test_the_full_graph_growth_slope_is_one_over_log_phi_squared():
+    """G'(1,5) = log X / log(phi^2) + O(1), slope 1.0390.
+
+    `full-graph-growth-is-pell` says the Gram maximum "grows like log X" with no
+    constant. Unlike the other order-statements swept for this, the constant here
+    is 1.0390 -- near enough to 1 that the loose reading is not misleading. Pinned
+    anyway, because "the category does not apply here" is only worth saying if the
+    number is known.
+
+    The family is x = 1, 3, 8, 21, 55, 144, ... with y = 3, 7, 18, 47, 123, 322,
+    and y_k ~ phi^{2k}, so the count with y <= X is log X / log(phi^2).
+    """
+    from math import isqrt, log, sqrt
+
+    phi = (1 + sqrt(5)) / 2
+    slope = 1 / log(phi ** 2)
+    assert slope == pytest.approx(1.0390, abs=1e-3)
+
+    family = []
+    x = 0
+    while len(family) < 20:
+        x += 1
+        m = x * x + 1
+        r = isqrt(5 * m - 1)
+        if r * r == 5 * m - 1:
+            family.append((x, r))
+
+    # reproduces the repo's recorded full-graph maxima 6, 7, 7, 8, 9
+    recorded = {500: 6, 1000: 7, 2000: 7, 4000: 8, 8000: 9}
+    for X, expected in recorded.items():
+        got = sum(1 for a, b in family if a <= X and b <= X)
+        assert got == expected, (X, got, expected)
+        assert -1.0 < got - slope * log(X) < 0.0, (X, got - slope * log(X))
