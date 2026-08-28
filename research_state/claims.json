@@ -1180,6 +1180,16 @@
         "type_ii"
       ],
       "notes": "NOT exhaustive: a K_(3,3) needs all three cofactors to have degree >= 3 and the sweep takes the 300 largest, so the claim is about that finite population and no more. The parallel session reaches the same conclusion at X = 6000 by an independent route -- after a first version that reported 19 spurious instances because the third cofactor could equal the first, a correct computation of the wrong thing. Content: the row-merging that breaks C4-freeness thickens the graph in each direction separately and in neither jointly, which says WHICH completeness survives the Z[i] -> Z transfer and is sharper than 'max Gram 2 instead of 1'."
+    },
+    {
+      "id": "saving-law-measured-through-theta-half",
+      "status": "rigorous_finite",
+      "statement": "At X = 4e5, with the trivial bound T(M) = sum_{m~M} #{x <= X : m | x^2+1} computed rather than assumed: T is FLAT at ~132,400 = 0.331 X across M = X/32 .. 8X, a factor of 256, constant to 0.1%. The saving T/S_mu is 12.38, 9.05, 6.57, 4.71, 3.43, 2.41, 1.79, 1.55, 1.42 against the predicted sqrt(X/M) of 5.66, 4.00, 2.83, 2.00, 1.41, 1.00, 0.71, 0.50, 0.35. BELOW theta = 1/2 the ratio observed/predicted is constant at 2.19-2.42, so the saving is 2.3 * sqrt(X/M). ABOVE it the ratio departs: 2.53, 3.09, 4.01. At theta = 1/2 exactly the saving is 2.41.",
+      "experiment": "experiments/exp16_m_exponent.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Run in-session over M from X divided by 32 up to 8X at X = 4e5, using exp16's mobius_of_x2plus1 sieve with the trivial bound accumulated alongside. The first measurement of sqrt-MX-law THROUGH its boundary; everything prior was below it (exp16 stops at M = X/2), so theta = 1/2 was an extrapolation from one side. Three results: T flat is the 'each x has O(1) divisors per dyadic band' fact measured rather than assumed; the constant 2.3 in saving = 2.3 sqrt(X/M) is new; and sqrt(X/M) genuinely stops applying above theta = 1/2 rather than degrading through it, which is what the law asserts and had not been checked. PRECISION the numbers force: 'the saving is exactly zero at theta = 1/2' is about the POWER and is correct (Q^{(1/2-theta)/2} = Q^0), but it does NOT mean S reaches the trivial bound -- the measured saving at M = X is 2.41, a constant factor. A reader could take 'no saving' as 'S = T', which is false by a factor of two and a half."
     }
   ]
 }

@@ -24,6 +24,35 @@ The trivial bound for S_μ(M) is the edge count, ≍ X up to logs. So
 A power saving for every θ < 1/2, degrading continuously, and **exactly zero at
 θ = 1/2**.
 
+**Measured through the boundary, which had never been done.** Everything the repo
+had was *below* θ = 1/2 — exp16 stops at M = X/2 — so the vanishing point itself
+was an extrapolation from one side. Running M from X/32 to 8X at X = 4×10⁵, with
+the trivial bound T(M) = Σ_{m∼M} #{x ≤ X : m | x²+1} computed alongside rather
+than assumed:
+
+| M | θ | T | S_μ | saving T/S | √(X/M) | ratio |
+|---:|---:|---:|---:|---:|---:|---:|
+| 12 500 | 0.366 | 132 428 | 10 700 | 12.38 | 5.66 | 2.19 |
+| 50 000 | 0.419 | 132 428 | 20 150 | 6.57 | 2.83 | 2.32 |
+| 200 000 | 0.473 | 132 343 | 38 638 | 3.43 | 1.41 | 2.42 |
+| **400 000** | **0.500** | 132 339 | 54 955 | **2.41** | **1.00** | 2.41 |
+| 1 600 000 | 0.554 | 132 296 | 85 506 | 1.55 | 0.50 | 3.09 |
+| 3 200 000 | 0.581 | 132 399 | 93 446 | 1.42 | 0.35 | 4.01 |
+
+Three things fall out. **T is flat at ≈ 132 400 = 0.331·X across a factor of 256
+in M** — the "each x has O(1) divisors per dyadic band" fact, measured rather
+than assumed, and constant to 0.1%. **Below the boundary the ratio observed/√(X/M)
+is constant at 2.2–2.4**, so the law is not merely the right shape but
+saving ≈ **2.3·√(X/M)**, with a constant the repo did not have. And **above the
+boundary the ratio departs** — 2.53, 3.09, 4.01 — so √(X/M) genuinely stops
+applying at θ = 1/2 rather than degrading through it.
+
+**One precision the numbers force.** "Exactly zero at θ = 1/2" is about the
+*power*, and is correct: Q^{(1/2−θ)/2} = Q⁰. It does **not** mean S_μ reaches the
+trivial bound there — at M = X the measured saving is **2.41**, a constant factor,
+not 1. A reader could take "no saving" to mean "S = T", and that is false by a
+factor of two and a half. What is zero is the exponent.
+
 Now place the two frameworks on the same axis:
 
 | | requires | in θ |
