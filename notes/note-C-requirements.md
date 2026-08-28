@@ -963,6 +963,26 @@ The three literature markers are resolved; what replaced them is sharper.
   (R1) fails. Iwaniec 1978 (P₂) already works at this density with a classical
   weighted sieve; what is unavailable at A(x) = x^{1/2} is the parity-breaking
   upgrade.
+- *C⁻ = 0 now closes infinitude, not just the asymptotic — is that overclaiming?*
+  It is [FM]'s own definition, p. 2: "a non-trivial **lower bound** for primes
+  whenever C⁻(γ,θ,ν) > 0". So C⁻ = 0 does close the weaker goal, and the standing
+  warning becomes *more* important rather than less: it closes what **these
+  axioms** can prove and says nothing about the primes. Both halves have to be
+  said together — the first alone overclaims, the second alone understates.
+- *This note evaluated [FM]'s footnote at its own range and was refuted the same
+  day — is the rest of the FM reading safe?* The refuted step was arithmetic
+  about a quantifier, not a misreading of the source: small ε means small moduli,
+  and I took N = x^ε as large. Everything else here is quotation with a locator,
+  and the parallel session re-verified every DFI and FM quote against page images
+  independently. But the failure is a reminder that a **correctly quoted**
+  hypothesis can still be evaluated at the wrong end, and no citation guard
+  catches that.
+- *Is `fm-divisor-bounded-class-is-dense` doing load-bearing work?* No, and it
+  must not be given any. It removes a support the conditional never needed —
+  Ψ and Theorem 2.1 are what the position rests on, and [FM] p. 14 says
+  explicitly that C± tolerates log-sized rescalings while C±_bd is "very
+  sensitive to unbounded" ones. The finding is that we appealed to the sensitive
+  constant; the robust one was always the right one.
 - *Did this note over-read its own finding once already?* Yes. The first version
   concluded "the obstruction is Type I, not Type II" and deprioritised Step 2.
   Heath-Brown's p. 3 remark shows (R1) is the negotiable hypothesis. The lesson
