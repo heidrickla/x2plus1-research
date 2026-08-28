@@ -29,7 +29,7 @@ finding; this table is a summary of it, not a second copy.
 | Type I | available at D = x^{1/2−ε}; never the obstruction |
 | Density | α = 1/2, κ = 1; no admissible [FM] (γ,θ,ν) triple |
 | Degree | α = 1/d, κ = X^{2−d}: no single-variable polynomial of degree ≥ 2 has one |
-| Sharpness | realised extremum 34.0811 at (37,1261); τ₁ threshold (1+√2)⁴ = 33.9706 |
+| Sharpness | proved bound (1+√2)⁴ = 33.9706 vs realised extremum 34.0811 at (37,1261) — **attained to 0.33%** |
 | Open | Conjecture O.2 — no window holds three shared moduli. No counterexample to X = 8000 |
 | O.2 below 53.69 | reduces to 5 enumerable pairs (O.14); all unoccupied, and by occupancy not congruence |
 | Weakest link | `gaussian-to-rational-bridge` (inferred): the Z[i]→Z transfer |
