@@ -1324,6 +1324,36 @@ nothing to average.
 > the property is not generic and x²+1 is qualitatively alone in having it — a
 > difference in kind, not a position in an ordering.
 
+**O.12's *argument* is special to c = 1; the *fact* is not known to be.** Along
+the line family x² + c², the parallel session derived that the identity carries a
+factor c²:
+
+> V·W = (am_i − c²)(bm_j − c²) − (am_j − c²)(bm_i − c²) = **c²·M·(m_i − m_j)**,
+
+and Y > X√(b/a) still holds exactly when b > a. So the bound becomes
+|V| < c²·(M/2√D)(R − 1/R) — a factor **c² weaker** — and O.12's threshold scales
+as **1/c²**, falling below what a dyadic band supplies as soon as c ≥ 2. **The
+prediction is that O.12 fails for c ≥ 2. It does not**: banded cofactors still
+share at most one in-window modulus at c = 2 and c = 3, over 530,973 and 617,940
+banded pairs.
+
+*(Verified independently here: the identity holds with 0 failures over 1089,
+1582, 2406 pairs at c = 1, 2, 3.)*
+
+> **Both obvious repairs are closed.** The bound is **saturated** — max |V| over
+> it is 1.0000, 3.9999, 8.9998 at c = 1, 2, 3, i.e. exactly c² — so it cannot be
+> tightened. And min |V| is **2, 4, 6**, i.e. 2c and not c², so no lower bound of
+> that shape restores the threshold. Anyone generalising O.12 along the line
+> family should know those are the two doors and both are shut.
+
+**This is the complement of the genericity control above, from the inside.** That
+control shows the 0/1 property failing badly *off* the line family — ≥ 11 for
+a²+b⁴ and the rest. This shows the *proof* failing *within* it while the property
+survives. Together: **the property is not generic, the proof is not general, and
+x²+1 is the only place both hold.** A sweep alone would have shown max Gram 1 for
+every c and read as "O.12 generalises" — which is exactly what is not
+established, and the distinction is invisible without the derivation.
+
 > **What it does not close.** The bridge's remaining content is the *inference*
 > "both give no main term, so the conclusion is unchanged". That step is
 > untouched; O.12 removes the quantitative discrepancy and the finite floor, not
