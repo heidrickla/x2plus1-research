@@ -2495,6 +2495,24 @@
         "gram"
       ],
       "notes": "MEASURED, NOT PROVED, and the distinction is the whole point when the statement bears on an open question. But the search is EXHAUSTIVE over the range, not a sample: an earlier version of this claim searched the 120 highest-degree cofactors at X = 4000, which is a population chosen for convenience and exactly the restricted-negative weakness this repo warns about. The replacement enumerates every cofactor PAIR sharing at least three moduli -- which any K_{3,3} must contain -- so no configuration can escape it within the range. Note the direction: the observation is SHARPER than the conjectural bound (3 against 5), which is the situation this repo's rules say to distrust. It is offered as data on an open question, not as a claim to have answered it. The witness (1, 2, 650) has a = 1, the unit cofactor; whether a unit-free K_{3,2} exists is not established here. EARLIER OPEN POINT NOW SETTLED: the first K_{3,2} witnesses found -- (1,2,650) sharing {5,145} and (2,5,170) sharing {1,13} -- each involved a unit, leaving open whether the level survives without one. It does: {2, 10, 14365} with moduli {5, 1513} is unit-free."
+    },
+    {
+      "id": "O12-restated-is-a-joint-ratio-gap-principle",
+      "status": "rigorous_finite",
+      "statement": "Restated in the bipartite Diophantine language, O.12 + O.13 give a gap principle that is NON-VACUOUS at k = 2, where the standard one is not. Let (A,B) have property BD_2(-1), x < y in A, z < w in B, all four products squares. Then: if w/z < 2, y/x > (1+sqrt2)^4 = 33.970563. Equivalently the two ratios cannot both be small -- it is a JOINT constraint, not an absolute lower bound on yw. Tsang-Yip Lemma 2.1 gives yw >= k^k (xz)^{k-1}/(4^{k-1}|n|^k), which at k = 2, n = -1 is yw >= xz and holds for free. Verified: at X = 6000 there are 1,064 K_{2,2} configurations with w/z < 2 and ZERO violate the bound; the tightest is y/x = 34.0811 at cofactors (37,1261) with moduli (866,1730), 0.33% above it. The triple form (O.15) needs y/x > 82.5571, and > 117.4171 when x, y are both odd. AND THE SETS COINCIDE: a is BD_2(-1)-admissible iff a*z - 1 is a square for some z, iff a*z = P^2+1, iff a is a cofactor of some x^2+1. So these are theorems about BD_2(-1) in general and the x^2+1 framing is presentation, not hypothesis.",
+      "experiment": "experiments/exp24_doubly_dyadic.py",
+      "depends_on": [
+        "theorem-O12-doubly-dyadic-c4-free",
+        "tau1-window-threshold-is-exact",
+        "V-never-one-unconditionally",
+        "bd2-minus-one-bound-is-open"
+      ],
+      "tags": [
+        "note_o",
+        "literature",
+        "gram"
+      ],
+      "notes": "The point of the restatement is comparability: until the O-thread is in the area's own variables, neither its novelty nor its usefulness can be judged. See note-Q-dictionary.md. NOT ESTABLISHED AS NEW. Note R records that no search has been run for this specific statement; what has been established is only that the obvious prior art -- the standard absolute gap principle -- is vacuous at k = 2 and so cannot supersede it. The multiplier tau_V, which drives O.4/O.5/O.13/O.15/O.17, has no located counterpart in the m-tuple literature; whether that is a real difference or a missing search is Note R's first question."
     }
   ]
 }
