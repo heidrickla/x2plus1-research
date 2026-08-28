@@ -16,6 +16,22 @@ A = {x+i}, G(n₁,n₂) = #{m : mn₁, mn₂ ∈ A} ≤ 1, so a bilinear form wi
 arbitrary bounded coefficients admits no cancellation at any split. That is a
 theorem about the sequence and survives any change of sieve.
 
+**And DFI say, on p. 425, that the arbitrary-coefficient bilinear form *is* the
+parity-breaking input** — "this problem has been partially surmounted by adding
+new information about general bilinear forms of the type (8) … here α_m and β_n
+are arbitrary but bounded complex numbers". So **Note F is not an obstacle
+beside the parity barrier; it is the statement that DFI's parity-breaking input
+does not exist for this sequence.** Sharpest placement the repo has, and it
+comes from the source.
+
+**Note M** puts Notes H and F on one axis. With M = Q^θ, S_μ(M) ≍ √(MX) gives a
+saving Q^{(1/2−θ)/2}: a power for every θ < 1/2, exactly zero at θ = 1/2. ASP's
+(B1) needs θ ≥ 1/2; Ford–Maynard's (1.1) needs θ < 1/2. **The μ-cancellation
+holds on precisely the range FM admits and dies precisely where ASP begins**,
+and θ = 1/2 is where M = |A| and κ = 1. Its θ → 0 endpoint is Chowla for x²+1,
+which Teräväinen calls wide open — so the easiest case of the input this repo
+needs is a named open problem.
+
 **Note J** reduces the Type II input to a Bombieri–Vinogradov statement for
 μ(x²+1) in arithmetic progressions, and then measures that **the whole
 difficulty is in the absolute values** — the signed sum is under 2% of the
@@ -42,7 +58,9 @@ length of the Poisson sum in [MER] p. 4; for x²+1 it is 1.
 
 **Position against the literature** (all read at source): ASP needs D > x^{2/3}
 and this sequence caps at x^{1/2}; DFI's Theorem S is normalised to x and is
-*vacuous* on a sequence of mass x^{1/2}; Ford–Maynard's binding parameter is
+*vacuous* on a sequence of mass x^{1/2} — and restated relative to |A| its
+Type I (D = x^{1/2−ε}) is **available** while its Type II (short variable to
+x^{1/3−ε}, β on primes) is not, so the level is never the obstruction; Ford–Maynard's binding parameter is
 **ν, not γ** — every entry in their Table 1 has ν > 0 (smallest: Merikoski's
 1/12), and ν = 0 here gives C⁻ = 0 by Selberg and their Theorem 2.1. Their
 footnote 2 p. 7 names Note F's G(n₁,n₂) as the barrier. Their Theorem 2.4 never
@@ -51,6 +69,15 @@ that θ > c = 1/2 collides with (1.1)'s θ < 1/2, so there is no admissible trip
 at all (`x2plus1.exponents.ford_maynard_theta`). C⁻ = 0 is about **what these
 axioms can prove**, never about whether x²+1 is prime infinitely often — do not
 conflate them.
+
+**Reading sources: rasterise, do not extract.** Exactly one source here is a
+scan — Duke–Friedlander–Iwaniec — and its OCR renders prose correctly while
+mangling displayed mathematics, which is the worst failure mode because it looks
+readable. Two claims were committed and refuted in one day from it. Run
+`python tools/check_sources.py`, then read the page images:
+`pymupdf.open(pdf)[idx].get_pixmap(dpi=300).save(...)`, where for DFI page index
+n renders article page n + 422. There is a non-fatal no-go rule,
+`quoting-a-scanned-text-layer`.
 
 Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
 `python -m pytest -q` before trusting any measurement.
