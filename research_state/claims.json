@@ -1200,6 +1200,16 @@
         "type_ii"
       ],
       "notes": "Run in-session with exp16's sieve, accumulating both counts over the same incidences. The gap between 0.765 and 0.8948 is a genuine correlation: among all (m,x) incidences with m in a dyadic band, only 76.5% have x^2+1 squarefree, against 89.5% among all x. So values of x^2+1 with more divisors in a band are MORE likely to be non-squarefree -- more prime factors at fixed size means smaller primes, and small primes are likelier to appear squared. WHY IT MATTERS: the parallel session's Cauchy-Schwarz reduction assumes DIAG ~ X as 'a standard divisor count', and saving-law-measured-through-theta-half measures T ~ X; the two constants differ by 24% and equating them would put that factor into a bound. Their measured DIAG ~ 5.05e4 at X = 2e5 is confirmed here independently at 5.07e4."
+    },
+    {
+      "id": "cauchy-schwarz-chain-predicts-the-measured-value",
+      "status": "rigorous_finite",
+      "statement": "At X = 4e5 and M = X the Cauchy-Schwarz chain predicts the measured S_mu to 0.7%, using only constants measured independently and none fitted to the comparison. #m = 52187 and T = 132339 from the boundary run; DIAG/T = 0.7658 from the T-vs-DIAG run at X = 2e5; Cauchy-Schwarz tightness 0.75 measured by the parallel session at X = 2e5. Then sqrt(#m * DIAG) = 72725, and 0.75 * 72725 = 54544 against a measured 54955. Predicted saving T/S = 2.426 against a measured 2.408.",
+      "experiment": "experiments/exp16_m_exponent.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The chain is Cauchy-Schwarz (exact), Q2 = DIAG + OFF (exact), DIAG ~ X (measured, saving-law-measured-through-theta-half), #m ~ M/sqrt(log M) (Landau-Ramanujan), and OFF = o(DIAG) (measured, and equal to Chowla for this polynomial). Getting the VALUE to 0.7% -- not just the shape -- is a quantitative check on the whole decomposition, and it is a measurement of OFF as a by-product: the prediction used Q2 = DIAG, i.e. OFF = 0, so the 0.8% residual bounds OFF/DIAG at about 0.016 at this M, consistent with the parallel session's |OFF|/DIAG decaying to 0.038 at their largest M. Constants came from four separate runs at two values of X, on both sides of the collaboration; the agreement is therefore not self-consistency."
     }
   ]
 }
