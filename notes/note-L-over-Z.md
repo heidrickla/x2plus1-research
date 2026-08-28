@@ -261,6 +261,20 @@ Type II split can meet (both cofactors ≥ 2, since a = 1 at d = 1 is the unit
 cofactor) it is **73.0000** at (5, 481) for three sizes and **66.4923** at
 (5, 4033) at X = 5000.
 
+**And the minimiser was never a triple candidate — the two statistics are about
+different populations.** A class can hold three moduli in a window only if it
+clears M/√D ≥ 11.484 (the Plücker bound below). The global minimiser
+(a, b) = (1, 85) has M/√D = 84/√85 = **9.111**, so it could never have held a
+triple. Nor could (1, 5) at 1.789, (1, 65) at 7.938, or (5, 481) at 9.706.
+Restricted to triple-capable classes, the minimum two-step ratio at X = 3000 is
+**14.50** at (1, 533) with m = 10, 122, 145 — 23 such classes, against 13.0000
+over all classes.
+
+So the empty bin below 13 that prompted this section was partly evidence about
+classes that were never candidates. It does not change any conclusion, and the
+margin in the population that matters is 14.50 against a violation threshold of
+2, but the two numbers should not be quoted as if they were one.
+
 **Neither is a floor, and an earlier draft of this section said they were.**
 [Note O](note-O-tau-multiplier.md) supplies the mechanism, and it gives a
 different and better constant: the two-step ratio is ≥ 2 outright. So 13 and 66.5
