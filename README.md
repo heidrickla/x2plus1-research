@@ -190,23 +190,52 @@ the repo's derived invariant and the paper's stated hypothesis. In the window
 [Note O](notes/note-O-tau-multiplier.md) identifies the multiplier behind the
 close-pair structure: for coprime a < b the ratio of two shared moduli inside one
 dyadic window is **τ² with τ = (√b + √a)/(√b − √a)**, verified to a median
-relative error of 2.4 × 10⁻⁵ over 304 pairs, with a threshold (b/a > 33.97) that
-is attained at 34.1 and never violated. And **Proposition O.1** proves that τ
-cannot act twice on the same element: no window holds three moduli in geometric
-progression under a *single* multiplier. Its four links are independently
-verified here.
+relative error of 2.4 × 10⁻⁵, with a threshold (b/a > 33.97) attained at 34.1 and
+never violated. **A multiplier at index k exists iff a² + (4k²−2)ab + b² is a
+perfect square** — at k = 1 that is (a+b)², a square *identically*, which is why
+the trivial multiplier always exists and why a triple needs a second one.
 
-The general statement — no window holds three, full stop — **is not proved**. It
-was claimed unconditionally for about an hour and retracted: a third modulus from
-a *different* multiplier imposes divisibility on a different element, and whether
-the two can share a prime ideal is open. So the pair structure is explained, the
-triple question is reduced to one ideal-theoretic statement, and the bound on the
-window Gram entry stays **O_ε(N^ε)** with the measured 2 unproved.
+Two theorems follow. **O.3**: for M = b − a odd squarefree, no window holds
+(ξ, τ₁ξ, τ_kξ). **O.3′**, superseding it: the same whenever
+**gcd(M, 2X) ≤ 16**, with no hypothesis on M — reaching the even and
+non-squarefree cases O.3 was mute on, including all four known live
+non-fundamental close pairs. The proof turns on ρ = B_k/M, where the identity
+M(ρ² − 1) = 4ka(k − ρ) and the window force ρ < 1.06066, while integrality makes
+c·ρ an integer — and an integer in (c, 1.06066c) needs c ≥ 17.
 
-**And that question cannot be settled by measurement**, which is worth saying
-plainly: it concerns a configuration that never occurs, so every sweep contains
-zero instances. The absence of triples is what needs explaining, not evidence
-about a proposed explanation.
+**The general statement — no window holds three, full stop — is not proved.** It
+was claimed unconditionally for about an hour and retracted. Its sharp form is
+measurable and measured: *on any solution ξ, at most one acting multiplier has
+modulus ratio < 2* — 13 840 solutions with an acting multiplier, 327 with exactly
+one inside a window, **zero with two**, smallest competing ratio 14.91 against
+the 2 required. The bound on the window Gram entry stays **O_ε(N^ε)** with the
+measured 2 unproved.
+
+**Two routes to it are closed rather than open.** The ideal-theoretic one needs
+two ideals to be coprime, and coprimality holds in 5 of 65 observable cases — the
+exception, not the rule. And there is **no local obstruction**: all candidates are
+satisfiable mod M, so the question is not a congruence statement.
+
+**The methodological finding cost a day and is the most transferable thing here.**
+Generating candidates from *multipliers* and testing occupancy afterwards searches
+a mostly-empty space — and worse, **the multiplier ratio does not predict the
+spacing of the occupied moduli**: on (1, 115921) it predicts 1.31 and the observed
+minimum ratio is 33.77, because the near-neighbour class the multiplier points at
+is the empty one. Every r-product statistic either session produced is withdrawn.
+The correct direction is inverted: enumerate *realised* classes and read off which
+multiplier index explains the ratio, checking the residual rather than eyeballing
+it. Occupancy as input cannot produce a dead configuration.
+
+**And the θ axis turns out to be the same object.** Writing S_μ(M)² ≤ #{m∼M}·Q₂,
+the second moment splits exactly as Q₂ = DIAG + OFF with
+OFF = Σ_{x≠y} μ(x²+1)μ(y²+1)·**G_M(x,y)** — literally the Gram entries Prop L.1
+bounds. Cauchy–Schwarz is tight (0.75) and DIAG ≍ X, so the upper bound Note M
+needs follows from OFF = o(DIAG). **But that is a restatement, not a reduction**:
+discarding the signs is 11×–1988× too weak, and regrouping by shift gives
+OFF = Σ_m Σ_h Σ_x μ(x²+1)μ((x+h)²+1) — a two-point correlation, i.e. **Chowla for
+x²+1**, which is open. So the route closes on the blocker the repo already names.
+What survives is that a result on either axis is no longer irrelevant to the
+other.
 
 ### Three things that came out right without being aimed at
 
