@@ -276,13 +276,28 @@ The registry claim `large-moduli-cannot-help` is scoped to Type I accordingly.
   restriction is validated for the *level*, not for the exponent. That is evidence about the
   **truth**, not about provability, and it is prime moduli only — the
   all-moduli cross-check is **[VERIFY]** and not yet run at scale.
-- *Is the X^{3/4} range right?* **[VERIFY] — still open, and the reason is now
-  specific rather than "at two removes".** DFI has since been read at source,
-  but only through the author's scanned copy, whose OCR does not render
-  Proposition 2's exponents reliably — the displayed bound comes through as
-  "N4M3+", which cannot be trusted to give 3/8. What *is* legible in that
-  proposition, and matters more, is its hypothesis: **"Suppose α, β are
-  supported on primes"** (p. 426). Both coefficients restricted. So the X^{3/4}
-  range, if it is right, is a range for prime-supported coefficients on both
-  sides — narrower than this note's μ-weighted object, not wider. Settling the
-  exponent needs a clean copy of pp. 425–426.
+- *Is the X^{3/4} range right?* **No — [VERIFY] discharged, against this note.**
+  DFI's page images render cleanly at 300 dpi even though the scan's OCR layer
+  does not, and the range as stated here does not survive reading them.
+
+  The X^{3/4} was derived from "DFI's Type II window N(b) ∈ [(log X)^C, Q^{3/8}]",
+  and the 3/8 came from Proposition 2 (p. 426):
+
+  > **PROPOSITION 2.** Suppose β_n are supported on primes. For h ≪ MN we have
+  > (10) B(M,N) ≪ ‖αρ‖‖β‖(M^{1/2} + N^{3/4}M^{3/8+ε}).
+
+  But 3/8 there is an **exponent inside a bound**, not a range for the modulus.
+  DFI's actual Type II window is fixed by Theorem S (p. 437), which requires
+  (35) with **y = x^{1/3−ε}** and w = x^{(log log x)^{−3}} — i.e. the general
+  bilinear form R(w,y) = Σ_{w<n<y} β_n Σ_{(m,n)=1} α_m c_{mn} over
+  **n ∈ [x^{o(1)}, x^{1/3−ε}]**. In the norm normalisation that is n up to
+  Q^{1/3−ε}, not Q^{3/8}.
+
+  This is confirmed from outside: Ford–Maynard's Table 1 places DFI at
+  (γ, θ, ν) = (1/2, 0, **1/3**), and θ + ν = 1/3 is exactly Theorem S's y.
+
+  So the level this note should quote for the missing input is **Q^{1/3−ε} in
+  the short variable**, and the claim "beyond BV's level 1/2" needs re-deriving
+  from that rather than from 3/8. Note also, since it cuts the other way: it is
+  only β_n that DFI restrict to primes, not α_m — an earlier draft of this
+  bullet said both, which was read off the broken OCR and is wrong.

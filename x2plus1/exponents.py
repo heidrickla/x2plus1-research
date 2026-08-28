@@ -149,24 +149,27 @@ def kappa_exponent(alpha) -> Fraction:
     return 2 * _F(alpha) - 1
 
 
-def dfi_lemma2_sieving_level(alpha) -> Range:
-    """Sieving levels z admissible in [DFI] Lemma 2, for a sequence of density alpha.
+def dfi_theorem_s_typeII(alpha) -> Range:
+    """The Type II range [DFI] Theorem S needs, restated relative to |A|.
 
-    Lemma 2 (p. 436) requires 3 <= K <= w < y < z < D, so the sieving level must
-    stay strictly below the Type I level D, and Note B caps D at the density
-    exponent alpha. Hence z < alpha, in exponent terms.
+    Theorem S (p. 437) requires (35) for the general bilinear form over
+    n in [x^{o(1)}, x^{1/3-eps}], and (34) for the special one at level
+    D = x^{1/2-eps}. Relative to a sequence of density alpha the level is the
+    easy half -- Note B permits D up to alpha -- and the Type II range is the
+    hard half.
 
-    Detecting primes needs z = alpha (sieve to the square root of the norm);
-    z < alpha gives P_2 and no better. So the returned range is exactly the
-    P_2 regime, and the endpoint that would give primes is the one excluded --
-    by Lemma 2's own hypothesis ordering, not by anything bilinear.
-
-    Returns the admissible range [0, alpha); raises if alpha <= 0.
+    An earlier version of this module had `dfi_lemma2_sieving_level`, which
+    encoded the argument that Lemma 2's D > z ordering caps the reach at P_2.
+    That is withdrawn: DFI remove the p, q terms bilinearly rather than by
+    sieving past them, so Theorem S runs with z <= x^{1/2-eps} and the P_2
+    ceiling is a fact about classical sieves only. See the registry entries
+    `dfi-lemma2-reaches-P2-and-stops` (refuted) and
+    `dfi-theorem-S-typeI-met-typeII-not`.
     """
     a = _F(alpha)
     if a <= 0:
-        raise ImpossibleExponentError(f"[DFI] Lemma 2: no admissible z at alpha={alpha}")
-    return Range(Fraction(0), a)
+        raise ImpossibleExponentError(f"[DFI] Theorem S: nothing admissible at alpha={alpha}")
+    return Range(Fraction(0), Fraction(1, 3))
 
 
 def single_variable_alpha(degree: int) -> Fraction:

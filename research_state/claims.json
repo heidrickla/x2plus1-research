@@ -711,7 +711,7 @@
     },
     {
       "id": "dfi-lemma2-reaches-P2-and-stops",
-      "status": "quoted",
+      "status": "refuted",
       "statement": "DFI Lemma 2 (p.436) instantiated at X = |A| = Q^{1/2}: (27) holds with gamma(d) = 2 rho(d)/d, (29) with c = 4, and G(z) = prod_{p<z}(1+gamma(p)) ~ log z (one power). Its error X G(z)^2 (2^{-log(D/z)/log w} + c K^{-1} log y) is o(|A|/log Q) once D >= z exp(C (log log Q)^2) and w >= (log Q)^4 -- quasi-polynomial in log Q, not a power, so Lemma 2 costs essentially nothing in level. But it requires D > z ('3 <= K <= w < y < z < D'), and Note B caps D at o(Q^{1/2}); hence z = o(Q^{1/2}). So Lemma 2's REACH IS CAPPED AT P_2: at no admissible parameter choice can the quantity it computes distinguish a prime from a product of two primes. Prime detection needs z ~ Q^{1/2}, i.e. D > Q^{1/2}, which Note B forbids.",
       "citation": "Duke-Friedlander-Iwaniec, Ann. of Math. 141 (1995), Lemma 2 p.436, hypotheses (27) and (29) p.435; bilinear forms (32),(33) p.436",
       "depends_on": [
@@ -722,7 +722,8 @@
         "type_i",
         "type_ii"
       ],
-      "notes": "Closes the standing 'not yet done' item. The answer is NOT that Lemma 2 fails to apply -- it applies cleanly with explicit constants and genuinely reaches a sequence of mass Q^{1/2}, which is what scale-free cashes out to. CAREFUL: Lemma 2 is an identity with an error term, not a lower bound, so it does NOT re-derive Iwaniec's P_2 and this repo does not claim to. What the instantiation gives is a CEILING, and the constraint producing it is Note B's Type I bound arriving through the hypothesis ordering D > z rather than through anything bilinear. That the ceiling coincides with the actual record is worth exactly as much as a coinciding ceiling. What is left is Lemma 2's output: the special bilinear forms (32), Note J's object, and the general forms (33), Note F's."
+      "notes": "REFUTED the same day it was written, on reading DFI's page images rather than the scan's OCR layer. Both claims rested on 'prime detection needs sieving to z > Q^{1/2}'. DFI do not sieve that way: Lemma 3 removes the p,q terms BILINEARLY -- that is the point of the identity -- and Theorem S runs with z <= x^{1/2-eps}. The P_2 ceiling is a fact about classical sieves and Lemma 2 is not one. There is no level deficit; see dfi-theorem-S-typeI-met-typeII-not.",
+      "superseded_by": "dfi-theorem-S-typeI-met-typeII-not"
     },
     {
       "id": "primes-unknown-every-degree-almost-primes-known",
@@ -739,7 +740,7 @@
     },
     {
       "id": "level-deficit-is-a-log-power",
-      "status": "inferred",
+      "status": "refuted",
       "statement": "Step 2 checkpoint, unit 1 of 3. Through DFI Lemma 2, prime detection needs the sieving level z > Q^{1/2} (a survivor of norm <= Q with no prime factor below Q^{1/2} is prime) and Lemma 2 requires D > z, hence D > Q^{1/2}. Note B gives sum_{d<=D}|r_d| ~ D, so (R)'s A(x)(log x)^{-222} forces D << Q^{1/2}(log Q)^{-222}. The deficit is a factor of (log Q)^{222}: a fixed LOG-POWER, not a power of Q.",
       "depends_on": [
         "type-I-level",
@@ -749,7 +750,33 @@
       "tags": [
         "type_i"
       ],
-      "notes": "Notable because the repo's other headline shortfalls are powers -- x^{1/6} against (R1), a sixth of an exponent between Merikoski and FI -- and this one is not. But it is the deficit for Lemma 2's HYPOTHESIS ORDERING only, and says nothing about the bilinear forms Lemma 2 leaves behind. Quoting unit 1 without units 2 (a change of norm at fixed exponent, Prop 1 signed vs absolute) and 3 (Chowla for x^2+1, wide open) would describe the problem as nearly solved. Units 2 and 3 are Note G's."
+      "notes": "REFUTED the same day it was written, on reading DFI's page images rather than the scan's OCR layer. Both claims rested on 'prime detection needs sieving to z > Q^{1/2}'. DFI do not sieve that way: Lemma 3 removes the p,q terms BILINEARLY -- that is the point of the identity -- and Theorem S runs with z <= x^{1/2-eps}. The P_2 ceiling is a fact about classical sieves and Lemma 2 is not one. There is no level deficit; see dfi-theorem-S-typeI-met-typeII-not.",
+      "superseded_by": "dfi-theorem-S-typeI-met-typeII-not"
+    },
+    {
+      "id": "dfi-theorem-S-typeI-met-typeII-not",
+      "status": "quoted",
+      "statement": "THEOREM S (p.437): for C = {c_n}, 1 <= n <= x, bounded by tau(n), if (34) R(D) << x(log x)^{-2} holds with D = x^{1/2-eps} and (35) R(w,y) << x(log x)^{-10} holds with y = x^{1/3-eps}, w = x^{(log log x)^{-3}}, then sum_{p<=x} c_p << eps*pi(x). Here R(D) = sum_{d<D} lambda_d sum_m c_{dm} is the SPECIAL bilinear form and R(w,y) = sum_{w<n<y} beta_n sum_{(m,n)=1} alpha_m c_{mn} the GENERAL one, with |alpha_m| <= omega(m), |beta_n| <= 1, |lambda_d| <= 1, and 'in our case, beta_n will be supported on primes'. Restated relative to |A| = Q^{1/2}: (34) becomes Type I at level Q^{1/2-eps}, which Note B PERMITS (D << Q^{1/2}(log Q)^{-222}); (35) becomes Type II with the short variable up to Q^{1/3-eps}, which is Note J's object and is NOT available. The level is not the obstruction.",
+      "citation": "Duke-Friedlander-Iwaniec, Ann. of Math. 141 (1995): Theorem S and (34),(35) p.437; Lemma 3 p.437; Prop. 2 p.426; Lemma 2 p.436",
+      "depends_on": [
+        "type-I-level",
+        "dfi-lemma2-is-scale-free"
+      ],
+      "tags": [
+        "type_i",
+        "type_ii"
+      ],
+      "notes": "Read from 300 dpi page images; the scan's OCR layer is unusable (it renders Prop 2's bound as 'N4M3+'). Confirmed from outside: Ford-Maynard's Table 1 places DFI at (gamma,theta,nu) = (1/2, 0, 1/3), and theta+nu = 1/3 is exactly Theorem S's y = x^{1/3-eps}. Two papers read separately, same triple. NOTE ALSO that Theorem S's conclusion is an UPPER bound -- it is an equidistribution tool and would not detect primes even if both hypotheses were met. And the scale-freeness stops at Lemma 2: Lemma 3 and Theorem S fix c_n <= tau(n), X << x log x, i.e. density one, so there is no re-normalisation of Theorem S, only an analogue that must be re-proved."
+    },
+    {
+      "id": "dfi-prop2-restricts-beta-only",
+      "status": "quoted",
+      "statement": "PROPOSITION 2 (p.426): 'Suppose beta_n are supported on primes. For h << MN we have (10) B(M,N) << ||alpha rho|| ||beta|| (M^{1/2} + N^{3/4} M^{3/8+eps}).' Only beta is restricted, not alpha. The 3/8 is an exponent inside a bound, NOT a range for the modulus -- DFI's Type II window is fixed by Theorem S at y = x^{1/3-eps}.",
+      "citation": "Duke-Friedlander-Iwaniec, Ann. of Math. 141 (1995), Proposition 2 p.426",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Corrects two things at once. An earlier reading here, off the broken OCR, said 'alpha, beta are supported on primes' -- wrong, and it contradicted the repo's own correct record from p.437. And Note J's X^{3/4} moduli range was derived by reading the 3/8 as a window; the correct range is Q^{1/3-eps} in the short variable."
     }
   ]
 }

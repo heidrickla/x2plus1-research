@@ -434,133 +434,103 @@ would collapse the distinction the repo is relying on. Here it demonstrably does
 not upgrade — Note F is a proof that it cannot — so this sequence is a genuine
 counterexample to their expectation. That is the sharpest thing the repo has.
 
-### DFI's Lemma 2, re-normalised to X = |A| — the standing item, closed
+### DFI's Lemma 2 at X = |A| — the standing item, closed, and my first answer withdrawn
 
-*Read from [Duke's scan](https://www.math.ucla.edu/~wdduke/preprints/equidistribution.pdf),
-p. 436. The repo has been saying "Lemma 2 is scale-free and does apply; nobody
-has written down what its hypotheses become at X = |A|". Here they are.*
+*Read from [Duke's scan](https://www.math.ucla.edu/~wdduke/preprints/equidistribution.pdf).
+The scan's OCR layer is unusable — Proposition 2's bound comes through as
+"N4M3+" — but the page images render cleanly at 300 dpi, and everything below is
+read off those. The first version of this section, committed earlier the same
+day, drew the wrong conclusion from the OCR; what it said is corrected here
+rather than deleted.*
 
-Lemma 2 assumes, for 3 ≤ K ≤ w < y < z < D:
+**Lemma 2 (p. 436) is scale-free, and instantiates cleanly.** It assumes, for
+3 ≤ K ≤ w < y < z < D, only
 
 > (27) Σ_{n ≡ 0 (d)} |c_n| ≤ γ(d)·X, γ submultiplicative; (29) γ(p) ≤ c/p.
 
-and concludes S(C,z) − ΣΣ_{y<p<q<z} S(C_{pq},p) equals a linear sum over
-d | P(z), d < D, plus bilinear terms, plus
-
-> θ·X·G(z)²·( 2^{−log(D/z)/log w} + cK^{−1} log y ),  G(z) = ∏_{p<z}(1+γ(p)),
-> |θ| ≤ 1.
-
-**The hypotheses, instantiated.** For A = {x+i} with c_n = 1_A, divisibility is
-a congruence ([Note A](note-A-dictionary.md)), so
+For A = {x+i} with c_n = 1_A, divisibility is a congruence, so
 #{x ≤ X : d | x²+1} = ρ(d)X/d + O(ρ(d)) and (27) holds with
 
-> **γ(d) = 2ρ(d)/d**, **X = |A| = Q^{1/2}**, and **c = 4** in (29),
+> **γ(d) = 2ρ(d)/d**, **X = |A| = Q^{1/2}**, **c = 4** in (29),
 
 γ submultiplicative because ρ is multiplicative. Since ρ(p) = 2 for p ≡ 1 (4)
-and 0 for p ≡ 3 (4), Σ_{p<z} γ(p) ~ 2 log log z and
+and 0 for p ≡ 3 (4), Σ_{p<z} γ(p) ~ 2 log log z and **G(z) ≍ log z** — one power,
+not two. DFI's own instantiation, for comparison (p. 437): γ(d) = τ(d)d^{−1},
+X ≪ x log x, K = (log x)⁸, w = x^{(log log x)^{−3}}, **D = z·x^{(log log x)^{−1}}**.
+So they take D above z by a factor x^{o(1)} — Lemma 2 costs no power of the
+level, which is what "scale-free" cashes out to.
 
-> **G(z) ≍ log z** — one power, not two.
+**But the scale-freeness stops at Lemma 2, and that is the real answer.**
+Lemma 3 and Theorem S (p. 437) are *not* scale-free: they fix c_n bounded by
+τ(n) with 1 ≤ n ≤ x, hence X ≪ x log x — density one. Instantiate them at
+A = {x+i} verbatim and every hypothesis holds **trivially** and the conclusion is
+weaker than the trivial bound, which is the `refuted` claim
+`x2plus1-meets-dfi-typeI` seen from the inside. So there is no *re-normalisation*
+of Theorem S. There is only a thin-sequence analogue that would have to be
+re-proved, with its hypotheses restated relative to |A| instead of x.
 
-**The error term is cheap in D.** Writing D = z·w^L, the first bracket term is
-2^{−L}, so o(1/log Q) needs only L ≫ log log Q, i.e.
+**What those hypotheses become.** Theorem S, verbatim:
 
-> D ≥ z · exp(C (log log Q)²)
+> **THEOREM S.** Suppose C = {c_n}, 1 ≤ n ≤ x, is a sequence of complex numbers
+> bounded by τ(n) such that (34) holds with **D = x^{1/2−ε}** and (35) holds with
+> **y = x^{1/3−ε}** and w = x^{(log log x)^{−3}}. Then (37) Σ_{p≤x} c_p ≪ επ(x),
+> provided x > x₀(ε), the implied constant being absolute.
 
-— a *quasi-polynomial in log Q*, not a power. The second needs
-K ≫ (log y)(log z)² log Q, so w ≥ (log Q)⁴ suffices. **Lemma 2 itself costs
-essentially nothing in level.** That is what "scale-free" cashes out to, and it
-is a real point in its favour: the machinery genuinely reaches a sequence of
-mass Q^{1/2}.
+where (34) is R(D) ≪ x(log x)^{−2} for the **special** bilinear form
+R(D) = Σ_{d<D} λ_d Σ_m c_{dm}, and (35) is R(w,y) ≪ x(log x)^{−10} for the
+**general** one R(w,y) = Σ_{w<n<y} β_n Σ_{(m,n)=1} α_m c_{mn}, with
+|α_m| ≤ ω(m), |β_n| ≤ 1, |λ_d| ≤ 1 and "in our case, β_n will be supported on
+primes" (p. 437). Relative to |A|:
 
-**And it lands exactly on the known record, for a reason internal to its own
-hypothesis ordering.** Lemma 2 requires **D > z**. [Note B](note-B-type-I.md)
-caps the Type I level at D = o(|A|) = o(Q^{1/2}). Therefore
+| hypothesis | becomes | available? |
+|---|---|---|
+| (34), Type I, D = x^{1/2−ε} | level Q^{1/2−ε} against Σ_{d≤D}\|r_d\| ≍ D | **yes** — [Note B](note-B-type-I.md) permits D ≪ Q^{1/2}(log Q)^{−222} |
+| (35), Type II, n ∈ [Q^{o(1)}, Q^{1/3−ε}], β on primes | [Note J](note-J-mobius-in-progressions.md)'s object | **no** |
 
-> **z < D = o(Q^{1/2}).**
+> **The level is not the obstruction. (34) is available and (35) is not.**
 
-Sieving A to level z = Q^{1/2−ε} leaves elements of norm ≤ Q with no prime
-factor below Q^{1/2−ε}, hence with at most two prime factors. Prime detection
-needs z ≍ Q^{1/2}, which needs D > Q^{1/2}, which Note B forbids.
+That is the same conclusion the rest of this note reaches by other routes, and it
+now agrees with Ford–Maynard's own placement of DFI at (γ, θ, ν) = (1/2, 0, 1/3)
+— θ+ν = 1/3 is exactly Theorem S's y = x^{1/3−ε}. Two independent readings of two
+papers landing on the same triple is the check worth having here.
 
-> **So Lemma 2's reach is capped at P₂: at no admissible parameter choice can
-> the quantity it computes distinguish a prime from a product of two primes.**
+**Three things withdrawn from this section's first version.**
 
-**Stated carefully, because the obvious stronger version is false.** Lemma 2 is
-an *identity with an error term*, not a lower bound. It does not by itself prove
-P₂ — that is Iwaniec 1978, by other means — and this note does not re-derive it.
-What the instantiation gives is a **ceiling**: the best conclusion available
-through Lemma 2 at this density is P₂, and the constraint producing that ceiling
-is Note B's Type I bound arriving through the hypothesis ordering D > z, not
-through anything bilinear.
+1. ~~"Lemma 2's reach is capped at P₂."~~ That reasoned as though prime detection
+   required sieving to z > Q^{1/2}. DFI do not sieve that way: Lemma 3 removes
+   the p, q terms *bilinearly*, which is the whole point of the identity, and
+   Theorem S runs with z ≤ x^{1/2−ε}. The P₂ ceiling is a fact about *classical*
+   sieves, and Lemma 2 is not one.
+2. ~~"The level deficit is a factor of (log Q)^{222}."~~ There is no level
+   deficit. It followed from the same mistake.
+3. ~~"Proposition 2 assumes α and β supported on primes."~~ Read off the OCR,
+   and wrong. Proposition 2 reads **"Suppose β_n are supported on primes"** —
+   only β — and gives
+   B(M,N) ≪ ‖αρ‖‖β‖(M^{1/2} + N^{3/4}M^{3/8+ε}). The repo's existing record from
+   p. 437 was right and my correction to it was not.
 
-That the ceiling coincides with the actual record is the check worth having, and
-it is worth exactly as much as a coinciding ceiling — no more.
+**And Theorem S would not detect primes even if both hypotheses were met.** Its
+conclusion (37) is an *upper* bound, Σ_p c_p ≪ επ(x). It is an equidistribution
+tool. Meeting its hypotheses for A = {x+i} would say nothing whatever about
+whether x² + 1 is prime infinitely often — which is worth stating plainly, since
+this section's first version came close to implying otherwise.
 
-Everything past that point is in Lemma 2's own output: the special bilinear forms
-(32) Σ_{d<D} λ_d Σ_m c_{dm} and the general ones (33)
-Σ_{w<n<y} β_n Σ_{(m,n)=1} α_m c_{mn}. **(33) is the object of
-[Note F](note-F-failure-localisation.md), and (32) is the object of
-[Note J](note-J-mobius-in-progressions.md).**
+**Two remarks of DFI's own, both bearing on this repo** (p. 425):
 
-### The Step 2 checkpoint, unit 1 of 3: the level deficit is a log-power
+> "It would be interesting to extend the arguments herein to deal with the case
+> of irreducible quadratic polynomials of negative determinant. On the other
+> hand, the problem for polynomials of **higher degree** seems to us to be very
+> far away."
 
-*The plan (§2.5) asks for "a quantitative statement of how far current bounds
-fall short". It has no single answer, because the shortfall is measured in three
-incommensurable units. This is the first; units 2 and 3 are
-[Note G](note-G-spectral.md)'s.*
+and, on the uniformity in d that L_d(M) needs:
 
-Through Lemma 2, prime detection needs the sieving level z above Q^{1/2} — a
-survivor of norm ≤ Q with no prime factor below Q^{1/2} is prime — and Lemma 2
-requires **D > z**. So it needs
+> "Here, a small improvement of the trivial estimate suffices for applications,
+> but one needs a very large range of uniformity in d. Indeed, **any range that
+> can reasonably be conjectured will always be too short.**"
 
-> D > Q^{1/2}.
-
-What is available: [Note B](note-B-type-I.md) gives Σ_{d≤D}|r_d| ≍ D, so (R)'s
-requirement Σ_{d≤D} μ²(d)|r_d| ≤ A(x)(log x)^{−222} forces
-
-> D ≪ Q^{1/2}(log Q)^{−222}.
-
-> **The deficit is a factor of (log Q)^{222}. A fixed log-power, not a power
-> of Q.**
-
-That is worth stating precisely because the repo's own headline figures — the
-x^{1/6} shortfall against (R1), the sixth of an exponent between Merikoski and
-FI — are powers, and this one is not. Nothing here is close in the way those
-are far: at the level, and *only* at the level, x² + 1 misses by logarithms.
-
-**And that is exactly as encouraging as it sounds, which is not very.** The
-log-power gap is the deficit for Lemma 2's *hypothesis ordering* alone. It says
-nothing about the bilinear forms Lemma 2 leaves behind, which is where the other
-two units live and where the shortfall stops being an exponent at all. A repo
-that quoted unit 1 without units 2 and 3 would be describing the problem as
-nearly solved.
-
-**And the record is now sourced.** Pintz's survey, *Landau's problems on primes*,
-J. Théor. Nombres Bordeaux **21** (2009), §19, states it as a theorem:
-
-> "**Theorem (Iwaniec (1978)).** If deg f = 2 and f(0) is odd, then p(f) ≤ 2.
-> **Corollary.** n² + 1 = P₂ infinitely often."
-
-where p(f) is the least r with f representing P_r infinitely often. That
-replaces this repo's reliance on an MSc essay for the *statement*; the *method*
-remains second-hand until the original or Lemme Oliver is read.
-
-Pintz also gives the hierarchy degree-uniformly — p(f) ≤ 4 deg f − 1
-(Rademacher 1924), 3 deg f − 1 (Ricci 1936), deg f + c log deg f (Kuhn), and
-**deg f + 1 (Bukhstab 1967)** — and states the phenomenon
-[Note L](note-L-over-Z.md) explains, on p. 5:
-
-> "There is no single non-linear polynomial for which we would know the answer
-> for Schinzel's conjecture, even for k = 1. However, if primes are substituted
-> by almost primes, then Schinzel's conjecture is true in case of k = 1 for an
-> arbitrary polynomial f."
-
-Primes unknown for every degree ≥ 2; almost-primes known for every degree.
-That is the degree-uniform *phenomenon*; Note L supplies a degree-uniform
-*mechanism* for it. Neither is a substitute for the other, and Pintz states no
-mechanism.
-
-Computed rather than argued: `x2plus1.exponents.dfi_lemma2_sieving_level`.
+The first is [Note L](note-L-over-Z.md)'s degree ladder seen from 1995. The
+second is the sharpest statement in the literature of why
+[Note G](note-G-spectral.md)'s axis — uniformity in d — is the hard one.
 
 ### The Ford–Maynard placement, corrected again
 

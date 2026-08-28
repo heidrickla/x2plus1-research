@@ -176,6 +176,39 @@ here? **No.** Recording it so the question is not re-opened from headlines.
   ceiling coincides with the record is worth exactly as much as a coinciding
   ceiling. Corrected in Note C, the README, and the registry entry.
 
+### 2026-08-28 — DFI read from page images, and two of my own claims refuted
+
+**Method note worth keeping.** The Duke scan's OCR layer is unusable — it renders
+Proposition 2's bound as "N4M3+" — but `pymupdf` rasterises the pages at 300 dpi
+and they are perfectly legible. Anything read off that PDF's text layer should be
+re-checked against the images:
+
+```bash
+python -c "import pymupdf; pymupdf.open('refs/pdf/DFI-equidistribution.pdf')[4].get_pixmap(dpi=300).save('p426.png')"
+```
+
+Scan page index n renders article page n + 422.
+
+Doing that refuted two claims committed hours earlier, both mine, both resting on
+"prime detection needs sieving to z > Q^{1/2}":
+
+- `dfi-lemma2-reaches-P2-and-stops` — **refuted.** DFI do not sieve past the
+  two-prime terms; Lemma 3 removes them *bilinearly*, which is the point of the
+  identity, and Theorem S runs with z ≤ x^{1/2−ε}. The P₂ ceiling is a fact about
+  classical sieves and Lemma 2 is not one.
+- `level-deficit-is-a-log-power` — **refuted**, same root. There is no level
+  deficit: Theorem S's (34) needs D = x^{1/2−ε}, which Note B permits.
+
+And one reading correction in the other direction: I had said Proposition 2
+restricts both α and β to primes. It restricts only β — the repo's original
+record from p. 437 was right and my "correction" to it was not. The image reads
+"Suppose β_n are supported on primes."
+
+What replaces them: `dfi-theorem-S-typeI-met-typeII-not`. Theorem S's Type I is
+available for this sequence and its Type II is not, and its θ+ν = 1/3 matches
+Ford–Maynard's Table 1 entry for DFI exactly — two papers read separately landing
+on the same triple.
+
 ### Still not done
 
 - Reading the three unread arXiv items above, Green–Sawhney first.

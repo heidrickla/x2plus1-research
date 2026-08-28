@@ -107,13 +107,14 @@ whether x² + 1 is prime infinitely often.
   ([Note C](notes/note-C-requirements.md)). At X = |A| = Q^{1/2} it holds with
   γ(d) = 2ρ(d)/d, c = 4, G(z) ≍ log z, and an error that is o(|A|/log Q) once D
   exceeds z by exp(C(log log Q)²) — quasi-polynomial in log, not a power. So the
-  machinery genuinely reaches a sequence of mass Q^{1/2}. But Lemma 2 requires
-  **D > z**, and Note B caps D at o(Q^{1/2}), so z = o(Q^{1/2}) — so at no
-  admissible parameter choice can it distinguish a prime from a product of two
-  primes. **Its ceiling is P₂**, which is where the subject stands, and what
-  puts it there is the hypothesis ordering, not anything bilinear. Lemma 2 is an
-  identity, not a lower bound, so this is a *coinciding ceiling* and not a
-  re-derivation of Iwaniec 1978.
+  machinery genuinely reaches a sequence of mass Q^{1/2}. **But the
+  scale-freeness stops at Lemma 2**: Lemma 3 and Theorem S fix c_n ≤ τ(n) and
+  X ≪ x log x, i.e. density one, so there is no re-normalisation of Theorem S —
+  only a thin-sequence analogue that would have to be re-proved. Restating its
+  hypotheses relative to |A|: Type I at Q^{1/2−ε} is **available** (Note B
+  permits D ≪ Q^{1/2}(log Q)^{−222}); Type II with the short variable up to
+  Q^{1/3−ε} and β supported on primes is **not**. The level is not the
+  obstruction.
 - **DFI's equidistribution theorem is about this repo's residues.** It covers
   aX²+2bX+c with ac−b² > 0, so ν²+1 ≡ 0 (mod p) is literally the case, and
   their Weyl sum ρ_h(n) is the sum over the r_d of [Note A](notes/note-A-dictionary.md).
@@ -182,13 +183,11 @@ engineered:
    only single-variable degree with bilinear structure. A classification that
    did not return the solved case there would be evidence against itself.
    [Note L](notes/note-L-over-Z.md).
-2. **DFI's Lemma 2 is capped exactly at the known record.** Instantiated at
-   X = |A| it applies cleanly, and its own hypothesis ordering D > z against
-   Note B's ceiling forces z = o(Q^{1/2}) — so at no admissible parameter choice
-   can it distinguish a prime from a product of two primes. Its ceiling is P₂,
-   and P₂ is where the subject stands (Iwaniec 1978). Lemma 2 is an identity,
-   not a lower bound, so this is a coinciding ceiling and **not** a re-derivation
-   — worth exactly that much. [Note C](notes/note-C-requirements.md).
+2. **Two independent readings land on the same triple.** Instantiating DFI's
+   Theorem S relative to |A| gives Type I at Q^{1/2−ε} and Type II with the short
+   variable up to Q^{1/3−ε} — and Ford–Maynard's Table 1 places DFI at
+   (γ, θ, ν) = (1/2, 0, **1/3**). Two papers read separately, same numbers.
+   [Note C](notes/note-C-requirements.md).
 3. **Lemma 2's two output objects are the repo's two notes.** Its special
    bilinear forms (32) are [Note J](notes/note-J-mobius-in-progressions.md)'s
    object and its general forms (33) are

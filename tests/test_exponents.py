@@ -10,7 +10,7 @@ import pytest
 
 from x2plus1.exponents import (
     ALPHA, ImpossibleExponentError, Range, asp_applies, asp_r1,
-    dfi_lemma2_sieving_level, ford_maynard_theta, gamma_annihilation_threshold,
+    dfi_theorem_s_typeII, ford_maynard_theta, gamma_annihilation_threshold,
     inner_range_exponent, kappa_exponent, single_variable_alpha,
     truncation_exponent, type_i_ceiling,
 )
@@ -168,20 +168,23 @@ def test_ford_maynard_excludes_every_polynomial_of_degree_at_least_two():
             ford_maynard_theta(single_variable_alpha(d))
 
 
-def test_dfi_lemma2_reaches_P2_and_stops_there():
-    """Note C: Lemma 2 applies at X = |A|, and lands on Iwaniec 1978.
+def test_dfi_theorem_s_level_is_met_and_type_ii_is_not():
+    """Note C: for DFI's Theorem S the level is the easy half. Corrected.
 
-    Lemma 2 needs D > z (p.436, "3 <= K <= w < y < z < D") and Note B caps D at
-    alpha = 1/2. So every admissible sieving level is strictly below 1/2, which
-    is the P_2 regime; prime detection needs z = 1/2 exactly, and that is the
-    one point excluded -- by the hypothesis ordering, not by anything bilinear.
+    (34) needs D = x^{1/2-eps}; Note B permits D up to alpha = 1/2, so the
+    level is AVAILABLE. (35) needs the general bilinear form to x^{1/3-eps},
+    which is Note J's object and is not.
+
+    This replaces a test asserting Lemma 2's reach is capped at P_2, which
+    rested on "prime detection needs sieving to z > Q^{1/2}". DFI remove the
+    p, q terms bilinearly instead, so that argument is withdrawn -- see the
+    `refuted` entries in the registry.
     """
-    z = dfi_lemma2_sieving_level(ALPHA["x^2+1"])
-    assert z.lo == 0 and z.hi == Fraction(1, 2)
-    assert Fraction(1, 2) - Fraction(1, 100) in z          # P_2 regime: fine
-    prime_detection = Range.at(Fraction(1, 2))             # z = alpha exactly
-    # the admissible range is closed at 1/2 as a Range, so the exclusion is the
-    # strict inequality D > z together with D < alpha -- state it directly:
-    assert prime_detection.lo == z.hi                      # they meet only at the endpoint
-    ceiling = type_i_ceiling(ALPHA["x^2+1"])
-    assert ceiling.hi == z.hi                              # D and z share the same ceiling
+    alpha = ALPHA["x^2+1"]
+    ceiling = type_i_ceiling(alpha)
+    assert Fraction(1, 2) - Fraction(1, 100) in ceiling      # D = Q^{1/2-eps}: available
+    typeII = dfi_theorem_s_typeII(alpha)
+    assert typeII.hi == Fraction(1, 3)                       # Theorem S's y = x^{1/3-eps}
+    # and 1/3 is exactly Ford-Maynard's tabulated theta + nu for DFI
+    fm_theta, fm_nu = Fraction(0), Fraction(1, 3)
+    assert fm_theta + fm_nu == typeII.hi
