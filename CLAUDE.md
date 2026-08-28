@@ -539,6 +539,20 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   every one would have been caught by the single question above, asked *before*
   the sweep rather than after.
 
+- **Paraphrases of a source drift toward whatever makes the local argument
+  work, and only re-reading the sentence catches it.** `fm-barrier-range-is-
+  small-moduli` was read — by the other session, quoting it back — as recording
+  "mean G ≥ 1" as Ford–Maynard's threshold. Footnote 2, p. 7 asks for *"an error
+  term better than O(1) on average over m₁, m₂"*: a condition on the **error
+  term**, with no threshold on any mean. The measurement was right, its
+  description was right, and the sentence between them had acquired a
+  significance the source does not give it. Note F had the correct reading all
+  along — the count is 0 or 1, so the error term **is** O(1) and no averaging can
+  improve it, which is *pointwise* and strictly stronger than any statement about
+  a mean. **Re-read the quoted sentence, not the claim about it**; and note this
+  was found by asking *is the number in our claim the number in their paper* —
+  the same question that caught the Plücker constant, aimed at a citation.
+
 - **Consistency and silence look identical from a grep.** Notes L and O were
   cross-checked for contradictions about how many moduli a dyadic window can
   hold. They agree — identically so — and that agreement was read as *neither
