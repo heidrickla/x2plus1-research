@@ -1179,3 +1179,23 @@ def test_O8_in_window_pairs_are_observed_coprime_but_it_is_not_proved():
                 assert gcd(V, M) == 1, (a, b, ms[i], ms[j], V, M)
                 n += 1
     assert n > 50, n
+
+
+def test_the_plucker_constant_equals_O4s_and_the_route_gives_less():
+    """4/(2^{1/4} - 2^{-1/4}) = 4(2^{1/4} + 2^{3/4}), but Plucker yields 8 sqrt2.
+
+    The note recorded 11.484 as coming from the Plucker-parity argument.  The
+    value is right and the attribution was not: |V| < (M/2 sqrt D)(R - 1/R) with
+    R < sqrt2 and |V| >= 4 gives 8 sqrt2 = 11.3137, and only 6.93 at X_1 = 1.
+    11.484 comes from O.4, where 2^{1/4} enters via the composite tau_1^2 < sqrt2.
+    """
+    x = 2 ** 0.25
+    assert abs(4 / (x - 1 / x) - 4 * (x + x**3)) < 1e-12
+    assert abs(4 * (x + x**3) - 11.4839997820) < 1e-9
+    # the Plucker route, done exactly
+    for xi, want in [(1, 6.9282), (2, 9.6000), (10, 11.2297)]:
+        R = sqrt(2 + 1 / xi**2)
+        assert abs(4 / ((R - 1 / R) / 2) - want) < 1e-3, (xi,)
+    R = sqrt(2)
+    assert abs(4 / ((R - 1 / R) / 2) - 8 * sqrt(2)) < 1e-9      # 11.3137
+    assert 8 * sqrt(2) < 4 * (x + x**3)                          # O.4 is stronger

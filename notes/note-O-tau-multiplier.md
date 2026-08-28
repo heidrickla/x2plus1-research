@@ -253,10 +253,26 @@ The threshold itself is the parallel session's, and with O.2 open it is now the
 determinant, so three solutions satisfy the Plücker relation
 V_ij X_k − V_ik X_j + V_jk X_i = 0 (machine-checked in Note L as
 `test_three_term_determinant_identity`). With X_k/X_i < √2 that forces
-|V_ik| > 2 + 2/√2 = 3.41, hence |V_ik| ≥ 4 by the parity lemma, hence
-M/√D ≥ 4/(2^{1/4} − 2^{−1/4}) = 11.484 — against the 5.657 a mere pair needs.
+|V_ik| > 2 + 2/√2 = 3.41, hence |V_ik| ≥ 4 by the parity lemma.
 **It contains no ideal theory**, so it does not share the failure mode of the
 composition step above.
+
+> **⚠ CORRECTED — the constant this section recorded, M/√D ≥ 11.484, does not
+> follow from the derivation it states.** The exact bound is
+> **|V| < (M/2√D)(R − 1/R)** with R = X_k/X_i (proved in Theorem O.8's lemma,
+> from a|V|(X_jY_i + X_iY_j) = M(X_j² − X_i²)). With R < √2 that is
+> |V| < 0.35355·M/√D, so **|V| ≥ 4 gives M/√D > 11.3137 = 8√2**, not 11.484.
+>
+> **And it is not unconditional.** R < √2 is the *asymptotic* window condition;
+> exactly, R² < 2 + 1/X_i². At X_i = 1 that gives only **M/√D > 6.93**, rising to
+> 11.3137 as X_i → ∞ (9.60, 10.46, 10.99, 11.23 at X_i = 2, 3, 5, 10).
+>
+> **11.484 is nevertheless correct**, and Theorem O.4 proves it by a different
+> route — composition rather than the determinant. The two constants are
+> *algebraically identical*, since
+> 1/(2^{1/4} − 2^{−1/4}) = 2^{1/4}(√2+1) = 2^{1/4} + 2^{3/4}, so
+> 4/(2^{1/4} − 2^{−1/4}) = 4(2^{1/4} + 2^{3/4}) = 11.48400. The value was right
+> and the route to it was not.
 
 ### A constructive attack, and what it found
 
@@ -682,11 +698,15 @@ In closed form, against the **pair** threshold b/a > (1+√2)⁴ = 33.9706:
 > and the two thresholds are t_pair = (1+√2)² and
 > t_triple = t_pair + 2^{5/4}(1+√2).
 
-**It is slightly stronger than the determinant route and rests on less.** From
-`three-term-determinant-identity`, |V₁₃| ≥ 4 forces an effective index ≥ 2 and so
-M > 8√2·√(ab) = 11.3137√(ab) — but converting |V| to a modulus ratio needs the
-*asymptotic* law `V-is-the-asymptotic-not-the-constant-2`. O.4 gives 11.4840 with
-no asymptotics anywhere.
+**It is slightly stronger than the determinant route, and it repairs that
+route's recorded constant.** From `three-term-determinant-identity`, |V₁₃| ≥ 4
+with the exact |V| < (M/2√D)(R − 1/R) gives **M > 8√2·√(ab) = 11.3137√(ab)**
+asymptotically — and only 6.93√(ab) at X₁ = 1. This note had recorded that route
+as yielding 11.484 unconditionally; it does not, and the section above is
+corrected. O.4 reaches **11.4840** because 2^{1/4} enters from the *composite*
+τ₁² < √2 rather than from |V| ≥ 4, and the two expressions coincide exactly:
+4/(2^{1/4} − 2^{−1/4}) = 4(2^{1/4} + 2^{3/4}). **The value in the note was right;
+the derivation attached to it was not.**
 
 **What O.4 does not do.** It is a necessary condition, not a contradiction, so
 O.2 stays open; it quadruples the threshold (33.97 → 133.87) without closing
@@ -1123,9 +1143,11 @@ statement.
 What has changed is narrower and worth stating exactly:
 
 - the **pair** structure is explained, by τ and the exact chain ending a g² < M;
-- the **triple** question has a proved unconditional constraint, M/√D ≥ 11.484,
-  which is the parallel session's Plücker–parity argument and contains no ideal
-  theory;
+- the **triple** question has a proved constraint M/√D ≥ 11.484 — but from
+  **Theorem O.4**, not from the Plücker–parity argument this note first
+  attributed it to, which yields 11.3137 asymptotically and 6.93 at X₁ = 1; and
+  it is unconditional only in the limit, the exact form being
+  τ_min⁴ < 2 + 1/X₁²;
 - the one ideal-theoretic route proposed for closing it is **closed**, because
   its coprimality hypothesis is the exception rather than the rule;
 - and the empirical support is **31 classes**, not the sweep size.
@@ -1157,17 +1179,43 @@ wholesale. This is the list a reader should trust.*
 - τ₁ acting is exactly M | S; equivalently M₂ = 1 in the M = M₁M₂ splitting.
 - The identity M(ρ² − 1) = 4ka(k − ρ) with ρ = B_k/M, and ρ < 1.06066 from the
   geometry.
-- **Theorem O.3**, for M odd squarefree: no window holds (ξ, τ₁ξ, τ_kξ), k ≥ 2.
-- **Theorem O.3′**, superseding it: the same conclusion whenever
-  **gcd(M, 2X) ≤ 16**, with no hypothesis on M. Squarefreeness forces
-  gcd(X,M) = 1 hence c | 2, so O.3 is the special case. O.3′ reaches even and
-  non-squarefree M — including (53, 423125), where c = 2 and 12.
+- **S·T = −M·m** (Lemma O.8.1), and hence gcd(M,S)·gcd(M,T) = M for M odd.
+- The exact **a·|V|·(X_jY_i + X_iY_j) = M(X_j² − X_i²)**, giving
+  |V| < (M/2√D)(R − 1/R) with R = X_j/X_i — the sharp form of the |V| law, with
+  no asymptotics. *The factor a is load-bearing.*
+
+**Proved — the triple question, in the order they were found.**
+
+- **O.3**, M odd squarefree: no window holds (ξ, τ₁ξ, τ_kξ), k ≥ 2.
+- **O.3′**, superseding it: the same whenever **gcd(M, 2X) ≤ 16**, no hypothesis
+  on M — reaching even and non-squarefree M, including (53, 423125).
+- **O.3″**, superseding *that*: a triple needs
+  (4k + √(16k²+2))(2c+1) < c(kc − c − 1). O.3′ is its k → ∞ shadow; **k = 2 is
+  excluded for every c ≤ 33**.
+- **O.4**, assuming nothing about which multiplier acts: a window holds three only
+  if **τ_min⁴ < 2 + 1/X₁²** — asymptotically b/a > 133.875, i.e.
+  M > 4(2^{1/4} + 2^{3/4})√(ab). Repairs the constant this note had attributed to
+  the Plücker–parity route, which gives 11.3137 and not 11.484.
+- **O.5**: τ_p² ∈ T forces M | 8p², so **no window holds (ξ, τ_pξ, τ_p²ξ)** for
+  any p, given X₁ ≥ 1. Supersedes Proposition O.1 and explains its (1,5) escape
+  (M = 4 | 8).
+- **O.6**: for M an odd prime the subcase (M | S vs M | T) **alternates at every
+  step** with M ∤ V. Its consequence for the composite's two integrality
+  conditions is that they are vacuous — *not*, as first written, that the route
+  is dead.
+- **O.7**: hence **no window holds three when M is an odd prime** — Conjecture
+  O.2 on 14% of realised close pairs, covering p ≠ q. Two steps flip twice, the
+  one-step composite flips once, and the dichotomy forbids both.
+- **O.8**: the same for **M odd squarefree**, on the hypothesis gcd(V,M) = 1 —
+  which is *observed on every in-window pair* (295 of 295) and **not proved**. It
+  is equivalent to g = gcd(U,V) = 1, the quantity Prop O.1 tracks.
+
+**What is left of O.2**: M even, M non-squarefree, or gcd(V,M) > 1.
 
 **Measured, and trustworthy as measurements.**
 
 - The τ² law for close pairs, relative error O(1/m), 1.3×10⁻⁴ for m ≥ 1000.
 - |V| = 2 in 495 of 498 close pairs, with |V| ≥ 2 by parity for a, b both odd.
-- The Plücker–parity constraint M/√D ≥ 11.484 for any triple.
 - No dyadic window with three shared moduli in any sweep: 208 informative
   classes at X = 60000, and 31 at X = 4000.
 

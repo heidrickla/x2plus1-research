@@ -1409,7 +1409,7 @@
       "id": "theorem-O4-composition-bound",
       "status": "proved",
       "statement": "Theorem O.4. Three shared moduli of the class (a,b) lie in one dyadic window only if tau_min^4 < 2 + 1/X_1^2, where X_1 = sqrt(a m_1 - 1) is the smallest and tau_min = min{tau > 1 : tau = (U+V sqrt D)/M, U^2 - D V^2 = M^2}. UNLIKE O.3, O.3' and O.3'' it assumes nothing about which multiplier acts, so it reaches the p,q >= 2 gap. Proof: the automorph X_j = (U X_i + V a Y_i)/M plus a Y_i > X_i sqrt(D) gives the exact X_j > tau_V X_i; composing two steps gives X_3 > tau_min^2 X_1; and m = (X^2+1)/a turns that into m_3/m_1 > (tau_min^4 X_1^2 + 1)/(X_1^2 + 1). Since |V| >= 2 unless a^2-ab+b^2 is a perfect square, tau_min = tau_1 and the threshold is b/a > 53.694 at X_1 = 1, rising to b/a > [(1+sqrt2)(1+sqrt2+2^(5/4))]^2 = 133.8747813 as m_1 -> infinity, i.e. M > 4(2^(1/4)+2^(3/4)) sqrt(ab) = 11.48400 sqrt(ab). The pair threshold is b/a > (1+sqrt2)^4 = 33.9706, and t_triple = t_pair + 2^(5/4)(1+sqrt2).",
-      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O4_step_one_the_automorph_map_holds_on_every_pair; tests/test_note_o.py::test_O4_step_two_X_grows_by_at_least_tau; tests/test_note_o.py::test_O4_gap_bound_holds_exactly_and_the_clean_form_does_not; tests/test_note_o.py::test_O4_thresholds_have_the_stated_closed_forms; tests/test_note_o.py::test_O4_window_condition_is_tau_min_fourth_below_two_plus_one_over_X_squared",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O4_step_one_the_automorph_map_holds_on_every_pair; tests/test_note_o.py::test_O4_step_two_X_grows_by_at_least_tau; tests/test_note_o.py::test_O4_gap_bound_holds_exactly_and_the_clean_form_does_not; tests/test_note_o.py::test_O4_thresholds_have_the_stated_closed_forms; tests/test_note_o.py::test_O4_window_condition_is_tau_min_fourth_below_two_plus_one_over_X_squared; tests/test_note_o.py::test_the_plucker_constant_equals_O4s_and_the_route_gives_less",
       "experiment": "experiments/exp19_composition_bound.py",
       "depends_on": [],
       "tags": [
@@ -1417,7 +1417,7 @@
         "window",
         "gram"
       ],
-      "notes": "The finite term is load-bearing, not decoration: the modulus ratio is tau^2 only asymptotically, and the clean form m_{i+2}/m_i >= tau_1^4 is FALSE -- 9 violations in 110 gaps at X = 4000, tightest at (1,5) m 2 -> 65 where 32.50 sits under tau_1^4 = 46.98. With the correction, 0 violations in 110, and sharp: at (1,5) m 20737 -> 974170 the bound is 46.9765 against 46.9774. Step 2 must go through the automorph -- bounding |V| = M(X_j^2-X_i^2)/(X_j Y_i + X_i Y_j) instead yields tau at V/a, true but not sharp for a > 1. Slightly stronger than the determinant route (|V_13| >= 4 gives 8 sqrt2 = 11.3137) and rests on less, since that route needs the asymptotic |V| law. It is a NECESSARY condition, not a contradiction: O.2 stays open, and O.4 is not binding -- among classes clearing b/a > 133.87 with three moduli the smallest two-step ratio is 14.50 at (1,533), a factor 7.25 from a window."
+      "notes": "The finite term is load-bearing, not decoration: the modulus ratio is tau^2 only asymptotically, and the clean form m_{i+2}/m_i >= tau_1^4 is FALSE -- 9 violations in 110 gaps at X = 4000, tightest at (1,5) m 2 -> 65 where 32.50 sits under tau_1^4 = 46.98. With the correction, 0 violations in 110, and sharp: at (1,5) m 20737 -> 974170 the bound is 46.9765 against 46.9774. Step 2 must go through the automorph -- bounding |V| = M(X_j^2-X_i^2)/(X_j Y_i + X_i Y_j) instead yields tau at V/a, true but not sharp for a > 1. Slightly stronger than the determinant route, AND it repairs that route's recorded constant. Note O had the Plucker-parity argument yielding M/sqrt(D) >= 11.484 unconditionally; it does not. With the exact |V| < (M/2 sqrt D)(R - 1/R), |V| >= 4 and R < sqrt2 give 8 sqrt2 = 11.3137, and the finite form R^2 < 2 + 1/X_1^2 gives only 6.93 at X_1 = 1 (9.60, 10.46, 10.99, 11.23 at X_1 = 2,3,5,10). 11.484 is right but comes from O.4, where 2^(1/4) enters from the composite tau_1^2 < sqrt2 rather than from |V| >= 4 -- and the two expressions are algebraically identical, since 1/(2^(1/4) - 2^(-1/4)) = 2^(1/4)(sqrt2+1) = 2^(1/4) + 2^(3/4). It is a NECESSARY condition, not a contradiction: O.2 stays open, and O.4 is not binding -- among classes clearing b/a > 133.87 with three moduli the smallest two-step ratio is 14.50 at (1,533), a factor 7.25 from a window."
     },
     {
       "id": "theorem-O5-equal-multiplier-case-closed",
@@ -1601,6 +1601,19 @@
       ],
       "notes": "A third of the hypothesis comes off, and the shape of what remains is clearer: the open question is entirely whether gcd(V,M) = 1 holds on in-window pairs, which is a statement about PAIRS -- realised, 295 of 295 at X = 6000 -- and no longer about triples, which are not realised and so cannot be swept for at all. That is the distinction the parallel session drew about O.7's measurability, arriving one level down: the hypothesis is now entirely on the observable side of it.",
       "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_p_divides_V_exactly_when_the_local_subcase_agrees"
+    },
+    {
+      "id": "plucker-constant-was-right-derivation-was-not",
+      "status": "refuted",
+      "statement": "Note O recorded 'the triple question has a proved unconditional constraint M/sqrt(D) >= 11.484, which is the parallel session's Plucker-parity argument'. The DERIVATION does not give that value and the constraint is not unconditional. With the exact |V| < (M/2 sqrt D)(R - 1/R), R = X_k/X_i, the stated argument (|V_ik| >= 4, R < sqrt2) gives 8 sqrt2 = 11.3137; and R < sqrt2 is only the asymptotic window condition, the exact one being R^2 < 2 + 1/X_i^2, which at X_i = 1 gives just 6.93.",
+      "superseded_by": "theorem-O4-composition-bound",
+      "experiment": "experiments/exp19_composition_bound.py",
+      "depends_on": [],
+      "tags": [
+        "note_o",
+        "window"
+      ],
+      "notes": "Kept so it cannot be silently re-asserted. THE VALUE 11.484 IS CORRECT -- Theorem O.4 proves it by composition, where 2^(1/4) enters from the composite tau_1^2 < sqrt2 rather than from |V| >= 4 -- and the two expressions are algebraically identical: 4/(2^(1/4) - 2^(-1/4)) = 4(2^(1/4) + 2^(3/4)) = 11.48400. So this is a right answer with a wrong route attached, which is harder to catch than a wrong answer and was found only by deriving the same constant independently and asking why they agreed."
     }
   ]
 }
