@@ -1465,7 +1465,14 @@ established, and the distinction is invisible without the derivation.
 > "both give no main term, so the conclusion is unchanged". That step is
 > untouched; O.12 removes the quantitative discrepancy and the finite floor, not
 > the reasoning. And it says nothing about O.2, which is the free-cofactor
-> question — a pair like (1, 41) with moduli 730 and 1370 is a genuine G′ = 2 and
+> question. The cleanest witness is **cofactors (2, 82) sharing moduli 365 and
+> 685** — ratio 1.877, one window — since 2·365 = 27²+1, 82·365 = 173²+1,
+> 2·685 = 37²+1, 82·685 = 237²+1. **No unit anywhere**, and its cofactor ratio of
+> 41 sits far above O.12's 4.7913, so it is *consistent with* the theorem. *(The
+> same 4-cycle is usually written (1, 41) with moduli 730 and 1370, which a reader
+> can dismiss in a line since no Type II hypothesis admits the unit cofactor;
+> unit-allowed and unit-excluded maxima are both 2 at X = 2000 and 4000, so the
+> unit was never doing the work.)* It is a genuine G′ = 2 and
 > is simply not a Type II configuration.
 
 **What was M even and M non-squarefree** is now covered; the sign argument's

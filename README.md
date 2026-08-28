@@ -390,7 +390,9 @@ measured over Z is G′ ≤ 2"*. O.12 closes that second half — over Z, on the
 configuration (II) quantifies over, **G′ ≤ 1 is proved for all X**, matching the
 Z[i] bound exactly. It does **not** close the bridge's remaining inference
 ("both give no main term, so the conclusion is unchanged"), and it says nothing
-about O.2: (1,41) shares 730 and 1370 with 41/1 far outside any band.
+about O.2 — whose cleanest witness is **unit-free**: cofactors (2, 82) share
+moduli 365 and 685 (ratio 1.877), since 2·365 = 27²+1, 82·365 = 173²+1,
+2·685 = 37²+1, 82·685 = 237²+1, with cofactor ratio 41 far outside any band.
 
 **And it makes Ford–Maynard's footnote-2 counting function a 0/1 indicator over
 Z.** That footnote asks for #{n : nm₁, nm₂ ∈ J} with **"an error term better than

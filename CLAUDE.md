@@ -281,7 +281,12 @@ two, while 127 free pairs share two. **This closes the second half of
 `gaussian-to-rational-bridge`'s stated gap** — "what is measured over Z is
 G′ ≤ 2" becomes a proved G′ ≤ 1, matching Z[i] exactly. It does **not** close the
 bridge's inference ("both give no main term, so the conclusion is unchanged"),
-and says **nothing** about O.2: (1,41) shares 730 and 1370, a genuine G′ = 2,
+and says **nothing** about O.2. The cleanest witness is **unit-free**: cofactors
+**(2, 82)** share moduli **365 and 685** (ratio 1.877, one window), since
+2·365 = 27²+1, 82·365 = 173²+1, 2·685 = 37²+1, 82·685 = 237²+1 — cofactor ratio
+41, far above O.12's 4.7913, so consistent with it. *(Usually written (1,41) with
+730 and 1370, which a reader dismisses in a line because the unit cofactor is
+inadmissible; the maxima are 2 with or without the unit.)* A genuine G′ = 2,
 with 41/1 far outside any band.
 
 **And O.12 makes Ford–Maynard's footnote-2 counting function a 0/1 indicator over
