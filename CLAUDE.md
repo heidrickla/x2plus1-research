@@ -416,9 +416,11 @@ falls with X** (97.7% → 88.1%) while nothing realises the excess. **The bounds
 permit far more than occurs, at every level** — which is a statement about the
 *method*: every bound here (O.4's τ_min⁴ < 2 + 1/X₁², O.9's 3ab < M^{4/3},
 O.11's constant, O.12's (5+√21)/2) is a **size** argument, and size arguments
-cannot see the arithmetic that actually forbids the configurations. The one exact
-agreement is the D axis, where every observed failure lies outside the proved
-reach and nothing inside it has ever failed. **So the summary is not "these
+cannot see the arithmetic that actually forbids the configurations. **The D axis is where the gap is
+NARROWEST, not where it is absent** — every observed failure lies outside the
+proved reach and nothing inside it has ever failed, but that is *soundness*, not
+tightness: the reach ends at D ≤ 4.899 and the smallest failure is D = 11, so
+D = 5…10 is six values permitted-and-unfallen, which is row (2) itself. **So the summary is not "these
 theorems nearly close O.2" but "the size arguments are now sharp enough to state
 and still nowhere near what is true".**
 
@@ -829,6 +831,22 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   this way before: **the question "is this gap real?" is often harder than "does
   anything stand on it?", and the second question answers the first whenever the
   answer is nothing.**
+
+- **A summary rounds a nearly-zero quantity to zero, because that is the shape
+  the sentence wants.** The three-scale gap has its narrowest instance on the D
+  axis — proved reach ends at 4.899, smallest failure at 11, so **D = 5…10 is a
+  six-value strip that is permitted to fail and has not**. Summarising, the other
+  session wrote the D axis as *"the one place proof and data agree exactly"*: two
+  true constituent facts (no failure inside the reach, every failure outside it)
+  compressed into a claim that contradicts the very table it was contrasting
+  against. **Small became none because "gaps everywhere, except here" is a better
+  sentence than "gaps everywhere, smallest here."** Not carelessness — a summary
+  is a compression, and a quantity close to a clean value is what compression
+  destroys first. *(Recorded as **one** instance. I first wrote it as three,
+  reaching for the density table and the vacuous denominator — but those were a
+  documented sieve truncation and a wrong denominator respectively, neither of
+  them rounding. Three is a better sentence than one, which is the same
+  operation.)*
 
 - **Paraphrases of a source drift toward whatever makes the local argument
   work, and only re-reading the sentence catches it.** `fm-barrier-range-is-
