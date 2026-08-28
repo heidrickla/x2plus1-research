@@ -70,14 +70,15 @@
       "id": "asp-inapplicable",
       "status": "proved",
       "statement": "The Friedlander-Iwaniec asymptotic sieve as stated cannot be applied to x^2+1: (R1) demands D > x^{2/3} while Type I caps at x^{1/2}, so the admissible range for D is empty.",
-      "proof_site": "notes/note-C-requirements.md",
+      "proof_site": "notes/note-C-requirements.md; tests/test_exponents.py::test_asp_does_not_apply_to_x2plus1_and_says_so_by_raising; tests/test_exponents.py::test_asp_does_apply_to_a2b4",
       "depends_on": [
         "type-I-level",
         "asp-R1"
       ],
       "tags": [
         "asp"
-      ]
+      ],
+      "notes": " BOOKKEEPING: this was the only `proved` claim of seventeen whose proof_site named a note but no test, which the registry's own rule forbids. The test existed all along -- test_asp_does_not_apply_to_x2plus1 asserts asp_applies('x^2+1') raises ImpossibleExponentError matching 'empty' -- it simply was not cited. The a^2+b^4 control is cited alongside it because a test that only checks the raise would pass if asp_applies raised unconditionally. (The first attempt at this citation named the test wrongly and test_named_tests_exist caught it, which is that guard doing exactly its job.)"
     },
     {
       "id": "hb-alpha-hierarchy",
