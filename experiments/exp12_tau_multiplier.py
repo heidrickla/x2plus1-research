@@ -53,6 +53,9 @@ The prediction is sharp and falsifiable: whenever tau^4 < 2 a third modulus
 WOULD fit inside the window, so every such pair is a chance to see three.
 
 Usage:  python experiments/exp12_tau_multiplier.py [X]
+
+Cost is O(X^2) in gcds: X = 1500 runs in a second, X = 4000 (the default) in
+about half a minute, and X = 8000 in ten minutes.  Start small.
 """
 
 import sys
@@ -86,7 +89,10 @@ def main(X=4000):
     big = [d for d, mi in dev if mi >= 1000]
     print(f"modulus ratio against tau^2:")
     print(f"  worst relative deviation overall      {max(d for d, _ in dev):.3f}")
-    print(f"  worst relative deviation for m >= 1000 {max(big):.2e}  ({len(big)} pairs)")
+    if big:
+        print(f"  worst relative deviation for m >= 1000 {max(big):.2e}  ({len(big)} pairs)")
+    else:
+        print(f"  no pairs with m >= 1000 at X = {X}; run X >= 1500 to see the law bite")
     print(f"  worst (relative deviation * m)         {max(d * m for d, m in dev):.1f}")
     print(f"  -> the law is asymptotic, error O(1/m), exact in the limit.\n")
 

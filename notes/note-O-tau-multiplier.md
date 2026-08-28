@@ -242,6 +242,56 @@ M/√D ≥ 4/(2^{1/4} − 2^{−1/4}) = 11.484 — against the 5.657 a mere pair
 **It contains no ideal theory**, so it does not share the failure mode of the
 composition step above.
 
+### A constructive attack, and what it found
+
+Searching is the wrong instrument once you know what a triple needs, so this is
+the aimed version. A multiplier with |V| = 2k exists exactly when
+
+> **a² + (4k²−2)ab + b² is a perfect square** — U² = M² + 4k²D.
+
+At k = 1 that is (a+b)², a **square identically**, which is why the trivial
+multiplier τ always exists. For k ≥ 2 it is a real Diophantine condition, and it
+holds for roughly 0.1% of coprime pairs. Verified 498/498 on the close pairs: the
+three with |V| ∈ {24, 66, 182} are k = 12, 33, 91 and each satisfies it.
+
+**A triple needs a second multiplier**, because V = ±2 forces U = ±(a+b)
+uniquely — there is exactly one multiplier at k = 1. So one can *construct* the
+candidates instead of sweeping for them: admissible (a,b) with b/a ≥ 134, a k ≥ 2
+multiplier, and geometry permitting r₁·r_k < 2. **There are 95**, the tightest
+being (1, 115921) at k = 22 with r₁r_k = 1.309 — comfortably inside a window.
+
+The multiplier acts explicitly. From ξ = aY + X√D,
+
+> X′ = (U_k X + 2k a Y)/M,  Y′ = (U_k Y + 2k b X)/M,
+
+integral iff M divides both. Since U₁ = a+b ≡ 2a and b ≡ a (mod M), this
+collapses to two linear congruences:
+
+> **τ₁: 2a(X+Y) ≡ 0 (mod M)   τ_k: U_k X + 2ka Y ≡ 0 (mod M)**
+
+*(Checked against known cases: (2,85) with m = 61 maps to (15,98) = m = 113, and
+(53,423125) with m = 10 maps to m = 17.)*
+
+**There is no local obstruction.** All 95 candidates admit a solution of both
+congruences together with the conic mod M. So O.2, if true, is not a congruence
+statement — that explanation is eliminated.
+
+**But the residues a conic solution can actually occupy are restricted.** The
+class automorph is X′ = tX + uaY, Y′ = tY + ubX with (t,u) the fundamental
+solution of t² − Du² = 1, and its orbit mod M is finite. Walking **44 orbits to
+cycle closure** (longest 6000 states) over the candidates with a reachable seed:
+
+> **in every orbit, the two conditions are never simultaneously satisfied.**
+
+So the obstruction is global rather than local, and it is finitely checkable per
+class: the target residue set is non-empty but the conic's orbit misses it.
+
+*Scope, precisely.* This rules out triples of the shape (ξ, τ₁ξ, τ_kξ) for the
+smallest available k, over 44 complete orbits. It does not rule out triples built
+from other multiplier combinations, and it does not cover classes whose least
+solution exceeds the search. It is not a proof of O.2 — it is the first
+mechanism found that is negative on every instance and checkable in finite time.
+
 *Caveat, stated because it is the only thing keeping this from being a flat
 refutation:* the 110 triples live in wide windows (ratio ≥ 13), not dyadic ones.
 Nothing proves the dyadic regime behaves the same way. What the data removes is
