@@ -17,6 +17,19 @@ from x2plus1.claims import (
 
 REPO = Path(__file__).resolve().parent.parent
 CLAIMS = load()
+NOTE_FILES = sorted((REPO / "notes").glob("*.md"))
+
+# ENUMERATION FLOORS.  Every check below iterates CLAIMS or NOTE_FILES, and an
+# enumerating guard can succeed at covering nothing and report PASS -- a wrong
+# path, a parse that yields [], a glob that matches no files.  A one-file check
+# cannot scan nothing; an enumerating one can.  So the enumeration needs a floor
+# that would be absurd at zero.
+#
+# Deliberately well below the true counts, so they bound the failure mode without
+# needing maintenance on every addition.  Both were verified to FIRE by setting
+# them above the true count once, before being trusted.
+assert len(CLAIMS) >= 100, f"only {len(CLAIMS)} claims loaded -- the registry did not load"
+assert len(NOTE_FILES) >= 12, f"only {len(NOTE_FILES)} notes found -- wrong path?"
 
 
 def test_registry_is_internally_consistent():
@@ -157,7 +170,7 @@ def _cited_ids():
     # on an injected refuted citation until that was found.
     pattern = re.compile(r"`([A-Za-z0-9]+(?:-[A-Za-z0-9]+)+)`")
     out = []
-    files = sorted((REPO / "notes").glob("*.md"))
+    files = NOTE_FILES
     for extra in ("CLAUDE.md", "README.md"):
         path = REPO / extra
         if path.exists():
