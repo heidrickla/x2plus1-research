@@ -1,6 +1,7 @@
 # Note D — Comparison ledger
 
-*Plan §1.3.4. Status: draft. Supported by
+*Plan §1.3.4. Status: draft; Type I lines updated against the sources in
+[Note C](note-C-requirements.md). Supported by
 [`experiments/exp03_density_ledger.py`](../experiments/exp03_density_ledger.py).*
 
 ## The two sequences in one language
@@ -67,10 +68,30 @@ handled". The ledger sharpens *thinner* into a threshold:
 matrix that is more than a matching. Q^{1/2} is not merely thinner — it is the
 critical density, and it sits on the wrong side of the threshold by exactly Q⁰.
 
-**[VERIFY]** — κ for Heath-Brown's set is computed from |A| ≍ Q^{2/3} and not
-checked against the paper; and the claim that FI's Type I gain comes from
-summing over b needs a page reference. That is the single most load-bearing
-unverified line in the ledger.
+**There is a second, stronger threshold, and it comes from the literature
+rather than from this repo.** [Note C](note-C-requirements.md) reads off from
+Friedlander–Iwaniec that the asymptotic sieve for primes requires a level of
+distribution D > Q^{2/3} (hypothesis (R1)), while for a thin sequence (R)
+cannot hold beyond A = |A|. So the sieve applies only when **|A| > Q^{2/3}**:
+
+| sequence | \|A\| | κ > 1? (Type II non-degenerate) | \|A\| > Q^{2/3}? (ASP applies) |
+|---|---|---|---|
+| a² + b⁴ | Q^{3/4} | ✅ | ✅ — D = Q^{3/4−5ε} achieved |
+| x³ + 2y³ | Q^{2/3} | ✅ | at the boundary **[VERIFY]** |
+| x² + 1 | Q^{1/2} | ❌ (κ = 1) | ❌ |
+
+The Type I threshold (2/3) is strictly stronger than the Type II one (1/2), so
+it binds first. The ledger's Type II lines are still correct and still
+localise the two-parameter freedom; they are simply not the first thing that
+goes wrong.
+
+Partly verified since. FI do achieve **D = Q^{3/4−5ε}** for a² + b⁴
+([X2Y4] Prop. 3.5, p. 962), which they call "apart from the ε, the best that
+one can hope for" — confirming both that the ledger's "Type I actually achieved"
+line is real and that the D ≤ |A| ceiling is attained. **[VERIFY]** still: the
+*mechanism* (that the gain comes from summing over b) is inferred from the
+shape of the problem, not read from §3; and κ for Heath-Brown's set is computed
+from |A| ≍ Q^{2/3} rather than checked against the paper.
 
 ## Adversarial review
 

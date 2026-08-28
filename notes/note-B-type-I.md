@@ -72,10 +72,12 @@ because getting this backwards is the easiest available mistake.
 ## Checkpoint status
 
 Note B's deliverable is complete: the level is D = Q^{1/2−ε}, the reason is the
-one-residue-class structure of Note A, and it is sharp. What Note C now has to
-supply is whether the asymptotic sieve can run on a Type I level of only
-Q^{1/2}. **[VERIFY]** — this is the blocking question for Step 1, and it is
-answerable only by quoting FI's hypotheses.
+one-residue-class structure of Note A, and it is sharp. [Note C](note-C-requirements.md) has since answered
+the follow-up question: **no.** Friedlander–Iwaniec's hypothesis (R1) requires
+D > x^{2/3} (ASP p. 1043), so the level established here is not merely a
+limitation of this argument — it is below the asymptotic sieve's own floor, and
+the sieve cannot be applied to x² + 1 at all. The bound proved in this note is
+therefore the binding constraint on the whole programme.
 
 ## Adversarial review
 

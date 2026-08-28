@@ -53,15 +53,39 @@ M·√(X/M) = √(MX).
 
 ## What this says about plausibility
 
-The sieve needs the left side to be ≪ X(log X)^{−A}. Since √(MX) = o(X) exactly
-when M = o(X), the pilot says the Type II hypothesis is **numerically plausible
-for every M ≤ X^{1−δ}, and false for M ≫ X** — the same N^{1/2} wall as Type I
-([Note B](note-B-type-I.md)). Both constraints land on the same line, which is
-the coincidence Note C has to weigh.
+**Corrected after [Note C](note-C-requirements.md).** The earlier reading of
+this table — "cancellation for every M ≤ X^{1−δ}, so the obstruction looks
+technical rather than structural" — was measuring the wrong window.
 
-So, in the plan's own terms: **the obstruction looks technical, not
-structural.** The truth appears to have the required size; what is missing is a
-method that can reach it, and Note F shows dispersion is not that method.
+[ASP] hypothesis (B1) requires the bilinear estimate for N ∈ (Δ^{−1}√D,
+δ^{−1}√x). Even taking the largest D this sequence could conceivably support,
+D = x^{1/2}, that is N ∈ (x^{1/4}, x^{1/2}), i.e. **M = x/N ∈ (X, X^{3/2})** in
+the variables of this note. Reading the table in that window:
+
+| M range | S_μ | A(x) = X | S_μ / A(x) |
+|---:|---:|---:|---:|
+| [10⁴, 10⁵) | 18 519 | 20 000 | 0.93 |
+| [10⁵, 10⁶) | 20 058 | 20 000 | 1.00 |
+| [10⁶, 10⁷) | 20 273 | 20 000 | 1.01 |
+
+**No saving at all, where (B) demands a factor (log x)^{−222}.** The √(MX)
+cancellation is real but lives at M < X, *outside* the range the sieve needs.
+Cancellation exists exactly where it is not required and vanishes exactly where
+it is.
+
+The mechanism is the one in [Note F](note-F-failure-localisation.md): for
+M > X = A(x) the mean row degree D_m ≍ X/M drops below 1, so almost every m
+divides just one element of A and the inner sum is a single term with nothing
+to cancel against. (B1) forces M ≥ √x while cancellation forces M ≤ A(x), and
+both hold at once iff A(x) > √x — that is, iff κ > 1. For x² + 1, κ = 1 and the
+two windows share only the endpoint.
+
+So the honest reading is the opposite of the earlier one: **at the density
+x^{1/2} the Type II hypothesis fails numerically in precisely the range the
+sieve requires**, and it fails for a structural reason. This is moot for [ASP]
+in any case, since [Note C](note-C-requirements.md) shows hypothesis (R1) is
+already unsatisfiable — but it matters for any future sieve that might relax
+(R1), because it says relaxing (R1) alone would not be enough.
 
 ## Caveats — read before quoting any of this
 
