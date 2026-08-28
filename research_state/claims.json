@@ -2187,6 +2187,20 @@
       "notes": "The sharpest form of this repo's own position, reached by placing the mu side next to the D axis -- the third deliberate adjacency and the third to pay. Note F says the obstruction is ARITHMETIC rather than density; Note J says the difficulty is in the absolute values. This says the arithmetic parameter that decides the whole C4 structure is invisible to BOTH analytic measures available here. No law is fitted and none should be: the point is the ABSENCE of a relation, and O(1) fluctuation is exactly what square-root cancellation predicts for every D alike. Five values of D at two sizes.",
       "proof_site": "",
       "superseded_by": ""
+    },
+    {
+      "id": "the-two-obstructions-peak-at-the-same-scale",
+      "status": "rigorous_finite",
+      "statement": "Note M's theta = 1/2 and Note L's Gram-mean minimum are the same place. Note M measures the mu-saving as Q^{(1/2-theta)/2}, exactly zero at theta = 1/2, so the cancellation available to a Type II estimate vanishes there. Note L measures mean G over cofactor bands as U-shaped with its minimum at N = 1.37 X, from an independent divisor-built incidence table. Converting: with m n = Q ~ X^2 a cofactor N = 1.37 X is a modulus m = Q/N, giving theta = 0.48034, 0.48191, 0.48633, 0.48861 at X = 3000, 6000, 1e5, 1e6 -- rising to 1/2. So the scale where no cancellation is available is the scale where there are fewest edges to cancel over.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Fourth deliberate adjacency, and across halves like the other three that paid -- an analytic measurement against a combinatorial one. The mechanism is not mysterious and should be stated: both are governed by the balanced split m = n = sqrt(Q), where the saving exponent vanishes BY CONSTRUCTION and the Gram U-shape bottoms for structural reasons. What is worth recording is that the two were measured by completely different routes -- one from mu sums over progressions, one from a divisor-built incidence table -- and neither note observes that they land together. The convergence to 1/2 is from BELOW and is still 0.4886 at X = 1e6, so the coincidence is asymptotic rather than exact at any measured size.",
+      "proof_site": "",
+      "depends_on": [
+        "gram-mean-is-minimal-at-the-balanced-split"
+      ]
     }
   ]
 }

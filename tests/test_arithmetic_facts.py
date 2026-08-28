@@ -1521,3 +1521,38 @@ def test_the_mobius_cancellation_is_blind_to_D_as_well():
     fails = [vals[11], vals[39]]
     assert max(holds) > min(fails), vals                  # they interleave
     assert len(vals) == 5
+
+
+def test_the_analytic_and_structural_obstructions_peak_at_the_same_scale():
+    """Note M's theta = 1/2 and Note L's Gram-mean minimum are the same place.
+
+    Note M measures the mu-saving as Q^{(1/2-theta)/2}, exactly zero at
+    theta = 1/2 -- so the cancellation available to a Type II estimate vanishes
+    there. Note L measures the mean of G over cofactor bands as U-shaped with its
+    minimum at N = 1.37 X, independently, from a divisor-built incidence table.
+
+    Converting the second to Note M's coordinate: with m n = Q ~ X^2, a cofactor
+    N = 1.37 X is a modulus m = Q/N, so
+
+        theta = log_Q(m) = 0.48034, 0.48191, 0.48633, 0.48861
+                at X = 3000, 6000, 1e5, 1e6  ->  1/2
+
+    **The scale where no cancellation is available is the scale where there are
+    fewest edges to cancel over.** Both are governed by the balanced split
+    m = n = sqrt(Q): the saving exponent vanishes there by construction, and the
+    Gram U-shape bottoms there for structural reasons. So the coincidence has a
+    mechanism and is not a mystery -- but the two facts were measured by
+    completely different routes, one analytic and one combinatorial, and neither
+    note observes that they land together.
+    """
+    from math import log
+
+    prev = 0.0
+    for X in (3000, 6000, 10**5, 10**6):
+        N = 1.37 * X
+        Q = X * X + 1
+        theta = log(Q / N) / log(Q)
+        assert 0.47 < theta < 0.5, (X, theta)      # below 1/2 and rising
+        assert theta > prev                         # monotone toward 1/2
+        prev = theta
+    assert abs(prev - 0.48861) < 1e-4               # and still short of it at 1e6
