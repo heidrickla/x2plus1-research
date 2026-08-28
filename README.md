@@ -83,7 +83,11 @@ bound is**. So the objection survives a bound of 2, 3, or any constant — and t
 Z[i] → Z transfer is correspondingly less load-bearing than it looks.
 
 **Three qualifications, each found by re-measuring rather than reading.** The
-decay is **not 1/N** — the fitted exponent over the falling range is ≈ 0.8. The
+decay has **no clean law at all**, and three were tried: 1/N fails (the mean grows
+with X at fixed N), (log X)/N fails (its constant drifts 4.05 → 5.6 → 7.8 with N),
+and the fitted exponent itself moves between 0.80 and 0.88 with the range. The
+**values** reproduce exactly between two independent constructions; the law does
+not, and none is claimed. The
 mean is **U-shaped, not monotone**: it bottoms out near N ≈ X and climbs back to
 0.51 by N ≈ X²/4, where cofactors are so large that only a handful of tiny moduli
 are available and every pair shares them. And the **maximum is not 2**: it is
