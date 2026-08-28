@@ -122,9 +122,26 @@ statement that DFI's parity-breaking input does not exist here.
 > is therefore a transfer, recorded as `gaussian-to-rational-bridge` and marked
 > **`inferred`**, not a direct citation.
 >
-> **The conclusion survives the transfer** — a Gram bounded by 2 is still
-> bounded, so an arbitrary-coefficient form still admits no cancellation beyond
-> the trivial, and nothing downstream of this paragraph changes. But the
+> **The conclusion survives the transfer, and by a wider margin than "bounded by
+> 2" suggests.** Measured at X = 3000, the *mean* of G over pairs in a dyadic band
+> [N, 2N) falls like 1/N — 2.000, 0.667, 0.254, 0.0865, 0.0243 at
+> N = 8, 32, 128, 512, 2048 — while the **maximum stays at 2**. So for large N the
+> expected Gram entry is far below 1 while G is an integer taking only the values
+> 0, 1, 2: at N ≈ 2048 the mean is 0.024 against a granularity of 1, so
+> **what dispersion would call the error is forty times what it would call the
+> main term.**
+>
+> That is a stronger objection than C₄-freeness and a differently-shaped one.
+> C₄-freeness says the count is *small*; this says there is **nothing for the
+> argument to be about** — a bounded integer-valued count with mean o(1) admits no
+> decomposition into a main term plus a smaller error, whatever the bound is. So
+> the objection **does not depend on the constant being 1 or 2**, and the
+> Z[i] → Z transfer is correspondingly less load-bearing than the paragraph above
+> implies: it survives a bound of 2, 3, or any constant. *(The 1/N shape is the
+> content; the constant is not claimed — a naive independence heuristic
+> ρ(n₁)ρ(n₂)/N is off by a stable 5–6×, since it uses the mean of ρ rather than
+> the mean of the product and ignores the correlation between pairs sharing a
+> modulus.)* But the
 > sentence above states a Z[i] lemma about a Z object without saying so, which is
 > the same elision Note L had to correct in Note F, and it should not be read as
 > though the ring were the same on both sides.
