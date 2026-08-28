@@ -520,13 +520,13 @@
     {
       "id": "fm-table1-every-entry-has-positive-nu",
       "status": "quoted",
-      "statement": "Ford-Maynard's Table 1, caption 'Examples from the literature (epsilons omitted)', lists eight successful (gamma, theta, nu). Every one has nu > 0. The smallest is Merikoski Thm 1 at (3/4, 1/4, 1/12); Friedlander-Iwaniec are at (3/4, 1/4, 1/2) and Duke-Friedlander-Iwaniec at (1/2, 0, 1/3). So gamma = 1/2 is not fatal in itself -- with nu = 1/3 and divisor-bounded weights it works, and FM p.6 says so: 'This was exploited in Duke-Friedlander-Iwaniec [7] in the case theta = 0, nu = 1/3'.",
+      "statement": "Ford-Maynard's Table 1, caption 'Examples from the literature (epsilons omitted)', lists eight successful (gamma, theta, nu). Every one has nu > 0. The smallest nu is JIA at (19/28, 9/28, 1/28); then Merikoski Thm 2 at (5/6, 1/6, 1/18), Maynard at (16/25, 9/25, 1/16), and Merikoski Thm 1 at (3/4, 1/4, 1/12) fourth. CORRECTED: this claim previously said Merikoski Thm 1 was the smallest, which is false -- three entries are smaller. Read off the table at source (p.3): Friedlander-Iwaniec (3/4,1/4,1/2), Heath-Brown (2/3,1/3,1/3), Jia (19/28,9/28,1/28), Maynard (16/25,9/25,1/16), Merikoski Thm 1 (3/4,1/4,1/12), Merikoski Thm 2 (5/6,1/6,1/18), Duke-Friedlander-Iwaniec (1/2,0,1/3), Sarnak-Ubis (1/2,0,1/5). Friedlander-Iwaniec are at (3/4, 1/4, 1/2) and Duke-Friedlander-Iwaniec at (1/2, 0, 1/3). So gamma = 1/2 is not fatal in itself -- with nu = 1/3 and divisor-bounded weights it works, and FM p.6 says so: 'This was exploited in Duke-Friedlander-Iwaniec [7] in the case theta = 0, nu = 1/3'.",
       "citation": "Ford-Maynard, On the theory of prime producing sieves, arXiv:2407.14368v1, Table 1 p.3 and p.6",
       "tags": [
         "type_ii",
         "ledger"
       ],
-      "notes": "nu = 1/12 suffices for a lower bound via Harman's sieve, so the bar is not a wide arbitrary-coefficient Type II range; it is nu > 0. Note F gives nu = 0 here."
+      "notes": "nu = 1/12 suffices for a lower bound via Harman's sieve, so the bar is not a wide arbitrary-coefficient Type II range; it is nu > 0. Note F gives nu = 0 here. The 'smallest' figure was wrong for as long as this claim has existed and nothing depended on it: the argument needs only that every entry has nu > 0 while this sequence has nu = 0, which is unaffected. Caught by an audit agent reading Table 1 rather than the claim about it."
     },
     {
       "id": "fm-no-admissible-theta-at-density-half",

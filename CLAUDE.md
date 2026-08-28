@@ -163,5 +163,5 @@ Evidence for each: `notes/note-P-method.md`.
 - Bulk work goes through the progression sieve in `factorization.py`, not per-value
   `factorint`. Divisibility in this sequence *is* a congruence.
 - New numerically-checkable claims get a test in `tests/test_arithmetic_facts.py`.
-- No scipy. `typeII.Sparse` is a 40-line CSR; keep the dependencies at sympy + numpy.
+- No scipy. `typeII.Sparse` is a hand-rolled CSR; keep the dependencies at sympy + numpy.
 - Write the convention where the symbol is defined.

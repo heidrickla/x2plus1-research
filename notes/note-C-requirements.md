@@ -721,7 +721,10 @@ footnote *evaluation* that was wrong, not the placement.
 
 **What the table shows.** [FM] Table 1, p. 3, caption *"Examples from the
 literature (epsilons omitted)"* — eight entries, and **every one has ν > 0**.
-The smallest is Merikoski's Theorem 1 at (γ, θ, ν) = (3/4, 1/4, **1/12**), a
+The smallest ν is **Jia's 1/28** at (19/28, 9/28, 1/28); Merikoski's Theorem 1 at
+(γ, θ, ν) = (3/4, 1/4, **1/12**) is fourth, behind Merikoski Thm 2 (1/18) and
+Maynard (1/16). *(This line said 1/12 was the smallest; it is not, and nothing
+here depended on it — the argument needs only ν > 0 throughout the table.)* It is a
 lower bound via Harman's sieve. Duke–Friedlander–Iwaniec sit at (1/2, 0, 1/3):
 **γ = 1/2 is not fatal in itself** — with ν = 1/3 and divisor-bounded weights it
 works, and [FM] p. 6 says so in as many words.
