@@ -305,3 +305,43 @@ def test_squarefree_density_of_x2plus1_is_flat():
     d1, d2 = density(20_000), density(200_000)
     assert abs(d1 - 0.8952) < 2e-3, d1
     assert abs(d2 - d1) < 1e-3, (d1, d2)
+
+
+def test_a_modulus_root_pair_is_a_primitive_gaussian_ideal():
+    """#roots of -1 mod m = #ideals of norm m coprime to their conjugate.
+
+    This is what makes the two groupings of S_mu the Z and Z[i] versions of one
+    sum: an absolute value per (m, root) is one per primitive Gaussian ideal,
+    while an absolute value per rational m merges them. ASP's (B) asks for the
+    second, so the sieve-relevant exponent is the per-modulus one.
+
+    Primitivity carries the content -- (5) has norm 25 but 5 never divides
+    x^2+1, while p^2 and pbar^2 give the two roots mod 25. Both counts are
+    2^{#odd primes}: CRT and Hensel on the root side, a choice of p^e or pbar^e
+    at each odd prime on the ideal side.
+    """
+    from sympy import factorint
+    from x2plus1.factorization import roots_of_minus_one
+
+    def primitive_ideals(m):
+        n = 1
+        for p, e in factorint(m).items():
+            if p == 2:
+                if e > 1:
+                    return 0
+            elif p % 4 == 1:
+                n *= 2
+            else:
+                return 0
+        return n
+
+    checked = 0
+    for m in range(2, 3000):
+        if m % 4 == 0:
+            continue
+        roots = roots_of_minus_one(m)
+        if not roots:
+            continue
+        assert len(roots) == primitive_ideals(m), m
+        checked += 1
+    assert checked > 400, f"only {checked} moduli checked"

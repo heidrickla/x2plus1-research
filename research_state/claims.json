@@ -1107,6 +1107,27 @@
         "type_ii"
       ],
       "notes": "Corrects an overstatement made the same day, that exp02's S_mu and exp05's per-progression sums are the same sum. The mu((x^2+1)/m) = mu(m) mu(x^2+1) reduction is right and stands; the identification of the result with exp05's quantity is not. Consequence for Note M is favourable and worth stating in that direction: S_mu ~ sqrt(MX)/sqrt(mean roots per modulus) is slightly BELOW sqrt(MX), i.e. slightly more cancellation than the law claims, so the saving X/S_mu is if anything larger than Note M quotes. The measurement also reaches X = 1e6, an order of magnitude past exp02's Gaussian-incidence route, which is what the mu(x^2+1) reduction buys. Cross-checked at a second X: exp15 at X = 60000 gives per-progression 0.4998 and per-modulus 0.4626, against 0.5046 and 0.4803 at X = 1e6. The per-progression exponent is 1/2 to within 0.005 at both, and the per-modulus deficit is present at both while its size moves with the mean root count, as the mechanism predicts."
+    },
+    {
+      "id": "modulus-root-pair-is-a-primitive-gaussian-ideal",
+      "status": "rigorous_finite",
+      "statement": "The number of roots of -1 mod m equals the number of Gaussian ideals of norm m coprime to their conjugate, for every admissible m -- checked over all 3145 admissible m < 20000, zero mismatches. Hence an absolute value per (m, root) progression is one per primitive Gaussian ideal (the Z[i] grouping), while an absolute value per rational m merges them (the Z grouping).",
+      "experiment": "tests/test_arithmetic_facts.py::test_a_modulus_root_pair_is_a_primitive_gaussian_ideal",
+      "tags": [
+        "type_ii",
+        "dictionary"
+      ],
+      "notes": "Primitivity is the whole content: (5) has norm 25 but 5 never divides x^2+1, while p^2 and pbar^2 give the two roots mod 25. A first version counted ALL ideals of norm m and disagreed on 54 of 687 moduli -- correctly. Both counts are 2^{#odd primes}, by CRT and Hensel on the root side and by choosing p^e or pbar^e at each odd prime on the ideal side; recorded as rigorous_finite rather than proved because that argument is not written out. CONSEQUENCE: ASP's (B), quoted in Note C from p. 1043 as sum_m |sum_n gamma(n) mu(mn) a_mn| with m rational, asks for the PER-MODULUS grouping. So the sieve-relevant M-exponent is 0.480, not the per-progression 0.505."
+    },
+    {
+      "id": "row-merging-pays-the-mu-sum-and-costs-the-gram-bound",
+      "status": "rigorous_finite",
+      "statement": "Several primitive Gaussian ideals share one rational modulus. In the incidence graph that merging creates 4-cycles, so the rational Gram entry is 2 where the Gaussian one is 1 (rational-graph-not-c4-free). In the mu-sum the same merging puts several ideal sums inside one absolute value, where they cancel at the square-root rate: S_prog/S_mod tracks sqrt(#prog/#mod) to within 2% over ten doublings of M. One mechanism, opposite signs -- it costs the Gram bound and it pays the Type II sum.",
+      "experiment": "experiments/exp15_m_exponent.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Quantitatively: the primitive-ideal count per admissible modulus grows like sqrt(log M), so S_mu(M) = S_prog/sqrt(mean roots) ~ sqrt(MX)/(log M)^{1/4}. Measured at X = 1e6, S_mu*(log M)^{1/4}/sqrt(MX) drifts by x1.052 across ten doublings against x0.873 for the plain sqrt(MX) -- the log factor accounts for essentially all the residual. The parallel session reaches the identical form from Cauchy-Schwarz with #{m ~ M} ~ M/sqrt(log M) by Landau-Ramanujan, i.e. S_mu << sqrt(MX/sqrt(log M)). Two independent routes, same exponent."
     }
   ]
 }
