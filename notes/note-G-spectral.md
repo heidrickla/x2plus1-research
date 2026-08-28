@@ -139,6 +139,23 @@ statement that DFI's parity-breaking input does not exist here.
 > (B1) forces M ≥ √x = X and hence the cofactor n ≤ X, which is exactly the range
 > where the mean is small and falling.
 >
+> **And the U-shape's minimum is not incidental — it sits at the balanced
+> split.** The bilinear form's balanced split is n = m = √(x²+1) = X, and the
+> argmin of the mean lands at the *same* multiple of X at every X tested:
+>
+> | X | argmin N | argmin/X | minimum mean G |
+> |---:|---:|---:|---:|
+> | 3 000 | 4 096 | 1.37 | 0.01319 |
+> | 6 000 | 8 192 | 1.37 | 0.00827 |
+> | 12 000 | 16 384 | 1.37 | 0.00503 |
+>
+> *(Bands are dyadic, so the resolution on argmin is a factor 2; what is measured
+> is that it stays in the same band relative to X across a factor 4 in X.)* **So
+> the Gram mean is smallest exactly where the Type II sum lives** — the
+> obstruction is strongest where the sieve needs it, not merely present. And the
+> minimum itself falls with X, so the obstruction strengthens as the problem
+> grows.
+>
 > That is a stronger objection than C₄-freeness and a differently-shaped one.
 > C₄-freeness says the count is *small*; this says there is **nothing for the
 > argument to be about** — a bounded integer-valued count with mean o(1) admits no
