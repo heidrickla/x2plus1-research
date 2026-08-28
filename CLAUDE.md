@@ -722,7 +722,17 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   guard, and **the path here is the shell**: put the comparison and the commit in
   one process, or chain them with `&&` so a non-zero exit actually stops it. A
   check whose failure the next command ignores is worse than none, because it
-  produces the feeling of having checked. Verified from `git show`, not from the report — the other
+  produces the feeling of having checked.
+  **And the `&&` is not enough if the check is piped.** `python -m pytest -q |
+  tail -1 && git commit` **always commits**: a pipeline's exit status is the last
+  command's, and `tail` always succeeds. That pattern ran here for most of a
+  session beside an unpiped `tools/check_claims_diff.py … && git commit` that
+  gated correctly — so the claims gate worked, the test gate never did, and one
+  commit went out red. Both sessions hit this independently in mirrored forms: a
+  check whose correct output reached a reader who overrode it, and a check whose
+  output could not reach the gate at all. **Use `set -o pipefail`, or do not pipe
+  the checker**, and verify the gate against a deliberate failure —
+  `false | tail -1 && echo ran` prints `ran`, which is the whole bug in one line. Verified from `git show`, not from the report — the other
   session flagged it, and the flag was right, but a collision report is a claim
   like any other.
   **And one edit per block**: a script with two `replace` calls
