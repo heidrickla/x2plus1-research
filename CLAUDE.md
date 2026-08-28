@@ -879,37 +879,45 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     a claim was stated and then independently computed. **State the claim id and
     let the reader check the artefact**, and remember that *a claim existing only
     in a message has been checked by nothing.*
-- **A guard can check a strictly weaker proposition than the one it is named
-  for, and neither of the other two countermeasures reaches it.** `exp09` sweeps
-  `M = 2; while M <= cap: …; M *= 2` — windows **anchored at powers of two** —
-  while `rational-gram-bounded-on-windows` says *"every dyadic window [M,2M)"*.
-  [8,16) and [16,32) between them **miss (9,17)**, which is precisely how the
-  other session's line-family sweep reported the property *holding* at c = 6 on
-  the very witness that refutes it. Injected-violation testing does not catch
-  this (the sweep can fail, and does), nor do enumeration floors (it covers a
-  large population). It reports on a real property — just not the one in the
-  claim. Re-measured by ratio: the conclusion survives at X = 2000 and 4000, so
-  only the evidence was narrower than the wording.
-  **The countermeasure is a wording check, not a code check: for each claim, does
-  the experiment quantify over the same set the statement does?** "Every dyadic
-  window" versus "every power-of-two window" is a difference visible in the
-  sentence and invisible in the output — the same instrument as the source-
-  paraphrase check, turned inward, where the drift is between claim and code
-  rather than between paper and claim. What actually caught it was **two
-  computations disagreeing**, which is the redundancy argument in its most direct
-  form: not a second reading, a second *computation* whose disagreement was
-  itself the signal.
-  **It turned out to be systematic, and it cost nothing.** Found in three places
-  — `exp09`'s degree ladder, the extremal-ratio measurement, and `exp20`'s mean-G
-  decay, which is the number the whole "no main term" argument is built from —
-  and **every conclusion survived**. At exp20 the faithful reading is *lower* at
-  every scale (1.7500, 0.6562, 0.2429, 0.0799, 0.0213 against 2.0000, 0.6667,
-  0.2536, 0.0865, 0.0243) over roughly three times the population, so fixing it
-  **strengthened** the result. A defect that improves the conclusion when
-  corrected is the only one of the night that cost nothing — and three
-  independent sweeps carrying it while none of the conclusions depended on it is
-  itself evidence that the conclusions were not resting on the sweep's shape.
+- **How a check fails, and every way found here was silent.** A guard that
+  reports nothing is the default failure; not one of the six below produced a
+  false alarm on its own defect.
 
+  - ***It cannot fail.*** The baseline: **a guard is not verified until it has
+    failed on an injected violation.** A note-citation regex here skipped 26 of
+    103 ids — including the refuted claim it was being tested with — and passed.
+  - ***It checks a weaker proposition than its name.*** `exp09` sweeps windows
+    **anchored at powers of two** while its claim says *every* dyadic window;
+    [8,16) and [16,32) between them miss (9,17), which is how a line-family sweep
+    reported the property *holding* at c = 6 on the witness that refutes it.
+    Neither injected violation nor an enumeration floor reaches this — the sweep
+    can fail, and covers a large population. **The countermeasure is a wording
+    check: does the experiment quantify over the same set the statement does?**
+    Found in three sweeps, and **every conclusion survived** — at `exp20` the
+    faithful reading is *lower* at every scale (1.7500, 0.6562, 0.2429, 0.0799,
+    0.0213 against 2.0000, 0.6667, 0.2536, 0.0865, 0.0243) over three times the
+    population, so fixing it **strengthened** the result.
+  - ***It skips.*** `tools/smoke_experiments.py` printed `SKIP -- no size
+    recorded`, counted it, and **returned success**, so `exp25` was not run at all
+    while the run reported fine. **Any check with a "not applicable" branch has a
+    silent-success path by construction.**
+  - ***Its pattern is too permissive.*** `re.search("M*D", …)` means *zero-or-more
+    M then D* and matches every `D` in the file; a floor detector could not see
+    `assert len(x) > N`, the idiomatic form of the thing it hunted. **A pattern
+    too permissive matches more and reports less**, so its failures fall on the
+    silent side — which is why all four audit-hunting-its-own-defect instances
+    gave a clean bill and none gave an alarm. **A false alarm is self-limiting**
+    (investigating costs you and you stop); **a false clean bill is
+    self-reinforcing** — it retires the question and the next reader inherits
+    "already checked". *(Too **specific** fails the other way and is the safe
+    direction: a detector keyed to one phrasing produced 11-of-34 and 27-of-28
+    alarms, all investigated, all wrong.)*
+  - ***It compares floats at an exact boundary.*** Whether a band's u < 2 attains
+    (u−1)/√u = 1/√2 decides which D are covered. It does not — u < 2 is
+    **strict** — so D = 8, where the threshold is exactly 1/√2, is the last
+    *covered* value. But `u0(8)` evaluates to **1.9999999998**, so a bare `< 2`
+    check calls it uncovered: printed number right, comparison right, answer off
+    by one value. **At a boundary reason from the identity, not the float.**
 - **Duplicated computation is the only safeguard here that works while nobody is
   paying attention.** Every other countermeasure in this file requires someone to
   remember to apply it, and the record shows all of them being written down and
@@ -1002,47 +1010,6 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   nowhere. **Place results that were recorded by different arguments, not results
   that are about the same object.**
 
-- **A float landing on a strict/non-strict boundary is invisible to the eye and
-  to the test.** The asymptotic D-reach turns on whether a band's u < 2 attains
-  (u−1)/√u = 1/√2. It does not — u < 2 is **strict** — so D = 8, where the
-  threshold is exactly 1/√2, is the last **covered** value. But `u0(8)` evaluates
-  to **1.9999999998**, so a bare `< 2` check reports D = 8 as *uncovered*, and
-  the printed number looks right, the comparison looks right, and the answer is
-  off by one value. **At a boundary, reason from the identity** — (2−1)/√2 = 1/√2
-  exactly — **not from the float.**
-
-- **A false alarm is self-limiting; a false clean bill is self-reinforcing.**
-  Investigating an alarm costs you and you stop; a clean bill *retires the
-  question*, and the next reader inherits "already checked". All four
-  audit-hunting-its-own-defect instances here produced a **clean bill** and none
-  produced an alarm — which is not chance: `M*D` as a regex means *zero-or-more M
-  then D*, and a floor pattern that cannot see `assert len(x) > N` misses the
-  common form. **A pattern too permissive matches more and reports less**, so
-  every failure of a checker written this way falls on the silent side. Assume a
-  clean audit is broken until it has failed on an injected violation.
-
-- **And the same defect produces a false ALARM when the pattern is too specific
-  — which is how it lands as an accusation against the other session.** Checking
-  whether my own CLAUDE.md edit had survived, I grepped the sentence I had
-  written. It returned **0 in the working tree and 0 in HEAD**, and the peer had
-  just committed that file — so the reading was *their write clobbered mine*.
-  It had not: the phrase is **hard-wrapped**, "algebraically" ends line 946 and
-  "equivalent expression" begins 947, and the text was there all along, already
-  committed. `1.9999999999999996` — a fragment that cannot wrap — finds it at
-  once. **Every note and CLAUDE.md here is wrapped at ~79 columns, so any
-  verification grep of more than about forty characters of prose is at risk**,
-  and the failure is silent in the direction that matters: it says *absent* when
-  the truth is *present*. **Verify landed text with a token that cannot wrap — a
-  number, an identifier, a symbol — never a sentence.**
-  The pair is the whole rule: *too permissive ⇒ false clean bill, self-
-  reinforcing; too specific ⇒ false alarm, self-limiting*, one defect with two
-  signs. The asymmetry above held exactly — the alarm cost two tool calls and
-  stopped. But note where a false alarm is **not** cheap: on a shared file it
-  reads as the other session having destroyed your work, and this is the
-  **second** time an instrument here came one step from that accusation (the
-  over-reporting claims-diff grep was the first). Against a peer, self-limiting
-  is not the same as harmless.
-
 - **An invariant stated once and used implicitly everywhere gets substituted
   wrongly by everyone.** Both sessions made the *same* M·D error within an hour,
   each after reading the section that states it: the invariant for x²+D is
@@ -1056,17 +1023,6 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   both errors produced *apparent violations of a correct bound*, which is what
   sent each of us back to the derivation. A wrong invariant that happened to
   produce no violation would still be there.
-
-- **A skipped check looks exactly like a passing one unless the runner says
-  otherwise.** `tools/smoke_experiments.py` prints `SKIP -- no size recorded` for
-  any experiment missing a `SIZES` entry, counts it, and **returns success** —
-  so `exp25` was not being run at all while the run reported fine. That is the
-  enumeration-floor defect in the tool whose whole job is checking the others,
-  and it is invisible from the exit status. Same shape as a test that half-runs:
-  the failure is *partial*, so nothing about the output looks wrong. **A runner
-  that can skip needs to fail on skips, or at least report them in its exit
-  status** — and the general form is that any check with a "not applicable"
-  branch has a silent-success path by construction.
 
 - **When you correct a recorded value, grep the registry for the old one.** The
   43.79 → 34.0811 correction landed in the claim that made it and not in the
@@ -1354,12 +1310,6 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   matched. It did not, so the result was correct by luck. `tools/` has no guard
   for this; the sweep for `PLACEHOLDER`, duplicated sentences and unbalanced
   `~~` across the registry and every note comes back clean as of this writing.)
-- **A guard is not verified until it has failed on an injected violation.** The
-  same session's note-to-registry guard passed vacuously: a lowercase-only
-  pattern skipped 26 of 103 claim ids, including `sqrt-MX-law` and the refuted
-  claim it was being tested with. It reported green while seeing nothing. This is
-  the repo's "a guard that is not on the path is not a guard", one level up — that
-  guard *was* on the path.
 - **Tests protect the computation; nothing protects the paraphrase.** The
   registry's status field grades how a claim was *established* and says nothing
   about whether its *statement* still means what the computation showed. One
