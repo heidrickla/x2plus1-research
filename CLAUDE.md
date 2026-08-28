@@ -572,6 +572,15 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   wrong one was simply what the enumerator happened to return. **Before dividing,
   say out loud which population the question is about, and check that the
   denominator is it.**
+  **And a rate needs a base rate before it means anything.** A sweep for claims
+  added tonight that no note cites returned **27 of 28** — alarming, and about to
+  become a defect report against the other session's note. The base rate for
+  pre-existing claims is **20%**: citing claims by id simply is not the
+  convention here, and every theorem in question is discussed by name five to
+  fourteen times in that note. The sweep was measuring the wrong thing and only
+  the base rate said so. **Three faces of one error in one night** — wrong
+  denominator, missing direction of travel, absent base rate — and each time the
+  number was correct and the inference drawn from it was not.
 
 - **When a recorded number does not reproduce, read the paragraph it sits in
   before looking for a bug.** Note M's squarefree densities did not match a fresh
