@@ -22,6 +22,7 @@ the structure is in place and the content is not.
 | [N](note-N-green-tao-exclusion.md) | The Green–Tao exclusion, re-argued | *added* | draft — exclusion survives, quantitatively, and for a different reason than the plan gives |
 | [O](note-O-tau-multiplier.md) | The τ multiplier | *added* | draft — τ cannot act twice **inside a window** (the bare form is false); Theorems O.3 and O.3′; the general "no window holds three" is **open** |
 | [P](note-P-method.md) | How this repo has gone wrong, in detail | *added* | the evidence behind CLAUDE.md's rules — every entry written by the session that made the error |
+| [R](note-R-literature-audit.md) | Literature audit of the O-thread | *added* | first pass — the object is BD₂(−1) and its basic question is open; **no O-thread result yet established as new** |
 
 ## Read Note C first
 
