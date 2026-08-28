@@ -222,6 +222,26 @@ readable. Two claims were committed and refuted in one day from it. Run
 n renders article page n + 422. There is a non-fatal no-go rule,
 `quoting-a-scanned-text-layer`.
 
+**Citation audit, 2026-08-28.** The load-bearing `quoted` claims were re-checked
+against the sources rather than the notes — DFI pp. 423–425 from 300 dpi images,
+ASP (B)/(B1)/(B2)/(B3) p. 1043, Ford–Maynard (1.1) and (II) pp. 1–2, Li pp. 1–2
+and 6. **Every quote is verbatim correct and no claim needed retracting.** Two
+things came out of it and both are about *placement*, not accuracy:
+
+- **The determinant trap.** DFI p. 425 says it "would be interesting to extend
+  the arguments herein to deal with … negative determinant". Their determinant is
+  **D = ac − b²**, so ν²+1 has D = 1 > 0 and *is* covered (Theorem, p. 424); its
+  **discriminant** is −4, so a reader who checks that concludes the opposite and
+  takes out three claims at once. The resolution was 200 lines from the quote in
+  Note C and is now beside it.
+- **An understatement.** Ford–Maynard's (II) quantifies over |ξ_m| ⩽ τ^B(m),
+  |κ_n| ⩽ τ^B(n) — *divisor*-bounded, not the 1-bounded the requirements table
+  says. That is a strictly stronger hypothesis, so Note F applies a fortiori;
+  the table is safe but now labelled.
+
+So: re-verify by **reading the source, not the note** — the notes were right, and
+the two findings were both invisible from inside them.
+
 Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
 `python -m pytest -q` before trusting any measurement.
 
