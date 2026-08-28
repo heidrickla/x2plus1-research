@@ -207,6 +207,26 @@ DEFAULT_NOGO_RULES = [
         basis="x2plus1-research-plan.md, Cross-cutting",
     ),
     NoGoRule(
+        id="quoting-a-scanned-text-layer",
+        message=(
+            "Do not record a claim as `quoted` from a scanned PDF's extracted text. "
+            "Exactly one source here is a scan -- Duke-Friedlander-Iwaniec -- and its OCR "
+            "renders prose correctly while mangling displayed mathematics, which is the "
+            "worst possible failure mode: it looks readable. Two claims were committed and "
+            "refuted in one day from it. Run `python tools/check_sources.py`, then read the "
+            "page images (pymupdf, 300 dpi; DFI page index n renders article page n + 422)."
+        ),
+        trigger_tags={"scanned_source"},
+        trigger_phrases=[
+            "extract_text",
+            "from the ocr",
+            "the scan says",
+            "pypdf reader",
+        ],
+        fatal=False,
+        basis="tools/check_sources.py; refs/literature-log.md 2026-08-28",
+    ),
+    NoGoRule(
         id="green-tao-excluded",
         message=(
             "CONTESTED, not settled. The plan excludes Green-Tao / nilsequence "

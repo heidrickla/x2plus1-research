@@ -138,6 +138,45 @@ Every drop of the required saving must come from the arithmetic of μ along the
 fibres, with no help whatever from the incidence geometry. That is precisely
 the regime the parity barrier governs.
 
+## DFI say the parity-breaking input *is* the arbitrary-coefficient form
+
+Read from the page images of the Duke scan, p. 425, immediately above
+Proposition 1:
+
+> "It is now well-understood that information about L_d(M) is **not sufficient**
+> to demonstrate asymptotic formulae for primes (or even their existence) due to
+> a 'parity problem' [B]. In recent years this problem has been partially
+> surmounted by adding new information about general bilinear forms of the type
+>
+>     (8)  B(M, N) = ΣΣ_{(m,n)=1} α_m β_n ρ_h(mn).
+>
+> **Here α_m and β_n are arbitrary but bounded complex numbers** with support
+> M < m ≤ 2M and N < n ≤ 2N. In this paper we are able to obtain just barely
+> enough information about the sums L_d(M) and B(M,N) to wipe out the parity
+> problem in its entirety."
+
+So the thing that breaks parity, in the words of the people who broke it, is the
+bilinear form **with arbitrary bounded coefficients on both sides**. That is
+precisely the object this note's lemma is about.
+
+> **Note F is therefore not an obstacle standing beside the parity barrier. It
+> is the statement that DFI's parity-breaking input does not exist for
+> A = {x+i}.**
+
+That is a sharper placement than "dispersion has no main term", and it comes
+from the source rather than from this repo. Two consequences worth separating:
+
+- **What they need versus what they prove.** They need (8) with arbitrary
+  coefficients; what Proposition 2 (p. 426) delivers is the case "β_n are
+  supported on primes". The gap between those two is exactly where this sequence
+  dies, and it is the same gap [FM]'s footnote 1 expects to close in general.
+- **Their own plausible bounds are out of reach here for a different reason.**
+  p. 425 offers L_d(M) ≪ M^{1/2}(hdM)^ε and B(M,N) ≪ ‖α‖‖β‖(M+N)^{1/2}(hMN)^ε
+  as "plausible"; Proposition 1 achieves only
+  L_d(M) ≪ (h,d)^{1/20}(d/M)^{1/20}M^{1+ε}. A factor of ten in the exponent —
+  but both are *signed*, and [Note J](note-J-mobius-in-progressions.md) measures
+  that the difficulty here is entirely in the absolute values.
+
 ## Ford–Maynard name this exact counting function
 
 Found on a third pass through arXiv:2407.14368v1, footnote 2, p. 7. Explaining

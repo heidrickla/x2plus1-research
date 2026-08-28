@@ -793,6 +793,19 @@
         "ledger"
       ],
       "notes": "Status is `inferred`, not `quoted`: Merikoski's threshold is a quote and lives in `merikoski-sparse-sets-off-chart`, but the COMPARISON with kappa = 4 rests on two `rigorous_finite` claims of ours, and the dependency guard rejected the quoted version -- correctly, since a quote cannot rest on a measurement. This is what the refuted `kappa-off-by-an-exponent` was reaching for, and it shows why that conjecture failed: it tested the incidence GRAPH, which is innocent -- 4-cycles really do appear at |B| = 2 -- when the power-of-X gap is on the METHOD axis. Merikoski notes his is the first unconditional power saving in the density of B at all; before it, Fouvry-Iwaniec needed density (log X)^{-C}."
+    },
+    {
+      "id": "dfi-parity-input-is-the-arbitrary-form",
+      "status": "quoted",
+      "statement": "DFI state that the parity-breaking input IS the arbitrary-coefficient bilinear form. p.425: 'It is now well-understood that information about L_d(M) is not sufficient to demonstrate asymptotic formulae for primes (or even their existence) due to a \"parity problem\" [B]. In recent years this problem has been partially surmounted by adding new information about general bilinear forms of the type (8) B(M,N) = sum sum_{(m,n)=1} alpha_m beta_n rho_h(mn). HERE alpha_m AND beta_n ARE ARBITRARY BUT BOUNDED COMPLEX NUMBERS with support M < m <= 2M and N < n <= 2N. In this paper we are able to obtain just barely enough information about the sums L_d(M) and B(M,N) to wipe out the parity problem in its entirety.' Note F proves that object has no cancellation for A = {x+i}.",
+      "citation": "Duke-Friedlander-Iwaniec, Ann. of Math. 141 (1995), p.425 (immediately above Proposition 1), read from page images",
+      "depends_on": [
+        "c4-free"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "This places Note F much more sharply than 'dispersion has no main term': Note F is the statement that DFI's PARITY-BREAKING INPUT DOES NOT EXIST for this sequence. Found by the parallel session and verified here from the images independently. Note also what they NEED (arbitrary coefficients, (8)) versus what they PROVE (Prop. 2, beta on primes) -- the same gap [FM] footnote 1 expects to close in general and Note F shows cannot close here. Their 'plausible' bounds on the same page are L_d(M) << M^{1/2}(hdM)^eps and B(M,N) << ||alpha|| ||beta|| (M+N)^{1/2}(hMN)^eps, against Prop. 1's achieved L_d(M) << (h,d)^{1/20}(d/M)^{1/20}M^{1+eps}."
     }
   ]
 }
