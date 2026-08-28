@@ -1,7 +1,8 @@
 # Note D — Comparison ledger
 
-*Plan §1.3.4. Status: draft; Type I lines updated against the sources in
-[Note C](note-C-requirements.md). Supported by
+*Plan §1.3.4. Status: draft; Type I lines and the density hierarchy checked
+against [ASP], [X2Y4] and [HB] — see [Note C](note-C-requirements.md) for the
+citations. Supported by
 [`experiments/exp03_density_ledger.py`](../experiments/exp03_density_ledger.py).*
 
 ## The two sequences in one language
@@ -72,20 +73,29 @@ critical density, and it sits on the wrong side of the threshold by exactly Q⁰
 rather than from this repo.** [Note C](note-C-requirements.md) reads off from
 Friedlander–Iwaniec that the asymptotic sieve for primes requires a level of
 distribution D > Q^{2/3} (hypothesis (R1)), while for a thin sequence (R)
-cannot hold beyond A = |A|. So the sieve applies only when **|A| > Q^{2/3}**:
+cannot hold beyond A = |A|. So [ASP] applies only when **|A| > Q^{2/3}**.
 
-| sequence | \|A\| | κ > 1? (Type II non-degenerate) | \|A\| > Q^{2/3}? (ASP applies) |
-|---|---|---|---|
-| a² + b⁴ | Q^{3/4} | ✅ | ✅ — D = Q^{3/4−5ε} achieved |
-| x³ + 2y³ | Q^{2/3} | ✅ | at the boundary **[VERIFY]** |
-| x² + 1 | Q^{1/2} | ❌ (κ = 1) | ❌ |
+Heath-Brown ([HB] p. 2) uses exactly this exponent, calling it α(f), and places
+the four problems on it himself: Dirichlet at α = 1, FI at α = 3/4, his own
+theorem at α = 2/3, "while the conjecture that x² + 1 takes infinitely many
+prime values has α = 1/2". So this ledger's frame is the literature's.
 
-The Type I threshold (2/3) is strictly stronger than the Type II one (1/2), so
-it binds first. The ledger's Type II lines are still correct and still
-localise the two-parameter freedom; they are simply not the first thing that
-goes wrong.
+| sequence | α = \|A\| exponent | κ > 1? (Type II non-degenerate) | (R1): D > Q^{2/3}? | level achieved |
+|---|---|---|---|---|
+| a² + b⁴ | 3/4 | ✅ | ✅ met | Q^{3/4−5ε} ([X2Y4] Prop. 3.5) |
+| x³ + 2y³ | 2/3 | ✅ | ❌ "not quite met" — short by Q^ε | Q^{2/3−ε} ([HB] Lem. 2.1–2.2) |
+| x² + 1 | **1/2** | ❌ (κ = 1) | ❌ short by **Q^{1/6}** | Q^{1/2}(log Q)^{−222} |
 
-Partly verified since. FI do achieve **D = Q^{3/4−5ε}** for a² + b⁴
+**The two thresholds are not equally hard.** (R1)'s 2/3 is a hypothesis of one
+theorem: Heath-Brown hit it, judged it "possible that [it] might be relaxed",
+and wrote his own sieve instead ([HB] p. 3). κ > 1 is a property of the
+sequence: Note F's C₄-free lemma is a theorem and survives any change of sieve.
+So the Type I line is the one that binds *for [ASP] specifically*, and the
+Type II line is the one that binds *for the problem*.
+
+**[VERIFY]** discharged for the density line: Heath-Brown's α is the same
+exponent and he places all four problems on it himself ([HB] p. 2), so κ for
+x³ + 2y³ is no longer inferred. FI do achieve **D = Q^{3/4−5ε}** for a² + b⁴
 ([X2Y4] Prop. 3.5, p. 962), which they call "apart from the ε, the best that
 one can hope for" — confirming both that the ledger's "Type I actually achieved"
 line is real and that the D ≤ |A| ceiling is attained. **[VERIFY]** still: the

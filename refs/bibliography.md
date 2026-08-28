@@ -24,17 +24,31 @@ this file carries the citations and what each source is needed *for*.
    Theorem 2 and (9.1)–(9.3), (R3) p. 1059). Quoted in
    [Note C](../notes/note-C-requirements.md).
 5. **Heath-Brown**, "Primes represented by x³ + 2y³", *Acta Math.* **186**
-   (2001), 1–84.
+   (2001), 1–84. **Read** via the open
+   [Oxford ORA copy](https://ora.ox.ac.uk/objects/uuid:ebb25eb4-a19e-4049-8117-3269e140b0fe)
+   (76-pp. preprint; page numbers cited from it, not the Acta pagination).
+   Load-bearing: the α(f) density exponent and the 1 / ¾ / ⅔ / ½ hierarchy
+   (p. 2); the statement that FI's (R1) "is not quite met in our case" and
+   "might be relaxed" (p. 3); level of distribution X^{2−ε} (Lemmas 2.1–2.2,
+   p. 5); Type II range X^{1+ε} ≪ V ≪ X^{3/2−ε} (p. 5).
 6. **Iwaniec**, "Almost-primes represented by quadratic polynomials",
    *Invent. Math.* **47** (1978), 171–188. The current record for x² + 1: P₂.
+   **Original not obtained** — paywalled ([Springer](https://link.springer.com/article/10.1007/BF01578070),
+   [EUDML](https://eudml.org/doc/142575)). Statement and method read instead
+   from an exposition: V. Kapoor, *Almost-Primes Represented by Quadratic
+   Polynomials* (MSc essay, UBC 2006),
+   [arXiv:1910.02885](https://arxiv.org/abs/1910.02885). Treat any detail
+   sourced from it as second-hand until the original is checked.
 7. **Bombieri, Friedlander & Iwaniec**, "Primes in arithmetic progressions to
    large moduli" I, *Acta Math.* **156** (1986); II, *Math. Ann.* **277**
-   (1987); III, *J. Amer. Math. Soc.* **2** (1989).
+   (1987); III, *J. Amer. Math. Soc.* **2** (1989). **Not obtained** (paywalled)
+   and **deprioritised** — see the note on items 7 and 12–14 below.
 
 ## Z[i] spectral theory (Step 2, Note G)
 
 8. **Elstrodt, Grunewald & Mennicke**, *Groups Acting on Hyperbolic Space*,
-   Springer (1998). Bianchi groups, PSL₂(Z[i]).
+   Springer (1998). Bianchi groups, PSL₂(Z[i]). **Not obtained** (book) and
+   **deprioritised** — see the note on items 8–11 below.
 9. **Motohashi**, "Trace formula over the hyperbolic upper half space", and
    related work on Kloosterman sums over Z[i].
 10. **Bruggeman & Motohashi**, sum formula for PSL₂(Z[i]) / Bianchi groups.
@@ -61,3 +75,35 @@ either has an analogue over Z[i].
 `refs/pdf/` holds locally fetched copies and is **gitignored** — the papers are
 copyrighted. Re-fetch from the arXiv links above. Extract text with `pypdf`;
 `pdftoppm` is not installed, so the Read tool cannot render these directly.
+
+
+---
+
+## Why items 7–11 have not been chased
+
+Recorded so a later reader does not mistake absence for oversight.
+
+**Items 8–11 (EGM; Motohashi; Bruggeman–Motohashi; Sarnak) — spectral theory
+over Z[i].** This machinery estimates sums of Kloosterman sums.
+[Note F](../notes/note-F-failure-localisation.md) proves that for A = {x + i}
+the Gram matrix G(n₁,n₂) = #{m : mn₁, mn₂ ∈ A} is identically 0 or 1, so the
+dispersion route produces **no Kloosterman sums to estimate**. Until
+[Note G](../notes/note-G-spectral.md) settles whether a *different* arrangement
+of the Type II sum generates them, there is nothing for these sources to act on.
+Reading them first would be reading a tool before knowing there is a job.
+
+**Items 7 and 12–14 (BFI I–III; Zhang; Polymath 8; Maynard) — level of
+distribution beyond 1/2.** These raise the level for **primes in arithmetic
+progressions** — BFI to x^{4/7−ε}, and Iwaniec's well-factorable weights to
+x^{7/12−ε}. That is a sequence of density x/log x. The cap this project faces
+is different in kind: for a sequence of size |A| the number of admissible
+moduli of norm ≤ D is ≍ D, so once D exceeds |A| the moduli outnumber the
+sequence and Σ|r_d| cannot be small
+([Note B](../notes/note-B-type-I.md)). FI state the same thing outright
+([ASP] p. 1044): *"for thin sequences A one cannot expect (R) to hold with
+D(x) > A(x)"*. Well-factorable weights redistribute moduli; they do not
+manufacture sequence elements, so they cannot lift a counting bound.
+
+This is reasoning, not a reading of BFI/Zhang/Maynard — **[VERIFY]** if the
+conclusion ever becomes load-bearing. The plan itself makes the parallel point
+for GRH and zero-density results (§Cross-cutting, last bullet).

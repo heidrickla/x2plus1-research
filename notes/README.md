@@ -18,18 +18,23 @@ the structure is in place and the content is not.
 
 ## Read Note C first
 
-Note C is now answered, and it reorders everything else. Friedlander–Iwaniec's
-hypothesis (R1) requires a level of distribution D > x^{2/3}; Note B proves this
-sequence caps at D ≤ x^{1/2}. **The asymptotic sieve for primes does not apply
-to x² + 1, and the obstruction is Type I, not Type II.**
+Note C is filled in from the sources and sets the frame for everything else.
 
-So the Step 2 notes (E, F, G, H) analyse a hypothesis that is not the binding
-one. Their content stands — Note F's C₄-free lemma is correct and is still the
-right localisation of the *bilinear* failure — but the programme's live question
-has moved to:
+**The asymptotic sieve for primes, as stated, does not apply to x² + 1**:
+hypothesis (R1) needs a level of distribution D > x^{2/3}, and Note B proves
+this sequence caps at x^{1/2}. **But (R1) is the negotiable hypothesis** —
+Heath-Brown hit it at α = 2/3, judged it likely relaxable, and wrote his own
+sieve instead (HB p. 3). What survives any change of sieve is Note F's
+C₄-free lemma, a theorem about the sequence itself.
 
-> **Is there a version of the asymptotic sieve for primes valid for sequences
-> with A(x) ≍ x^{1/2}?** Equivalently: where in [ASP] §§3–8 is x^{2/3} spent?
+So the Step 2 notes (E, F, G, H) are **not** downstream of a dead end. An
+earlier revision of Note C said they were; that was corrected once Heath-Brown
+was read. The distinction to keep hold of:
+
+| | binds for | hardness |
+|---|---|---|
+| (R1): D > x^{2/3} | [ASP] specifically | soft — precedent for relaxing it |
+| κ = \|A\|²/x > 1 | the problem | hard — Note F is a theorem |
 
 **Checkpoints.** Step 1 closes when Note C states a precise bilinear inequality
 whose proof implies the theorem (plan §1.5). Step 2 closes when Notes F and G

@@ -9,6 +9,10 @@ Sources, both read directly (PDFs in `refs/pdf/`, gitignored — copyright):
 - **[X2Y4]** Friedlander & Iwaniec, "The polynomial X² + Y⁴ captures its
   primes", *Ann. of Math.* **148** (1998), 945–1040.
   [arXiv:math/9811185](https://arxiv.org/abs/math/9811185).
+- **[HB]** Heath-Brown, "Primes represented by x³ + 2y³", *Acta Math.* **186**
+  (2001), 1–84. Read from the
+  [Oxford ORA copy](https://ora.ox.ac.uk/objects/uuid:ebb25eb4-a19e-4049-8117-3269e140b0fe);
+  page numbers below are that preprint's.
 
 Page references are to the Annals pagination printed in the arXiv preprints.
 
@@ -16,13 +20,17 @@ Page references are to the Annals pagination printed in the arXiv preprints.
 
 ## The answer, first
 
-> **The asymptotic sieve for primes cannot be applied to x² + 1, and the
-> obstruction is Type I, not Type II.**
+> **The asymptotic sieve for primes, as stated, cannot be applied to x² + 1.
+> The hypothesis that fails is the Type I one, (R1).**
 >
 > [ASP] requires a level of distribution **D > x^{2/3}** — hypothesis (R1),
 > p. 1043. [Note B](note-B-type-I.md) proves that for this sequence
 > Σ_{d≤D}|r_d| ≍ D, so (R) forces D ≤ A(x) = x^{1/2}. Since
 > x^{1/2} < x^{2/3}, **the admissible range for D is empty.**
+>
+> Read the next section before drawing conclusions from this. Heath-Brown hit
+> the same wall at α = 2/3 and routed around it, so (R1) is the negotiable
+> hypothesis — the durable obstruction is Type II.
 
 Friedlander and Iwaniec state the general principle themselves, p. 1044:
 
@@ -44,6 +52,97 @@ in [ASP] p. 1059, in the remark on hypothesis (9.2):
 
 So Step 2 as framed by the plan is attacking the wrong half. See
 [§ Consequences](#consequences-for-the-plan) below.
+
+---
+
+## Heath-Brown's precedent — and what it does to the conclusion above
+
+**This section revises the reading of the finding, not the finding.** (R1) is
+genuinely unsatisfiable for x² + 1. But [HB] shows that (R1) failing is not, by
+itself, fatal — it has happened before and was worked around.
+
+### Heath-Brown uses the same density exponent
+
+[HB] p. 2 defines α(f) as the infimum of α with
+#{(x₁,…,xₙ) ∈ ℕⁿ : |f|(x₁,…,xₙ) ≤ X} ≪ X^α, and remarks:
+
+> "Thus the smaller the value of α, the harder it will be to prove that f
+> represents primes. The two classical theorems of Dirichlet both correspond to
+> α = 1. … Before the present work there was only one theorem proved in which
+> α < 1, namely the result of Friedlander and Iwaniec that there are infinitely
+> many primes of the form x² + y⁴, for which α = 3/4. Our theorem corresponds
+> to the still smaller value α = 2/3, **while the conjecture that x² + 1 takes
+> infinitely many prime values has α = 1/2.**"
+
+So the 1 / ¾ / ⅔ / ½ hierarchy this repo has been using is the literature's own
+frame, and x² + 1 is named in it. α(f) is A(x)'s exponent — the same quantity.
+
+### He did not use the asymptotic sieve, and said why
+
+[HB] p. 3:
+
+> "We should mention at the outset that our approach to the sieve procedure has
+> much in common with that given by Friedlander and Iwaniec [3]. … **Unfortunately
+> their condition (R1) is not quite met in our case, so that their work cannot be
+> used as it stands. Although it seems possible that Friedlander and Iwaniec's
+> hypothesis (R1) might be relaxed sufficiently for our application, we have
+> chosen instead to present our own version of the sieve argument.** In the light
+> of these remarks, it should be stressed that it is the 'Type II' bound … which
+> is the most novel part of our proof, and not the sieve procedure."
+
+Two things follow.
+
+1. **The mechanism this note identified is confirmed from outside.** [HB]
+   Lemmas 2.1–2.2 give A the level of distribution **X^{2−ε}** (p. 5) for a
+   sequence whose values are ≍ X³. In the sieve's variable that is
+   D = x^{2/3−ε}, against (R1)'s requirement D > x^{2/3}. **Missed by ε** —
+   exactly "not quite met", and exactly the D ≤ A(x) ceiling biting at α = 2/3
+   where A(x) = x^{2/3}. Note C's prediction that x³+2y³ sits "at the boundary"
+   was right, and the [VERIFY] on it is discharged.
+2. **(R1) is a soft barrier.** A leading practitioner, facing it, judged it
+   probably relaxable and routed around it in a page. It is a feature of FI's
+   particular formulation, not a law.
+
+### But x² + 1 misses by a power, not an epsilon
+
+| sequence | α | A(x) | level achieved | (R1) needs D > x^{2/3} | shortfall |
+|---|---|---|---|---|---|
+| a² + b⁴ | 3/4 | x^{3/4} | x^{3/4−5ε} | ✅ met | — |
+| x³ + 2y³ | 2/3 | x^{2/3} | x^{2/3−ε} | ❌ "not quite met" | **x^ε** |
+| x² + 1 | **1/2** | x^{1/2} | x^{1/2}(log x)^{−222} | ❌ | **x^{1/6}** |
+
+Heath-Brown's workaround closed a gap of ε. For x² + 1 the gap is a sixth of an
+exponent. Nothing in [HB] suggests a bespoke sieve could absorb that, and his
+own remark is scoped to "our application".
+
+### The revised priority
+
+The previous version of this note concluded "the obstruction is Type I, not
+Type II" and deprioritised Step 2. That reordering was premature. The accurate
+statement is:
+
+- **(R1)'s x^{2/3} is soft** — precedent exists for relaxing it, and it is a
+  hypothesis of one theorem.
+- **κ = 1 is hard.** [Note F](note-F-failure-localisation.md)'s C₄-free lemma is
+  a theorem about the sequence, not a hypothesis of a sieve. It survives any
+  change of sieve, and at α = 1/2 it says the Type II incidence structure
+  degenerates to a forest. [HB] independently stresses that the Type II bound,
+  not the sieve procedure, is "the most novel part" of his proof.
+
+**So Step 2 is the right half after all.** What Note C establishes is narrower
+than last stated: ASP *as written* does not apply, and the reason is (R1) — but
+(R1) is the negotiable hypothesis and Type II is where the difficulty lives.
+
+### What is available at α = 1/2
+
+Iwaniec, *Invent. Math.* **47** (1978), 171–188, remains the record: for
+irreducible g(n) = an² + bn + c with a > 0 and c odd (so x² + 1 qualifies),
+g(n) = P₂ infinitely often, with |{n ≤ x : g(n) = P₂}| ≫ Γ_g x/log x. That is a
+**lower-bound weighted sieve** (Richert's weighted sum), not an asymptotic —
+i.e. exactly the parity-limited conclusion. The gap between that and the
+theorem is precisely the parity barrier, and ASP is the only machine built to
+cross it. *(Read via an exposition, not the original — see
+[refs/bibliography.md](../refs/bibliography.md).)*
 
 ---
 
@@ -164,36 +263,38 @@ non-degenerate. That was not built in; it is a genuine consistency check.
 ## Consequences for the plan
 
 The plan's §1.5 checkpoint asks Note C for "a precise bilinear inequality whose
-proof would imply the theorem via the asymptotic sieve". **No such inequality
-exists**, because no Type II input can rescue a sequence for which (R1) is
-unsatisfiable. Concretely:
+proof would imply the theorem via the asymptotic sieve". Strictly, **no such
+inequality exists for [ASP] as written** — (R1) is unsatisfiable, so no Type II
+input can invoke Theorem 1 or Theorem 2. But that is a statement about one
+theorem's hypotheses, and [HB] is the precedent for replacing them.
 
-- **Step 2 as written is attacking the wrong half.** Notes E, F, G and H
-  concern hypothesis (B). The binding constraint is (R1). Note F's C₄-free
-  lemma remains true and remains the correct localisation *of the bilinear
-  failure* — but the bilinear failure is downstream.
-- **The plan's §1.3.2 prediction was right and its §1.5 target was not.** The
-  Type I level really is x^{1/2−ε}; what the plan did not anticipate is that
-  x^{1/2} is below the sieve's own floor.
-- **The research problem is restated.** Not "prove a bilinear estimate for
-  x²+1", but: **is there a version of the asymptotic sieve for primes valid for
-  sequences with A(x) ≍ x^{1/2}?** Everything in [ASP] between (R1) and
-  Theorem 1 is where the 2/3 is spent; identifying which step needs it is the
-  next concrete task, and is a well-posed reading exercise on a 25-page paper.
+- **Step 2 stands.** [Note F](note-F-failure-localisation.md)'s Question F is
+  still the right target: it is a statement about the sequence, and it does not
+  depend on which sieve consumes it. Notes E, F, G, H are not downstream of a
+  dead end.
+- **What Step 1 delivers is a constraint, not a checkpoint.** Any sieve applied
+  to x² + 1 must run on a Type I level of x^{1/2}, which is a sixth of an
+  exponent below what [ASP] asks. Note C's deliverable is therefore that
+  constraint plus the evidence that (R1) is soft — not the bilinear inequality
+  the plan expected.
+- **The plan's §1.3.2 prediction was right.** The Type I level really is
+  x^{1/2−ε}, by the sharp argument of Note B.
 
 ## Open
 
-- **[VERIFY]** Where in [ASP] §§3–8 is x^{2/3} actually used? Is it a genuine
-  barrier of the method or an artefact of the chosen decomposition? This is now
-  *the* question, and it replaces Step 2 as the priority.
-- **[VERIFY]** Heath-Brown's x³ + 2y³ has A(x) ≍ x^{2/3}, exactly at the
-  threshold. Does he use [ASP], or a separate argument? If separate, why —
-  and does that argument have more room at x^{1/2}? Inferred from the density,
-  not read from the paper.
-- **[VERIFY]** [X2Y4] Prop. 3.5 gives D = x^{3/4−5ε} = A(x)^{1−ε}, called
-  "apart from the ε, the best that one can hope for" (p. 962). Confirms the
-  D ≤ A(x) ceiling is real and attained. Check whether any later work relaxes
-  (R1) below 2/3.
+- **[VERIFY]** Where in [ASP] §§3–8 is x^{2/3} actually used, and how far down
+  does [HB]'s "seems possible that (R1) might be relaxed" actually go? He needed
+  ε; we need 1/6. Reading [HB] §§2–3 against [ASP] §§3–8 is the concrete task.
+- **[VERIFY]** Does any post-2001 work state an asymptotic sieve for primes with
+  a Type I requirement below x^{2/3}? The scan has not been run properly.
+  Candidates spotted and unread:
+  [arXiv:2111.04136](https://arxiv.org/abs/2111.04136) (prime values of
+  f(a,b²)), [arXiv:2112.03617](https://arxiv.org/abs/2112.03617) (X²+(Y²+1)²
+  — note the inner y²+1), [arXiv:2407.14368](https://arxiv.org/abs/2407.14368)
+  (theory of prime-producing sieves).
+- **Settled, no longer open.** Heath-Brown's relation to [ASP] (he does not use
+  it, and says why); x³+2y³'s position at the boundary; that a² + b⁴ attains
+  D = A(x)^{1−ε}.
 
 ## Adversarial review
 
@@ -205,7 +306,14 @@ unsatisfiable. Concretely:
   indicator?* Weighting cannot help: (9.2) compares Σaₙ² to A(x)², and any
   reweighting that inflates A(x) inflates Σaₙ² at least as fast by
   Cauchy–Schwarz. Worth writing out properly.
-- *Could a different sieve apply?* Yes, and that is the honest next question —
-  [ASP] is one theorem, not a proof of impossibility. Iwaniec 1978 (P₂) already
-  works at this density with a classical sieve; what is unavailable at
-  A(x) = x^{1/2} is the parity-breaking upgrade.
+- *Could a different sieve apply?* Yes — [ASP] is one theorem, not a proof of
+  impossibility, and [HB] is the worked precedent for writing a replacement when
+  (R1) fails. Iwaniec 1978 (P₂) already works at this density with a classical
+  weighted sieve; what is unavailable at A(x) = x^{1/2} is the parity-breaking
+  upgrade.
+- *Did this note over-read its own finding once already?* Yes. The first version
+  concluded "the obstruction is Type I, not Type II" and deprioritised Step 2.
+  Heath-Brown's p. 3 remark shows (R1) is the negotiable hypothesis. The lesson
+  is to distinguish **a hypothesis of one theorem** from **a property of the
+  sequence**: Note B's x^{1/2} cap and Note F's C₄-free lemma are the latter and
+  survive any change of sieve; (R1) is the former.
