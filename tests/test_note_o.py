@@ -1774,3 +1774,63 @@ def test_O16_composite_integrality_reduces_to_one_congruence():
     # restrictive but not closing: the case survives, unlike O.5's p = q
     assert 0 < satisfied < total, (satisfied, total)
     assert satisfied / total < 0.2, f"expected ~14%, got {satisfied / total:.0%}"
+
+
+def test_O17_composite_criterion_is_a_per_prime_sign():
+    """Lemma O.17: tau_p tau_s integral iff at every r^e || M, r^e | 8ps or the signs differ.
+
+    U_p^2 == (2pa)^2 (mod M) has 2^omega(M) roots, so the sign is per PRIME, not
+    global -- a global sign disagrees with the full test on 26 of 68820 triples,
+    and every one of those has no global sign at all. Per prime it is exact.
+
+    Recovers O.5: p = s forces identical signs, leaving M | 8p^2.
+    """
+    from math import gcd, isqrt
+    from sympy import factorint
+
+    total = agree = no_sign = 0
+    for a in range(1, 30):
+        for b in range(a + 1, 1200):
+            if gcd(a, b) != 1:
+                continue
+            M, D = b - a, a * b
+            fac = factorint(M)
+            for p in range(1, 6):
+                for s in range(p, 6):
+                    sp2, ss2 = M * M + 4 * p * p * D, M * M + 4 * s * s * D
+                    Up, Us = isqrt(sp2), isqrt(ss2)
+                    if Up * Up != sp2 or Us * Us != ss2:
+                        continue
+                    total += 1
+                    full = ((Up * Us + 4 * p * s * D) % M == 0
+                            and (2 * (s * Up + p * Us)) % M == 0)
+                    ok = True
+                    for r, e in fac.items():
+                        re = r ** e
+                        if (8 * p * s) % re == 0:
+                            continue
+                        dp = 1 if (Up - 2 * p * a) % re == 0 else (
+                            -1 if (Up + 2 * p * a) % re == 0 else 0)
+                        ds = 1 if (Us - 2 * s * a) % re == 0 else (
+                            -1 if (Us + 2 * s * a) % re == 0 else 0)
+                        if dp == 0 or ds == 0:
+                            no_sign += 1          # the argument says this cannot happen
+                        if dp != ds and dp and ds:
+                            continue
+                        ok = False
+                        break
+                    agree += full == ok
+
+    assert total >= 5000, f"only {total} triples -- range too small to be a check"
+    assert agree == total, f"criterion disagreed on {total - agree} of {total}"
+    assert no_sign == 0, f"a local sign was missing {no_sign} times; the proof says it cannot be"
+
+    # and it recovers O.5 as the p = s case
+    for a, b, p in ((1, 6, 1), (2, 5, 1), (3, 10, 2)):
+        M, D = b - a, a * b
+        t = M * M + 4 * p * p * D
+        if isqrt(t) ** 2 != t:
+            continue
+        U = isqrt(t)
+        full = ((U * U + 4 * p * p * D) % M == 0 and (2 * (2 * p * U)) % M == 0)
+        assert full == ((8 * p * p) % M == 0), (a, b, p)

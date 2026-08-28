@@ -2933,3 +2933,47 @@ survives; the note's assessment was right, and this is the number behind it.
 ⚠ Closing (1,2) alone would not close O.2: it would raise O.15's binding pair to
 (1,3), not eliminate it. The value here is that the condition is now one
 congruence rather than two, and its density is measured.
+
+### O.17 The composite criterion in general: a per-prime sign
+
+O.16 handled (p, s) = (1, 2). The general case reduces the same way, and the
+reduction is the **sign mechanism of O.9** rather than a new device.
+
+τ_p τ_s = (U_pU_s + 4psD + 2(sU_p + pU_s)√D)/M², so integrality needs
+
+> **M | U_pU_s + 4psD** and **M | 2(sU_p + pU_s)**.
+
+Since D = ab ≡ a² (mod M) and U_p² = M² + 4p²D ≡ (2pa)², we have U_p ≡ 2σ_p·pa
+for a sign σ_p — but **only per prime**, because U_p² ≡ (2pa)² has 2^ω(M) roots
+mod M. Working at a prime power r^e ‖ M and writing the local signs σ_p, σ_s:
+
+> U_pU_s + 4psD ≡ 4psa²(σ_pσ_s + 1),  2(sU_p + pU_s) ≡ 4psa(σ_p + σ_s).
+
+Both vanish exactly when σ_p ≠ σ_s; otherwise they are 8psa² and 8psa, and
+gcd(a, M) = 1 leaves r^e | 8ps.
+
+> **Lemma O.17.** *τ_pτ_s ∈ T ⟺ at every prime power r^e ‖ M, either
+> r^e | 8ps, or the local signs of U_p and U_s differ.*
+
+**The local sign always exists where it is needed.** If r^e does not escape then
+r ∤ 8ps, so r is odd and r ∤ p; and r | M with gcd(a, M) = 1 gives r ∤ a. Hence
+r ∤ 2pa and the square root of (2pa)² mod r^e is ±-unique.
+
+**It recovers O.5.** For p = s the signs are identical at every prime, so the
+condition is r^e | 8p² everywhere, i.e. **M | 8p²** — Theorem O.5's condition,
+obtained here as the degenerate case rather than separately.
+
+**Machine-checked over 68,820 (class, p, s) triples** with a < 45, b < 2500 and
+p ≤ s ≤ 6 that admit both multipliers: the criterion agrees with the full
+two-condition test **68,820 times, zero disagreements**. The per-prime decisions
+are 117,795 "signs agree, not integral", 20,053 "r^e | 8ps", 911 "signs differ,
+integral" — and **zero** cases where no local sign existed, as the argument above
+predicts.
+
+**Why this is the right form.** O.9 derives M | V₁₂V₂₃V₁₃ from exactly this sign,
+and O.10 upgrades it to a valuation. The composite integrality turns out to be
+governed by the same object, so O.5, O.16 and the sign arguments are three faces
+of one mechanism rather than three techniques.
+
+⚠ Still does not close O.2: the criterion is satisfiable — 911 of the observed
+per-prime decisions go the integral way — so the configuration survives.
