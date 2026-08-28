@@ -474,6 +474,22 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
 
 - **Normalisation.** Q (or N) = norm bound; X = √Q = range of x; |A| = X.
   State which one every exponent is relative to. "Level N^{1/2}" = "level X".
+- **A result much better than the problem is hard should be attacked before it
+  is used.** A three-hour-old lemma gave `3ab < b − a`, impossible for a ≥ 1, so
+  Conjecture O.2 was closed in one line. It was not: the lemma's conclusion holds
+  *per prime*, the ordering that selects the pair depends on the prime, and only
+  the three-term product is uniform. **5 of 216 realised triples witness the
+  failure** — but 211 do not, so the pattern was 97.7% supportive and no number
+  came out wrong. It was caught by asking what the quantifier ranges over, before
+  running anything.
+  This is the same detector as the vacuous denominator, one level up: *99.26%
+  coverage of an open problem*, and *a one-line proof of the open conjecture*,
+  are both implausible on their face, and implausible-on-its-face is checkable
+  without knowing any of the mathematics. **When a step is suddenly much stronger
+  than the difficulty of the thing it settles, that is the moment to look for the
+  quantifier, not the moment to write it up.** Arithmetic will not catch this
+  class: every number involved can be correct.
+
 - **A percentage carries its population in the same sentence, or it is not a
   measurement.** Two coverage figures went into the notes within an hour — "the
   bound excludes 95.68% of classes" (mine) and "99.2% are excluded outright"
