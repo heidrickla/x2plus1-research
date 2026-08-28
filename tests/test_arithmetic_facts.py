@@ -1595,3 +1595,44 @@ def test_the_D_failures_survive_both_variables_being_large():
         assert b / a < 2 and m2 < 2 * m1, D          # banded on both axes
         assert min(a, m1) >= 200, D                  # and both variables large
     assert 1 not in [c[0] for c in cases]
+
+
+def test_the_pair_bound_is_sharp_to_a_third_of_a_percent():
+    """O.12 is loose by 7.11x as stated and by 0.33% with the parity lemma.
+
+    The extremal unit-free witness for x^2+1 is (37, 1261) sharing moduli 866 and
+    1730, cofactor ratio u = 34.081081. Against the two thresholds:
+
+        |V| >= 1, O.12 as stated   u > (5+sqrt21)/2 = 4.7913    ratio 7.1131
+        |V| >= 2, the parity lemma u > (1+sqrt2)^4  = 33.9706   ratio 1.0033
+
+    So the "7.11x loose" reading compares nature against the WEAKER form. With
+    |V| >= 2 -- which holds, since V is even whenever M is odd -- **the bound is
+    sharp to a third of a percent**.
+
+    And the witness is a tau_1 step: (sqrt u + 1)/(sqrt u - 1) = 1.413402, whose
+    square 1.997707 matches the observed modulus ratio 1730/866 = 1.997691 to
+    five decimals. Its modulus ratio is within 0.12% of the window's own bound of
+    2, which is why the cofactor ratio is nearly extremal -- the two are the same
+    constraint seen on two axes.
+
+    Worth stating against this repo's own "size bounds permit far more than
+    occurs at every scale": **this one does not**. The three instances recorded
+    there -- 39 of 60 admissible classes, the D = 9,10 strip, O.11's falling
+    reach -- are all about configurations a bound ADMITS and nature declines. The
+    pair bound is the opposite case, and it is the only one found so far.
+    """
+    from math import sqrt
+
+    u = 1261 / 37
+    assert abs(u - 34.081081) < 1e-5
+    tau1 = (sqrt(u) + 1) / (sqrt(u) - 1)
+    assert abs(tau1 ** 2 - 1730 / 866) < 1e-4        # the witness is a tau_1 step
+    assert abs(tau1 ** 2 - 1.997707) < 1e-5
+    assert 1730 / 866 < 2                            # and inside a window, barely
+
+    weak = (5 + sqrt(21)) / 2                        # |V| >= 1
+    strong = (1 + sqrt(2)) ** 4                      # |V| >= 2, parity
+    assert abs(u / weak - 7.1131) < 1e-3
+    assert abs(u / strong - 1.0033) < 1e-3
+    assert u > strong                                # nature clears it, barely
