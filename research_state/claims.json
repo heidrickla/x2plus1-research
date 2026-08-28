@@ -618,12 +618,12 @@
     {
       "id": "chowla-for-x2plus1-is-open",
       "status": "quoted",
-      "statement": "Chowla's assertion sum_{n<=x} lambda(P(n)) = o(x) is 'wide open for any polynomials with nonlinear irreducible factors'. So the theta -> 0 endpoint of Note F's Question F -- |sum_{x<=X} mu(x^2+1)| << X(log X)^{-A} -- contains a named open problem, and for this sequence the trivial bound has never been beaten by any amount, at any level, signed or absolute.",
+      "statement": "Chowla's assertion sum_{n<=x} lambda(P(n)) = o(x), for the LIOUVILLE function lambda, is 'wide open for any polynomials with nonlinear irreducible factors' (Teravainen p.2). The theta -> 0 endpoint of Note F's Question F is the same statement for the MOBIUS function, |sum_{x<=X} mu(x^2+1)| << X (log X)^{-A}. For this sequence the trivial bound has never been beaten by any amount, at any level, signed or absolute.",
       "citation": "Teravainen, arXiv:2010.07924v4, pp.1-2 (equation (1.1) and the sentence following)",
       "tags": [
         "type_ii"
       ],
-      "notes": "Located by a parallel session, then fetched and read here before recording. This is the scoping fact that stops Question F being read as 'an estimate someone could plausibly supply'. It says nothing about whether x^2+1 is prime infinitely often."
+      "notes": "Located by a parallel session, then fetched and read here before recording. This is the scoping fact that stops Question F being read as 'an estimate someone could plausibly supply'. It says nothing about whether x^2+1 is prime infinitely often. PRECISION, added on a sweep of the source: Teravainen's paper never mentions the Mobius function -- it is about lambda throughout, and (1.1) is stated for lambda. This repo needs mu. The two are universally regarded as equivalent in difficulty and are related by lambda = 1_square * mu, but THAT TRANSFER IS NOT CARRIED OUT HERE and openness for lambda does not logically imply openness for mu. What is quoted is therefore: the lambda statement is wide open. What the repo asserts on its own account is that the mu statement at the same endpoint is no easier. Note also that Teravainen's POSITIVE results (Thm 2.6, Cor 2.7) are for general bounded multiplicative g and so do cover mu; it is only the openness remark that is lambda-specific."
     },
     {
       "id": "bv-in-absolute-value-known-for-mu",

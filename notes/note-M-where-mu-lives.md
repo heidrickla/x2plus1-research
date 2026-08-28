@@ -122,7 +122,15 @@ Set θ = 0. Then the inequality of [Note F]'s Question F reads
 > |Σ_{x ≤ X} μ(x²+1)| ≪_A X (log X)^{−A},
 
 using `mobius-ideal-equals-mobius-norm`. Drop the log-power and it is Chowla's
-assertion for x² + 1 — and **that is wide open**. Teräväinen,
+assertion for x² + 1 — and **that is wide open**. One precision, because the
+repo's own rule demands it: Teräväinen's (1.1) and his "wide open" remark are
+stated for the **Liouville** function λ, and his paper never mentions μ. What
+this repo needs is the μ statement. The two are universally taken as equivalent
+in difficulty and are related by λ = 1_□ * μ, but **that transfer is not carried
+out here**, and openness for λ does not logically imply openness for μ. So the
+quotation below establishes the λ endpoint; that the μ endpoint is no easier is
+this repo's own assertion. (His *positive* results, Thm 2.6 and Cor 2.7, are for
+general bounded multiplicative g and do cover μ.) Teräväinen,
 [arXiv:2010.07924v4](https://arxiv.org/abs/2010.07924), pp. 1–2, on
 Σ_{n≤x} λ(P(n)) = o(x):
 
