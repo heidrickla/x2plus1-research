@@ -275,6 +275,28 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   `typeII.mobius_bilinear` the latter.
 - **Adversarial review of every note** (plan §Cross-cutting): where is
   two-parameter freedom being smuggled in, and where is parity actually broken?
+- **Pull the paragraph, not the clause.** When quoting a source, read the whole
+  paragraph into the claim's notes, not the sentence you came for. Three findings
+  in one session sat one sentence past text this repo had already quoted,
+  verified and cited correctly — C⁻ being the *lower-bound* constant (FM p. 2),
+  C_bd being a class of *dense* sequences (FM pp. 1, 7, 13, 14), and FM's
+  "natural barrier" being *unconditional* at c = 1/2 (footnote 2, p. 7). No guard
+  can catch these: the locator is right, the quote is verbatim, the status is
+  right. Only reading past the clause finds them. The normalisation convention
+  behind the second was inside the very sentence `fm-no-admissible-theta-at-
+  density-half` is built on.
+- **A guard is not verified until it has failed on an injected violation.** The
+  same session's note-to-registry guard passed vacuously: a lowercase-only
+  pattern skipped 26 of 103 claim ids, including `sqrt-MX-law` and the refuted
+  claim it was being tested with. It reported green while seeing nothing. This is
+  the repo's "a guard that is not on the path is not a guard", one level up — that
+  guard *was* on the path.
+- **Tests protect the computation; nothing protects the paraphrase.** Of five
+  corrections in one session, the arithmetic was right in every one and the
+  description moved; three sat beside a correct machine check, and one was a
+  section heading that outlived its own body. The registry's status field grades
+  how a claim was *established* and says nothing about whether its *statement*
+  still means what the computation showed.
 
 ## The claim registry — read before writing a finding
 

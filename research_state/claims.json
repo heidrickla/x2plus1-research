@@ -50,7 +50,8 @@
       "citation": "ASP p.1044",
       "tags": [
         "type_i"
-      ]
+      ],
+      "notes": "The ceiling this repo's Note B derives independently, stated by the sieve's own authors one paragraph past the hypotheses. With (R1)'s x^{2/3} < D it gives the sieve's density threshold directly: it applies only to A(x) > x^{2/3}, which ASP also state outright at p.1059 on hypothesis (9.2) ('A(x) >= x^{2/3+2eps}'). For x^2+1, A(x) = x^{1/2}, so D <= x^{1/2} < x^{2/3} and (R1) is unsatisfiable -- see asp-inapplicable. Confirmed present during a sweep applying 'pull the paragraph, not the clause' to ASP; the repo already had it."
     },
     {
       "id": "asp-gamma-annihilation",
