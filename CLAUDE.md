@@ -348,7 +348,11 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     ((1,5) at m = 2, where a g² = 4 = M exactly, so the *strict* inequality the
     proof turns on fails by nothing at all).
   Nothing checks a proposition's statement against its own proof, because the
-  tests test the proof.
+  tests test the proof. The one checkable habit: **a correction that reaches only
+  a claim's `notes` has not landed** — notes are where history goes, the statement
+  is what gets quoted. `test_retracted_wording_is_not_still_in_the_statement`
+  enforces the mechanical half (a note quoting the wording it retracts must not
+  leave that wording in the statement); the paraphrased half stays discipline.
 
 ## The claim registry — read before writing a finding
 

@@ -209,3 +209,31 @@ def test_notes_do_not_cite_refuted_claims_as_live():
             offenders.append(f"{path.name}:{line_no} `{token}`")
     assert not offenders, (
         "refuted claims cited without a status marker nearby: " + "; ".join(offenders))
+
+
+def test_retracted_wording_is_not_still_in_the_statement():
+    """A note saying "an earlier version said 'X'" must not leave X in the statement.
+
+    Notes are where a claim's history goes; the statement is what gets quoted.
+    A correction that reaches only the notes has not landed -- and that happened
+    twice in one session, once inside the very claim built to record the pattern.
+
+    This checks the one part of it that is mechanical: when a note quotes the
+    wording it is retracting, that wording must be gone from the statement. It
+    does not catch a correction paraphrased rather than quoted, which is the
+    larger half and stays a matter of discipline.
+    """
+    import re
+    pattern = re.compile(
+        r"(?:earlier version|previously|first|originally|an earlier draft)[^.]{0,80}?"
+        r"(?:said|added|stated|read|claimed|carried)\s+['\"]([^'\"]{12,200})['\"]",
+        re.I)
+    offenders = []
+    for claim in CLAIMS:
+        notes = claim.notes or ""
+        for retracted in pattern.findall(notes):
+            needle = " ".join(retracted.split()).lower()
+            haystack = " ".join(claim.statement.split()).lower()
+            if needle in haystack:
+                offenders.append(f"{claim.id}: statement still contains {retracted[:60]!r}")
+    assert not offenders, "retracted wording left in the statement: " + "; ".join(offenders)
