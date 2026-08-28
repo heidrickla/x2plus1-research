@@ -354,6 +354,22 @@ power of two** — [8,16) and [16,32) between them miss (9,17), so an anchored
 sweep passes on the counterexample, and mine did. It does **not** refute the
 bridge for x²+1, where the Z side is *proved* by O.12 rather than transferred.
 
+**And the mechanism is on the next axis out — D itself.** In x²+D, four
+consecutive arguments k…k+3 give a 4-cycle exactly when
+**(k²+D)((k+3)²+D) − ((k+1)²+D)((k+2)²+D) = 4(D − k² − 3k − 1)** *(verified
+symbolically)*, so precisely for **D = k²+3k+1 = 1, 5, 11, 19, 29, …**.
+**x²+1 IS the k = 0 member — it does not avoid the family.** Its instance is
+1·10 = 2·5, giving cofactors {1,5} and moduli {1,2}: **the unit in both**, and the
+unit modulus is what no Type II hypothesis admits. D = 5 escapes for an unrelated
+second reason, so the first genuine counterexample is **D = 11** (values 15, 20,
+27, 36; cofactors {3,4}, moduli {5,9}, both ratios < 2). Both ratios → 1 as k
+grows, so the family is deeply doubly dyadic and infinite. **O.12's conclusion
+fails for an explicit infinite family of degree-2 sequences, and x²+1's escape
+has a cause rather than being a brute fact.** ⚠ **The axis lesson**: c = 6 and
+D = 11 were both found by extending an axis that had been checked at five or six
+values and read as general — *"what would the sweep look like if the finding were
+absent"* applies to the **axis** as much as to the population.
+
 **What is left of O.2.** Nothing structural — no hypothesis on M survives. What
 remains is quantitative: at X = 8000, 13 of 109 informative classes clear O.11,
 all with a = 1, and none holds three moduli in a window. **The bounds are not
@@ -646,6 +662,19 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   generalises", which is exactly what is not established. Measurement offers the
   comparison; derivation supplies the property; **and here the measurement was
   the misleading one.**
+
+- **Extend the axis nobody extended.** Two results in one night came from the
+  same move, and both overturned a conclusion that had been checked at five or
+  six values and read as general. The doubly-dyadic C₄-free property was verified
+  for x²+c² at c = 1…5 by one session and c = 1,2,3,5,7 by the other; **neither
+  ran c = 6**, where it fails. Extending the *next* axis — D in x²+D — produced
+  the mechanism: four consecutive arguments give a 4-cycle exactly when
+  D = k²+3k+1, x²+1 is the k = 0 member, and its instance is degenerate because
+  one of its four values is the unit. **A sweep that stops at c = 5 or D = 10
+  looks identical whether the property is universal or holds on a short initial
+  segment** — the sweep-headline question applied to the axis rather than to the
+  population. Ask which parameter was held fixed because it was never varied, as
+  opposed to because varying it was considered and rejected.
 
 - **Before asking whether a gap is real, ask what depends on it.** A hedge was
   found in Ford–Maynard's footnote 2 — "closely related to", not *equivalent to*
