@@ -180,6 +180,29 @@ the repo's derived invariant and the paper's stated hypothesis. In the window
 (S_μ/A(x) = 0.93, 1.00, 1.01), which corrects the earlier reading in
 [Note H](notes/note-H-numerical-pilot.md).
 
+### The one thing that moved, and exactly how far
+
+[Note O](notes/note-O-tau-multiplier.md) identifies the multiplier behind the
+close-pair structure: for coprime a < b the ratio of two shared moduli inside one
+dyadic window is **τ² with τ = (√b + √a)/(√b − √a)**, verified to a median
+relative error of 2.4 × 10⁻⁵ over 304 pairs, with a threshold (b/a > 33.97) that
+is attained at 34.1 and never violated. And **Proposition O.1** proves that τ
+cannot act twice on the same element: no window holds three moduli in geometric
+progression under a *single* multiplier. Its four links are independently
+verified here.
+
+The general statement — no window holds three, full stop — **is not proved**. It
+was claimed unconditionally for about an hour and retracted: a third modulus from
+a *different* multiplier imposes divisibility on a different element, and whether
+the two can share a prime ideal is open. So the pair structure is explained, the
+triple question is reduced to one ideal-theoretic statement, and the bound on the
+window Gram entry stays **O_ε(N^ε)** with the measured 2 unproved.
+
+**And that question cannot be settled by measurement**, which is worth saying
+plainly: it concerns a configuration that never occurs, so every sweep contains
+zero instances. The absence of triples is what needs explaining, not evidence
+about a proposed explanation.
+
 ### Three things that came out right without being aimed at
 
 A repo that only produces obstructions is hard to trust. These are the checks
@@ -258,8 +281,9 @@ The column that separates every solved case from this one is ν.
 - **An absolute-value analogue of DFI's Proposition 1.** Prop 1 bounds a
   *signed* sum over this repo's residues; [exp07](experiments/exp07_absolute_values.py)
   shows the difficulty is entirely in the absolute values, so what is needed is
-  Σ_d |Σ_m ρ_h(dm)| — precisely the shape Note F obstructs. Whether a
-  well-factorable decomposition can reach it is the live question.
+  Σ_d |Σ_m ρ_h(dm)| — precisely the shape Note F obstructs. ~~Whether a
+  well-factorable decomposition can reach it is the live question.~~ **Closed,
+  negatively** — see the BFI bullet below.
 - Iwaniec 1978's **statement** is now sourced from Pintz's survey (§19); its
   **method** is still second-hand. Lemke Oliver, *Acta Arith.* **151** (2012),
   241–261 is the refereed generalisation and is unread. BFI I–III and *Opera de
@@ -282,8 +306,8 @@ The column that separates every solved case from this one is ν.
   [refs/literature-log.md](refs/literature-log.md) from abstracts only. It
   bilinearises over the radicand, not the modulus, so it is filed as adjacent —
   but that judgement rests on abstracts, not readings.
-- BFI I–III are still unobtained in the original, but **the well-factorable
-  question they were wanted for is closed**: read at source in Maynard's
+- **The well-factorable question is closed, negatively.** BFI I–III remain
+  unobtained in the original and are no longer wanted for it: read at source in Maynard's
   arXiv:2006.07088, every theorem in that line buys its level by giving up the
   absolute value — BV has sup_a |·| at level 1/2, BFI reaches x^{4/7−ε} and
   Maynard x^{3/5−ε} with a well-factorable weight and a *fixed* residue class.
