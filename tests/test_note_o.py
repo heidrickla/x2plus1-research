@@ -1,6 +1,6 @@
 """Note O -- the multiplier tau, and why no window holds three shared moduli."""
 
-from math import isqrt, sqrt
+from math import gcd, isqrt, sqrt
 
 import pytest
 
@@ -567,3 +567,129 @@ def test_O3_geometry_reduction_is_an_algebraic_identity():
         ee = jj * jj - 4
         for ww in range(1, 40):
             assert ee**2 + 4 * ee * jj * ww + 2 * ww**2 * (2 * ee - 1) > 0
+
+
+def _kmin_surviving(c):
+    """Smallest k >= 2 that Theorem O.3'' does NOT exclude at this c, or None."""
+    for k in range(2, 200):
+        A = 4 * k + sqrt(16 * k * k + 2)
+        if A * (2 * c + 1) < c * (k * c - c - 1):
+            return k
+    return None
+
+
+def _in_window_multipliers(amax=8, bmax=30000):
+    """(a, b, k, U_k) for every multiplier with modulus ratio < 2.
+
+    Enumerated over a coprime box rather than over PAIRS: the identity and the
+    geometry are algebra in (a, b, k) and do not need the class to be realised.
+    PAIRS at this X carries no k >= 2 in-window multiplier at all, so the guards
+    in the tests below would (correctly) fire on it.
+    """
+    for a in range(1, amax + 1):
+        for b in range(a + 1, bmax + 1):
+            if gcd(a, b) != 1:
+                continue
+            M, D = b - a, a * b
+            kw = int(M / (4 * sqrt(2) * sqrt(D)))
+            if kw < 2:
+                continue
+            for k in range(1, kw + 1):
+                t = M * M + 4 * k * k * D
+                U = isqrt(t)
+                if U * U == t:
+                    yield a, b, k, U
+
+
+def test_rho_is_exactly_one_at_k_one_and_strictly_above_it_after():
+    """The boundary case that hid the sharpening: k = 1 has rho = 1 identically.
+
+    U_1 = a+b, so B_1 = b-a = M and rho = 1 -- the identity reads M*0 = 4a*0 and
+    Lambda = 0/0 is undefined.  For k >= 2, rho = 1 would force M*0 = 4ka(k-1),
+    nonzero, so rho > 1 is strict there.  Theorem O.3'' rests on that.
+    """
+    from fractions import Fraction
+
+    seen1 = seen2 = 0
+    for a, b, k, U in _in_window_multipliers():
+        rho = Fraction(U - 2 * k * a, b - a)
+        if k == 1:
+            seen1 += 1
+            assert rho == 1 and U == a + b, (a, b, k, rho)
+        else:
+            seen2 += 1
+            assert rho > 1, (a, b, k, rho)
+    assert seen1 and seen2, (seen1, seen2)
+
+
+def test_sharpened_rho_bound_holds_and_is_nearly_saturated():
+    """rho^2 < 1 + (k-1)/A_k, the bound O.3' discards by using rho > 0."""
+    from fractions import Fraction
+
+    n, tightest = 0, 0.0
+    for a, b, k, U in _in_window_multipliers():
+        if k < 2:
+            continue
+        rho = Fraction(U - 2 * k * a, b - a)
+        bound = sqrt(1 + (k - 1) / (4 * k + sqrt(16 * k * k + 2)))
+        assert float(rho) < bound, (a, b, k, float(rho), bound)
+        assert bound < 1.060661          # strictly better than O.3''s constant
+        n += 1
+        tightest = max(tightest, float(rho) / bound)
+    assert n >= 100, f"only {n} k>=2 in-window multipliers -- widen the box"
+    assert tightest > 0.99, tightest     # the bound is essentially saturated
+
+
+def test_O3pp_reduces_to_t_equals_one():
+    """A_k t(2c+t) < c(kc-c-t): LHS increases in t, RHS decreases, so t=1 binds."""
+    for k in range(2, 12):
+        A = 4 * k + sqrt(16 * k * k + 2)
+        for c in range(2, 80):
+            if A * (2 * c + 1) >= c * (k * c - c - 1):     # t = 1 excluded
+                for t in range(2, 40):                     # then every t is
+                    assert A * t * (2 * c + t) >= c * (k * c - c - t), (k, c, t)
+
+
+def test_O3pp_recovers_O3prime_and_doubles_it_at_k_two():
+    """c <= 16 excluded for every k (O.3'); k = 2 excluded for c <= 33."""
+    for c in range(1, 17):
+        assert _kmin_surviving(c) is None, c
+    assert _kmin_surviving(17) == 35
+    assert _kmin_surviving(18) == 13
+    A2 = 4 * 2 + sqrt(16 * 4 + 2)
+    for c in range(2, 34):
+        assert A2 * (2 * c + 1) >= c * (2 * c - c - 1), c   # k = 2 excluded
+    assert _kmin_surviving(34) == 2                          # and 34 is sharp
+
+
+def test_realised_c_values_are_far_below_the_O3pp_threshold():
+    """Recorded from the X = 4000 slice sweep (experiments/exp18_ck_region.py).
+
+    Measured on configurations that DO occur, so this is not
+    `triples-cannot-be-settled-by-measurement`.  Every acting in-window
+    multiplier with k >= 2 has c = gcd(M,2X) in {2,4}, against a threshold of 17.
+    """
+    for c, k in [(2, 12), (2, 33), (2, 91), (4, 4)]:
+        assert c <= 16
+        assert _kmin_surviving(c) is None, (c, k)
+
+
+def test_region_form_is_sharper_than_the_rho_bound_route():
+    """The two routes differ by exactly 1 at k = 2,3,4 and agree from k = 5.
+
+    Reading "c*rho in Z needs 1/(rho-1)" off rho < sqrt(1+(k-1)/A_k) spends
+    rho > 1 on the -rho term; the region inequality substitutes rho >= (c+1)/c
+    into BOTH places rho appears, so it is strictly sharper.  Not a discrepancy
+    -- a corollary and its parent.
+    """
+    expected = {2: (33, 34), 3: (25, 26), 4: (22, 23), 5: (21, 21), 10: (19, 19)}
+    for k, (want_rho, want_region) in expected.items():
+        A = 4 * k + sqrt(16 * k * k + 2)
+        bound = sqrt(1 + (k - 1) / A)
+        c_rho = next(c for c in range(1, 500) if 1 + 1 / c < bound)
+        c_region = next(
+            c for c in range(1, 500) if A * (2 * c + 1) < c * (k * c - c - 1)
+        )
+        assert (c_rho, c_region) == (want_rho, want_region), (k, c_rho, c_region)
+        assert c_region >= c_rho          # the region form is never weaker
+    assert _kmin_surviving(17) == 35       # and both stabilise at 17

@@ -538,6 +538,89 @@ forbidding only a third.
 *(ρ_max = 1.0582 needs c ≥ 18 to admit an integer in (c, 1.06066c), against the
 17 the bound allows — the margin is real but thin, one unit.)*
 
+### Theorem O.3″ — the discarded term, and why c ≤ 33 at k = 2
+
+O.3′ throws information away at one step and it is recoverable. The chain reaches
+ρ² < 9/8 − ρ/(8k) and then drops the second term using ρ > 0. But **ρ > 1 is
+free**, and the proof of it needs nothing already derived:
+
+> U_k = √(M² + 4k²ab) > 2k√(ab) > 2ka since b > a, so **ρ = (U_k − 2ka)/M > 0**.
+> And Λ = (k−ρ)/(ρ²−1) > 0. If ρ² < 1 then k − ρ < 0, i.e. ρ > k ≥ 1, which
+> contradicts ρ < 1. Hence ρ² > 1, i.e. **ρ > 1**. ∎
+
+**k = 1 is the boundary and must be excluded, which is why this was invisible.**
+There U₁ = a + b, so B₁ = b − a = M and **ρ = 1 exactly** — the identity reads
+M·0 = 4a·0 and Λ = 0/0 is undefined. *(Verified: ρ = 1 identically on all 553,959
+in-window k = 1 multipliers at X = 4000.)* For k ≥ 2, ρ = 1 would force
+M·0 = 4ka(k−1) ≠ 0, so ρ > 1 is **strict**. O.3 already assumed k ≥ 2; the
+sharpening costs no hypothesis.
+
+Keeping the term, and using the exact Λ > A_k := 4k + √(16k²+2) rather than
+Λ > 8k, the geometry gives
+
+> **ρ² < 1 + (k − ρ)/A_k**,  hence with ρ > 1  **ρ² < 1 + (k−1)/A_k**.
+
+At k = 2 that is ρ < 1.030543 against O.3′'s 1.060207 — the excess over 1 is
+**halved**. *(0 violations over the 55 in-window k ≥ 2 multipliers at X = 4000,
+and the tightest — (a,b) = (13, 26765) at k = 8, ρ = 1.052632 — sits at 0.9994 of
+the bound. The bound is essentially saturated, so little more is available by
+this route.)*
+
+Now integrality, in the sharp form. Write **g = cρ ∈ ℤ**, so g > c. Substituting
+ρ = g/c into M(ρ²−1) = 4ka(k−ρ) and clearing gives the exact Diophantine relation
+
+> **M(g − c)(g + c) = 4kac(kc − g)**,
+
+and M > 4ka·A_k turns it into **A_k(g−c)(g+c) < c(kc − g)**. With g = c + t,
+t ≥ 1 an integer, this is A_k·t·(2c+t) < c(kc − c − t); the left side increases
+in t and the right side decreases, so **t = 1 is the only case to check**:
+
+> **Theorem O.3″.** A dyadic window contains (ξ, τ₁ξ, τ_kξ) with k ≥ 2 only if
+>
+> **(4k + √(16k²+2))·(2c+1) < c·(kc − c − 1)**,  where c = gcd(M, 2X).
+
+Taking k → ∞ recovers c > 8 + √72 = 16.485, i.e. **c ≥ 17 — Theorem O.3′ is the
+k-free shadow of this**. But the condition binds hard at small k:
+
+| c | 17 | 18 | 19 | 20 | 21–22 | 23–25 | 26–33 | ≥ 34 |
+|---|---|---|---|---|---|---|---|---|
+| survives only for k ≥ | 35 | 13 | 8 | 6 | 5 | 4 | 3 | 2 |
+
+> **In particular k = 2 needs c ≥ 34**, roughly doubling O.3′'s reach at the
+> smallest index a triple can use, and c = 17 — the case O.3′ stops one unit
+> short of — needs k ≥ 35.
+
+**The ρ-bound and the region inequality differ by one at k = 2, 3, 4, and the
+region form is the right one.** Reading off "cρ ∈ ℤ needs 1/(ρ−1)" from
+ρ < √(1 + (k−1)/A_k) gives c ≥ 33 at k = 2, not 34. Neither is wrong: the ρ-bound
+already spent ρ > 1 on the −ρ term, whereas the region inequality substitutes
+ρ ≥ (c+1)/c into **both** places it appears. So the region form is strictly
+sharper and the ρ-bound is its weaker corollary; they differ by exactly 1 at
+k = 2, 3, 4 and agree from k = 5 on, where ρ ≈ 1 makes the two substitutions
+indistinguishable.
+
+| k | 2 | 3 | 4 | 5 | 10 | ≥ 35 |
+|---|---|---|---|---|---|---|
+| c from the ρ bound | 33 | 25 | 22 | 21 | 19 | 17 |
+| c from the region inequality | **34** | **26** | **23** | 21 | 19 | 17 |
+
+*(Caught by the parallel session verifying the claim text against its own
+implementation — the note stated both forms and gave only the region numbers.)*
+
+**What this does not do.** It still assumes τ₁ acts, so the p, q ≥ 2 gap that
+keeps O.2 open is untouched; the live witness (53, 423125) at k = 12 excludes τ₁
+and is not addressed. It shrinks the surviving region of an already-covered
+family rather than reaching a new one.
+
+**And measured against realised configurations it is far from binding.** At
+X = 4000 every acting in-window multiplier with k ≥ 2 has **c ∈ {2, 4}** —
+(c,k) = (2,12), (2,33), (2,91), (4,4) — against a threshold of 17. The theorem
+holds with two orders of magnitude to spare on everything that occurs, which
+says the constraint doing the real work in nature is not this one. Note that
+measuring c here is legitimate where measuring the conclusion is not: c is read
+off configurations that **do** occur, so this is not
+`triples-cannot-be-settled-by-measurement`.
+
 **And the candidate criterion in the withdrawn section was the wrong shape**,
 which matters only for reading that section's numbers. For three moduli
 m, r₁m, r_km all inside [m, 2m) the requirement is **r_k < 2** alone; the product

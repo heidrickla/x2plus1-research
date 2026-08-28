@@ -49,6 +49,7 @@ SIZES: dict[str, list[str]] = {
     "exp15_cauchy_schwarz_reduction.py": ["40000"],
     "exp16_m_exponent.py": ["60000"],  # needs bands above M = 512 to fit
     "exp17_sharp_form.py": ["1200"],
+    "exp18_ck_region.py": ["900"],
 }
 
 TIMEOUT = 300
