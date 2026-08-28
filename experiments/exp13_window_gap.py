@@ -26,27 +26,11 @@ Usage:  python experiments/exp13_window_gap.py [X]  (X = 5000 takes a few minute
 """
 
 import sys
-from collections import Counter, defaultdict
-from math import gcd
+from collections import Counter
 
 import _bootstrap  # noqa: F401
 
-
-def ratio_classes(X: int) -> dict[tuple[int, int], list[int]]:
-    """{(a, b): sorted shared moduli} over every reduced ratio (y^2+1)/(x^2+1)."""
-    vals = [x * x + 1 for x in range(1, X + 1)]
-    buckets: dict[tuple[int, int], list[int]] = defaultdict(list)
-    for i in range(X):
-        u = vals[i]
-        for j in range(i + 1, X):
-            g = gcd(u, vals[j])
-            buckets[(u // g, vals[j] // g)].append(i + 1)
-    out = {}
-    for (a, b), xs in buckets.items():
-        ms = sorted(vals[x - 1] // a for x in xs if vals[x - 1] % a == 0)
-        if len(ms) >= 2:
-            out[(a, b)] = ms
-    return out
+from x2plus1.polyseq import ratio_classes
 
 
 def window_max(ms: list[int]) -> int:
@@ -55,7 +39,7 @@ def window_max(ms: list[int]) -> int:
 
 
 def main(X: int = 5000) -> None:
-    classes = ratio_classes(X)
+    classes = {k: ms for k, ms in ratio_classes(X).items() if len(ms) >= 2}
     print(f"X = {X}:  {len(classes)} ratio classes with at least two shared moduli\n")
 
     hist = Counter(window_max(ms) for ms in classes.values())

@@ -220,91 +220,49 @@ reformulation claimed:
 The proper-class spacing explains at most one modulus per proper class; the
 improper pairing explains a second; **nothing explains the absence of a third.**
 
-### The absence of a third is a gap, not a scarcity
+### The absence of a third has a mechanism, and the "floors" are not floors
 
-Three moduli in one window is exactly m_{i+2}/m_i < 2, so the statistic to look
-at is the *two-step* ratio. Over every ratio class:
+Three moduli in one window is exactly m_{i+2}/m_i < 2, so the two-step ratio is
+what decides it. Measured over every ratio class, the minimum two-step ratio is
+**13.0000**, attained at (a, b) = (1, 85) with m = 2, 17, 26, and pinned across
+X = 1500, 2500, 3500, 5000 while the triple count doubles. Restricted to pairs a
+Type II split can meet (both cofactors ≥ 2, since a = 1 at d = 1 is the unit
+cofactor) it is **73.0000** at (5, 481) for three sizes and **66.4923** at
+(5, 4033) at X = 5000.
 
-| X | classes with ≥2 m | with ≥3 m | min m_{i+1}/m_i | min m_{i+2}/m_i |
+**Neither is a floor, and an earlier draft of this section said they were.**
+[Note O](note-O-tau-multiplier.md) supplies the mechanism, and it gives a
+different and better constant: the two-step ratio is ≥ 2 outright. So 13 and 66.5
+are wherever the finite search has reached, and the restricted one *should* keep
+drifting down — 73 → 66.5 is the beginning of that, not an anomaly. Note O even
+predicts where the step falls: (5, 4033) first becomes visible at X = 4175, which
+is between the 3500 and 5000 sweeps where it appeared. Predicted, not fitted.
+
+**The multiplier, verified here independently.** For coprime a < b the close-pair
+ratio is τ² with τ = (√b + √a)/(√b − √a). Over all 304 close pairs at X = 2500:
+
+| m_i | m_j | observed | τ² | rel. err |
 |---:|---:|---:|---:|---:|
-| 1 500 | 1 025 | 55 | 1.0783 | **13.0000** |
-| 3 000 | 2 014 | 74 | 1.0547 | **13.0000** |
-| 5 000 | 3 319 | 109 | 1.0412 | **13.0000** |
+| 24 650 | 42 850 | 1.73834 | 1.73835 | 8.8 × 10⁻⁶ |
+| 13 925 | 20 450 | 1.46858 | 1.46860 | 1.2 × 10⁻⁵ |
+| 10 405 | 12 545 | 1.20567 | 1.20568 | 8.2 × 10⁻⁶ |
+| 6 605 | 12 745 | 1.92960 | 1.92961 | 3.7 × 10⁻⁶ |
 
-Consecutive ratios get arbitrarily tight — 1.041 at X = 5000, and falling — while
-the two-step minimum sits at **exactly 13** and does not move as the triple count
-doubles. The threshold for a violation is 2. That is a margin of 6.5, stable.
+median relative error 2.4 × 10⁻⁵, and only 2 of 304 above 1% (the error is
+O(1/m), so the outliers are the smallest moduli). **And the threshold is sharp:**
+τ² < 2 requires b/a > 33.97, and the minimum b/a over the 304 close pairs is
+**34.1** — attained, never violated.
 
-**And the lower tail is a cluster, not an approach.** The nine smallest two-step
-ratios at X = 5000 are
-
-> 13.00, 14.50, 14.80, 14.90, 15.16, 16.40, 17.06, 17.55, 18.02
-
-and then the next is **32.5**. Nothing in (18.02, 32.5); nothing below 13; median
-819. So there is a floor with a cluster resting on it, which is the shape a
-theorem makes, not the shape chance makes. Both sessions independently reached a
-probability model predicting that three-in-a-window should be merely improbable;
-a gap pinned at 13.0000 across a doubling of the triple count is not improbability.
-
-**Every one of the twenty smallest two-step ratios has a = 1.** That is
-n₁ = d and n₂ = db — *one cofactor divides the other*. The b values are 85, 533,
-901, 65, 5, 325, 365, 1450, 2465: all products of primes ≡ 1 (mod 4), as
-admissibility forces. So whatever bounds the two-step ratio from below is a
-statement about the conic **y² − b x² = b − 1**, and the extremal case is
-(a, b) = (1, 85) with x = 1, 4, 5 — which is not three near-coincident solutions
-at all, but a tight pair (m = 17, 26, ratio 1.53) plus a distant third (m = 2).
-
-**And the extremals are exactly the configurations a Type II split excludes.**
-a = 1 means n₁ = d, so at d = 1 it is the *unit cofactor* — the same degenerate
-case that drives the full graph's log X growth. Restricting to pairs that can
-actually occur, both cofactors ≥ 2:
-
-| X | triples (all / restricted) | min two-step, all | min two-step, restricted |
-|---:|---:|---:|---:|
-| 1 500 | 79 / 23 | 13.0000 (1, 85) | 73.0000 (5, 481) |
-| 2 500 | 97 / 32 | 13.0000 (1, 85) | 73.0000 (5, 481) |
-| 3 500 | 124 / 43 | 13.0000 (1, 85) | 73.0000 (5, 481) |
-| 5 000 | 157 / 59 | 13.0000 (1, 85) | **66.4923** (5, 4033) |
-
-Fifty-nine restricted triples is not a small sample, so the a = 1 concentration
-is structural and not an artefact of counting. Window maximum is 2 in both
-populations.
-
-**But the two floors behave differently, and this note should not blur them.**
-The unrestricted 13 is *pinned* — the same minimiser at four sizes, while the
-triple count doubles. The restricted floor held at 73 for three sizes and then
-**stepped down to 66.5** when (5, 4033) appeared. One step of 9% is not a drift
-toward the threshold — the margin is still 33× against 2 — but it is not the
-same kind of evidence as a pinned minimum, and an earlier draft of this section
-stated 66.5 as though it were. The restricted extremals so far are (5, 4033),
-(5, 481), (2, 145), (2, 925), (2, 65), (5, 442), (13, 6161), (2, 5) — small a,
-every odd one ≡ 1 (mod 4).
-
-That is the reduction worth attacking: a **gap principle** separating distinct
-proper classes of a fixed binary quadratic form. Neither session has the
-citation, and the measurement stands on its own until one turns up. What the
-restriction shows is that a gap principle covering only the a = 1 family
-y² + 1 = b(x²+1) would settle the extremal case but *not* the case the sieve
-actually meets — where the margin is wider and the question correspondingly
-less delicate.
-
-**Dickson's side condition does not recover it.** The condition that would force
-the class bound to 2 is |a−b| odd with at most one odd prime factor. Of the
-classes attaining a window maximum of 2, only **19%** satisfy it at X = 3000 and
-**15%** at X = 6000 — and the other 85% attain exactly 2 as well. The constant is
-not coming from a small class count.
-
-**Does N^ε still suffice for the conclusion?** Probably, and it is worth being
-explicit that this is reasoning: dispersion needs *count = main term + error*,
-and O_ε(N^ε) with no structure supplies no main term any more than 2 does. So
-the conclusion should survive with a weaker constant. That step is `inferred`,
-and it is exactly the shape of claim this repo has had to withdraw before.
-
-The window sweep extends the table above to X = 32 000, still 2 everywhere:
-
-| M | 128 | 256 | 512 | 1024 | 2048 | 4096 | 8192 |
-|---|---|---|---|---|---|---|---|
-| max Gram | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+**τ alone does not forbid a third, and one class shows the multiplier acting
+twice.** A third needs τ⁴ < 2, i.e. b/a > 134.3, and the median b/a over close
+pairs is 148.2 — most of them clear it. So the work is done by Note O's
+"τ cannot act twice", not by the threshold. But that phrase needs care: the
+multiplier *can* act twice in one class. At X = 2500, of the 303 classes with a
+close pair, 302 have exactly one and **(a, b) = (1, 53) has two** —
+m = 10, 17, 24650, 42850, with close pairs (10, 17) at ratio 1.700 and
+(24650, 42850) at ratio 1.7383 = τ². What never happens is two acting at
+*consecutive* positions, which is what "three in one window" would require. The
+statement is about consecutive triples, not about classes.
 
 ## So Note F's conclusion transfers, and here is exactly how much is proved
 
