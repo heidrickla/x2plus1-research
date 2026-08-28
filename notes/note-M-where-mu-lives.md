@@ -422,6 +422,18 @@ ten doublings:
 So the (log M)^{1/4} accounts for essentially all of the residual drift, and the
 refined law fits to 5% where the plain one fits to 13%.
 
+**This does not contradict `no-log-power-correction`, and the two must be read
+with their axes attached.** That claim measures the **X** direction in the
+**per-progression** grouping and finds it flat. This one measures the **M**
+direction, and the drift is entirely **per-modulus**. The coherent picture:
+
+    S_prog(M)  ~  sqrt(MX)                     flat in X (exp05) and in M (exp16)
+    S_mu(M)    ~  sqrt(MX) / (log M)^{1/4}     the per-modulus law
+
+and since [ASP]'s (B) asks for one absolute value per rational modulus, **the
+sieve-relevant law is the second**, so the log factor is not a curiosity about a
+normalisation the sieve does not use.
+
 **This does not promote anything, and §5 above settles how little it buys.**
 The upper-bound half has a proof shape — Cauchy–Schwarz is exact, the diagonal is
 a divisor count, the modulus count is Landau–Ramanujan, and only the off-diagonal
