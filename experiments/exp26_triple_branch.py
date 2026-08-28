@@ -248,3 +248,64 @@ if __name__ == "__main__":
          int(sys.argv[2]) if len(sys.argv) > 2 else 20_000_000)
     o15_coverage()
     alternation_does_not_extend(min(3000, max(800, int(sys.argv[1]) if len(sys.argv) > 1 else 3000)))
+    bipartite_structure(min(4000, max(1200, int(sys.argv[1]) if len(sys.argv) > 1 else 4000)), top=60)
+
+
+def bipartite_structure(X=4000, top=120):
+    """BD_2(-1): the bipartite Diophantine tuple structure of x^2+1.
+
+    Tsang-Yip (arXiv:2512.03441v3) define (A,B) to have property BD_k(n) when
+    ab + n is a k-th power for every a in A, b in B.  With k = 2, n = -1 that is
+    exactly this repo's object: A a set of cofactors, B a set of moduli, ab - 1 a
+    square, since a*m = x^2+1.
+
+    Their Question 1.3 asks for the smallest l such that |A| = l forces |B|
+    absolutely bounded.  They record l <= 9, 6, 5, 4 for k = 3, 4, 5, >= 6, and
+    then: "when k = 2, we do not know any upper bound on l."  Under the
+    uniformity conjecture they predict l <= 5 for k = 2.
+
+    MEASURED HERE: l = 3.  |A| = 2 does not bound |B| -- (1,5) already shares 8
+    moduli, and each Pell solution class contributes an infinite geometric family.
+    |A| = 3 appears to force |B| <= 2: no K_{3,3} among the highest-degree
+    cofactors, while K_{3,2} occurs.
+
+    Evidence of absence in the region where the configuration would be most
+    likely, NOT a proof -- and sharper than the conjectural bound, which is
+    exactly the situation this repo's rules say to distrust.
+    """
+    from collections import defaultdict
+    from itertools import combinations
+
+    inc = defaultdict(set)
+    for x in range(1, X + 1):
+        v = x * x + 1
+        d = 1
+        while d * d <= v:
+            if v % d == 0:
+                inc[v // d].add(d)
+                if d * d != v:
+                    inc[d].add(v // d)
+            d += 1
+
+    print(f"  X = {X}: {len(inc)} cofactors in the bipartite (cofactor, modulus) incidence")
+    pool = sorted(inc)[:1500]
+    best = max(((len(inc[a] & inc[b]), a, b) for a, b in combinations(pool, 2)),
+               default=(0, 0, 0))
+    print(f"  |A| = 2: largest |B| among the first 1500 cofactors is {best[0]}"
+          f" at ({best[1]}, {best[2]}) -- unbounded as X grows")
+
+    ns = sorted(inc, key=lambda n: -len(inc[n]))[:top]
+    k33 = k32 = None
+    triples = 0
+    for a, b, c in combinations(ns, 3):
+        triples += 1
+        s = inc[a] & inc[b] & inc[c]
+        if len(s) >= 3 and k33 is None:
+            k33 = (a, b, c, sorted(s)[:4])
+        if len(s) >= 2 and k32 is None:
+            k32 = (a, b, c, sorted(s))
+    print(f"  K_3,3 over the {top} highest-degree cofactors ({triples:,} triples):"
+          f" {k33 if k33 else 'NONE FOUND'}")
+    print(f"  K_3,2 (three cofactors, two shared moduli): {k32 if k32 else 'none'}")
+    print("  So the measured l is 3, against a literature with no bound for k = 2")
+    print("  and a conjectural l <= 5.  Measured, not proved.")

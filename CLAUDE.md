@@ -33,7 +33,8 @@ finding; this table is a summary of it, not a second copy.
 | Open | Conjecture O.2 — no window holds three shared moduli. No counterexample to X = 8000 |
 | O.2 threshold | O.15: a windowed triple needs u > 82.5571 (117.4171 if a,b both odd), from O.5 forcing V ≠ W |
 | Weakest link | `gaussian-to-rational-bridge` (inferred): the Z[i]→Z transfer |
-| ⚠ Note O | is the **D(−1)-tuple extension problem** (am−1, bm−1 both squares). Literature has gap principles + linear forms in logarithms; check novelty before writing anything up |
+| ⚠ Note O | is **BD₂(−1)**, bipartite Diophantine tuples (am−1, bm−1 squares). Tsang–Yip arXiv:2512.03441 Q1.3: *"when k = 2, we do not know any upper bound on ℓ"* — **open**, conjecturally ℓ ≤ 5 |
+| — measured here | ℓ = 3: \|A\|=2 gives \|B\| ≥ 8 and growing; **no K₃,₃** in 280,840 triples at X = 4000. Measured, not proved |
 
 Ruled out by the plan: Green–Tao / nilsequences; GRH or zero-density substitutes for
 Type II.

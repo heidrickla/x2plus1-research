@@ -2466,6 +2466,35 @@
         "literature"
       ],
       "notes": "WHAT IS MISSING, and it is most of the verification: the literature statements come from abstracts and search results, not from the papers. Two questions are open ABOUT THE LITERATURE rather than about the mathematics -- whether the standard gap principles apply when {a,b} is not itself a D(-1)-pair (the note's configuration only needs two of three products square), and whether Conjecture O.2 is already a corollary of known results. WHY IT MATTERS FOR DIRECTION: the note records nine closed routes and concludes that any proof must be about occupancy rather than congruences, and that size arguments cannot reach O.2. Both may be true and beside the point -- the field's answer to this kind of question is LINEAR FORMS IN LOGARITHMS, which is neither, and which this note has never attempted. It also bears directly on novelty: much of the O-thread may be re-deriving known results, which is the first thing to establish before any of it is written up. READ ONE PAPER PROPERLY (Dujella, 'An absolute bound for the size of Diophantine m-tuples', 22pp, via pymupdf since the fetcher could not parse it). CONFIRMED: he eliminates the new element to get a z^2 - c x^2 = a - c, structurally the same conic as Note O's A Y^2 - B X^2 = M, and cites Nagell Theorem 108a for the solution classes -- the same Nagell this repo tried and recorded as 'running the wrong way'. His Lemma 2 then works modulo 2c, twice the larger element, where Note O tested congruences modulo M = B - A and found no obstruction. Those are different moduli and mod 2B was never tried. BUT DO NOT OVER-READ THAT. Dujella's Lemmas 2 and 3 intersect TWO Pellian equations, because he extends a TRIPLE {a,b,c} by d, giving conditions (4) and (5). Note O's configuration is a cofactor PAIR with one equation and three solutions in a window, so the two-recurrence intersection has no analogue here; what would transfer is the GAP PRINCIPLE part, and Note O already has one (O.4's tau_min^4). The literature's gap principles are absolute (c > 4ab), Note O's is a ratio, and O.2 is open precisely where the ratio bound goes weak -- large u, tau_min -> 1. So the transfer is genuinely uncertain and this claim must not be read as 'the tools exist, just apply them'."
+    },
+    {
+      "id": "bd2-minus-one-bound-is-open",
+      "status": "quoted",
+      "statement": "This repo's configuration is exactly a bipartite Diophantine tuple with property BD_2(-1), and the bound it observes is an EXPLICITLY OPEN QUESTION in the literature. Tsang-Yip, 'Bipartite Diophantine tuples and their applications', arXiv:2512.03441v3 (18 Feb 2026), p.1-2: '(A, B) [is] a bipartite Diophantine tuple with property BD_k(n) if A, B are two subsets of N with size at least 2, such that ab + n is a k-th power for each a in A and b in B.' With k = 2, n = -1 that is exactly: cofactor set A, modulus set B, ab - 1 a square. They state: 'it remains an open question to show that if (A, B) is a bipartite Diophantine tuple with property BD_2(1) (or BD_2(-1), resp.), then min{|A|, |B|} is bounded by an absolute constant'. Their Theorem 1.1 gives min{|A|,|B|} << log(|n|+1) only for k >= 3. Their Question 1.3 asks for the smallest l with |A| = l forcing |B| absolutely bounded, and records l <= 9, 6, 5, 4 for k = 3, 4, 5, >= 6 -- then: 'However, as we discussed earlier, when k = 2, we do not know any upper bound on l.' Under the uniformity conjecture they predict l <= 5 for k = 2, via hyperelliptic curves y^2 = (a_1 x + n)...(a_5 x + n).",
+      "citation": "Tsang-Yip, arXiv:2512.03441v3, pp.1-2: definition of BD_k(n), Theorem 1.1, Question 1.3 and the k = 2 remark. PDF read directly with pymupdf.",
+      "experiment": null,
+      "depends_on": [],
+      "tags": [
+        "literature",
+        "note_o",
+        "gram"
+      ],
+      "notes": "Found by following this repo's own recommendation to check the literature before treating Note O as novel. The identification is exact and elementary, not analogical -- see note-O-is-the-D-minus-one-tuple-problem. WHAT IT CHANGES: the O-thread is not re-deriving known results, nor is it working on a problem nobody poses. It is working on BD_2(-1), whose basic finiteness question is open and explicitly posed in a 2026 paper. Bugeaud-Dujella and Bugeaud-Gyarmati studied the same objects two decades ago (per the same page), so the area is not obscure."
+    },
+    {
+      "id": "x2plus1-bipartite-graph-gives-ell-equals-three",
+      "status": "rigorous_finite",
+      "statement": "For the sequence x^2+1 -- i.e. BD_2(-1) -- the measured answer to Tsang-Yip's Question 1.3 is l = 3. At X = 4000 the bipartite (cofactor, modulus) incidence has 15,083 cofactors. |A| = 2 does NOT force |B| bounded: the pair (1,5) already shares 8 moduli and the count grows with X, since each solution class of the underlying Pell equation contributes an infinite geometric family. |A| = 3 does appear to force |B| <= 2: searching all 280,840 triples among the 120 highest-degree cofactors finds NO K_{3,3}, while K_{3,2} occurs -- (1, 2, 650) shares moduli 5 and 145. So the observed l is 3, against a literature that knows no upper bound for k = 2 and predicts l <= 5 under the uniformity conjecture.",
+      "experiment": "experiments/exp26_triple_branch.py",
+      "depends_on": [
+        "bd2-minus-one-bound-is-open"
+      ],
+      "tags": [
+        "literature",
+        "note_o",
+        "gram"
+      ],
+      "notes": "MEASURED, NOT PROVED, and the distinction is the whole point when the statement bears on an open question. The K_{3,3} search is over the 120 highest-degree cofactors at X = 4000, which is where such a configuration would be most likely, not over all cofactors -- so it is evidence of absence in the region that matters, not a proof. Note the direction: the observation is SHARPER than the conjectural bound (3 against 5), which is the situation this repo's rules say to distrust. It is offered as data on an open question, not as a claim to have answered it. The witness (1, 2, 650) has a = 1, the unit cofactor; whether a unit-free K_{3,2} exists is not established here."
     }
   ]
 }
