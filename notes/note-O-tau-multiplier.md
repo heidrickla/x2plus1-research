@@ -351,6 +351,34 @@ candidates. **What is proved is a theorem about the natural case, not the
 general one** — and after two retractions today the difference is worth
 labouring.
 
+### The general case, measured but not proved
+
+For M odd squarefree, put M₁ = gcd(S, M) and M₂ = M/M₁; the conic forces
+M₂ | T, and each condition splits as **M₁ | B_k and M₂ | A_k**. This also
+explains why τ₁ is special: B₁ = U₁ − 2a = a+b−2a = **M exactly** and
+A₁ = M + 4a, so M₂ | M and M₂ | M+4a force M₂ | 4a, and with M odd coprime to a
+that gives **M₂ = 1**. τ₁ acting *is* the statement M | S — the same fact as
+j = 2 ⟺ k = 1, seen from the other side.
+
+For p, q ≥ 2 the factorisation is not forced and Theorem O.3 does not apply.
+Measured over admissible (a,b) with a < 120, b < 300000:
+
+| | count |
+|---|---|
+| (p,q) pairs with two multipliers, both k ≥ 2 | 274 |
+| …of which the larger still fits a window (r_q < 2) | **0** |
+
+The geometry alone kills them, and with a wide margin. Since r_q < 2 requires
+q < √(b/a)/(4√2), the test is the ratio q/(√(b/a)/4√2), which must be below 1:
+
+> **minimum observed 3.91**, over 171 pairs.
+
+So a second multiplier at k ≥ 2 forces k up faster than √(b/a) grows, and the
+smallest available one is never small enough. That is the same tension
+Theorem O.3 proves for p = 1 — divisibility wanting M small, geometry wanting it
+large — showing up as a factor of four rather than as a contradiction. **It is a
+measurement, not a proof, and the general case of O.2 is open.**
+
 *Caveat, stated because it is the only thing keeping this from being a flat
 refutation:* the 110 triples live in wide windows (ratio ≥ 13), not dyadic ones.
 Nothing proves the dyadic regime behaves the same way. What the data removes is
