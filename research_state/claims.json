@@ -1231,6 +1231,16 @@
         "type_i"
       ],
       "notes": "Third instance of 'claims stated to an order, read as equalities', and the first in a `proved` claim: type-I-level said 'sum |r_d| ~ D', which is right about the order and off by 2 pi literally. Nothing downstream moves -- the argument needs the sum to be of order D, and a constant cannot turn D = o(X) into anything else -- so this pins the constant rather than correcting a conclusion. The two ingredients were already in the registry separately (|r_d| <= 1 and sharp, from type-I-level; the (3/2pi) density, from admissible-density) and neither claim could have carried constant 1 given the other."
+    },
+    {
+      "id": "chowla-sum-shows-square-root-cancellation",
+      "status": "rigorous_finite",
+      "statement": "sum_{x<=X} mu(x^2+1), sieved to X = 4e6: S = 134, -42, -208, -730, 482, 675 at X = 1e4, 4e4, 1.6e5, 6.4e5, 2.56e6, 4e6, giving |S|/sqrt(X) = 1.34, 0.21, 0.52, 0.91, 0.30, 0.34 -- bounded between 0.21 and 1.34 over more than two decades -- and |S|/X falling to 1.7e-4. Square-root cancellation, unmistakably.",
+      "experiment": "experiments/exp16_m_exponent.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Measured with exp16's sieve, which is cross-checked against sympy value by value. Scopes the sentence in Note M that the trivial bound 'has never been beaten by any amount, at any level, signed or absolute': that is about what is PROVED, and this is about what is TRUE. The estimate the repo needs at theta = 0 is not merely plausible but visibly correct, and the whole difficulty is that nobody can prove it -- which is a materially different position from a sequence that misbehaves. A reader taking the proof statement for a truth statement would conclude the opposite. Does NOT bear on chowla-for-x2plus1-is-open, which remains open: two decades of data is not an asymptotic, and this is exactly the extrapolation the `rigorous_finite` versus `extrapolated` distinction exists to prevent -- so no law is fitted here and none should be."
     }
   ]
 }

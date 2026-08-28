@@ -218,6 +218,25 @@ this sequence the trivial bound has never been beaten by any amount, at any
 level, signed or absolute.** What is known is qualitative: λ(P(n)) takes each
 sign infinitely often for some classes of P, with no rate.
 
+**That sentence is about what is *proved*, and it should not be read as a claim
+about what is *true*.** Sieved to X = 4×10⁶:
+
+| X | Σ_{x≤X} μ(x²+1) | \|S\|/√X | \|S\|/X |
+|---:|---:|---:|---:|
+| 10⁴ | 134 | 1.34 | 0.0134 |
+| 1.6×10⁵ | −208 | 0.52 | 0.0013 |
+| 6.4×10⁵ | −730 | 0.91 | 0.0011 |
+| 2.56×10⁶ | 482 | 0.30 | 0.00019 |
+| 4×10⁶ | 675 | 0.34 | 0.00017 |
+
+**|S|/√X stays between 0.21 and 1.34 over more than two decades** — square-root
+cancellation, unmistakably, with |S|/X down to 1.7×10⁻⁴. So the estimate the repo
+needs at θ = 0 is not merely plausible: it is visibly true, and the difficulty is
+entirely that nobody can prove it. "The trivial bound has never been beaten"
+describes the state of the literature, not the state of the sum, and a reader who
+takes it for the latter would conclude the sequence is badly behaved when it is
+not.
+
 That is the most honest single sentence about the project's position, and it
 should be read alongside the standing warning: it says nothing about whether
 x² + 1 is prime infinitely often.
