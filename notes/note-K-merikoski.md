@@ -122,11 +122,52 @@ neither demoted nor credited on the strength of it.
 
 **And it generalises Note F in the direction that matters.** The C₄-free lemma is
 not a fact about x²+1. It is a fact about *a line*, of which x²+1 is the case
-c = 1. That sharpens the obstruction rather than softening it: x²+1 is not
+c = 1. *(Over Z[i]. Over Z it is not — see the next section, where the
+same family refutes the transfer at c = 6.)* That sharpens the obstruction rather than softening it: x²+1 is not
 unluckily C₄-free, **every line is**, and α = 1/2 is forced for all of them — so
 there is no nearby line with more room, and the escape has to leave the family
 entirely. Machine-checked in `test_every_single_line_is_c4_free_and_has_kappa_one`
 and `test_two_lines_always_admit_a_four_cycle`.
+
+### The same family refutes the Z[i] → Z transfer, at c = 6
+
+A_c is C₄-free over Z[i] for **every** c. Over **Z**, on the doubly-dyadic
+configuration where Theorem O.12 proves C₄-freeness at c = 1, the property holds
+only for
+
+> **c ∈ {1, 2, 3, 4, 5, 7}**
+
+and fails at the other fourteen values up to 20. Stable from X = 1500 to 3000 on
+the survivors. The witness at c = 6 is doubly dyadic on both axes — cofactors
+(5, 8) with u = 1.6, moduli 9 and 17 with ratio 1.889:
+
+> 5·9 = 45 = 3²+6²  8·9 = 72 = 6²+6²
+> 5·17 = 85 = 7²+6²  8·17 = 136 = 10²+6²
+
+**And the mechanism is the Z[i]/Z gap in its purest form:**
+
+> (3+6i)(10+6i) = **−6 + 78i**   (6+6i)(7+6i) = **6 + 78i**
+
+**Conjugate, not associate.** No Gaussian 4-cycle — A₆ is C₄-free over Z[i], as
+the line argument requires — while the norms coincide at 6120 and the rational
+cycle is real. Two Gaussian elements with the same norm and different ideals are
+invisible to Z, and that is the whole of the coarsening
+[Note L](note-L-over-Z.md) describes, arriving on the *banded* configuration
+where at c = 1 it cannot.
+
+**So the c-family bounds the transfer rather than supporting it.** Four
+supporting instances against fourteen refuting, over c ≤ 20. It does not touch
+`gaussian-to-rational-bridge` for x²+1, where the Z-side statement is **proved**
+by O.12 rather than transferred — but it removes any reading of the line family
+as evidence that Z[i]-to-Z transfer is reliable, and it is the repo's first
+concrete counterexample to that pattern.
+
+**It also settles a question the derivation left open.** The generalised bound
+V·W = c²·M·(m_i − m_j) says O.12's *argument* is special to c = 1; measurement to
+c = 5 said the *fact* generalised. The fact is special too — nearly. The
+derivation pointed at the right conclusion with the wrong threshold, while five
+sizes of measurement at c ≤ 5 said "generalises" and would have gone on saying it.
+Machine-checked in `test_doubly_dyadic_c4_freeness_fails_at_c_equals_six`.
 
 ### And two points are enough — so κ does not see it even at the threshold
 
