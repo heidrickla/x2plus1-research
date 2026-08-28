@@ -139,12 +139,12 @@
     {
       "id": "sqrt-MX-law",
       "status": "extrapolated",
-      "statement": "sum_m |sum_n mu(n) 1[mn in A]| ~ sqrt(MX) for M <= X, saturating at ~|A| for M >= X. Ratio to sqrt(MX) is 0.88-0.93, stable from X = 2e4 to 1e5.",
-      "experiment": "experiments/exp02_bilinear_pilot.py",
+      "statement": "sum_m |sum_n mu(n) 1[mn in A]| ~ sqrt(MX) for M <= X, saturating at ~|A| for M >= X. Ratio to sqrt(MX) is 0.88-0.93 over X = 2e4..1e5 by direct measurement (exp02). The same law is confirmed over FOUR DECADES, X = 1e4..1e7, in the equivalent per-progression normalisation rho = S/(pairs * sqrt(n)) used by exp05: rho is flat in X at fixed modulus band, and rho flat is S ~ pairs * sqrt(n), which is sqrt(MX) up to the count of admissible moduli in the band -- the factor exp05 normalises out precisely because it carries its own arithmetic (~M/log M for primes, ~(3/2pi)M for all admissible q).",
+      "experiment": "experiments/exp02_bilinear_pilot.py; experiments/exp05_mobius_progressions.py",
       "tags": [
         "type_ii"
       ],
-      "notes": "A law fitted from finite data, not a theorem: the extrapolation from the measured range to all X is the unsupported step."
+      "notes": "A law fitted from finite data, not a theorem: the extrapolation from the measured range to all X is the unsupported step, and that is unchanged. What DID change is the range on record. The statement previously cited only exp02's 2e4..1e5 -- less than one decade -- while carrying Note M's whole theta-axis argument, which needs the shape to hold across the range where the saving Q^{(1/2-theta)/2} is claimed. exp05's four decades were already in the repo under no-log-power-correction; the two claims measure the same law in two normalisations and only one of them said so."
     },
     {
       "id": "no-saving-in-required-window",

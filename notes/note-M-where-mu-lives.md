@@ -135,6 +135,15 @@ not "applies but is too weak".
   `no-saving-in-required-window` is `rigorous_finite`, and this note derives no
   new number from them, only the observation that their windows are
   complements.
+- *How much does §1 rest on a fit?* All of it, and the fit's range matters. The
+  saving Q^{(1/2−θ)/2} is read straight off S_μ(M) ≍ √(MX), which is
+  `extrapolated`. Its direct measurement (exp02) spans **less than one decade**,
+  X = 2×10⁴ … 10⁵ — which would be thin support for an argument about the whole
+  θ-axis. The same law in the per-progression normalisation ρ = S/(pairs·√n)
+  holds across **four decades**, X = 10⁴ … 10⁷ (exp05), and ρ flat is S ≍
+  pairs·√n, which is √(MX) up to the count of admissible moduli in the band. So
+  the range is there; it was recorded under a different claim, and the two
+  claims measure one law in two normalisations.
 - *Is the Chowla remark a counsel of despair?* It is a scoping fact. It rules
   out reading Question F as "an estimate someone could plausibly supply", which
   earlier drafts came close to doing, and it says where the difficulty sits
