@@ -2212,6 +2212,29 @@
       ],
       "tags": [],
       "notes": "Note J from a new angle: the signs that make the sum hard to bound are the same signs that hide the arithmetic; one mechanism with a measurement on both faces. The parallel session's S_mu column was reproduced here to all five digits from an independent sieve before this was built on it. TWO CAUTIONS, both about the unweighted statistic. (i) From band 1 alone max G is monotone in D (4,7,9,10,15) and was written up as 'climbs monotonically'; band 2 gives 4,8,7,9,14, which is neither monotone nor band-stable. Quote the mean, not the max. (ii) mean G is NOT a structural classifier and must not be read as a severity ordering: its order is 1 < 2 < 6 < 39 < 11, putting D = 11 ABOVE D = 39 while 39 is structurally the more degenerate (a banded TRIPLE against 11's banded 4-cycle). This repo already refuted mean G as a captured/uncaptured classifier from two points confirmed on two more; the same statistic is now available for the same misreading on a new axis, and the temptation is stronger because it reproduces across bands to under 1%. Reproducibility is not aboutness. SCOPE, added after the parallel session could not reproduce the mean and we found we were measuring different matrices: this is a statement about the Cauchy-Schwarz chain, NOT about C4-freeness. On the same values in one window [1000,2000) at X = 3000, the COFACTOR Gram (the C4 object) has max exactly 2 for every D in {1,2,6,11,39} and mean over supported pairs 1.0245, 1.0222, 1.0220, 1.0188, 1.0149 -- flat, in fact slightly falling -- while the ELEMENT matrix has max 2,4,5,7,6 and mean 1.0043, 1.0427, 1.0521, 1.1944, 1.1656. So the structural matrix is blind to D and the one inside OFF is not. Our two readings ALSO used different denominators (mean over supported pairs ~1.02 against mean over all pairs ~0.015), so the disagreement was disguised twice over."
+    },
+    {
+      "id": "D-failures-survive-both-variables-large",
+      "status": "rigorous_finite",
+      "statement": "The D-dependence is not an artefact of the corner a Type II hypothesis excludes. Every witness found first had one variable tiny -- D = 11 at cofactors (3,4), D = 39 at (5,8) -- so the natural worry is that the whole axis lives where the hypothesis does not look. Requiring cofactors >= 200 AND moduli >= 200 at X = 4000, four of D <= 40 still fail: D = 23 at cofactors (1131,1432) ratio 1.266 with moduli (6672,9617) ratio 1.441; D = 31 at (1055,1808) 1.714 with (625,1120) 1.792; D = 35 at (2249,3756) 1.670 with (459,879) 1.915; D = 39 at (781,1180) 1.511 with (688,880) 1.279. All banded on both axes, all sixteen products verified, and D = 1 is not among them. The D = 39 case: 781*688 = 733^2+39, 781*880 = 829^2+39, 1180*688 = 901^2+39, 1180*880 = 1019^2+39.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "O2-and-O12-are-both-special-to-D-equals-one"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Answers the objection that would have sunk the whole D axis, and I nearly concluded the opposite. Having found that the singly-windowed cofactor Gram is flat in D and that the canonical incidence with its default cofactor floor gives max G = 1 for every D, the natural reading was 'the D-dependence lives in small cofactors, which Type II excludes'. Checking it showed 13 of 40 D have failures with both COFACTORS large -- but those have tiny MODULI, so they are not Type II shapes either. Only requiring BOTH scales large settles it, and four survive. Sharpens the parallel session's observation that the structure's D-sensitivity needs both variables banded: it needs them banded AND large, and it survives both.",
+      "proof_site": "notes/note-K-merikoski.md; tests/test_arithmetic_facts.py::test_the_D_failures_survive_both_variables_being_large"
+    },
+    {
+      "id": "O12-is-loose-by-a-factor-seven",
+      "status": "rigorous_finite",
+      "statement": "O.12's proved threshold (5+sqrt21)/2 = 4.7913 is not approached. The smallest cofactor ratio realising a windowed 4-cycle for x^2+1 is 34.0811, at cofactors (37, 1261) sharing moduli 866 and 1730 -- 37*866 = 179^2+1, 37*1730 = 253^2+1, 1261*866 = 1045^2+1, 1261*1730 = 1477^2+1, moduli ratio 1.99769 so one window -- and this minimum is UNCHANGED across X = 1500, 3000, 6000, 12000, a factor of 8 with no smaller witness appearing. So O.12 is loose by 7.11x with no sign of the bound being approached. This also improves the witness the notes quote: (2, 82) at ratio 41 is not extremal. Both are unit-free.",
+      "experiment": "experiments/exp24_doubly_dyadic.py",
+      "depends_on": [],
+      "tags": [],
+      "notes": "The size-argument theme of the O-thread made quantitative on the one theorem that touches the main line. CLAUDE.md already said 'the size arguments are sharp enough to state and still nowhere near what is true'; this is that gap as a number, 7.11x, for O.12 specifically. Found by asking for the MINIMUM where the notes had recorded an EXAMPLE -- the integer max Gram says only whether the bound is violated, while the extremal ratio says how much room is left, and nobody had asked. The stability is the finding rather than the value: a minimum that does not move across a factor of 8 in X is evidence the extremal configuration is not drifting toward the bound. CAVEAT, per this repo's own rule: this is a minimum over a finite range and a bound's silence is not evidence about what lies outside it. X = 12000 reaches values 1.44e8; a smaller-ratio witness beyond that is not excluded."
     }
   ]
 }

@@ -1556,3 +1556,42 @@ def test_the_analytic_and_structural_obstructions_peak_at_the_same_scale():
         assert theta > prev                         # monotone toward 1/2
         prev = theta
     assert abs(prev - 0.48861) < 1e-4               # and still short of it at 1e6
+
+
+def test_the_D_failures_survive_both_variables_being_large():
+    """The D-dependence is not an artefact of small cofactors or small moduli.
+
+    Every failure witness found first had one variable tiny -- D = 11 at
+    cofactors (3,4), D = 39 at (5,8) -- and a Type II split has BOTH large, so
+    the natural worry is that the whole D axis is an artefact of the corner the
+    hypothesis excludes. It is not. Requiring cofactors >= 200 AND moduli >= 200
+    at X = 4000, four of D <= 40 still fail:
+
+        D = 23  cofactors (1131, 1432) ratio 1.266   moduli (6672, 9617) 1.441
+        D = 31  cofactors (1055, 1808) ratio 1.714   moduli ( 625, 1120) 1.792
+        D = 35  cofactors (2249, 3756) ratio 1.670   moduli ( 459,  879) 1.915
+        D = 39  cofactors ( 781, 1180) ratio 1.511   moduli ( 688,  880) 1.279
+
+    all banded on both axes, all four products verified. **D = 1 is not among
+    them.** The D = 39 case in full:
+
+        781*688 = 537328 = 733^2+39      781*880 = 687280 = 829^2+39
+       1180*688 = 811840 = 901^2+39     1180*880 = 1038400 = 1019^2+39
+
+    So O.12's configuration -- both variables banded -- is the one in which the
+    structure sees D, and the failures it admits at D > 1 are genuine Type II
+    shapes rather than corner cases.
+    """
+    from math import isqrt
+
+    cases = ((23, 1131, 1432, 6672, 9617), (31, 1055, 1808, 625, 1120),
+             (35, 2249, 3756, 459, 879), (39, 781, 1180, 688, 880))
+    for D, a, b, m1, m2 in cases:
+        for cof in (a, b):
+            for m in (m1, m2):
+                v = cof * m
+                x = isqrt(v - D)
+                assert x * x + D == v, (D, cof, m)
+        assert b / a < 2 and m2 < 2 * m1, D          # banded on both axes
+        assert min(a, m1) >= 200, D                  # and both variables large
+    assert 1 not in [c[0] for c in cases]
