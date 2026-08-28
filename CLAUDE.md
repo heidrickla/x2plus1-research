@@ -529,6 +529,21 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   than the difficulty of the thing it settles, that is the moment to look for the
   quantifier, not the moment to write it up.** Arithmetic will not catch this
   class: every number involved can be correct.
+  **But be honest about how narrow that detector is.** It did not fire because
+  anyone was careful. It fired because `3ab < b − a` is *impossible*, visible by
+  inspection at a = 1. Had the same bad reduction yielded `3ab < M^{2/3}` —
+  still far stronger than the real bound, still wrong — nothing would have fired
+  and it would have shipped. So the rule is **"the conclusion is too strong to be
+  true"**, not "check the quantifiers", and it only works when the over-reach
+  breaks something obvious. Between *suspiciously good* and *correct* there is a
+  band where no self-check fires at all, and that band is where the Plücker
+  constant lived for hours. **In that band a second independent derivation is the
+  only detector there is** — which is the argument for overlapping the notes at
+  the load-bearing identities rather than partitioning them cleanly. A percentage
+  also has to carry its **direction of travel**: a proved bound whose measured
+  reach is *falling* with X (O.11: 97.7% → 88.1%, admissible count doubling per
+  doubling of X) is a different object from one that is flat (O.10: ~35%), and
+  "6.85× better" alone tells a reader the opposite of what the data says.
 
 - **A percentage carries its population in the same sentence, or it is not a
   measurement.** Two coverage figures went into the notes within an hour — "the
