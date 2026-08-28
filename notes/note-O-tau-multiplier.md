@@ -206,6 +206,35 @@ where the question can be observed at all.
 > reduction "O.2 follows if Q̄ and Q̄″ are coprime" is true but its hypothesis is
 > usually false, and no repair is offered here.
 
+### How much evidence O.2 actually has
+
+Worth stating, because the sweeps are large and the *informative* part of them
+is not. A class can exhibit a triple only if it clears the Plücker–parity
+threshold **M/√D ≥ 11.484** (below) *and* has at least three shared moduli at
+all. At X = 4000:
+
+| | count |
+|---|---|
+| ratio classes above the triple threshold | 278,939 |
+| of those, with ≥ 2 shared moduli | 509 |
+| **of those, with ≥ 3 shared moduli anywhere** | **31** |
+| max moduli in one window among them | 2 |
+
+**So O.2 rests on 31 informative classes, not on 278,939.** The other quarter of
+a million are silent: they have too few moduli for the question to arise. Any
+statement of the form "verified over hundreds of thousands of classes" would be
+true and misleading, and this note should not make it.
+
+The threshold itself is the parallel session's, and with O.2 open it is now the
+**only unconditional constraint on a triple** anyone has. V is a 2×2
+determinant, so three solutions satisfy the Plücker relation
+V_ij X_k − V_ik X_j + V_jk X_i = 0 (machine-checked in Note L as
+`test_three_term_determinant_identity`). With X_k/X_i < √2 that forces
+|V_ik| > 2 + 2/√2 = 3.41, hence |V_ik| ≥ 4 by the parity lemma, hence
+M/√D ≥ 4/(2^{1/4} − 2^{−1/4}) = 11.484 — against the 5.657 a mere pair needs.
+**It contains no ideal theory**, so it does not share the failure mode of the
+composition step above.
+
 *Caveat, stated because it is the only thing keeping this from being a flat
 refutation:* the 110 triples live in wide windows (ratio ≥ 13), not dyadic ones.
 Nothing proves the dyadic regime behaves the same way. What the data removes is
