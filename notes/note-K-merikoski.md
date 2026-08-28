@@ -55,6 +55,62 @@ sharpest available correction to how the ledger has been reading κ: κ = 1 for
 x² + 1 says the bilinear structure is *absent*, which no method can repair; but
 κ ≫ 1 says nothing about how much of that structure is *usable*.
 
+## How insufficient is κ? A conjecture of mine, refuted
+
+Since κ = |A|²/Q and |A| ≍ Q^{1/2}|B| for A_B = {a + b²i : b ∈ B}, we have
+**κ = |B|² exactly**, so the κ criterion is met at |B| = 2 — two values of b.
+Merikoski's sparse-set theorem needs |B| ≫ Y^{1−δ}. That gap suggested a
+conjecture: *the incidence graph stays 4-cycle-free until |B| is a positive
+power of Q, so κ is wrong by an exponent rather than a constant.*
+
+**It is false.** 4-cycles appear at |B| = 2, and κ and C₄-freeness therefore
+fail at the *same* threshold. Getting there needed two controls, because the
+first two measurements were both artefacts:
+
+- **The unit cofactor.** At B = {1,2} the max Gram hit the search cap
+  immediately, with argmax column norms (1, 16) — n₁ a *unit*. This is the same
+  artefact [Note L](note-L-over-Z.md) found driving the full rational graph's
+  growth, in a new setting. Fix: a cofactor floor N(n) ≥ N(m).
+- **Commensurable lines.** With 1 ∈ B, or more generally b₁ | b₂, the map
+  z ↦ (b₂/b₁)² z carries the line Im = b₁² into Im = b₂², since (b₂/b₁)² is then
+  a rational integer. G(1, 4) at B = {1,2} counts *every* a with (4a)²+16 ≤ Q —
+  pure dilation, not bilinear structure. Fix: 1 ∉ B and no b dividing another.
+
+With both applied — B = {2,3}, window [16, 64), no unit m or n — an explicit
+4-cycle survives:
+
+> n₁ = 4+2i (norm 20), n₂ = 19+7i (norm 410)
+> m = 1+4i (norm 17): m n₁ ∼ 18+4i, m n₂ ∼ 83+9i
+> m = 2+6i (norm 40): m n₁ ∼ 28+4i, m n₂ ∼ 128+4i
+
+all four products associates of elements of A_{2,3}. A parallel session reached
+the same conclusion independently and by a different route — solving the
+collision condition algebraically and sweeping x₂, x₃ ≤ 2500 — finding ~300
+collisions for each of B = {2,3}, {2,5}, {3,5}, {3,4} against ~600 for the
+leaky B = {1,2}, {1,3}. So the dilation leak roughly doubles the count but does
+not create the cycles.
+
+**So κ is sharp at the threshold, and must not be demoted on these grounds.**
+"Necessary, not sufficient" stands — it is the a²+(b²+1)² control above, and it
+is a statement about how much κ buys *above* the threshold, not about where the
+threshold is.
+
+**And C₄-freeness is arithmetic, not a density constraint.** For a C₄-free
+bipartite graph, Σ_n C(d_n, 2) ≤ C(R, 2). Measured at Q = 10⁶:
+
+| window | x²+1 (col-side ratio) | a²+b⁴ |
+|---|---:|---:|
+| [16, 64) | 0.048 | **29.0** |
+| [64, 256) | 0.016 | **7.71** |
+| [256, 1024) | 0.005 | **1.95** |
+
+x²+1 sits 20× to 400× *below* the ceiling C₄-freeness imposes, so the lemma is
+nowhere near binding as an edge count — the graph is far sparser than it would
+have to be. a²+b⁴ exceeds 1, as it must, which is the control that the measure
+detects the difference at all. The cycles that appear at |B| = 2 are created by
+arithmetic, not by density, which is exactly why a density statistic like κ
+cannot see where they start.
+
 ## What actually separates them: the curve desingularises
 
 [MER] p. 4 gives the reduction. After Cauchy–Schwarz the task is a count over

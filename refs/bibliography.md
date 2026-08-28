@@ -39,6 +39,11 @@ this file carries the citations and what each source is needed *for*.
    Polynomials* (MSc essay, UBC 2006),
    [arXiv:1910.02885](https://arxiv.org/abs/1910.02885). Treat any detail
    sourced from it as second-hand until the original is checked.
+   **Better secondary source, added later**: R. J. Lemke Oliver, "Almost-primes
+   represented by quadratic polynomials", *Acta Arith.* **151** (2012),
+   241–261 — a *refereed* generalisation of Iwaniec 1978, and the right thing
+   to cite in place of an MSc essay. Also unread here; reading it would upgrade
+   `iwaniec-1978-P2` out of `inferred`.
 7. **Bombieri, Friedlander & Iwaniec**, "Primes in arithmetic progressions to
    large moduli" I, *Acta Math.* **156** (1986); II, *Math. Ann.* **277**
    (1987); III, *J. Amer. Math. Soc.* **2** (1989). **Not obtained** (paywalled)
@@ -108,14 +113,27 @@ either has an analogue over Z[i].
     [arXiv:2302.11331](https://arxiv.org/abs/2302.11331), Compositio Math.
     **161** (2025), 181–243. α ≈ 1 − δ; does not use [ASP]; b = 1 is off the
     chart, not a limit.
-23. **Xiannan Li** — unconditional parity-breaking down to exponential density
-    ≈ 0.6418. States that [ASP] and Harman's sieve "fail … below 2/3".
+23. **Xiannan Li**, [arXiv:2111.05403](https://arxiv.org/abs/2111.05403) (Duke)
+    — unconditional parity-breaking down to exponential density 2/3 − 5/201 =
+    **0.641791** (γ = 5/67), now sourced rather than remembered. States that
+    [ASP] and Harman's sieve "fail to prove asymptotic estimates for sequences
+    with exponential density strictly lower than 2/3", and that "our current
+    methods fail in numerous places once the exponential density drops below
+    2/3". **And he names [Note L](../notes/note-L-over-Z.md)'s mechanism from
+    the other side**: "for certain homogeneous polynomials, such as a³ + 2b³,
+    estimating the bilinear sum involves a restriction of a variable to a one
+    dimensional lattice, and this makes the problem more tractable." That is
+    the two-parameter freedom; the degree ladder is the statement that it is
+    absent for every one-variable polynomial of degree ≥ 2. Located and
+    verified by a parallel session; **not read at source here**.
 24. **Merikoski**, exceptional-character parity-breaking at 5/8
     ([arXiv:2108.01355](https://arxiv.org/abs/2108.01355)).
 25. **Maynard**, ICM survey — all approaches break down below x^{1/2};
     Question 21 asks whether adapting them is plausible.
 26. **Maynard**, [arXiv:2006.07088](https://arxiv.org/abs/2006.07088);
-    **Lichtman**; **Pascadi** — the 3/5, 7/12, 66/107, 5/8 chain.
+    **Lichtman**; **Pascadi** — the 3/5, 7/12, 66/107, 5/8 chain. **Lichtman's
+    66/107 is superseded** by Pascadi, "On the exponents of distribution of
+    primes and smooth numbers", [arXiv:2505.00653](https://arxiv.org/abs/2505.00653).
 27. **Friedlander & Iwaniec**, Gaussian Primes Conjecture,
     [arXiv:1811.05507](https://arxiv.org/abs/1811.05507), Conj. 1.1
     (JEMS **24** (2022), 737–772) — settled by Green–Sawhney at n = 4.
@@ -188,7 +206,9 @@ this file was **wrong**:
   **well-factorability of the linear sieve weights**, not the exponent.
   Maynard Thm 1.1 gives x^{3/5−ε} for triply well-factorable weights.
 - **Superseded twice more since**: Lichtman, 66/107 − ε ≈ 0.6168 unconditionally
-  for triply-well-factorable weights; Pascadi Thm 1.3, x^{5/8−ε}.
+  for triply-well-factorable weights; Pascadi Thm 1.3, x^{5/8−ε}. Lichtman's
+  figure is itself superseded by [arXiv:2505.00653](https://arxiv.org/abs/2505.00653);
+  if a note still quotes 66/107 as the record, it is stale.
 - **Zhang / Polymath 8a** concern ψ(x;q,a) over smooth squarefree moduli:
   Zhang θ = 1/2 + 1/584, Polymath θ = 1/2 + 7/300.
 - **Maynard, "Small gaps between primes" is mis-filed here.** It proves *no new*

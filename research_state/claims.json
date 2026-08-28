@@ -671,6 +671,42 @@
         "type_ii"
       ],
       "notes": "NOT a claim that Theorem 2.5 applies -- substituting a weaker hypothesis into a theorem is not valid reasoning. The content is where the parameters land: the whole distance between 'x^2+1 is open' and 'x^2+1 is inside a solved parameter regime' is arbitrary kappa_n versus kappa_n = mu, which is exactly the gap [FM] p.18 names as missing. Two things would make it unconditional and both are hard: the mu-Type II as a theorem (see chowla-for-x2plus1-is-open -- its easiest endpoint is open), and a sieve needing only mu-coefficients (Note F proves the specialised result cannot upgrade here)."
+    },
+    {
+      "id": "kappa-off-by-an-exponent",
+      "status": "refuted",
+      "statement": "PROPOSED AND FALSE. Since kappa = |B|^2 for A_B = {a + b^2 i : b in B}, the kappa criterion is met at |B| = 2 while Merikoski's sparse-set theorem needs |B| >> Y^{1-delta}; the conjecture was that the incidence graph stays C4-free until |B| is a positive power of Q, so that kappa is wrong by an exponent.",
+      "superseded_by": "kappa-threshold-is-sharp",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Refuted by direct construction: 4-cycles exist at |B| = 2 with both artefacts controlled. Recorded because it is exactly the kind of plausible idea that recurs -- it reads like a corollary of 'kappa is necessary, not sufficient' and is not one. Two measurements supported it before the controls were applied, and both were artefacts (unit cofactor; commensurable lines)."
+    },
+    {
+      "id": "kappa-threshold-is-sharp",
+      "status": "rigorous_finite",
+      "statement": "For A_B = {a + b^2 i : b in B}, kappa = |B|^2 exactly, and 4-cycles appear at |B| = 2 -- the same threshold. Verified with both artefacts excluded: B = {2,3} (so 1 not in B and neither b divides the other, killing the dilation z -> (b2/b1)^2 z), cofactor floor N(n) >= N(m) (killing the unit column). Explicit: n1 = 4+2i, n2 = 19+7i share m = 1+4i and m = 2+6i, all four products associates of elements of A_{2,3}. A parallel session obtained ~300 collisions for each of B = {2,3},{2,5},{3,5},{3,4} against ~600 for the leaky {1,2},{1,3}.",
+      "experiment": "verified in-session against x2plus1.sequences.a2b4_restricted_sequence; see Note K",
+      "depends_on": [
+        "kappa-necessary-not-sufficient"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "So kappa must NOT be demoted for being off by an exponent -- it is sharp at the threshold for this family. 'Necessary, not sufficient' stands on the a^2+(b^2+1)^2 control, which is about how much kappa buys ABOVE the threshold, not about where the threshold is."
+    },
+    {
+      "id": "c4-freeness-is-arithmetic-not-density",
+      "status": "rigorous_finite",
+      "statement": "C4-freeness forces sum_n C(d_n,2) <= C(R,2). At Q = 10^6 the x^2+1 graph sits far below that ceiling -- col-side ratio 0.048, 0.016, 0.005 on windows [16,64), [64,256), [256,1024) -- i.e. 20x to 400x fewer edges than C4-freeness would permit. a^2+b^4 gives 29.0, 7.71, 1.95 on the same windows, exceeding 1 as it must. So the lemma is nowhere near binding as an edge count: the graph is far sparser than C4-freeness requires, and the cycles that appear once a second line is added are created by arithmetic rather than by density.",
+      "experiment": "verified in-session via x2plus1.typeII.incidence; see Note K",
+      "depends_on": [
+        "c4-free"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Explains why a density statistic like kappa cannot locate the threshold: the constraint that bites is not an edge count. The a^2+b^4 row is the control that the measure detects the difference at all."
     }
   ]
 }
