@@ -1062,6 +1062,17 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   like an error once the sentence documenting it is out of view — which is the
   same thing `inferred` exists to stop, one level down.
 
+- **And gate prose the same way: `tools/check_prose_diff.py CLAUDE.md "<phrase>"
+  ... && git commit`.** The claims gate works because claims have ids; CLAUDE.md
+  and the notes have none, so on a file two sessions both edit, a commit message
+  can silently under-describe its own diff. That happened three times in one
+  session — `4f3e99a` is titled "two rules" and adds **three** bullets, the third
+  written by the other session. Nothing was lost either time and the messages
+  were wrong. The tool lists every `- **…**` heading the working tree adds and
+  refuses if one matches none of the phrases you name. **A pathspec cannot
+  separate two authors inside one file; only reading the diff can, and on prose
+  neither of us did that reliably.**
+
 - **Gate the claims diff with `tools/check_claims_diff.py <id> ...`, chained.**
   It parses `HEAD` and the working tree, compares claim dicts by id, and exits
   non-zero on anything unnamed. `python tools/check_claims_diff.py <ids> && git
