@@ -64,11 +64,26 @@ confirmed to come from a non-squarefree fibre
 ## What that makes the missing input
 
 > **The Type II hypothesis for x² + 1 is a Bombieri–Vinogradov theorem for
-> μ(x² + 1) in arithmetic progressions**, at moduli up to X^{3/4} for a
-> sequence of X terms — beyond BV's level 1/2, below Elliott–Halberstam.
+> μ(x² + 1) in arithmetic progressions.**
 
-The range comes from DFI's Type II window N(b) ∈ [(log X)^C, Q^{3/8}], which in
-this note's variables is q ≤ X^{3/4}.
+**The range this note used to assert here was wrong and is withdrawn.** It said
+"moduli up to X^{3/4} … beyond BV's level 1/2, below Elliott–Halberstam", and
+derived that from "DFI's Type II window N(b) ∈ [(log X)^C, Q^{3/8}]". Reading
+DFI's page images rather than the scan's OCR shows the 3/8 is an **exponent
+inside a bound** — Proposition 2, p. 426, gives
+B(M,N) ≪ ‖αρ‖‖β‖(M^{1/2} + N^{3/4}M^{3/8+ε}) — and not a window at all.
+
+DFI's actual Type II window is fixed by Theorem S (p. 437), which needs the
+general bilinear form R(w,y) = Σ_{w≤n<y} β_n Σ_{(m,n)=1} α_m c_{mn} over
+
+> **n ∈ [x^{o(1)}, x^{1/3−ε}]**, i.e. the short variable up to Q^{1/3−ε},
+
+with β_n supported on primes. Confirmed from outside: Ford–Maynard's Table 1
+places DFI at (γ, θ, ν) = (1/2, 0, **1/3**), and θ+ν = 1/3 is exactly Theorem S's
+y. So the level to quote is **Q^{1/3−ε} in the short variable**, and whether that
+is "beyond BV's level 1/2" depends on a conversion this note has not carried out
+— the honest statement is that it is DFI's range, and DFI's range is not
+available here.
 
 Two things this buys. It removes the Gaussian divisor enumeration entirely —
 the object needs only μ(x²+1), which sieves in linear time
@@ -229,12 +244,18 @@ question without checking the norm.
 
 1. Any such theorem **breaks parity**, so it cannot follow from sieve axioms —
    it needs genuine arithmetic input, which is what nobody has at this density.
-2. A BV theorem for μ along a thin polynomial sequence is open **even at level
-   1/2**, let alone 3/4.
-3. Ford–Maynard are worse than that. x² + 1 sits at **γ = 1/2 − ε**, not 1/2 —
-   their (I) needs a log-power saving at level exactly x^γ, and Note B's Type I
-   fails at x^{1/2}. That is the regime their Theorems 2.4 and 4.16 kill, and
-   with ν = 0 (Note F) C⁻ = 0 already follows from Selberg. See
+2. A BV theorem for μ along a thin polynomial sequence is open **at every
+   level**. Its θ → 0 endpoint is |Σ_{x≤X} μ(x²+1)| ≪ X(log X)^{−A}, and even
+   the o(X) version is Chowla for x²+1, which Teräväinen calls "wide open for
+   any polynomials with nonlinear irreducible factors"
+   ([Note M](note-M-where-mu-lives.md)). For this sequence the trivial bound has
+   never been beaten by any amount, at any level, signed or absolute.
+3. Ford–Maynard are worse than that, though **not for the reason this note gave
+   until it was corrected**. The γ = 1/2 − ε argument and the appeal to their
+   Theorem 2.4 are both `refuted` — 2.4's hypothesis needs ν ≥ 1/3, which this
+   sequence does not have, and their Table 1 caption discards the ε. What binds
+   is **ν = 0**, by Selberg and their Theorem 2.1, and there is no admissible
+   (γ, θ, ν) triple at density x^{1/2} at all. See
    [Note C](note-C-requirements.md).
 
 What it does change: it makes the required input a **statement about μ in
@@ -247,7 +268,7 @@ literature with real machinery in it.
 Polymath 8 and Maynard cannot help, because they raise the level for *primes in
 APs* while our cap is a counting bound on the sequence. That argument is sound
 for **Type I**. It does **not** transfer to the Type II input identified here:
-that is a μ-weighted sum over x ≤ X to moduli ≤ X^{3/4} < X, where the counting
+that is a μ-weighted sum over x ≤ X to moduli well below X, where the counting
 bound does not bite. So well-factorable weights and the dispersion machinery may
 be relevant after all — applied to μ(x²+1), not to primes.
 
