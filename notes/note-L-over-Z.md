@@ -18,7 +18,7 @@ graph is a *coarsening* of the Gaussian one, and merging rows can only create
 4-cycles. Note F is proved and true; the question is what it implies about the
 object the literature's hypotheses are about.
 
-## The rational graph is not C₄-free
+## The rational graph is not C₄-free — off the Type II configuration
 
 Same sequence, same X = 4000, same modulus window m ∈ [60, 120):
 
@@ -37,6 +37,31 @@ An explicit 4-cycle, verified term by term:
 The mechanism is visible in the repo's own machinery: 65 has **four** admissible
 Gaussian ideals (roots 8, 18, 47, 57 of ν²+1 ≡ 0 mod 65) against 109's two, so
 the single rational row m = 65 merges four Gaussian rows.
+
+**But note what this example needs, because Theorem O.12 makes it the whole
+story.** n₂/n₁ = 71978/1189 = **60.5** — the two cofactors are sixty times
+apart. O.12 says that is not incidental: cofactors within a factor
+**(5+√21)/2 = 4.7913** share at most one modulus in any dyadic window, so the
+rational graph restricted to *banded* cofactors is C₄-free, G′ ≤ 1, **proved, for
+all X**, matching the Gaussian bound exactly. A dyadic band is a factor 2, so the
+margin is 2.4×.
+
+That is the configuration a Type II hypothesis quantifies over — [FM]'s (II) is
+bilinear over m ∼ M *and* n ∼ N, and their footnote 2 averages over banded
+moduli. **So the table above compares the Gaussian bound against the wrong
+rational object.** Against the right one the two agree:
+
+| formulation | max off-diagonal Gram |
+|---|---:|
+| Gaussian ideals (Note F) | **1**, proved |
+| rational, cofactors banded (O.12) | **1**, proved |
+| rational, cofactors free | **2**, measured to X ≤ 8000 |
+
+The free-cofactor row is real and is kept — (1,41) shares 730 and 1370, and the
+unwindowed count is unbounded (K_{s,2} for every s, below) — but 41/1 and 60.5
+are nowhere near one band. The row-merging mechanism above is exactly what needs
+sixty-fold separation to operate, and that is why it cannot appear inside a
+bilinear form's own range.
 
 ## What a rational 4-cycle actually is
 
