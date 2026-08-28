@@ -465,6 +465,20 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
 
 - **Normalisation.** Q (or N) = norm bound; X = √Q = range of x; |A| = X.
   State which one every exponent is relative to. "Level N^{1/2}" = "level X".
+- **A percentage carries its population in the same sentence, or it is not a
+  measurement.** Two coverage figures went into the notes within an hour — "the
+  bound excludes 95.68% of classes" (mine) and "99.2% are excluded outright"
+  (the parallel session's) — both over *every* class `ratio_classes` returns. Of
+  1,815,154 classes at X = 3000, **1,815,094 have fewer than three shared moduli
+  and cannot host the configuration the theorem forbids**. The denominator was
+  99.997% vacuous. On the 60 classes that could host one the figures are **15%**
+  and **54.5%**. Neither theorem changed; both advertised reaches were fiction.
+  This is [the informative-subset rule](#) one level out: there the loop counted
+  the wrong *rows*, here it counted the wrong *universe*, and both times the
+  wrong one was simply what the enumerator happened to return. **Before dividing,
+  say out loud which population the question is about, and check that the
+  denominator is it.**
+
 - **When a recorded number does not reproduce, read the paragraph it sits in
   before looking for a bug.** Note M's squarefree densities did not match a fresh
   exact sieve. I proposed inconsistent rounding (a story fitted to two rows that
