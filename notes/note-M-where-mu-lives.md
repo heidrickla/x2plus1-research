@@ -123,6 +123,25 @@ structural reason is worth recording because it closes a whole direction:
 and multiplicative-function machinery generally, does not apply *as stated* —
 not "applies but is too weak".
 
+**And the obvious escape from that is closed too, which is worth writing down
+because it is the first thing a reader will try.** The objection runs: μ *is*
+multiplicative on the integers, so do not index by n — index by the integer
+N = x²+1 itself and apply Granville–Shao to the multiplicative function μ. The
+reindexing is legitimate; the theorem still does not apply, for a second and
+independent reason. Their statement is a **density-1** one: the inner sum runs
+over *all* n ≤ x in a progression. Ours runs over
+
+> {x² + 1 : x ≤ X}, which has X elements inside [1, X²+1] — **density X^{−1}**,
+
+so what is needed is a Bombieri–Vinogradov theorem for μ **on a sparse set**,
+which is a different and harder statement, not an instance of theirs. This is
+the same α = 1/2 sparsity that blocks [ASP] and [DFI], arriving here in
+multiplicative-function clothing.
+
+So the direction is closed twice over: reindex by n and μ stops being
+multiplicative; reindex by N and the sequence stops being density 1. Neither
+horn is a strength-of-result issue.
+
 ## The two measurements of the law are the same sum, not two normalisations
 
 §1 rests on S_μ(M) ≍ √(MX), which is `extrapolated`, and the honest worry has
