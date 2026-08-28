@@ -856,6 +856,22 @@ unparameterised, and naming its shape has cost four corrections. At N ≪ X the 
 collide; at N ≫ X the moduli are few and tiny, so every pair shares them; the
 balanced split is where both sides are maximally spread.
 
+**And the bands measured are exactly the range the hypothesis admits**, which is
+what makes this bear on (B) rather than on arbitrary N. The n in G(n₁, n₂) *is*
+(B)'s inner variable — dispersion opens the square over m and produces
+Σ_{n₁,n₂} G(n₁,n₂) — so (B1) is precisely the constraint on those n. In [ASP]'s
+normalisation x = Q, so √x = X; with the level capped at D ≤ Q^{1/2} = X
+([Note B](note-B-type-I.md)), the range Δ^{−1}√D < N < δ^{−1}√x is roughly
+
+> **√X < N < X**, which at X = 3000 is N from 55 to 3000.
+
+Every band measured above lies in it, mean G falls monotonically across it —
+0.1596, 0.0865, 0.0466, 0.0243 — and never exceeds 0.16. The U's argmin at
+N = 1.37X sits just *above* the top, so inside (B1) the mean is falling
+throughout and is smallest at the boundary. **No part of the admissible range
+escapes**, and the two features that do misbehave — the rise at N ≫ X and the
+maximum of 3 at very small N — both sit outside it.
+
 **And it does not prove too much**, which is the check an argument this general
 has to survive. Friedlander–Iwaniec captured the primes of a² + b⁴ *by
 dispersion*, so anything that ruled dispersion out for both sequences would be
