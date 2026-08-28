@@ -42,6 +42,17 @@ support the per-progression law, and the aggregate S_μ sits slightly *below*
 √(MX) — more cancellation than claimed, i.e. the saving is conservative. Still
 `extrapolated`: the step to all X is untouched.
 
+**The boundary itself is now measured, not extrapolated to.** Everything prior
+was below θ = 1/2. Running M from X/32 to 8X at X = 4×10⁵ with the trivial bound
+T computed rather than assumed: T is **flat at 0.331·X across a factor of 256 in
+M**; below the boundary the saving is **2.3·√(X/M)**; above it √(X/M) stops
+applying (ratio 2.53, 3.09, 4.01). **At θ = 1/2 the saving is 2.41, not 1** —
+"exactly zero" is true of the *exponent*, and reading it as S = T is wrong by a
+factor of two and a half. And the Cauchy–Schwarz chain predicts that 2.41 **to
+0.7%** from four independent runs, once T and DIAG are kept apart: they differ by
+a μ² weight of **0.7658**, not the squarefree density 0.8948, because divisor
+count in a band and squarefreeness are correlated.
+
 **Note J** reduces the Type II input to a Bombieri–Vinogradov statement for
 μ(x²+1) in arithmetic progressions, and then measures that **the whole
 difficulty is in the absolute values** — the signed sum is under 2% of the
