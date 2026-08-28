@@ -214,9 +214,25 @@ So **OFF = o(DIAG) is itself a μ-cancellation statement, not a divisor count**.
 The reduction converts one cancellation problem into another. What it buys is
 shape, not difficulty: the new statement is a bilinear sum in μ(x²+1)μ(y²+1)
 with **bounded, explicitly-studied weights** G_M(x,y), rather than an asymptotic
-law fitted over four decades. Whether that is a route or a restatement is not
-something this note can settle, and it should not be quoted as progress on the
-θ axis.
+law fitted over four decades. **And following it one step further says which**: it is a restatement, and of a
+problem this repo has already named.
+
+For fixed m the solutions of m | x²+1 form ρ(m) progressions mod m, so every
+pair in OFF is y = x + h for an admissible shift h, and
+
+> **OFF = Σ_{m∼M} Σ_{h adm. mod m} Σ_x μ(x²+1)·μ((x+h)²+1).**
+
+The inner object is a **two-point correlation of μ(x²+1)**. So OFF = o(DIAG) is a
+Chowla-type statement for μ(x²+1) — which is `chowla-for-x2plus1-is-open`, whose
+easiest endpoint Teräväinen calls "wide open for any polynomials with nonlinear
+irreducible factors". The reduction therefore lands exactly on the blocker
+[Note M §1](#) already identifies, having travelled through the Gram axis to get
+there.
+
+That is worth recording precisely because it is negative: the Cauchy–Schwarz
+route is closed, and closed by the same obstruction as everything else here
+rather than by a new one. Whether that is a route or a restatement is now
+settled — restatement — and it should not be quoted as progress on the θ axis.
 
 **And it explains the root-grouping gap.** The measurement above is the
 *per-modulus* normalisation — every root of −1 mod m sits inside one absolute
@@ -239,13 +255,16 @@ per-progression 0.5046, i.e. **below** √(MX), matching √(#m·X) with
 *(The lower bound S_μ(M) ≫ √(MX) is untouched by this and remains fitted. §1
 does not use it.)*
 
-## The two measurements of the law are the same sum, not two normalisations
+## Reducing S_μ to μ(x²+1), and the grouping that survives the reduction
 
 §1 rests on S_μ(M) ≍ √(MX), which is `extrapolated`, and the honest worry has
 been that its *direct* measurement (exp02) spans less than a decade,
 X = 2×10⁴ … 10⁵, while carrying the whole θ-axis argument. The four-decade
 support was recorded as holding "in the equivalent per-progression
-normalisation" (exp05). That understates it. **The two are the same sum.**
+normalisation" (exp05). Part of that gap closes and part of it does not, and the
+two halves were run together in a first version of this section — whose heading
+read "the two measurements are the same sum", which is not what the section
+establishes.
 
 > If N = x²+1 is squarefree and m | N, then gcd(m, N/m) = 1, so
 > μ(N) = μ(m)·μ(N/m), and μ(m)² = 1 gives
