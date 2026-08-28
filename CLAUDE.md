@@ -1068,6 +1068,18 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   Cauchy–Schwarz chain turned out to predict at every band rather than one. If a
   number is worth a claim it is worth a script that can be run again at a
   different size.
+- **Three readings of "mean G" gave three different orderings of the same five
+  sequences.** On x²+D for D = 1, 2, 6, 11, 39: the other session's band-1 figure
+  orders them 1 < 2 < 6 < 39 < 11; the canonical **off-diagonal** mean orders
+  them 6 < 11 < 2 < 39 < 1; the **diagonal** orders them 1 < 6 < 2 < 11 < 39.
+  Each reproduces well on its own terms — the first to under 1% across a band
+  change — and they disagree completely. **Reproducibility is not aboutness.**
+  A statistic that reproduces is measuring *something* stably; whether it is
+  measuring the thing in the claim is a separate question that stability cannot
+  answer. This repo already refuted mean G as a captured/uncaptured classifier
+  once; the same statistic was available for the same misreading on a new axis,
+  and the temptation was **stronger** because it reproduced better.
+
 - **A control is not a classifier.** A control shows an argument does not prove
   too much and needs exactly two points: a²+b⁴ has mean G 3.59 where x²+1 has
   0.022, so the mean-o(1) objection does not rule out dispersion for the sequence
