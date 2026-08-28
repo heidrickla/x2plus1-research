@@ -297,6 +297,30 @@ From Maynard, [arXiv:2006.07088](https://arxiv.org/abs/2006.07088):
 > Every gain above x^{1/2} is bought by replacing |·| with a well-factorable
 > weight and fixing the residue class.
 
+**That was the repo's synthesis from the theorem statements. Maynard says it
+himself, on p. 1, immediately before Definition 1** — read on a later sweep of
+the same source:
+
+> "In many applications, particularly those coming from sieve methods, one does
+> not quite need to have the full strength of an estimate of the type (1.1). It
+> is often sufficient to measure the difference between π(x; q, a) and π(x)/φ(q)
+> only for a **fixed bounded integer a** (such as a = 1 or a = 2) **rather than
+> taking the worst residue class** in each arithmetic progression. Moreover, it
+> is also often sufficient to measure the difference … with 'well-factorable'
+> weights (which naturally appear in sieve problems) **rather than absolute
+> values**. **With these technical weakenings** we can produce estimates
+> analogous to (1.1) which involve **moduli larger than x^{1/2}**."
+
+Both weakenings named, and named as *what buys the level*. And the other half,
+same page:
+
+> "we do not know how to establish (1.1) with the summation extended to
+> q ≤ x^{1/2+δ} for any fixed δ > 0."
+
+So the full statement — sup over residue classes, absolute values — **is not
+known beyond x^{1/2} at all**, by the author of the strongest result in the line.
+The closure is now quoted rather than assembled.
+
 Well-factorable is not a device for converting a signed bound into an
 absolute-value one — it is the *structure a sieve's weights happen to have*,
 and Iwaniec's theorem is that the linear sieve's upper-bound weights are a
