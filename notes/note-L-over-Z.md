@@ -186,18 +186,41 @@ themselves spread across windows**. Over *every* ratio class, not a sample:
 580 pairs achieving Gram 2 for X ≤ 8000, with Dickson class bounds of 2, 4, 8,
 16 and 32, and every one of them giving exactly 2.
 
-**And the right statement is sharper than "at most 2 solutions".** Consecutive
-members of one class are ε² ≥ φ⁴ ≈ 6.85 apart while a dyadic window has ratio 2,
-so two moduli in one window *must* come from two different classes. What is
-measured is therefore
+**A tempting reformulation, and it is false.** It is natural to argue: members
+of one class are ε² ≥ φ⁴ ≈ 6.85 apart while a window has ratio 2, so two moduli
+in one window must come from two different classes. Both sessions reached that
+statement. It does not survive an exact orbit computation.
 
-> **at most two classes are ever populated in a single dyadic window, uniformly
-> — even when 32 classes exist.**
+> **Counterexample.** (n₁, n₂) = (2, 85), conic 85x² − 2y² = −83.
+> (x, y) = (11, 72) and (15, 98) both solve it, giving
+> m = (11²+1)/2 = (72²+1)/85 = **61** and m = (15²+1)/2 = (98²+1)/85 = **113**,
+> with 113/61 = 1.85 < 2 — one window. The fundamental unit is
+> (t, u) = (339, 26), ε² = 678, and
+>
+>     A(11, 72) = (7473, 48718),  A⁻¹(11, 72) = (**−15**, 98).
+>
+> So (15, 98) is A⁻¹(11, 72) *with the sign of x flipped*. x ↦ −x is the
+> **improper** automorph: it is not in {±Aᵏ}, so the two solutions lie in a
+> proper class and its **opposite** — and m depends on x², which cannot see the
+> difference.
 
-That is not explained by counting classes (Dickson bounds how many *exist*, not
-how many carry a solution with m in range and x ≤ X) and it is not explained by
-the spacing (which is a within-class statement). It is the one place in this note
-where a measurement might still become a theorem, and neither session has it.
+So a single class-up-to-conjugation can put two moduli in one window, and the
+ε² spacing bound simply does not apply across the improper pairing. Exact orbit
+grouping (union–find under A, A⁻¹ and x ↦ −x) at X = 3000 confirms the scale of
+it: of the classes attaining window maximum 2, **202 have only one such orbit
+populated** — those are all improper pairs — against 159 with two and 14 with
+three or more.
+
+**What is actually measured**, then, is weaker and stranger than the
+reformulation claimed:
+
+> **no ratio class ever puts three moduli in one dyadic window**, whether they
+> come from one orbit, two, or five — and 32 have three or more orbits populated.
+
+The proper-class spacing explains at most one modulus per proper class; the
+improper pairing explains a second; **nothing explains the absence of a third.**
+That is the one place in this note where a measurement might still become a
+theorem, and neither session has it.
 
 **Dickson's side condition does not recover it.** The condition that would force
 the class bound to 2 is |a−b| odd with at most one odd prime factor. Of the
