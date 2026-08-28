@@ -508,6 +508,20 @@ And it leaves the three d-uniform statements properly separated:
 | **almost-primes**: p(f) ≤ deg f + 1 | known and old — Bukhstab 1967, Pintz §19 |
 | **primes**, degree ≥ 2 | unknown, and Pintz and Maynard both say so |
 | **Type I/II admissibility**, degree ≥ 2 | not found in print; this repo's, narrowly |
+| **root equidistribution** — a power saving in the Weyl sum over roots of G(Ω) ≡ 0 | **unconditional at d = 2, conditional at d = 3** (Lemke Oliver, *Acta Arith.* **151**, Remark 3) |
+
+That last row degrades one degree above where this repo sits, and for a reason
+with nothing to do with density. The input Iwaniec's P₂ needs is a power saving
+over the trivial O_q(M) in
+
+> Σ_{M<m<M₁} Σ_{G(Ω)≡0 (mq)} e(hΩ/mq)
+
+— the Weyl sum over roots of the quadratic congruence, which is DFI's ρ_h(n) and
+this repo's r_d. Lemke Oliver establishes it unconditionally for irreducible
+quadratics; at degree 3 the analogue is Hooley's, "conditional upon his
+Hypothesis R* on the size of short Kloosterman sums". So the arithmetic input
+*every* route needs is already conditional at d = 3, independently of κ or of
+admissible triples.
 
 ## Adversarial review
 
