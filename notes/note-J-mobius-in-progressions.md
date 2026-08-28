@@ -109,9 +109,39 @@ the finite-n effect with the log-power being measured. At fixed band, n scales
 cleanly with X and the two separate. Fitting at fixed u instead gives scatter
 from −0.31 to +0.13, which is the confounding, not a signal.
 
-> **Conclusion: the law is √(MX) with no log-power correction.** Per-progression
-> cancellation is clean square-root. This discharges the caveat Note H has
-> carried since it was first measured.
+### The error bar, and why the first one was wrong
+
+The ±0.04 above is the scatter of one draw across bands. It is **not an error
+bar**, and reporting it as one repeated a mistake the `rh-research-engine`
+session had just found in its own exponent fit: shifting the sample grid inside
+the same range moved its fitted exponent from 0.214 to 1.061, with the recorded
+value being a single draw. Their general move — *vary the thing nobody chose and
+see if the answer moves* — applies here, because nobody chose the decade band
+boundaries.
+
+[`exp06`](../experiments/exp06_fit_robustness.py) varies the band phase and
+takes the spread as the error bar, with two injected-signal controls. At
+X ≤ 10⁶, 8 phases:
+
+| signal | mean c | spread | range |
+|---|---:|---:|---:|
+| **actual** | **−0.038** | 0.153 | [−0.117, +0.036] |
+| iid null (no log-power by construction) | +0.092 | 0.077 | [+0.047, +0.124] |
+| injected damping (log X)^{−1/2} | **−0.463** | 0.229 | [−0.577, −0.348] |
+
+The injected control is the one that licenses the reading: the estimator
+**recovers a genuine −0.5 as −0.46**, so it has real power to see a log-power of
+that size. Without it, "c ≈ 0" would be indistinguishable from an estimator that
+cannot see anything at all.
+
+The null returns +0.09 rather than 0, so the estimator carries a small positive
+bias; the actual signal sits 0.13 below the null, well inside the combined
+spread.
+
+> **Conclusion: the law is √(MX) with no log-power correction, to a resolution
+> of |c| ≲ 0.2.** Per-progression cancellation is clean square-root. This
+> discharges the caveat Note H has carried since it was first measured — but at
+> a fifth of the precision first claimed. The honest figure is ±0.15, not ±0.04.
 
 ### The constant, and a control that matters more than it
 
