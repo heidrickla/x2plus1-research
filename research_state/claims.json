@@ -359,7 +359,7 @@
       "tags": [
         "type_i"
       ],
-      "notes": "Directly about this repo's admissible-ideal residues. Note J reduces the Type II input to a statement about exactly these residues in progressions, so whether Proposition 1 transfers is now the sharpest open question."
+      "notes": "Directly about this repo's admissible-ideal residues, and Note J reduces the Type II input to a statement about exactly these residues in progressions. BUT Proposition 1 bounds a SIGNED sum over m, and exp07 shows the difficulty is entirely in the absolute values -- so it is the right object in the wrong norm. Downgraded from 'sharpest open question' accordingly; it could still be an ingredient in an argument that handles the |.| by other means."
     },
     {
       "id": "selberg-nu-zero-binds",
@@ -408,6 +408,20 @@
       "tags": [
         "type_ii"
       ]
+    },
+    {
+      "id": "difficulty-is-the-absolute-values",
+      "status": "rigorous_finite",
+      "statement": "The Type II difficulty for x^2+1 is entirely in the absolute values. At X = 3e6 the signed sum |sum_q sum_{x==r_q (q)} mu(x^2+1)| is 0.4-1.9% of the absolute-value sum sum_q |...|, and is itself below sqrt(terms). Taking |.| per modulus IS taking the sup over signs, i.e. an arbitrary outer coefficient, which is exactly what Note F's C4-free lemma proves the sequence cannot support.",
+      "experiment": "experiments/exp07_absolute_values.py",
+      "depends_on": [
+        "c4-free",
+        "typeII-is-BV-for-mobius"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "A measurement of Note F rather than a restatement of it: the two notes describe one obstruction from two sides. Exact computation at one X. Consequence: DFI's Proposition 1 bounds a SIGNED sum over the same residues, so it is the right object in the wrong norm -- see dfi-equidistribution-covers-nu2plus1."
     }
   ]
 }

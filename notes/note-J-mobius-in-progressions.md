@@ -174,6 +174,55 @@ one wants — the required cancellation appears to hold for the reason one would
 hope — and it is exactly as far from a proof as it was before, since the parity
 barrier is a statement about provability, not about truth.
 
+## The difficulty is entirely in the absolute values
+
+The Type II object carries |·| per modulus. Taking |·| is taking the supremum
+over signs ε_q, i.e.
+
+> S_abs = sup over ε ∈ {±1} of Σ_q ε_q Σ_{x ≡ r_q (q)} μ(x²+1),
+
+which is **exactly an arbitrary outer coefficient** — the thing
+[Note F](note-F-failure-localisation.md) proves this sequence cannot support.
+So it is worth measuring what the absolute values cost. Against the signed sum
+(same arithmetic, sup removed), at X = 3×10⁶ (`exp07`):
+
+| M band | pairs | S_abs | S_signed | ratio | √(terms) |
+|---|---:|---:|---:|---:|---:|
+| [10³, 10⁴) | 1 058 | 21 319 | −397 | **0.019** | 924 |
+| [10⁴, 10⁵) | 8 348 | 53 408 | −460 | **0.009** | 815 |
+| [10⁵, 10⁶) | 68 784 | 138 889 | +525 | **0.004** | 738 |
+
+> **The signed sum is under 2% of the absolute-value sum, and is itself below
+> √(terms).** So the signed side already cancels better than square-root, while
+> the absolute-value side does not cancel at all beyond the per-progression
+> saving.
+
+This is not a restatement of Note F — it is a *measurement* of it. The whole
+Type II difficulty for x² + 1 sits in the absolute values, which are the
+arbitrary coefficient, which is what C₄-freeness kills. The two notes are
+describing one thing from two sides.
+
+### And it answers the Proposition 1 question
+
+[Note C](note-C-requirements.md) flagged DFI's Proposition 1 (p. 425) as the
+sharpest open lead, because it bounds
+
+> L_d(M) = Σ_{M<m≤2M} ρ_h(dm) ≪ (h,d)^{1/20}(d/M)^{1/20}M^{1+ε}
+
+over exactly these residues, in exactly these progressions. But that is a bound
+on a **signed** sum over m — the side this experiment shows is not where the
+difficulty lives.
+
+> **Proposition 1 is the right object in the wrong norm.** It would need an
+> absolute-value analogue, Σ_d |Σ_m ρ_h(dm)|, and that is precisely the shape
+> Note F obstructs.
+
+That downgrades the lead, honestly. It does not close it — a signed bound can
+still be an ingredient in an argument that handles the absolute values by other
+means (Cauchy–Schwarz with a well-factorable decomposition, say) — but it is not
+the missing input by itself, and Note C should not have called it the sharpest
+question without checking the norm.
+
 ## Honest assessment as a pathway
 
 **This is a target, not a route.** Three reasons to keep expectations low:
