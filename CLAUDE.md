@@ -60,8 +60,8 @@ length of the Poisson sum in [MER] p. 4; for x²+1 it is 1.
 and this sequence caps at x^{1/2}; DFI's Theorem S is normalised to x and is
 *vacuous* on a sequence of mass x^{1/2} — and restated relative to |A| its
 Type I (D = x^{1/2−ε}) is **available** while its Type II (short variable to
-x^{1/3−ε}, β on primes) is not, so the level is never the obstruction; Ford–Maynard's binding parameter is
-**ν, not γ** — every entry in their Table 1 has ν > 0 (smallest: Merikoski's
+x^{1/3−ε}, β on primes) is not, so the level is never the obstruction;
+Ford–Maynard's binding parameter is **ν, not γ** — every entry in their Table 1 has ν > 0 (smallest: Merikoski's
 1/12), and ν = 0 here gives C⁻ = 0 by Selberg and their Theorem 2.1. Their
 footnote 2 p. 7 names Note F's G(n₁,n₂) as the barrier. Their Theorem 2.4 never
 applied here, and the γ = 1/2 − ε argument is `refuted`; the clean placement is
