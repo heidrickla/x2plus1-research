@@ -1782,6 +1782,20 @@
         "type_ii"
       ],
       "notes": "A RANGE EFFECT, NOT A LAW, and the law is easy to write down: O.11 admits (a,b) as soon as ab < c (b-a)^{4/3}, and for FIXED a the right side wins as b -> infinity. The crossover is b ~ 9.0e3 at a = 1, 7.0e4 at a = 2, 2.4e5 at a = 3, 1.1e6 at a = 5. So the a >= 2 column is empty because the sweep does not reach far enough in b, and it WILL fill in at larger X -- the a = 1 column is already filling. Recorded with the crossover values precisely so the finite reading cannot be mistaken for a structural one; this is the same failure the denominator correction was about, anticipated rather than repaired."
+    },
+    {
+      "id": "O11-emptiness-at-a-at-least-two-is-a-range-effect-confirmed",
+      "status": "rigorous_finite",
+      "statement": "That O.11 excludes every informative class with a >= 2 is a RANGE effect and not a structural fact, confirmed independently. O.11 admits (a,b) once ab < 0.048628 (b-a)^{4/3}, so for fixed a the right side wins as b grows; crossover b is ~9e3 at a = 1, ~7e4 at a = 2, ~2.37e5 at a = 3, ~1.13e6 at a = 5 -- reproduced to the digits given. But the largest b among informative classes with a >= 2 is 925 at X = 3000 and 8321 at X = 6000, an order of magnitude below the a = 2 crossover. So the a >= 2 column is empty because the sweep cannot reach it, and the data cannot test the question at all. The single admissible class at X = 6000 is (1, 18241), which sits above the a = 1 crossover exactly as predicted.",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "theorem-O11-constant-verified-independently"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Worth keeping because of how it was caught rather than what it says. A column of zeros that is going to fill looks identical to a column of zeros that is a law, and neither the population check nor the >90% check separates them -- only the direction of travel does, which is the third layer of the percentage rule and the one the parallel session added. They anticipated the failure and recorded the crossover values inside the claim so the finite reading cannot be mistaken for a structural one; I confirmed the crossovers and then measured the largest b actually available, which is the part that settles it. Note the near-miss underneath: a = 1 means the unit cofactor, which no Type II hypothesis admits, so 'O.11 is exhaustive on the classes Type II ranges over' was available as a headline and would have been false for range reasons alone.",
+      "proof_site": ""
     }
   ]
 }
