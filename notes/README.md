@@ -15,6 +15,7 @@ the structure is in place and the content is not.
 | [G](note-G-spectral.md) | Spectral attempt | §2.4.3 | skeleton — see below |
 | [H](note-H-numerical-pilot.md) | Numerical pilot | §2.4.4 | draft |
 | [I](note-I-a2b4-replay.md) | a²+b⁴ replay | §2.4.5 | draft — harness calibrated |
+| [J](note-J-mobius-in-progressions.md) | Möbius in progressions | *added* | draft — names the missing input |
 
 ## Read Note C first
 

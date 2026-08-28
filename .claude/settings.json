@@ -1,0 +1,29 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"D:/PersonalProjects/x2plus1-research/tools/session_primer.py\"",
+            "timeout": 30,
+            "statusMessage": "Priming from research state..."
+          }
+        ]
+      }
+    ],
+    "PostCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python \"D:/PersonalProjects/x2plus1-research/tools/session_primer.py\"",
+            "timeout": 30,
+            "statusMessage": "Priming from research state..."
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -273,6 +273,52 @@
       "statement": "The line Im z = 1 is the width ~X^{-1/2} limit of the narrow-sector family. Unconditional asymptotics reach width X^{-3/10+eps} (Ricci), GRH reaches X^{-1/2+eps} for individual sectors, and Harman-Lewis get a lower bound at width X^{-0.381}.",
       "citation": "Huang-Liu-Rudnick, arXiv:1903.04005v1 sec.1; Harman-Lewis, Mathematika 48 (2001), 119-135",
       "notes": "Ricci's thesis (Univ. Michigan 1976) is unpublished; the X^{-3/10+eps} figure is second-hand from three agreeing restatements."
+    },
+    {
+      "id": "fibres-are-progressions",
+      "status": "proved",
+      "statement": "For fixed m, {n : mn in A} is the arithmetic progression n_0 + Z*conj(m), because Im(mn)=1 is a line whose homogeneous solutions are n = t*conj(m).",
+      "proof_site": "notes/note-J-mobius-in-progressions.md; tests/test_note_j.py::test_fibres_are_arithmetic_progressions_with_difference_conj_m",
+      "tags": [
+        "type_ii"
+      ]
+    },
+    {
+      "id": "mobius-ideal-equals-mobius-norm",
+      "status": "proved",
+      "statement": "mu of the Gaussian ideal (x+i) equals mu(x^2+1) as an integer, since each rational prime dividing x^2+1 contributes exactly one prime ideal with the same exponent.",
+      "proof_site": "notes/note-J-mobius-in-progressions.md; tests/test_note_j.py::test_mobius_of_the_ideal_equals_mobius_of_the_norm",
+      "depends_on": [
+        "divisibility-is-a-congruence"
+      ]
+    },
+    {
+      "id": "typeII-is-BV-for-mobius",
+      "status": "proved",
+      "statement": "Up to the non-squarefree correction, the Type II sum equals sum_q |sum_{x<=X, x==r_q mod q} mu(x^2+1)| -- a Bombieri-Vinogradov statement for mu(x^2+1) in arithmetic progressions, at moduli up to X^{3/4} for a sequence of X terms.",
+      "proof_site": "notes/note-J-mobius-in-progressions.md; tests/test_note_j.py::test_mobius_over_a_fibre_equals_the_progression_sum",
+      "depends_on": [
+        "fibres-are-progressions",
+        "mobius-ideal-equals-mobius-norm"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The X^{3/4} range comes from DFI's Type II window, which this repo knows at two removes; if that window differs, the level changes."
+    },
+    {
+      "id": "no-log-power-correction",
+      "status": "measured",
+      "statement": "The per-progression saving rho = S/(pairs*sqrt(X/M)) is flat in X: fitted rho ~ (log X)^c gives c = -0.026 and +0.039 in the two best-sampled bands (8348 and 68784 pairs) over X = 1e4..1e7. So the law is sqrt(MX) with no log-power correction.",
+      "experiment": "experiments/exp05_mobius_progressions.py",
+      "depends_on": [
+        "typeII-is-BV-for-mobius",
+        "sqrt-MX-law"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Prime moduli only; the all-moduli cross-check at scale is not yet run. The constant rho ~ 0.655 is 0.87 of the random-walk prediction 0.755 and is unexplained."
     }
   ]
 }

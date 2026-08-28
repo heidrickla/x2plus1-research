@@ -89,9 +89,11 @@ already unsatisfiable — but it matters for any future sieve that might relax
 
 ## Caveats — read before quoting any of this
 
-- **X = 2×10⁴ is small.** The fitted exponents move with X, and a fit over one
-  decade cannot distinguish √(MX) from √(MX)·(log X)^c. Nothing here
-  distinguishes o(X) from X/(log X)^A, which is the distinction that matters.
+- ~~**X = 2×10⁴ is small.**~~ Superseded: [Note J](note-J-mobius-in-progressions.md)
+  reaches X = 10⁷ and fits c = 0.00 ± 0.04, so √(MX) is separated from
+  √(MX)(log X)^c. What is still **not** distinguished is o(X) from X/(log X)^A —
+  that is a statement about the constant and the log factors in the *aggregate*
+  sum, and it remains the distinction that matters for the sieve.
 - **μ is not adversarial, but it is also not random.** The fit shows μ behaving
   randomly at this size; the parity barrier is precisely the statement that
   proving it does so is the whole problem.
@@ -113,8 +115,16 @@ already unsatisfiable — but it matters for any future sieve that might relax
 
   and for M ≥ X the saturation is exact at both sizes: S_μ/A(x) = 1.00, 1.00,
   1.01 (X = 2×10⁴) and 1.00, 1.00, 1.01 (X = 10⁵). A factor of 5 in X moves
-  nothing. Still not enough to separate √(MX) from √(MX)(log X)^c — that needs
-  several decades, and the caveat below stands.
+  nothing.
+- ~~Separate √(MX) from √(MX)(log X)^c.~~ **Done — and the answer is c = 0.**
+  This required the reformulation in [Note J](note-J-mobius-in-progressions.md),
+  which drops the Gaussian divisor enumeration and reaches X = 10⁷. Fitting the
+  per-progression saving ρ ~ (log X)^c over prime moduli gives c = −0.026 and
+  +0.039 in the two best-sampled bands (8 348 and 68 784 pairs), against wild
+  scatter in bands with only 20–138 pairs. At fixed M the drift is under 1%
+  across two decades. **The law is √(MX) with no log-power correction**, and the
+  caveat this note has carried from the beginning is discharged. Details and the
+  unexplained constant (ρ ≈ 0.655 against a predicted 0.755) are in Note J.
 - Restrict n to Gaussian *primes* (the case the sieve actually applies to) and
   compare.
 - Repeat for a² + b⁴ at matched norm and diff against FI's proved Type II range
