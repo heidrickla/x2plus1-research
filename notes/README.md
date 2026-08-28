@@ -20,7 +20,7 @@ the structure is in place and the content is not.
 | [L](note-L-over-Z.md) | The same question over Z, and over every degree | *added* | draft — Note F's scope, and the degree ladder |
 | [M](note-M-where-mu-lives.md) | Where the μ-cancellation lives | *added* | draft — the two windows are complements; the easiest case is Chowla |
 | [N](note-N-green-tao-exclusion.md) | The Green–Tao exclusion, re-argued | *added* | draft — exclusion survives, quantitatively, and for a different reason than the plan gives |
-| [O](note-O-tau-multiplier.md) | The τ multiplier | *added* | draft — **proves** no dyadic window holds three shared moduli |
+| [O](note-O-tau-multiplier.md) | The τ multiplier | *added* | draft — proves τ cannot act twice on one element; the general "no window holds three" is **open** |
 
 ## Read Note C first
 
@@ -52,6 +52,20 @@ Type II input to Σ_q |Σ_{x ≡ r_q (q)} μ(x²+1)|, and the absolute value per
 modulus *is* the arbitrary outer coefficient. Measured: the signed sum is under
 2% of the absolute-value sum, so the whole difficulty is in the |·|, which is
 exactly what C₄-freeness kills.
+
+**And DFI say the arbitrary-coefficient bilinear form *is* the parity-breaking
+input** (p. 425). So Note F is not an obstacle standing beside the parity
+barrier — it is the statement that their parity-breaking input does not exist
+for this sequence. Sharpest placement the repo has, and it comes from the
+source.
+
+**Both remaining routes are closed, negatively.** The well-factorable route:
+every theorem in the BFI line buys its level by giving up the absolute value, so
+beyond level 1/2 there is no absolute-value statement to appeal to
+([Note J](note-J-mobius-in-progressions.md)). And the μ-Type II as a theorem:
+its θ → 0 endpoint is Chowla for x²+1, which Teräväinen calls wide open
+([Note M](note-M-where-mu-lives.md)). For this sequence the trivial bound has
+never been beaten by any amount, at any level, signed or absolute.
 
 After reading Duke–Friedlander–Iwaniec and Ford–Maynard at source, the position
 is worse than earlier drafts recorded. With ν = 0 (Note F) C⁻ = 0 already
