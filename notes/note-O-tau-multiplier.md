@@ -1433,6 +1433,34 @@ while the D-linear parts differ by 4. So the cycle exists precisely for
 > scraping under the threshold — they are deeply doubly dyadic, and there are
 > infinitely many.
 
+**And the same axis refutes the O.2 analogue outright, at D = 39.**
+
+> **cofactors (5, 8)** — ratio 1.6, one dyadic **band**
+> **moduli 8, 11, 15** — all in [8,16), one dyadic **window**
+>
+> 5·8 = 40 = 1²+39  8·8 = 64 = 5²+39
+> 5·11 = 55 = 4²+39  8·11 = 88 = 7²+39
+> 5·15 = 75 = 6²+39  8·15 = 120 = 9²+39
+
+*(All six verified independently.)* **Three shared moduli in one window with both
+cofactors inside one band** — so for D = 39 the analogue of Conjecture **O.2**
+*and* the analogue of Theorem **O.12** are both false, in a single configuration,
+with cofactors as small as 5 and 8. Over D ≤ 60 there are **seven** unit-free
+triples — D = 29, 39, 42, 44, 52, 53, 59 — and **D = 1 is not among them**.
+
+> **The unit-free restriction is what makes that mean anything**: 35 of 60 admit a
+> triple if the unit cofactor is allowed, and the unit is exactly what no Type II
+> hypothesis admits — the same distinction that improved the free-cofactor witness
+> above.
+
+**None of this weakens O.2 or O.12 for x²+1.** O.12 is proved; O.2 has no
+counterexample to X = 8000, with the two-step floor unmoved at exactly 13.0000
+across five sizes and 110 informative classes. What it removes is the reading of
+either as an instance of something general — **twelve theorems establish a fact
+about x²+1, not about degree-2 sequences**, and that is now demonstrated rather
+than assumed. At the 4-cycle level x²+1 is the *degenerate member of a failing
+family*; at the triple level it is simply *not in the failing set*.
+
 **This does not touch O.12, which is about x²+1.** What it removes is any reading
 of O.12 as an instance of something general: **its conclusion fails for an
 explicit infinite family of degree-2 sequences**, and x²+1's escape has a *cause*
