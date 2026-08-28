@@ -723,8 +723,15 @@ with V = 2p
 But M | 8p² gives M ≤ 8p², so D < 0.154701·M < M. And **M < D always** —
 M = b − a < b ≤ ab = D for a ≥ 1. Contradiction.
 
-> **Theorem O.5.** No dyadic window contains (ξ, τ_pξ, τ_p²ξ), for any p ≥ 1.
-> No hypothesis on M, on a, or on which multipliers act.
+> **Theorem O.5.** No dyadic window contains (ξ, τ_pξ, τ_p²ξ), for any p ≥ 1,
+> provided X₁ ≥ 1. No hypothesis on M, on a, or on which multipliers act.
+
+**State the X₁ ≥ 1, do not leave it implicit.** It is inherited from O.4 and it
+excludes exactly one configuration: X₁ = 0 means am₁ = 1, i.e. a = 1 and m₁ = 1.
+That case is **vacuous rather than open** — the window [1, 2) contains the single
+modulus 1 — but Proposition O.1 was stated without its window hypothesis and was
+false as written, so an unstated hypothesis is the specific way results in this
+note have gone wrong before.
 
 **This supersedes Proposition O.1**, which is the p = 1 case and needed the
 auxiliary a·g² < M with g = gcd(U,V), a window hypothesis, and an escape clause.
