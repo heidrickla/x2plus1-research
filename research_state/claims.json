@@ -257,8 +257,9 @@
     {
       "id": "merikoski-sparse-sets-off-chart",
       "status": "quoted",
-      "statement": "Merikoski proves infinitude of primes a^2+b^2 with b in B for |B cap [0,Y]| >> Y^{1-delta}, without using ASP. His A(X) ~ X^{1/2}|B| = X^{1-delta}, so alpha ~ 1-delta; his large sieve needs N << X^{-eta}|B|, so |B| = 1 empties the Type II range at any delta.",
-      "citation": "Merikoski, On Gaussian primes in sparse sets, arXiv:2302.11331v3, Thms 1.1-1.3; Compositio Math. 161 (2025), 181-243"
+      "statement": "Merikoski proves: there is a computable delta > 0 such that if |B cap [0,Y]| >> Y^{1-delta} for all Y >> 1 then there are infinitely many primes a^2+b^2 with b in B (Thm 1.1), via the lower bound of Thm 1.2 for |B| >= X^{1/2-delta}. His A(X) ~ X^{1/2}|B| = X^{1-delta}, so alpha ~ 1 - delta. B = {1} is off the chart by a power of X, not at a limit. He opens by naming this repo's problem: 'A key motivating question is Landau's fourth problem ... This is far beyond the current methods as the set is very sparse'. He also gives Li's record exactly: the sparsest polynomial sequence with primes has size X^{43/67+eps}.",
+      "citation": "Merikoski, On Gaussian primes in sparse sets, arXiv:2302.11331v3, abstract and Thms 1.1-1.2 pp.1-2; Li's record and the Fouvry-Iwaniec comparison p.2; Compositio Math. 161 (2025), 181-243",
+      "notes": "Read at source. The earlier entry paraphrased 'his large sieve needs N << X^{-eta}|B|' from a second-hand summary; the paper's own thresholds are quoted here instead. 43/67 = 0.641791 is the exact form of the 0.6418 the repo had been carrying for Xiannan Li."
     },
     {
       "id": "ford-maynard-relaxes-R1",
@@ -777,6 +778,21 @@
         "type_ii"
       ],
       "notes": "Corrects two things at once. An earlier reading here, off the broken OCR, said 'alpha, beta are supported on primes' -- wrong, and it contradicted the repo's own correct record from p.437. And Note J's X^{3/4} moduli range was derived by reading the 3/8 as a window; the correct range is Q^{1/3-eps} in the short variable."
+    },
+    {
+      "id": "kappa-met-a-power-before-any-method",
+      "status": "inferred",
+      "statement": "For A_B = {a + b^2 i : b in B} the kappa criterion and C4-freeness both fire at |B| = 2 (kappa = 4). The best available METHOD needs |B| >= X^{1/2-delta}, i.e. B within X^delta of the whole available range: Merikoski Thm 1.2, 'for all B subset [eta X^{1/2}, (1-eta) X^{1/2}] with |B| >= X^{1/2-delta} we have sum_{p=a^2+b^2<=X} 1_B(b) >>_eps X^{1/2-eps}|B|'. So kappa > 1 is satisfied a FULL POWER OF X before any method applies -- kappa = 4 against kappa = X^{1-2delta}. That is the quantitative content of 'necessary, not sufficient', on the method axis rather than the graph axis.",
+      "citation": "Merikoski, On Gaussian primes in sparse sets, arXiv:2302.11331v3, Thm 1.2 p.2 (Compositio Math. 161 (2025) 181-243)",
+      "depends_on": [
+        "kappa-threshold-is-sharp",
+        "kappa-necessary-not-sufficient"
+      ],
+      "tags": [
+        "type_ii",
+        "ledger"
+      ],
+      "notes": "Status is `inferred`, not `quoted`: Merikoski's threshold is a quote and lives in `merikoski-sparse-sets-off-chart`, but the COMPARISON with kappa = 4 rests on two `rigorous_finite` claims of ours, and the dependency guard rejected the quoted version -- correctly, since a quote cannot rest on a measurement. This is what the refuted `kappa-off-by-an-exponent` was reaching for, and it shows why that conjecture failed: it tested the incidence GRAPH, which is innocent -- 4-cycles really do appear at |B| = 2 -- when the power-of-X gap is on the METHOD axis. Merikoski notes his is the first unconditional power saving in the density of B at all; before it, Fouvry-Iwaniec needed density (log X)^{-C}."
     }
   ]
 }
