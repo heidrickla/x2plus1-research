@@ -95,6 +95,45 @@ not create the cycles.
 is a statement about how much κ buys *above* the threshold, not about where the
 threshold is.
 
+### The conjecture was testing the wrong object, and the right one answers it
+
+The question "how insufficient is κ?" has an answer, and it is a power of X —
+just not on the axis the conjecture looked at. κ and C₄-freeness are properties
+of the *graph*, and they fire at |B| = 2. What a *method* needs is a different
+quantity entirely, and Merikoski's other paper states it. From
+[arXiv:2302.11331v3](https://arxiv.org/abs/2302.11331) (Compositio Math. **161**
+(2025), 181–243):
+
+> **Theorem 1.2.** There is some (computable) δ > 0 such that the following
+> holds for any small η > 0. For all sufficiently large X and for all
+> B ⊆ [ηX^{1/2}, (1−η)X^{1/2}] ∩ ℤ with **|B| ≥ X^{1/2−δ}** we have for any
+> ε > 0, Σ_{p = a²+b² ≤ X} 1_B(b) ≫_ε X^{1/2−ε}|B|.
+
+So B must be within X^δ of the *entire* available range, and Merikoski notes
+this is the first unconditional power saving in the density of B at all —
+before it, Fouvry–Iwaniec needed density (log X)^{−C}. Putting the two axes
+side by side, with κ = |B|²:
+
+| | |B| | κ |
+|---|---|---|
+| κ > 1, and 4-cycles appear | **2** | 4 |
+| best available method (Merikoski Thm 1.2) | **X^{1/2−δ}** | X^{1−2δ} |
+| x² + 1 | 1 | 1 |
+
+> **κ > 1 is satisfied a full power of X before any method applies.** That is
+> the quantitative content of "necessary, not sufficient", and it is a statement
+> about methods rather than about the incidence graph — which is exactly where
+> the refuted conjecture went wrong: it tested the graph and the graph was
+> innocent.
+
+Merikoski also states the repo's own position in his first paragraph — "A key
+motivating question is Landau's fourth problem, which asks if there are
+infinitely many prime numbers of the form n²+1. **This is far beyond the current
+methods as the set is very sparse** – the number of integers up to X of this
+form is of order X^{1/2}" — and gives Li's record exactly: the sparsest
+polynomial sequence with primes has size **X^{43/67+ε}** (43/67 = 0.641791…,
+which is the 0.6418 this repo had been carrying).
+
 **And C₄-freeness is arithmetic, not a density constraint.** For a C₄-free
 bipartite graph, Σ_n C(d_n, 2) ≤ C(R, 2). Measured at Q = 10⁶:
 
