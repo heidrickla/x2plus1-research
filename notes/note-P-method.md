@@ -756,3 +756,21 @@ CLAUDE.md was cut to rules and facts. Nothing here is new; nothing was lost.
   is what gets quoted. `test_retracted_wording_is_not_still_in_the_statement`
   enforces the mechanical half (a note quoting the wording it retracts must not
   leave that wording in the statement); the paraphrased half stays discipline.
+
+## From the state section
+
+One rule's evidence lived in CLAUDE.md's state section rather than its rules, and
+would otherwise have been the single rule in CLAUDE.md with no evidence here.
+
+- **Reading sources: rasterise, do not extract.** Exactly one source here is a
+scan — Duke–Friedlander–Iwaniec — and its OCR renders prose correctly while
+mangling displayed mathematics, which is the worst failure mode because it looks
+readable. Two claims were committed and refuted in one day from it. Run
+`python tools/check_sources.py`, then read the page images:
+`pymupdf.open(pdf)[idx].get_pixmap(dpi=300).save(...)`, where for DFI page index
+n renders article page n + 422. There is a non-fatal no-go rule,
+`quoting-a-scanned-text-layer`.
+
+  Its no-go rule is `quoting-a-scanned-text-layer`; the sources that depend on it
+  are cited in `note-C-requirements.md`, `note-G-spectral.md` and
+  `note-J-mobius-in-progressions.md`.
