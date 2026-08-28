@@ -177,11 +177,40 @@ reduces exactly to:
 > **Can two distinct multipliers for the same ξ₁ have Q̄, Q̄″ sharing a prime
 > ideal?** If not, O.2 follows.
 
-**And this cannot be settled by measurement.** It is a statement about a
-configuration that never occurs, so every sweep either session has run contains
-zero instances of it. That is an uncomfortable place for a conjecture to sit —
-the evidence for O.2 is entirely the absence of triples, which is the thing to
-be explained, not evidence about the mechanism proposed to explain it.
+**And this cannot be settled by measurement inside a window**, because no
+triples occur there. But it *can* be probed in wider windows, where consecutive
+triples do exist (the two-step ratio floor is 13), and the answer closes this
+route rather than opening it.
+
+Composing the three multipliers gives Q″/Q̄″ = Q′Q/(Q̄′Q̄); cancelling by
+c = gcd(Q′Q, Q̄′Q̄) and *assuming* c is self-conjugate hence c = (n) yields
+
+> g₁₂ · g₂₃ · n² = M · g₁₃,   with coprimality of Q̄, Q̄″ the case n = 1.
+
+Over the 110 consecutive triples at X = 4000:
+
+| | count |
+|---|---|
+| relation g₁₂g₂₃n² = M g₁₃ holds | 65 of 110 |
+| of those, n = 1 (the coprime case) | **5 of 65** |
+
+**Both halves are bad news for the route.** The relation fails outright in 45 of
+110 cases, so the derivation above over-assumes — c need not be self-conjugate,
+and the primitivity that would force it does not hold in general. And where the
+relation does hold, coprimality is the **exception**: n = 3, 8, 27, 38, 69 are
+typical, so Q̄ and Q̄″ routinely share prime ideals. The branch of the argument
+that would give the contradiction covers a small minority of the only regime
+where the question can be observed at all.
+
+> **So the ideal-theoretic route to O.2 is closed, not merely incomplete.** The
+> reduction "O.2 follows if Q̄ and Q̄″ are coprime" is true but its hypothesis is
+> usually false, and no repair is offered here.
+
+*Caveat, stated because it is the only thing keeping this from being a flat
+refutation:* the 110 triples live in wide windows (ratio ≥ 13), not dyadic ones.
+Nothing proves the dyadic regime behaves the same way. What the data removes is
+any **reason to believe** coprimality holds — it does not establish that it
+fails where it would be needed. O.2 is open with no mechanism proposed for it.
 
 The factor a that the corrected norm introduces is absorbed exactly because the
 bound on g carries **both** a and b in its denominator. Had N(ξ) been ±M the
