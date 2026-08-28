@@ -53,6 +53,47 @@ trivial bound there — at M = X the measured saving is **2.41**, a constant fac
 not 1. A reader could take "no saving" to mean "S = T", and that is false by a
 factor of two and a half. What is zero is the exponent.
 
+### The Cauchy–Schwarz chain predicts that 2.41, to 0.7%
+
+§4's reduction is exact algebra; whether it is *quantitatively* right had not been
+tested. It is, and the test needs one correction first.
+
+**T is not DIAG.** The trivial incidence count and the Cauchy–Schwarz diagonal
+differ by a μ² weight, and the difference is not the obvious one:
+
+    T    = Σ_{m∼M} #{x ≤ X : m | x²+1}            = 0.331·X
+    DIAG = Σ_x μ²(x²+1)·#{m∼M : m | x²+1}         = 0.253·X
+
+    DIAG/T at X = 2×10⁵, M = X/8 … 2X:  0.7658, 0.7649, 0.7651, 0.7681, 0.7658
+
+Constant across a factor of 16 in M — and **not** the squarefree density 0.8948.
+The 24% gap is a correlation: only 76.5% of the (m,x) incidences in a band have
+x²+1 squarefree, against 89.5% of all x, because a value with more divisors in a
+band has more prime factors at fixed size, hence smaller ones, which are likelier
+to be repeated.
+
+With the right weight, the chain lands on the measurement:
+
+| input | value | measured by |
+|---|---:|---|
+| #m in [X, 2X) | 52 187 | the boundary run |
+| T at M = X | 132 339 | the boundary run |
+| DIAG/T | 0.7658 | the T-vs-DIAG run, X = 2×10⁵ |
+| Cauchy–Schwarz tightness S/CS | 0.75 | the parallel session, X = 2×10⁵ |
+
+√(#m·DIAG) = 72 725, and 0.75 × 72 725 = **54 544** against a measured
+**54 955** — 0.7%. Predicted saving 2.426 against a measured 2.408. **Four runs,
+two values of X, both sides of the collaboration, nothing fitted to the
+comparison**, so the agreement is not self-consistency.
+
+**And it measures OFF.** The prediction set Q₂ = DIAG, i.e. OFF = 0, so the 0.8%
+residual bounds **OFF/DIAG ≈ 0.016** at this M — independently of the parallel
+session's direct measurement, which has |OFF|/DIAG at 0.038 at its largest M.
+
+None of this promotes anything: OFF = o(DIAG) is Chowla, and that is where the
+θ axis stops. What changed is that the decomposition is now quantitatively
+verified rather than only algebraically exact.
+
 Now place the two frameworks on the same axis:
 
 | | requires | in θ |
@@ -337,7 +378,40 @@ the reduction gives S ≪ √(#m·Q₂) with Q₂ ≍ cX and #m ≍ X/√(log X)
 > S ≪ X·√c / (log X)^{1/4},  so the saving T/S is ≈ **(log X)^{1/4}**.
 
 At X = 4×10⁵ that is 1.90, against a measured saving of **2.41** — same shape,
-constant ≈ 1.27. So the reduction and the direct boundary measurement agree, and
+constant ≈ 1.27.
+
+**And the constant is not free: with the right weight the chain lands at 0.7%.**
+A first version of this paragraph read the parallel session's flat
+T = 0.331·X as the DIAG of the decomposition. **It is not.** They differ by a μ²
+weight, and the ratio is *not* the plain squarefree density:
+
+> T = Σ_{m∼M} #{x ≤ X : m | x²+1} = 0.331X,  **DIAG** = Σ_x μ²(x²+1)·#{m∼M : m | x²+1} = 0.253X,
+> **DIAG/T = 0.7658**, constant across a factor 16 in M — against a squarefree density of 0.8948.
+
+The 24% gap is a real correlation: values with more divisors in a band are *more*
+likely non-squarefree, since more prime factors at fixed size means smaller
+primes and small primes repeat. Equating T with DIAG would have put that 24% into
+the bound. *(The measured DIAG agrees across sessions: 5.05×10⁴ and 5.07×10⁴ at
+X = 2×10⁵.)* Assembling the chain with the right weight, at X = 4×10⁵ and M = X:
+
+| | |
+|---|---|
+| #m | 52 187 |
+| T | 132 339 |
+| DIAG/T | 0.7658 |
+| Cauchy–Schwarz tightness | 0.75 |
+| **0.75·√(#m·DIAG)** | **54 544** |
+| **measured S_μ** | **54 955** |
+
+**0.7%**, from four separate runs at two values of X with nothing fitted to the
+comparison. As a by-product it bounds the residual: the prediction assumed
+Q₂ = DIAG, i.e. OFF = 0, so the 0.8% shortfall gives **OFF/DIAG ≈ 0.016** at this
+M — independently consistent with the 0.038 measured at the largest M above.
+
+**Nothing here is promoted.** OFF = o(DIAG) is still Chowla. What changed is that
+the decomposition is **quantitatively verified** rather than only algebraically
+exact, and the step this note had as "a standard divisor count" is now a measured
+number carrying the correct weight. So the reduction and the direct boundary measurement agree, and
 both say the same thing about §1's headline: **what vanishes at θ = 1/2 is the
 exponent**, Q^{(1/2−θ)/2} = Q⁰. The saving itself is a log power and is
 measurably above 1. Reading "the saving is exactly zero at θ = 1/2" as S = T is
