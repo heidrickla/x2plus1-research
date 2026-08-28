@@ -23,7 +23,14 @@ version here is worse than none.*
 **The obstruction is Type II, and it is Note F's C₄-free lemma**: for
 A = {x+i}, G(n₁,n₂) = #{m : mn₁, mn₂ ∈ A} ≤ 1, so a bilinear form with
 arbitrary bounded coefficients admits no cancellation at any split. That is a
-theorem about the sequence and survives any change of sieve.
+theorem about the sequence and survives any change of sieve. **And it survives the
+change of ring**: Theorem O.12 proves G′ ≤ 1 over **Z** for cofactors within a
+factor (5+√21)/2 = 4.7913 — in particular within one dyadic band — on every
+dyadic modulus window, and [FM]'s (II) is bilinear over m ∼ M *and* n ∼ N, so
+banded pairs are all it sees. The C₄-free input therefore no longer arrives
+through `gaussian-to-rational-bridge`; it is available on both sides. What is
+still `inferred` is only the reading of their quantifier, which is the same
+reading the bridge always rested on.
 
 **And there is a stronger form that does not depend on the bound being 1.** At
 X = 3000 the mean of G over pairs in a dyadic band [N,2N) is 2.000, 0.667, 0.254,
