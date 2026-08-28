@@ -826,6 +826,17 @@ The common shape of 5 and 6 is that every bound available constrains M, a, b and
 the *ratio*, while a triple is unconstrained in **height**. Any proof will have
 to use something that does not scale with m.
 
+**And there is such a thing, which is why the measurement is stronger than it
+looks.** Acting is orbit-invariant, so it is a property of the *class*, not of
+the member — one solution per class settles it for the whole infinite orbit.
+So O.2 is not a statement about arbitrarily large m at all: it is the statement
+that **no occupied class carries two in-window multipliers**, and each class is
+decided by a single finite check. What [`exp17`](../experiments/exp17_sharp_form.py)
+covers is therefore *exactly* the classes possessing a solution below X — 2 093
+of them at X = 14000, each settled completely rather than sampled. The classes it
+misses are those whose least solution exceeds X, and nothing here bounds how many
+of those there are.
+
 **Open.** Conjecture O.2, with no mechanism. It does now have a
 candidate-generation method that cannot produce a dead configuration, due to the
 parallel session and recorded here because it inverts everything above:
