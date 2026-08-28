@@ -90,3 +90,41 @@ def test_a_class_may_hold_two_close_pairs():
         for mi, mj in prs:
             assert mj < 2 * mi
             assert abs(mj / mi - tau2) / tau2 * mi < 200
+
+
+def test_the_AB_identity_that_carries_the_proof():
+    """A - B = -(m_j - m_i) M exactly, where V = sqrt(A) - sqrt(B).
+
+    This is the step that makes the window hypothesis bite: m_j - m_i < m_i.
+    """
+    for a, b, mi, mj, _V, _t in PAIRS:
+        A = (a * mi - 1) * (b * mj - 1)
+        B = (a * mj - 1) * (b * mi - 1)
+        assert A - B == -(mj - mi) * (b - a), (a, b, mi, mj)
+
+
+def test_V_is_below_M_over_sqrt_D():
+    """|V| < M/sqrt(D) for m_i >= 2 -- the bound that closes M > g^2."""
+    for a, b, mi, mj, V, _t in PAIRS:
+        if mi < 2:
+            continue
+        assert abs(V) < (b - a) / sqrt(a * b), (a, b, mi, mj, V)
+
+
+def test_M_exceeds_gcd_UV_squared():
+    """The single inequality Prop O.1 turns on, with no hypothesis on V."""
+    from math import gcd
+    for a, b, mi, mj, V, _t in PAIRS:
+        Xi, Yi = isqrt(a * mi - 1), isqrt(b * mi - 1)
+        Xj, Yj = isqrt(a * mj - 1), isqrt(b * mj - 1)
+        g = gcd(abs(b * Xi * Xj - a * Yi * Yj), abs(V))
+        M = b - a
+        assert M % g == 0, "g must divide M"
+        assert M > g * g, (a, b, mi, mj, M, g)
+
+
+def test_V_is_even_when_a_and_b_are_both_odd():
+    """Parity lemma: X_k = Y_k mod 2, so V is even.  Explains g = 2."""
+    for a, b, mi, mj, V, _t in PAIRS:
+        if a % 2 and b % 2:
+            assert V % 2 == 0, (a, b, mi, mj, V)

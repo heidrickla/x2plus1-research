@@ -6,8 +6,9 @@ O_ε(N^ε) on the dyadic-window Gram entry while the measured value is 2, and
 because both sessions independently proposed — and both had refuted — a
 probability model for the gap. This note supplies a mechanism and a proof.*
 
-*Status: **Proposition O.1 proved; hypotheses (i)–(ii) verified exhaustively at
-X = 4000 but not proved in general.** Machine check:
+*Status: **Proposition O.1 proved unconditionally for m_i ≥ 2.** The two gaps an
+earlier draft carried — "|V| = 2" and "M odd" — are closed, not weakened; see the
+proof. Machine check:
 [`exp12`](../experiments/exp12_tau_multiplier.py).*
 
 ## The statement being explained
@@ -43,25 +44,30 @@ are proportional.
 
 > |V| ≈ (M / 2√D) · (r − 1/r),
 
-so |V| ≥ 1 forces M ≥ 2.83 √D. Measured, over every class attaining a pair:
-the minimum of |V| is **2**, never 1, so the true threshold is 5.657 — against
-an **observed minimum M/√D of 5.667**. Agreement to 0.2%.
+so |V| ≥ 1 forces M ≥ 2.83 √D. The minimum of |V| over every class attaining a
+pair is **2**, never 1, so the operative threshold is 5.657 — against an
+**observed minimum M/√D of 5.667**. Agreement to 0.2%.
 
-**|V| = 2 is forced, not lucky.** U² − 4D = M² gives U² = (a−b)² + 4ab =
-(a+b)², so (U, V) = (a+b, 2) is the *trivial* solution of U² − DV² = M², always
-available. |V| = 1 would need a² − ab + b² to be a perfect square; among coprime
-(a,b) with a < 400 that happens 325 times, but for only **2** of those are a and
-b both admissible in the sense of [Note L](note-L-rational-graph.md) (every odd
-prime ≡ 1 mod 4), and neither yields a window pair. Measured: 495 of 498 close
-pairs have |V| = 2 exactly.
+**Why |V| = 2 is common, and why that is not the same as forced.** U² − 4D = M²
+gives U² = (a−b)² + 4ab = (a+b)², so (U, V) = (a+b, 2) is the *trivial* solution
+of U² − DV² = M², always available; and |V| ≥ 2 is parity (see the proof
+section). So 2 is the smallest value the invariant can take, and it is what
+pairs near the minimal-separation configuration realise — 495 of 498 at
+X = 4000.
+
+**It is not, however, a law, and an earlier draft of this note treated it as
+one.** |V| is whatever the asymptotic |V| ≈ (M/2√D)(√r − 1/√r) gives. The three
+pairs with |V| ∈ {24, 66, 182} are that formula working correctly at
+M/√D = 89, 227, 650 against a median of 11.96 — not anomalies. The proof below
+therefore assumes nothing about V.
 
 ## The multiplier
 
-|V| = 2 pins the ratio of the two solutions to
+In the common case |V| = 2, U = ±(a+b) and the ratio of the two solutions is
 
 > **τ = (U + V√D)/M = (√b + √a)/(√b − √a).**
 
-The modulus ratio of a close pair is **τ²**. Measured: for m ≥ 1000 the relative
+The modulus ratio of such a pair is **τ²**. Measured: for m ≥ 1000 the relative
 deviation of m_j/m_i from τ² is at most 1.3×10⁻⁴ over 284 pairs; the error is
 O(1/m), so the law is exact in the limit. Three independent confirmations at the
 extremes of the data:
@@ -96,33 +102,63 @@ N(ξ) = ±M. Two shared moduli in one window give ξ₁, ξ₂ with
 
 > ξ₂/ξ₁ = (U + V√D)/M =: P/(M),  N(P) = U² − DV² = M² = N((M)).
 
-Let (i) P = Q² with Q an ideal of norm M — which holds because M is coprime to
-D, every prime of M splits in K, and P is divisible by no rational prime (with
-V = 2 and M odd, a rational p | P would need p | U and p | 2). Then (M) = Q Q̄
-and
+Put **g = gcd(U, V)**. Since g² | M² we have g | M; write **M′ = M/g**. Then
+P = g·P′ with P′ = (U/g) + (V/g)√D of norm M′², and P′ is divisible by no
+rational prime, since a rational p | P′ would need p | U/g and p | V/g, which
+are coprime by construction. Every prime p | M′ is therefore split (an inert p
+would contribute p^{2e} to the norm only via 𝔭^e = (p)^e, a rational factor),
+and the p-part of P′ is 𝔭^{2e} or 𝔭̄^{2e} — never mixed, again because a mixed
+part is rational. Hence
 
-> **τ = P/(M) = Q²/(Q Q̄) = Q/Q̄.**
+> **P′ = Q² with N(Q) = M′, and τ = P/(M) = P′/(M′) = Q²/(Q Q̄) = Q/Q̄.**
 
-Now N(ξ₁) = ±M, so the ideal (ξ₁) has norm M — it is *exactly* Q or Q̄, with no
-room to spare. Integrality of ξ₂ = τ ξ₁ requires Q̄ | (ξ₁), forcing (ξ₁) = Q̄,
-and then (ξ₂) = Q. **All of ξ₁'s norm is consumed.**
+Now N(ξ₁) = ±M, so the ideal (ξ₁) has norm M. Integrality of ξ₂ = τ ξ₁ requires
+Q̄ | (ξ₁), which is possible since N(Q̄) = M′ ≤ M.
 
-Suppose a third shared modulus ξ₃ lay in the same window. Then ξ₃/ξ₂ = Q'/Q̄'
-by the same argument, so
+Suppose a third shared modulus ξ₃ lay in the same window. Then ξ₃/ξ₂ = Q′/Q̄′
+by the same argument, so ξ₃ = (Q′/Q̄′)(Q/Q̄) ξ₁, whose integrality requires
+Q̄′ Q̄ | (ξ₁) — of norm M′² — unless the factors cancel, i.e. Q′ = Q̄, which is
+τ′ = τ^{-1} and returns ξ₃ = ξ₁. So a third modulus requires
 
-> ξ₃ = (Q'/Q̄')(Q/Q̄) ξ₁,
+> M′² ≤ M,  i.e.  **M ≤ g².**
 
-whose integrality requires Q̄' Q̄ | (ξ₁), an ideal of norm M² dividing one of
-norm M. Impossible unless the factors cancel, i.e. Q' = Q̄ — but that is
-τ' = τ^{-1}, giving ξ₃ = ξ₁, not a third modulus. ∎
+**It remains to show M > g², which is where the window hypothesis enters.**
+Write u = m_i, v = m_j, A = (au−1)(bv−1), B = (av−1)(bu−1). Then
 
-**Hypotheses used, and their status.**
+> A − B = (abuv − au − bv + 1) − (abuv − av − bu + 1) = (v−u)(a−b) = −(v−u)M,
 
-- (i) *P = Q² with N(Q) = M.* Argued above for V = 2 and M odd; **not proved for
-  even M or for the exceptional |V| ∈ {24, 66, 182}** seen 3 times in 498.
-- (ii) *|V| = 2.* Verified for 495 of 498 close pairs. The 3 exceptions have
-  larger |V| and correspondingly wider ratios; the proof shape is unchanged
-  (N(P) = M² regardless) but step (i) needs re-checking for them.
+an identity. Since V = √A − √B,
+
+> |V| = (v−u)M / (√A + √B) ≤ u M / (2√((au−1)(bu−1))),
+
+using v − u < u — *this is the window hypothesis, and the only place it is
+used* — and √A, √B ≥ √((au−1)(bu−1)). For u ≥ 2 we have au − 1 ≥ au/2 and
+bu − 1 ≥ bu/2, so the root is at least u√D/2 and
+
+> **|V| < M/√D.**
+
+Finally g | V gives g ≤ |V| < M/√D, so g² < M²/D < M, because
+M = b − a < b ≤ ab = D. This contradicts M ≤ g². ∎
+
+**No hypothesis on V is used.** An earlier draft of this note derived
+P = Q² from |V| = 2 and carried "|V| = 2" and "M odd" as two named gaps. Both
+are gone: the argument above runs for arbitrary V and arbitrary parity, with
+g = gcd(U,V) absorbing exactly what the |V| = 2 special case made invisible
+(g = 1 when M is odd, g = 2 when M is even). The only hypothesis is m_i ≥ 2.
+
+**Two corrections owed to the parallel session**, each of which killed a claim
+of mine:
+
+- *The three "exceptional" |V| ∈ {24, 66, 182} are not exceptional.* They are
+  the asymptotic |V| ≈ (M/2√D)(√r − 1/√r) working correctly at
+  M/√D = 89, 227, 650 against a median of 11.96. |V| is whatever that formula
+  gives; it comes out 2 for pairs near the minimal-separation configuration,
+  which is merely most of them. So "|V| = 2 with three anomalies" was the wrong
+  picture, and a proof resting on it would have rested on nothing.
+- *|V| ≥ 2 is parity, in two lines.* For a, b both odd: m odd makes am, bm odd,
+  so X², Y² are even and X, Y both even; m even makes both odd. Either way
+  X_k ≡ Y_k (mod 2), so V = X_i Y_j − X_j Y_i ≡ 0 (mod 2). Verified over 825
+  pairs with a, b odd at X = 2000. Not needed above, but it explains g = 2.
 
 ## The falsifiable prediction, and its test
 
@@ -149,9 +185,9 @@ count of 2^{ω(M)+O(1)}, giving G′ ≪_ε N^ε, with the measured 2 recorded a
 "few classes exist" but "**τ has no room to act twice on one solution**", and it gives **2**
 directly, with no ε.
 
-If (i) and (ii) are discharged in general, the dyadic-window Gram entry for the
-rational graph is **O(1), unconditionally** — the first quantity in this repo to
-move from measurement to theorem this week.
+So the dyadic-window Gram entry for the rational graph is **O(1),
+unconditionally** — the first quantity in this repo to move from measurement to
+theorem.
 
 **What it does not do.** It bounds the *dyadic-window* entry. Note L's full
 rational graph still grows (6 → 9 as X goes 500 → 8000) because it sums over all
