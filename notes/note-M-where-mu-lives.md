@@ -199,6 +199,25 @@ cancellation statement for Σ_{x≠y} μμ·G_M(x,y), where the G_M are bounded 
 are the repo's own object. That is a reduction of the θ-axis to the Gram axis,
 and it is the first connection between the two halves of this repo.
 
+**How much easier the new statement is, honestly: possibly not at all.** The
+counting bound on OFF — bound every G_M(x,y) and discard the signs — gives
+|OFF| ≤ Σ_{m∼M}(|S_m|² − |S_m|), and that is **11× to 1988× too weak** across
+the same bands:
+
+| M | DIAG | trivial \|OFF\| bound | bound/DIAG | measured \|OFF\|/DIAG |
+|---:|---:|---:|---:|---:|
+| 200 | 64 515 | 1.28×10⁸ | 1988 | 0.511 |
+| 3 200 | 66 242 | 1.05×10⁷ | 159 | 0.108 |
+| 51 200 | 66 190 | 7.36×10⁵ | 11.1 | 0.038 |
+
+So **OFF = o(DIAG) is itself a μ-cancellation statement, not a divisor count**.
+The reduction converts one cancellation problem into another. What it buys is
+shape, not difficulty: the new statement is a bilinear sum in μ(x²+1)μ(y²+1)
+with **bounded, explicitly-studied weights** G_M(x,y), rather than an asymptotic
+law fitted over four decades. Whether that is a route or a restatement is not
+something this note can settle, and it should not be quoted as progress on the
+θ axis.
+
 **And it explains the root-grouping gap.** The measurement above is the
 *per-modulus* normalisation — every root of −1 mod m sits inside one absolute
 value. Run the same Cauchy–Schwarz per *progression* and the diagonal is
