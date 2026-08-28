@@ -311,6 +311,17 @@ rational graph is K₂,₂-rich and, in this range, K₃,₃-free. That is a sha
 statement of the Z-vs-Z[i] gap than "max Gram 2 instead of 1", because it says
 *which* completeness survives the transfer and which does not.
 
+**And it buys nothing quantitatively, which must be said or someone will reach
+for Kővári–Sós–Turán.** A K₃,₃-free bipartite graph on (M, N) vertices has
+O(M·N^{2/3} + N) edges. In a dyadic window there are ~M moduli, ~X²/M cofactors,
+and the *actual* edge count is ~X — one incidence per x. The KST bound exceeds
+that by **2–4 orders of magnitude** in every regime (e.g. X = 10⁶, M = 10⁶:
+10¹⁰ against 10⁶). The same is true of C₄-freeness over Z[i], and it is worth
+being explicit that **Note F does not use C₄-freeness via edge counting at all**
+— it uses it to make the Gram matrix diagonal, which is a statement about
+*cancellation*. Freeness from a complete bipartite subgraph is informative here
+only through the Gram structure, never through KST.
+
 *(A first version of this search reported 19 K₃,₃ instances. All were spurious —
 the third cofactor equalled the first, because the loop guarded n₃ > n₂ while
 n₁, n₂ came from `combinations` over a set in hash order rather than sorted
