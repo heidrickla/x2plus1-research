@@ -234,7 +234,24 @@ gives 32.50 against 46.98) because the modulus ratio is τ² only asymptotically
 **Step 2 must go through the map** — bounding
 |V| = M(X_j²−X_i²)/(X_jY_i + X_iY_j) instead gives τ at V/a, true but not sharp
 for a > 1. Still only necessary, and not binding: the nearest realised
-configuration clearing the threshold is a factor 7.25 from a window. **The geometry there is r_k² < 2, equivalently M > 4√2·k√(ab), and
+configuration clearing the threshold is a factor 7.25 from a window.
+
+**Conjecture O.2 moved three of its four cases tonight.** τ₁-assuming triples go
+to **O.3″**; the equal-multiplier case (ξ, τ_pξ, τ_p²ξ) goes to **O.5** — τ_p² ∈ T
+forces M | 8p², and the window forces D < M against M < D always; the general
+threshold is **O.4**. What is left is **two distinct multipliers** — and
+**Proposition O.6 proves that case is unreachable by congruences.** For M an odd
+prime exactly one of M | S, M | T holds and it forces the sign of U_p ≡ ±2pa; the
+exact identity **M·S′ = A_pS + V_p·M·X** (*not* S′ = A_pS/M, which fails on 246 of
+246 pairs — the first version of the argument was built on it) together with
+β ≡ p (mod M) makes **the subcase alternate at every step**, 246 times with 0
+exceptions. So ε_p = +1 forces ε_q = −1, and both composite integrality
+conditions become **automatic**: 0 failures over 493 opposite-sign (p,q) pairs,
+against **40 of 246 same-sign pairs failing both** — the conditions have content
+and the alternation is what removes it. **Whatever forbids a third modulus is not
+a congruence.** That was an empirical remark about 95 candidates; for M odd prime
+it is now a proof, and M odd prime is 54 of 379 realised close pairs, so what
+fails is the method and not the coverage. **The geometry there is r_k² < 2, equivalently M > 4√2·k√(ab), and
 the distinction decides the theorem**: the modulus ratio is τ², not τ, so r_k² < 2
 is what "both fit one dyadic window" means. Under the weaker r_k < 2 (which is
 M > (8/3)·k√(ab)) the ρ bound is **false** — 193 violations in 277, ρ reaching

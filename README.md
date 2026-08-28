@@ -293,6 +293,28 @@ violations and is sharp to four decimals. O.4 is still only a necessary
 condition, and not a binding one: the nearest realised configuration clearing its
 threshold sits a factor 7.25 from a window.
 
+**Where Conjecture O.2 now stands.** Three of its cases closed tonight and the
+fourth was proved *unreachable by congruences*:
+
+| case | status |
+|---|---|
+| (ξ, τ₁ξ, τ_kξ), k ≥ 2 | closed by **O.3″**, sharpened to a joint (c,k) region |
+| (ξ, τ_pξ, τ_p²ξ), any p | closed by **O.5**: τ_p² ∈ T ⟹ M \| 8p², against M < D |
+| any triple, threshold | **O.4**: b/a > 133.875, assuming nothing about which multiplier acts |
+| two **distinct** multipliers | open — and **O.6** shows integrality cannot close it |
+
+**O.6 is the one worth reading.** For M an odd prime, exactly one of M \| S,
+M \| T holds at each solution and it forces the sign of U_p ≡ ±2pa. The exact
+identity M·S′ = A_pS + V_p·M·X (**not** S′ = A_pS/M, which fails on 246 of 246
+pairs) plus β ≡ p (mod M) makes **the subcase alternate at every step** — 246
+times, never once staying the same. So a triple has ε_p = +1 and ε_q = −1, and
+both composite integrality conditions become **automatic** (0 failures in 493
+opposite-sign pairs, against 40 of 246 same-sign pairs failing). **The structure
+that lets τ_p act on ξ₁ is what makes τ_q's action on ξ₂ integrality-free.**
+Whatever forbids a third modulus is **not a congruence** — previously an
+empirical remark about 95 candidates, now a proof for M odd prime, covering 14%
+of realised close pairs.
+
 **The general statement — no window holds three, full stop — is not proved.** It
 was claimed unconditionally for about an hour and retracted. Its sharp form is
 measurable and measured: *on any solution ξ, at most one acting multiplier has
