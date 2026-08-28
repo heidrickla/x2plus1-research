@@ -817,6 +817,32 @@ o(1) has no decomposition into a main term plus a smaller error. The bound tells
 you the count is small; this tells you there is nothing for the argument to be
 about.
 
+**And the smallness is aligned with the application, not incidental to it.** The
+mean is U-shaped in N, and its minimum sits at the *balanced split*. Rebuilt here
+from divisors, against the parallel session's cofactor-side construction:
+
+| N/X | 0.09 | 0.34 | **1.37** | 5.5 | 87 | 1398 |
+|---|---:|---:|---:|---:|---:|---:|
+| mean G, X = 3000 | 0.1596 | 0.0466 | **0.01319** | 0.0223 | 0.1529 | 0.891 |
+| mean G, X = 6000 | 0.0956 | 0.0296 | **0.00827** | 0.0128 | 0.0904 | 0.891 |
+
+The balanced split of the bilinear form is n = m = √(x²+1) ≈ X, and **argmin/X =
+1.37 at both X**, with the minima agreeing to five digits between two independent
+constructions. Bands are dyadic, so the resolution is a factor 2; what is
+measured is that the argmin stays in the same band *relative to X*.
+
+> **The Gram mean is smallest exactly where the Type II sum lives** — and the
+> minimum deepens with X, 0.01319 → 0.00827 for a doubling. The obstruction is
+> strongest precisely at the split the sieve uses, and it strengthens as the
+> problem grows.
+
+The two arms have different variables, which is what makes the U structural
+rather than descriptive: the left is controlled by N/X, the right by N/X². The
+tail values 0.345, 0.514, 0.891 appear at both X, shifted by the factor 4 between
+their X². At N ≪ X the cofactors are small, so each carries many moduli and pairs
+collide; at N ≫ X the moduli are few and tiny, so every pair shares them; the
+balanced split is where both sides are maximally spread.
+
 **And it does not prove too much**, which is the check an argument this general
 has to survive. Friedlander–Iwaniec captured the primes of a² + b⁴ *by
 dispersion*, so anything that ruled dispersion out for both sequences would be

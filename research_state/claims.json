@@ -1295,6 +1295,16 @@
         "literature"
       ],
       "notes": "Refutes fm-barrier-asks-for-G-exactly, which read the footnote's range as large moduli. Found by the parallel session and verified here: at x = 1.44e8, x^0.05 = 2.6 and x^0.10 = 6.5. TWO CAUTIONS on the small-N end. The averages there are over 1 to 13 pairs, so they are the informative-subset problem in its own right -- a 'mean' over one pair is not an average. And the full-graph maximum at small N is 3, at G(17,26) with shared moduli 1, 85, 2966965 (verified here directly), but one of those is the UNIT cofactor m = 1, which full-graph-growth-is-pell already records as inadmissible in a Type II hypothesis where both variables are confined to ranges; excluding it gives 2. WHAT IS UNAFFECTED, and it is the load-bearing part: ASP's (B1) forces M >= sqrt(x) = X, so the cofactor n = (x^2+1)/m is at most X -- exactly the range where the mean is small and falling. The rise, the max-3 and the small-N regime all sit outside what the sieve uses."
+    },
+    {
+      "id": "gram-mean-is-minimal-at-the-balanced-split",
+      "status": "rigorous_finite",
+      "statement": "The mean of G over cofactor bands is U-shaped in N and its minimum sits at N = 1.37 X at both X = 3000 and X = 6000, with min mean G = 0.01319 and 0.00827. The balanced split of the bilinear form is n = m = sqrt(x^2+1) ~ X, so the Gram mean is smallest exactly where the Type II sum lives. The minimum also DEEPENS with X, 0.01319 -> 0.00827 for a doubling. The two arms have different variables: the left is controlled by N/X and the right by N/X^2 -- at X = 3000 and X = 6000 the tail values 0.34508/0.34533, 0.51416/0.51446, 0.89111/0.89112 coincide at N differing by a factor of 4, which is the ratio of the two X^2.",
+      "experiment": "experiments/exp13_window_gap.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Found by the parallel session on a cofactor-side construction; verified here from a divisor-built incidence table, an independent construction. Both argmins land on N = 1.37 X (bands are dyadic, so the resolution is a factor 2 and what is measured is that it stays in the same band RELATIVE TO X across a factor 2 in X), and the minimum values agree to five digits. Why it matters more than 'the mean is small': the smallness is ALIGNED WITH THE APPLICATION rather than incidental to it -- the obstruction is strongest precisely at the split the Type II sum uses, and it strengthens as X grows. Structural account of the U: at N << X the cofactors are small so each has many moduli and pairs collide; at N >> X the moduli are few and tiny so every pair shares them; the balanced split is where both sides are maximally spread. NO LAW is attached to either arm -- see the-main-term-is-smaller-than-the-granularity, where two attempts to fit the decay were withdrawn."
     }
   ]
 }

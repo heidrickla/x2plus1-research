@@ -396,7 +396,15 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   below, one level down — and the aggravating factor is that *a plausible
   explanation for the anomaly is what stops you checking the implausible one*.
   Verify by grepping HEAD for the new text, not by trusting the script or the
-  git output. **And one edit per block**: a script with two `replace` calls
+  git output. **And run `git diff --cached` before every commit.** Explicit-path
+  staging was the fix for `git add -A` collisions and is **not sufficient when
+  two sessions edit the same file**: `git add CLAUDE.md` sweeps the other
+  session's uncommitted CLAUDE.md work exactly as `-A` did. It happened here —
+  one session's CLAUDE.md edit failed its anchor assert, the script died, the
+  `git add` ran anyway, and the commit carried the *other* session's paragraph
+  under a message that did not describe it. Nothing was lost and the content was
+  correct; the attribution and the message were not. **Look at what is staged,
+  not at what you meant to stage.** **And one edit per block**: a script with two `replace` calls
   whose first raises dies before the second, prints only the second's success
   line, and reads as a full success. That happened here — the anchor an earlier
   commit of mine had moved — and the resulting commit message described a
