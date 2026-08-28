@@ -980,6 +980,15 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   Requiring cofactors ≥ 200 **and** moduli ≥ 200 finds four D that still fail, at
   cofactor ratios 1.27–1.71 and modulus ratios 1.28–1.92. **Agreement between two
   restricted views is evidence about the restriction, not about the question.**
+  **And this is the one failure mode neither of the two working detectors
+  reaches.** Duplicated computation does not help when both computations inherit
+  the same restriction — they agree, correctly, about the wrong thing. A wording
+  check does not fire either, because *both descriptions were accurate*: the
+  singly-windowed Gram **is** flat in D, and the default cofactor floor **does**
+  give max G = 1. Nothing was misstated and nothing disagreed. **The only thing
+  that settled it was asking what configuration the claim is about** — cofactors
+  and moduli *both* large — and measuring that, which found four D still
+  failing.
   The check is not "did another measurement agree" but "does any of them range
   over what the claim ranges over".
 
