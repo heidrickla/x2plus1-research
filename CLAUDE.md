@@ -326,12 +326,25 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   claim it was being tested with. It reported green while seeing nothing. This is
   the repo's "a guard that is not on the path is not a guard", one level up — that
   guard *was* on the path.
-- **Tests protect the computation; nothing protects the paraphrase.** Of five
-  corrections in one session, the arithmetic was right in every one and the
-  description moved; three sat beside a correct machine check, and one was a
-  section heading that outlived its own body. The registry's status field grades
-  how a claim was *established* and says nothing about whether its *statement*
-  still means what the computation showed.
+- **Tests protect the computation; nothing protects the paraphrase.** The
+  registry's status field grades how a claim was *established* and says nothing
+  about whether its *statement* still means what the computation showed. One
+  session produced four variants, and **every one survived a green suite, because
+  the tests were testing the correct object while the prose described a different
+  one**:
+  - *convention distance* — a symbol declared correctly 448 lines from its use
+    (Note O's r_k), and DFI's determinant vs discriminant 200 lines apart;
+  - *paraphrase drift* — a section heading outliving its own corrected body, and
+    a correction reaching a claim's `notes` while its `statement` kept the old
+    wording;
+  - *an unattached axis* — "no log-power correction" and a measured (log M)^{1/4}
+    reading as contradictory until each carried its axis and its grouping;
+  - *a hypothesis dropped from a statement while remaining in its proof* — Note O's
+    Prop O.1 stated without the window, with a counterexample inside the same note
+    ((1,5) at m = 2, where a g² = 4 = M exactly, so the *strict* inequality the
+    proof turns on fails by nothing at all).
+  Nothing checks a proposition's statement against its own proof, because the
+  tests test the proof.
 
 ## The claim registry — read before writing a finding
 
