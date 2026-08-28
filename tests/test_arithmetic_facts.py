@@ -461,14 +461,16 @@ def test_the_full_graph_growth_slope_is_one_over_log_phi_squared():
     slope = 1 / log(phi ** 2)
     assert slope == pytest.approx(1.0390, abs=1e-3)
 
+    # x runs over F_2, F_4, F_6, ... which satisfy x_{k+1} = 3 x_k - x_{k-1}.
+    # Searching for them by incrementing x costs 10^8 steps to reach the tenth.
     family = []
-    x = 0
-    while len(family) < 20:
-        x += 1
-        m = x * x + 1
+    prev, cur = 0, 1
+    while cur <= 20_000:
+        m = cur * cur + 1
         r = isqrt(5 * m - 1)
-        if r * r == 5 * m - 1:
-            family.append((x, r))
+        assert r * r == 5 * m - 1, cur      # the recurrence must stay on the family
+        family.append((cur, r))
+        prev, cur = cur, 3 * cur - prev
 
     # reproduces the repo's recorded full-graph maxima 6, 7, 7, 8, 9
     recorded = {500: 6, 1000: 7, 2000: 7, 4000: 8, 8000: 9}
