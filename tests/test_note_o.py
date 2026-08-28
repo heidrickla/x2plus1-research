@@ -254,3 +254,37 @@ def test_the_non_fundamental_close_pair_of_1_423125():
     s = 4 * 91 * sqrt(D) / M
     r91 = ((s + sqrt(s * s + 4)) / 2) ** 2
     assert r91 == pytest.approx(17 / 10, rel=0.03)   # the REALISED ratio
+
+
+def test_theorem_O3_prime_identity_and_rho_bound():
+    """M(rho^2-1) = 4ka(k-rho) with rho = B_k/M, and geometry forces rho < 1.06066."""
+    from math import gcd
+    from x2plus1.factorization import roots_of_minus_one
+
+    def adm(k):
+        return k == 1 or bool(roots_of_minus_one(k))
+
+    def r_of(k, a, b):
+        M, D = b - a, a * b
+        s = 4 * k * sqrt(D) / M
+        return ((s + sqrt(s * s + 4)) / 2) ** 2
+
+    seen = 0
+    for a in range(1, 60):
+        if not adm(a):
+            continue
+        for b in range(134 * a, 60000):
+            if gcd(a, b) != 1 or not adm(b) or r_of(1, a, b) >= 2:
+                continue
+            for k in range(2, 40):
+                t = a * a + (4 * k * k - 2) * a * b + b * b
+                if isqrt(t) ** 2 != t:
+                    continue
+                if r_of(1, a, b) * r_of(k, a, b) < 2:
+                    M = b - a
+                    rho = (isqrt(M * M + 4 * k * k * a * b) - 2 * k * a) / M
+                    assert M * (rho * rho - 1) == pytest.approx(4 * k * a * (k - rho), rel=1e-9)
+                    assert 1 < rho < 1.06066, (a, b, k, rho)
+                    seen += 1
+                break
+    assert seen > 0, "no geometry-passing candidates -- test vacuous"

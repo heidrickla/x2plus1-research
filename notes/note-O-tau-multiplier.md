@@ -402,6 +402,41 @@ The parallel session's larger census agrees: over a ≤ 60, b ≤ 300000, **104 
 squarefree. "No window holds three" reads broader than a statement mute on four
 fifths of them and on the whole a = 1 family.
 
+### Theorem O.3′ — squarefreeness replaced by a checkable gcd
+
+The squarefree hypothesis can be dropped for a much weaker one, and the proof
+gets shorter rather than longer. Put **ρ = B_k/M**. Then B_k = ρM gives
+U_k = ρM + 2ka, and U_k² = M² + 4k²ab with b = a + M yields the identity
+
+> **M(ρ² − 1) = 4ka(k − ρ)**,  i.e.  M = 4ka·Λ with Λ = (k−ρ)/(ρ²−1).
+
+*(Verified, 0 violations over all 95 geometry-passing candidates.)* The geometry
+r_k < 2 needs M > 4√2·k√(ab); substituting M = 4kaΛ and ab = a² + aM reduces it
+to Λ² − 8kΛ − 2 > 0, so Λ > 4k + √(16k²+2). Feeding that back,
+
+> 9k − ρ > 8kρ²,  so  ρ² < 9/8 − ρ/(8k) < 1.125,  hence **ρ < 1.06066**.
+
+*(Measured ρ over the 95: 1.00395 to 1.05263 — all below, as required.)*
+
+Now integrality. With M | S, τ_k gives M | B_kT and T ≡ 2X, so
+**M | c·B_k where c = gcd(M, 2X)** — and hence **cρ ∈ ℤ**. But cρ lies in
+(c, 1.06066c), which contains an integer only when 1.06066c ≥ c+1, i.e.
+
+> **c ≥ 17.**
+
+> **Theorem O.3′.** If gcd(M, 2X) ≤ 16, no dyadic window contains
+> (ξ, τ₁ξ, τ_kξ) with k ≥ 2 — no hypothesis on M at all.
+
+For M squarefree, gcd(X,M) = 1 forces c | 2, recovering Theorem O.3. But O.3′
+applies to **4 | M** as well whenever the gcd stays small, which is the family
+O.3 was mute on. Consistency check on the live non-fundamental pair below:
+(1, 423125) has moduli m = 10 and 17, so X = 3 and 4 and c = gcd(423124, 6) = 2,
+c = gcd(423124, 8) = 4 — both ≤ 16, and O.3′ correctly **permits** those two,
+forbidding only a third.
+
+*(The smallest c that any of the 95 would need is 20, against the 17 the bound
+allows — so the margin is real but not large.)*
+
 **The parity hypothesis is redundant, and that is not good news.** Since a and b
 are admissible and coprime, either both are ≡ 1 (mod 4) — forcing **4 | M** — or
 one is ≡ 2 (mod 4), forcing **M odd**. So **M ≡ 2 (mod 4) never occurs**
