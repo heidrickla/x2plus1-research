@@ -851,3 +851,126 @@ def test_O5_realised_classes_where_tau_1_squared_acts_all_have_M_dividing_8():
     for a, b, M in [(1, 5, 4), (1, 2, 1)]:
         assert b - a == M and 8 % M == 0
         assert (4 * (a + b)) % M == 0      # tau_1^2 really is in T there
+
+
+def _oriented(a, b, u, Yi, w, Yj):
+    """(U, V) signed so that X_j = (U X_i + V a Y_i)/M, or None."""
+    M = b - a
+    U0 = b * u * w - a * Yi * Yj
+    V0 = u * Yj - w * Yi
+    for su in (1, -1):
+        for sv in (1, -1):
+            if su * U0 * u + sv * V0 * a * Yi == M * w:
+                return su * U0, sv * V0
+    return None
+
+
+def _prime_steps():
+    """Oriented consecutive pairs of classes whose M is an odd prime."""
+    from sympy import isprime
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 3 or M % 2 == 0 or not isprime(M):
+            continue
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms) - 1):
+            got = _oriented(a, b, xs[i], ys[i], xs[i + 1], ys[i + 1])
+            if got:
+                yield a, b, xs[i], ys[i], xs[i + 1], ys[i + 1], got
+
+
+def test_O6_exact_identities_and_that_the_naive_form_is_wrong():
+    """M S' = A S + V M X, not S' = A S / M -- the latter fails on every pair."""
+    n = naive_fail = 0
+    for a, b, u, Yi, w, Yj, (U, V) in _prime_steps():
+        M = b - a
+        A, B = U + V * a, U - V * a
+        S1, T1, S2, T2 = u + Yi, u - Yi, w + Yj, w - Yj
+        assert M * S2 == A * S1 + V * M * u, (a, b)
+        assert M * T2 == B * T1 - V * M * u, (a, b)
+        assert (A * S1) % M == 0 and (B * T1) % M == 0     # necessary conditions
+        naive_fail += M * S2 != A * S1
+        n += 1
+    assert n > 50, n
+    assert naive_fail == n, (naive_fail, n)   # the natural guess is always wrong
+
+
+def test_O6_dichotomy_and_that_the_subcase_alternates():
+    """Exactly one of M|S, M|T -- and it flips at every step."""
+    alt = same = n = 0
+    for a, b, u, Yi, w, Yj, _uv in _prime_steps():
+        M = b - a
+        c1 = ((u + Yi) % M == 0, (u - Yi) % M == 0)
+        c2 = ((w + Yj) % M == 0, (w - Yj) % M == 0)
+        assert sum(c1) == 1 and sum(c2) == 1, (a, b, c1, c2)   # exactly one
+        alt += c1 != c2
+        same += c1 == c2
+        n += 1
+    assert n > 50, n
+    assert same == 0, same
+    assert alt == n
+
+
+def test_O6_sign_is_forced_and_beta_is_congruent_to_p():
+    """M|S => M|B with B/M == p; M|T => M|A with A/M == -p."""
+    n = 0
+    for a, b, u, Yi, w, Yj, (U, V) in _prime_steps():
+        M = b - a
+        if V % 2:
+            continue
+        p = V // 2
+        A, B = U + V * a, U - V * a
+        if (u + Yi) % M == 0:
+            assert B % M == 0, (a, b)
+            if p % M:
+                assert ((B // M) - p) % M == 0, (a, b, p)
+        else:
+            assert A % M == 0, (a, b)
+            if p % M:
+                assert ((A // M) + p) % M == 0, (a, b, p)
+        n += 1
+    assert n > 50, n
+
+
+def test_O6_opposite_signs_make_the_composite_conditions_vacuous():
+    """The alternation forces eps_p = -eps_q, and then both conditions hold free.
+
+    Same-sign pairs WOULD be constrained -- this checks that too, so the
+    conclusion is 'the alternation removes the content', not 'there was none'.
+    """
+    from sympy import isprime
+
+    opp = bad_opp = same = bad_same = 0
+    for a in range(1, 20):
+        for b in range(a + 1, 1500):
+            if gcd(a, b) != 1:
+                continue
+            M, D = b - a, a * b
+            if M < 3 or M % 2 == 0 or not isprime(M):
+                continue
+            plus, minus = [], []
+            for k in range(1, 40):
+                t = M * M + 4 * k * k * D
+                U = isqrt(t)
+                if U * U != t:
+                    continue
+                if (U - 2 * k * a) % M == 0:
+                    plus.append((k, U))
+                if (U + 2 * k * a) % M == 0:
+                    minus.append((k, U))
+            for p, Up in plus:
+                for q, Uq in minus:
+                    opp += 1
+                    bad_opp += (2 * (q * Up + p * Uq)) % M != 0 or (
+                        Up * Uq + 4 * p * q * D
+                    ) % M != 0
+                for q, Uq in plus:
+                    if p == q:
+                        continue
+                    same += 1
+                    bad_same += (2 * (q * Up + p * Uq)) % M != 0
+    assert opp > 100, opp
+    assert bad_opp == 0, bad_opp          # automatic, so the route is dead
+    assert same > 50 and bad_same > 0     # but the conditions do have content

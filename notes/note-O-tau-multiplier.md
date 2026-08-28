@@ -751,6 +751,62 @@ closed and the τ₁-assuming cases were closed by O.3″. The live witness
 (53, 423125) at k = 12 is a pair, so it does not exhibit the surviving case
 either; nothing realised does.
 
+### Proposition O.6 — the sign alternates, and that closes the integrality route
+
+With O.3″ covering the τ₁-assuming cases and O.5 the equal-multiplier case, what
+survived of O.2 was two **distinct** multipliers. This is the attempt to close
+that for M = b − a an odd prime, and the outcome is that **it cannot be closed
+this way** — with a mechanism, which is worth more than another threshold.
+
+Mod M we have b ≡ a, so τ_p acting on ξ = (X, Y) gives **M | A_pS and M | B_pT**
+with A_p = U_p + 2pa, B_p = U_p − 2pa, S = X+Y, T = X−Y. For M an odd prime
+U_p² ≡ (2pa)² makes the **sign ε_p well defined**: M | B_p or M | A_p, never both
+(both give M | 4pa, hence M | p, impossible for an in-window p < M).
+
+> **The dichotomy.** M | S and M | T cannot both hold — they give M | X and
+> M | Y for M odd, so M² | aY² − bX² = M, i.e. M = 1. And for an in-window
+> multiplier neither can fail. So **exactly one holds, and it forces the sign**:
+> M | S ⟹ M | B_p (ε_p = +1); M | T ⟹ M | A_p (ε_p = −1).
+
+**The exact identities matter, and the natural guess is wrong.**
+
+> **M·S′ = A_pS + V_p·M·X**  and  **M·T′ = B_pT − V_p·M·X.**
+
+Not S′ = A_pS/M — that is what a first pass gives from the mod-M relation, and it
+**fails on every single pair, 246 of 246**. The necessary conditions M | A_pS and
+M | B_pT survive it; the orbit bookkeeping does not.
+
+> **Proposition O.6 (alternation).** In subcase A (M | S) write B_p = Mβ. Then
+> A_pβ = M + 4p²a with A_p ≡ 4pa forces **β ≡ p (mod M)**, and T ≡ 2X gives
+> T′ ≡ 2X(β − p) ≡ 0. So ξ′ is in subcase B; symmetrically B → A. **The subcase
+> alternates at every step.**
+
+*(246 steps at X = 3000: alternates **246 times, stays the same 0 times**, with
+ε forced by the subcase and β ≡ p — resp. α ≡ −p — with 0 failures throughout.)*
+
+**And that is exactly what kills the route.** A triple ξ₁ → ξ₂ → ξ₃ therefore has
+ε_p = +1 and ε_q = −1, and then both of the composite's integrality conditions
+are **automatic**:
+
+> qU_p + pU_q ≡ 2pqa − 2pqa ≡ 0  and  U_pU_q + 4pqD ≡ −4pqa² + 4pqa² ≡ 0 (mod M).
+
+*(0 failures over 493 opposite-sign (p,q) pairs. By contrast **40 of 246
+same-sign pairs fail both** — so the conditions genuinely have content, and the
+alternation is precisely what removes it.)*
+
+> **So the integrality route cannot close O.2.** The structure that lets τ_p act
+> on ξ₁ is the same structure that makes τ_q's action on ξ₂ integrality-free.
+> Whatever forbids a third modulus is **not a congruence**.
+
+**This is the mechanism behind an observation already in the repo.** "There is no
+local obstruction — all 95 candidates are satisfiable mod M — so O.2 is not a
+congruence statement" was an empirical remark about 95 cases. For M an odd prime
+it is now a proof, and it says *why*: the signs alternate.
+
+**And the case was worth closing, which is why the failure is informative.**
+M odd prime is **54 of the 379 realised close pairs (14%)**, not a corner. What
+fails is the method, not the coverage.
+
 **And the candidate criterion in the withdrawn section was the wrong shape**,
 which matters only for reading that section's numbers. For three moduli
 m, r₁m, r_km all inside [m, 2m) the requirement is **r_k < 2** alone; the product

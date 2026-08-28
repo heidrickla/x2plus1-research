@@ -53,6 +53,8 @@ SIZES: dict[str, list[str]] = {
     "exp18_ck_region.py": ["900"],
     "exp19_composition_bound.py": ["1200"],
     "exp21_note_O_verifications.py": ["900"],
+    "exp22_sign_alternation.py": ["900"],
+    "exp23_prose_claims_made_runnable.py": ["900"],
 }
 
 TIMEOUT = 300
