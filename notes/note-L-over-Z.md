@@ -809,7 +809,26 @@ That is a stronger objection than C₄-freeness, because it does not depend on t
 bound being exactly 1 or exactly 2 — *any* bounded integer-valued count with mean
 o(1) has no decomposition into a main term plus a smaller error. The bound tells
 you the count is small; this tells you there is nothing for the argument to be
-about. (A naive independence heuristic predicts mean G = ρ(n₁)ρ(n₂)/N and the
+about.
+
+**And it does not prove too much**, which is the check an argument this general
+has to survive. Friedlander–Iwaniec captured the primes of a² + b⁴ *by
+dispersion*, so anything that ruled dispersion out for both sequences would be
+worthless. At Q = 4×10⁶, same bands, same divisor-built incidence:
+
+| N | 32 | 128 | 512 | 2048 |
+|---|---:|---:|---:|---:|
+| **x²+1** mean G | 0.667 | 0.228 | 0.082 | **0.022** |
+| **x²+1** max G | 2 | 2 | 2 | 2 |
+| **a²+b⁴** mean G | 85.2 | 42.0 | 12.4 | **3.59** |
+| **a²+b⁴** max G | 805 | 584 | 201 | 107 |
+
+At N = 2048 the means differ by **164×**, and they straddle 1. The sequence that
+works has a main term of 3.59 with the count fluctuating around it — precisely
+*count = main term + error*. The sequence that does not has a mean of 0.022 and
+an integer count. The separation is sharper in kind than κ's (1.00 against
+1297): κ differs by three orders but is a ratio of sizes, whereas mean G
+crosses the one threshold that decides whether a decomposition exists at all. (A naive independence heuristic predicts mean G = ρ(n₁)ρ(n₂)/N and the
 observed mean is 5–6× that, stably. The *constant* should not be trusted — the
 heuristic uses the mean of ρ rather than the mean of the product, and pairs
 sharing a modulus are correlated — but the 1/N shape is what the argument needs.)
