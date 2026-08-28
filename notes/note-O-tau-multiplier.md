@@ -1860,6 +1860,31 @@ windows, and [Note F](note-F-failure-localisation.md)'s C₄-freeness over Z[i] 
 untouched and remains the obstruction that matters for Type II. A window Gram of
 2 rather than N^ε does not create the cancellation Note F shows is absent.
 
+### What the whole thread says about the method
+
+Three **necessary-but-not-sufficient gaps**, at three different scales, all
+pointing the same way:
+
+| scale | the bound permits | what occurs |
+|---|---|---|
+| classes | 39 of 60 informative classes clear O.11 | **none** holds a triple |
+| the D axis | D = 5…10 are outside every proved reach | **none** has fallen to X = 8000 |
+| in X | O.11's proved reach *falls* with X, 97.7% → 88.1% | nothing realises the excess |
+
+**The bounds permit far more than occurs, at every level.** And that is a
+statement about the **method**, not about x²+1: every bound in this apparatus —
+O.4's τ_min⁴ < 2 + 1/X₁², O.9's 3ab < M^{4/3}, O.11's constant, O.12's
+(5+√21)/2 — comes from a **size** argument, and size arguments cannot see the
+arithmetic that actually forbids the configurations. The one place the two agree
+exactly is the D axis, where every observed failure lies outside the proved reach
+and nothing inside it has ever failed — proof and data meeting at the boundary,
+which a loose bound would not do.
+
+**So the honest summary of the O-thread is not "these theorems nearly close
+O.2".** It is: *the size arguments are now sharp enough to be worth stating and
+are still nowhere near what is true, and the gap between them is arithmetic
+nobody here has reached.*
+
 ## What survives
 
 *Written last, after two retractions and one line of investigation withdrawn

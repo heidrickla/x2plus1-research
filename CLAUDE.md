@@ -408,6 +408,20 @@ D = 11 were both found by extending an axis that had been checked at five or six
 values and read as general — *"what would the sweep look like if the finding were
 absent"* applies to the **axis** as much as to the population.
 
+**What the whole thread says about the method.** Three
+necessary-but-not-sufficient gaps at three scales, all the same direction: **39
+of 60** informative classes clear O.11 and none holds a triple; **D = 5…10** are
+outside every proved reach and none has fallen to X = 8000; and **O.11's reach
+falls with X** (97.7% → 88.1%) while nothing realises the excess. **The bounds
+permit far more than occurs, at every level** — which is a statement about the
+*method*: every bound here (O.4's τ_min⁴ < 2 + 1/X₁², O.9's 3ab < M^{4/3},
+O.11's constant, O.12's (5+√21)/2) is a **size** argument, and size arguments
+cannot see the arithmetic that actually forbids the configurations. The one exact
+agreement is the D axis, where every observed failure lies outside the proved
+reach and nothing inside it has ever failed. **So the summary is not "these
+theorems nearly close O.2" but "the size arguments are now sharp enough to state
+and still nowhere near what is true".**
+
 **What is left of O.2.** Nothing structural — no hypothesis on M survives. What
 remains is quantitative: at X = 8000, 13 of 109 informative classes clear O.11,
 all with a = 1, and none holds three moduli in a window. **The bounds are not
