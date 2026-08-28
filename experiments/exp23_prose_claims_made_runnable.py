@@ -150,7 +150,7 @@ def main() -> int:
     X = int(sys.argv[2]) if len(sys.argv) > 2 else 4000
     kappa_threshold(Q)
     c4_ceiling(Q)
-    squarefree_density(10**6)
+    squarefree_density(int(sys.argv[3]) if len(sys.argv) > 3 else 10**6)
     thickens_one_side(X)
     return 0
 
