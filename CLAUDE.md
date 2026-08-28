@@ -18,11 +18,22 @@ theorem about the sequence and survives any change of sieve.
 
 **And there is a stronger form that does not depend on the bound being 1.** At
 X = 3000 the mean of G over pairs in a dyadic band [N,2N) is 2.000, 0.667, 0.254,
-0.0865, **0.0243** at N = 8, 32, 128, 512, 2048 — falling like **(log X)/N**,
-checked against X as well as N — while max G stays at 2. So for N ≫ 1 the expected Gram entry is far below 1 *while G is an
-integer taking only 0, 1, 2*: at N ≈ 2048, a mean of 0.024 against a granularity
-of 1, so **what dispersion would call the error is forty times what it would call
-the main term.** Any bounded integer-valued count with mean o(1) has no
+0.0865, **0.0243** at N = 8, 32, 128, 512, 2048. So over the range the sieve uses
+the expected Gram entry is far below 1 *while G is integer-valued*: at N ≈ 2048,
+a mean of 0.024 against a granularity of 1, so **what dispersion would call the
+error is tens of times what it would call the main term.**
+
+*Do not attach a law to that decay, and do not quote "max 2".* Independently
+re-measured on the cofactor side: the values reproduce exactly, but **1/N and
+(log X)/N both fail** — the latter by 6–8× with a drifting ratio — and the fitted
+exponent itself moves (0.80 to 0.88) with the range, so no clean power fits. The
+mean is also **U-shaped**, bottoming near N ≈ X and climbing back to 0.51 by
+N ≈ X²/4. And **max G is 3, not 2**: G(17, 26) = 3 with shared moduli 1, 85,
+2 966 965, all verified as t²+1. That is consistent with
+`rational-gram-bounded-on-windows` — those span seven orders, so no *window*
+holds two — but max-2 is a statement about windows, not about G.
+**None of it touches the argument**: (B1) forces M ≥ √x = X, hence cofactor
+n ≤ X, which is exactly where the mean is small and falling. Any bounded integer-valued count with mean o(1) has no
 decomposition into main term plus smaller error, so this survives a bound of 2 or
 3 — which makes `gaussian-to-rational-bridge` even less load-bearing than the
 C₄-free form needs it to be.
@@ -111,13 +122,15 @@ that barrier is unconditional**: its hypothesis is θ + ν ≥ 1 − 2c, and |J|
 x^{1/2} gives c = 1/2, so 1 − 2c = 0 and θ + ν ≥ 0 holds for every admissible
 pair. FM say the obstruction is bilinear cancellation in the error term for G;
 Note F says G ∈ {0,1}, so there is no main term and no error term to cancel.
-Their "typically very difficult" is, here, empty. **And the footnote's precision
-requirement evaluates**: at c = 1/2 its range is m₁,m₂ ∼ x^ε, where mean G is
-(log x)·x^{−ε} → 0 against an integer that is 0 for almost every pair — so "an error better
-than O(1)" **pins the value**. At this density it is not an estimation problem
-but a request to determine G exactly. The control keeps that honest: at a²+b⁴'s
-density the same footnote asks for error below 1 against a mean of **3.59**, an
-ordinary estimation problem — and the one FI actually solved. Their Theorem 2.4 never
+Their "typically very difficult" is, here, empty. **Do not evaluate the footnote's precision
+requirement at its own range** — a claim doing so was refuted the same day. Its
+range at c = 1/2 is m₁,m₂ ∼ x^ε, and **small ε means SMALL moduli** (x^{0.05} =
+2.6 at x = 1.44×10⁸), which is the end where mean G is *large*: 2.000, 1.333,
+0.810, 0.577 at N = 8, 16, 32, 64, over bands holding 2, 4, 7, 13 cofactors. What
+is unaffected is what the sieve uses: (B1) forces M ≥ X, so the cofactor is at
+most X, exactly where the mean is small and falling. The control is what keeps
+the obstruction honest: at a²+b⁴'s density, mean **3.59** at the same band where
+x²+1 has 0.022 — an ordinary estimation problem, and the one FI solved. Their Theorem 2.4 never
 applied here, and the γ = 1/2 − ε argument is `refuted`; the clean placement is
 that θ > c = 1/2 collides with (1.1)'s θ < 1/2, so there is no admissible triple
 at all (`x2plus1.exponents.ford_maynard_theta`). **C⁻ is the LOWER-BOUND constant** — [FM] p. 2 at
