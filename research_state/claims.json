@@ -1713,7 +1713,19 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "The reason the reach figures needed correcting twice. By class count the blind spot is negligible; on the population that could host a triple it is 35%, and among the richest classes it is half. So it is not a uniform residue to be mopped up later -- it is concentrated on exactly the configurations where a counterexample would live, and the correlation is not weak. Recorded as `rigorous_finite` at two sizes rather than extrapolated: the enrichment is stable but no law is fitted to it, and the counts at >= 5 moduli are 6 and 9, which is too few to fit anything to.",
+      "notes": "The reason the reach figures needed correcting twice. By class count the blind spot is negligible; on the population that could host a triple it is 35%, and among the richest classes it is half. So it is not a uniform residue to be mopped up later -- it is concentrated on exactly the configurations where a counterexample would live, and the correlation is not weak. Recorded as `rigorous_finite` at two sizes rather than extrapolated: the enrichment is stable but no law is fitted to it, and the counts at >= 5 moduli are 6 and 9, which is too few to fit anything to. SUPERSEDED IN SIGNIFICANCE, though the measurement stands. The parallel session's p-adic valuation form of the sign argument drops every hypothesis on M -- s_i = min(e, v_p(S_i)), t_i = min(e, v_p(T_i)), s_i + t_i >= e, and ordering by s gives the two needed terms -- so the silent class is CLOSED, not merely reduced, and goes from 35.0% of informative classes to 0. The enrichment figures remain true as facts about where M = 2^e and M_1 = 1 sit in the population; what is no longer true is the reading that they mark where the remaining work is. They do not: the remaining work is the 39 of 60 informative classes that are ADMISSIBLE under 3ab < M^{4/3} and hold no triple anyway.",
+      "proof_site": ""
+    },
+    {
+      "id": "the-two-term-strengthening-of-the-valuation-argument-is-blocked",
+      "status": "rigorous_finite",
+      "statement": "The valuation argument's per-prime conclusion v_p(V_12) + v_p(V_23) >= e does NOT give M | V_12 V_23 for any fixed pair, because the s-ordering that selects the pair is computed per prime and different primes select different pairs. Only the three-term product is uniform: M | V_12 V_13 V_23. Counterexamples exist: 5 of 216 realised triples at X = 3000 admit NO single pair whose product is divisible by M -- (1,481) M=480 moduli 2,1157,17690; (1,925) M=924 moduli 2,5,7922; (1,106) M=105 moduli 5,65,4097; (1,2465) M=2464 moduli 10,37,530; (1,1450) M=1449 moduli 17,65,901 -- all with M carrying three or more distinct primes. The per-prime statement itself holds: 216 of 216 triples, 0 failures.",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Recorded because the two-term version would CLOSE Conjecture O.2 outright and it is the obvious next move. If M | V_a V_b for a fixed in-window pair, then M <= |V_a V_b| < M^2/(3D) gives 3ab < M = b - a, which is impossible for a >= 1 since 3ab >= 3b > b - a. I derived exactly that and was one step from asserting the conjecture proved. The quantifier is what fails: the pair depends on p. The three-term product gives only 3ab < M^{4/3}, which is satisfiable. This is the 'right answer with a wrong route' shape caught before the assertion rather than after -- and it was caught by asking which objects the quantifier ranges over, not by any number coming out wrong, since every number in the per-prime check was correct.",
       "proof_site": ""
     }
   ]
