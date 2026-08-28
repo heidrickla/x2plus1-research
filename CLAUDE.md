@@ -408,6 +408,21 @@ D = 11 were both found by extending an axis that had been checked at five or six
 values and read as general — *"what would the sweep look like if the finding were
 absent"* applies to the **axis** as much as to the population.
 
+**Two group actions, and why Notes L and O never collided.** Both act on
+aY² − bX² = M. **Note L's ε** (the automorph, u² − Dv² = 1) moves **within** an
+orbit — Prop L.1's ε² ≥ φ⁴ = 6.854 is why a window holds at most one per orbit.
+**Note O's τ_k** (the multiplier, U² = M² + 4k²D) moves **between** orbits, and
+τ₁² can sit below 2 — which is how two moduli land in one window at all. At
+(1,41) they are seven orders apart: ε² = **1.679×10⁷** against
+τ₁² = **1.877328**, versus the observed 1370/730 = 1.876712 (matching to four
+places, the residual being O.4's finite +1). **So the windowed Gram entry counts
+the orbits τ reaches inside one window, ε gives at most one member per orbit, and
+O.2 is the statement that τ never reaches three** — the sentence neither note
+contained. ⚠ **The plausible identification is backwards**: assigning orbits by
+|V| = 2, on the reasoning that the fundamental multiplier is the fundamental
+automorph, yields "two moduli of one orbit in a window" and reads as a defect in
+Note L. 1.877 against 1.679×10⁷ is not a near miss but two different objects.
+
 **What the whole thread says about the method.** Three
 necessary-but-not-sufficient gaps at three scales, all the same direction: **39
 of 60** informative classes clear O.11 and none holds a triple; **D = 5…10** are

@@ -1860,6 +1860,52 @@ windows, and [Note F](note-F-failure-localisation.md)'s C₄-freeness over Z[i] 
 untouched and remains the obstruction that matters for Type II. A window Gram of
 2 rather than N^ε does not create the cancellation Note F shows is absent.
 
+### Two group actions, and why Notes L and O never collided
+
+Both notes act on the solutions of aY² − bX² = M, and they act with **different
+groups** — which neither note says, and which is why they have coexisted for so
+long without either appearing to contradict the other.
+
+> **Note L's ε** — the fundamental automorph, u² − Dv² = 1 — moves **within** an
+> orbit. Prop L.1's spacing m′/m → ε² ≥ φ⁴ = 6.854 is why a dyadic window holds
+> **at most one member of each orbit**.
+>
+> **Note O's τ_k** — the multiplier, U² = M² + 4k²D — moves **between** orbits,
+> and τ₁² can sit well below 2. **That is how two moduli land in one window at
+> all.**
+
+At (1, 41) — Note L's own windowed witness — the two are seven orders of
+magnitude apart:
+
+| | |
+|---|---|
+| ε = 2049 + 320√41 = 4098 (u² − Dv² = 1 exactly) | within-orbit ratio ε² = **1.679×10⁷** |
+| τ₁ = (√41+1)/(√41−1) = 1.370156 | τ₁² = **1.877328** |
+| observed 1370/730 | **1.876712** |
+
+*(Verified independently: τ₁² matches the observed ratio to four places, and the
+residual is exactly the finite +1 correction that Theorem O.4 found load-bearing.
+The two mechanisms differ by a factor of 8.95×10⁶.)*
+
+**So the two moduli in that window are in different orbits, brought together by
+τ and not by ε** — and the whole structure becomes legible:
+
+> the windowed Gram entry counts **the orbits τ reaches inside one window**;
+> ε guarantees **at most one member per orbit**;
+> and **Conjecture O.2 is the statement that τ never reaches three.**
+
+Note O's twelve theorems and Note L's Prop L.1 are the two halves of that
+sentence, and **neither note contained it**.
+
+> **⚠ The plausible identification is exactly backwards.** Assigning moduli to
+> orbits by |V| = 2 — on the reasoning that the fundamental *multiplier* is the
+> fundamental *automorph* — produces "two moduli of one orbit inside a window",
+> which would **contradict Prop L.1** and read as a defect in Note L. What
+> separates them is doing the arithmetic on one example: 1.877 against 1.679×10⁷
+> is not a near miss, it is two different objects. *(Prop L.1's own hedge stands:
+> its spacing is asymptotic, x′/x → ε, and Note L already records the proved bound
+> as O_ε(N^ε) with the constant 2 as `rigorous_finite`.)*
+
 ### What the whole thread says about the method
 
 Three **necessary-but-not-sufficient gaps**, at three different scales, all
