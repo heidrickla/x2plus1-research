@@ -819,6 +819,27 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   comparison; derivation supplies the property; **and here the measurement was
   the misleading one.**
 
+- **The cross-session message channel is the only uninstrumented one, and it
+  needs no gate — but nothing may live there alone.** Every mechanism here
+  operates on the repo: the claims gate, the prose gate, the suite, the status
+  vocabulary. Messages between sessions pass through none of them, and both
+  sessions have now sent one carrying a claim stronger than the artefact it
+  described. **The instinct to gate them is wrong**: the message channel is
+  precisely where the duplicated-computation safeguard runs — four errors in one
+  night were caught because a claim was *stated to the other session*, which
+  then computed it independently and disagreed. Slowing that exchange would
+  remove the detector to protect against the thing the detector catches.
+  **The two failure modes are different and only one is dangerous.** The other
+  session's was *message stronger than artefact* — self-correcting, because the
+  artefact is what gets read later. Mine was worse both times: the message and
+  the artefact were wrong **together** (the "D-dependence is in the matrix"
+  over-read, and the D = 4 converse, which shipped in `14109e1` before I
+  withdrew it). A message that overstates a correct artefact is a
+  misunderstanding; a message that faithfully reports a wrong artefact is a
+  defect with a witness. **So the rule is not "check the messages" but "a claim
+  that exists only in a message has been checked by nothing"** — put it in the
+  registry, where the status vocabulary forces you to say how you know it.
+
 - **A guard can check a strictly weaker proposition than the one it is named
   for, and neither of the other two countermeasures reaches it.** `exp09` sweeps
   `M = 2; while M <= cap: …; M *= 2` — windows **anchored at powers of two** —
