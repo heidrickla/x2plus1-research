@@ -2201,6 +2201,17 @@
       "depends_on": [
         "gram-mean-is-minimal-at-the-balanced-split"
       ]
+    },
+    {
+      "id": "the-D-blindness-is-in-the-mu-weights",
+      "status": "rigorous_finite",
+      "statement": "The D-blindness is a property of the mu WEIGHTS, not of the analytic side. OFF = sum_{x != y} mu(x^2+D) mu(y^2+D) G_M(x,y) IS the Gram matrix, mu-weighted, so weighted and unweighted readings of the SAME incidence matrix are exactly comparable in one pass. At X = 20000 over bands [1000,2000) and [2500,5000), OFF/DIAG is +0.2275/+0.1441 (D=1), +0.0906/-0.0468 (D=2), -0.1099/-0.0912 (D=6), -0.1604/+0.0714 (D=11), +0.1892/+0.1257 (D=39): it changes sign WITHIN each band and its sign PATTERN is unstable BETWEEN them (+,+,-,-,+ against +,-,-,+,+), so it cannot be monotone in D. But the same matrix unweighted is not blind: mean G is 1.0077, 1.0482, 1.0655, 1.2127, 1.1919 in band 1 and reproduces to under 1% in band 2, and DIAG swings 4x (5073, 5188, 7644, 1908, 2030). So the dichotomy is WEIGHTED vs UNWEIGHTED, not analytic vs structural -- DIAG is on the analytic side and sees D fine. The D-dependence is present in the object the analytic quantity is built from, and the mu signs annihilate it.",
+      "experiment": "experiments/exp25_off_sees_D.py",
+      "depends_on": [
+        "both-analytic-measures-are-blind-to-D"
+      ],
+      "tags": [],
+      "notes": "Note J from a new angle: the signs that make the sum hard to bound are the same signs that hide the arithmetic; one mechanism with a measurement on both faces. The parallel session's S_mu column was reproduced here to all five digits from an independent sieve before this was built on it. TWO CAUTIONS, both about the unweighted statistic. (i) From band 1 alone max G is monotone in D (4,7,9,10,15) and was written up as 'climbs monotonically'; band 2 gives 4,8,7,9,14, which is neither monotone nor band-stable. Quote the mean, not the max. (ii) mean G is NOT a structural classifier and must not be read as a severity ordering: its order is 1 < 2 < 6 < 39 < 11, putting D = 11 ABOVE D = 39 while 39 is structurally the more degenerate (a banded TRIPLE against 11's banded 4-cycle). This repo already refuted mean G as a captured/uncaptured classifier from two points confirmed on two more; the same statistic is now available for the same misreading on a new axis, and the temptation is stronger because it reproduces across bands to under 1%. Reproducibility is not aboutness."
     }
   ]
 }

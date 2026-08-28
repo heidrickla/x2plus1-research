@@ -672,3 +672,66 @@ it means a result on either side is no longer obviously irrelevant to the other.
 - *Both new sources were located by a parallel session.* Both were then fetched
   and read here before being quoted; neither is recorded on the strength of the
   other session's report.
+
+---
+
+## M.9 The D-blindness is in the weights, not in the matrix
+
+The parallel session placed the μ side next to the D axis and found both
+analytic quantities blind to D: κ = X²/(kX² + D) → 1/k cannot resolve D at all
+(an identity, not a measurement), and |Σ_{x≤X} μ(x²+D)|/√X is O(1) uniformly in
+D with an ordering matching the structure at neither size. Their conclusion —
+*the arithmetic parameter that decides the whole C₄ structure is invisible from
+the analytic side* — is the sharpest form of this repo's position.
+
+**OFF is the test that locates it.** OFF is not merely a third analytic
+quantity; it *is* the Gram matrix, μ-weighted:
+
+  Q₂ = DIAG + OFF,  OFF = Σ_{x≠y} μ(x²+D) μ(y²+D) · G_M(x, y).
+
+So the weighted and unweighted readings of **one incidence matrix** can be taken
+in a single pass, at the same X, over the same band, on the same population —
+no difference of size, window or denominator between them. At X = 20000
+(`exp25_off_sees_D.py`):
+
+| D | OFF/DIAG [1000,2000) | [2500,5000) | mean G b1 | b2 | drift | DIAG |
+|---:|---:|---:|---:|---:|---:|---:|
+| 1 | +0.2275 | +0.1441 | 1.0077 | 1.0075 | 0.02% | 5073 |
+| 2 | +0.0906 | −0.0468 | 1.0482 | 1.0484 | 0.02% | 5188 |
+| 6 | −0.1099 | −0.0912 | 1.0655 | 1.0581 | 0.69% | 7644 |
+| 11 | −0.1604 | +0.0714 | 1.2127 | 1.2008 | 0.98% | 1908 |
+| 39 | +0.1892 | +0.1257 | 1.1919 | 1.1859 | 0.50% | 2030 |
+
+**OFF is blind, and more strongly than S_μ is.** It changes sign *within* each
+band, and its sign pattern is not stable *between* them — (+,+,−,−,+) against
+(+,−,−,+,+). A quantity that only fluctuated in magnitude could be concealing a
+trend; one whose signs reshuffle under a change of band cannot be monotone in D.
+
+**The matrix it is built from is not blind.** Mean G reproduces to under 1%
+across that band change and separates the D values. Nor is DIAG, which swings by
+a factor of 4.
+
+So the conclusion moves one step in and one step sideways: not *the analytic
+side cannot see D*, but **the D-dependence is present in the object the analytic
+quantity is made of, and the μ signs annihilate it.** The dichotomy is
+**weighted / unweighted**, not analytic / structural — DIAG sits on the analytic
+side and sees D perfectly well. This is Note J's finding from a new angle: the
+signs that make the sum hard to bound are the same signs that hide the
+arithmetic, and it now has a measurement on both faces.
+
+### ⚠ Two cautions about the unweighted statistic, one of them nearly shipped
+
+**(i) Quote the mean, not the max.** From band 1 alone, max G is *monotone* in
+D — 4, 7, 9, 10, 15 — and was written up here as "climbs monotonically". Band 2
+gives 4, 8, 7, 9, 14: neither monotone nor band-stable. A bounded sweep produced
+a clean law, exactly as this repo's own rule predicts.
+
+**(ii) Mean G is not a structural classifier.** Its order is
+1 < 2 < 6 < **39 < 11** — it puts D = 11 *above* D = 39, while structurally 39
+is the more degenerate (a banded **triple**, against 11's banded 4-cycle). This
+repo has already refuted mean G as a captured/uncaptured classifier, built from
+two points and "confirmed" on two more. The same statistic is now available for
+the same misreading on a new axis, and the temptation is **stronger** here
+because it reproduces across bands to under 1%. **Reproducibility is not
+aboutness**: that mean G is a stable function of D says nothing about whether it
+is a function of the structure D controls.
