@@ -95,6 +95,39 @@ not create the cycles.
 is a statement about how much κ buys *above* the threshold, not about where the
 threshold is.
 
+### Why they cross together, which is not a point in κ's favour
+
+The sharpness is real, and its *cause* deflates the reading it invites. Take the
+plain line
+
+> A_c = {a + ci : a ≥ 1, a² + c² ≤ Q},  so |A_c| = ⌊√(Q − c²)⌋
+
+and κ = |A|²/Q = 1 − c²/Q. **Exactly 1 in the limit, for every c.** A single line
+cannot have κ > 1 — the geometry forbids it, since a line's count is its length
+and its length is √Q. And A_c is C₄-free by Note F's argument verbatim with c in
+place of 1: (a₁+ci)(a₄+ci) = (a₂+ci)(a₃+ci) forces a₁a₄ = a₂a₃ **and**
+a₁+a₄ = a₂+a₃, hence {a₁,a₄} = {a₂,a₃}.
+
+Two lines always admit a 4-cycle. At (c₁,c₂) = (2,3) — no c = 1, neither
+dividing the other, so both of the artefacts above are excluded:
+
+> **(1+2i)(6+2i) = 2 + 14i = (2+2i)(4+3i)**
+
+and the same holds at (2,5), (3,5), (3,7), (5,7), (4,6). So in the A_B family
+**κ = |B|² counts the lines and C₄-freeness permits one of them**. The two
+conditions are functions of the same integer, which is why no measurement can
+separate them there. The threshold coincidence is forced by the parameterisation;
+it is not evidence that a density statistic detects 4-cycles, and κ should be
+neither demoted nor credited on the strength of it.
+
+**And it generalises Note F in the direction that matters.** The C₄-free lemma is
+not a fact about x²+1. It is a fact about *a line*, of which x²+1 is the case
+c = 1. That sharpens the obstruction rather than softening it: x²+1 is not
+unluckily C₄-free, **every line is**, and α = 1/2 is forced for all of them — so
+there is no nearby line with more room, and the escape has to leave the family
+entirely. Machine-checked in `test_every_single_line_is_c4_free_and_has_kappa_one`
+and `test_two_lines_always_admit_a_four_cycle`.
+
 ### The conjecture was testing the wrong object, and the right one answers it
 
 The question "how insufficient is κ?" has an answer, and it is a power of X —

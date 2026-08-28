@@ -1460,6 +1460,19 @@
         "closed_route"
       ],
       "notes": "A NEGATIVE result, and the point is the mechanism rather than another threshold. Verified at X = 3000 over M odd prime: 246 steps, alternates 246 times and stays the same 0 times; eps forced by the subcase and beta == p (resp. alpha == -p) with 0 failures; and 0 failures over 493 opposite-sign (p,q) pairs against 40 of 246 same-sign pairs FAILING both conditions -- so the conditions have content and the alternation is what removes it. THE NAIVE IDENTITY IS WRONG: S' = A_p S / M, which the mod-M relation suggests, fails on 246 of 246 pairs; only M S' = A_p S + V_p M X holds. The necessary conditions M | A_p S and M | B_p T survive that error, the orbit bookkeeping does not, and the first version of this argument was built on the wrong form. NOT VACUOUS: M odd prime is 54 of the 379 realised close pairs (14%), so what fails is the method, not the coverage. This is the mechanism behind the recorded empirical observation that all 95 candidates are satisfiable mod M -- for M odd prime that is now a proof, and it says why."
+    },
+    {
+      "id": "kappa-counts-lines-and-c4-freeness-permits-one",
+      "status": "proved",
+      "statement": "For a line A_c = {a + ci : a >= 1, a^2 + c^2 <= Q}: |A_c| = isqrt(Q - c^2), so kappa = |A|^2/Q = 1 - c^2/Q -- exactly 1 in the limit, FOR EVERY c. A single line cannot have kappa > 1; the geometry forbids it. And A_c is C4-free by Note F's argument with c in place of 1: (a1+ci)(a4+ci) = (a2+ci)(a3+ci) gives a1 a4 = a2 a3 and a1 + a4 = a2 + a3, hence {a1,a4} = {a2,a3}. Two lines always admit a 4-cycle: at (c1,c2) = (2,3), which has no c = 1 and neither c dividing the other, (1+2i)(6+2i) = 2+14i = (2+2i)(4+3i). Checked over (2,3), (2,5), (3,5), (3,7), (5,7), (4,6) and over single lines c = 1,2,3,5,7 at Q = 1e6.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "kappa-is-a-reparameterisation-of-alpha"
+      ],
+      "tags": [],
+      "notes": "Explains why kappa and C4-freeness cross at the same threshold in Note K's A_B family instead of leaving it as a coincidence that argues FOR kappa: kappa = |B|^2 counts the lines and C4-freeness permits one, so the two conditions are functions of the same integer. The sharpness is real and is not evidence that a density statistic detects 4-cycles. It also generalises Note F: the C4-free lemma is not a fact about x^2+1, it is a fact about a line, and x^2+1 is the case c = 1. Which sharpens the obstruction rather than softening it -- x^2+1 is not unluckily C4-free, every line is, and alpha = 1/2 is forced for all of them. Does NOT depend on c4-freeness-is-arithmetic-not-density, though it is the obvious neighbour: that claim is a measurement and this is algebra, and the dependency guard rejected the edge for exactly that reason -- a proved claim cannot rest on a rigorous_finite one. The guard was right; I had listed a related result as a premise.",
+      "proof_site": "notes/note-K-merikoski.md; tests/test_arithmetic_facts.py::test_every_single_line_is_c4_free_and_has_kappa_one; tests/test_arithmetic_facts.py::test_two_lines_always_admit_a_four_cycle",
+      "superseded_by": ""
     }
   ]
 }

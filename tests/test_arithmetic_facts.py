@@ -498,3 +498,66 @@ def test_kappa_is_exactly_Q_to_the_two_alpha_minus_one():
             assert abs(kappa - 2.0 ** (float(2 * alpha - 1) * logQ)) < 1e-6 * kappa
             assert (kappa > 1) == (alpha > Fraction(1, 2))
             assert (kappa == 1) == (alpha == Fraction(1, 2))
+
+
+def test_every_single_line_is_c4_free_and_has_kappa_one():
+    """Note F's lemma is not about x^2+1. It is about *a line*.
+
+    For A_c = {a + ci : a >= 1, a^2 + c^2 <= Q} the C4-free argument is the same
+    one Note F gives for c = 1: (a1+ci)(a4+ci) = (a2+ci)(a3+ci) forces
+    a1 a4 = a2 a3 and a1 + a4 = a2 + a3, so {a1,a4} = {a2,a3}. And |A_c| =
+    isqrt(Q - c^2), so kappa = |A|^2/Q = 1 - c^2/Q -- **exactly 1 in the limit,
+    for every c**. A single line cannot have kappa > 1; the geometry forbids it.
+
+    This is why kappa and C4-freeness cross at the same threshold in Note K's
+    A_B family: kappa = |B|^2 counts the lines, and C4-freeness permits one.
+    They measure the same integer. The coincidence is not evidence that a
+    density statistic detects 4-cycles.
+    """
+    from math import isqrt
+
+    from x2plus1.gaussian import UNITS, mul
+
+    Q = 10**6
+    for c in (1, 2, 3, 5, 7):
+        n = isqrt(Q - c * c)
+        assert abs(n * n / Q - (1 - c * c / Q)) < 2e-3       # kappa -> 1
+        A = [(a, c) for a in range(1, isqrt(40000 - c * c) + 1)]
+        seen: dict[tuple[int, int], tuple[int, int]] = {}
+        for i, z in enumerate(A):
+            for j in range(i, len(A)):
+                pr = mul(z, A[j])
+                for u in UNITS:
+                    k = mul(u, pr)
+                    assert seen.get(k, (i, j)) == (i, j), (c, k)
+                seen[pr] = (i, j)
+
+
+def test_two_lines_always_admit_a_four_cycle():
+    """And the moment there are two lines, the freedom is back.
+
+    Checked on pairs that avoid both artefacts Note K identified -- no c = 1,
+    and neither c dividing the other -- so the cycle is not a dilation. The
+    witness at (2,3) is (1+2i)(6+2i) = 2+14i = (2+2i)(4+3i).
+    """
+    from math import isqrt
+
+    from x2plus1.gaussian import UNITS, mul
+
+    assert mul((1, 2), (6, 2)) == (2, 14) == mul((2, 2), (4, 3))
+    for c1, c2 in ((2, 3), (2, 5), (3, 5), (3, 7), (5, 7), (4, 6)):
+        A = [(a, c) for c in (c1, c2)
+             for a in range(1, isqrt(40000 - c * c) + 1)]
+        seen: dict[tuple[int, int], tuple[int, int]] = {}
+        found = False
+        for i, z in enumerate(A):
+            for j in range(i, len(A)):
+                pr = mul(z, A[j])
+                for u in UNITS:
+                    k = mul(u, pr)
+                    if seen.get(k, (i, j)) != (i, j):
+                        found = True
+                seen[pr] = (i, j)
+            if found:
+                break
+        assert found, (c1, c2)
