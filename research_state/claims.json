@@ -867,6 +867,19 @@
         "type_ii"
       ],
       "notes": "Independent verification of Note O's multiplier, done from its docstring without reading the note. The (1,53) case matters for how Note O is phrased: 'the multiplier acts at most once' is false per class and true per consecutive triple, which is what the proof actually needs."
+    },
+    {
+      "id": "V-is-the-asymptotic-not-the-constant-2",
+      "status": "rigorous_finite",
+      "statement": "For a close pair of shared moduli, V = X_i Y_j - X_j Y_i satisfies |V| ~ (M/(2 sqrt D))(sqrt r - 1/sqrt r) with r = m_j/m_i, M = b-a, D = ab. At X = 4000 the histogram of |V| over 498 close pairs is {2: 495, 24: 1, 66: 1, 182: 1}, and the three non-2 values are the asymptotic working, not failing: predicted 24.0, 65.7, 174.6 against observed 24, 66, 182 (relative error 0.001, 0.005, 0.041). Their M/sqrt(D) is 89.3, 227.4, 650.5 against a median of 11.96 over all close pairs and a threshold of 5.657 for |V| >= 2; the |V| = 2 population itself runs from M/sqrt(D) = 5.6666 to 87.0. So |V| = 2 is not a lemma with three exceptions -- |V| is whatever the asymptotic gives, and it equals 2 for pairs near the minimal-separation configuration, which is most of them.",
+      "experiment": "experiments/exp13_window_gap.py plus the V-histogram run recorded in Note L",
+      "depends_on": [
+        "tau-multiplier-verified"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Bears on Note O's Proposition O.1. If its step (i) derives P = Q^2 from |V| = 2 -- which gives U = +-(a+b) -- then it covers only that case, and the general one has |V| = 2k with U^2 = M^2 + 4k^2 D, a different factorisation. Also proved here by parity: for a, b both odd, X_k = Y_k (mod 2) since m odd makes both even and m even makes both odd, so V is always even and |V| = 1 is impossible. That much IS a lemma."
     }
   ]
 }
