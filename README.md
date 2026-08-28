@@ -209,6 +209,12 @@ The column that separates every solved case from this one is ν.
 
 ### Not yet done
 
+- **The μ-Type II as a theorem rather than a measurement.** Its θ → 0 endpoint
+  is |Σ_{x≤X} μ(x²+1)| ≪ X(log X)^{−A}, and even the o(X) version is Chowla for
+  x²+1, which Teräväinen calls "wide open for any polynomials with nonlinear
+  irreducible factors" (arXiv:2010.07924v4, pp. 1–2). For this sequence the
+  trivial bound has never been beaten by any amount, at any level, signed or
+  absolute. [Note M](notes/note-M-where-mu-lives.md).
 - **An absolute-value analogue of DFI's Proposition 1.** Prop 1 bounds a
   *signed* sum over this repo's residues; [exp07](experiments/exp07_absolute_values.py)
   shows the difficulty is entirely in the absolute values, so what is needed is

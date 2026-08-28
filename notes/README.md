@@ -18,6 +18,7 @@ the structure is in place and the content is not.
 | [J](note-J-mobius-in-progressions.md) | Möbius in progressions | *added* | draft — names the missing input, and localises the difficulty to the absolute values |
 | [K](note-K-merikoski.md) | Merikoski's a²+(b²+1)² | *added* | draft — the fourth published sequence; κ is necessary, not sufficient |
 | [L](note-L-over-Z.md) | The same question over Z, and over every degree | *added* | draft — Note F's scope, and the degree ladder |
+| [M](note-M-where-mu-lives.md) | Where the μ-cancellation lives | *added* | draft — the two windows are complements; the easiest case is Chowla |
 
 ## Read Note C first
 

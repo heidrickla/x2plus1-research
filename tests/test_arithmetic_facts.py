@@ -89,3 +89,24 @@ def test_admissible_ideal_count_matches_zeta_L_over_zeta2():
     rep = type_i_x2plus1(100, D)
     predicted = 3 / (2 * math.pi)
     assert rep.n_moduli / D == pytest.approx(predicted, rel=0.01)
+
+
+def test_mu_of_x2plus1_is_not_multiplicative_in_x():
+    """Note M: mu(n^2+1) is not a multiplicative function of n.
+
+    This is why Granville-Shao's theory, and multiplicative-function machinery
+    generally, does not apply here *as stated* rather than merely being too
+    weak. It fails at n = 1 already -- mu(1^2+1) = mu(2) = -1, not 1 -- and it
+    fails non-degenerately too.
+    """
+    from math import gcd
+    from sympy import mobius
+    assert mobius(1 * 1 + 1) == -1                     # f(1) != 1
+    witnesses = [
+        (2, 7),                                        # mu(5)mu(50) = 0, mu(197) = -1
+        (2, 9),                                        # mu(5)mu(82) = -1, mu(325) = 0
+        (2, 11),                                       # mu(5)mu(122) = -1, mu(485) = 1
+    ]
+    for a, b in witnesses:
+        assert gcd(a, b) == 1
+        assert mobius(a * a + 1) * mobius(b * b + 1) != mobius((a * b) ** 2 + 1), (a, b)

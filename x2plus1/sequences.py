@@ -100,6 +100,38 @@ def a2b4_sequence(norm_bound: int) -> GaussianSequence:
     return GaussianSequence("a^2+b^4", norm_bound, elements, facs)
 
 
+def a2b4_restricted_sequence(norm_bound: int, B: list[int]) -> GaussianSequence:
+    """A = { a + b^2 i : a >= 1, b in B, a^2 + b^4 <= norm_bound }.
+
+    Friedlander-Iwaniec's set with the second variable confined to a finite set
+    B. Since a <~ Q^{1/2}, |A| ~ Q^{1/2}|B| and therefore
+
+        kappa = |A|^2 / Q = |B|^2
+
+    exactly -- so kappa > 1 as soon as |B| >= 2. Note K established that kappa
+    is necessary and not sufficient; this is the sharpest available measure of
+    *how* insufficient, because it lets |B| be dialled from 1 (the x^2+1 line,
+    kappa = 1) upward one element at a time and asks when the incidence graph
+    actually acquires 4-cycles. Merikoski's sparse-set theorem needs
+    |B| >> Y^{1-delta}; kappa is satisfied at |B| = 2. See Note M.
+    """
+    elements: list[Gauss] = []
+    facs: list[list[tuple[Gauss, int]]] = []
+    for b in sorted(set(B)):
+        c = b**4
+        if c >= norm_bound:
+            continue
+        A = isqrt(norm_bound - c)
+        if A < 1:
+            continue
+        F = sieve_shifted_square(A, c)
+        for a in range(1, A + 1):
+            z = (a, b * b)
+            elements.append(z)
+            facs.append(_gauss_factor_shifted(z, F[a]))
+    return GaussianSequence(f"a^2+b^4|B|={len(set(B))}", norm_bound, elements, facs)
+
+
 def a2_bsq_plus_D_sequence(norm_bound: int, D: int = 1) -> GaussianSequence:
     """A = { a + (b^2 + D) i : a, b >= 1, a^2 + (b^2 + D)^2 <= norm_bound }.
 
