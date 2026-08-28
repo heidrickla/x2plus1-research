@@ -574,7 +574,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "What would close it is now named precisely: a bound on the number of solution CLASSES of b x^2 - a y^2 = a - b, uniform in the coefficients. Proposition L.1 supplies the rest -- within a class the spacing is >= phi^4 > 2, so a window sees one. Classical Pell theory, but this repo has NOT read a source for it and will not assert the exponent from memory. Until then every use of 'nu = 0' against a Z-stated hypothesis passes through here."
+      "notes": "UPDATED: the missing input has been found and it is weaker than hoped. Dickson bounds the class count by 2^{omega(|a-b|)+O(1)} = O_eps(|a-b|^eps), so the bridge closes with G' << |n1-n2|^eps on a dyadic window rather than with the measured constant 2. That is still no main term -- which is all dispersion needs -- but the step from 'O(N^eps), unstructured' to 'no main term' is reasoning, not Dickson. The remaining gap is now specific: why the measured constant is 2 when the proof allows N^eps. See classes-separate-across-windows, which measures that the classes separate."
     },
     {
       "id": "degree-determines-degeneracy",
@@ -603,7 +603,7 @@
     {
       "id": "one-solution-per-class-per-window",
       "status": "rigorous_finite",
-      "statement": "Proposition L.1. For n1 != n2 with d = gcd, n1 = da, n2 = db, the shared moduli correspond exactly to solutions of the conic b x^2 - a y^2 = a - b (proved: algebra). Solutions fall into classes, each an orbit under the fundamental norm-one unit eps of the relevant real quadratic order, so consecutive moduli satisfy m'/m -> eps^2 >= phi^4 = 6.8541 > 2 and a dyadic window holds at most one per class. eps >= phi^2 = 2.618033989 verified for every non-square discriminant < 5000, with the minimum attained at Delta = 5 -- which IS the pair (n1,n2) = (1,5) that attains the full graph's maximum. Window sweep: max Gram = 2 at every dyadic M from 128 to 8192 at X = 32000.",
+      "statement": "Proposition L.1. For n1 != n2 with d = gcd, n1 = da, n2 = db, the shared moduli correspond exactly to solutions of the conic b x^2 - a y^2 = a - b (proved: algebra). Solutions fall into classes, each an orbit under the fundamental norm-one unit eps of the relevant real quadratic order, so consecutive moduli satisfy m'/m -> eps^2 >= phi^4 = 6.8541 > 2 and a dyadic window holds at most one per class. The CLASS COUNT, however, is not bounded: Dickson gives 2^{omega(|a-b|)+O(1)} = O_eps(|a-b|^eps), so the proposition yields G'(n1,n2) << |n1-n2|^eps on a window and NOT the measured constant 2. eps >= phi^2 = 2.618033989 verified for every non-square discriminant < 5000, with the minimum attained at Delta = 5 -- which IS the pair (n1,n2) = (1,5) that attains the full graph's maximum. Window sweep: max Gram = 2 at every dyadic M from 128 to 8192 at X = 32000.",
       "experiment": "tests/test_polyseq.py::test_phi_squared_is_the_smallest_fundamental_automorph; tests/test_polyseq.py::test_the_conic_reduction_is_exact",
       "depends_on": [
         "full-graph-growth-is-pell",
@@ -612,7 +612,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "The constant that bounds the spacing and the pair that attains the maximum are the same object, which is the reason to believe the mechanism rather than the number. What is still missing is a bound on the NUMBER of classes -- classical, not read here, and not asserted from memory. Also x'/x -> eps is asymptotic: the first two solutions of a class can sit closer, which is exactly how (1189, 71978) puts m = 65 and 109 in one window from two different classes."
+      "notes": "CORRECTED. The spacing half stands; the 'bounded by the number of classes, and the number of classes is small' half does not. Dickson, Introduction to the Theory of Numbers (1929), sec.46 pp.73-75 and sec.71 p.115, bounds primitive classes by 2^r (4 not | M), 2^{r+1}, 2^{r+2} with r = #odd primes | M -- unbounded. Located and read by a parallel session; SECOND-HAND here until this repo opens Dickson. The constant that bounds the spacing and the pair that attains the maximum are the same object, which is the reason to believe the mechanism rather than the number. What is still missing is a bound on the NUMBER of classes -- classical, not read here, and not asserted from memory. Also x'/x -> eps is asymptotic: the first two solutions of a class can sit closer, which is exactly how (1189, 71978) puts m = 65 and 109 in one window from two different classes."
     },
     {
       "id": "chowla-for-x2plus1-is-open",
@@ -820,6 +820,30 @@
         "type_i"
       ],
       "notes": "Written to lift Note J's all-moduli cross-check off its X <= 10^5 cap, which was sympy's factorint per modulus rather than anything mathematical. Reaches Q = 10^6 in 0.9s. The agreement with 3/(2 pi) to five digits is the check that it is the same object as the Type I harness's."
+    },
+    {
+      "id": "li-attributes-the-limit-to-type-ii",
+      "status": "quoted",
+      "statement": "Xiannan Li attributes the density limit to Type II: 'The second, sometimes referred to as Type II estimates, involves bounds on certain bilinear sums attached to these sequences. Achieving the latter type of estimate is the most difficult part and is the ingredient which breaks the parity barrier.' Two factors govern it: sparsity, and whether a lattice restriction is available -- 'it is crucial that these sequences are all special values of norm forms of some number field ... for certain homogeneous polynomials, such as a^3 + 2b^3, estimating the bilinear sum involves a restriction of a variable to a one dimensional lattice, and this makes the problem more tractable.' And the boundary: 'Both the asymptotic sieve for primes from Friedlander and Iwaniec and Harman's alternative sieve as used in Heath-Brown's work fail to prove asymptotic estimates for sequences with exponential density strictly lower than 2/3.' The numerical limit is separate: his footnote 1 says a 7/12 primes-in-short-intervals exponent caps the region width at 5/67, giving density 2/3 - 5/201 = 0.641791.",
+      "citation": "Xiannan Li, Prime values of a sparse polynomial sequence, arXiv:2111.05403v1, p.2 and footnote 1 p.3",
+      "tags": [
+        "type_ii",
+        "ledger"
+      ],
+      "notes": "Discharges the last [VERIFY] in the repo. Two consequences: the norm-form condition IS met by x^2+1 = N(x+i), which is Note A, so what this sequence lacks is the second item -- the lattice restriction, which needs a variable to restrict. That is Note L's two-parameter freedom named from inside the technique rather than from the exponents. The repo previously carried 0.6418 from memory; it is 2/3 - 5/201 exactly."
+    },
+    {
+      "id": "classes-separate-across-windows",
+      "status": "rigorous_finite",
+      "statement": "Exhaustive search over every reduced ratio (y^2+1)/(x^2+1) for x < y <= 3000 finds each pair (a,b) with ALL its shared moduli: 2014 pairs have >= 2, the largest has 8 ((a,b) = (1,5): m = 2, 10, 65, 442, 3026, 20737, ...). Yet no pair anywhere in the search puts more than TWO moduli in a single dyadic window -- (1,5), (1,13), (1,10) give 1; (1,85), (1,65), (5,481) give 2. So the solution classes are real and numerous, but the classes themselves separate across windows.",
+      "experiment": "targeted ratio-bucket search, in-session; see Note L",
+      "depends_on": [
+        "one-solution-per-class-per-window"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "This is what the corrected Proposition L.1 does NOT explain. The proposition gives one member per class per window; the measured constant 2 needs the classes to separate too, and that is observed rather than proved. (1,85) is the pair the parallel session raised from Dickson as the counterexample to a bounded class count; it appears here with 5 shared moduli and a window maximum of 2."
     }
   ]
 }

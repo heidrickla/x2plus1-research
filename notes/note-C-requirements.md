@@ -787,13 +787,41 @@ The three literature markers are resolved; what replaced them is sharper.
   over. The weight is divisor-bounded and it does not exempt: Theorem 2.7(c)
   kills C⁻_bd once ν is small. And on the third reading Theorem 2.4 never
   applied here at all — its hypothesis is P ∈ A\*₂, which needs ν ≥ 1/3.
-- **[VERIFY]** — still open, and narrowed. Xiannan Li's sieve reaches
-  2/3 − 5/201 = **0.641791** (γ = 5/67), now sourced to
-  [arXiv:2111.05403](https://arxiv.org/abs/2111.05403). He says only that "our
-  current methods fail in numerous places once the exponential density drops
-  below 2/3" — which is not a Type I versus Type II attribution. **The open
-  part is exactly that attribution**, and the paper has not been read at source
-  here.
+- ~~Xiannan Li's density limit~~ — **[VERIFY] discharged**, read at source
+  ([arXiv:2111.05403](https://arxiv.org/abs/2111.05403), p. 2). The attribution
+  is **Type II**, in his own words:
+
+  > "The second, sometimes referred to as Type II estimates, involves bounds on
+  > certain bilinear sums attached to these sequences. **Achieving the latter
+  > type of estimate is the most difficult part and is the ingredient which
+  > breaks the parity barrier.**"
+
+  and the two things that make it hard are named: sparsity, and the presence or
+  absence of a lattice restriction —
+
+  > "With current methods, in order to understand such bilinear sums, it is
+  > crucial that these sequences are all **special values of norm forms** of
+  > some number field. … The second is that for certain homogeneous polynomials,
+  > such as a³ + 2b³, estimating the bilinear sum involves **a restriction of a
+  > variable to a one dimensional lattice, and this makes the problem more
+  > tractable.** This is an important structural advantage in Heath-Brown's
+  > work."
+
+  Two things follow for this repo. The norm-form condition **is met** by
+  x² + 1 = N(x+i) — that is [Note A](note-A-dictionary.md)'s whole point — so
+  what x² + 1 lacks is the second item, the lattice restriction, which needs a
+  variable to restrict. That is [Note L](note-L-over-Z.md)'s two-parameter
+  freedom, named from the other side.
+
+  He also states the limit flatly: "Both the asymptotic sieve for primes from
+  Friedlander and Iwaniec and Harman's alternative sieve as used in
+  Heath-Brown's work **fail to prove asymptotic estimates for sequences with
+  exponential density strictly lower than 2/3**."
+
+  The *numerical* limit is separate and is not about density at all: his
+  footnote 1 says the 7/12 exponent in an auxiliary primes-in-short-intervals
+  result caps the region's width at 5/67, giving density 2/3 − 5/201 =
+  **0.641791**.
 
 ## Adversarial review
 

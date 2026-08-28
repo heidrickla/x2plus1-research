@@ -139,14 +139,52 @@ Both halves of the earlier table follow: within a class the spacing is ≥ φ⁴
 so windows see one; across all M the number of visible solutions is ≍ log X,
 which is the full graph's growth.
 
-**Status, stated exactly.** The reduction to the conic is algebra and is proved.
-That ε ≥ φ² is `rigorous_finite`: checked by solving t² − Δu² = 4 for every
-non-square Δ < 5000, where the minimum is 2.618033989 at Δ = 5. **The bound on
-the number of classes is the remaining input and is not in this repo** — it is
-classical, and per the repo's own rule the exponent is not being asserted from
-memory. Note also that x′/x → ε is asymptotic: the first two solutions of a
-class can sit closer, which is precisely how (1189, 71978) gets m = 65 and 109
-into one window, from two different classes.
+**Status, corrected: the class count is unbounded, so the proposition does not
+reach the constant 2.**
+
+The reduction to the conic is algebra and is proved. That ε ≥ φ² is
+`rigorous_finite`: checked by solving t² − Δu² = 4 for every non-square Δ < 5000,
+minimum 2.618033989 at Δ = 5. **But the bound on the number of classes is not a
+constant.** A parallel session located it in Dickson, *Introduction to the Theory
+of Numbers* (1929), §46 pp. 73–75 and §71 p. 115: for
+q = [b, 0, −a] of discriminant 4ab and m = a − b, with gcd(a,b) = 1 forcing
+gcd(ab, a−b) = 1, the class count is bounded by
+
+> 2^r (4 ∤ M), 2^{r+1} (4 | M, 8 ∤ M), 2^{r+2} (8 | M), r = #odd primes | M,
+
+i.e. **2^{ω(|a−b|)+O(1)} = O_ε(|a−b|^ε)** — unbounded. *(Read by that session,
+not here; second-hand until this repo opens Dickson.)* So Proposition L.1 yields
+
+> G′(n₁, n₂) on a dyadic window ≪_ε |n₁ − n₂|^ε,
+
+**and not the 2 that both of us measured.** The measurement stands; the proof no
+longer reaches it, and saying so is the point of writing the status separately
+from the statement.
+
+**What the measurement actually says, searched exhaustively.** Bucketing every
+reduced ratio (y²+1)/(x²+1) for x < y ≤ 3000 finds each pair (a, b) together
+with *all* its shared moduli — 2014 pairs with ≥ 2, the largest with **8**. Yet:
+
+| (a, b) | shared moduli | max in one dyadic window |
+|---|---|---:|
+| (1, 5) | 2, 10, 65, 442, 3026, 20737, … (8) | **1** |
+| (1, 13) | 2, 5, 170, 530, 20165, 63002 (6) | **1** |
+| (1, 10) | 5, 17, 325, 6401, 23717, 467857 (6) | **1** |
+| (1, 85) | 2, 17, 26, 290, 10001 (5) | **2** |
+| (1, 65) | 5, 50, 82, 901, 16385 (5) | **2** |
+| (5, 481) | 2, 97, 146, 7450 (4) | **2** |
+
+So the classes are real and there are many of them — but **the classes are
+themselves spread across windows**, and no pair anywhere in the search puts more
+than two moduli in one dyadic window. Proposition L.1 explains one member per
+class; what it does not explain, and what the measurement shows, is that the
+*classes* separate too.
+
+**Does N^ε still suffice for the conclusion?** Probably, and it is worth being
+explicit that this is reasoning: dispersion needs *count = main term + error*,
+and O_ε(N^ε) with no structure supplies no main term any more than 2 does. So
+the conclusion should survive with a weaker constant. That step is `inferred`,
+and it is exactly the shape of claim this repo has had to withdraw before.
 
 The window sweep extends the table above to X = 32 000, still 2 everywhere:
 
@@ -216,24 +254,81 @@ about one polynomial. It is also, deliberately, not a claim about truth — it i
 a claim about what the Type I/II framework can express, and the standing warning
 on C⁻ = 0 applies here verbatim.
 
-### Exactly which d-uniform statement is new, and which are not
+### Li names the mechanism from the other side
 
-Three different degree-uniform statements are in play here and only one of them
-is this repo's. Keeping them apart is the whole of the claim:
+Xiannan Li, [arXiv:2111.05403](https://arxiv.org/abs/2111.05403), p. 2, on what
+makes a bilinear estimate tractable:
+
+> "With current methods, in order to understand such bilinear sums, it is
+> crucial that these sequences are all **special values of norm forms** of some
+> number field. Given this, there are two main factors which affect the
+> difficulty of the problem. The first … is that the problem tends to be more
+> difficult the sparser the sequence. The second is that for certain homogeneous
+> polynomials, such as a³ + 2b³, estimating the bilinear sum involves **a
+> restriction of a variable to a one dimensional lattice**, and this makes the
+> problem more tractable."
+
+x² + 1 = N(x+i) satisfies the norm-form condition — that is
+[Note A](note-A-dictionary.md) — and fails the second, because a restriction of
+*a variable* needs a variable to restrict. That is this note's ladder, named
+from inside the technique rather than from the exponents. He also states the
+boundary: both the asymptotic sieve and Harman's "fail to prove asymptotic
+estimates for sequences with exponential density strictly lower than 2/3."
+
+### What is already in print, and what is not
+
+*Rewritten after a folklore sweep found the prior art. The first version of this
+section claimed the Type I/II admissibility statement was "not found in the
+literature by two independent sweeps". That was true of the sweeps and false of
+the literature.*
+
+**Maynard states the density form of this barrier, twice.**
+
+[arXiv:1507.05080v2](https://arxiv.org/abs/1507.05080), p. 1:
+
+> "A non-linear polynomial f represents O(x^{1/2}) integers less than x, and
+> **there are essentially no examples of sets containing O(x^{1/2}) integers
+> less than x which contain infinitely many primes** (beyond artificial
+> examples). Thus the sparsity of the set of values of f presents a major
+> obstacle."
+
+and the ICM survey *Counting primes*, §7:
+
+> "all approaches seem to break down completely when considering sets containing
+> fewer than x^{1/2} elements in [x, 2x].
+>
+> **Question 21.** Is there a plausible way to adapt Type I/II machinery to
+> apply to very sparse sets with x^{1/2−ε} elements in [x, 2x]?"
+
+So this repo did not find an unrecorded barrier. **It re-derived Maynard's
+density heuristic and pushed it one step.** Three things survive as genuinely
+this repo's, and they are narrower:
+
+1. **Indexing the barrier by degree.** α = 1/d, hence c = 1 − 1/d ≥ 1/2 for
+   every d ≥ 2, hence no admissible Ford–Maynard triple — that chain appears in
+   no source either sweep found. Maynard's O(x^{1/2}) is the d = 2 bound used as
+   a uniform *upper* bound; the per-degree statement is not drawn.
+2. **Locating Landau's problem at the boundary rather than inside it.** Maynard
+   attaches Question 21 to **Legendre's conjecture** — "thereby addressing
+   Legendre's conjecture on the existence of a prime between consecutive
+   squares" — not to n² + 1. And the two sit differently:
+   #{n : n²+1 ∈ (x, 2x]} = (√2 − 1)√x + O(1) ≍ **x^{1/2}**, which is *not*
+   x^{1/2−ε} for any ε > 0. **x² + 1 is exactly on Question 21's boundary, not
+   inside it.**
+3. **Evaluating Ford–Maynard's triple framework against a one-variable
+   polynomial.** Their paper does not, and no other source found does.
+
+That is a smaller claim than the first draft made, and the right one: *indexing
+a known density barrier by polynomial degree, and locating Landau's fourth
+problem exactly at its boundary* — not discovering an unrecorded barrier.
+
+And it leaves the three d-uniform statements properly separated:
 
 | statement, for every degree | status |
 |---|---|
-| **almost-primes**: p(f) ≤ deg f + 1 | **known, and old** — Bukhstab 1967, after Rademacher 1924, Ricci 1936, Kuhn 1953–54. Pintz §19. |
-| **primes**, degree ≥ 2 | **unknown**, and Pintz says so outright (p. 5). |
-| **Type I/II admissibility**, degree ≥ 2 | **not found in the literature** by two independent sweeps. This one is ours. |
-
-So the ladder is not a new statement about what is known; it is a statement
-about what the *framework* can express, and its novelty rests on a negative
-literature result, which is the weakest kind of novelty claim. Pintz states the
-phenomenon and no mechanism; this note states a mechanism and no phenomenon. The
-ladder is **consistent with** his sentence, which is weaker than explaining it,
-and deliberately so — "our result explains a documented phenomenon" is the exact
-sentence shape this repo has had to withdraw twice.
+| **almost-primes**: p(f) ≤ deg f + 1 | known and old — Bukhstab 1967, Pintz §19 |
+| **primes**, degree ≥ 2 | unknown, and Pintz and Maynard both say so |
+| **Type I/II admissibility**, degree ≥ 2 | not found in print; this repo's, narrowly |
 
 ## Adversarial review
 
