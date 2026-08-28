@@ -315,6 +315,19 @@ because it is what killed the mean-G classifier, and it was run before the
 framing was chosen. **The claim is a difference in kind, not a position in an
 ordering.**
 
+**O.12's *argument* is special to c = 1; the *fact* is not known to be.** Along
+x²+c² the identity carries a factor c² — **V·W = c²·M(m_i − m_j)** — so the
+threshold scales as **1/c²** and drops below what a dyadic band supplies at
+c ≥ 2. The prediction is that O.12 fails there; **it does not** (banded max Gram
+is 1 for c = 1…5, over 146k–648k banded pairs each, free 2 throughout). Both
+repairs are shut: the bound is **saturated** (max |V|/bound = 1.0000, 3.9999,
+8.9998 = exactly c²) and min |V| is 2, 4, 6 — i.e. 2c, not c². **And that makes
+the line family a test bed for the bridge**: A_c is C₄-free over Z[i] for every c
+(proved), while O.12 covers Z only at c = 1, so **c = 2…5 are four instances where
+the transfer's conclusion holds and only the Z[i] side is proved** — it had
+previously been tested on the one case it was formulated from. *Not* evidence for
+the bridge's other half, the inference to ν = 0.
+
 **What is left of O.2.** Nothing structural — no hypothesis on M survives. What
 remains is quantitative: at X = 8000, 13 of 109 informative classes clear O.11,
 all with a = 1, and none holds three moduli in a window. **The bounds are not
