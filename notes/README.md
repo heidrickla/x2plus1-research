@@ -12,13 +12,14 @@ the structure is in place and the content is not.
 | [D](note-D-comparison-ledger.md) | Comparison ledger vs a²+b⁴ | §1.3.4 | draft |
 | [E](note-E-naive-dispersion.md) | Naïve dispersion run | §2.4.1 | draft |
 | [F](note-F-failure-localisation.md) | Failure localisation | §2.4.2 | draft |
-| [G](note-G-spectral.md) | Spectral attempt | §2.4.3 | skeleton — see below |
+| [G](note-G-spectral.md) | Spectral attempt | §2.4.3 | draft — premise corrected; Step 2 checkpoint written |
 | [H](note-H-numerical-pilot.md) | Numerical pilot | §2.4.4 | draft |
 | [I](note-I-a2b4-replay.md) | a²+b⁴ replay | §2.4.5 | draft — harness calibrated |
 | [J](note-J-mobius-in-progressions.md) | Möbius in progressions | *added* | draft — names the missing input, and localises the difficulty to the absolute values |
 | [K](note-K-merikoski.md) | Merikoski's a²+(b²+1)² | *added* | draft — the fourth published sequence; κ is necessary, not sufficient |
 | [L](note-L-over-Z.md) | The same question over Z, and over every degree | *added* | draft — Note F's scope, and the degree ladder |
 | [M](note-M-where-mu-lives.md) | Where the μ-cancellation lives | *added* | draft — the two windows are complements; the easiest case is Chowla |
+| [N](note-N-green-tao-exclusion.md) | The Green–Tao exclusion, re-argued | *added* | draft — exclusion survives, quantitatively, and for a different reason than the plan gives |
 
 ## Read Note C first
 

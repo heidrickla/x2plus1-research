@@ -256,14 +256,20 @@ The column that separates every solved case from this one is ν.
   **method** is still second-hand. Lemke Oliver, *Acta Arith.* **151** (2012),
   241–261 is the refereed generalisation and is unread. BFI I–III and *Opera de
   Cribro* Ch. 24–25 unobtained.
-- [Note G](notes/note-G-spectral.md) is still marked a skeleton, though its
-  premise has been corrected: DFI's method *is* spectral and does reach these
-  residues without dispersion — it just lands on Proposition 1, i.e. the signed
-  norm again.
-- **Green–Sawhney** ([arXiv:2410.04189](https://arxiv.org/abs/2410.04189)) is
-  still unread, and still the highest-value unread item. The plan's Green–Tao
-  exclusion is `green-tao-excluded` in the registry, deliberately non-fatal, and
-  must be re-argued rather than obeyed.
+- [Note G](notes/note-G-spectral.md) now carries the **Step 2 checkpoint**
+  (plan §2.5): the shortfall comes out as *two incommensurable units*, not one
+  number — the **norm** (Prop 1's signed 1/20 saving against an absolute-value
+  requirement) and the **kind** (Chowla for x²+1, wide open). A third unit, the
+  level, was proposed and refuted the same day.
+- ~~Green–Sawhney unread~~ — **read**, and the plan's Green–Tao exclusion is
+  re-argued from the paper in [Note N](notes/note-N-green-tao-exclusion.md). It
+  survives, but the plan's stated reason ("single-variable polynomials are
+  outside their scope") is not why: their weight has both coordinates free, our
+  f′ = δ₁ imposes two independent linear conditions, and at their k ≈ 2^347 the
+  normalised Gowers norm of a delta is 1 − o(1), so the conclusion is not merely
+  inapplicable but *information-free*. They name x² + 4 with x prime — our
+  y = 1 — as what they cannot reach. `green-tao-excluded` stays non-fatal: the
+  rule exists so a reader has to read the argument, not obey the rule.
 - The 2026 bilinear-sums-with-modular-square-roots cluster is logged in
   [refs/literature-log.md](refs/literature-log.md) from abstracts only. It
   bilinearises over the radicand, not the modulus, so it is filed as adjacent —
