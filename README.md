@@ -276,6 +276,23 @@ so ρ = 1 exactly and Λ = 0/0. It does not touch O.2's p, q ≥ 2 gap, and it i
 nowhere near binding — every realised acting in-window multiplier with k ≥ 2 has
 c ∈ {2, 4} against a threshold of 17.
 
+**O.4 is the first of these that assumes nothing about which multiplier acts**,
+so it is the one that reaches O.2's p, q ≥ 2 gap. Three moduli mean two steps,
+with whatever multipliers they have, so the window must fit τ_min². The automorph
+X_j = (UX_i + VaY_i)/M with aY_i > X_i√D gives the **exact** X_j > τ_V X_i, and
+m = (X² + 1)/a then gives m₃/m₁ > (τ_min⁴X₁² + 1)/(X₁² + 1). Hence
+
+> a window holds three only if **τ_min⁴ < 2 + 1/X₁²** — so **b/a > 53.69** at
+> X₁ = 1, rising to **b/a > [(1+√2)(1+√2+2^{5/4})]² = 133.875** as m₁ → ∞,
+> against the pair threshold b/a > (1+√2)⁴ = 33.971.
+
+**The finite term is load-bearing.** The modulus ratio is τ² only asymptotically;
+the clean form m_{i+2}/m_i ≥ τ₁⁴ is **false** — 9 violations in 110 gaps, tightest
+at (1,5) where m = 2 → 65 gives 32.50 against τ₁⁴ = 46.98. Corrected it has 0
+violations and is sharp to four decimals. O.4 is still only a necessary
+condition, and not a binding one: the nearest realised configuration clearing its
+threshold sits a factor 7.25 from a window.
+
 **The general statement — no window holds three, full stop — is not proved.** It
 was claimed unconditionally for about an hour and retracted. Its sharp form is
 measurable and measured: *on any solution ξ, at most one acting multiplier has

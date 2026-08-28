@@ -220,7 +220,21 @@ needs 1/(ρ−1)" off the ρ bound gives 33 not 34 at k = 2; **that route spends
 ρ > 1 on the −ρ term while the region form substitutes ρ ≥ (c+1)/c in both**, so
 the region form is the parent and the ρ bound its weaker corollary. O.3″ leaves
 O.2's p,q ≥ 2 gap untouched and is far from binding: every realised acting
-in-window multiplier with k ≥ 2 has c ∈ {2,4} against a threshold of 17. **The geometry there is r_k² < 2, equivalently M > 4√2·k√(ab), and
+in-window multiplier with k ≥ 2 has c ∈ {2,4} against a threshold of 17.
+
+**Theorem O.4 is the first that assumes nothing about which multiplier acts**, so
+it is the one reaching the p,q ≥ 2 gap. Three moduli are two steps, so the window
+must fit τ_min²; the automorph X_j = (UX_i + VaY_i)/M with aY_i > X_i√D gives the
+**exact** X_j > τ_V X_i, and m = (X²+1)/a turns it into
+m₃/m₁ > (τ_min⁴X₁²+1)/(X₁²+1). **A window holds three only if τ_min⁴ < 2 + 1/X₁²**
+— b/a > 53.69 at X₁ = 1, rising to **b/a > [(1+√2)(1+√2+2^{5/4})]² = 133.875**,
+against the pair threshold (1+√2)⁴ = 33.971. **The finite term is load-bearing**:
+the clean form m_{i+2}/m_i ≥ τ₁⁴ is FALSE (9 of 110 gaps; at (1,5), m = 2 → 65
+gives 32.50 against 46.98) because the modulus ratio is τ² only asymptotically.
+**Step 2 must go through the map** — bounding
+|V| = M(X_j²−X_i²)/(X_jY_i + X_iY_j) instead gives τ at V/a, true but not sharp
+for a > 1. Still only necessary, and not binding: the nearest realised
+configuration clearing the threshold is a factor 7.25 from a window. **The geometry there is r_k² < 2, equivalently M > 4√2·k√(ab), and
 the distinction decides the theorem**: the modulus ratio is τ², not τ, so r_k² < 2
 is what "both fit one dyadic window" means. Under the weaker r_k < 2 (which is
 M > (8/3)·k√(ab)) the ρ bound is **false** — 193 violations in 277, ρ reaching
