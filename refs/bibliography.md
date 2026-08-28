@@ -118,6 +118,20 @@ either has an analogue over Z[i].
     sequence. The equidistribution theorem covers aX²+2bX+c with ac−b² > 0, so
     ν²+1 ≡ 0 (mod p) is literally the case; Proposition 1 (p. 425) bounds those
     residues in progressions.
+    **Read the page images, not the text layer.** The scan's OCR is unusable in
+    the displayed mathematics — Proposition 2's bound comes through as "N4M3+" —
+    and one repo claim was written off it and had to be refuted. `pymupdf`
+    rasterises cleanly; scan page index *n* renders article page *n* + 422:
+
+    ```bash
+    python -c "import pymupdf; pymupdf.open('refs/pdf/DFI-equidistribution.pdf')[4].get_pixmap(dpi=300).save('p426.png')"
+    ```
+
+    Verified from images: Lemma 2's error term θXG(z)²(2^{−log(D/z)/log w} +
+    cK^{−1} log y) and the bilinear forms (32), (33) on p. 436; Proposition 2 and
+    the "spectrum of the Laplacian" sentence on p. **426** (not 427); the
+    spectral decomposition in Maass forms and Eisenstein series on p. 429;
+    Theorem S and (34), (35) with D = x^{1/2−ε}, y = x^{1/3−ε} on p. 437.
 21. **Ford & Maynard**, "On the theory of prime producing sieves",
     [arXiv:2407.14368](https://arxiv.org/abs/2407.14368). Thm 4.16: C⁻ = 0 when
     γ < 1/2 and γ ∉ [θ, θ+ν]. Thm 2.4: at γ = 1/2 with ε losses C⁻ = 0, escape

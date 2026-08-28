@@ -429,14 +429,14 @@
       "id": "dfi-method-is-spectral",
       "status": "quoted",
       "statement": "DFI's proof is spectral and reaches the roots of nu^2+1 == 0 directly, via Poincare series and the spectral expansion in Maass cusp forms and Eisenstein series -- 'roots of the congruence to the spectrum of the Laplacian without passing through Kloosterman sums along the way'. Its output is Proposition 1, a bound on the SIGNED sum L_d(M). DFI also state that Selberg's eigenvalue conjecture would give sharper estimates but 'the same range of uniformity', which is the axis this repo needs.",
-      "citation": "Duke-Friedlander-Iwaniec, Ann. of Math. 141 (1995), pp.427 and 429 (Poincare series, sec.3)",
+      "citation": "Duke-Friedlander-Iwaniec, Ann. of Math. 141 (1995), p.426 (the quoted sentence, immediately after Prop. 2) and p.429 (spectral decomposition in Maass cusp forms u_j and Eisenstein series E_a)",
       "depends_on": [
         "dfi-equidistribution-covers-nu2plus1"
       ],
       "tags": [
         "type_ii"
       ],
-      "notes": "Corrects Note G, which had assumed the spectral route was inapplicable because dispersion produces no Kloosterman sums here. True of dispersion, false of spectral methods. But spectral is not an independent option: it is the engine behind Prop 1, so it inherits the wrong-norm problem measured in exp07."
+      "notes": "Corrects Note G, which had assumed the spectral route was inapplicable because dispersion produces no Kloosterman sums here. True of dispersion, false of spectral methods. But spectral is not an independent option: it is the engine behind Prop 1, so it inherits the wrong-norm problem measured in exp07. Page reference corrected from 427 to 426 after reading the scan's page IMAGES rather than its OCR layer; p.429 verified and correct. The quoted sentence sits on p.426 between Proposition 2 and the start of sec.2 'Basic facts about quadratic forms'."
     },
     {
       "id": "merikoski-b2plus1-captures-primes",
