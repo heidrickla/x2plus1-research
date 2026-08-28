@@ -1433,6 +1433,27 @@ while the D-linear parts differ by 4. So the cycle exists precisely for
 > scraping under the threshold — they are deeply doubly dyadic, and there are
 > infinitely many.
 
+**The right axis is the discriminant, which unifies all of these.** Completing the
+square gives **4(x² + bx + c) = (2x+b)² + |Δ|** with Δ = b² − 4c, so a general
+quadratic is x² + D on the arguments of one parity, up to a factor 4. The
+property is therefore a function of **Δ alone**, and it is — checked at X = 900
+over 0 ≤ b ≤ 3, 1 ≤ c ≤ 7, every discriminant class agreeing internally:
+
+| Δ | −3 | −4 | −7 | −8 | −11 | −12 | −15 | −19 |
+|---|---|---|---|---|---|---|---|---|
+| polynomials | x²+x+1, x²+3x+3 | **x²+1**, x²+2x+2 | x²+x+2, x²+3x+4 | x²+2, x²+2x+3 | x²+x+3, x²+3x+5 | x²+3, x²+2x+4 | x²+x+4, x²+3x+6 | x²+x+5, x²+3x+7 |
+| banded max | 1 | **1** | 1 | 1 | **2** | 1 | 1 | **2** |
+
+*(x²+2x+1 = (x+1)² has Δ = 0 and reads 66 — a perfect square is degenerate and
+not a member of the family.)*
+
+So the line family x² + c² (Δ = −4c²), the D family x² + D (Δ = −4D) and the
+general quadratics are **one axis indexed by Δ**, and x²+1 is Δ = −4. At X = 1500
+the property holds for D = 1…10, 12, 13, 15, 16, 17, 18, 20, 22, 25, 28, 30, 33,
+35 and fails for D = 11, 14, 19, 21, 23, 24, 26, 27, 29, 31, 32, 34, 36, …
+— **the consecutive-argument family k²+3k+1 is a proper subset of the failures**,
+so it is one mechanism among several.
+
 **And the same axis refutes the O.2 analogue outright, at D = 39.**
 
 > **cofactors (5, 8)** — ratio 1.6, one dyadic **band**

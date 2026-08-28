@@ -225,9 +225,45 @@ def line_family(X=1200, cmax=8):
     print("  Z side is PROVED by O.12 rather than transferred.")
 
 
+def discriminant_axis(X=900):
+    """The property depends only on Delta = b^2 - 4c, not on b and c separately.
+
+    4(x^2 + bx + c) = (2x+b)^2 + |Delta|, so a general quadratic is x^2 + D on
+    arguments of one parity, up to a factor 4.  So the line family x^2+c^2, the
+    D family x^2+D and the general quadratics are ONE axis indexed by Delta.
+    """
+    print()
+    print(f"DISCRIMINANT AXIS at X = {X}: banded max by Delta = b^2 - 4c")
+    by_disc = {}
+    for b in range(0, 4):
+        for cc in range(1, 8):
+            disc = b * b - 4 * cc
+            vals = {x * x + b * x + cc for x in range(1, X + 1)}
+            vals = {v for v in vals if v > 1}
+            band, _free, n, _p2 = survey(vals)
+            if n < 300:
+                continue
+            by_disc.setdefault(disc, []).append((f"x^2+{b}x+{cc}", band))
+    ok = bad = 0
+    for disc in sorted(by_disc, reverse=True):
+        polys = by_disc[disc]
+        bands = {v for _p, v in polys}
+        agree = len(bands) == 1
+        ok += agree and len(polys) > 1
+        bad += (not agree)
+        note = "" if agree else "   <-- DISAGREE"
+        print(f"  Delta = {disc:5}: " + ", ".join(f"{p} -> {v}" for p, v in polys)
+              + note)
+    print(f"  discriminant classes with >1 member that AGREE: {ok};"
+          f" that disagree: {bad}")
+    print("  x^2+2x+1 = (x+1)^2 has Delta = 0 and is a perfect square --")
+    print("  degenerate, and not a member of the family.")
+
+
 if __name__ == "__main__":
     XX = int(sys.argv[1]) if len(sys.argv) > 1 else 1200
     main(XX)
     control(min(60000, max(20000, XX * XX // 20)))
     fm_footnote_quantity(min(12000, max(2000, 4 * XX)))
     line_family(min(1200, max(400, XX)))
+    discriminant_axis(min(900, max(400, XX)))
