@@ -1294,6 +1294,36 @@ footnote's quantity is doubly dyadic, and there O.12 forces max G ≤ 1:
 > aimed at a citation rather than a derivation. Paraphrases drift in the direction
 > that makes the local argument work.)*
 
+**Positive control: the 0/1 property is not generic.** Running the same
+doubly-dyadic sweep at Q = 10⁵ on four comparison sequences:
+
+| sequence | status | max Gram, banded | banded pairs with ≥ 2 |
+|---|---|---:|---:|
+| **x² + 1** | open | **1** (proved) | **0** |
+| a² + b⁶ | not known captured | 11 | 1,752 |
+| x³ + 2y³ | **captured** (Heath–Brown) | 15 | 511 |
+| a² + b⁴ | **captured** (Friedlander–Iwaniec) | 66 | 33,411 |
+| a² + (b²+1)² | **captured** (Merikoski) | 67 | 27,890 |
+
+x²+1 sits alone at 1 while everything else is ≥ 11, and for x²+1 the value is a
+theorem rather than a measurement. **This explains the footnote's own hedge**: for
+a sequence whose count ranges over 0…66 there is something to average and an
+error term better than O(1) is a meaningful ask; for a 0/1 indicator there is
+nothing to average.
+
+> **⚠ It is NOT a classifier, and the ordering is not even stable.** Across
+> Q = 2.5×10⁴, 5×10⁴, 10⁵ the two smallest entries **swap**: a²+b⁶ (not known
+> captured) reads 6, 7, 11 against x³+2y³ (captured) at 5, 9, 15 — above at the
+> first size, below at the other two. A statistic whose ordering moves with Q
+> cannot separate captured from open, and reading this table as "low ⟹ hard"
+> would be the mean-G classifier again. **x³+2y³ is here precisely because it is
+> what killed that classifier, and it was run before any of this was written.**
+>
+> **What is claimed is only this**: x²+1 reads **exactly 1 at every Q**, where
+> the value is a theorem; every other sequence reads ≥ 5 and **grows with Q**. So
+> the property is not generic and x²+1 is qualitatively alone in having it — a
+> difference in kind, not a position in an ordering.
+
 > **What it does not close.** The bridge's remaining content is the *inference*
 > "both give no main term, so the conclusion is unchanged". That step is
 > untouched; O.12 removes the quantitative discrepancy and the finite floor, not

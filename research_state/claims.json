@@ -1858,7 +1858,7 @@
     {
       "id": "doubly-dyadic-c4-freeness-is-not-generic",
       "status": "rigorous_finite",
-      "statement": "POSITIVE CONTROL for theorem-O12-doubly-dyadic-c4-free. At Q = 1e5 the max Gram entry on the doubly-dyadic configuration (cofactors banded, moduli windowed) is: x^2+1 = 1 with 0 banded pairs sharing two (proved, O.12); a^2+b^6 = 11 with 1752; x^3+2y^3 = 15 with 511; a^2+b^4 = 66 with 33411; a^2+(b^2+1)^2 = 67 with 27890. So x^2+1 is alone at 1 while every other sequence measured is >= 11 -- the 0/1 property is NOT generic.",
+      "statement": "POSITIVE CONTROL for theorem-O12-doubly-dyadic-c4-free. Max Gram on the doubly-dyadic configuration, at Q = 2.5e4 / 5e4 / 1e5: x^2+1 = 1, 1, 1 with 0 banded pairs sharing two throughout (proved, O.12); a^2+b^6 = 6, 7, 11; x^3+2y^3 = 5, 9, 15; a^2+b^4 = 26, 60, 66; a^2+(b^2+1)^2 = 33, 67, 67. So x^2+1 reads exactly 1 at every size while every other sequence reads >= 5 and GROWS with Q. The 0/1 property is not generic.",
       "experiment": "experiments/exp24_doubly_dyadic.py",
       "depends_on": [
         "theorem-O12-doubly-dyadic-c4-free"
@@ -1868,7 +1868,7 @@
         "gram",
         "note_o"
       ],
-      "notes": "NOT A CLASSIFIER, and the ordering is what says so: a^2+b^6, which is NOT known captured, sits at 11 -- BELOW the captured x^3+2y^3 at 15. So the statistic does not separate captured from open, and reading the table as 'low implies hard' would be mean-G-does-not-classify all over again. x^3+2y^3 is in the table precisely because it is the sequence that killed that classifier, and it was run before anything was written. WHAT IS CLAIMED is only that the property is not generic and that x^2+1 is qualitatively alone in having it -- with its value a theorem rather than a measurement. It also explains the footnote's own hedge that bilinear cancellation is difficult 'outside of special situations': for a count ranging over 0..66 there is something to average, for a 0/1 indicator there is not."
+      "notes": "NOT A CLASSIFIER, AND THE ORDERING IS NOT EVEN STABLE: a^2+b^6 (not known captured) reads 6, 7, 11 against the CAPTURED x^3+2y^3 at 5, 9, 15 -- above at Q = 2.5e4 and below at 5e4 and 1e5. A statistic whose ordering moves with Q cannot separate captured from open, and reading the table as 'low implies hard' would be mean-G-does-not-classify again. x^3+2y^3 is in the table because it is what killed that classifier, and it was run before anything was written. WHAT IS CLAIMED is a difference in KIND, not a position in an ordering: x^2+1 is at 1 with the value a theorem, everything else grows. It also explains the footnote's hedge that bilinear cancellation is difficult 'outside of special situations': for a count ranging over 0..67 there is something to average, for a 0/1 indicator there is not."
     }
   ]
 }

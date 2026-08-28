@@ -186,7 +186,83 @@ def fm_footnote_quantity(X=12000):
     print("  and the only band attaining 1 holds two cofactors -- a single pair.")
 
 
+def _banded_gram(values, Qmax):
+    """(max Gram over banded cofactors, over free, #banded pairs sharing >= 2)."""
+    inc = defaultdict(set)
+    for v in values:
+        d = 1
+        while d * d <= v:
+            if v % d == 0:
+                inc[v // d].add(d)
+                if d * d != v:
+                    inc[d].add(v // d)
+            d += 1
+    band = free = pairs2 = 0
+    M = 4
+    while M * 2 <= Qmax:
+        ms = [m for m in inc if M <= m < 2 * M]
+        if ms:
+            cof = defaultdict(set)
+            for m in ms:
+                for n in inc[m]:
+                    cof[n].add(m)
+            ns = list(cof)
+            N = 1
+            while N <= Qmax:
+                bd = [n for n in ns if N <= n < 2 * N]
+                for i in range(len(bd)):
+                    for j in range(i + 1, len(bd)):
+                        g = len(cof[bd[i]] & cof[bd[j]])
+                        band = max(band, g)
+                        pairs2 += g >= 2
+                N *= 2
+            for i in range(len(ns)):
+                for j in range(i + 1, len(ns)):
+                    free = max(free, len(cof[ns[i]] & cof[ns[j]]))
+        M *= 4
+    return band, free, pairs2
+
+
+def control(Q=100000):
+    """Is the 0/1 property generic?  Four comparison sequences say no."""
+    r = int(Q ** 0.5) + 1
+    seqs = [
+        ("x^2+1                 open", {x * x + 1 for x in range(1, r)}),
+        ("a^2+b^6      not known cap", {a * a + b ** 6 for a in range(1, r)
+                                        for b in range(1, int(Q ** (1 / 6)) + 2)
+                                        if a * a + b ** 6 <= Q}),
+        ("x^3+2y^3        CAPTURED", {x ** 3 + 2 * y ** 3
+                                      for x in range(1, int(Q ** (1 / 3)) + 2)
+                                      for y in range(1, int(Q ** (1 / 3)) + 2)
+                                      if 0 < x ** 3 + 2 * y ** 3 <= Q}),
+        ("a^2+b^4         CAPTURED", {a * a + b ** 4 for a in range(1, r)
+                                      for b in range(1, int(Q ** 0.25) + 1)
+                                      if a * a + b ** 4 <= Q}),
+        ("a^2+(b^2+1)^2   CAPTURED", {a * a + (b * b + 1) ** 2 for a in range(1, r)
+                                      for b in range(0, int(Q ** 0.25) + 1)
+                                      if a * a + (b * b + 1) ** 2 <= Q}),
+    ]
+    print()
+    print(f"POSITIVE CONTROL at Q = {Q}: is the 0/1 property generic?")
+    print(f"{'sequence':>28} {'banded':>7} {'free':>6} {'banded pairs >=2':>18}")
+    for lab, vals in seqs:
+        b, f, p2 = _banded_gram(vals, Q)
+        print(f"{lab:>28} {b:7} {f:6} {p2:18}")
+    print("  x^2+1 is alone at 1 -- and there it is a THEOREM, not a measurement.")
+    print("  NOT A CLASSIFIER, AND THE ORDERING IS NOT STABLE.  Across")
+    print("  Q = 2.5e4/5e4/1e5 the two smallest SWAP: a^2+b^6 (not known captured)")
+    print("  reads 6, 7, 11 against the CAPTURED x^3+2y^3 at 5, 9, 15.  A statistic")
+    print("  whose ordering moves with Q cannot separate captured from open, and")
+    print("  'low implies hard' would be mean-G-does-not-classify again.")
+    print("  x^3+2y^3 is here because it is what killed that classifier.")
+    print("  What IS claimed is a difference in KIND: x^2+1 reads exactly 1 at")
+    print("  every size with the value a theorem; everything else GROWS with Q.")
+    print("  It also explains the footnote's hedge -- for a count ranging over")
+    print("  0..66 there is something to average; for a 0/1 indicator there is not.")
+
+
 if __name__ == "__main__":
     XX = int(sys.argv[1]) if len(sys.argv) > 1 else 3000
     main(XX)
     fm_footnote_quantity(min(12000, max(2000, 4 * XX)))
+    control(min(100000, max(20000, XX * XX // 20)))
