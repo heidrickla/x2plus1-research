@@ -17,10 +17,10 @@ the structure is in place and the content is not.
 | [I](note-I-a2b4-replay.md) | a²+b⁴ replay | §2.4.5 | draft — harness calibrated |
 | [J](note-J-mobius-in-progressions.md) | Möbius in progressions | *added* | draft — names the missing input, and localises the difficulty to the absolute values |
 | [K](note-K-merikoski.md) | Merikoski's a²+(b²+1)² | *added* | draft — the fourth published sequence; κ is necessary, not sufficient |
-| [L](note-L-over-Z.md) | The same question over Z, and over every degree | *added* | draft — Note F's scope, and the degree ladder |
-| [M](note-M-where-mu-lives.md) | Where the μ-cancellation lives | *added* | draft — the two windows are complements; the easiest case is Chowla |
+| [L](note-L-over-Z.md) | The same question over Z, and over every degree | *added* | draft — Note F's scope, the degree ladder, and K_{s,2} for every s |
+| [M](note-M-where-mu-lives.md) | Where the μ-cancellation lives | *added* | draft — the two windows are complements; the easiest case is Chowla, and so is the upper bound |
 | [N](note-N-green-tao-exclusion.md) | The Green–Tao exclusion, re-argued | *added* | draft — exclusion survives, quantitatively, and for a different reason than the plan gives |
-| [O](note-O-tau-multiplier.md) | The τ multiplier | *added* | draft — proves τ cannot act twice on one element; the general "no window holds three" is **open** |
+| [O](note-O-tau-multiplier.md) | The τ multiplier | *added* | draft — τ cannot act twice **inside a window** (the bare form is false); Theorems O.3 and O.3′; the general "no window holds three" is **open** |
 
 ## Read Note C first
 
@@ -84,9 +84,13 @@ footnote 2 p. 7 names Note F's G(n₁,n₂) as the barrier.
 **Note F's lemma is Z[i]-scoped, and [Note L](note-L-over-Z.md) says so.** The
 Type II hypotheses of [ASP], [DFI] and [FM] quantify over *rational* m and n,
 and the rational incidence graph of the same sequence is a coarsening of the
-Gaussian one — it has 4-cycles, with max Gram 2 rather than 1. Bounded is all
-the argument uses, so nothing downstream changes; but the transfer is
-`inferred`, not proved, and it is now a registry entry
+Gaussian one. The gap is larger than "2 rather than 1": six cofactors share the
+moduli 10 and 17, in an infinite Pell orbit, so over Z the graph contains
+**K_{s,2} for every s** where Note F forbids K_{2,2}. The *unwindowed* rational
+bound does not exist. What supplies the constant 2 is the window — orbit members
+are ~4.6×10⁵ apart, so a dyadic window admits one from each of two orbits.
+Bounded is all the argument uses, so nothing downstream changes; but the
+transfer is `inferred`, not proved, and it is now a registry entry
 (`gaussian-to-rational-bridge`) rather than an invisible step.
 
 **And it was never about x² + 1.** For A = {f(x)} with deg f = d, α = 1/d and
