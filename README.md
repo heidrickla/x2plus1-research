@@ -277,6 +277,23 @@ A fourth, from the other direction: Ford–Maynard's footnote 2 (p. 7) names
 Note F's counting function as the barrier, in their own words, having been
 derived here from the Gaussian structure rather than read out of a paper.
 
+**And evaluating that footnote's own hypothesis at this density sharpens the
+placement.** It applies when θ + ν ≥ 1 − 2c, and |J| = x^{1/2} gives c = 1/2, so
+**1 − 2c = 0 and θ + ν ≥ 0 holds for every admissible pair.** So this is not a
+barrier x² + 1 runs into while reaching for a wide Type II range — **every Type
+II range it could have is already on the far side of it**, the θ = ν = 0 boundary
+where the sequence actually sits included. The footnote's averaging range is
+m₁, m₂ ∼ x^{1−2c+ε} = x^ε, and Note F's bound holds at every split, that one
+among them. The two statements compose exactly:
+
+> Ford–Maynard: the obstruction to any Type II estimate here is bilinear
+> cancellation in the error term for G.
+> Note F: G is identically 0 or 1 — no main term, hence no error term.
+
+What they call "typically very difficult outside of special situations" is, for
+this sequence, **not difficult but empty**. (`inferred`: they state the
+condition, the evaluation at c = 1/2 is ours.)
+
 ### It was never about x² + 1
 
 For A = {f(x) : x ≤ X} with deg f = d, the norm bound is Q ≍ X^d and |A| = X, so
