@@ -301,19 +301,36 @@ fourth was proved *unreachable by congruences*:
 | (ξ, τ₁ξ, τ_kξ), k ≥ 2 | closed by **O.3″**, sharpened to a joint (c,k) region |
 | (ξ, τ_pξ, τ_p²ξ), any p | closed by **O.5**: τ_p² ∈ T ⟹ M \| 8p², against M < D |
 | any triple, threshold | **O.4**: b/a > 133.875, assuming nothing about which multiplier acts |
-| two **distinct** multipliers | open — and **O.6** shows integrality cannot close it |
+| two **distinct** multipliers, M odd prime | closed by **O.7** |
+| M composite | open |
 
-**O.6 is the one worth reading.** For M an odd prime, exactly one of M \| S,
+**O.7 is the result; O.6 is the lemma under it.** For M an odd prime, exactly one of M \| S,
 M \| T holds at each solution and it forces the sign of U_p ≡ ±2pa. The exact
 identity M·S′ = A_pS + V_p·M·X (**not** S′ = A_pS/M, which fails on 246 of 246
 pairs) plus β ≡ p (mod M) makes **the subcase alternate at every step** — 246
 times, never once staying the same. So a triple has ε_p = +1 and ε_q = −1, and
 both composite integrality conditions become **automatic** (0 failures in 493
-opposite-sign pairs, against 40 of 246 same-sign pairs failing). **The structure
-that lets τ_p act on ξ₁ is what makes τ_q's action on ξ₂ integrality-free.**
-Whatever forbids a third modulus is **not a congruence** — previously an
-empirical remark about 95 candidates, now a proof for M odd prime, covering 14%
-of realised close pairs.
+opposite-sign pairs, against 40 of 246 same-sign pairs failing). so the composite's integrality conditions carry no information.
+
+**But the alternation is a *consistency* constraint, and that closes the case.**
+A triple makes ξ₁ → ξ₂ → ξ₃ flip **twice**, putting ξ₃ back in subcase A, while
+ξ₁ → ξ₃ is itself a single step and flips **once**, putting it in B — and the
+dichotomy says it is in exactly one.
+
+> **Theorem O.7.** For M = b − a an odd prime, no dyadic window contains three
+> shared moduli. That is **Conjecture O.2 on 14% of realised close pairs**,
+> assuming nothing about which multipliers act.
+
+Its only hypothesis is M ∤ V, and the window supplies it via the exact
+**a·|V|(X_jY_i + X_iY_j) = M(X_j² − X_i²)** — the factor a is load-bearing —
+which gives |V| < 0.57735·M/√D < M. And the hypothesis is sharp: **every**
+realised M-odd-prime class with three moduli has M | V on its two-step, at ratios
+of 10⁴ and up. **M composite is what remains**, for the same reason O.3 had a
+2-adic gap: the signs can differ across the factorisation.
+
+*(I first wrote O.6 up as "the integrality route cannot close O.2". That was too
+strong — the evidence only showed those two conditions are vacuous — and the
+correction is kept in place in Note O.)*
 
 **The general statement — no window holds three, full stop — is not proved.** It
 was claimed unconditionally for about an hour and retracted. Its sharp form is

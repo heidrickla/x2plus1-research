@@ -248,10 +248,26 @@ exact identity **M·S′ = A_pS + V_p·M·X** (*not* S′ = A_pS/M, which fails 
 exceptions. So ε_p = +1 forces ε_q = −1, and both composite integrality
 conditions become **automatic**: 0 failures over 493 opposite-sign (p,q) pairs,
 against **40 of 246 same-sign pairs failing both** — the conditions have content
-and the alternation is what removes it. **Whatever forbids a third modulus is not
-a congruence.** That was an empirical remark about 95 candidates; for M odd prime
-it is now a proof, and M odd prime is 54 of 379 realised close pairs, so what
-fails is the method and not the coverage. **The geometry there is r_k² < 2, equivalently M > 4√2·k√(ab), and
+and the alternation is what removes it. so the composite's integrality
+conditions carry no information.
+
+**But the alternation is a CONSISTENCY constraint, and Theorem O.7 closes the
+case with it.** A triple makes ξ₁ → ξ₂ → ξ₃ flip **twice** (ξ₃ back in subcase A)
+while ξ₁ → ξ₃ is itself a single step and flips **once** (ξ₃ in B) — and the
+dichotomy says exactly one. **So for M = b−a an odd prime, no dyadic window holds
+three shared moduli: Conjecture O.2 on 14% of realised close pairs, assuming
+nothing about which multipliers act.** Its only hypothesis is M ∤ V, supplied by
+the window through the exact **a·|V|(X_jY_i + X_iY_j) = M(X_j²−X_i²)** — *the
+factor a is load-bearing, and dropping it fails 3389 of 4033 pairs* — giving
+|V| < 0.57735·M/√D < M. The hypothesis is sharp: every realised M-odd-prime class
+with three moduli has M | V on its two-step, at ratios of 10⁴ and up. **M
+composite remains open**, for the same reason O.3 had a 2-adic gap.
+
+**I first wrote O.6 up as "the integrality route cannot close O.2" and that was
+too strong** — the evidence showed only that those two *composite* conditions are
+vacuous. Generalising "sub-route X′ is dead" to "route X is dead" is this repo's
+most repeated error, and here the very proposition I declared insufficient is
+what closes the case an hour later. **The geometry there is r_k² < 2, equivalently M > 4√2·k√(ab), and
 the distinction decides the theorem**: the modulus ratio is τ², not τ, so r_k² < 2
 is what "both fit one dyadic window" means. Under the weaker r_k < 2 (which is
 M > (8/3)·k√(ab)) the ρ bound is **false** — 193 violations in 277, ρ reaching
