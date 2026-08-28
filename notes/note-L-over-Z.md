@@ -693,6 +693,24 @@ whose two-step ratios converge to **459 682 = (ε²)²**:
 > **Over Z[i], Note F's lemma forbids K_{2,2} — a single 4-cycle. Over Z the same
 > configuration extends to K_{s,2} for every s.**
 
+**But only one side thickens.** The dual direction is equally unbounded — the
+largest K_{2,s} found at X = 4000 is **s = 8**, at cofactors (1, 5) with moduli
+2, 10, 65, 442, 3026, 20737, 142130, 974170, the Fibonacci/Lucas family again.
+Yet with three cofactors and three moduli:
+
+> **no K_{3,3} at all** — zero instances among the 300 highest-degree cofactors
+> at X = 4000, with all nine incidences re-verified from the definition in each
+> candidate. (Not an exhaustive search: a K_{3,3} needs every cofactor to have
+> degree ≥ 3, and the sweep takes the 300 largest. The parallel session finds the
+> same at X = 6000 by an independent route, after a first version that reported
+> 19 spurious instances by allowing the third cofactor to equal the first.)
+
+So the row-merging that breaks C₄-freeness **thickens the bipartite graph in each
+direction separately and in neither jointly**: K_{2,s} and K_{s,2} for large s,
+K_{3,3}-free in this range. That is a sharper description of what the Z[i] → Z
+transfer costs than "max Gram 2 instead of 1", and it says *which* completeness
+survives.
+
 That is the same row-merging mechanism `rational-graph-not-c4-free` already
 records, at a scale that makes the point unmistakable: it is not that the
 rational bound is 2 rather than 1, it is that the *unwindowed* bound does not

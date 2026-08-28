@@ -1170,6 +1170,16 @@
         "type_ii"
       ],
       "notes": "The footnote is quoted verbatim in Note C and the identification of its counting function with Note F's G(n_1,n_2) was already recorded. What is new is the arithmetic at c = 1/2, which makes the hypothesis vacuous and so the barrier unconditional. Inferred, not quoted: FM state the condition and this repo evaluates it at its own density. Read with c4-free: FM say the obstruction is bilinear cancellation in the error term for G, and Note F proves G is identically 0 or 1, so there is no main term and no error term to cancel -- the barrier is not difficult here but empty. Found by reading the whole p.7 paragraph rather than the clause already in use, which is also how fm-divisor-bounded-class-is-dense and c-minus-is-the-lower-bound-constant were found."
+    },
+    {
+      "id": "rational-graph-thickens-one-side-not-both",
+      "status": "rigorous_finite",
+      "statement": "Over Z the incidence graph is rich in complete bipartite subgraphs with one side of size 2 and has none with both sides 3. Largest K_(2,s) at X = 4000 is s = 8, at cofactors (1,5) with moduli 2, 10, 65, 442, 3026, 20737, 142130, 974170; and rational-graph-contains-K-s-2 gives K_(6,2). K_(3,3): ZERO instances among the 300 highest-degree cofactors at X = 4000, every one of the nine incidences re-verified from the definition.",
+      "experiment": "in-session divisor-based incidence build; recorded in Note L, 'The sharper form of the Z-vs-Z[i] gap'",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "NOT exhaustive: a K_(3,3) needs all three cofactors to have degree >= 3 and the sweep takes the 300 largest, so the claim is about that finite population and no more. The parallel session reaches the same conclusion at X = 6000 by an independent route -- after a first version that reported 19 spurious instances because the third cofactor could equal the first, a correct computation of the wrong thing. Content: the row-merging that breaks C4-freeness thickens the graph in each direction separately and in neither jointly, which says WHICH completeness survives the Z[i] -> Z transfer and is sharper than 'max Gram 2 instead of 1'."
     }
   ]
 }
