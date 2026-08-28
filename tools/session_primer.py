@@ -76,7 +76,14 @@ def _where_things_stand() -> str:
 
 def _open_markers() -> str:
     out = []
-    for p in sorted((REPO / "notes").glob("*.md")) + sorted((REPO / "refs").glob("*.md")):
+    # CLAUDE.md is deliberately excluded: it DEFINES the [VERIFY] convention,
+    # so its own description of the rule reads as an open marker.
+    sources = (sorted((REPO / "notes").glob("*.md"))
+               + sorted((REPO / "refs").glob("*.md"))
+               + [REPO / "README.md"])
+    for p in sources:
+        if not p.exists():
+            continue
         for i, line in enumerate(p.read_text(encoding="utf-8").splitlines(), 1):
             if "[VERIFY]" in line and "discharged" not in line and "is answered" not in line:
                 rel = p.relative_to(REPO).as_posix()

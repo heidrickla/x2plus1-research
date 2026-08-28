@@ -263,12 +263,20 @@ matters. [Note L](notes/note-L-over-Z.md).
 
 ### The density ledger
 
-| sequence | A(x) | κ > 1? (Type II non-degenerate) | ν (Ford–Maynard Table 1) | A(x) > x^{2/3}? (ASP applies) |
-|---|---|---|---|---|
-| a² + b⁴ (FI 1998) | x^{3/4} | ✅ | 1/2 | ✅ — D = x^{3/4−5ε} achieved |
-| a² + (b²+1)² (Merikoski 2022) | x^{3/4} | ✅ (same κ) | **1/12** | ✅ but unused — Harman, lower bound only |
-| x³ + 2y³ (Heath-Brown 2001) | x^{2/3} | ✅ | 1/3 | at the boundary **[VERIFY]** |
-| x² + 1 | **x^{1/2}** | ❌ (κ = 1) | **0** | ❌ |
+| sequence | A(x) | free variables | κ > 1? | ν (FM Table 1) | ASP applies? |
+|---|---|---:|---|---|---|
+| a² + b⁴ (FI 1998) | x^{3/4} | 2 | ✅ | 1/2 | ✅ — D = x^{3/4−5ε} achieved |
+| a² + p⁴ (Heath-Brown–Li) | x^{3/4} | 2 | ✅ | — | ✅ |
+| a² + (b²+1)² (Merikoski 2022) | x^{3/4} | 2 | ✅ (same κ) | **1/12** | ✅ but unused — Harman, lower bound only |
+| f(a, b²), *every* binary quadratic f (Xiao 2021) | x^{3/4} | 2 | ✅ | — | ✅ |
+| x³ + 2y³ (Heath-Brown 2001) | x^{2/3} | 2 | ✅ | 1/3 | at the boundary — "not quite met", short by ε |
+| x² + 1 | **x^{1/2}** | **1** | ❌ (κ = 1) | **0** | ❌ |
+
+**Five published sequences, every one at α ≥ 2/3, every one with two free
+variables.** Xiao's row is the sharpest form of the pattern: he varies the
+*shape* over all irreducible primitive binary quadratics at once, and the
+density does not move. What the technology generalises is the form; what it has
+never generalised is the density.
 
 The second row is the control: same density, same κ to 0.04%, and a Type II
 range a sixth of an exponent shorter. **κ is necessary, not sufficient** —
