@@ -1309,3 +1309,37 @@ def test_tau_moves_between_orbits_and_epsilon_within_them():
         assert m == x * x + 1
         y = isqrt(b * m - 1)
         assert y * y + 1 == b * m
+
+
+def test_the_chain_threshold_is_four_root_two_plus_root_thirty_three_squared():
+    """A second in-window multiplier needs b/a > (4 sqrt2 + sqrt33)^2 = 129.9923.
+
+    tau_k^2 < 2 requires k < 0.17678 M/sqrt(D) asymptotically, so k >= 2 needs
+    M/sqrt(D) > 8 sqrt2 = 11.3137 -- the same constant as O.12's asymptotic bound
+    and the corrected Plucker value, since it is |V| >= 4 read as k >= 2. With
+    M/sqrt(D) = (u-1)/sqrt(u) for u = b/a, solving v^2 - 8sqrt2 v - 1 = 0 at
+    v = sqrt(u) gives v = 4 sqrt2 + sqrt33 and
+
+        a CHAIN is possible only for  u > (4 sqrt2 + sqrt33)^2 = 129.9923
+
+    against O.4's asymptotic TRIPLE threshold of 133.8748. The chain threshold
+    sits 3.88 below, which it must: a triple needs a chain and something more.
+
+    And the two requirements pull in opposite directions, which is the mechanism
+    behind the emptiness. A chain needs u > 130; but the maximum modulus count
+    over all classes falls with u -- 8 at u in [2,10), 6 at [10,100), 4 at
+    [100,1000), 3 above 1000 -- so the range where a chain is possible is the
+    range where the moduli to use it are scarcest. At X = 3000 the 43
+    chain-admitting classes have at most two moduli, against the three a triple
+    needs.
+    """
+    from math import sqrt
+
+    v = 4 * sqrt(2) + sqrt(33)
+    assert abs(v * v - 129.9923) < 1e-3
+    assert abs((v * v - 1) / v - 8 * sqrt(2)) < 1e-9      # v solves the equation
+    assert v * v < 133.8748                               # chain before triple
+    assert 133.8748 - v * v < 4                           # and only just
+
+    # the constant is O.12's, i.e. |V| >= 4 read as k >= 2
+    assert abs(8 * sqrt(2) - 11.3137) < 1e-4
