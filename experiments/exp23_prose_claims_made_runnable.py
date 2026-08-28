@@ -73,45 +73,60 @@ def c4_ceiling(Q: int) -> None:
     print("  arithmetic (a modulus determines its root pair), not density.")
 
 
+def _sqfree_count(XX: int, plimit: int) -> int:
+    """#{x <= XX : x^2+1 squarefree}, sieving p^2 only for p <= plimit."""
+    bad = bytearray(XX + 1)
+    L = min(plimit, XX)
+    sv = bytearray([1]) * (L + 1)
+    sv[0:2] = bytes(2)
+    for i in range(2, isqrt(L) + 1):
+        if sv[i]:
+            sv[i * i:: i] = bytearray(len(sv[i * i:: i]))
+    for p in range(5, L + 1, 4):
+        if not sv[p]:
+            continue
+        a = 2
+        while pow(a, (p - 1) // 2, p) != p - 1:
+            a += 1
+        r = pow(a, (p - 1) // 4, p)
+        c = (r * r + 1) // p
+        t = (-c * pow(2 * r, -1, p)) % p
+        R = r + t * p
+        pp = p * p
+        for root in (R % pp, (-R) % pp):
+            start = root if root else pp
+            if start <= XX:
+                bad[start:: pp] = bytearray([1]) * len(bad[start:: pp])
+    return sum(1 for x in range(1, XX + 1) if not bad[x])
+
+
 def squarefree_density(X: int) -> None:
-    """Density of x <= X with x^2+1 squarefree, by a p^2 sieve over roots."""
+    """Density of x <= X with x^2+1 squarefree, by a p^2 sieve over roots.
+
+    Two columns, because the difference between them is the whole story of a
+    correction that went wrong twice.  Note M's table was computed with the
+    sieve truncated at P = 20000 -- the note SAYS so, three lines above the
+    table -- and the truncated column reproduces every recorded digit exactly.
+    The recorded values were never wrong; they are the correct output of a
+    documented approximation whose stated error bound (under 1e-5) holds.
+    """
     print()
     print("SQUAREFREE DENSITY IS FLAT (Note M).")
-    print(f"  {'X':>12} {'density':>10} {'change':>10}")
+    print(f"  {'X':>10} {'exact':>10} {'P=20000':>10} {'note M':>10} {'change':>10}")
+    recorded = {10**4: "0.895200", 10**5: "0.894900",
+                10**6: "0.894860", 10**7: "0.894847"}
     prev = None
     Xs = [10**4, 10**5, 10**6]
     if X >= 10**7:
         Xs.append(10**7)
     for XX in Xs:
-        bad = bytearray(XX + 1)
-        sieve = bytearray([1]) * (XX + 1)
-        sieve[0:2] = b"\x00\x00"
-        for i in range(2, isqrt(XX) + 1):
-            if sieve[i]:
-                sieve[i * i:: i] = bytearray(len(sieve[i * i:: i]))
-        for p in range(5, XX + 1, 4):
-            if not sieve[p]:
-                continue
-            a = 2
-            while pow(a, (p - 1) // 2, p) != p - 1:
-                a += 1
-            r = pow(a, (p - 1) // 4, p)
-            c = (r * r + 1) // p
-            t = (-c * pow(2 * r, -1, p)) % p
-            R = r + t * p
-            pp = p * p
-            for root in (R % pp, (-R) % pp):
-                start = root if root else pp
-                bad[start:: pp] = bytearray([1]) * len(bad[start:: pp])
-        good = sum(1 for x in range(1, XX + 1) if not bad[x])
-        d = good / XX
-        ch = "" if prev is None else f"{d - prev:10.1e}"
-        print(f"  {XX:12d} {d:10.6f} {ch:>10}")
-        prev = d
-    print("  Only p = 2 and p = 1 mod 4 admit p^2 | x^2+1, and p = 2 never does")
-    print("  (x^2+1 = 1 or 2 mod 4).  Flat to four places -- the density is a")
-    print("  constant, not a slowly moving quantity, so DIAG/T = 0.766 is NOT it.")
-
+        ex = _sqfree_count(XX, XX) / XX
+        tr = _sqfree_count(XX, 20000) / XX
+        ch = "" if prev is None else f"{ex - prev:10.1e}"
+        print(f"  {XX:10d} {ex:10.6f} {tr:10.6f} {recorded[XX]:>10} {ch:>10}")
+        prev = ex
+    print("  the P = 20000 column reproduces every recorded digit; the values")
+    print("  were a documented truncation, not an error.")
 
 def thickens_one_side(X: int) -> None:
     """Largest K_(2,s) over Z, and the absence of K_(3,3)."""

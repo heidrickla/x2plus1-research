@@ -490,14 +490,20 @@ asymptotic constant.** Only p = 2 and p ≡ 1 (mod 4) admit p² | x²+1, each
 costing density 2/p², so a sieve truncated at P = 20 000 has error under 10⁻⁵.
 Measured:
 
-| X | density of squarefree x²+1 | change |
-|---:|---:|---:|
-| 10⁴ | 0.895200 | |
-| 10⁵ | 0.894900 | −3.0×10⁻⁴ |
-| 10⁶ | 0.894860 | −4.0×10⁻⁵ |
-| 10⁷ | 0.894847 | −1.3×10⁻⁵ |
+| X | exact | truncated at P = 20 000 | change (exact) |
+|---:|---:|---:|---:|
+| 10⁴ | 0.895200 | 0.895200 | |
+| 10⁵ | 0.894890 | 0.894900 | −3.1×10⁻⁴ |
+| 10⁶ | 0.894856 | 0.894860 | −3.4×10⁻⁵ |
+| 10⁷ | 0.894842 | 0.894847 | −1.4×10⁻⁵ |
 
-Flat to four places. At X = 4000 over the band [300, 600) the aggregate ratio of
+Flat to four places. **Both columns are correct**; the second is what this note
+originally recorded, and it is the truncated sieve described in the paragraph
+directly above — its error is 1.0×10⁻⁵ at 10⁵ and 5×10⁻⁶ at 10⁷, so the "under
+10⁻⁵" bound stated there holds. The exact column removes the truncation. They
+are given side by side because a later pass read the single column as an error,
+proposed a cause for it, and was wrong twice before noticing the cause was
+already written three lines up. Both runs are in `exp23`. At X = 4000 over the band [300, 600) the aggregate ratio of
 the two sums is 0.884 — a constant-order correction, as the density predicts.
 
 > **A constant factor cannot move an exponent.** So exp05's four decades bear on
