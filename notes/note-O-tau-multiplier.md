@@ -1486,10 +1486,27 @@ not a member of the family.)*
 
 So the line family x² + c² (Δ = −4c²), the D family x² + D (Δ = −4D) and the
 general quadratics are **one axis indexed by Δ**, and x²+1 is Δ = −4. At X = 1500
-the property holds for D = 1…10, 12, 13, 15, 16, 17, 18, 20, 22, 25, 28, 30, 33,
-35 and fails for D = 11, 14, 19, 21, 23, 24, 26, 27, 29, 31, 32, 34, 36, …
+the property *appears to hold* for D = 1…10, 12, 13, 15, 16, 17, 18, 20, 22, 25,
+28, 30, 33, 35 and fails for D = 11, 14, 19, 21, 23, 24, 26, 27, 29, 31, 32, 34, 36, …
 — **the consecutive-argument family k²+3k+1 is a proper subset of the failures**,
 so it is one mechanism among several.
+
+> **⚠ "Survives at X" is not evidence of surviving, and D = 35 demonstrates it.**
+> D = 35 holds at X = 1500 and **fails at X = 2500**, with cofactors
+> **(2249, 3756)** — ratio 1.6701 — sharing moduli **459 and 879** — ratio 1.9150:
+> 2249·459 = 1016²+35, 3756·459 = 1313²+35, 2249·879 = 1406²+35,
+> 3756·879 = 1817²+35. A genuine banded doubly-dyadic 4-cycle that a sweep to
+> 1500 cannot see. **So every entry in the holding list is a survivor of a finite
+> sweep and nothing more — D = 1 is the only value proved to hold, by O.12.**
+>
+> *And it also refutes a pattern I drew from the same data.* Searching cofactors
+> ≤ 300 finds every failure witness below cofactor 9 — D = 11 at (3,4), D = 14 at
+> (3,5), D = 19 at (4,5), D = 39 at (5,8) — from which I concluded that failures
+> announce themselves at tiny cofactors and a small-cofactor search is an
+> effective detector. **D = 35's witness is at (2249, 3756)**, three orders of
+> magnitude above that bound. The tiny-cofactor pattern is a property of the D
+> values that happened to be found, not of failure, and the bounded search could
+> not have seen the case refuting it.
 
 **And the same axis refutes the O.2 analogue outright, at D = 39.**
 
