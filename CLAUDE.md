@@ -5,7 +5,7 @@
 | Problem | Landau's fourth: infinitely many primes x²+1 |
 | Method | Friedlander–Iwaniec asymptotic sieve, reformulated over Z[i] |
 | Output | `notes/` — code exists to keep the notes honest |
-| Charter | `x2plus1-research-plan.md` |
+| Charter | `x2plus1-research-plan.md` — **Steps 1–2 are done** (obstruction located, structural). **Step 3 is live**: the bipartite Diophantine problem |
 | State | `research_state/claims.json` |
 
 ## Run
