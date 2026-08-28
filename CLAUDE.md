@@ -530,7 +530,16 @@ sum of the two a's are determined, so the pair is), and every one has
 cycle — (1+2i)(6+2i) = 2+14i = (2+2i)(4+3i) at (c₁,c₂) = (2,3). This *sharpens*
 the obstruction: x²+1 is not unluckily C₄-free, every line is, and α = 1/2 is
 forced for all of them, so there is no nearby line with more room and an escape
-must leave the family. It also explains Note K's κ threshold as a coincidence of
+must leave the family. **And x²+1's escape from the doubly-dyadic 4-cycle has a cause**: for
+x²+D, four consecutive arguments give a cycle exactly when **D = k²+3k+1**
+(identity: the difference of the two products is 4(D − k² − 3k − 1)), so
+D = 1, 5, 11, 19, 29, … all carry one. x²+1 is the **k = 0** member and its
+instance is degenerate — one of its four values is 0²+1 = **1**, the unit
+modulus. D = 5 escapes separately, on the modulus ratio 2.333. Every k ≥ 2 is a
+genuine counterexample with both ratios falling toward 1. So O.12's conclusion is
+not general, and the survivor survives for the same reason the unit cofactor is
+excluded everywhere else here.
+It also explains Note K's κ threshold as a coincidence of
 parameterisation — κ = |B|² counts lines, C₄-freeness permits one, so both are
 functions of the same integer. **Two points settle that κ is not doing the work**:
 A = {x+i} ∪ {2+2i, 4+2i} has κ = 1.000004 at X = 10⁶ against the bare line's

@@ -169,6 +169,42 @@ derivation pointed at the right conclusion with the wrong threshold, while five
 sizes of measurement at c ≤ 5 said "generalises" and would have gone on saying it.
 Machine-checked in `test_doubly_dyadic_c4_freeness_fails_at_c_equals_six`.
 
+### And there is a mechanism: x²+1 is the degenerate member of an explicit family
+
+Extend the axis once more — to **D** itself, in x² + D. Four *consecutive*
+arguments k, k+1, k+2, k+3 give a 4-cycle exactly when the outer product equals
+the inner one, and
+
+> **(k²+D)((k+3)²+D) − ((k+1)²+D)((k+2)²+D) = 4(D − k² − 3k − 1)**
+
+since k(k+3) and (k+1)(k+2) differ by 2 while the D-linear parts differ by 4. So
+the cycle exists precisely for
+
+> **D = k² + 3k + 1:  D = 1, 5, 11, 19, 29, 41, 55, …**
+
+and exactly two members fail to be *doubly dyadic* counterexamples:
+
+| k | D | values | cofactor ratio | modulus ratio | |
+|---:|---:|---|---:|---:|---|
+| 0 | **1** | 1, 2, 5, 10 | 2.000 | 5.000 | **first value is the UNIT** |
+| 1 | 5 | 6, 9, 14, 21 | 1.500 | **2.333** | modulus ratio ≥ 2 |
+| 2 | 11 | 15, 20, 27, 36 | 1.333 | 1.800 | genuine |
+| 3 | 19 | 28, 35, 44, 55 | 1.250 | 1.571 | genuine |
+| 4 | 29 | 45, 54, 65, 78 | 1.200 | 1.444 | genuine |
+
+**x²+1 is the k = 0 member.** It does not avoid the family — its instance is
+**degenerate**, because one of the four values is 0²+1 = **1**, the unit modulus
+that no Type II hypothesis admits and that this repo excludes everywhere else for
+the same reason. D = 5 escapes for a *second, unrelated* reason, which is why the
+first genuine counterexample is D = 11 and not D = 5. Both ratios fall toward 1
+as k grows, so these are not marginal cases scraping under a threshold.
+
+**This does not touch Theorem O.12**, which is about x²+1. What it removes is any
+reading of O.12 as an instance of something general: its conclusion fails for an
+infinite explicit family of degree-2 sequences, and **x²+1's escape has a cause**.
+Machine-checked in
+`test_four_consecutive_x_give_a_cycle_exactly_when_D_is_k2_plus_3k_plus_1`.
+
 ### And two points are enough — so κ does not see it even at the threshold
 
 The A_B family ties κ to the line count, so nothing measured *inside* it can
