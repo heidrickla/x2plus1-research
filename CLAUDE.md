@@ -526,7 +526,18 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   of exactly the collision it was written to detect. The correct form loads
   `git show HEAD:<path>` and the working file, keys both by id, and diffs the
   dicts; it reported four, which was right. **A check that over-reports on a
-  shared file is not the safe direction: it manufactures collisions.** Verified from `git show`, not from the report — the other
+  shared file is not the safe direction: it manufactures collisions.**
+  **And the check has to gate the commit, or it is decoration.** The parsed
+  version was written, run, and it worked — it reported seventeen changed claims
+  where four were mine — and the commit went through in the same breath, because
+  the check was a separate `python -` process and its `AssertionError` did not
+  stop the shell from reaching `git commit` on the next line. Third crossed
+  attribution of the night, this one committed *over* a correct warning I had
+  just read. The repo's governing rule is that a guard not on the path is not a
+  guard, and **the path here is the shell**: put the comparison and the commit in
+  one process, or chain them with `&&` so a non-zero exit actually stops it. A
+  check whose failure the next command ignores is worse than none, because it
+  produces the feeling of having checked. Verified from `git show`, not from the report — the other
   session flagged it, and the flag was right, but a collision report is a claim
   like any other.
   **And one edit per block**: a script with two `replace` calls
