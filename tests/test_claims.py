@@ -142,3 +142,70 @@ def test_quoted_claims_name_a_locator(claim):
     assert re.search(pattern, claim.citation, re.I), (
         f"{claim.id}: citation names no page or result -- {claim.citation!r}"
     )
+
+
+#: Backticked hyphenated tokens that are deliberately not registry ids.
+_NOT_AN_ID = {"rh-research-engine"}
+
+
+def _cited_ids():
+    """(file, token, line) for every backticked token shaped like a claim id."""
+    import re
+    # Ids are not all lowercase (sqrt-MX-law, obstruction-is-type-I, asp-R1)
+    # and not all have two hyphens. A lowercase-only pattern silently skipped 26
+    # of 103 ids, including the most-cited one, and the guard passed vacuously
+    # on an injected refuted citation until that was found.
+    pattern = re.compile(r"`([A-Za-z0-9]+(?:-[A-Za-z0-9]+)+)`")
+    out = []
+    files = sorted((REPO / "notes").glob("*.md"))
+    for extra in ("CLAUDE.md", "README.md"):
+        path = REPO / extra
+        if path.exists():
+            files.append(path)
+    for path in files:
+        for i, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+            for match in pattern.finditer(line):
+                token = match.group(1)
+                if token not in _NOT_AN_ID:
+                    out.append((path, token, i))
+    return out
+
+
+def test_notes_cite_ids_that_exist():
+    """A note citing `some-claim-id` must cite one the registry still has.
+
+    Renaming or removing a claim leaves every note that cited it pointing at
+    nothing, silently. Nothing else in the suite reads the notes, so this is the
+    only link between the prose and the registry it quotes.
+    """
+    known = {c.id for c in CLAIMS} | {r.id for r in DEFAULT_NOGO_RULES}
+    missing = [(p.name, t, n) for p, t, n in _cited_ids() if t not in known]
+    assert not missing, "notes cite ids not in the registry: " + "; ".join(
+        f"{f}:{n} `{t}`" for f, t, n in missing)
+
+
+def test_notes_do_not_cite_refuted_claims_as_live():
+    """A refuted claim may be named in a note, but not without saying so.
+
+    The registry keeps refuted claims precisely so they cannot be silently
+    re-asserted, and that guarantee stops at the registry's edge: prose citing
+    `some-refuted-claim` in passing reads exactly like prose citing a live one.
+    Four corrections in a single session came from a description drifting away
+    from a computation that was right, so the paraphrase is where the risk is.
+
+    A marker within two lines either side is enough -- the point is that a
+    reader meets the status where they meet the claim.
+    """
+    refuted = {c.id for c in CLAIMS if c.status is Status.REFUTED}
+    markers = ("refut", "withdraw", "supersed", "no longer", "was wrong",
+               "retract", "abandon", "struck", "corrected")
+    offenders = []
+    for path, token, line_no in _cited_ids():
+        if token not in refuted:
+            continue
+        lines = path.read_text(encoding="utf-8").splitlines()
+        window = " ".join(lines[max(0, line_no - 3):line_no + 2]).lower()
+        if not any(m in window for m in markers):
+            offenders.append(f"{path.name}:{line_no} `{token}`")
+    assert not offenders, (
+        "refuted claims cited without a status marker nearby: " + "; ".join(offenders))
