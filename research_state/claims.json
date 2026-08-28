@@ -1392,6 +1392,20 @@
         "type_ii"
       ],
       "notes": "Recorded because the repo presents alpha and 'kappa > 1?' as SEPARATE columns in Note D's ledger, and Note K's headline 'kappa > 1 is necessary and not sufficient' reads as a finding about kappa when it is the statement 'density above 1/2 is necessary and not sufficient' -- which is the literature's own boundary, and Xiannan Li's record is 0.6418. This does not weaken any argument: kappa = 1 => forest is a real statement about the incidence graph at alpha = 1/2, and sqrt-kappa-is-the-poisson-length gives kappa a second reading as the Poisson range. What it forbids is treating a kappa observation as INDEPENDENT evidence for a density conclusion or vice versa. Prompted by the note-K adversarial-review bullet observing that kappa, like the refuted mean-G classifier, is a statistic fitted to a handful of sequences with known outcomes -- the difference being that kappa's threshold is an identity rather than a fit, which is why it survives and the classifier did not."
+    },
+    {
+      "id": "theorem-O4-composition-bound",
+      "status": "proved",
+      "statement": "Theorem O.4. Three shared moduli of the class (a,b) lie in one dyadic window only if tau_min^4 < 2 + 1/X_1^2, where X_1 = sqrt(a m_1 - 1) is the smallest and tau_min = min{tau > 1 : tau = (U+V sqrt D)/M, U^2 - D V^2 = M^2}. UNLIKE O.3, O.3' and O.3'' it assumes nothing about which multiplier acts, so it reaches the p,q >= 2 gap. Proof: the automorph X_j = (U X_i + V a Y_i)/M plus a Y_i > X_i sqrt(D) gives the exact X_j > tau_V X_i; composing two steps gives X_3 > tau_min^2 X_1; and m = (X^2+1)/a turns that into m_3/m_1 > (tau_min^4 X_1^2 + 1)/(X_1^2 + 1). Since |V| >= 2 unless a^2-ab+b^2 is a perfect square, tau_min = tau_1 and the threshold is b/a > 53.694 at X_1 = 1, rising to b/a > [(1+sqrt2)(1+sqrt2+2^(5/4))]^2 = 133.8747813 as m_1 -> infinity, i.e. M > 4(2^(1/4)+2^(3/4)) sqrt(ab) = 11.48400 sqrt(ab). The pair threshold is b/a > (1+sqrt2)^4 = 33.9706, and t_triple = t_pair + 2^(5/4)(1+sqrt2).",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O4_step_one_the_automorph_map_holds_on_every_pair; tests/test_note_o.py::test_O4_step_two_X_grows_by_at_least_tau; tests/test_note_o.py::test_O4_gap_bound_holds_exactly_and_the_clean_form_does_not; tests/test_note_o.py::test_O4_thresholds_have_the_stated_closed_forms; tests/test_note_o.py::test_O4_window_condition_is_tau_min_fourth_below_two_plus_one_over_X_squared",
+      "experiment": "experiments/exp19_composition_bound.py",
+      "depends_on": [],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "The finite term is load-bearing, not decoration: the modulus ratio is tau^2 only asymptotically, and the clean form m_{i+2}/m_i >= tau_1^4 is FALSE -- 9 violations in 110 gaps at X = 4000, tightest at (1,5) m 2 -> 65 where 32.50 sits under tau_1^4 = 46.98. With the correction, 0 violations in 110, and sharp: at (1,5) m 20737 -> 974170 the bound is 46.9765 against 46.9774. Step 2 must go through the automorph -- bounding |V| = M(X_j^2-X_i^2)/(X_j Y_i + X_i Y_j) instead yields tau at V/a, true but not sharp for a > 1. Slightly stronger than the determinant route (|V_13| >= 4 gives 8 sqrt2 = 11.3137) and rests on less, since that route needs the asymptotic |V| law. It is a NECESSARY condition, not a contradiction: O.2 stays open, and O.4 is not binding -- among classes clearing b/a > 133.87 with three moduli the smallest two-step ratio is 14.50 at (1,533), a factor 7.25 from a window."
     }
   ]
 }

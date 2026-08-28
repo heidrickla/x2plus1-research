@@ -693,3 +693,105 @@ def test_region_form_is_sharper_than_the_rho_bound_route():
         assert (c_rho, c_region) == (want_rho, want_region), (k, c_rho, c_region)
         assert c_region >= c_rho          # the region form is never weaker
     assert _kmin_surviving(17) == 35       # and both stabilise at 17
+
+
+FOURTH = 2 ** 0.25
+T_PAIR = (1 + sqrt(2)) ** 2
+T_TRIPLE = (FOURTH + 1) / (FOURTH - 1)
+
+TRIPLES = [(a, b, sorted(ms)) for (a, b), ms in CLASSES.items() if len(ms) >= 3]
+assert TRIPLES, "no class with three shared moduli -- the O.4 tests would be vacuous"
+
+
+def test_O4_thresholds_have_the_stated_closed_forms():
+    """t_triple = (1+sqrt2)(1+sqrt2+2^{5/4}) = t_pair + 2^{5/4}(1+sqrt2)."""
+    assert abs(T_TRIPLE - (1 + sqrt(2)) * (1 + sqrt(2) + 2 ** 1.25)) < 1e-12
+    assert abs(T_TRIPLE - (T_PAIR + 2 ** 1.25 * (1 + sqrt(2)))) < 1e-12
+    assert abs(T_PAIR**2 - 33.970562748) < 1e-8        # the pair threshold
+    assert abs(T_TRIPLE**2 - 133.8747813272) < 1e-8   # the triple threshold
+    # M > 4(2^{1/4} + 2^{3/4}) sqrt(ab), and that beats the determinant route
+    m_over_sqrtD = T_TRIPLE - 1 / T_TRIPLE
+    assert abs(m_over_sqrtD - 4 * (FOURTH + FOURTH**3)) < 1e-9
+    assert m_over_sqrtD > 8 * sqrt(2)                  # 11.4840 vs 11.3137
+
+
+def test_O4_step_one_the_automorph_map_holds_on_every_pair():
+    """X_j = (U X_i + V a Y_i)/M for every consecutive pair, across orbits too."""
+    n = 0
+    for a, b, ms in [(a, b, sorted(ms)) for (a, b), ms in CLASSES.items()
+                     if len(ms) >= 2]:
+        D, M = a * b, b - a
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms) - 1):
+            u, w, Yi, Yj = xs[i], xs[i + 1], ys[i], ys[i + 1]
+            U = b * u * w - a * Yi * Yj
+            V = u * Yj - w * Yi
+            assert U * U - D * V * V == M * M, (a, b, ms[i])
+            assert any(
+                su * U * u + sv * V * a * Yi == M * w
+                and su * U * Yi + sv * V * b * u == M * Yj
+                for su in (1, -1) for sv in (1, -1)
+            ), (a, b, ms[i], ms[i + 1], U, V)
+            n += 1
+    assert n > 100, n
+
+
+def test_O4_step_two_X_grows_by_at_least_tau():
+    """a Y_i > X_i sqrt(D) gives X_j > tau_V X_i -- exact, and the a cancels."""
+    n = 0
+    for a, b, ms in [(a, b, sorted(ms)) for (a, b), ms in CLASSES.items()
+                     if len(ms) >= 2]:
+        D, M = a * b, b - a
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms) - 1):
+            if xs[i] < 1:
+                continue
+            assert a * ys[i] * a * ys[i] > xs[i] * xs[i] * D   # the exact step
+            V = abs(xs[i] * ys[i + 1] - xs[i + 1] * ys[i])
+            tau = (sqrt(M * M + D * V * V) + V * sqrt(D)) / M
+            assert xs[i + 1] > tau * xs[i], (a, b, ms[i])
+            n += 1
+    assert n > 100, n
+
+
+def test_O4_gap_bound_holds_exactly_and_the_clean_form_does_not():
+    """The +1 in m = (X^2+1)/a is load-bearing: dropping it makes it false."""
+    clean_failures = 0
+    n = 0
+    for a, b, ms in TRIPLES:
+        tau4 = ((sqrt(b) + sqrt(a)) / (sqrt(b) - sqrt(a))) ** 4
+        xs = [isqrt(a * m - 1) for m in ms]
+        for i in range(len(ms) - 2):
+            if xs[i] < 1:
+                continue
+            n += 1
+            obs = ms[i + 2] / ms[i]
+            exact = (tau4 * xs[i] ** 2 + 1) / (xs[i] ** 2 + 1)
+            assert obs > exact, (a, b, ms[i], ms[i + 2], obs, exact)
+            clean_failures += obs < tau4
+    assert n > 20, n
+    assert clean_failures > 0, "the clean form did not fail -- widen X"
+
+
+def test_O4_window_condition_is_tau_min_fourth_below_two_plus_one_over_X_squared():
+    """Rearrangement: m3/m1 < 2 and the gap bound force tau_1^4 < 2 + 1/X_1^2."""
+    for xi, want in [(1, 53.694), (2, 97.990), (3, 115.295), (10, 131.978)]:
+        thr = 2 + 1 / xi**2
+        t = (thr**0.25 + 1) / (thr**0.25 - 1)
+        assert abs(t * t - want) < 1e-3, (xi, t * t)
+        # and the exact rearrangement it comes from
+        assert (thr * xi**2) == pytest.approx(2 * xi**2 + 1)
+    # the X_1 -> infinity limit is the closed form
+    assert abs((2 ** 0.25 + 1) / (2 ** 0.25 - 1) - T_TRIPLE) < 1e-12
+
+
+def test_O4_is_not_binding_on_realised_classes():
+    """Classes clearing b/a > 133.87 with three moduli stay far from a window."""
+    adm = [(a, b, ms) for a, b, ms in TRIPLES if b > T_TRIPLE**2 * a]
+    assert adm, "no class clears the threshold -- the check would be vacuous"
+    best = min(min(ms[i + 2] / ms[i] for i in range(len(ms) - 2))
+               for _a, _b, ms in adm)
+    assert best > 2, best        # none is anywhere near a window
+    assert best > 7              # in fact not within a factor of 7

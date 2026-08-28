@@ -621,6 +621,81 @@ measuring c here is legitimate where measuring the conclusion is not: c is read
 off configurations that **do** occur, so this is not
 `triples-cannot-be-settled-by-measurement`.
 
+### Theorem O.4 — a bound that assumes nothing about which multiplier acts
+
+O.3, O.3′ and O.3″ all assume τ₁ acts. **O.4 does not**, and that is the whole
+point of it: it is the first statement here that reaches the p, q ≥ 2 gap where
+O.2 is actually open.
+
+The idea is composition. If m₁ < m₂ < m₃ are three shared moduli of one class,
+the two steps have multipliers τ₁₂, τ₂₃ — whatever they happen to be — and the
+composite τ₁₃ = τ₁₂τ₂₃ is what the window has to accommodate. Since **every**
+multiplier is at least the smallest one, the window must fit τ_min².
+
+Write T = {(U + V√D)/M : U² − DV² = M², U, V ∈ ℤ} and τ_min = min{τ ∈ T : τ > 1}.
+
+> **Step 1 (the map).** Any two solutions give U = bX_iX_j − aY_iY_j and
+> V = X_iY_j − X_jY_i with U² − DV² = M², and **X_j = (UX_i + VaY_i)/M**,
+> Y_j = (UY_i + VbX_i)/M. *(0 failures over all 1950 consecutive pairs at
+> X = 3000, trying all four sign conventions — and it holds across orbits, not
+> only within one.)*
+>
+> **Step 2 (the exact inequality).** aY_i² = bX_i² + M > bX_i² gives
+> aY_i > X_i√(ab) = X_i√D, so
+>
+> **X_j > ((U + V√D)/M)·X_i = τ_V·X_i.**
+>
+> *This is where the factor a cancels, and it is the step to get right.* Bounding
+> the symmetric form |V| = M(X_j²−X_i²)/(X_jY_i + X_iY_j) instead loses a factor
+> of a and yields τ evaluated at V/a — correct but weaker, and wrong at a > 1.
+> Going through the map is what makes it sharp.
+>
+> **Step 3.** τ_V ≥ τ_min at each step, so X₃ > τ_min²X₁, and m = (X²+1)/a gives
+>
+> **m₃/m₁ = (X₃² + 1)/(X₁² + 1) > (τ_min⁴X₁² + 1)/(X₁² + 1).**
+>
+> **Step 4.** A dyadic window needs m₃/m₁ < 2, i.e. τ_min⁴X₁² < 2X₁² + 1. ∎
+
+> **Theorem O.4.** Three shared moduli of the class (a, b) lie in one dyadic
+> window only if **τ_min⁴ < 2 + 1/X₁²**, where X₁ = √(am₁ − 1) is the smallest.
+
+**The finite term is not decoration — it is why the clean form is false.** The
+modulus ratio equals τ² only asymptotically; exactly, m = (X²+1)/a. Dropping the
++1 gives "m_{i+2}/m_i ≥ τ₁⁴", which **fails 9 times in 110 gaps at X = 4000** —
+tightest at (a,b) = (1,5), m = 2 → 65, where the observed 32.50 is well under
+τ₁⁴ = 46.98. With the correction there are **0 violations in 110**, and it is
+sharp: at (1,5), m = 20737 → 974170 the bound is 46.9765 against an observed
+46.9774.
+
+Since |V| ≥ 2 unless a² − ab + b² is a perfect square, **τ_min = τ₁** and the
+theorem is a threshold on b/a that tightens as m₁ grows:
+
+| X₁ | 1 | 2 | 3 | 5 | 10 | → ∞ |
+|---|---|---|---|---|---|---|
+| needs τ₁⁴ < | 3 | 2.25 | 2.111 | 2.04 | 2.01 | 2 |
+| needs b/a > | 53.69 | 97.99 | 115.29 | 126.58 | 131.98 | **133.87** |
+
+In closed form, against the **pair** threshold b/a > (1+√2)⁴ = 33.9706:
+
+> **triple:  b/a > [(1+√2)(1 + √2 + 2^{5/4})]² = 133.8748…**,  equivalently
+> **M > 4(2^{1/4} + 2^{3/4})√(ab) = 11.4840·√(ab)**,
+> and the two thresholds are t_pair = (1+√2)² and
+> t_triple = t_pair + 2^{5/4}(1+√2).
+
+**It is slightly stronger than the determinant route and rests on less.** From
+`three-term-determinant-identity`, |V₁₃| ≥ 4 forces an effective index ≥ 2 and so
+M > 8√2·√(ab) = 11.3137√(ab) — but converting |V| to a modulus ratio needs the
+*asymptotic* law `V-is-the-asymptotic-not-the-constant-2`. O.4 gives 11.4840 with
+no asymptotics anywhere.
+
+**What O.4 does not do.** It is a necessary condition, not a contradiction, so
+O.2 stays open; it quadruples the threshold (33.97 → 133.87) without closing
+anything. And it is not binding in practice either: among the 31 classes at
+X = 4000 that clear b/a > 133.87 *and* hold three moduli, the smallest two-step
+ratio is **14.50** at (a, b) = (1, 533) — a factor 7.25 from the 2 a window
+needs. The live witness (53, 423125) has b/a = 7983.5 and is permitted, correctly,
+since it carries a pair and not a triple.
+
 **And the candidate criterion in the withdrawn section was the wrong shape**,
 which matters only for reading that section's numbers. For three moduli
 m, r₁m, r_km all inside [m, 2m) the requirement is **r_k < 2** alone; the product
