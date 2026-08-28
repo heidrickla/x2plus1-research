@@ -239,6 +239,40 @@ So the informative population for O.2 is *classes admitting two in-window
 multipliers* — **43** at X = 3000 — not classes with three moduli (60), and not
 all classes. No law is fitted to 23 → 43 → 78; the values are the statement.
 
+**Two counts, not one.** *"Realises two moduli"* and *"realises two moduli **in
+one window**"* differ, and X = 3000 is too small to show it: there all three
+coincide. At X = 6000, four of the five are in one window — (1,423125) 10,17;
+(1,51701) 82,145; (53,423125) 10,17; **(37,26245) 545,986**, a fourth live close
+pair — while **(13,27145) has moduli 2 and 530, a ratio of 265**.
+
+### And the threshold is exact, which gives the mechanism
+
+τ_k² < 2 needs k < 0.17678·M/√D asymptotically, so **k ≥ 2 needs
+M/√D > 8√2 = 11.3137** — O.12's constant and the corrected Plücker value, being
+|V| ≥ 4 read as k ≥ 2. With M/√D = (u−1)/√u, solving v² − 8√2·v − 1 = 0 at
+v = √u:
+
+> a **chain** is possible only for **u = b/a > (4√2 + √33)² = 129.9923**
+
+against O.4's asymptotic **triple** threshold of 133.8748. The chain threshold
+sits 3.88 below, as it must — a triple needs a chain and something more.
+
+**And that is why the set is empty, because the two requirements pull opposite
+ways.** A chain needs u > 130; but the maximum modulus count *falls* with u:
+
+| u | classes | max moduli |
+|---|---:|---:|
+| < 2 | 530,837 | 2 |
+| 2–10 | 710,187 | **8** |
+| 10–100 | 392,697 | 6 |
+| 100–10³ | 124,151 | 4 |
+| > 10³ | 57,283 | 3 |
+
+**The range where a chain is possible is the range where the moduli to use it are
+scarcest.** The 43 chain-admitting classes have at most two, against the three a
+triple needs. *Not established as structural* — three moduli do occur above
+u = 10³, so modulus count alone does not forbid a triple.
+
 *(Recorded because the identification is tempting and wrong: assigning moduli to
 orbits by |V| = 2 — treating the fundamental multiplier as the fundamental
 automorph — produces "two moduli of one orbit in a window", which contradicts
