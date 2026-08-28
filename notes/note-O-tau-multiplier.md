@@ -379,6 +379,29 @@ Theorem O.3 proves for p = 1 — divisibility wanting M small, geometry wanting 
 large — showing up as a factor of four rather than as a contradiction. **It is a
 measurement, not a proof, and the general case of O.2 is open.**
 
+### Where a proof of the general case would live
+
+The multiplier equation U_k² − D(2k)² = M² says multipliers **are** solutions of
+U² − DV² = M² with V even. Within one class the automorph sends
+(U,V) → (tU + DuV, tV + uU), so V is multiplied by roughly ε ≥ √D at each step.
+Checked:
+
+| (a,b) | the k ≥ 2 multiplier's V | next V in the trivial class |
+|---|---|---|
+| (1, 1105) | 28 | 57,250,510,370 |
+| (1, 2465) | 36 | 120,924,595,842 |
+| (1, 5986) | 54 | 15,354,174,254 |
+
+The class of the trivial solution (a+b, 2) jumps straight past every small V. So
+
+> **every k ≥ 2 multiplier is the fundamental solution of its own class**,
+
+and the general case of O.2 reduces to a bound on how small the fundamental
+solutions of U² − DV² = M² can be — a Nagell-type question about a specific
+Pell-with-square-right-hand-side, not about x²+1 at all. That is a well-posed
+question in a studied area, which is a better place to leave it than the
+factor of 3.91.
+
 *Caveat, stated because it is the only thing keeping this from being a flat
 refutation:* the 110 triples live in wide windows (ratio ≥ 13), not dyadic ones.
 Nothing proves the dyadic regime behaves the same way. What the data removes is
