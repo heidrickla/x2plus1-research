@@ -1566,10 +1566,17 @@ def test_O12_banded_cofactors_share_at_most_one_modulus_per_window():
 def test_O12_has_slack_so_the_range_may_be_read_loosely():
     """4.7913 uses only |V| >= 1; |V| >= 2 gives 13.93 / 33.97, observed min 43.79."""
     thr1 = (5 + sqrt(21)) / 2
-    # |V| >= 2: tau(2) = (t+1)/(t-1) with t = sqrt(b/a); tau^2 < 2 + 1/X1^2
+    # |V| >= 2: tau_1 = (t+1)/(t-1), t = sqrt(b/a).  A PAIR needs
+    # tau_1^2 < 2 + 1/X1^2, so the bound on tau_1 is the SQUARE root -- the
+    # fourth root is the TRIPLE condition tau_1^4 < 2 + 1/X1^2, which gives
+    # 53.694 at X1 = 1 and is O.4's number, not this one.
     for X1, want in ((1, 13.9282), (10 ** 9, 33.9706)):
-        r = (2 + 1 / X1 ** 2) ** 0.25
-        t = (r + 1) / (r - 1)
+        B = sqrt(2 + 1 / X1 ** 2)
+        t = (B + 1) / (B - 1)
+        assert abs(t * t - want) < 1e-3, (X1, t * t)
+    for X1, want in ((1, 53.6942), (10 ** 9, 133.8748)):        # the triple case
+        B = (2 + 1 / X1 ** 2) ** 0.25
+        t = (B + 1) / (B - 1)
         assert abs(t * t - want) < 1e-3, (X1, t * t)
     assert thr1 < 13.9282 < 33.9706
     # and the smallest ratio actually realised, recorded from exp24's sweep
