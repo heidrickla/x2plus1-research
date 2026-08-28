@@ -125,9 +125,43 @@ from the additive-combinatorics side.
 Their Definition 3.1 and Lemma 3.2 — the Duke–Friedlander–Iwaniec sieve
 transplanted to Ideals(O_K) — are stated for a **general** weight on ideals and
 do not assume the product form. That part is reusable, and it is what
-[Note C](note-C-requirements.md) already discusses. **[VERIFY]** — a reviewer
-flagged that Proposition 3.4 (unlike 3.1 and 3.2) may not be as general as first
-reported, so do not lean on 3.4 without re-reading it.
+[Note C](note-C-requirements.md) already discusses.
+
+**[VERIFY] discharged, against this note's first reading.** A reviewer flagged
+that Proposition 3.4 might not be as general as 3.1 and 3.2. Read at source
+(p. 17), it is not, and the paper says so twice:
+
+> "In Section 3.1 these can be quite general, but for most of the paper we will
+> take K = Q(√−n) and the weight functions will be of a **special product
+> form**." (p. 8, introducing Definition 2.2)
+
+> "Combining Lemmas 3.2 and 3.3 and taking A = 4 immediately leads to the
+> following, which is **the only result from this section that we will need in
+> what follows**. **Proposition 3.4.** … suppose that w : Ideals(O_K) → ℂ is in
+> **product form (2.2)** with some frequency ℓ ∈ Z, and suppose moreover that
+> f, f′ in that definition satisfy the pointwise bound
+> |f(x)|, |f′(x)| ⩽ (Λ_Cramér + Λ′)(x)." (p. 17)
+
+So the general machinery of §3.1 is set up and then **not exported**: the single
+packaged conclusion carries the product-form hypothesis. The reusable surface is
+smaller than this note first claimed, and nothing should lean on 3.4 as a
+general ideal-sieve statement.
+
+**But it does not supply a fifth failure, and it would be convenient to pretend
+otherwise.** Two hypotheses of 3.4 that look like they might exclude f′ = δ₁
+both hold:
+
+- *Product form.* w(x + 2iy) = f(x)δ₁(y) **is** of the form (2.2). The
+  degenerate case is inside their definition, not outside it.
+- *The pointwise bound.* Λ′(1) = 0, since 1 is not prime, but
+  Λ_Cramér(1) = ∏_{p⩽Q}(1 − 1/p)^{−1} ≍ e^γ log Q with
+  Q = exp(log^{1/10}(X^{1/2})) at (1.7), so
+  Λ_Cramér(1) ≍ e^γ·(½ log X)^{1/10} → ∞. Comfortably ≥ 1 = δ₁(1).
+
+So A = {x + i} satisfies the *structural* hypotheses of Proposition 3.4 and
+fails only its *quantitative* ones — which is reason 1 above, and is the same
+α = 1/2 wall yet again. The exclusion is unchanged; its reason is narrower than
+"the shape is wrong".
 
 ## Adversarial review
 
