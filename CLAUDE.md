@@ -324,6 +324,19 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   right. Only reading past the clause finds them. The normalisation convention
   behind the second was inside the very sentence `fm-no-admissible-theta-at-
   density-half` is built on.
+- **Every string edit asserts its anchor.** A `replace` whose anchor text has
+  moved writes back identical content and reports success; `git commit` then says
+  "nothing to commit, working tree clean", which is easy to misread as a
+  collision with the other session when one has genuinely happened that day. A
+  silent no-op is a green result with no work behind it. Same shape as the rule
+  below, one level down — and the aggravating factor is that *a plausible
+  explanation for the anomaly is what stops you checking the implausible one*.
+  Verify by grepping HEAD for the new text, not by trusting the script or the
+  git output. (A related near-miss: a two-branch `replace` here would have
+  written a literal `PLACEHOLDER` into `claims.json` had its first branch
+  matched. It did not, so the result was correct by luck. `tools/` has no guard
+  for this; the sweep for `PLACEHOLDER`, duplicated sentences and unbalanced
+  `~~` across the registry and every note comes back clean as of this writing.)
 - **A guard is not verified until it has failed on an injected violation.** The
   same session's note-to-registry guard passed vacuously: a lowercase-only
   pattern skipped 26 of 103 claim ids, including `sqrt-MX-law` and the refuted
