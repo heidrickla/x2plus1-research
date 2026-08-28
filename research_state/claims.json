@@ -2024,6 +2024,22 @@
       ],
       "notes": "INFERRED, and the gap is that 'eventually one appears' is a heuristic about counting classes, not an argument that a class satisfying the bound must also realise the configuration. The bound is necessary and has never been shown sufficient -- the parallel session's own finding that 39 of 60 informative classes are admissible under O.11 and none holds a triple is exactly that gap, one level up. So this is a conjecture with a mechanism and an attrition curve behind it, not a theorem in waiting. Recorded because the alternative reading -- that the survivors at any given X are a stable set -- is what the data at X = 1500 looked like, and it was wrong twice within two doublings.",
       "proof_site": ""
+    },
+    {
+      "id": "O12-covers-exactly-D-at-most-root-six",
+      "status": "proved",
+      "statement": "Theorem O.12's reach on the D axis is exactly D <= V sqrt6. With the M*D invariant, its pair condition tau(V)^2 < 3 becomes V s < 1/sqrt3 with s = sqrt(ab)/(M D) = sqrt(u)/((u-1) D), i.e. (u-1) D / sqrt(u) > V sqrt3, while a dyadic band supplies only (u-1)/sqrt(u) < 1/sqrt2. So O.12 covers D <= V sqrt6: with |V| >= 1 that is D <= 2.4495, i.e. D = 1 and 2; with |V| >= 2 from the parity lemma it is D <= 4.8990, i.e. D = 1, 2, 3, 4. So the theorem proves the same statement for x^2+2 as for x^2+1, and stops there unconditionally. Required u: 4.7913 at D = 1, 2.3187 at D = 2 (both above the 2 a band gives), 1.7676 at D = 3 (below it).",
+      "proof_site": "notes/note-O-tau-multiplier.md",
+      "experiment": "experiments/exp24_doubly_dyadic.py",
+      "depends_on": [
+        "the-invariant-is-M-times-D",
+        "theorem-O12-doubly-dyadic-c4-free"
+      ],
+      "tags": [
+        "note_o",
+        "gram"
+      ],
+      "notes": "RECONCILES WITH THE LINE-FAMILY ANALYSIS, computed independently and before the M*D invariant was known: there D = c^2, so |V| >= 2 covering D <= 4 is c <= 2, which is exactly the earlier finding that |V| >= 2 extends O.12 to c = 2 and no further. Two routes to the same boundary. NOTE the gap between what the ARGUMENT covers (D <= 2, or <= 4 with parity) and what the PROPERTY appears to satisfy (D = 1..10 and beyond at the sizes swept) -- but 'appears' is doing real work there, since D = 35 held at X = 1500 and failed at X = 2500."
     }
   ]
 }

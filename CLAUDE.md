@@ -371,7 +371,12 @@ unit-free triples at D ≤ 60; and the density is a prediction that could have
 failed — 51 of 160 D ≤ 160 admit a unit-free triple, **none with D ≤ 25**, which
 is the shape a D^{4/3} loosening predicts and not the shape of a sporadic set.
 **So x²+1 is the D = 1 end of a one-parameter family — the point where every
-bound in the apparatus is tightest.** The twelve theorems are not weakened by
+bound in the apparatus is tightest.** **And M·D gives O.12's exact reach on that
+axis**: the pair condition becomes (u−1)·D/√u > V·√3 against a band's
+(u−1)/√u < 1/√2, so O.12 covers **D ≤ V√6** — **D = 1, 2** unconditionally and
+**D ≤ 4** with the parity lemma's |V| ≥ 2. So the theorem also proves the
+statement for **x²+2**, and stops there. *(This reconciles with the line-family
+result computed before M·D was known: D = c², so D ≤ 4 is c ≤ 2.)* The twelve theorems are not weakened by
 that; they are *located*. ⚠ And **the right axis is the discriminant**:
 4(x²+bx+c) = (2x+b)² + |Δ|, so the line family (Δ = −4c²), the D family
 (Δ = −4D) and general quadratics are one axis — 11 discriminant classes checked,
