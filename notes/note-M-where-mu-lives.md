@@ -331,6 +331,18 @@ It also accounts for the sign of their exponent gap: per-modulus 0.4803 against
 per-progression 0.5046, i.e. **below** √(MX), matching √(#m·X) with
 #m ≍ M/√(log M).
 
+**And the bound predicts the saving at the boundary, which is not 1.** At M = X
+the reduction gives S ≪ √(#m·Q₂) with Q₂ ≍ cX and #m ≍ X/√(log X), hence
+
+> S ≪ X·√c / (log X)^{1/4},  so the saving T/S is ≈ **(log X)^{1/4}**.
+
+At X = 4×10⁵ that is 1.90, against a measured saving of **2.41** — same shape,
+constant ≈ 1.27. So the reduction and the direct boundary measurement agree, and
+both say the same thing about §1's headline: **what vanishes at θ = 1/2 is the
+exponent**, Q^{(1/2−θ)/2} = Q⁰. The saving itself is a log power and is
+measurably above 1. Reading "the saving is exactly zero at θ = 1/2" as S = T is
+wrong by a factor of two and a half.
+
 *(The lower bound S_μ(M) ≫ √(MX) is untouched by this and remains fitted. §1
 does not use it.)*
 
