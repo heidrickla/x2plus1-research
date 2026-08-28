@@ -821,6 +821,34 @@ argument, reached without it.
 7. **Constructing candidates from multipliers.** Invalid in principle, not just
    in practice — see the withdrawal above: the r-product is a ratio between
    solution *classes* and does not predict the spacing of the *occupied* moduli.
+8. **Deciding O.2 at the residue level, without finding solutions.** This looked
+   the most promising, because acting is orbit-invariant and therefore a function
+   of (S, T) mod M — so a class could in principle be decided with no search at
+   all. Two things came out of it, one useful and one fatal.
+
+   *Useful:* the relaxed conditions M | A_kS and M | B_kT **factorise** — the
+   first constrains only S, the second only T — so two multipliers p, q can
+   co-act only if **αβ | M** with α = gcd(A_p, A_q, M), β = gcd(B_p, B_q, M).
+   Cheap, and it eliminates 19 of the 40 in-window pairs found with a < 80,
+   b < 60000. It is also *only* necessary: sum-and-difference is weaker than the
+   original pair whenever 2 is not invertible mod M, and our M is usually even.
+   Validated against real solutions — 898 604 agreements, 2 794 disagreements,
+   all in the permissive direction, so a zero here would still be conclusive.
+
+   *Fatal:* it is not zero. Enumerating (X, Y) mod M against the **exact** four
+   linear conditions plus the conic X² ≡ Y², all **21 of 21** surviving pairs
+   have a simultaneous residue solution — (1, 16354) at p=1, q=15; (2, 5125) at
+   p=1, q=8; (74, 21389) at p=1, q=2; and eighteen more.
+
+   > **So there is no residue obstruction to O.2 whatsoever.** The configurations
+   > exist mod M and are simply not occupied.
+
+   That kills the route and sharpens the conjecture: **any proof of O.2 must
+   involve occupancy** — which classes actually contain solutions — and not the
+   congruence data. Occupancy is a class-group question about the form, so this
+   is also why the "countable conjunction of finite checks" framing above, while
+   correct, does not make O.2 mechanically decidable: each check needs a
+   fundamental solution, not a residue.
 
 The common shape of 5 and 6 is that every bound available constrains M, a, b and
 the *ratio*, while a triple is unconstrained in **height**. Any proof will have
