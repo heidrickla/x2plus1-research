@@ -12,6 +12,7 @@ cannot drift from the repo.
 from __future__ import annotations
 
 import json
+import re
 import subprocess
 import sys
 from collections import Counter
@@ -49,29 +50,56 @@ def _claims_summary() -> str:
     return "\n".join(lines)
 
 
-def _where_things_stand() -> str:
-    """The state section of CLAUDE.md, read rather than duplicated.
+def _state_index() -> str:
+    """An INDEX of CLAUDE.md's state section, not a copy of it.
 
-    This used to be hardcoded prose, and it drifted: it asserted that x^2+1
-    meets DFI's Type I hypothesis for several commits after that claim became
-    `refuted` in the registry. A primer that re-injects a refuted claim into
-    every future session is worse than no primer, so the text now has exactly
-    one home.
+    This used to return the section verbatim, on the reasoning that the text
+    should have exactly one home and so must be read rather than hardcoded.
+    Reading rather than hardcoding is right; reproducing the result was not.
+
+    CLAUDE.md is injected into every session as project instructions -- including
+    after a compaction, which is the case this hook exists for -- so the verbatim
+    copy put the same ~52 kB of text into one context twice. Worse, it took the
+    primer to 66 kB, and a SessionStart hook that large is not delivered: the host
+    truncates it to a ~2 kB preview and spills the rest to a file nothing reads.
+    Measured at this session's own start: "Output too large (51.3KB)". So the
+    primer was failing at its whole job, silently, which is the direction this
+    repo calls a false clean bill.
+
+    The state therefore lives in CLAUDE.md and is already in context. What the
+    primer adds is what CLAUDE.md CANNOT carry: live git state, claim counts, the
+    inferred and refuted lists, open markers. This emits only the bold lead-in of
+    each paragraph, so a compacted session knows what the always-loaded section
+    covers and can search it -- about 2.5 kB instead of 52 kB.
     """
     path = REPO / "CLAUDE.md"
     if not path.exists():
-        return "(CLAUDE.md missing)"
-    lines = path.read_text(encoding="utf-8").splitlines()
+        return "    (CLAUDE.md missing -- its 'Where things stand' is the state)"
+    text = path.read_text(encoding="utf-8")
     try:
-        start = lines.index("## Where things stand")
+        start = text.index("## Where things stand")
     except ValueError:
-        return "(CLAUDE.md has no 'Where things stand' section)"
-    body = []
-    for line in lines[start + 1:]:
-        if line.startswith("## "):
-            break
-        body.append(line)
-    return "\n".join(body).strip()
+        return "    (CLAUDE.md has no 'Where things stand' section)"
+    rest = text[start:]
+    nxt = re.search(r"\n## ", rest[1:])
+    section = rest[: nxt.start() + 1] if nxt else rest
+    leads = []
+    for para in re.split(r"\n\s*\n", section):
+        para = para.strip()
+        if not para.startswith("**"):
+            continue
+        flat = re.sub(r"\s+", " ", para.replace("**", "").replace("*", ""))
+        leads.append(flat.strip())
+    if not leads:
+        return "    (no bold lead-ins found -- read the section directly)"
+    out = [
+        "    CLAUDE.md is already in your context as project instructions.",
+        f"    Its '## Where things stand' section is {len(section):,} chars and IS the state.",
+        f"    Do not re-read it from disk -- search it.  Its {len(leads)} paragraphs open:",
+    ]
+    for i, lead in enumerate(leads, 1):
+        out.append(f"      {i:>2}. {lead[:110].rstrip()}")
+    return "\n".join(out)
 
 
 def _open_markers() -> str:
@@ -99,10 +127,12 @@ the Friedlander-Iwaniec asymptotic sieve reformulated over Z[i]. Read README.md
 and notes/README.md first; the charter is x2plus1-research-plan.md (do not edit
 it without deliberate reason).
 
-WHERE THINGS STAND (verbatim from CLAUDE.md, which is the one hand-maintained
-copy -- this script does not carry its own version of it)
+WHERE THINGS STAND -- an INDEX, because the text itself is already in your
+context. CLAUDE.md is loaded as project instructions on every request, so
+reproducing it here would put the same 52 kB in twice and would push this hook
+past the size the host will deliver.
 
-{_where_things_stand()}
+{_state_index()}
 
 DISCIPLINE, and this repo has burned itself twice by ignoring it:
   - research_state/claims.json records every claim with an ENFORCED status
