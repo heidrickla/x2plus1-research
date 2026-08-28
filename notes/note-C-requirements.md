@@ -532,6 +532,17 @@ this section's first version came close to implying otherwise.
 > hand, the problem for polynomials of **higher degree** seems to us to be very
 > far away."
 
+**Read that first sentence with the convention in hand, or it says the opposite
+of what it says.** DFI's *determinant* is **D = ac − b²**, not the discriminant.
+For ν² + 1 that is D = 1 > 0 — the **positive** case, which their theorem covers
+(see above, p. 424). The discriminant of ν² + 1 is −4, so a reader checking the
+discriminant instead will conclude that DFI exclude exactly this repo's
+polynomial. They do not: "negative determinant" is ac − b² < 0, the split/real
+case. Verified against a 300 dpi rasterisation of pp. 423–425, not the text
+layer. This is the same class of trap as the r_k convention in
+[Note O](note-O-tau-multiplier.md) — two conventions, one symbol, opposite
+conclusions — and both were caught only by writing the convention down.
+
 and, on the uniformity in d that L_d(M) needs:
 
 > "Here, a small improvement of the trivial estimate suffices for applications,
