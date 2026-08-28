@@ -376,12 +376,24 @@ violations.)* Squaring 2U_k = jM + 4ka against U_k² = M² + 4k²D gives
 > M = 8kaw/e and b = a + M.
 
 Meanwhile r_k < 2 requires 2k = (M/2√D)(√r_k − 1/√r_k) < M/(2√2·√D), i.e.
-M > 2√2·k√(ab). Substituting M = 8kaw/e and b = a + 8kaw/e, and using
+**M > 4√2·k√(ab)** — recall r_k is the *modulus* ratio, so the window is
+r_k < 2, not τ_k < 2. Substituting M = 8kaw/e and b = a + 8kaw/e, and using
 k = (j+w)/2, this becomes
 
 > e² + 4jwe + 2w²(2e − 1) < 0.
 
 For j ≥ 3 we have e ≥ 5, so every term is positive. Contradiction. ∎
+
+**Robust to the constant.** An earlier draft printed the weaker M > 2√2·k√(ab)
+at this step. Carrying that through instead gives
+
+> e² + 4jwe + 4w²(e − 2) < 0,
+
+also a sum of strictly positive terms for e ≥ 5. Expanded in j and w, both
+reductions have negative part −8(j+w)² and −16(j+w)² respectively, dominated by
+the 48ej²-type terms since e ≥ 5. So the theorem does not turn on which constant
+is used — and the weaker one defines a *larger* geometry set, making the
+measured disjointness a stronger statement rather than a weaker one.
 
 **How much of the problem O.3 reaches — and it is a minority.** The hypothesis
 "M odd and squarefree" is not cosmetic. For a = 1 with b admissible and odd,
