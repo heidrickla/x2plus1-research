@@ -881,6 +881,25 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   **placement**, not a second run, and the material already exists. It has paid
   four times and costs nothing.
 
+- **A float landing on a strict/non-strict boundary is invisible to the eye and
+  to the test.** The asymptotic D-reach turns on whether a band's u < 2 attains
+  (u−1)/√u = 1/√2. It does not — u < 2 is **strict** — so D = 8, where the
+  threshold is exactly 1/√2, is the last **covered** value. But `u0(8)` evaluates
+  to **1.9999999998**, so a bare `< 2` check reports D = 8 as *uncovered*, and
+  the printed number looks right, the comparison looks right, and the answer is
+  off by one value. **At a boundary, reason from the identity** — (2−1)/√2 = 1/√2
+  exactly — **not from the float.**
+
+- **A false alarm is self-limiting; a false clean bill is self-reinforcing.**
+  Investigating an alarm costs you and you stop; a clean bill *retires the
+  question*, and the next reader inherits "already checked". All four
+  audit-hunting-its-own-defect instances here produced a **clean bill** and none
+  produced an alarm — which is not chance: `M*D` as a regex means *zero-or-more M
+  then D*, and a floor pattern that cannot see `assert len(x) > N` misses the
+  common form. **A pattern too permissive matches more and reports less**, so
+  every failure of a checker written this way falls on the silent side. Assume a
+  clean audit is broken until it has failed on an injected violation.
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified
@@ -923,6 +942,18 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   documented sieve truncation and a wrong denominator respectively, neither of
   them rounding. Three is a better sentence than one, which is the same
   operation.)*
+
+- **A strict comparison at an exact boundary is decided by which algebraically
+  equivalent expression you evaluate.** O.12's D-reach turns on whether
+  u₀ = 2 at D = 4V. It is exactly 2 (sympy: (u−1)²/u = 1/2 has roots 1/2 and 2),
+  but `v = (t+√(t²+4))/2; u = v²` returns **1.9999999999999996** while
+  `u = (2+t²+t√(t²+4))/2` returns **2.0** — so a bare `u < 2` reports D = 8 as
+  uncovered from one and covered from the other, and the reach is off by one
+  value of D. **The trap is not that floats are inexact**; it is that equivalent
+  forms diverge *exactly where the comparison is strict*, which is precisely
+  where the answer changes. One session read the float and got it wrong; the
+  other got it right **by luck**, having picked the exact expression without
+  reasoning about it. Decide boundary cases symbolically.
 
 - **Paraphrases of a source drift toward whatever makes the local argument
   work, and only re-reading the sentence catches it.** `fm-barrier-range-is-
