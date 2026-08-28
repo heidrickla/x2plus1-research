@@ -1508,6 +1508,29 @@ so it is one mechanism among several.
 > values that happened to be found, not of failure, and the bounded search could
 > not have seen the case refuting it.
 
+**And M·D gives O.12's exact reach on this axis.** The pair condition
+τ(V)² < 3 becomes V·s < 1/√3 with s = √(ab)/(M·D) = √u/((u−1)D), i.e.
+
+> **(u − 1)·D/√u > V·√3**,
+
+while a dyadic band supplies only (u−1)/√u < 1/√2. So O.12 covers D exactly when
+**D ≤ V·√6**:
+
+| input | bound | covers |
+|---|---|---|
+| \|V\| ≥ 1 (unconditional) | D ≤ √6 = 2.4495 | **D = 1, 2** |
+| \|V\| ≥ 2 (the parity lemma) | D ≤ 2√6 = 4.8990 | **D = 1, 2, 3, 4** |
+
+**So O.12 is not only about x²+1 — it proves the same statement for x²+2**, and
+stops there unconditionally. *(Thresholds: u must exceed 4.7913 at D = 1 and
+2.3187 at D = 2, both above the 2 a band supplies; at D = 3 it is 1.7676, below
+it, and the argument fails.)*
+
+**And this reconciles exactly with the line-family analysis above.** There D = c²,
+so |V| ≥ 2 covering D ≤ 4 is c ≤ 2 — precisely the earlier finding that |V| ≥ 2
+extends O.12 to c = 2 and no further. Two routes to the same boundary, computed
+independently before the M·D invariant was known.
+
 **And the same axis refutes the O.2 analogue outright, at D = 39.**
 
 > **cofactors (5, 8)** — ratio 1.6, one dyadic **band**
