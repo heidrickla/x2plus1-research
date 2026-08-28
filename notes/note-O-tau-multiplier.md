@@ -1932,6 +1932,30 @@ square and τ_k² < 2. At X = 3000, over **1,815,155** reduced ratio classes:
 So no chain is realised anywhere, and **O.2's entire content at this X lives on 43
 classes** — of which 40 lack the moduli to use the multipliers they admit.
 
+**It scales, and the fraction halves per doubling** *(all three rows reproduced
+independently)*:
+
+| X | classes | 0 mult. | 1 | **2** | 3+ | fraction with 2 | moduli realised |
+|---:|---:|---:|---:|---:|---:|---:|---|
+| 1500 | 453,111 | 375,381 | 77,707 | **23** | 0 | 5.1×10⁻⁵ | {1: 23} |
+| 3000 | 1,815,155 | 1,503,796 | 311,316 | **43** | 0 | 2.4×10⁻⁵ | {1: 40, 2: 3} |
+| 6000 | 7,267,040 | 6,020,269 | 1,246,693 | **78** | 0 | 1.07×10⁻⁵ | {1: 73, 2: 5} |
+
+The count grows 23 → 43 → 78 while the class population grows fourfold per
+doubling, so **the set where a triple is structurally possible grows far more
+slowly than the classes do**. *(No law is fitted to 23 → 43 → 78; the values are
+the statement. What is claimed is the direction, which is the same at all three
+sizes.)* And **the maximum moduli realised is two at every size**, against the
+three a triple needs.
+
+> **⚠ "realises two moduli" and "realises two moduli IN ONE WINDOW" are different
+> counts, and they first diverge at X = 6000.** Of the five classes realising two
+> moduli there, **four** have them inside one window — (1,423125) at 10, 17;
+> (1,51701) at 82, 145; (53,423125) at 10, 17; (37,26245) at 545, 986 — while
+> **(13, 27145) has moduli 2 and 530, a ratio of 265**. At X = 3000 all three
+> coincided, so the distinction was invisible there and the smaller table cannot
+> show it.
+
 **And the three that realise a k ≥ 2 step are exactly `exp14`'s live
 non-fundamental close pairs:**
 
