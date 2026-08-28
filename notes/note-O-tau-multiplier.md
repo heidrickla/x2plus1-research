@@ -347,7 +347,9 @@ them** — the dual statement, satisfied with room to spare.
 **And it buys nothing quantitatively, which must be said or someone will reach
 for Kővári–Sós–Turán.** A K₃,₃-free bipartite graph on (M, N) vertices has
 O(M·N^{2/3} + N) edges. In a dyadic window there are ~M moduli, ~X²/M cofactors,
-and the *actual* edge count is ~X — one incidence per x. The KST bound exceeds
+and the *actual* edge count is **0.331·X** — measured flat to 0.1% across a
+factor 256 in M, not the bare "~X" an earlier version of this sentence gave,
+which invites the constant 1 and is 3× wrong. The KST bound exceeds
 that by **2–4 orders of magnitude** in every regime (e.g. X = 10⁶, M = 10⁶:
 10¹⁰ against 10⁶). The same is true of C₄-freeness over Z[i], and it is worth
 being explicit that **Note F does not use C₄-freeness via edge counting at all**
