@@ -1538,6 +1538,25 @@ The asymptotic row is the M·D invariant applied to the threshold family: the
 condition M/√(ab) > 2√2·V becomes **(u−1)/√u > 2√2·V/D** — *the threshold divided
 by D* — and a band supplies (u−1)/√u < 1/√2, so a banded pair needs **D > 4V**.
 
+> ### ⚠ The boundary is decided by an identity, not by a float comparison
+>
+> At D = 4V the requirement is *exactly* 1/√2 and u₀ is *exactly* 2 — sympy
+> returns {1/2, 2} for (u−1)²/u = 1/2. But **two algebraically identical
+> expressions disagree there in floating point**, on the wrong side of a strict
+> test:
+>
+> | route | value | `u₀ < 2` ? |
+> |---|---|---|
+> | v = (t + √(t²+4))/2, u = v² | **1.9999999999999996** | **True** — reports D = 8 *uncovered* |
+> | u = (2 + t² + t√(t²+4))/2 | **2.0** | False — correct |
+>
+> The trap is not "floats are inexact" — it is that **equivalent expressions
+> diverge exactly where the comparison is strict**, so the number looks right, the
+> comparison looks right, and the answer is off by one value of D. *(I reached the
+> correct endpoint only because I happened to use the second expression; I did not
+> reason about it. The parallel session used the first and read its output.)*
+> **Decide such boundaries symbolically.**
+>
 > **D = 4V is COVERED, not the crossover.** A band gives u < 2 **strictly**, so
 > (u−1)/√u approaches 1/√2 without attaining it; at D = 4V the requirement is
 > exactly 1/√2 and no banded u reaches it. The first *uncovered* values are

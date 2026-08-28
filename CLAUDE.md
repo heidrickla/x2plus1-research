@@ -900,6 +900,28 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   every failure of a checker written this way falls on the silent side. Assume a
   clean audit is broken until it has failed on an injected violation.
 
+- **And the same defect produces a false ALARM when the pattern is too specific
+  — which is how it lands as an accusation against the other session.** Checking
+  whether my own CLAUDE.md edit had survived, I grepped the sentence I had
+  written. It returned **0 in the working tree and 0 in HEAD**, and the peer had
+  just committed that file — so the reading was *their write clobbered mine*.
+  It had not: the phrase is **hard-wrapped**, "algebraically" ends line 946 and
+  "equivalent expression" begins 947, and the text was there all along, already
+  committed. `1.9999999999999996` — a fragment that cannot wrap — finds it at
+  once. **Every note and CLAUDE.md here is wrapped at ~79 columns, so any
+  verification grep of more than about forty characters of prose is at risk**,
+  and the failure is silent in the direction that matters: it says *absent* when
+  the truth is *present*. **Verify landed text with a token that cannot wrap — a
+  number, an identifier, a symbol — never a sentence.**
+  The pair is the whole rule: *too permissive ⇒ false clean bill, self-
+  reinforcing; too specific ⇒ false alarm, self-limiting*, one defect with two
+  signs. The asymmetry above held exactly — the alarm cost two tool calls and
+  stopped. But note where a false alarm is **not** cheap: on a shared file it
+  reads as the other session having destroyed your work, and this is the
+  **second** time an instrument here came one step from that accusation (the
+  over-reporting claims-diff grep was the first). Against a peer, self-limiting
+  is not the same as harmless.
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified
