@@ -122,6 +122,49 @@ a close pair can be realised at a **non-fundamental** multiplier. `exp14` finds
 and forbids a third in all four** — c = gcd(M,2X) is 2, 4 or 12 throughout.
 Rare, not absent, and they are the falsifiers any extension must survive.
 
+**The sharp form of O.2, and the identity behind the 17.** Asking which
+multipliers *act* on a realised ξ (occupancy as input) shows they act freely —
+18,116 solutions admit one, 215 admit two, some six, and the acting set can be a
+cyclic semigroup: (1,5) at m = 2 admits k = 1, 3, 8, 21, 55, 144, i.e. τ₁, τ₁²,
+τ₁³. **So "τ² is never integral" is false in general**; O.3′ forbids it only in
+the window regime. But **never two inside a window**: 13,840 ξ with an acting
+multiplier, 327 with exactly one at r < 2, **zero with two**, and the smallest
+second ratio over 53 cases is 14.91 against the 2 a window needs. That is O.2 in
+measurable form — *on any ξ, at most one acting multiplier has r < 2* — and
+acting is orbit-invariant because the automorph diagonalises S = X+Y, T = X−Y
+with **unit** eigenvalues mod M. Behind it: with B_p = M + δ_p,
+**δ_p(2M + δ_p + 4pa) = 4paM(p−1)** exactly (0 violations in 1,002,709), so
+δ_p = 0 **iff** p = 1 — the same fact as j = 2 ⟺ k = 1 and M₂ = 1 — and
+δ_p < 2ap(p−1); with δ_p < 0.06066M from the geometry, gcd(δ_p,M) ≤ δ_p gives
+M/d_p ≥ 17, recovering O.3′'s constant by a second route.
+
+**The θ axis and the Gram axis are the same object.** S_μ(M)² ≤ #{m∼M}·Q₂ with
+**Q₂ = DIAG + OFF** exactly, DIAG ≍ X the squarefree incidence count and
+OFF = Σ_{x≠y} μ(x²+1)μ(y²+1)·**G_M(x,y)** — literally the Gram entries Prop L.1
+bounds. Cauchy–Schwarz is tight (S/CS ≈ 0.75) and |OFF|/DIAG ≤ 0.5, so the
+*upper* bound §1 needs follows from OFF = o(DIAG), giving
+S_μ(M) ≪ √(MX/√(log M)) = √(MX)/(log M)^{1/4}. **But temper it**: bounding G_M
+and discarding signs is 11×–1988× too weak, so OFF = o(DIAG) is itself a
+μ-cancellation claim. The reduction changes the *shape* of the missing step, not
+its difficulty, and must not be quoted as progress. `sqrt-MX-law` stays
+`extrapolated`. The unifying fact: a (modulus, root) pair **is** a primitive
+Gaussian ideal, so per-progression = ℤ[i] and per-modulus = ℤ; the merging of
+several primitive ideals into one rational modulus **creates the 4-cycles that
+cost the Gram bound and produces the root cancellation that pays the Type II
+sum**. One mechanism, opposite signs. ASP's (B) is indexed by rational m, so the
+sieve-relevant exponent is the per-modulus 0.480, not 0.505.
+
+**Conventions kill, and only recomputation catches them.** Three separate times
+in one day a quantity was computed correctly and *described* in a way that
+silently changed it: r_k as modulus-ratio vs X-ratio (τ² vs τ); DFI's
+"determinant" D = ac − b² vs the discriminant −4, which decides whether their
+theorem covers ν²+1 at all and had its resolution 200 lines from the quote; and
+S_μ grouped per modulus vs per progression, differing by √(root count). Each was
+found by *recomputing*, never by rereading, and each sat next to a correct
+machine check — one O.1 test's docstring carried the window qualifier its own
+note had dropped. **Tests protect the computation; nothing protects the
+paraphrase.** Write the convention where the symbol is defined.
+
 **Measurement cannot settle the triple question but it can kill a proposed
 theorem.** `triples-cannot-be-settled-by-measurement` still holds for the triple
 itself — the configuration never occurs, so every sweep is vacuous. Live
