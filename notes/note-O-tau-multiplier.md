@@ -311,6 +311,23 @@ rational graph is K₂,₂-rich and, in this range, K₃,₃-free. That is a sha
 statement of the Z-vs-Z[i] gap than "max Gram 2 instead of 1", because it says
 *which* completeness survives the transfer and which does not.
 
+**O.2 is self-dual, which doubles what proving it would give.** A cofactor pair
+(a, b) sharing a modulus satisfies b x² − a y² = a − b; a *modulus* pair (m₁, m₂)
+shared by a cofactor satisfies m₂ x² − m₁ y² = m₁ − m₂ — **the same equation with
+the roles swapped**. So "at most two moduli per window for a fixed cofactor pair"
+and "at most two cofactors per window for a fixed modulus pair" are one theorem.
+Measured at X = 5000, and the constant agrees:
+
+| | max in one window | attained at |
+|---|---|---|
+| moduli, for a fixed **cofactor** pair | **2** | (2, 82) → moduli 365, 685 |
+| cofactors, for a fixed **modulus** pair | **2** | (1, 41) → cofactors 730, 1370 |
+
+This also explains why the K_{s,2} families are spread across decades rather than
+bunched: the parallel session's six cofactors sharing {10, 17} are 1, 53, 423125,
+24326641, … with consecutive ratios 53 and 7983, so **no window holds two of
+them** — the dual statement, satisfied with room to spare.
+
 **And it buys nothing quantitatively, which must be said or someone will reach
 for Kővári–Sós–Turán.** A K₃,₃-free bipartite graph on (M, N) vertices has
 O(M·N^{2/3} + N) edges. In a dyadic window there are ~M moduli, ~X²/M cofactors,
