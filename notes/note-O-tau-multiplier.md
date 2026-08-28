@@ -263,6 +263,42 @@ r₁r_k = 1.309. *(The parallel session's census over a ≤ 60, b ≤ 300000 fin
 322, with (1, 226801) at k = 26 tighter still at 1.2540 — the population grows
 with the box, so quote the box.)*
 
+> ### The candidate lists do not predict window behaviour at all
+>
+> **This is the correction that retires the whole constructive line above, and
+> it subsumes the occupancy problem stated below.** The parallel session
+> enumerated every shared modulus of (1, 115921) — the tightest candidate on
+> either list, r₁r_k ≈ 1.31 — out to x ≤ 2×10⁸:
+>
+> | x | m |
+> |---|---|
+> | 387 | 149,770 |
+> | 2,249 | 5,058,002 |
+> | 147,709 | 21,817,948,682 |
+> | 2,054,872 | 4,222,498,936,385 |
+>
+> Consecutive ratios **33.77, 4313.55, 193.53**. Maximum dyadic-window
+> multiplicity **1**. The criterion predicted ~1.31 and reality gives 33.77 — a
+> factor of 26. Same on the other live pairs: (1, 226801) has one modulus to
+> x ≤ 2×10⁸, (1, 1761985) has two at ratio 1,223,596.
+>
+> **The reason.** r₁·r_k is a ratio between *solution classes*. A pair can be
+> perfectly occupied and still have every observed modulus spaced by ε², because
+> the near-neighbour class the multiplier points at is the empty one. **The
+> criterion selects pairs where two classes could be close; it says nothing
+> about whether the close pair is the occupied pair.**
+>
+> So everything in this section built on r-products — the 95, the 322, the
+> τ⁴ < 2 chances, the factor of 3.91, the parallel session's decade drift and
+> its sub-1 crossing — counts parameter configurations whose r-values do not
+> predict the window behaviour of the occupied ones. **All of it is withdrawn as
+> evidence about triples.** What survives is stated at the end of this note.
+>
+> **Theorem O.3 is untouched**, because it is conditional: *if* ξ exists and both
+> multipliers act on it, contradiction. Nothing here weakens a conditional
+> negative result; it says only that the candidate lists were never the right
+> place to hunt for its counterexamples.
+>
 > **MULTIPLIER EXISTENCE IS NOT MODULUS EXISTENCE, and this list conflates
 > them.** A multiplier at index k is solvability of **U² − DV² = M²**; a shared
 > modulus is solvability of **Y² − DX² = aM**. Different equations. A multiplier
@@ -346,6 +382,33 @@ k = (j+w)/2, this becomes
 > e² + 4jwe + 2w²(2e − 1) < 0.
 
 For j ≥ 3 we have e ≥ 5, so every term is positive. Contradiction. ∎
+
+**How much of the problem O.3 reaches — and it is a minority.** The hypothesis
+"M odd and squarefree" is not cosmetic. For a = 1 with b admissible and odd,
+b ≡ 1 (mod 4) forces **4 | M**, so O.3 is mute on the entire a = 1 family — which
+is the family [Note L](note-L-rational-graph.md) identifies as driving the full
+graph's growth, and which contains both of the tightest *occupied* candidates,
+(1, 115921) and (1, 226801), at M = 115920 and 226800. Over the 95:
+
+| | count |
+|---|---|
+| M odd | 35 |
+| M squarefree | 17 |
+| **both — O.3 applies** | **17** |
+| a = 1 (all with M even, all outside O.3) | 15 |
+
+The parallel session's larger census agrees: over a ≤ 60, b ≤ 300000, **104 of
+534 (19.5%)** of the pairs admitting a k ≥ 2 with r₁r_k < 2 have M odd and
+squarefree. "No window holds three" reads broader than a statement mute on four
+fifths of them and on the whole a = 1 family.
+
+**But the gap is exactly one step, not the whole proof.** The condition is
+2M | A_kS + B_kT. τ₁ gives M | 2S; for M *odd* that is M | S, whence M | B_kT
+and gcd(T,M) = 1 gives M | B_k. For M *even*, M | 2S only gives S ≡ 0 (mod M/2)
+and the reduction stalls. Everything after M | 2B_k — that j ≥ 3, that
+M = 8ka(2k−j)/(j²−4), and that e² + 4jwe + 2w²(2e−1) > 0 — is **parity-free
+algebra**. Extending O.3 to even M is a single lemma, not a new argument, and
+the disjointness table below was computed with no parity restriction at all.
 
 **The two requirements pull opposite ways**: the divisibility forces M *small*
 relative to a, and the geometry forces M *large* relative to √(ab). Machine
@@ -527,6 +590,50 @@ rational graph still grows (6 → 9 as X goes 500 → 8000) because it sums over
 windows, and [Note F](note-F-failure-localisation.md)'s C₄-freeness over Z[i] is
 untouched and remains the obstruction that matters for Type II. A window Gram of
 2 rather than N^ε does not create the cancellation Note F shows is absent.
+
+## What survives
+
+*Written last, after two retractions and one line of investigation withdrawn
+wholesale. This is the list a reader should trust.*
+
+**Proved.**
+
+- The invariant U² − DV² = M² and the identity A − B = −(m_j − m_i)M.
+- The gap principle |V| < M/√D for m_i ≥ 2, using the window exactly once.
+- N(ξ) = aM for ξ = aY + X√D, and ξ₂ξ̄₁ = −a(U + V√D).
+- g = gcd(U,V) divides M, and **a g² < M**.
+- A multiplier at index k exists **iff a² + (4k²−2)ab + b² is a perfect square**;
+  at k = 1 that is (a+b)², a square identically, so the trivial multiplier always
+  exists and V = ±2 forces U = ±(a+b) uniquely.
+- Mod M the automorph diagonalises in S, T with **unit** eigenvalues, so every
+  integrality condition is orbit-invariant.
+- τ₁ acting is exactly M | S; equivalently M₂ = 1 in the M = M₁M₂ splitting.
+- **Theorem O.3**, for M odd squarefree: no window holds (ξ, τ₁ξ, τ_kξ), k ≥ 2.
+  Reaches 17 of 95 candidates here, 104 of 534 in the parallel session's census.
+
+**Measured, and trustworthy as measurements.**
+
+- The τ² law for close pairs, relative error O(1/m), 1.3×10⁻⁴ for m ≥ 1000.
+- |V| = 2 in 495 of 498 close pairs, with |V| ≥ 2 by parity for a, b both odd.
+- The Plücker–parity constraint M/√D ≥ 11.484 for any triple.
+- No dyadic window with three shared moduli in any sweep: 208 informative
+  classes at X = 60000, and 31 at X = 4000.
+
+**Withdrawn.**
+
+- Everything resting on r-products as a predictor of window behaviour: the 95
+  candidates, the 322, the 258 τ⁴ < 2 "chances", the factor of 3.91, and the
+  parallel session's decade drift and sub-1 crossing. The r-product is a ratio
+  between solution *classes* and does not predict the spacing of the *occupied*
+  moduli — demonstrated on (1, 115921), where it predicts 1.31 and the observed
+  minimum ratio is 33.77.
+- The claim that O.2 follows from Q̄, Q̄″ coprimality: true, but the hypothesis
+  holds in 5 of 65 observable cases.
+- Two earlier claims retracted in place above: "no window holds three" as proved,
+  and N(ξ) = ±M.
+
+**Open.** Conjecture O.2, with no mechanism and no candidate-generation method
+that is known to select live configurations.
 
 ## Adversarial review
 
