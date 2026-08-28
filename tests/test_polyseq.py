@@ -273,3 +273,44 @@ def test_prop_O1_chain_holds_on_real_pairs():
                 assert a * g * g < M                                   # (4)
     assert checked > 100, f"only {checked} close pairs exercised"
     assert worst < 0.3536, worst        # the sharp constant 1/(2 sqrt 2)
+
+
+def test_V_never_one_holds_without_the_parity_hypothesis():
+    """Completes Note L's lemma: |V| >= 2 with NO hypothesis on a, b.
+
+    Note L proves V is even "for a, b both odd" and then asserts that
+    "never |V| = 1 needs no hypothesis". The even case was not covered: coprime
+    cofactors of x^2+1 can have one even -- 2 is a cofactor, since 2*1 = 1^2+1 --
+    so the assertion needed the argument below.
+
+    A cofactor n of x^2+1 satisfies 4 ∤ n, so an even one is 2 (mod 4). With the
+    other odd (coprimality), mod 4:
+
+        a^2 - ab + b^2 == 0 - 2 + 1 == 3   (mod 4)
+
+    and squares are 0 or 1 mod 4. V = 1 requires U^2 - ab*1^2 = M^2, i.e.
+    U^2 = M^2 + ab = (b-a)^2 + ab = a^2 - ab + b^2, so V = 1 is inadmissible.
+    Together with the parity lemma for the both-odd case, |V| >= 2 always.
+    """
+    from math import gcd, isqrt
+
+    # the mod-4 obstruction, exhaustively over residues
+    for a4 in (2,):
+        for b4 in (1, 3):
+            assert (a4 * a4 - a4 * b4 + b4 * b4) % 4 == 3
+
+    # and over actual integers: one = 2 mod 4, the other odd, coprime
+    hits = [(a, b) for a in range(2, 400, 4) for b in range(1, 400, 2)
+            if gcd(a, b) == 1 and isqrt(a * a - a * b + b * b) ** 2 == a * a - a * b + b * b]
+    assert not hits, f"a^2-ab+b^2 was a square for {hits[:5]}"
+
+    # 4 does not divide any cofactor of x^2+1, which is what forces "2 mod 4"
+    cof = set()
+    for x in range(1, 3000):
+        v = x * x + 1
+        d = 1
+        while d * d <= v:
+            if v % d == 0:
+                cof.add(d); cof.add(v // d)
+            d += 1
+    assert not any(n % 4 == 0 for n in cof), "a cofactor divisible by 4 would break the argument"

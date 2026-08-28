@@ -2677,7 +2677,7 @@ Write s = √(ab)/M. Then τ_V = √(1 + V²s²) + Vs, and τ_V² < 2 ⟺
 
 | V | threshold | admissible when |
 |---:|---|---|
-| 1 | (√2+√3)² = **5 + 2√6 = 9.898979** | a² − ab + b² is a perfect square |
+| 1 | (√2+√3)² = **5 + 2√6 = 9.898979** | ~~a² − ab + b² a perfect square~~ — **never occurs**, see below |
 | 2 | (2√2+3)² = **17 + 12√2 = 33.970563** | **always** |
 | 3 | (3√2+√19)² = **73.986484** | — |
 
@@ -2690,6 +2690,16 @@ Eisenstein norm form: (a, b) must be a *60-degree Pythagorean pair*. Thresholds
 **Proposition O.13′ (D = 1).** *A windowed 4-cycle satisfies either
 u > (1+√2)⁴ = 33.9706, or 5 + 2√6 = 9.8990 < u < 33.9706 with a² − ab + b² a
 perfect square. Below 9.8990 no V is admissible at all.*
+
+> **⚠ THE SECOND BRANCH IS EMPTY, so the proposition collapses to u > 33.9706.**
+> V = 1 never occurs for x²+1 (`V-never-one-unconditionally`). If a, b are both
+> odd this is Note L's parity lemma; if exactly one is even then, since a cofactor
+> of x²+1 is never divisible by 4, it is ≡ 2 (mod 4) and
+> a² − ab + b² ≡ 3 (mod 4), which is not a square — and V = 1 requires
+> U² = M² + ab = a² − ab + b². So the Eisenstein condition and the parity lemma
+> exclude V = 1 in complementary cases, and **the exceptional branch cannot be
+> entered at all.** The enumeration in O.13″ below is therefore doubly empty: its
+> candidates all have a, b both odd, so parity already forbade them.
 
 **Measured, and the vacuity stated rather than hidden:** at X = 4000 there are
 **576** realised unit-free windowed 4-cycles and **none** is below 33.9706, so
@@ -2807,7 +2817,7 @@ holding three shared moduli needs the composite of two multiplier steps to fit:
 
 | X₁ | V = 1 (needs a²−ab+b² square) | V = 2 (always, U = a+b) |
 |---:|---:|---:|
-| 1 | 14.8609 | **53.6942** |
+| 1 | ~~14.8609~~ (V = 1 never occurs) | **53.6942** |
 | 10 | 34.4675 | 131.9783 |
 | → ∞ | 34.9419 | 133.8748 |
 
@@ -2815,9 +2825,12 @@ holding three shared moduli needs the composite of two multiplier steps to fit:
 O.4 as "b/a > 53.69 at X₁ = 1, rising to 133.875", and the family gives
 133.874781 to six decimals from a different starting point.
 
-**So unconditionally in X₁: a windowed triple with u < 53.6942 forces
-a² − ab + b² to be a perfect square**, i.e. (a,b) is a 60-degree Pythagorean
-pair. Below 14.8609 no V is admissible at all.
+**So unconditionally in X₁: a windowed triple needs u > 53.6942.** The V = 1
+branch below it is *empty*, not merely sparse — `V-never-one-unconditionally`
+shows V = 1 never occurs for x²+1 — so O.4's exception is closed and the
+threshold is unconditional. *(The enumeration below was carried out before that
+was known; it stands as an independent check, since every candidate it found is
+unoccupied as well as excluded.)*
 
 **That branch is finite and enumerable.** Both cofactors must also divide some
 x²+1 — 4 ∤ n and no prime factor ≡ 3 (mod 4) — and at a ≤ 3000 exactly **five**

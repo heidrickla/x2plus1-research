@@ -516,7 +516,19 @@ about it, and only one is a theorem.
 > Either way X ≡ Y (mod 2), so V = X_iY_j − X_jY_i ≡ X_iX_j − X_jX_i ≡ 0 (mod 2). ∎
 
 Machine-checked (`tests/test_polyseq.py::test_V_is_always_even_so_never_one`).
-So "never |V| = 1" needs no hypothesis.
+So "never |V| = 1" needs no hypothesis — **but that had been asserted rather
+than shown**, since the lemma above assumes a, b both odd and coprime cofactors
+need not be: 2 is a cofactor, because 2·1 = 1²+1. The missing case:
+
+> **Lemma (the even case).** If exactly one of a, b is even, |V| ≠ 1.
+>
+> *Proof.* A cofactor n of x²+1 has 4 ∤ n, so the even one is ≡ 2 (mod 4) and the
+> other is odd. Then a² − ab + b² ≡ 0 − 2 + 1 ≡ **3 (mod 4)**, and squares are
+> 0 or 1 mod 4. But |V| = 1 requires U² − ab·V² = M² with V = 1, i.e.
+> U² = M² + ab = (b−a)² + ab = a² − ab + b². So no such U exists. ∎
+
+Together with the parity lemma the conclusion is unconditional
+(`tests/test_polyseq.py::test_V_never_one_holds_without_the_parity_hypothesis`).
 
 **"Always |V| = 2" does, and it is false.** At X = 4000 the histogram over 498
 close pairs is {2: 495, 24: 1, 66: 1, 182: 1}, and the three are not anomalies —

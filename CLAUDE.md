@@ -24,6 +24,7 @@ finding; this table is a summary of it, not a second copy.
 |---|---|
 | Obstruction | Type II, not level. Note F: G(n₁,n₂) = #{m : mn₁,mn₂ ∈ A} ≤ 1 over Z[i] |
 | Over Z | Thm O.12: G′ ≤ 1 for cofactor ratio < (5+√21)/2 = 4.7913, so on any dyadic band |
+| — improved | \|V\| ≥ 2 is unconditional, so the same argument gives < 7+4√3 = 13.9282 at X₁ = 1 and < (1+√2)⁴ = 33.9706 asymptotically |
 | Consequence | no bilinear cancellation at any split; C⁻ = 0 via Selberg ν = 0 ([FM] p.2, Thm 2.1) |
 | Type I | available at D = x^{1/2−ε}; never the obstruction |
 | Density | α = 1/2, κ = 1; no admissible [FM] (γ,θ,ν) triple |
