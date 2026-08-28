@@ -536,7 +536,7 @@ the per-modulus one**, exponent 0.480, not the per-progression 0.505.
 > **The same row-merging that breaks C₄-freeness over Z supplies the extra
 > cancellation in the μ-sum.** Several primitive Gaussian ideals share one
 > rational modulus. In the incidence graph that merging creates 4-cycles, so the
-> rational Gram entry is 2 where the Gaussian one is 1 ([Note L](note-L-over-Z.md),
+> rational **windowed** Gram entry is 2 where the Gaussian one is 1 ([Note L](note-L-over-Z.md),
 > `rational-graph-not-c4-free`). In the μ-sum the same merging puts several ideal
 > sums inside one absolute value, where they cancel at the square-root rate.
 > **One mechanism, opposite signs: it costs the Gram bound and it pays the

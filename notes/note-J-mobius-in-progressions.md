@@ -209,7 +209,8 @@ over signs ε_q, i.e.
 which is **exactly an arbitrary outer coefficient** — the thing
 [Note F](note-F-failure-localisation.md) proves this sequence cannot support.
 *(The q here are **rational** moduli, while Note F's lemma is about ideals of
-Z[i], where the rational graph's Gram entry is 2 rather than 1. The transfer is
+Z[i]; over Z the **windowed** Gram entry is 2 rather than 1, and the
+unwindowed one is unbounded ([Note L](note-L-over-Z.md), K_{s,2} for every s). The transfer is
 `gaussian-to-rational-bridge`, `inferred`; the conclusion survives because
 bounded is bounded, and [Note G](note-G-spectral.md) states it in full.)*
 So it is worth measuring what the absolute values cost. Against the signed sum
