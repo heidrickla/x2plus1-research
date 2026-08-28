@@ -769,3 +769,60 @@ def test_O8_hypothesis_is_proved_below_the_plucker_threshold():
                     odd_below += 1
                     assert gcd(V, M) == 1                    # therefore proved
     assert below > 100 and odd_below > 40
+
+
+def test_the_sign_argument_needs_only_an_odd_prime_exactly_dividing_M():
+    """O.9 generalises off M odd squarefree, and reaches M even.
+
+    Nothing in the sign argument is about M. It is about a single odd prime p
+    with p || M: then Y^2 == X^2 mod p, p does not divide X (else p | S and
+    p | T, while S T = -M m with v_p(M) = 1 forces v_p(S) + v_p(T) = 1), so each
+    solution carries sigma = +-1 with Y == sigma X, and p | V_ij iff
+    sigma_i = sigma_j. Three signs in {+-1} cannot be pairwise distinct, so p
+    divides one of V_12, V_23, V_13.
+
+    Let M_1 = product of the odd primes p with p || M. The V's are divisible
+    accordingly, M_1 is squarefree, so M_1 | V_12 V_23 V_13, and |V| < M/sqrt(3D)
+    gives M_1 < M^3/(3D)^{3/2}, i.e.
+
+        a window holds three moduli only if  3ab < (M^3/M_1)^{2/3}.
+
+    For M odd squarefree M_1 = M and this is O.9's 3ab < M^{4/3}. It is silent
+    only when M_1 = 1 -- M a power of two times a powerful odd part -- which is
+    1.02% of classes at X = 3000, against 74.56% with M even that O.9 as stated
+    does not reach. 95.68% of all classes are excluded outright.
+
+    Checked here on M EVEN, which is the new range.
+    """
+    from math import isqrt
+
+    from sympy import factorint
+
+    from x2plus1.polyseq import ratio_classes
+
+    checked = 0
+    for (a, b), ms in ratio_classes(2000).items():
+        M = b - a
+        if M < 4 or M % 2:                       # M EVEN only
+            continue
+        odd_exact = [int(p) for p, e in factorint(M).items() if int(p) != 2 and int(e) == 1]
+        if not odd_exact:
+            continue
+        ms = sorted(ms)
+        dat = [(isqrt(a * m - 1), isqrt(b * m - 1)) for m in ms]
+        for i in range(len(ms) - 1):
+            Xi, Yi = dat[i]
+            Xj, Yj = dat[i + 1]
+            if Xi < 1:
+                continue
+            V = Xi * Yj - Xj * Yi
+            for p in odd_exact:
+                assert Xi % p and Xj % p                      # p never divides X
+                si = (Xi + Yi) % p == 0
+                ti = (Xi - Yi) % p == 0
+                sj = (Xj + Yj) % p == 0
+                tj = (Xj - Yj) % p == 0
+                assert si != ti and sj != tj                  # sign well defined
+                assert (V % p == 0) == (si == sj), (a, b, p)  # p | V iff signs agree
+                checked += 1
+    assert checked > 200
