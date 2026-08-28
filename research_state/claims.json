@@ -2148,6 +2148,19 @@
       ],
       "notes": "Gives the mechanism behind the emptiness, because the two requirements for a triple pull in opposite directions. A chain needs u > 130; but the maximum modulus count over all classes FALLS with u -- 8 at u in [2,10), 6 at [10,100), 4 at [100,1000), 3 above 1000 at X = 3000 -- so the range where a chain is possible is exactly the range where the moduli to use it are scarcest. The 43 chain-admitting classes have at most two, against the three a triple needs. Whether that opposition is structural or an accident of this range is NOT established: 3 moduli do occur above u = 1000, so modulus count alone does not forbid a triple. The unification came from the parallel session tabulating three thresholds side by side -- pair (1+sqrt2)^4, chain (4sqrt2+sqrt33)^2, triple 133.8748 -- at which point the 4sqrt2 / 8sqrt2 doubling was visible and turned out to be the |V| input rather than a coincidence of two derivations. The triple threshold is NOT in the family: it comes from O.4's composite tau_1^2 < sqrt2 rather than from a |V| bound, which is why it sits 3.88 above the chain instead of at a lattice point of the formula.",
       "proof_site": "notes/note-L-over-Z.md; tests/test_arithmetic_facts.py::test_the_chain_threshold_is_four_root_two_plus_root_thirty_three_squared"
+    },
+    {
+      "id": "kappa-is-blind-to-the-D-axis",
+      "status": "proved",
+      "statement": "The strongest form of 'kappa cannot see the obstruction'. For x^2 + D the sequence has |A| = X and Q = X^2 + D, so kappa = X^2/(X^2+D) -> 1 for EVERY fixed D. At X = 10^4 the whole family sits within 4e-7 of 1 -- kappa = 0.999999990 at D = 1 against 0.999999610 at D = 39, a spread in the NINTH decimal. Meanwhile D decides the structure completely: D = 1, 2 hold unconditionally, D = 4 holds on parity, and D = 6, 11, 19, 36, 39 fail with explicit witnesses, D = 39 with a banded triple. So an entire one-parameter family has kappa -> 1 throughout and splits into proved-holds and proved-fails.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "kappa-cannot-see-c4-freeness-even-at-the-threshold"
+      ],
+      "tags": [],
+      "notes": "Stronger than the two earlier demonstrations, and in the way that matters. 'kappa counts lines' explains why the A_B threshold coincidence carries no information; 'two points flip C4-freeness at fixed kappa' needs an O(1) PERTURBATION of the sequence, which a reader can dismiss as artificial. This needs no perturbation at all -- x^2+D are natural sequences, one per D, and the parameter kappa cannot resolve is the parameter that decides the answer. Found by placing two finished results next to each other, the D axis and the kappa formula, both already recorded and neither computed for this purpose. The one arithmetic slip is worth noting: I first asserted kappa > 0.99999 across the family, which fails at X = 10^3 where kappa(39) = 0.999961. Caught by the test, not by reading.",
+      "proof_site": "notes/note-K-merikoski.md; tests/test_arithmetic_facts.py::test_kappa_is_blind_to_the_D_axis_which_decides_everything",
+      "superseded_by": ""
     }
   ]
 }

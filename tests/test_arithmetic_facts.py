@@ -1386,3 +1386,41 @@ def test_all_the_window_thresholds_are_one_formula_in_V():
         assert 0 < gap < prev                              # approached from below
         prev = gap
         assert abs((u - 1) / sqrt(u) - 2 * sqrt(2) * V0) < 1e-9   # solves it
+
+
+def test_kappa_is_blind_to_the_D_axis_which_decides_everything():
+    """The strongest form of "kappa cannot see the obstruction".
+
+    For x^2 + D the sequence has |A| = X and Q = X^2 + D, so
+
+        kappa = X^2/(X^2 + D) -> 1  for EVERY fixed D.
+
+    At X = 10^4 the whole family sits within 4 x 10^-7 of 1: kappa = 0.999999990
+    at D = 1 and 0.999999610 at D = 39, a spread in the ninth decimal. Meanwhile
+    D decides the structure completely -- D = 1, 2 hold unconditionally, D = 4
+    holds on parity, and D = 6, 11, 19, 36, 39 fail with explicit witnesses,
+    D = 39 with a banded TRIPLE.
+
+    So an entire one-parameter family has kappa -> 1 throughout and splits into
+    proved-holds and proved-fails. That is stronger than the two earlier
+    demonstrations: "kappa counts lines" explains why the A_B threshold
+    coincidence carries no information, and "two points flip C4-freeness at fixed
+    kappa" needs an O(1) perturbation of the sequence. This one needs no
+    perturbation at all -- these are natural sequences, and the parameter kappa
+    is blind to is the parameter that decides the answer.
+
+    Found by placing two finished results next to each other, which is the whole
+    operation: the D axis and the kappa formula were both already recorded.
+    """
+    for X in (10**3, 10**4):
+        kappas = {D: X * X / (X * X + D) for D in (1, 2, 4, 6, 11, 19, 36, 39)}
+        assert all(k > 0.9999 for k in kappas.values())       # all essentially 1
+        spread = max(kappas.values()) - min(kappas.values())
+        assert spread < 4e-5                                   # and indistinguishable
+        if X == 10**4:
+            assert spread < 4e-7                               # ninth decimal
+        assert kappas[1] > kappas[39]                          # ordered, but barely
+    # at X = 1e4 the spread is in the ninth decimal
+    X = 10**4
+    assert abs(X * X / (X * X + 1) - 0.999999990) < 1e-9
+    assert abs(X * X / (X * X + 39) - 0.999999610) < 1e-9
