@@ -342,11 +342,20 @@ so X_k/X_i < √2,
 
 > |V_ik| = (|V_ij| X_k + |V_jk| X_i) / X_j > 2 + 2/√2 = 3.41,
 
-hence **|V_ik| ≥ 4** by the parity lemma — which needs M/√D > 11.3, against the
-5.657 a mere close pair needs. That is a *necessary* condition and not a
+hence **|V_ik| ≥ 4** by the parity lemma — which needs
+**M/√D ≥ 4/(2^{1/4} − 2^{−1/4}) = 11.484**, minimised at r_ij = r_jk = √2,
+against the 5.657 a mere close pair needs. That is a *necessary* condition and not a
 sufficient one: the median M/√D over close pairs is 11.96, so about half clear
-it. Recorded as a tool for [Note O](note-O-tau-multiplier.md)'s argument rather
-than as a route on its own.
+it. **It is, however, now the only unconditional constraint on a triple that
+anyone has** — [Note O](note-O-tau-multiplier.md)'s ideal route is closed, and
+this one contains no ideal theory, so it cannot share that route's failure mode.
+
+**How thin the evidence for the absence really is.** At X = 4000 there are
+278,939 ratio classes above the threshold M/√D ≥ 11.484; only **509** have two or
+more shared moduli, and only **31** have three or more anywhere. So the whole
+question rests on 31 informative classes, and 278,908 of the rest could not have
+contradicted anything. "Verified over hundreds of thousands of ratio classes"
+would have been true and thoroughly misleading.
 
 ## So Note F's conclusion transfers, and here is exactly how much is proved
 

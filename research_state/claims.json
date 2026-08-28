@@ -894,7 +894,7 @@
     {
       "id": "three-term-determinant-identity",
       "status": "proved",
-      "statement": "V_ij = X_i Y_j - X_j Y_i is a 2x2 determinant, so three solutions of one conic satisfy V_ij X_k - V_ik X_j + V_jk X_i = 0 and the same with Y. Consequence for a would-be triple in one dyadic window: |V_ik| = (|V_ij| X_k + |V_jk| X_i)/X_j, and X_k/X_i < sqrt 2 gives |V_ik| > 2 + 2/sqrt2 = 3.41, hence |V_ik| >= 4 by the parity lemma -- which needs M/sqrt(D) > 11.3 against the 5.657 a mere close pair needs.",
+      "statement": "V_ij = X_i Y_j - X_j Y_i is a 2x2 determinant, so three solutions of one conic satisfy V_ij X_k - V_ik X_j + V_jk X_i = 0 and the same with Y. Consequence for a would-be triple in one dyadic window: |V_ik| = (|V_ij| X_k + |V_jk| X_i)/X_j, and X_k/X_i < sqrt 2 gives |V_ik| > 2 + 2/sqrt2 = 3.41, hence |V_ik| >= 4 by the parity lemma -- which needs M/sqrt(D) >= 4/(2^{1/4} - 2^{-1/4}) = 11.484, minimised at r_ij = r_jk = sqrt 2, against the 5.657 a mere close pair needs.",
       "proof_site": "notes/note-L-over-Z.md; tests/test_polyseq.py::test_three_term_determinant_identity",
       "depends_on": [
         "V-is-even-so-never-one"
@@ -928,7 +928,7 @@
     {
       "id": "triples-cannot-be-settled-by-measurement",
       "status": "inferred",
-      "statement": "Whether a dyadic window can hold three shared moduli reduces, by Note O, to whether two distinct multipliers for the same xi_1 can have Q-bar and Q-bar'' sharing a prime ideal (Conjecture O.2). THAT QUESTION IS NOT DECIDABLE BY MEASUREMENT: it concerns a configuration that never occurs, so every sweep either session has run contains zero instances of it. The absence of triples is the thing to be explained, not evidence about the mechanism proposed to explain it.",
+      "statement": "Whether a dyadic window can hold three shared moduli reduces, by Note O, to whether two distinct multipliers for the same xi_1 can have Q-bar and Q-bar'' sharing a prime ideal (Conjecture O.2). THAT QUESTION IS NOT DECIDABLE BY MEASUREMENT: it concerns a configuration that never occurs, so every sweep either session has run contains zero instances of it. The absence of triples is the thing to be explained, not evidence about the mechanism proposed to explain it. AND THE EVIDENCE IS THINNER THAN ANY SWEEP SIZE SUGGESTS. At X = 4000 there are 278,939 ratio classes above the triple threshold M/sqrt(D) >= 11.484; of those only 509 have two or more shared moduli, and only 31 have three or more anywhere. So the whole question rests on 31 informative classes. Either session could have written 'verified over hundreds of thousands of ratio classes' and been true and thoroughly misleading.",
       "depends_on": [
         "classes-separate-across-windows",
         "prop-O1-chain-verified-independently"
@@ -936,7 +936,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "Recorded because it is a general trap and this repo walked into it twice in one day. A measurement of an absence supports any mechanism that predicts the absence, including wrong ones -- which is how an O(1) claim was adopted here on the strength of 379 verified pairs that could not reach the step that was wrong. The proved statement is Proposition O.1, covering a SINGLE multiplier; the general case is open."
+      "notes": "Recorded because it is a general trap and this repo walked into it twice in one day. A measurement of an absence supports any mechanism that predicts the absence, including wrong ones -- which is how an O(1) claim was adopted here on the strength of 379 verified pairs that could not reach the step that was wrong. The proved statement is Proposition O.1, covering a SINGLE multiplier; the general case is open. The count of informative configurations is the right measure of an absence, not the size of the sweep: 278,939 classes were examined and 278,908 of them could not have contradicted anything. Figure supplied by the parallel session; the framing is this entry's. CONCRETE DEMONSTRATION, run here and worth keeping. I proposed testing whether the coprime branch of Note O's argument always closes, by checking a*g*g'' < M over pairs of partners sharing a xi_i. First run: 426 of 624 FAILED, worst ratio 85 -- which looked like the route dying. Wrong population: it included partners NOT in a window with xi_i, where g is large by construction. Restricted to the pairs a triple would actually involve -- both partners inside a window with xi_i -- the population has size ZERO, because that is the configuration being asked about. The correctly-posed measurement is vacuous by construction, and the incorrectly-posed one gave a confident wrong answer."
     }
   ]
 }
