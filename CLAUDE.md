@@ -545,6 +545,20 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   doubling of X) is a different object from one that is flat (O.10: ~35%), and
   "6.85× better" alone tells a reader the opposite of what the data says.
 
+- **Consistency and silence look identical from a grep.** Notes L and O were
+  cross-checked for contradictions about how many moduli a dyadic window can
+  hold. They agree — identically so — and that agreement was read as *neither
+  note having drawn the connection*, which became a claim, a commit message
+  saying "neither note said so", and a message to the other session announcing
+  it as new. Note L states it outright, in a section written here, **and states
+  it more carefully**: that proving it upgrades one claim's status and changes no
+  conclusion. The re-derivation was correct; the novelty and the added
+  significance were not. **A search for contradictions cannot find that one side
+  already said the thing** — it returns nothing in both cases. Before calling a
+  cross-note observation new, grep for the *claim*, not for its negation. This
+  hazard is specific to auditing notes at volume, which is exactly when it is
+  most likely to fire.
+
 - **A percentage carries its population in the same sentence, or it is not a
   measurement.** Two coverage figures went into the notes within an hour — "the
   bound excludes 95.68% of classes" (mine) and "99.2% are excluded outright"
