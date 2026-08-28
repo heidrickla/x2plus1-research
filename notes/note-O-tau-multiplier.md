@@ -843,6 +843,24 @@ argument, reached without it.
    > **So there is no residue obstruction to O.2 whatsoever.** The configurations
    > exist mod M and are simply not occupied.
 
+   **And that last clause is now witnessed rather than inferred.** Taking the
+   pairs whose two-multiplier residue exists and enumerating their *actual*
+   shared moduli to x ≤ 6×10⁶:
+
+   | (a, b) | p, q | shared moduli | which of {p,q} acts on each |
+   |---|---|---|---|
+   | (2, 5125) | 1, 8 | 10211776961, 19026737665 | {8}, {} |
+   | (2, 8321) | 1, 9 | 8065, 8581 | {1}, {} |
+   | (5, 7922) | 1, 7 | 1, 925, 139413121 | {}, {}, {} |
+   | (1, 16354) | 1, 15 | 785, 338486405, 349241345 | {}, {1}, {} |
+   | (74, 21389) | 1, 2 | *none* | — |
+
+   Every occupied class carries **at most one** of the two, and the residue class
+   carrying both is occupied in none of them. This is the sharpest statement of
+   the evidence available: not "no triple was found", but *"for the pairs where a
+   triple is residue-possible, the occupied classes systematically avoid the
+   residue that would produce it."*
+
    That kills the route and sharpens the conjecture: **any proof of O.2 must
    involve occupancy** — which classes actually contain solutions — and not the
    congruence data. Occupancy is a class-group question about the form, so this
