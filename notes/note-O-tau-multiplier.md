@@ -2688,9 +2688,9 @@ not the check.
 > perfect-square coincidence is not evidence of V = 1: the correct V = 1 test at
 > D = 4 is whether (M·D)² + ab is square, and for (25,481) it is **3339001,
 > which is not**. Caught by checking my own derivation against the M·D section
-> before committing, not by anything failing. **The D-generalisation of this
-> proposition is not done, and the D = 4 numbers are observations without an
-> interpretation.**
+> before committing, not by anything failing. **The D = 4 numbers are
+> observations without an interpretation** *(the D-generalisation itself is now
+> done — see O.13‴ below).*
 
 ⚠ The thresholds above are the **asymptotic** ones (τ_V² < 2). O.12 proves its
 bound with τ_V² < 3, which is why 4.7913 is below even the V = 1 value of
@@ -2731,3 +2731,48 @@ at a different scale, and that is the useful thing to know about it.
 
 ⚠ Bounded: a ≤ 1200 and x ≤ 3×10⁶. Larger a is untested, and a bound's silence
 is not evidence about what lies outside it.
+
+
+### O.13‴ The generalisation to arbitrary D
+
+Every formula in its M·D form, per the invariant table:
+
+  conic aY² − bX² = **M·D**;  multiplier U² − abV² = **(M·D)²**;
+  window τ_V² < **2 + D/X₁²**.
+
+With s = V√(ab)/(M·D) and c = 2 + D/X₁², a window needs s < (c−1)/(2√c), i.e.
+
+  **√u − 1/√u > 2√c · V / ((c−1)·D)**
+
+At D = 1, X₁ → ∞ this recovers u > (1+√2)⁴, so the general form is anchored to
+the case that is checked.
+
+**V = 2 is automatic for every pair only at D = 1**, where U = a+b gives
+(a+b)² − 4ab = M². For D ≠ 1 it needs (M·D)² + 4ab to be a square — true for
+(3,7) at D = 5 and (3,4) at D = 11, false for the rest below — so **the minimal
+admissible V is pair-dependent**, which is what makes the general threshold
+non-uniform and is the step O.13′ left open.
+
+Checked at X = 1500 against the smallest realised unit-free windowed 4-cycle:
+
+| D | min u realised | pair | min V | X₁ | threshold | slack | V=2 auto |
+|---:|---:|---|---:|---:|---:|---:|---|
+| 1 | 34.0811 | (37, 1261) | 2 | 179 | 33.9691 | **1.00×** | yes |
+| 2 | 34.2121 | (33, 1129) | 4 | 80 | 33.9556 | **1.01×** | no |
+| 3 | 24.0691 | (1057, 25441) | 4 | 65 | 16.1452 | 1.49× | no |
+| 4 | 19.2400 | (25, 481) | 4 | 11 | 9.5150 | 2.02× | no |
+| 5 | 2.3333 | (3, 7) | 2 | 1 | 1.4204 | 1.64× | yes |
+| 6 | 15.7611 | (4081, 64321) | 4 | 169 | 5.3682 | 2.94× | no |
+| 7 | 2.3125 | (16, 37) | 1 | 11 | 1.4697 | 1.57× | no |
+| 8 | 3.6667 | (3, 11) | 4 | 1 | 1.4185 | 2.58× | no |
+| 11 | 1.3333 | (3, 4) | 2 | 2 | 1.2348 | **1.08×** | yes |
+
+**No violation at any D**, which is as much the point as the thresholds are:
+three separate errors tonight came from using a D = 1 formula generally, and a
+machinery that produces no violation across nine D is evidence the corrected
+forms are right where re-reading them was not.
+
+⚠ **Do not read the sharp cases as a pattern.** D = 1, 2 and 11 being near-tight
+while 4 and 6 are loose is nine points with no proposed mechanism. That D = 11
+is both the first failing D *and* near-tight is exactly the kind of near-miss
+this note has had refuted before.

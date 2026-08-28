@@ -2292,6 +2292,34 @@
         "gram"
       ],
       "notes": "The Gaussian filter was the reason to hope: it is a condition on the cofactors that the Eisenstein one knows nothing about, so incompatibility was plausible. It is not incompatible, and the negative result is the useful one -- it says the 7.09x gap is not reachable by a sharper local argument. Bounded at a <= 1200 and x <= 3e6; larger a is untested and a bound's silence is not evidence about what lies outside it."
+    },
+    {
+      "id": "O13-generalises-to-all-D",
+      "status": "rigorous_finite",
+      "statement": "O.13' generalises to arbitrary D once every formula is taken in its M*D form: the conic is aY^2 - bX^2 = M*D, the multiplier equation U^2 - ab V^2 = (M*D)^2, and the window premise tau_V^2 < 2 + D/X_1^2. With s = V sqrt(ab)/(M*D) and c = 2 + D/X_1^2 a window needs s < (c-1)/(2 sqrt c), i.e. sqrt(u) - 1/sqrt(u) > 2 sqrt(c) V/((c-1) D); at D = 1 and X_1 -> infinity this recovers u > (1+sqrt2)^4. V = 2 is automatic for EVERY pair only at D = 1, where U = a+b gives (a+b)^2 - 4ab = M^2; for D != 1 it requires (M*D)^2 + 4ab to be a square, which holds for some pairs and not others, so the minimal admissible V is pair-dependent. Checked at X = 1500 against the smallest realised unit-free windowed 4-cycle for D = 1,2,3,4,5,6,7,8,11: NO violation at any D, and the bound is essentially attained at D = 1 (34.0811 against 33.9691, slack 1.00), D = 2 (34.2121 against 33.9556, 1.01) and D = 11 (1.3333 against 1.2348, 1.08), while loose at D = 4 (2.02) and D = 6 (2.94).",
+      "experiment": "experiments/exp24_doubly_dyadic.py",
+      "depends_on": [
+        "tau1-window-threshold-is-exact",
+        "the-invariant-is-M-times-D"
+      ],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "Closes the step O.13' recorded as not done. Its value is as much a POSITIVE CHECK on the corrected M*D forms as a result: three separate errors tonight came from using a D = 1 formula generally, and a machinery that produced no violation across nine D is evidence the corrected forms are right where re-reading them was not. Do not read the sharp cases as a pattern: D = 1, 2, 11 being near-tight while 4 and 6 are loose is nine points with no proposed mechanism, and this repo has a specific record of fitting laws to reproducible values. In particular D = 11 being both the first failing D and near-tight is exactly the kind of near-miss that has been refuted here before."
+    },
+    {
+      "id": "the-anchoring-audit-is-complete",
+      "status": "rigorous_finite",
+      "statement": "The anchored-window defect has been swept for across the whole repo and is closed. Six experiments step a band multiplicatively -- exp01 (D *= 2), exp09 (M *= 2), exp15 (M *= 4), exp16 (M *= 2), exp20 (N *= 4), exp24 (N *= 2) -- but anchoring is a defect only where the CLAIM quantifies over every band while the sweep visits anchored ones. Checking each claim's wording against its experiment: exp01 and exp15 are cited by no claim; exp16's seven claims are fits and samplings, with the one universal phrase ('almost every modulus carries a single x') being an asymptotic statement rather than a sweep quantifier; exp24's fourteen include three with universal wording, and all three rest on O.12's PROOF rather than on the sweep. The two genuine cases were exp09's degree ladder and exp20's mean-G decay, both found and both fixed.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The detector was validated before its clean result was believed, per the rule that a clean audit is broken until it has failed on a known case. Run against the registry as it stood four commits ago it flags BOTH pre-fix claims -- the granularity claim's 'over pairs in a dyadic band [N,2N)' and rational-gram-bounded-on-windows' 'on every dyadic window [M,2M)' -- so its silence on the rest is informative. THE AUDIT'S OWN LIMIT, stated because three audits tonight had the defect they hunted: it matches English quantifiers, so a claim that quantifies universally without the words 'every/all/each/any' would pass unseen. What it cannot do is distinguish a universal claim backed by a proof from one backed by a sweep -- that judgement was made by reading each of the three.",
+      "proof_site": "",
+      "depends_on": []
     }
   ]
 }

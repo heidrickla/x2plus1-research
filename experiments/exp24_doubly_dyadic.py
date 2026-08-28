@@ -656,3 +656,90 @@ def exceptional_branch(AMAX=1200, XMAX=3_000_000):
     print("  OCCUPANCY, not congruence: (25,481) shares 2 and 53546, ratio 26773.")
     print("  Bounded search -- a bound's silence is not evidence about what lies")
     print("  outside it, and larger a is untested.")
+
+
+def general_D_threshold(X=1500, Ds=(1, 2, 3, 4, 5, 6, 7, 8, 11)):
+    """O.13' for general D -- the step O.13' explicitly left undone.
+
+    Uses the M*D forms throughout, per the invariant table in Note O:
+
+      conic        a Y^2 - b X^2 = M*D
+      multiplier   U^2 - ab V^2 = (M*D)^2      NOT U^2 - D V^2 = M^2
+      window       tau_V^2 < 2 + D/X_1^2       NOT < 3
+
+    With s = V sqrt(ab)/(M*D) and c = 2 + D/X_1^2, a window needs
+    s < (c-1)/(2 sqrt c), i.e. sqrt(u) - 1/sqrt(u) > 2 sqrt(c) V / ((c-1) D).
+    At D = 1 and X_1 -> infinity that is O.13's u > (1+sqrt2)^4.
+
+    V = 2 is automatic for EVERY pair only at D = 1, where U = a+b gives
+    (a+b)^2 - 4ab = M^2.  For D != 1 it needs (M*D)^2 + 4ab to be square, which
+    happens for some pairs and not others -- so the minimal admissible V is
+    pair-dependent, and that is what makes the general threshold non-uniform.
+
+    RESULT: no realised configuration violates the threshold at any D tested,
+    which is a positive check on the corrected forms.  The bound is essentially
+    ATTAINED at D = 1, 2 and 11 (slack 1.00, 1.01, 1.08) and loose elsewhere
+    (2.02 at D = 4, 2.94 at D = 6).
+    """
+    from collections import defaultdict
+    from math import isqrt, sqrt
+
+    def thr(V, D, X1):
+        c = 2 + D / (X1 * X1)
+        t = 2 * sqrt(c) / (c - 1) * V / D
+        return ((t + sqrt(t * t + 4)) / 2) ** 2
+
+    def min_V(a, b, D, Vmax=40):
+        MD, ab = (b - a) * D, a * b
+        for V in range(1, Vmax + 1):
+            t = MD * MD + ab * V * V
+            if isqrt(t) ** 2 == t:
+                return V
+        return None
+
+    print(f"  X = {X}.  Threshold from tau_V^2 < 2 + D/X_1^2 and the pair's")
+    print("  minimal admissible V, both in their M*D forms.")
+    print(f"  {'D':>3} {'min u realised':>14} {'pair':>16} {'minV':>5} {'X_1':>5}"
+          f" {'threshold':>10} {'slack':>7} {'V=2 auto':>9}")
+    for D in Ds:
+        inc = defaultdict(list)
+        for x in range(1, X + 1):
+            v = x * x + D
+            d = 1
+            while d * d <= v:
+                if v % d == 0:
+                    inc[v // d].append(d)
+                    if d * d != v:
+                        inc[d].append(v // d)
+                d += 1
+        key = defaultdict(list)
+        for n, ms in inc.items():
+            ms = sorted(set(ms))
+            for i, m1 in enumerate(ms):
+                for m2 in ms[i + 1:]:
+                    if m2 >= 2 * m1:
+                        break
+                    key[(m1, m2)].append(n)
+        best = None
+        for (m1, m2), nsl in key.items():
+            if len(nsl) < 2:
+                continue
+            nsl.sort()
+            for i in range(len(nsl) - 1):
+                if nsl[i] > 1:
+                    r = nsl[i + 1] / nsl[i]
+                    if best is None or r < best[0]:
+                        best = (r, nsl[i], nsl[i + 1], m1, m2)
+        if not best:
+            print(f"  {D:>3} {'-- none --':>14}")
+            continue
+        u, a, b, m1, _ = best
+        V = min_V(a, b, D)
+        X1 = max(isqrt(a * m1 - D), 1)
+        t = ((b - a) * D) ** 2 + 4 * a * b
+        auto = isqrt(t) ** 2 == t
+        if V:
+            th = thr(V, D, X1)
+            print(f"  {D:>3} {u:>14.4f} {f'({a},{b})':>16} {V:>5} {X1:>5}"
+                  f" {th:>10.4f} {u/th:>6.2f}x {str(auto):>9}")
+    print("  slack < 1 would be a violation; none occurs.")
