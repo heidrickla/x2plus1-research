@@ -13,12 +13,12 @@ x^{1/2}.** Everything here is instrumentation for that search.
 | path | what it is |
 |---|---|
 | [x2plus1-research-plan.md](x2plus1-research-plan.md) | the charter. Not edited by work; amended only deliberately. |
-| [notes/](notes/) | Notes A–I, the deliverables named in the plan. |
+| [notes/](notes/) | Notes A–O. A–I are the deliverables named in the plan; J–O were added by the work. |
 | [x2plus1/](x2plus1/) | the library: Z[i] arithmetic, sieving, Type I and Type II harnesses. |
 | [experiments/](experiments/) | runnable scripts; each names the note it supports. |
 | [tests/](tests/) | unit tests, plus `test_arithmetic_facts.py` — machine-checked statements of the lemmas the notes rely on. |
 | [refs/](refs/) | bibliography and a literature-scan log. |
-| [research_state/claims.json](research_state/claims.json) | every claim with an enforced epistemic status — `proved` / `quoted` / `measured` / `inferred` / `refuted` — checked by `tests/test_claims.py`. |
+| [research_state/claims.json](research_state/claims.json) | every claim with an enforced epistemic status — `proved` / `quoted` / `rigorous_finite` / `extrapolated` / `inferred` / `refuted` — checked by `tests/test_claims.py`. |
 
 ## Quick start
 
@@ -227,11 +227,14 @@ measured 2 unproved.
 
 Extended by [`exp17`](experiments/exp17_sharp_form.py), which restricts to the
 slice y/x ≥ 3+2√2 where a second in-window multiplier is geometrically possible
-at all: at X = 14000, **2 093 solutions each carry exactly one in-window
-multiplier and zero carry two**. Those are not a sample — acting is
+at all: at X = 40000, over 55.5M ratio classes, **6 019 solutions each carry
+exactly one in-window multiplier and zero carry two**. Those are not a sample — acting is
 orbit-invariant, so one solution settles its whole infinite class, and each of the
-2 093 is **decided completely**. What the run misses is classes whose least
-solution exceeds X, and nothing bounds how many of those there are.
+6 019 is **decided completely**. What the run misses is classes whose least
+solution exceeds X, and nothing bounds how many of those there are. The margin
+has stopped moving — smallest competing ratio 14.15 at both X = 14000 and
+X = 40000, at the same witness (1, 16133) — a factor 7.1 above the 2 a window
+needs.
 
 **The one unconditional constraint on a triple** is Plücker plus parity. V is a
 2×2 determinant, so three solutions satisfy V_ij X_k − V_ik X_j + V_jk X_i = 0;
