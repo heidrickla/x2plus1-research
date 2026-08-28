@@ -919,3 +919,77 @@ def test_the_VW_identity_generalises_with_a_factor_c_squared():
                 assert V * W == c * c * M * (ms[i] - ms[i + 1]), (c, a, b)
                 seen += 1
         assert seen > 20, (c, seen)
+
+
+def test_doubly_dyadic_c4_freeness_fails_at_c_equals_six():
+    """The Z[i] -> Z-banded transfer is NOT automatic: c = 6 refutes it.
+
+    A_c = {a+ci} is C4-free over Z[i] for EVERY c (the line argument: the product
+    and the sum of the two a's are both determined). But over Z, on the
+    doubly-dyadic configuration, C4-freeness holds only for c in {1,2,3,4,5,7}
+    and FAILS from c = 6 onward. Witness at c = 6, all four verified:
+
+        cofactors (5, 8), u = 1.6 < 2      moduli 9 and 17, ratio 1.889 < 2
+        5*9  = 45  = 3^2 + 6^2      8*9  = 72  = 6^2 + 6^2
+        5*17 = 85  = 7^2 + 6^2      8*17 = 136 = 10^2 + 6^2
+
+    The mechanism is visible in Z[i] and is exactly the Z[i]/Z gap:
+
+        (3+6i)(10+6i) = -6 + 78i        (6+6i)(7+6i) = 6 + 78i
+
+    **conjugate, not associate** -- so there is no Gaussian 4-cycle, while the
+    norms coincide at 6120 and the rational cycle is real.
+
+    So Theorem O.12 at c = 1 is not an instance of a general principle about
+    lines. Over c = 1..20 the property holds at 1,2,3,4,5,7 and fails at the
+    other fourteen, stable from X = 1500 to 3000 on the survivors.
+    """
+    from math import gcd, isqrt
+    from collections import defaultdict
+
+    from x2plus1.gaussian import UNITS, mul
+
+    # the witness, term by term
+    for m, cof, x in ((9, 5, 3), (9, 8, 6), (17, 5, 7), (17, 8, 10)):
+        assert cof * m == x * x + 36, (m, cof, x)
+    assert 8 / 5 < 2 and 17 / 9 < 2                 # doubly dyadic
+    p1, p2 = mul((3, 6), (10, 6)), mul((6, 6), (7, 6))
+    assert p1 == (-6, 78) and p2 == (6, 78)
+    assert p1[0] ** 2 + p1[1] ** 2 == p2[0] ** 2 + p2[1] ** 2 == 6120
+    assert not any(mul(u, p1) == p2 for u in UNITS)          # not associate
+    assert any(mul(u, (p1[0], -p1[1])) == p2 for u in UNITS)  # but conjugate
+
+    # A_6 really is C4-free over Z[i]
+    A = [(a, 6) for a in range(1, 120)]
+    assert len(A) > 100
+    seen: dict[tuple[int, int], tuple[int, int]] = {}
+    for i, z in enumerate(A):
+        for j in range(i, len(A)):
+            pr = mul(z, A[j])
+            for u in UNITS:
+                assert seen.get(mul(u, pr), (i, j)) == (i, j)
+            seen[pr] = (i, j)
+
+    # and the Z-side banded graph is not, at c = 6 but not at c = 5
+    def banded_hits(c, X=700):
+        sq = [x * x + c * c for x in range(X + 1)]
+        cls = defaultdict(set)
+        for x in range(1, X + 1):
+            for y in range(x + 1, X + 1):
+                g = gcd(sq[x], sq[y])
+                if g > 1:
+                    a, b = sq[x] // g, sq[y] // g
+                    if a < b:
+                        cls[(a, b)].add(g)
+        assert len(cls) > 500, (c, len(cls))
+        n = 0
+        for (a, b), ms in cls.items():
+            if b / a >= 2:
+                continue
+            ms = sorted(ms)
+            n += sum(1 for i in range(len(ms) - 1)
+                     if ms[i] > 1 and ms[i + 1] < 2 * ms[i])
+        return n
+
+    assert banded_hits(6) > 0, "c = 6 must have a doubly-dyadic 4-cycle"
+    assert banded_hits(5) == 0, "c = 5 must not"

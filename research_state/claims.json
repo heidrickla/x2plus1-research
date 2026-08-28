@@ -1899,6 +1899,34 @@
         "note_o"
       ],
       "notes": "WHAT THIS IS: evidence for the TRANSFER -- 'C_4-free over Z[i] implies G' <= 1 over Z on the banded configuration' -- at four cases (c = 2..5) it was not formulated on. Before this the transfer had been tested only on c = 1, which is the case it was built from. WHAT IT IS NOT: evidence for gaussian-to-rational-bridge's other half, the inference from 'no main term either way' to 'nu = 0 in Ford-Maynard's sense', which concerns what their (II) quantifies over and is untouched by any amount of c. The free column reaching 2 at every c is the positive control that the banded result is not vacuous. WHERE THE ARGUMENT STOPS, EXACTLY: O.12 uses only |V| >= 1; upgrading to |V| >= 2 raises the threshold to 2 sqrt3 / c^2 against the 0.7071 a dyadic band supplies, giving 3.4641, 0.8660, 0.3849, 0.2165, 0.1386 at c = 1..5. So |V| >= 2 extends O.12 to c = 2 and NO FURTHER. Every |V| observed is even at every c from 1 to 5, so |V| >= 2 looks structural, but V-is-even-whenever-M-is-odd is proved for c = 1 only. Honest boundary: c = 1 outright, c = 2 modulo that parity lemma, c >= 3 measured only."
+    },
+    {
+      "id": "the-residual-inference-is-the-sources-own-hedge",
+      "status": "inferred",
+      "statement": "Ford-Maynard's footnote 2 contains two steps and only the first is exact. (1) Their #{n : n m_1, n m_2 in J} IS Note F's G with the variables named the other way -- an equality of definitions -- and Theorem O.12 now proves the 0/1 property over Z on exactly the configuration their average runs over, so that step needs neither an inference nor the Gaussian-to-rational transfer. (2) The implication from that object to the (theta, nu) parameters is stated by them as 'closely related to', NOT as an equivalence. So the step from 'the count is 0 or 1, so the error term is O(1) and unimprovable' to 'nu = 0 in Ford-Maynard's sense' rests on a four-word hedge in the source.",
+      "depends_on": [
+        "fm-footnote2-is-note-F-G",
+        "theorem-O12-doubly-dyadic-c4-free"
+      ],
+      "tags": [
+        "type_ii",
+        "literature"
+      ],
+      "notes": "WHAT IS MISSING: a precise statement of the relation between theta + nu >= 1 - 2c and the counting problem. It would have to come from the literature or from a direct argument -- NOT from measuring this sequence more carefully, which is why gaussian-to-rational-bridge and fm-barrier-is-unconditional-at-density-half cannot be promoted by any further work of the kind this repo has been doing. Recorded because the two steps had been read as one: Note F says 'that is G with the roles named the other way round' and moves on, which is right about the object and silent about the implication. The hedge is the source's, not a looseness in this repo's reading of it."
+    },
+    {
+      "id": "the-gaussian-to-rational-transfer-fails-at-c-equals-six",
+      "status": "proved",
+      "statement": "The transfer from C4-freeness over Z[i] to C4-freeness over Z on the doubly-dyadic configuration is NOT automatic, and c = 6 refutes it. A_c = {a+ci} is C4-free over Z[i] for every c. Over Z, banded, the property holds only for c in {1,2,3,4,5,7} and fails at c = 6, 8, 9, ..., 20 -- fourteen of the first twenty -- stable from X = 1500 to 3000 on the survivors. Witness at c = 6: cofactors (5,8) with u = 1.6 < 2 share moduli 9 and 17 with ratio 1.889 < 2, and 5*9 = 45 = 3^2+6^2, 8*9 = 72 = 6^2+6^2, 5*17 = 85 = 7^2+6^2, 8*17 = 136 = 10^2+6^2. The mechanism is the Z[i]/Z gap exactly: (3+6i)(10+6i) = -6+78i and (6+6i)(7+6i) = 6+78i are CONJUGATE, not associate, so there is no Gaussian 4-cycle while the norms coincide at 6120 and the rational cycle is real.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "kappa-counts-lines-and-c4-freeness-permits-one"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "This is the first CONCRETE counterexample the repo has to the transfer pattern, and it changes how the c-family evidence reads. The parallel session's `line-family-tests-the-gaussian-to-rational-transfer` cites c = 2,3,4,5 as four instances where the Z[i] side is proved and the Z side holds; those instances are real, and c = 6 is a refuting instance found by extending the same sweep by one. So the line family does not SUPPORT the transfer -- it BOUNDS it, and the honest evidential base is four supporting against fourteen refuting over c <= 20. Theorem O.12 at c = 1 is therefore not an instance of a general principle about lines; it is specific, which is what my derivation already said about its argument and now holds of the fact. It does NOT refute `gaussian-to-rational-bridge` for x^2+1: there the Z-side statement is PROVED by O.12 rather than transferred, so the bridge's numerical content does not rely on the pattern that fails here. What it removes is any reading of the c-family as evidence that the pattern is reliable.",
+      "proof_site": "notes/note-K-merikoski.md; tests/test_arithmetic_facts.py::test_doubly_dyadic_c4_freeness_fails_at_c_equals_six"
     }
   ]
 }
