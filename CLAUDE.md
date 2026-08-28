@@ -496,9 +496,15 @@ against the |V| ≥ 2 threshold **(1+√2)⁴ = 33.9706** (the parity form, whic
 *holds*) it is **1.0033**. The bound is **sharp to a third of a percent**, and
 the 7.11× decomposes exactly: **7.09× is the non-τ₁ allowance O.12 must carry,
 0.33% is the actual slack**. The extremal witness *is* a τ₁ step — τ₁² = 1.997707
-against an observed 1.997691 — and D = 4's two sub-threshold cycles are non-τ₁,
-so *above ⟺ τ₁* separates **over the range measured — that separation is an
-observation, not a theorem**. **Bounds stated for all configurations are loose by
+against an observed 1.997691. **⚠ The support offered here for
+*above ⟺ τ₁* — "D = 4's two sub-threshold cycles are non-τ₁" — is WITHDRAWN and
+was still asserted in this paragraph after being retracted elsewhere.** At D = 4
+the invariant is M·D, so the V = 2 threshold is 2+√3 = 3.7321 and those cycles
+(19.24, 19.73) are *above* it: ordinary configurations, compared against the
+D = 1 τ₁ by mistake. **With that gone the separation has no confirming instance
+at all** — at D = 1 and D = 2 every realised cycle is above threshold, so there
+is no sub-threshold case to test the converse on, and *above ⟺ τ₁* is
+**untested, not merely unproved**. **Bounds stated for all configurations are loose by
 the width of the configurations that are not observed to occur; restricted to the
 realised type, the size argument is attained.** That is a different diagnosis from "size
 cannot see arithmetic", with a different implication for whether the method could
