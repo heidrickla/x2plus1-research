@@ -376,7 +376,17 @@ axis**: the pair condition becomes (u−1)·D/√u > V·√3 against a band's
 (u−1)/√u < 1/√2, so O.12 covers **D ≤ V√6** — **D = 1, 2** unconditionally and
 **D ≤ 4** with the parity lemma's |V| ≥ 2. So the theorem also proves the
 statement for **x²+2**, and stops there. *(This reconciles with the line-family
-result computed before M·D was known: D = c², so D ≤ 4 is c ≤ 2.)* The twelve theorems are not weakened by
+result computed before M·D was known: D = c², so D ≤ 4 is c ≤ 2.)* **|V| is even
+on this axis too** — min |V| = 2, 4, 6, 4, 2, 4 over D = 1…6 with no odd value in
+1,238 pairs — so the second row is available and **x²+2 in particular can never
+fail**. ⚠ **That bounds the uniqueness conjecture**: the parallel session's
+attrition argument (larger X gives more candidate cofactor classes at fixed D)
+cannot reach small D, because there the condition **(u−1)D/√u > V√3** is not
+merely tight against a band's 1/√2 but **unsatisfiable** — at D = 2 it is
+1.41421 < 1.73205, a 22% margin. So the conjecture is **"every D > 4 fails"**,
+not "every D > 1", and the two regimes differ in kind rather than in where a
+sweep stopped. **D = 5 is the first value the argument does not reach**, so if
+the attrition picture is right it should be the first survivor to fall. The twelve theorems are not weakened by
 that; they are *located*. ⚠ And **the right axis is the discriminant**:
 4(x²+bx+c) = (2x+b)² + |Δ|, so the line family (Δ = −4c²), the D family
 (Δ = −4D) and general quadratics are one axis — 11 discriminant classes checked,
