@@ -6,9 +6,10 @@ O_ε(N^ε) on the dyadic-window Gram entry while the measured value is 2, and
 because both sessions independently proposed — and both had refuted — a
 probability model for the gap. This note supplies a mechanism and a proof.*
 
-*Status: **Proposition O.1 proved unconditionally for m_i ≥ 2.** The two gaps an
-earlier draft carried — "|V| = 2" and "M odd" — are closed, not weakened; see the
-proof. Machine check:
+*Status: **Proposition O.1 proved (τ² ξ is never integral). Conjecture O.2 — the
+statement the measurements actually make — is OPEN.** A draft of this note
+claimed O.2 as proved; the composition step does not hold and the retraction is
+recorded below rather than edited away. Machine check:
 [`exp12`](../experiments/exp12_tau_multiplier.py).*
 
 ## The statement being explained
@@ -91,8 +92,13 @@ positions, and **each of them carries its own τ-pair**. At X = 2500 the class
 twice **from the same ξ**, which is what a third modulus in one window requires.
 The proposition below is about that, and the per-class count is unbounded.
 
-> **Let a < b be coprime with gcd(a,b) = 1, M = b − a, D = ab. Then no dyadic
-> window contains three shared moduli for (a, b).**
+> **Proposition O.1.** Let a < b be coprime, M = b − a, D = ab, and let ξ₁ be a
+> solution with m_i ≥ 2. Then **τ² ξ₁ is not integral**: no window contains
+> three shared moduli lying in geometric progression under a single multiplier.
+
+> **Conjecture O.2 (open).** No dyadic window contains three shared moduli at
+> all — the statement every measurement in this repo and Note L supports, and
+> which O.1 does **not** imply. See "Where the proof stops" below.
 
 *Proof.* Since gcd(a,b) = 1 we have gcd(M, a) = gcd(b−a, a) = gcd(b, a) = 1 and
 likewise gcd(M, b) = 1, so **M is coprime to D**.
@@ -122,10 +128,7 @@ part is rational. Hence
 The ideal (ξ₁) has norm aM. Integrality of ξ₂ = ±τ ξ₁ requires Q̄ | (ξ₁), which
 is possible since N(Q̄) = M′ ≤ aM.
 
-Suppose a third shared modulus ξ₃ lay in the same window. Then ξ₃/ξ₂ = Q′/Q̄′
-by the same argument, so ξ₃ = ±(Q′/Q̄′)(Q/Q̄) ξ₁, whose integrality requires
-Q̄′ Q̄ | (ξ₁) — of norm M′² — unless the factors cancel, i.e. Q′ = Q̄, which is
-τ′ = τ^{-1} and returns ξ₃ = ξ₁. So a third modulus requires
+Now suppose τ²ξ₁ were also a solution. That requires Q̄² | (ξ₁), of norm M′², so
 
 > M′² ≤ aM,  i.e.  **M ≤ a g².**
 
@@ -149,6 +152,36 @@ Finally g | V gives g ≤ |V| < M/√D = M/√(ab), so g² < M²/(ab) and hence
 > **a g² < M²/b < M**,
 
 the last step because M = b − a < b. This contradicts M ≤ a g². ∎
+
+## Where the proof stops, and why O.2 is still open
+
+**This is a retraction.** A draft of this note, and a message to the parallel
+session, claimed O.2 as an unconditional theorem. It is not, and the error was
+in the composition step, which read:
+
+> "ξ₃/ξ₂ = Q′/Q̄′ by the same argument, so ξ₃ = (Q′/Q̄′)(Q/Q̄)ξ₁, requiring
+> Q̄′Q̄ | (ξ₁) of norm M′²."
+
+That does not follow. ξ₃ = τ′ξ₂ requires Q̄′ | (ξ₂), and **(ξ₂) has norm aM in
+its own right** — the two divisibilities are conditions on different elements and
+do not stack. Composing them is only legitimate when the numerator and
+denominator do not share prime ideals, and I asserted that after checking only
+the case of total cancellation (Q′ = Q̄, which returns ξ₃ = ξ₁).
+
+What a correct argument needs. A third modulus gives ξ₃ = ±(Q″/Q̄″)ξ₁ with
+Q̄″ ≠ Q̄ (equality forces ξ₃ = ξ₂). Then (ξ₁) is divisible by **both** Q̄ and
+Q̄″, so N(lcm(Q̄, Q̄″)) ≤ aM. **If Q̄ and Q̄″ are coprime** this gives
+M′M″ ≤ aM, hence M ≤ a·g·g″ < M by the bound above — the contradiction. So O.2
+reduces exactly to:
+
+> **Can two distinct multipliers for the same ξ₁ have Q̄, Q̄″ sharing a prime
+> ideal?** If not, O.2 follows.
+
+**And this cannot be settled by measurement.** It is a statement about a
+configuration that never occurs, so every sweep either session has run contains
+zero instances of it. That is an uncomfortable place for a conjecture to sit —
+the evidence for O.2 is entirely the absence of triples, which is the thing to
+be explained, not evidence about the mechanism proposed to explain it.
 
 The factor a that the corrected norm introduces is absorbed exactly because the
 bound on g carries **both** a and b in its denominator. Had N(ξ) been ±M the
@@ -204,9 +237,12 @@ count of 2^{ω(M)+O(1)}, giving G′ ≪_ε N^ε, with the measured 2 recorded a
 "few classes exist" but "**τ has no room to act twice on one solution**", and it gives **2**
 directly, with no ε.
 
-So the dyadic-window Gram entry for the rational graph is **O(1),
-unconditionally** — the first quantity in this repo to move from measurement to
-theorem.
+**This does not yet give O(1).** O.1 rules out one shape of triple — three
+moduli in geometric progression under a single τ — and Prop L.1's O_ε(N^ε)
+stands as the best proved bound on the window entry. The measured 2 remains
+`rigorous_finite`. What has changed is that the pair structure is now explained
+(τ, and the exact bound a g² < M) and the residue is a single sharp question
+about two ideals, rather than an unexplained empirical 2.
 
 **What it does not do.** It bounds the *dyadic-window* entry. Note L's full
 rational graph still grows (6 → 9 as X goes 500 → 8000) because it sums over all
@@ -231,6 +267,13 @@ untouched and remains the obstruction that matters for Type II. A window Gram of
 - *Is "acts at most once" being stated per class?* It was, in a first draft, and
   the parallel session found the counterexample: (1,53) carries two close pairs.
   The qualifier "on a given solution" is load-bearing and is now in the heading.
+- *Was O.2 claimed as proved?* Yes, in a draft of this note and in a message to
+  the parallel session, and it was wrong. The composition step treated
+  Q̄′ | (ξ₂) and Q̄ | (ξ₁) as conditions on one element. Retracted above, in
+  place, with the reduction that survives stated exactly. The lesson is the one
+  the session has hit twice already: the bound was correct and the inference
+  from it was not, and no measurement could have caught it because the
+  configuration it concerns does not occur.
 - *Does this rescue the theorem?* No, and it should not be read that way. It
   sharpens one bookkeeping constant inside Note L. The parity barrier and Note F
   are where the problem lives, and neither moves.
