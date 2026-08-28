@@ -913,6 +913,14 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     "already checked". *(Too **specific** fails the other way and is the safe
     direction: a detector keyed to one phrasing produced 11-of-34 and 27-of-28
     alarms, all investigated, all wrong.)*
+  - ***It has a mode with no verdict.*** `check_prose_diff.py CLAUDE.md` with no
+    phrases was a reporting convenience: it printed the added bullet by name,
+    said "bullets added: 1", and **exited 0**. Invoked that way it let a
+    collision through while displaying it on screen. **A gate with a mode that
+    cannot refuse is a gate you disarm by accident** — this is "a guard not on
+    the path" with the guard *on* the path and called in the wrong mode. Now the
+    bare call **refuses** when anything was added; reporting needs an explicit
+    `--list`. Verified in all four modes before use.
   - ***It compares floats at an exact boundary.*** Whether a band's u < 2 attains
     (u−1)/√u = 1/√2 decides which D are covered. It does not — u < 2 is
     **strict** — so D = 8, where the threshold is exactly 1/√2, is the last

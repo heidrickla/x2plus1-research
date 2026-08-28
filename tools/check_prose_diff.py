@@ -38,12 +38,23 @@ def main() -> int:
     if len(sys.argv) < 2:
         print("usage: check_prose_diff.py <path> [phrase ...]")
         return 2
-    path, phrases = sys.argv[1], sys.argv[2:]
+    args = sys.argv[1:]
+    listing = "--list" in args
+    args = [a for a in args if a != "--list"]
+    path, phrases = args[0], args[1:]
     bullets = added_bullets(path)
     print(f"bullets added to {path}: {len(bullets)}")
     for b in bullets:
         print(f"  - {b[:88]}")
+    if listing:
+        return 0
     if not phrases:
+        # No phrases and no --list: the gate has nothing to check against, so it
+        # refuses rather than reporting. A mode with no verdict is a mode that
+        # disarms the gate by accident -- which is how a collision got past it.
+        if bullets:
+            print("REFUSING -- no phrases given; name each bullet, or pass --list to report only")
+            return 1
         return 0
     unclaimed = [b for b in bullets if not any(p.lower() in b.lower() for p in phrases)]
     if unclaimed:
