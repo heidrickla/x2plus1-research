@@ -479,3 +479,31 @@ def test_the_tightest_near_counterexample_to_O2():
     for c in range(third - 4, third + 5):                     # and it is not there
         assert not (isqrt(a * c - 1) ** 2 == a * c - 1
                     and isqrt(b * c - 1) ** 2 == b * c - 1), c
+
+
+def test_prop_O1_needs_its_window_hypothesis():
+    """(1,5) at m = 2 is a counterexample to O.1 stated without the window.
+
+    Coprime, m_i >= 2, and tau_1^2 = tau_3 DOES act -- the acting set is the
+    whole tower 1, 3, 8, 21, 55, 144.  It escapes because a g^2 = 4 = M, failing
+    the strict a g^2 < M, and it fails that because r_1 = 6.854 is nowhere near
+    a window.  This test exists so the hypothesis cannot be dropped again.
+    """
+    from math import gcd
+    a, b = 1, 5
+    M, D = b - a, a * b
+    U = isqrt(M * M + 4 * D)
+    assert U * U == M * M + 4 * D and U == 6
+    g = gcd(U, 2)
+    assert a * g * g == M                      # equality: the strict bound fails
+    s = 4 * sqrt(D) / M
+    r1 = ((s + sqrt(s * s + 4)) / 2) ** 2
+    assert r1 > 2                              # and tau_1 xi is outside the window
+    # tau_3 = tau_1^2 really does act on the solution at m = 2
+    m = 2
+    X_, Y_ = isqrt(a * m - 1), isqrt(b * m - 1)
+    t3 = M * M + 4 * 9 * D
+    U3 = isqrt(t3)
+    assert U3 * U3 == t3
+    assert (U3 * X_ + 2 * 3 * a * Y_) % M == 0
+    assert (U3 * Y_ + 2 * 3 * b * X_) % M == 0

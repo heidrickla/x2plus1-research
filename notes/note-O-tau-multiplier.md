@@ -88,10 +88,21 @@ extremes of the data:
 
 The last is the smallest consecutive ratio in the entire X = 5000 sweep.
 
-## Proposition O.1 — τ acts at most once *on a given solution*
+## Proposition O.1 — τ² ξ is not integral *when τξ stays in the window*
+
+> **The window hypothesis is not optional, and an earlier statement of this
+> proposition omitted it and was therefore false.** The counterexample is
+> (a, b) = (1, 5) at m = 2: coprime, m_i ≥ 2, and yet τ₁² = τ₃ **does** act —
+> the acting set there is the whole tower k = 1, 3, 8, 21, 55, 144. It escapes
+> because a·g² = 4 = M, failing the *strict* inequality a g² < M that the proof
+> turns on, and it fails it precisely because r₁ = 6.854 puts τ₁ξ nowhere near
+> the window. The chain a g² < M is derived **from** the window via
+> |V| < M/√D; without it there is no proposition. Corrected in place rather
+> than quietly, since "τ acts at most once" was the note's own headline and is
+> false as a general statement.
 
 **Read the qualifier.** τ acting "at most once" is a statement about one solution
-ξ, not about a ratio class. A class contains many solutions at widely separated
+ξ *whose τ-image stays inside the window*, not about a ratio class. A class contains many solutions at widely separated
 positions, and **each of them carries its own τ-pair**. At X = 2500 the class
 (a,b) = (1,53) has shared moduli 10, 17, 24650, 42850 — two close pairs,
 (10, 17) at ratio 1.700 and (24650, 42850) at ratio 1.73832, both matching
@@ -100,8 +111,10 @@ twice **from the same ξ**, which is what a third modulus in one window requires
 The proposition below is about that, and the per-class count is unbounded.
 
 > **Proposition O.1.** Let a < b be coprime, M = b − a, D = ab, and let ξ₁ be a
-> solution with m_i ≥ 2. Then **τ² ξ₁ is not integral**: no window contains
-> three shared moduli lying in geometric progression under a single multiplier.
+> solution with m_i ≥ 2 **such that τξ₁ lies in the same dyadic window as ξ₁**
+> (equivalently, the modulus ratio r₁ < 2). Then **τ² ξ₁ is not integral**: no
+> window contains three shared moduli in geometric progression under a single
+> multiplier.
 
 > **Conjecture O.2 (open).** No dyadic window contains three shared moduli at
 > all — the statement every measurement in this repo and Note L supports, and
