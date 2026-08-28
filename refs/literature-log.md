@@ -238,10 +238,12 @@ well-factorable paper ([arXiv:2006.07088](https://arxiv.org/abs/2006.07088)).
   generalises the *shape* freely and the density stays pinned at 3/4 — a fifth
   sequence at α = 3/4 and still none below it. That closes the last of the three
   candidates the first scan spotted.
-- **Lemke Oliver**, *Acta Arith.* **151** (2012), 241–261 — the refereed
-  generalisation of Iwaniec 1978. Unread. Reading it would move
-  `iwaniec-1978-P2`'s *method* off second-hand; its *statement* is already
-  sourced from Pintz §19.
+- ~~Lemke Oliver, *Acta Arith.* **151** (2012)~~ — **read**, from the author's
+  copy. Sources Iwaniec's *method* (new form of the linear-sieve error, plus
+  equidistribution of the roots of x²+1 ≡ 0 mod m), so nothing about Iwaniec
+  1978 rests on the MSc essay any longer. Also gives a third degree-uniform
+  statement: the root-equidistribution input is unconditional at d = 2 and
+  conditional on Hooley's Hypothesis R\* at d = 3.
 - **Iwaniec 1978** in the original — paywalled, and no longer load-bearing.
 - **Dickson**, *Introduction to the Theory of Numbers* (1929), §46 and §71 —
   read by the parallel session for the class-count bound, **not by this one**.

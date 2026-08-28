@@ -180,9 +180,9 @@
     {
       "id": "iwaniec-1978-P2",
       "status": "quoted",
-      "statement": "Iwaniec (1978) proved that irreducible an^2+bn+c with a>0 and c odd takes P_2 values infinitely often, via a lower-bound weighted sieve; this remains the record for x^2+1.",
-      "notes": "Upgraded from `inferred` to `quoted`: a refereed survey stating the theorem is a better source than the MSc essay the repo had been relying on. The STATEMENT is now sourced; the METHOD remains second-hand until Iwaniec's original (paywalled) or Lemke Oliver, Acta Arith. 151 (2012) 241-261 is read. Pintz also gives the degree-uniform hierarchy: p(f) <= 4 deg f - 1 (Rademacher 1924), 3 deg f - 1 (Ricci 1936), deg f + c log deg f (Kuhn), deg f + 1 (Bukhstab 1967).",
-      "citation": "Pintz, 'Landau's problems on primes', J. Theor. Nombres Bordeaux 21 (2009), 357-404, section 19: 'Theorem (Iwaniec (1978)). If deg f = 2 and f(0) is odd, then p(f) <= 2. Corollary. n^2+1 = P_2 infinitely often.'"
+      "statement": "Iwaniec (1978) proved that irreducible an^2+bn+c with a>0 and c odd takes P_2 values infinitely often, via a lower-bound weighted sieve; this remains the record for x^2+1. METHOD, now sourced: 'To prove this, Iwaniec obtained a new form of the error in the linear sieve, and he proved an equidistribution result about the roots of the quadratic congruence x^2 + 1 = 0 (mod m).' The equidistribution input is Lemke Oliver's condition (IV), a power saving over the trivial O_q(M) in the exponential sum sum_{M<m<M_1} sum_{G(Omega)=0 (mq)} e(h Omega/mq) -- i.e. the Weyl sum over the roots of the quadratic congruence, the same object as DFI's rho_h(n) and this repo's r_d.",
+      "notes": "Both statement and METHOD are now sourced -- statement from Pintz sec.19, method from Lemke Oliver's generalisation, read at source from the author's copy. Nothing about Iwaniec 1978 rests on the MSc essay any longer. Upgraded from `inferred` to `quoted`: a refereed survey stating the theorem is a better source than the MSc essay the repo had been relying on. The STATEMENT is now sourced; the METHOD remains second-hand until Iwaniec's original (paywalled) or Lemke Oliver, Acta Arith. 151 (2012) 241-261 is read. Pintz also gives the degree-uniform hierarchy: p(f) <= 4 deg f - 1 (Rademacher 1924), 3 deg f - 1 (Ricci 1936), deg f + c log deg f (Kuhn), deg f + 1 (Bukhstab 1967).",
+      "citation": "Pintz, 'Landau's problems on primes', J. Theor. Nombres Bordeaux 21 (2009), 357-404, section 19: 'Theorem (Iwaniec (1978)). If deg f = 2 and f(0) is odd, then p(f) <= 2. Corollary. n^2+1 = P_2 infinitely often.'; method from Lemke Oliver, Almost-primes represented by irreducible polynomials, Acta Arith. 151 (2012) 241-261, pp.1-3 (conditions (III)-(V) and Remark 3)"
     },
     {
       "id": "typeI-poisson-in-b",
@@ -950,6 +950,20 @@
         "ledger"
       ],
       "notes": "The last of the three candidates the first supersession scan spotted and did not read. It adds a fifth published sequence at alpha = 3/4 and none below it, which is the ledger's point stated from a fifth direction: what the technology can vary is the form, and what it cannot vary is the density. Every one of the five has two free variables."
+    },
+    {
+      "id": "root-equidistribution-degrades-with-degree",
+      "status": "quoted",
+      "statement": "The equidistribution input Iwaniec's P_2 needs -- a power saving over the trivial O_q(M) in the Weyl sum over roots of G(Omega) = 0 (mod mq), Lemke Oliver's condition (IV) -- is established UNCONDITIONALLY for irreducible quadratics (his section 4, giving Theorem 1) and only CONDITIONALLY at degree 3: 'Hooley has shown an equidistribution result similar to (IV) for the polynomial G(x) = x^3+2, conditional upon his Hypothesis R* on the size of short Kloosterman sums.' Lemke Oliver's general Theorem 2 gives r <= deg(G) only for 'good' polynomials satisfying (I)-(V), and verifies (III)-(V) for quadratics alone.",
+      "citation": "Lemke Oliver, Acta Arith. 151 (2012) 241-261, conditions (I)-(V) pp.2-3 and Remark 3 p.2; Theorem 1 p.2",
+      "depends_on": [
+        "degree-determines-degeneracy"
+      ],
+      "tags": [
+        "ledger",
+        "type_i"
+      ],
+      "notes": "A THIRD degree-uniform statement for Note L's table, and one that degrades at d = 3 for a reason unrelated to density: the root-equidistribution input itself becomes conditional. So the degree ladder is not only about Type I/II admissibility -- the arithmetic input every route needs also weakens with the degree, and it does so one degree above where this repo sits."
     }
   ]
 }

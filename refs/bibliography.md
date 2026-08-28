@@ -39,11 +39,19 @@ this file carries the citations and what each source is needed *for*.
    Polynomials* (MSc essay, UBC 2006),
    [arXiv:1910.02885](https://arxiv.org/abs/1910.02885). Treat any detail
    sourced from it as second-hand until the original is checked.
-   **Better secondary source, added later**: R. J. Lemke Oliver, "Almost-primes
-   represented by quadratic polynomials", *Acta Arith.* **151** (2012),
-   241–261 — a *refereed* generalisation of Iwaniec 1978, and the right thing
-   to cite in place of an MSc essay. Also unread here; reading it would upgrade
-   `iwaniec-1978-P2` out of `inferred`.
+   **Read**: R. J. Lemke Oliver, "Almost-primes represented by irreducible
+   polynomials", *Acta Arith.* **151** (2012), 241–261, from the
+   [author's copy](https://lemkeoliver.github.io/papers/almostprimes.pdf).
+   A refereed generalisation of Iwaniec 1978 — Theorem 1 gives P₂ for *every*
+   irreducible quadratic with Γ_G ≠ 0. **It sources Iwaniec's method**, which
+   this repo had only at second hand: "Iwaniec obtained a new form of the error
+   in the linear sieve, and he proved an equidistribution result about the roots
+   of the quadratic congruence x²+1 ≡ 0 (mod m)" (p. 1). That equidistribution
+   is his condition (IV), a power saving over the trivial O_q(M) in the Weyl sum
+   over roots of G(Ω) ≡ 0 (mod mq) — the same object as DFI's ρ_h(n) and this
+   repo's r_d. And Remark 3, p. 2: at degree 3 the analogue is Hooley's and is
+   **conditional on his Hypothesis R\*** on short Kloosterman sums. Nothing
+   about Iwaniec 1978 now rests on the MSc essay.
 7. **Bombieri, Friedlander & Iwaniec**, "Primes in arithmetic progressions to
    large moduli" I, *Acta Math.* **156** (1986); II, *Math. Ann.* **277**
    (1987); III, *J. Amer. Math. Soc.* **2** (1989). **Not obtained** (paywalled)
