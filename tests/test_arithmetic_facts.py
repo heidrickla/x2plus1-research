@@ -1044,3 +1044,42 @@ def test_four_consecutive_x_give_a_cycle_exactly_when_D_is_k2_plus_3k_plus_1():
             seen_cycle += 1
             assert cof < 2 and mod < 2                   # genuinely doubly dyadic
     assert (seen_unit, seen_wide, seen_cycle) == (1, 1, 6)
+
+
+def test_c4_freeness_holds_at_the_B1_relevant_top_of_the_range():
+    """`c4-free` says "at every split"; the named test stops at m < 10^5.
+
+    (B1) forces M >= sqrt(x) = X, so the splits a Type II hypothesis actually
+    uses are m >= X -- and at X = 4000 the values run to 1.6 x 10^7, so the four
+    decade windows in test_bilinear cover only the bottom of the range. This
+    extends the check to the top, which is the part that matters:
+
+        [10^4, 10^5)   4394 rows, 573 cols, C4-free, max Gram 0
+        [10^5, 10^6)   4393 rows,  74 cols, C4-free, max Gram 0
+        [10^6, 10^7)   4392 rows,   8 cols, C4-free, max Gram 0
+
+    The Gram is 0 rather than 1 up there because the cofactor side collapses --
+    above m = X the cofactor n = (x^2+1)/m is below X, and few cofactors admit
+    two moduli in one window at all. Which is the same observation as the mean-G
+    decay, seen at the coarsest possible resolution: the range the sieve needs is
+    the range where the graph has almost no edges to cancel over.
+
+    Nothing was wrong here. The wording check that found exp09's anchoring asks
+    whether the experiment quantifies over the same set as the statement; for
+    `c4-free` the answer was "the proof does, the test samples", and this closes
+    the sampling gap at the end that carries the argument.
+    """
+    from x2plus1.sequences import by_x_range
+    from x2plus1.typeII import incidence, is_c4_free, max_offdiagonal_gram
+
+    seq = by_x_range(4000)
+    checked = 0
+    for lo, hi in ((10**4, 10**5), (10**5, 10**6), (10**6, 10**7),
+                   (10**7, 2 * 10**7)):
+        C, *_ = incidence(seq, lo, hi)
+        if not len(C.indices):
+            continue
+        assert is_c4_free(C), (lo, hi)
+        assert max_offdiagonal_gram(C) <= 1, (lo, hi)
+        checked += 1
+    assert checked == 4, checked
