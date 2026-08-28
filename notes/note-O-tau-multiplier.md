@@ -1346,6 +1346,30 @@ banded pairs.
 > that shape restores the threshold. Anyone generalising O.12 along the line
 > family should know those are the two doors and both are shut.
 
+**And that turns the line family into a test bed for the bridge.** Over Z[i],
+`kappa-counts-lines-and-c4-freeness-permits-one` proves A_c is C₄-free for
+**every** c, by Note F's argument with c in place of 1. Over Z, O.12 proves the
+doubly-dyadic G′ ≤ 1 **only at c = 1**. So c ≥ 2 is exactly the situation the
+bridge describes — Z[i] side proved, Z side not — and it can be checked:
+
+| c | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| banded max Gram | 1 | 1 | 1 | 1 | 1 |
+| free max Gram | 2 | 2 | 2 | 2 | 2 |
+| banded pairs | 158,708 | 496,495 | 392,970 | 648,160 | 146,128 |
+| banded pairs sharing ≥ 2 | 0 | 0 | 0 | 0 | 0 |
+
+**Four instances (c = 2…5) where the transfer's conclusion holds and only the
+Z[i] side is proved** — and the free column reaching 2 throughout is the positive
+control that the banded result is not vacuous. Before this, the transfer had been
+tested on the one case it was formulated from.
+
+> **What that is and is not.** It is evidence for the **transfer** — "C₄-free
+> over Z[i] ⟹ G′ ≤ 1 over Z on the banded configuration" — at cases it was not
+> built on. It is **not** evidence for the bridge's other half, the inference from
+> *no main term either way* to *ν = 0 in Ford–Maynard's sense*, which is about
+> what their (II) quantifies over and is untouched by any amount of c.
+
 **This is the complement of the genericity control above, from the inside.** That
 control shows the 0/1 property failing badly *off* the line family — ≥ 11 for
 a²+b⁴ and the rest. This shows the *proof* failing *within* it while the property

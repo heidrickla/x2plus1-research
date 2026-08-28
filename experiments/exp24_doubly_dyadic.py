@@ -261,8 +261,69 @@ def control(Q=100000):
     print("  0..66 there is something to average; for a 0/1 indicator there is not.")
 
 
+def line_family(X=2000, cmax=5):
+    """x^2 + c^2: Z[i] side proved for every c, Z side proved only at c = 1.
+
+    Over Z[i], A_c is C_4-free for EVERY c (Note F's argument with c in place of
+    1).  Over Z, O.12 proves the doubly-dyadic G' <= 1 only at c = 1, because the
+    identity carries a factor c^2 -- V W = c^2 M (m_i - m_j) -- so the threshold
+    scales as 1/c^2 and drops below what a dyadic band supplies at c >= 2.
+
+    So c >= 2 is exactly the situation `gaussian-to-rational-bridge` describes,
+    and it can be CHECKED.  The free column is the positive control.
+    """
+    print()
+    print(f"LINE FAMILY x^2 + c^2 at X = {X}: the Z side, where only Z[i] is proved")
+    print(f"{'c':>3} {'banded':>7} {'free':>6} {'banded pairs':>14} {'>= 2':>6}")
+    for c in range(1, cmax + 1):
+        c2 = c * c
+        inc = defaultdict(set)
+        for x in range(1, X + 1):
+            v = x * x + c2
+            d = 1
+            while d * d <= v:
+                if v % d == 0:
+                    inc[v // d].add(d)
+                    if d * d != v:
+                        inc[d].add(v // d)
+                d += 1
+        Q = X * X + c2
+        band = free = npairs = p2 = 0
+        M = 4
+        while M * 2 <= Q:
+            ms = [m for m in inc if M <= m < 2 * M]
+            if ms:
+                cof = defaultdict(set)
+                for m in ms:
+                    for n in inc[m]:
+                        cof[n].add(m)
+                ns = list(cof)
+                N = 1
+                while N <= Q:
+                    bd = [n for n in ns if N <= n < 2 * N]
+                    for i in range(len(bd)):
+                        for j in range(i + 1, len(bd)):
+                            g = len(cof[bd[i]] & cof[bd[j]])
+                            band = max(band, g)
+                            npairs += 1
+                            p2 += g >= 2
+                    N *= 2
+                for i in range(len(ns)):
+                    for j in range(i + 1, len(ns)):
+                        free = max(free, len(cof[ns[i]] & cof[ns[j]]))
+            M *= 4
+        assert npairs > 1000, f"c={c}: only {npairs} banded pairs -- vacuous"
+        print(f"{c:3} {band:7} {free:6} {npairs:14} {p2:6}")
+    print("  c >= 2 are instances where the TRANSFER's conclusion holds and only")
+    print("  the Z[i] side is proved.  Before this it had been tested on the one")
+    print("  case it was formulated from.  NOT evidence for the bridge's other")
+    print("  half -- the inference from 'no main term either way' to 'nu = 0 in")
+    print("  their sense' -- which is untouched by any amount of c.")
+
+
 if __name__ == "__main__":
     XX = int(sys.argv[1]) if len(sys.argv) > 1 else 3000
     main(XX)
     fm_footnote_quantity(min(12000, max(2000, 4 * XX)))
     control(min(100000, max(20000, XX * XX // 20)))
+    line_family(min(2000, max(400, XX)))

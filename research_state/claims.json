@@ -1884,6 +1884,21 @@
       ],
       "notes": "A NEGATIVE result, recorded because it saves the attempt and because of how it was produced: derived first, then measured, which is the order the repo's own rule about sweeps and derivations argues for -- and the derivation predicted something FALSE. It said O.12 should fail for c >= 2; measurement says the conclusion holds at c = 2 and 3. So what the derivation actually established is narrower and more useful than the prediction it made: O.12's ARGUMENT is special to c = 1, and the fact is not known to be. That distinction is invisible to measurement alone -- a sweep showing max Gram 1 for all c would have read as 'O.12 generalises', which is exactly what is not established. It also sharpens the parallel session's genericity control from the other side: their table shows the 0/1 property failing badly OFF the line family (>= 11 for a^2+b^4 and the rest), and this shows the PROOF failing within it while the property survives.",
       "proof_site": "tests/test_arithmetic_facts.py::test_the_VW_identity_generalises_with_a_factor_c_squared"
+    },
+    {
+      "id": "line-family-tests-the-gaussian-to-rational-transfer",
+      "status": "rigorous_finite",
+      "statement": "The line family x^2 + c^2 gives instances of the Gaussian-to-rational transfer where only the Z[i] side is proved. Over Z[i], A_c is C_4-free for EVERY c (kappa-counts-lines-and-c4-freeness-permits-one). Over Z, Theorem O.12 proves the doubly-dyadic G' <= 1 only at c = 1, since the identity carries a factor c^2 and the threshold scales as 1/c^2. Measured at X = 2000, banded max Gram is 1 for c = 1, 2, 3, 4, 5 over 158708, 496495, 392970, 648160, 146128 banded pairs, with 0 banded pairs sharing two and free max Gram 2 throughout.",
+      "experiment": "experiments/exp24_doubly_dyadic.py",
+      "depends_on": [
+        "theorem-O12-doubly-dyadic-c4-free"
+      ],
+      "tags": [
+        "type_ii",
+        "gram",
+        "note_o"
+      ],
+      "notes": "WHAT THIS IS: evidence for the TRANSFER -- 'C_4-free over Z[i] implies G' <= 1 over Z on the banded configuration' -- at four cases (c = 2..5) it was not formulated on. Before this the transfer had been tested only on c = 1, which is the case it was built from. WHAT IT IS NOT: evidence for gaussian-to-rational-bridge's other half, the inference from 'no main term either way' to 'nu = 0 in Ford-Maynard's sense', which concerns what their (II) quantifies over and is untouched by any amount of c. The free column reaching 2 at every c is the positive control that the banded result is not vacuous."
     }
   ]
 }
