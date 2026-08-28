@@ -978,8 +978,17 @@ X = 3000 the mean of G(n₁,n₂) over pairs in a dyadic band [N, 2N):
 
 | N | 8 | 32 | 128 | 512 | 2048 |
 |---|---:|---:|---:|---:|---:|
-| mean G | 2.000 | 0.667 | 0.254 | 0.0865 | **0.0243** |
+| mean G (anchored) | 2.000 | 0.667 | 0.254 | 0.0865 | 0.0243 |
+| **mean G (by ratio)** | **1.750** | **0.656** | **0.243** | **0.0799** | **0.0213** |
+| pairs (anchored / ratio) | 1 / 4 | 21 / 64 | 276 / 844 | 4186 / 12124 | 56280 / 163256 |
 | max G | 2 | 2 | 2 | 2 | 2 |
+
+*The anchored row was the only one recorded here. Bands [N,2N) stepped by
+powers of two never form a pair like (9,17) of ratio 1.89, and "one dyadic
+band" means ratio < 2. The ratio row is **lower at every sieve-relevant scale
+over ~3× the pairs**, so the argument is slightly better supported than it was
+recorded. Max G is 3 in the smallest band by ratio — the (10,17) case whose
+shared moduli 1, 53, 423125 include the **unit**, so 2 excluding units.*
 
 The mean falls across that range while the maximum stays at 2 in these bands — but
 **no clean law fits the decay, and two attempts here were wrong.** 1/N fails because
@@ -1066,7 +1075,8 @@ normalisation x = Q, so √x = X; with the level capped at D ≤ Q^{1/2} = X
 > **√X < N < X**, which at X = 3000 is N from 55 to 3000.
 
 Every band measured above lies in it, mean G falls monotonically across it —
-0.1596, 0.0865, 0.0466, 0.0243 — and never exceeds 0.16. The U's argmin at
+0.1455, 0.0799, 0.0404, 0.0213 by ratio (0.1596, 0.0865, 0.0466, 0.0243
+anchored) — and never exceeds 0.15. The U's argmin at
 N = 1.37X sits just *above* the top, so inside (B1) the mean is falling
 throughout and is smallest at the boundary. **No part of the admissible range
 escapes**, and the two features that do misbehave — the rise at N ≫ X and the

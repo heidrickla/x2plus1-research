@@ -143,3 +143,55 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+def anchored_vs_ratio(Q=9_000_000):
+    """The bands above are ANCHORED; "one dyadic band" means ratio < 2.
+
+    A pair like (9, 17) has ratio 1.89 and is plainly in one band, but a sweep
+    stepping N by powers of two or four puts 9 in [8,16) and 17 in [16,32) and
+    never forms the pair.  This repo has now recorded three instances of that
+    defect, one of which corrupted a value (Note O's minimum, 43.79 for 34.0811).
+
+    So: re-measure the decay with n1 in [N, 2N) and n2 ranging over ALL cofactors
+    with n1 < n2 < 2*n1, and print both.
+
+    OUTCOME: the conclusion is unchanged and slightly stronger.  The ratio means
+    are LOWER at every sieve-relevant scale (0.0213 against 0.0243 at N = 2048)
+    over roughly three times the pairs, and the U-shape survives.  The one
+    visible difference is max G = 3 in the smallest band, which the anchored
+    sweep could not see because it held a single pair -- and that 3 is the
+    recorded (10, 17) case whose three shared moduli include the UNIT m = 1, so
+    excluding units it is 2, exactly as the notes already say.
+    """
+    by = incidence(x2plus1(Q))
+    ns = sorted(by)
+    print(f"  Q = {Q:,}  (X = {int(Q ** 0.5)})")
+    print(f"  {'N':>8} | {'ANCH pairs':>10} {'mean':>9} {'max':>4}"
+          f" | {'RATIO pairs':>11} {'mean':>9} {'max':>4}")
+    N = 8
+    while 2 * N <= Q // 2:
+        band = [n for n in ns if N <= n < 2 * N]
+        ta = na = ma = 0
+        for i in range(len(band)):
+            for j in range(i + 1, len(band)):
+                g = len(by[band[i]] & by[band[j]])
+                ta += g
+                ma = max(ma, g)
+                na += 1
+        tr = nr = mr = 0
+        for n1 in band:
+            s1 = by[n1]
+            for n2 in ns:
+                if n1 < n2 < 2 * n1:
+                    g = len(s1 & by[n2])
+                    tr += g
+                    mr = max(mr, g)
+                    nr += 1
+        if na or nr:
+            am = ta / na if na else float("nan")
+            rm = tr / nr if nr else float("nan")
+            print(f"  {N:>8} | {na:>10} {am:>9.4f} {ma:>4}"
+                  f" | {nr:>11} {rm:>9.4f} {mr:>4}")
+        N *= 4
+    print("  No law is fitted to either column; three were tried and all failed.")
