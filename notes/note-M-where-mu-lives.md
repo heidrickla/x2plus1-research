@@ -142,6 +142,77 @@ So the direction is closed twice over: reindex by n and μ stops being
 multiplicative; reindex by N and the sequence stops being density 1. Neither
 horn is a strength-of-result issue.
 
+## The law's upper bound is a Cauchy–Schwarz reduction, not a fit
+
+*`sqrt-MX-law` is `extrapolated`, and §1's whole θ-axis argument rests on it.
+What §1 actually needs is only the **upper** bound S_μ(M) ≪ √(MX). That half is
+not a fit: it follows from Cauchy–Schwarz plus a second-moment statement about
+the same Gram structure [Note F](note-F-failure-localisation.md) and
+[Note L](note-L-over-Z.md) study.*
+
+Write T_m = Σ_{x ≤ X, m | x²+1} μ(x²+1), so S_μ(M) = Σ_{m ∼ M} |T_m|. Then
+
+> **S_μ(M)² ≤ #{m ∼ M} · Q₂**,  Q₂ := Σ_{m ∼ M} T_m²,
+
+and expanding the square gives the **exact** decomposition
+
+> **Q₂ = DIAG + OFF**, DIAG = #{(m,x) : m ∼ M, m | x²+1, x²+1 squarefree},
+> OFF = Σ_{x≠y} μ(x²+1)μ(y²+1) · G_M(x,y),  G_M(x,y) = #{m ∼ M : m | gcd(x²+1, y²+1)}.
+
+**OFF is built from exactly the Gram entries of the rational incidence graph** —
+the object Prop L.1 bounds and Theorem O.3′ constrains. Measured at X = 2×10⁵:
+
+| M | #m | Q₂ | DIAG | OFF/DIAG | S_μ | √(#m·Q₂) | S_μ/CS |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 200 | 38 | 73 835 | 48 859 | 0.511 | 1 291 | 1 675 | 0.771 |
+| 800 | 137 | 55 298 | 49 902 | 0.108 | 2 166 | 2 752 | 0.787 |
+| 3 200 | 513 | 56 505 | 50 981 | 0.108 | 4 011 | 5 384 | 0.745 |
+| 12 800 | 1 917 | 53 912 | 50 714 | 0.063 | 7 566 | 10 166 | 0.744 |
+| 51 200 | 7 227 | 52 527 | 50 581 | **0.038** | 14 537 | 19 484 | 0.746 |
+
+Three things to read off. **DIAG is flat in M** — ≈ 5.05×10⁴ across a 256-fold
+range — because each x has O(1) divisors in a dyadic band, so DIAG ≍ X.
+**OFF/DIAG decays monotonically** to 0.038. And **Cauchy–Schwarz is tight**,
+S_μ/CS ≈ 0.75 at every M, so the |T_m| are equidistributed and no single modulus
+carries the sum.
+
+So the upper bound reduces to one input:
+
+> **If OFF = o(DIAG), then Q₂ ∼ DIAG ≍ X and S_μ(M) ≪ √(#{m ∼ M} · X).**
+
+And #{m ∼ M : −1 is a QR mod m} ≍ M/√(log M) by Landau–Ramanujan, giving the
+slightly sharper **S_μ(M) ≪ √(MX/√(log M))**.
+
+**Status, precisely.** Cauchy–Schwarz and the decomposition are exact. DIAG ≍ X
+is a standard divisor count. #m ≍ M/√(log M) is Landau–Ramanujan. **Only
+OFF = o(DIAG) is measured rather than proved** — so this does not promote
+`sqrt-MX-law`, and the note should not claim it does. What it changes is *what
+would have to be proved*: not an asymptotic law fitted over four decades, but a
+cancellation statement for Σ_{x≠y} μμ·G_M(x,y), where the G_M are bounded and
+are the repo's own object. That is a reduction of the θ-axis to the Gram axis,
+and it is the first connection between the two halves of this repo.
+
+**And it explains the root-grouping gap.** The measurement above is the
+*per-modulus* normalisation — every root of −1 mod m sits inside one absolute
+value. Run the same Cauchy–Schwarz per *progression* and the diagonal is
+unchanged (it counts incidences either way), so the only thing that moves is the
+outer count:
+
+> S_mod ≪ √(#modules · X),  S_prog ≪ √(#progressions · X),
+> hence **S_prog/S_mod ≍ √(#prog/#mod) = √(mean roots per modulus)**.
+
+That is precisely the ratio the parallel session measured empirically — tracking
+√(#prog/#mod) to within 2% across ten doublings, with the mean root count
+climbing 2.652 → 3.694. So the root cancellation is not an extra phenomenon on
+top of the law; it is the same Cauchy–Schwarz bound read with a different outer
+index, and Cauchy–Schwarz being tight to 25% in both is why the ratio is sharp.
+It also accounts for the sign of their exponent gap: per-modulus 0.4803 against
+per-progression 0.5046, i.e. **below** √(MX), matching √(#m·X) with
+#m ≍ M/√(log M).
+
+*(The lower bound S_μ(M) ≫ √(MX) is untouched by this and remains fitted. §1
+does not use it.)*
+
 ## The two measurements of the law are the same sum, not two normalisations
 
 §1 rests on S_μ(M) ≍ √(MX), which is `extrapolated`, and the honest worry has
