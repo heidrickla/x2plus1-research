@@ -169,7 +169,19 @@ statement that DFI's parity-breaking input does not exist here.
 > | 0.0583 | 0.23767 | 0.23830 |
 > | 0.2331 | 0.51416 | 0.51446 |
 >
-> The **left** arm does **not** collapse under N/X — at N/X = 0.34 it is 0.0466
+> **And the collapse has a reason, which also explains the asymmetry.** For a
+> cofactor n ∈ [N, 2N) the modulus is m = (x²+1)/n with x ≤ X, so m ≤ (X²+1)/N:
+> the number of moduli that **exist at all** is ≍ X²/N, and **N/X² is exactly
+> 1/(modulus range)**. So the right arm is a function of how many moduli there
+> are, which is a function of N/X² alone — hence the exact collapse. And mean G
+> *falls* as that range grows (68.5 moduli → 0.090, 4.3 moduli → 0.514): with few
+> moduli each is shared by many cofactors; with many, sharing is diluted. At
+> N/X² = 0.233 only about four moduli exist, so a pair shares one roughly half the
+> time.
+>
+> The **left** arm has no such variable because there *both* counts matter and the
+> modulus count carries its own X-dependence — which is why it does not collapse
+> under N/X — at N/X = 0.34 it is 0.0466
 > against 0.0296 — and it is not a function of N alone either: at fixed N it
 > *grows* about 11% per doubling of X (ratios 1.111, 1.105, 1.191, 1.215 at
 > N = 256 … 2048). So it depends on both, and **no scaling variable is claimed
