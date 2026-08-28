@@ -404,6 +404,15 @@ fifths of them and on the whole a = 1 family.
 
 ### Theorem O.3′ — squarefreeness replaced by a checkable gcd
 
+> **Convention, stated because it caused a collision.** Throughout this note
+> **r_k denotes the MODULUS ratio** m_j/m_i, not the X-ratio. The two differ by a
+> square: the X-ratio is τ_k and the modulus ratio is τ_k². So "both moduli in
+> one dyadic window" is **r_k < 2**, equivalently τ_k < √2, equivalently
+> **M > 4√2·k√(ab)**. Reading r_k as the X-ratio instead gives the weaker
+> M > (8/3)k√(ab) and the ρ bound below is then false — 344 violations in a box
+> where the correct condition has 0. Checked on the realised pair
+> (53, 423125): observed modulus ratio 1.70000, r₁₂ = 1.70066, τ₁₂ = 1.30409.
+
 The squarefree hypothesis can be dropped for a much weaker one, and the proof
 gets shorter rather than longer. Put **ρ = B_k/M**. Then B_k = ρM gives
 U_k = ρM + 2ka, and U_k² = M² + 4k²ab with b = a + M yields the identity
@@ -416,7 +425,9 @@ to Λ² − 8kΛ − 2 > 0, so Λ > 4k + √(16k²+2). Feeding that back,
 
 > 9k − ρ > 8kρ²,  so  ρ² < 9/8 − ρ/(8k) < 1.125,  hence **ρ < 1.06066**.
 
-*(Measured ρ over the 95: 1.00395 to 1.05263 — all below, as required.)*
+*(Measured over every multiplier with modulus ratio < 2: ρ_max = 1.058207,
+**0 violations** of ρ² < 9/8. The parallel session's independent run in exact
+`Fraction` arithmetic gives ρ_max = 1.057143, also 0.)*
 
 Now integrality. With M | S, τ_k gives M | B_kT and T ≡ 2X, so
 **M | c·B_k where c = gcd(M, 2X)** — and hence **cρ ∈ ℤ**. But cρ lies in
@@ -434,8 +445,15 @@ O.3 was mute on. Consistency check on the live non-fundamental pair below:
 c = gcd(423124, 8) = 4 — both ≤ 16, and O.3′ correctly **permits** those two,
 forbidding only a third.
 
-*(The smallest c that any of the 95 would need is 20, against the 17 the bound
-allows — so the margin is real but not large.)*
+*(ρ_max = 1.0582 needs c ≥ 18 to admit an integer in (c, 1.06066c), against the
+17 the bound allows — the margin is real but thin, one unit.)*
+
+**And the candidate criterion in the withdrawn section was the wrong shape**,
+which matters only for reading that section's numbers. For three moduli
+m, r₁m, r_km all inside [m, 2m) the requirement is **r_k < 2** alone; the product
+r₁·r_k is not the window condition. The 95 were selected with r₁·r_k < 2, which
+since r₁ > 1 is *stricter* — a conservative subset, so nothing built on it was
+inflated, but the criterion as stated does not mean what it says.
 
 **The parity hypothesis is redundant, and that is not good news.** Since a and b
 are admissible and coprime, either both are ≡ 1 (mod 4) — forcing **4 | M** — or

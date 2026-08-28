@@ -294,3 +294,59 @@ def test_theorem_O3_prime_identity_and_rho_bound():
                     seen += 1
                 break
     assert seen > 0, "no geometry-passing candidates -- test vacuous"
+
+
+def test_r_of_is_the_modulus_ratio_not_the_X_ratio():
+    """The convention that caused a cross-session collision, pinned.
+
+    The modulus ratio is tau^2, not tau.  On the realised non-fundamental pair
+    (53, 423125) the observed ratio is 17/10 = 1.70000, matched by the modulus
+    ratio 1.70066 and NOT by tau = 1.30409.  So "both moduli in one window" is
+    modulus-ratio < 2, i.e. M > 4 sqrt2 k sqrt(ab).
+    """
+    a, b, k = 53, 423125, 12
+    M, D = b - a, a * b
+    s = 4 * k * sqrt(D) / M
+    modulus_ratio = ((s + sqrt(s * s + 4)) / 2) ** 2
+    assert modulus_ratio == pytest.approx(17 / 10, rel=1e-3)
+    assert sqrt(modulus_ratio) == pytest.approx(1.30409, rel=1e-4)
+    # the window condition and its algebraic form agree
+    assert (modulus_ratio < 2) == (M > 4 * sqrt(2) * k * sqrt(D))
+
+
+def test_rho_bound_holds_under_the_modulus_ratio_condition():
+    """rho^2 < 9/8 with zero violations -- but only under modulus-ratio < 2.
+
+    Under the X-ratio reading (tau_k < 2) the bound is false, which is exactly
+    the collision this test exists to prevent recurring.
+    """
+    from fractions import Fraction
+    from math import gcd
+    from x2plus1.factorization import roots_of_minus_one
+
+    def adm(k):
+        return k == 1 or bool(roots_of_minus_one(k))
+
+    tight = loose_viol = 0
+    for a in range(1, 40):
+        if not adm(a):
+            continue
+        for b in range(2 * a, 40000):
+            if gcd(a, b) != 1 or not adm(b):
+                continue
+            M, D = b - a, a * b
+            for k in range(2, 120):
+                t = M * M + 4 * k * k * D
+                U = isqrt(t)
+                if U * U != t:
+                    continue
+                s = 4 * k * sqrt(D) / M
+                mr = ((s + sqrt(s * s + 4)) / 2) ** 2
+                rho = Fraction(U - 2 * k * a, M)
+                if mr < 2:                                   # correct condition
+                    tight += 1
+                    assert rho * rho < Fraction(9, 8), (a, b, k, float(rho))
+                elif mr < 4:                                 # tau_k < 2 only
+                    loose_viol += rho * rho >= Fraction(9, 8)
+    assert tight > 0, "no multipliers inside a window -- test vacuous"
+    assert loose_viol > 0, "the looser reading must actually violate, or the test proves nothing"
