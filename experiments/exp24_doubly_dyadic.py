@@ -331,3 +331,108 @@ if __name__ == "__main__":
                           bmax=200 if XX >= 900 else 80,
                           mmax=3000 if XX >= 900 else 800)
     discriminant_axis(min(900, max(400, XX)))
+
+
+def banding_sees_D(sizes=(1500, 2500), Ds=(1, 2, 3, 4, 5, 6, 11, 39)):
+    """Banding the SECOND variable is what makes the C_4 structure see D.
+
+    Both columns window the moduli; they differ only in whether the cofactors
+    are banded too.  So the pair isolates the effect of the second banding with
+    everything else held fixed -- same values, same windows, same population.
+
+    The banded reading jumps from 1 to 2 exactly at D = 11, the first D where
+    O.12's conclusion fails.  The free reading is CONSTANT at 2 across the whole
+    range containing that transition, so it cannot resolve D = 1 from D = 11.
+
+    Not "the free reading is blind" -- it does move, 2 -> 3 at D = 39.  It is
+    blind exactly where the transition is, which is the useful statement and the
+    weaker one.
+
+    Consequence: Ford-Maynard's (II) bands m ~ M AND n ~ N, so O.12's doubly
+    dyadic configuration is the one in which the structure is visible at all --
+    load-bearing, not a technical convenience adopted to match their hypothesis.
+    """
+    for X in sizes:
+        print(f"\n  X = {X}   (moduli windowed in both columns; cofactors differ)")
+        print(f"  {'D':>4} {'BANDED max':>11} {'FREE max':>9} {'#banded':>10}"
+              f" {'#banded sharing>=2':>19}")
+        band_row, free_row = [], []
+        for D in Ds:
+            vals = [x * x + D for x in range(1, X + 1)]
+            band, free, npairs, p2 = survey(vals)
+            band_row.append(band)
+            free_row.append(free)
+            print(f"  {D:>4} {band:>11} {free:>9} {npairs:>10} {p2:>19}")
+        print(f"    banded: {band_row}   <- separates at D = 11")
+        print(f"    free:   {free_row}   <- constant across the transition")
+
+
+def extremal_four_cycle(D=1, sizes=(1500, 3000, 6000, 12000)):
+    """How loose is O.12?  The smallest cofactor ratio that realises a 4-cycle.
+
+    O.12 proves the cofactor ratio of any windowed 4-cycle exceeds
+    (5+sqrt21)/2 = 4.7913 at D = 1.  max Gram is an integer and only says
+    whether the bound is violated; this says how much room is left.
+
+    Inverted search -- key on PAIRS of moduli in one window and look for two
+    cofactors carrying the same pair -- so the cost is sum_n d(n)^2 rather than
+    the square of the cofactor count, which is what makes larger X reachable.
+
+    BOTH columns are reported because the unit cofactor is inadmissible for any
+    Type II hypothesis and it is the minimiser for some D: at D = 2 the overall
+    minimum is 33.0 at (1, 33), which a reader dismisses in a line.  At D = 1
+    the minimum is already unit-free.
+
+    RESULT at D = 1: the minimum is 34.0811, at cofactors (37, 1261) sharing
+    moduli 866 and 1730 (37*866 = 179^2+1, 37*1730 = 253^2+1,
+    1261*866 = 1045^2+1, 1261*1730 = 1477^2+1), and it does NOT move across a
+    factor of 8 in X.  So O.12 is loose by 7.11x with no sign of being
+    approached.  This improves the witness the notes quote -- (2, 82) at ratio
+    41 is not extremal.
+    """
+    from collections import defaultdict
+    thr = (5 + 21 ** 0.5) / 2
+    print(f"  x^2+{D}.  O.12 proves any windowed 4-cycle has cofactor ratio"
+          f" > {thr:.4f} (at D = 1).")
+    print(f"  {'X':>7} | {'min ratio':>10} {'witness':>26}"
+          f" | {'unit-free min':>13} {'witness':>26} {'slack':>8}")
+    for X in sizes:
+        inc = defaultdict(list)
+        for x in range(1, X + 1):
+            v = x * x + D
+            d = 1
+            while d * d <= v:
+                if v % d == 0:
+                    inc[v // d].append(d)
+                    if d * d != v:
+                        inc[d].append(v // d)
+                d += 1
+        key = defaultdict(list)
+        for n, ms in inc.items():
+            ms = sorted(set(ms))
+            for i, m1 in enumerate(ms):
+                for m2 in ms[i + 1:]:
+                    if m2 >= 2 * m1:
+                        break
+                    key[(m1, m2)].append(n)
+        best = bestuf = None
+        for (m1, m2), nsl in key.items():
+            if len(nsl) < 2:
+                continue
+            nsl.sort()
+            for i in range(len(nsl) - 1):
+                n1, n2 = nsl[i], nsl[i + 1]
+                r = n2 / n1
+                if best is None or r < best[0]:
+                    best = (r, n1, n2, m1, m2)
+                if n1 > 1 and (bestuf is None or r < bestuf[0]):
+                    bestuf = (r, n1, n2, m1, m2)
+        def fmt(b):
+            if not b:
+                return f"{'-- none --':>10} {'':>26}"
+            r, n1, n2, m1, m2 = b
+            return f"{r:>10.4f} {f'({n1},{n2}) m={m1},{m2}':>26}"
+        sl = f"{bestuf[0]/thr:>7.2f}x" if bestuf else ""
+        print(f"  {X:>7} | {fmt(best)} | {fmt(bestuf)} {sl:>8}")
+    print("  A bound's silence is not evidence about what lies outside it: this is")
+    print("  a minimum over a finite range, not a proof that none is smaller.")
