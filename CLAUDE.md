@@ -489,7 +489,8 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   not at what you meant to stage.** But a check cannot close a race — the same
   collision happened *while* that check was being run, the other session
   committing in the window between the check and the commit. **So commit with a
-  pathspec: `git commit -F - -- <paths>`** takes the working-tree content of
+  pathspec: `git commit -F - -- <paths>`** (with one gap: it cannot commit an
+  *untracked* file, which needs `git add` first) takes the working-tree content of
   exactly those paths and ignores the index for everything else, so it cannot
   sweep the other session's staged work even if you forget to look. (Options
   before the `--`; `git commit -- <paths> -F -` parses `-F` as a pathspec and
