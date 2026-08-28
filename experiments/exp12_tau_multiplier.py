@@ -44,6 +44,11 @@ consumes all of N(xi_1) = M.  A third modulus would need xi_3 = P1 P2 xi_1 / M^2
 i.e. norm M^2 absorbed by an element of norm M.  Impossible unless P2 = conj(P1),
 which returns xi_3 = xi_1.
 
+NOTE THE QUALIFIER.  This bounds what tau does to ONE solution.  A ratio class
+holds many solutions at separated positions and each carries its own tau-pair --
+(1,53) has moduli 10, 17, 24650, 42850, i.e. two close pairs.  The per-class
+count is unbounded; the per-window count is 2.
+
 The prediction is sharp and falsifiable: whenever tau^4 < 2 a third modulus
 WOULD fit inside the window, so every such pair is a chance to see three.
 
@@ -98,7 +103,7 @@ def main(X=4000):
     for k in sorted(by_a):
         print(f"    {k}: {by_a[k]}")
     print(f"  third shared modulus actually found: {hits}")
-    verdict = "acts exactly once" if hits == 0 else f"acts twice in {hits} cases"
+    verdict = "acts at most once per solution" if hits == 0 else f"acts twice in {hits} cases"
     print(f"  -> tau {verdict}, over {len(room)} chances.")
     if by_a.get("a >= 2"):
         print(f"  -> and {by_a['a >= 2']} of those chances have a >= 2, so this is not")

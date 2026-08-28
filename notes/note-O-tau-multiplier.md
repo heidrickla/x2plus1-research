@@ -74,7 +74,16 @@ extremes of the data:
 
 The last is the smallest consecutive ratio in the entire X = 5000 sweep.
 
-## Proposition O.1 — τ acts at most once
+## Proposition O.1 — τ acts at most once *on a given solution*
+
+**Read the qualifier.** τ acting "at most once" is a statement about one solution
+ξ, not about a ratio class. A class contains many solutions at widely separated
+positions, and **each of them carries its own τ-pair**. At X = 2500 the class
+(a,b) = (1,53) has shared moduli 10, 17, 24650, 42850 — two close pairs,
+(10, 17) at ratio 1.700 and (24650, 42850) at ratio 1.73832, both matching
+τ² = 1.73835. So τ acts twice in that class. What never happens is τ acting
+twice **from the same ξ**, which is what a third modulus in one window requires.
+The proposition below is about that, and the per-class count is unbounded.
 
 > **Let a < b be coprime with gcd(a,b) = 1, M = b − a, D = ab. Then no dyadic
 > window contains three shared moduli for (a, b).**
@@ -137,7 +146,7 @@ cofactors non-trivial, and the mechanism above is uniform in a.
 Prop L.1 proves the spacing half (one modulus per class) and cites Dickson for a
 count of 2^{ω(M)+O(1)}, giving G′ ≪_ε N^ε, with the measured 2 recorded as
 `rigorous_finite`. Proposition O.1 replaces the count entirely: the bound is not
-"few classes exist" but "**τ has no room to act twice**", and it gives **2**
+"few classes exist" but "**τ has no room to act twice on one solution**", and it gives **2**
 directly, with no ε.
 
 If (i) and (ii) are discharged in general, the dyadic-window Gram entry for the
@@ -164,6 +173,9 @@ untouched and remains the obstruction that matters for Type II. A window Gram of
 - *Were the "thirds found" real?* A first pass reported 3 of 258 hits. All three
   were the tolerance window re-detecting m₁ itself. Excluding m₁ and m₂ gives 0.
   The number in this note is from the corrected test.
+- *Is "acts at most once" being stated per class?* It was, in a first draft, and
+  the parallel session found the counterexample: (1,53) carries two close pairs.
+  The qualifier "on a given solution" is load-bearing and is now in the heading.
 - *Does this rescue the theorem?* No, and it should not be read that way. It
   sharpens one bookkeeping constant inside Note L. The parity barrier and Note F
   are where the problem lives, and neither moves.

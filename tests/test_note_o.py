@@ -6,7 +6,7 @@ import pytest
 
 from x2plus1.polyseq import close_pairs, ratio_classes
 
-X = 1200
+X = 1600   # >= 1507, so (1,53) shows both of its close pairs
 CLASSES = ratio_classes(X)
 PAIRS = list(close_pairs(CLASSES))
 
@@ -49,8 +49,12 @@ def test_tau_squared_law_holds_with_error_O_one_over_m():
     assert tight and max(tight) < 1e-3, max(tight)
 
 
-def test_tau_acts_at_most_once():
-    """Proposition O.1.  tau^4 < 2 means a third WOULD fit; none is ever there."""
+def test_tau_acts_at_most_once_per_solution():
+    """Proposition O.1.  tau^4 < 2 means a third WOULD fit; none is ever there.
+
+    Per SOLUTION, not per class: a class may hold several close pairs at
+    separated positions -- see test_a_class_may_hold_two_close_pairs.
+    """
     chances = 0
     nontrivial = 0
     for a, b, mi, mj, _V, tau in PAIRS:
@@ -68,3 +72,21 @@ def test_tau_acts_at_most_once():
 def test_named_multipliers_from_the_note(a, b, expected):
     tau = (sqrt(b) + sqrt(a)) / (sqrt(b) - sqrt(a))
     assert tau * tau == pytest.approx(expected, rel=2e-3)
+
+
+def test_a_class_may_hold_two_close_pairs():
+    """The qualifier in Prop O.1 is load-bearing: (1,53) has two close pairs.
+
+    tau acting twice in a CLASS is fine and observed; what Prop O.1 forbids is
+    tau acting twice on one solution, i.e. a third modulus in one window.
+    """
+    per_class = {}
+    for a, b, mi, mj, _V, _t in PAIRS:
+        per_class.setdefault((a, b), []).append((mi, mj))
+    multi = {k: v for k, v in per_class.items() if len(v) > 1}
+    assert multi, "expected at least one class with two close pairs"
+    for (a, b), prs in multi.items():
+        tau2 = ((sqrt(b) + sqrt(a)) / (sqrt(b) - sqrt(a))) ** 2
+        for mi, mj in prs:
+            assert mj < 2 * mi
+            assert abs(mj / mi - tau2) / tau2 * mi < 200
