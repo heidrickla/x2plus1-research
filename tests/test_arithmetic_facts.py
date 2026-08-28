@@ -1206,3 +1206,58 @@ def test_the_whole_note_O_apparatus_generalises_with_M_replaced_by_M_times_D():
     a, b, M = 5, 8, 3
     assert 3 * a * b < (M * 39) ** (4 / 3)      # permitted at D = 39
     assert 3 * a * b > (M * 1) ** (4 / 3)       # forbidden at D = 1
+
+
+def test_the_invariant_is_M_times_f_of_zero_with_a_leading_coefficient_caveat():
+    """The general form, and the one prediction that failed refining it.
+
+    For f(x) = k x^d + D with D = f(0), a m = f(X) and b m = f(Y) give
+
+        b f(X) = abm = a f(Y)  =>  k (a Y^d - b X^d) = (b-a) D = M D
+
+    so the axis is **f(0)**, and every bound weakens by D. Predicted: f(0) = 1
+    should be as tight as x^2+1, f(0) = 39 as loose as x^2+39. Measured at
+    X = 1200, banded max Gram and unit-free triples:
+
+        x^2+1, x^2+x+1, 2x^2+1, x^3+1   f(0)=1    max 1, no triple   as predicted
+        x^2+39, x^2+x+39                f(0)=39   max 2, triple      as predicted
+        2x^2+39                         f(0)=39   max 1, NO triple   **fails**
+
+    The failure is the refinement. k(aY^d - bX^d) = M D forces **k | M D**, so at
+    k = 2 with D = 39 odd, M must be EVEN -- and it is, for every one of 45,289
+    classes, with the invariant holding over 45,459 solutions. A non-monic f can
+    therefore be tighter than f(0) alone predicts, because the leading
+    coefficient imposes a divisibility that thins the class population.
+
+    So: the axis is f(0); the leading coefficient is a second, tightening
+    parameter. x^2+1 is at the tight end of the first with nothing to add on the
+    second.
+    """
+    from math import gcd, isqrt
+    from collections import defaultdict
+
+    X = 500
+    vals = [2 * x * x + 39 for x in range(1, X + 1)]
+    cls = defaultdict(set)
+    for i in range(len(vals)):
+        for j in range(i + 1, len(vals)):
+            g = gcd(vals[i], vals[j])
+            if g > 1:
+                a, b = vals[i] // g, vals[j] // g
+                if a < b:
+                    cls[(a, b)].add(g)
+    assert len(cls) > 1000, len(cls)
+    checked = 0
+    for (a, b), ms in cls.items():
+        M = b - a
+        assert M % 2 == 0, (a, b, M)              # forced by 2 | 39 M
+        for m in ms:
+            if (a * m - 39) % 2 or (b * m - 39) % 2:
+                continue
+            Xq, Yq = (a * m - 39) // 2, (b * m - 39) // 2
+            Xv, Yv = isqrt(Xq), isqrt(Yq)
+            if Xv * Xv != Xq or Yv * Yv != Yq:
+                continue
+            assert 2 * (a * Yv * Yv - b * Xv * Xv) == 39 * M, (a, b, m)
+            checked += 1
+    assert checked > 500, checked
