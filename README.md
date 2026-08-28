@@ -163,10 +163,13 @@ the repo's derived invariant and the paper's stated hypothesis. In the window
 - **Read Duke–Friedlander–Iwaniec §6 directly** (*Ann. of Math.* **141** (1995),
   423–441). Everything above about DFI is at two removes, and the claim that
   x² + 1 *meets* its Type I hypothesis is `inferred` and load-bearing.
-- **Does DFI's Proposition 1 transfer?** It bounds this repo's residues r_d in
-  arithmetic progressions, which is exactly what Note J's reduction needs. This
-  replaces the divisor-bounded question, now answered: the weight is
-  divisor-bounded and Ford–Maynard's Thm 2.7(c) shows that buys nothing.
+- **An absolute-value analogue of DFI's Proposition 1.** Prop 1 bounds a
+  *signed* sum over this repo's residues; [exp07](experiments/exp07_absolute_values.py)
+  shows the difficulty is entirely in the absolute values, so what is needed is
+  Σ_d |Σ_m ρ_h(dm)| — precisely the shape Note F obstructs. Whether a
+  well-factorable decomposition can reach it is the live question.
+- **DFI's Lemma 2 re-normalised to a thin sequence.** It is scale-free and does
+  apply; nobody has written down what its hypotheses become at X = |A|.
 - Iwaniec 1978 is second-hand (paywalled); BFI I–III and *Opera de Cribro*
   Ch. 24–25 unobtained.
 - [Note G](notes/note-G-spectral.md) is still a skeleton, and Note F's lemma

@@ -15,7 +15,7 @@ the structure is in place and the content is not.
 | [G](note-G-spectral.md) | Spectral attempt | §2.4.3 | skeleton — see below |
 | [H](note-H-numerical-pilot.md) | Numerical pilot | §2.4.4 | draft |
 | [I](note-I-a2b4-replay.md) | a²+b⁴ replay | §2.4.5 | draft — harness calibrated |
-| [J](note-J-mobius-in-progressions.md) | Möbius in progressions | *added* | draft — names the missing input |
+| [J](note-J-mobius-in-progressions.md) | Möbius in progressions | *added* | draft — names the missing input, and localises the difficulty to the absolute values |
 
 ## Read Note C first
 
@@ -41,6 +41,19 @@ there is no room for the parity-breaking mechanism. It surfaces three ways:
 Note F's C₄-free lemma is the sharpest **sequence-intrinsic** form, and the one
 that survives changing sieve. Heath-Brown's precedent for relaxing (R1) is real
 but reaches an ε, not the x^{1/6} needed here.
+
+**Notes F and J describe one obstruction from two sides.** Note J reduces the
+Type II input to Σ_q |Σ_{x ≡ r_q (q)} μ(x²+1)|, and the absolute value per
+modulus *is* the arbitrary outer coefficient. Measured: the signed sum is under
+2% of the absolute-value sum, so the whole difficulty is in the |·|, which is
+exactly what C₄-freeness kills.
+
+After reading Duke–Friedlander–Iwaniec and Ford–Maynard at source, the position
+is worse than earlier drafts recorded. x² + 1 sits at γ = 1/2 − ε, inside the
+regime Ford–Maynard's results kill; with ν = 0 (Note F) C⁻ = 0 already follows
+from Selberg; and the divisor-bounded escape is closed by their Thm 2.7(c). The
+claim that x² + 1 *meets* DFI's Type I hypothesis is **refuted** — DFI's Theorem
+S is normalised to x and is vacuous on a sequence of mass x^{1/2}.
 
 **Checkpoints.** Step 1 closes when Note C states a precise bilinear inequality
 whose proof implies the theorem (plan §1.5). Step 2 closes when Notes F and G

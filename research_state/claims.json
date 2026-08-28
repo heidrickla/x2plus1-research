@@ -314,7 +314,7 @@
     {
       "id": "no-log-power-correction",
       "status": "extrapolated",
-      "statement": "The per-progression saving rho = S/(pairs*sqrt(n)), n the actual mean progression length, is flat in X at fixed M band: fitted rho ~ (log X)^c gives c = -0.026 and +0.039 in the two best-sampled bands (8348 and 68784 pairs) over X = 1e4..1e7. So the law is sqrt(MX) with no log-power correction.",
+      "statement": "The per-progression saving rho = S/(pairs*sqrt(n)), n the actual mean progression length, is flat in X at fixed M band: fitted rho ~ (log X)^c gives c = -0.057 with a band-phase spread of 0.19 over X = 1e4..1e7, against an iid null returning -0.002 and an injected (log X)^{-1/2} recovered as -0.482. So the law is sqrt(MX) with no log-power correction, to a resolution of |c| <~ 0.2.",
       "experiment": "experiments/exp05_mobius_progressions.py",
       "depends_on": [
         "typeII-is-BV-for-mobius",
@@ -323,7 +323,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "Prime moduli only; the all-moduli cross-check at scale is not run. Fitted at fixed M band, not fixed u -- at fixed u the finite-n dependence of rho confounds the log-power and the fit scatters from -0.31 to +0.13. An earlier run normalised by the nominal band length and reported rho ~ 0.655; corrected to ~0.72, which leaves the fitted c unchanged. Shuffle and iid controls agree with the actual value to 1-2%, so mu shows no detectable structure along these progressions."
+      "notes": "Cross-checked against all admissible moduli at X <= 1e5: rho = 0.636-0.667 vs 0.64-0.73 for prime moduli, so the restriction does not distort the level. It cannot check the exponent -- half a decade is too short to fit one. Fitted at fixed M band, not fixed u -- at fixed u the finite-n dependence of rho confounds the log-power and the fit scatters from -0.31 to +0.13. An earlier run normalised by the nominal band length and reported rho ~ 0.655; corrected to ~0.72, which leaves the fitted c unchanged. Shuffle and iid controls agree with the actual value to 1-2%, so mu shows no detectable structure along these progressions."
     },
     {
       "id": "mobius-indistinguishable-from-random",

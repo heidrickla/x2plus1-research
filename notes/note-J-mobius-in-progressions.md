@@ -266,7 +266,14 @@ The registry claim `large-moduli-cannot-help` is scoped to Type I accordingly.
   here is naming the target and making it cheap to compute.
 - *Is c = 0 over-read?* It was: ±0.04 was one draw, not an error bar. The
   phase-varied figure is c = −0.057 ± 0.19, i.e. c = 0 to a resolution of
-  |c| ≲ 0.2, over three decades of X. That is evidence about the
+  |c| ≲ 0.2, over three decades of X.
+- *Is the prime-moduli restriction distorting the object?* Cross-checked. Over
+  **all** admissible moduli (`exp05 --all-moduli`, X ≤ 10⁵, which is as far as
+  the per-modulus factorisation reaches), ρ = 0.636–0.667 against 0.64–0.73 for
+  prime moduli — same magnitude, same shape. What the cross-check cannot do is
+  fit an independent log-power: 10⁴…10⁵ is half a decade, and the fit is
+  correspondingly meaningless (−0.82 at one u, −0.11 at another). So the
+  restriction is validated for the *level*, not for the exponent. That is evidence about the
   **truth**, not about provability, and it is prime moduli only — the
   all-moduli cross-check is **[VERIFY]** and not yet run at scale.
 - *Is the X^{3/4} range right?* It comes from DFI's window, which this repo
