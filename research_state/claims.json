@@ -2161,6 +2161,19 @@
       "notes": "Stronger than the two earlier demonstrations, and in the way that matters. 'kappa counts lines' explains why the A_B threshold coincidence carries no information; 'two points flip C4-freeness at fixed kappa' needs an O(1) PERTURBATION of the sequence, which a reader can dismiss as artificial. This needs no perturbation at all -- x^2+D are natural sequences, one per D, and the parameter kappa cannot resolve is the parameter that decides the answer. Found by placing two finished results next to each other, the D axis and the kappa formula, both already recorded and neither computed for this purpose. The one arithmetic slip is worth noting: I first asserted kappa > 0.99999 across the family, which fails at X = 10^3 where kappa(39) = 0.999961. Caught by the test, not by reading. The k-direction has a known mechanism and it points the WRONG way, which is why the non-monotonicity is not a surprise once seen: k imposes k | M D, thinning the class population and TIGHTENING the structure, while kappa = 1/k FALLS with k. So larger k means smaller kappa and a tighter sequence -- density and structure moving in opposite directions along the one axis kappa can see. Through D, kappa is blind; through k, it is inverted. That is the whole of what kappa can resolve about a degree-2 sequence, and neither component carries the property.",
       "proof_site": "notes/note-K-merikoski.md; tests/test_arithmetic_facts.py::test_kappa_is_blind_to_the_D_axis_which_decides_everything",
       "superseded_by": ""
+    },
+    {
+      "id": "the-D-dependence-is-specific-to-degree-two",
+      "status": "rigorous_finite",
+      "statement": "The D axis matters only at degree 2. Measured at X = 900: x^3 + D is doubly-dyadic C4-free for D = 1, 2, 6, 11, 19, 29, 39 -- every value tested -- while x^2 + D fails at D = 11 with cofactors (3,4) and moduli 5,9; at D = 19 with (4,5) and 7,11; and at D = 39 with (8,11) and 5,8. So the D-dependence that governs degree 2 is absent one degree up. The invariant a Y^d - b X^d = M*D holds at every degree, but the Pell/multiplier machinery that converts it into a threshold does not, and at d = 3 the graph is too thin for coincidences regardless of D -- Note L's ladder gives kappa = X^{2-d}, so kappa -> 0 at d = 3 against kappa -> 1/k at d = 2.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "the-line-result-and-the-degree-ladder-are-one-phenomenon"
+      ],
+      "tags": [],
+      "notes": "Completes the connection between the degree ladder and the D axis: DEGREE controls density, D controls structure WITHIN degree 2, and at degree >= 3 the density is already too low for D to have anything to act on. Which is another way of saying degree 2 is the only place any of this is a question -- consistent with the ladder's own finding that d = 1 is solved and d >= 3 is thinner than the sieve needs. Measured at one size only, X = 900, where x^3+D values already reach 7e8; the sparsity argument makes larger X unlikely to change it, but that is reasoning and not measurement. Also worth noting the D = 39 witness here, cofactors (8,11) with moduli 5,8, is the SAME four values as the (5,8) with moduli 8,11 found earlier -- cofactors and moduli exchanged, so the configuration is symmetric.",
+      "proof_site": "",
+      "superseded_by": ""
     }
   ]
 }
