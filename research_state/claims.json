@@ -890,6 +890,19 @@
         "type_ii"
       ],
       "notes": "Two lines, and it settles the 'never 1' half of Note O's step (ii) with no hypothesis. The other half -- 'always 2' -- is NOT a lemma: see V-is-the-asymptotic-not-the-constant-2, where |V| is 24, 66 and 182 for pairs with large M/sqrt(D), matching the asymptotic to 0.1-4%."
+    },
+    {
+      "id": "three-term-determinant-identity",
+      "status": "proved",
+      "statement": "V_ij = X_i Y_j - X_j Y_i is a 2x2 determinant, so three solutions of one conic satisfy V_ij X_k - V_ik X_j + V_jk X_i = 0 and the same with Y. Consequence for a would-be triple in one dyadic window: |V_ik| = (|V_ij| X_k + |V_jk| X_i)/X_j, and X_k/X_i < sqrt 2 gives |V_ik| > 2 + 2/sqrt2 = 3.41, hence |V_ik| >= 4 by the parity lemma -- which needs M/sqrt(D) > 11.3 against the 5.657 a mere close pair needs.",
+      "proof_site": "notes/note-L-over-Z.md; tests/test_polyseq.py::test_three_term_determinant_identity",
+      "depends_on": [
+        "V-is-even-so-never-one"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "A necessary condition for three in a window, not a sufficient one: the median M/sqrt(D) over close pairs is 11.96, so roughly half clear 11.3. Offered as a tool for Note O's Prop O.1 rather than as a route on its own. Verified exactly, zero violations over 65 consecutive triples at X = 1500."
     }
   ]
 }

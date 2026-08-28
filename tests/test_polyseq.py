@@ -196,3 +196,35 @@ def test_V_is_always_even_so_never_one():
             assert (Xi - Yi) % 2 == 0 and (Xj - Yj) % 2 == 0, (a, b, mi, mj)
             assert (Xi * Yj - Xj * Yi) % 2 == 0, (a, b, mi, mj)
     assert checked > 100, f"only {checked} pairs exercised; the test is too weak"
+
+
+def test_three_term_determinant_identity():
+    """Note L: V_ij X_k - V_ik X_j + V_jk X_i = 0 for three solutions of one conic.
+
+    The V of Note O is a 2x2 determinant, V_ij = X_i Y_j - X_j Y_i, so three
+    solutions satisfy the Pluecker relation obtained by expanding a 3x3
+    determinant with a repeated row. Exact, and it constrains a would-be triple:
+    with X_i < X_j < X_k inside one dyadic window (X_k/X_i < sqrt 2),
+
+        |V_ik| = (|V_ij| X_k + |V_jk| X_i)/X_j > 2 + 2/sqrt2 = 3.41,
+
+    so |V_ik| >= 4 by the parity lemma, which needs M/sqrt(D) > 11.3 against the
+    5.657 a mere close pair needs.
+    """
+    from x2plus1.polyseq import ratio_classes
+    checked = 0
+    for (a, b), ms in ratio_classes(1200).items():
+        sols = []
+        for m in ms:
+            Xk, Yk = isqrt(a * m - 1), isqrt(b * m - 1)
+            if Xk * Xk == a * m - 1 and Yk * Yk == b * m - 1:
+                sols.append((Xk, Yk))
+        for i in range(len(sols) - 2):
+            (Xi, Yi), (Xj, Yj), (Xk, Yk) = sols[i], sols[i + 1], sols[i + 2]
+            Vij = Xi * Yj - Xj * Yi
+            Vik = Xi * Yk - Xk * Yi
+            Vjk = Xj * Yk - Xk * Yj
+            assert Vij * Xk - Vik * Xj + Vjk * Xi == 0, (a, b)
+            assert Vij * Yk - Vik * Yj + Vjk * Yi == 0, (a, b)
+            checked += 1
+    assert checked > 20, f"only {checked} triples exercised"

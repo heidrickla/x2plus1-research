@@ -295,6 +295,28 @@ itself runs from 5.6666 to 87.0. So |V| = 2 is not a lemma with three exceptions
 minimal-separation configuration — which is most of them, because the close-pair
 condition r < 2 already forces M/√D > 5.657.
 
+### A three-term identity, offered as a tool
+
+V is a 2 × 2 determinant, so three solutions of one conic satisfy the Plücker
+relation obtained by expanding a 3 × 3 determinant with a repeated row:
+
+> **V_ij X_k − V_ik X_j + V_jk X_i = 0**,  and the same with Y.
+
+Exact; zero violations over 65 consecutive triples at X = 1500
+(`tests/test_polyseq.py::test_three_term_determinant_identity`). For the
+(1, 5) family it reads V_ij = V_jk = −2, V_ik = −6 at every step.
+
+It constrains a would-be triple. With X_i < X_j < X_k inside one dyadic window,
+so X_k/X_i < √2,
+
+> |V_ik| = (|V_ij| X_k + |V_jk| X_i) / X_j > 2 + 2/√2 = 3.41,
+
+hence **|V_ik| ≥ 4** by the parity lemma — which needs M/√D > 11.3, against the
+5.657 a mere close pair needs. That is a *necessary* condition and not a
+sufficient one: the median M/√D over close pairs is 11.96, so about half clear
+it. Recorded as a tool for [Note O](note-O-tau-multiplier.md)'s argument rather
+than as a route on its own.
+
 ## So Note F's conclusion transfers, and here is exactly how much is proved
 
 - **Proved, Z[i]:** G(n₁,n₂) ≤ 1, at every split and on the full graph
