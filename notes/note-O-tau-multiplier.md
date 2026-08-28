@@ -1340,6 +1340,22 @@ banded pairs.
 *(Verified independently here: the identity holds with 0 failures over 1089,
 1582, 2406 pairs at c = 1, 2, 3.)*
 
+**Where the argument stops, exactly.** O.12 uses only |V| ≥ 1. Upgrading that to
+**|V| ≥ 2** raises the threshold to M/√D > 2√3/c², against the 1/√2 = 0.7071 a
+dyadic band supplies:
+
+| c | 1 | 2 | 3 | 4 | 5 |
+|---|---|---|---|---|---|
+| threshold, \|V\| ≥ 1 | 1.7321 | 0.4330 | 0.1925 | 0.1083 | 0.0693 |
+| threshold, \|V\| ≥ 2 | 3.4641 | **0.8660** | 0.3849 | 0.2165 | 0.1386 |
+
+So **|V| ≥ 2 extends O.12 to c = 2 and no further** — 0.8660 clears 0.7071, and
+c = 3 does not. And **every |V| observed is even**, at every c from 1 to 5
+(smallest values 2,4,…; 4,6,…; 6,8,…; 4,8,…; 6,10,…), so |V| ≥ 2 looks
+structural — but `V-is-even-whenever-M-is-odd` is proved for c = 1 only, and the
+general-c parity argument is not done here. **The honest boundary: O.12 covers
+c = 1 outright and c = 2 modulo that parity lemma; c ≥ 3 is measured only.**
+
 > **Both obvious repairs are closed.** The bound is **saturated** — max |V| over
 > it is 1.0000, 3.9999, 8.9998 at c = 1, 2, 3, i.e. exactly c² — so it cannot be
 > tightened. And min |V| is **2, 4, 6**, i.e. 2c and not c², so no lower bound of
