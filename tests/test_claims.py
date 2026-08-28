@@ -26,7 +26,8 @@ def test_registry_is_internally_consistent():
 
 def test_every_claim_has_the_support_its_status_requires():
     for c in CLAIMS:
-        if c.status in {Status.PROVED, Status.QUOTED, Status.MEASURED}:
+        if c.status in {Status.PROVED, Status.QUOTED, Status.RIGOROUS_FINITE,
+                        Status.EXTRAPOLATED}:
             assert c.support(), f"{c.id} claims {c.status} with no support field"
 
 
@@ -75,6 +76,19 @@ def test_inferred_claims_say_they_are_inferred():
     for c in CLAIMS:
         if c.status is Status.INFERRED:
             assert c.notes, f"{c.id}: inferred claims must record what is missing"
+
+
+def test_extrapolated_claims_admit_the_extrapolation():
+    """A fitted law must say so; that is the step nobody decides to take."""
+    for c in CLAIMS:
+        if c.status is Status.EXTRAPOLATED:
+            assert c.notes, f"{c.id}: extrapolated claims must record what is fitted"
+
+
+def test_no_claim_still_uses_the_retired_measured_status():
+    """`measured` conflated exact-finite with fitted-asymptotic; it is retired."""
+    raw = REGISTRY_PATH.read_text(encoding="utf-8")
+    assert '"status": "measured"' not in raw
 
 
 def test_nogo_rules_screen_the_routes_this_repo_ruled_out():

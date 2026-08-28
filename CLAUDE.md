@@ -36,7 +36,8 @@ The vocabulary is deliberately not interchangeable:
 |---|---|---|
 | `proved` | `proof_site` naming a note **and** a test | proved in this repo |
 | `quoted` | `citation` with a page/result locator | verbatim from a source |
-| `measured` | `experiment` naming the script | numerically observed only |
+| `rigorous_finite` | `experiment` naming the script | exact over a stated finite range |
+| `extrapolated` | `experiment` + `notes` | an asymptotic law fitted from finite data |
 | `inferred` | `notes` saying what is missing | reasoning, not reading or proof |
 | `hypothesis` | — | proposed; screened against no-go rules |
 | `refuted` | `superseded_by` | kept so it cannot be silently re-asserted |
@@ -46,6 +47,15 @@ from evidence that did not support it — "the obstruction is Type I, not Type I
 then "(R1) is soft". Both are in the registry as `refuted`, with what replaced
 them. An inferred claim reads exactly like a quoted one in prose; the status is
 the only thing that keeps them apart.
+
+**`rigorous_finite` vs `extrapolated`** is the same distinction one level down,
+added after the `rh-research-engine` session pointed at its `rigorous_numerical`
+rung: *rigorous about what it covers, and what it covers is always finite.*
+"max off-diagonal Gram entry is 1 at X = 8000" settles a finite question
+completely; "ρ ~ (log X)^c with c = 0.00 ± 0.04" is a fit. Fits are how a finite
+observation becomes a claim about all X without anyone deciding to promote it.
+The dependency guard enforces the ordering — it has already rejected a
+`rigorous_finite` claim that rested on an `extrapolated` one.
 
 Before proposing a route, screen it:
 

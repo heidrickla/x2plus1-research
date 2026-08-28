@@ -100,18 +100,49 @@ Swept over prime moduli from X = 10⁴ to 10⁷ (`exp05`), fitting ρ ~ (log X)^
 **c → 0 as the statistics improve.** The scatter in the small bands is
 sample-size noise — 20 pairs cannot fit an exponent — and the two well-sampled
 bands both give |c| < 0.04. At fixed M the drift is flat to within 1%:
-ρ = 0.6610 → 0.6553 across X = 3×10⁵ → 10⁷.
+ρ = 0.7221 → 0.7158 across X = 3×10⁵ → 10⁷.
+
+The fit is taken at **fixed M band**, not at fixed u = log M/log X. That matters:
+ρ carries a finite-n dependence (short progressions sit above the Gaussian
+limit), and at fixed u the progression length varies with the band, confounding
+the finite-n effect with the log-power being measured. At fixed band, n scales
+cleanly with X and the two separate. Fitting at fixed u instead gives scatter
+from −0.31 to +0.13, which is the confounding, not a signal.
 
 > **Conclusion: the law is √(MX) with no log-power correction.** Per-progression
 > cancellation is clean square-root. This discharges the caveat Note H has
 > carried since it was first measured.
 
-The constant is ρ ≈ 0.655. A random ±1 walk on the squarefree subset predicts
-√(2/π)·√0.8948 = 0.755, so the measured value is 0.87 of that — **unexplained**,
-and a loose end. Candidates: short progressions (X/M is only ~30 in the
-best-sampled band, where the Gaussian approximation to E|S| is imperfect), or
-genuine negative correlation of μ along these progressions. Worth settling,
-since a systematic deficit would be more interesting than a finite-size effect.
+### The constant, and a control that matters more than it
+
+An earlier run reported ρ ≈ 0.655 against a predicted √(2/π)·√0.8948 = 0.755 and
+flagged the gap as unexplained. It was an artefact: the statistic normalised by
+the *nominal* band length X/√(lo·hi) rather than the actual mean progression
+length, understating it by ~9%. Corrected, ρ ≈ 0.72, and the residual gap is the
+finite-n approach to the Gaussian limit. **The fitted c is unaffected** — the
+correction is a constant factor per band, which cancels in the drift — so the
+headline survived the bug, which is the only reason it is worth reporting rather
+than quietly fixing.
+
+The control is the more interesting part. Recomputing ρ against two nulls at
+X = 10⁶ — the same μ values randomly **shuffled** (destroying all arithmetic
+structure), and a synthetic **iid** ±1/0 sequence at the same density:
+
+| M band | mean length n | ρ actual | ρ shuffled | ρ iid |
+|---|---:|---:|---:|---:|
+| [10³, 10⁴) | 268.9 | 0.7255 | 0.7185 | 0.7311 |
+| [10⁴, 10⁵) | 26.5 | 0.7157 | 0.7114 | 0.7163 |
+| [10⁵, 10⁶) | 2.6 | 0.7326 | 0.7283 | 0.7278 |
+
+> **μ(x²+1) along these progressions is statistically indistinguishable from
+> random**, by this statistic, at this scale — actual, shuffled and iid agree to
+> within 1–2% in every band.
+
+That is a negative result and should be read as one: it says no *obstruction* is
+visible in the correlation structure, not that μ is random. It is the outcome
+one wants — the required cancellation appears to hold for the reason one would
+hope — and it is exactly as far from a proof as it was before, since the parity
+barrier is a statement about provability, not about truth.
 
 ## Honest assessment as a pathway
 

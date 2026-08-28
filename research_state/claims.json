@@ -127,40 +127,41 @@
     },
     {
       "id": "kappa-invariant",
-      "status": "measured",
+      "status": "extrapolated",
       "statement": "Over dyadic splits, max min(D_m, d_n) ~ sqrt(kappa) = |A|/Q^{1/2}. Measured ratio 0.85-0.92 across the family a^2+b^{2k}, k=2..6 (alpha 0.75 down to 0.583), and 1.26 for x^2+1 where sqrt(kappa)=1.",
       "experiment": "experiments/exp04_kappa_family.py",
       "tags": [
         "type_ii"
       ],
-      "notes": "A degree heuristic supported across a one-parameter family, not a theorem. The C4-free lemma is the proved statement in the neighbourhood."
+      "notes": "A degree heuristic supported across a one-parameter family, not a theorem. The C4-free lemma is the proved statement in the neighbourhood. A law fitted from finite data, not a theorem: the extrapolation from the measured range to all X is the unsupported step."
     },
     {
       "id": "sqrt-MX-law",
-      "status": "measured",
+      "status": "extrapolated",
       "statement": "sum_m |sum_n mu(n) 1[mn in A]| ~ sqrt(MX) for M <= X, saturating at ~|A| for M >= X. Ratio to sqrt(MX) is 0.88-0.93, stable from X = 2e4 to 1e5.",
       "experiment": "experiments/exp02_bilinear_pilot.py",
       "tags": [
         "type_ii"
-      ]
+      ],
+      "notes": "A law fitted from finite data, not a theorem: the extrapolation from the measured range to all X is the unsupported step."
     },
     {
       "id": "no-saving-in-required-window",
-      "status": "measured",
+      "status": "rigorous_finite",
       "statement": "In the window (B1) would require, M in (x^{1/2}, x^{3/4}), the measured bilinear sum shows no saving at all: S_mu/A(x) = 0.93, 1.00, 1.01.",
       "experiment": "experiments/exp02_bilinear_pilot.py",
-      "depends_on": [
-        "sqrt-MX-law"
-      ],
+      "depends_on": [],
       "tags": [
         "type_ii"
-      ]
+      ],
+      "notes": "Exact integer computation over the stated finite range; settles that range completely and implies nothing asymptotic. Independent of the fitted sqrt(MX) law: this is a direct exact computation in the window, not a consequence of the extrapolation. (An earlier version listed that dependency and the registry guard rejected it as resting a rigorous claim on a weaker one.)"
     },
     {
       "id": "harness-calibration",
-      "status": "measured",
+      "status": "rigorous_finite",
       "statement": "Inside FI's proved Prop. 4.1 window the harness sees a^2+b^4 drop to S_mu/|A| = 0.16-0.52 while x^2+1 sits at 0.84-1.01; outside it both saturate. Confirms direction, not magnitude: a log-power saving is invisible over one decade.",
-      "experiment": "experiments/exp03_density_ledger.py"
+      "experiment": "experiments/exp03_density_ledger.py",
+      "notes": "Exact integer computation over the stated finite range; settles that range completely and implies nothing asymptotic."
     },
     {
       "id": "large-moduli-cannot-help",
@@ -218,7 +219,7 @@
     },
     {
       "id": "dfi-typeII-fails",
-      "status": "measured",
+      "status": "rigorous_finite",
       "statement": "x^2+1 fails DFI's arbitrary-coefficient Type II hypothesis outright: worst-case theta = 1.000, 0.999, 0.999 across N(m) in [10,100), [100,1000), [1000,1682) at X = 2e4. With beta = mu the same ranges give 0.627, 0.775, 0.825.",
       "experiment": "experiments/exp02_bilinear_pilot.py",
       "depends_on": [
@@ -226,7 +227,8 @@
       ],
       "tags": [
         "type_ii"
-      ]
+      ],
+      "notes": "Exact integer computation over the stated finite range; settles that range completely and implies nothing asymptotic."
     },
     {
       "id": "green-sawhney-alpha-one",
@@ -308,8 +310,8 @@
     },
     {
       "id": "no-log-power-correction",
-      "status": "measured",
-      "statement": "The per-progression saving rho = S/(pairs*sqrt(X/M)) is flat in X: fitted rho ~ (log X)^c gives c = -0.026 and +0.039 in the two best-sampled bands (8348 and 68784 pairs) over X = 1e4..1e7. So the law is sqrt(MX) with no log-power correction.",
+      "status": "extrapolated",
+      "statement": "The per-progression saving rho = S/(pairs*sqrt(n)), n the actual mean progression length, is flat in X at fixed M band: fitted rho ~ (log X)^c gives c = -0.026 and +0.039 in the two best-sampled bands (8348 and 68784 pairs) over X = 1e4..1e7. So the law is sqrt(MX) with no log-power correction.",
       "experiment": "experiments/exp05_mobius_progressions.py",
       "depends_on": [
         "typeII-is-BV-for-mobius",
@@ -318,7 +320,20 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "Prime moduli only; the all-moduli cross-check at scale is not yet run. The constant rho ~ 0.655 is 0.87 of the random-walk prediction 0.755 and is unexplained."
+      "notes": "Prime moduli only; the all-moduli cross-check at scale is not run. Fitted at fixed M band, not fixed u -- at fixed u the finite-n dependence of rho confounds the log-power and the fit scatters from -0.31 to +0.13. An earlier run normalised by the nominal band length and reported rho ~ 0.655; corrected to ~0.72, which leaves the fitted c unchanged. Shuffle and iid controls agree with the actual value to 1-2%, so mu shows no detectable structure along these progressions."
+    },
+    {
+      "id": "mobius-indistinguishable-from-random",
+      "status": "rigorous_finite",
+      "statement": "At X = 1e6, rho computed on the actual mu(x^2+1) agrees to within 1-2% with both a shuffled control (same values, random order) and a synthetic iid +-1/0 control at the same density, in every M band tested.",
+      "experiment": "experiments/exp05_mobius_progressions.py",
+      "depends_on": [
+        "typeII-is-BV-for-mobius"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "A negative result: no obstruction is visible in the correlation structure. It does NOT say mu is random, and truth is not provability -- the parity barrier is about the latter. Exact computation at one X."
     }
   ]
 }

@@ -16,36 +16,48 @@ from x2plus1.mobius import _sqrt_minus_one, mobius_x2plus1
 RESULTS = Path(__file__).resolve().parent / "results"
 
 
-def band_sum_prime_moduli(mu: np.ndarray, X: int, lo: int, hi: int, seed: int = 0) -> tuple[int, int]:
-    """(Sum over prime q in [lo,hi) of |Sum_{x==r (q)} mu|, number of (q,root) pairs)."""
+def band_sum_prime_moduli(mu: np.ndarray, X: int, lo: int, hi: int, seed: int = 0) -> tuple[int, int, int]:
+    """(Sum over prime q in [lo,hi) of |Sum_{x==r (q)} mu|, #(q,root) pairs, total length).
+
+    The third return value is the total number of terms summed. Normalising by
+    the *nominal* band length X/sqrt(lo*hi) instead understates the progressions
+    by ~9%, which is what produced the spurious rho ~ 0.655 in an earlier run.
+    """
     import random
     rng = random.Random(seed)
     total = 0
     pairs = 0
+    terms = 0
     for p in primerange(max(lo, 3), hi):
         if p % 4 != 1:
             continue
         r = _sqrt_minus_one(p, rng)
         for root in {r, p - r}:
-            total += abs(int(mu[root::p].sum()))
+            sl = mu[root::p]
+            total += abs(int(sl.sum()))
             pairs += 1
-    return total, pairs
+            terms += len(sl)
+    return total, pairs, terms
 
 
-def band_sum_all_moduli(mu: np.ndarray, X: int, lo: int, hi: int) -> tuple[int, int]:
+def band_sum_all_moduli(mu: np.ndarray, X: int, lo: int, hi: int) -> tuple[int, int, int]:
     """Same over every admissible modulus, prime or not. Slower; a cross-check."""
     from x2plus1.factorization import roots_of_minus_one
     total = 0
     pairs = 0
+    terms = 0
     for q in range(max(lo, 2), hi):
         for r in roots_of_minus_one(q):
-            total += abs(int(mu[(r if r else q)::q].sum()))
+            sl = mu[(r if r else q)::q]
+            total += abs(int(sl.sum()))
             pairs += 1
-    return total, pairs
+            terms += len(sl)
+    return total, pairs, terms
 
 
 def main(X_max: int = 10**7, all_moduli: bool = False) -> None:
-    """Sweep X, and for each dyadic band of moduli report the per-progression saving.\n\nThe headline statistic is\n\nrho = S / (pairs * sqrt(X/M))\n\ni.e. the mean |Sum mu| over one progression, divided by the square root of\nits length. Square-root cancellation makes rho ~ sqrt(2/pi) = 0.798,\nconstant in both M and X. Any log-power loss shows up as rho drifting with\nlog X, and that drift is what Note H could not resolve over one decade.\n\nrho is used rather than S/sqrt(MX) because the number of admissible moduli\nin a band carries its own arithmetic factor -- ~M/log M for prime moduli,\n~(3/2pi)M for all admissible moduli -- which would otherwise be confounded\nwith the quantity of interest.\n"""
+    """Sweep X, and for each dyadic band of moduli report the per-progression saving.\n\nThe headline statistic is\n\nrho = S / (pairs * sqrt(n)),  n = actual mean progression length\n\ni.e. the mean |Sum mu| over one progression, divided by the square root of\nits length. Square-root cancellation makes rho -> sqrt(2/pi)*sqrt(density),\n= 0.755 here, approached from below for short progressions; flat in X. A
+log-power loss shows up as rho drifting with\nlog X, and that drift is what Note H could not resolve over one decade.\n\nrho is used rather than S/sqrt(MX) because the number of admissible moduli\nin a band carries its own arithmetic factor -- ~M/log M for prime moduli,\n~(3/2pi)M for all admissible moduli -- which would otherwise be confounded\nwith the quantity of interest.\n"""
     RESULTS.mkdir(exist_ok=True)
     rows = []
     ladder = []
@@ -68,12 +80,12 @@ def main(X_max: int = 10**7, all_moduli: bool = False) -> None:
             hi = M * 10
             t0 = time.time()
             f = band_sum_all_moduli if all_moduli else band_sum_prime_moduli
-            S, pairs = f(mu, X, M, hi)
+            S, pairs, terms = f(mu, X, M, hi)
             if pairs == 0:
                 M = hi
                 continue
             Mgeo = sqrt(M * hi)
-            length = X / Mgeo
+            length = terms / pairs          # the ACTUAL mean progression length
             rho = (S / pairs) / sqrt(length)
             print(f"    [{M:>9},{hi:>10}) {pairs:>9} {S:>12} {S / pairs:>10.2f} "
                   f"{sqrt(length):>10.2f} {rho:>7.4f}  [{time.time()-t0:.0f}s]", flush=True)
@@ -86,8 +98,10 @@ def main(X_max: int = 10**7, all_moduli: bool = False) -> None:
     out.write_text(json.dumps(rows, indent=1), encoding="utf-8")
     print(f"\nwrote {out}")
 
-    print("\nSquare-root cancellation predicts rho = sqrt(2/pi) = 0.798, flat in X.")
-    print("Fitting rho ~ (log X)^c at fixed u = log M / log X:\n")
+    print("\nSquare-root cancellation predicts rho -> sqrt(2/pi)*sqrt(density) = 0.755,")
+    print("approached from below because the progressions are short (E|S|/sqrt(n) is")
+    print("under its Gaussian limit for small n). What matters is flatness in X.")
+    print("\nFitting rho ~ (log X)^c at fixed u = log M / log X:\n")
     print(f"    {'u~':>6} {'points':>7} {'X range':>22} {'fitted c':>9} {'rho span':>18}")
     for target in (0.3, 0.4, 0.5, 0.6, 0.7, 0.8):
         by_x = {}

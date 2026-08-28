@@ -15,16 +15,27 @@ came from the same slip -- not distinguishing what was *measured* from what was
 
 The vocabulary is deliberately not interchangeable:
 
-    PROVED    proved in this repo, with a named note section AND a test
-    QUOTED    quoted verbatim from a source, with a page reference
-    MEASURED  numerically observed only; names the experiment that produced it
-    INFERRED  reasoning not backed by reading or proof -- the hazard class
-    HYPOTHESIS proposed, no support claimed
-    REFUTED   shown false, kept so it cannot be silently resurrected
+    PROVED           proved in this repo, with a named note section AND a test
+    QUOTED           quoted verbatim from a source, with a page reference
+    RIGOROUS_FINITE  computed exactly over a stated finite range
+    EXTRAPOLATED     an asymptotic law inferred from finite data
+    INFERRED         reasoning not backed by reading, proof, or computation
+    HYPOTHESIS       proposed, no support claimed
+    REFUTED          shown false, kept so it cannot be silently resurrected
 
-INFERRED is the class this repo needed and the RH engine does not have. Its
+INFERRED is the class this repo needed and the RH engine did not have. Its
 whole point is that an inferred claim looks exactly like a quoted one in prose,
 which is how a plausible chain of reasoning gets promoted to a finding.
+
+RIGOROUS_FINITE vs EXTRAPOLATED splits what was one MEASURED class, after the
+rh-research-engine session pointed at its `rigorous_numerical` rung: *rigorous
+about what it covers, and what it covers is always finite.* The two are not
+comparable evidence. "The maximum off-diagonal Gram entry is 1 for every m at
+X = 8000" is an exact integer computation -- it settles a finite question
+completely. "rho ~ (log X)^c with c = 0.00 +- 0.04" is a fit, and fits are how
+a finite observation becomes an asymptotic claim without anyone deciding to
+promote it. Collapsing them is the same error as collapsing INFERRED into
+QUOTED, one level down.
 """
 
 from __future__ import annotations
@@ -41,7 +52,12 @@ REGISTRY_PATH = Path(__file__).resolve().parent.parent / "research_state" / "cla
 class Status(StrEnum):
     PROVED = "proved"
     QUOTED = "quoted"
-    MEASURED = "measured"
+    #: Exact over a stated finite range. Settles a finite question completely;
+    #: says nothing whatever about the asymptotic.
+    RIGOROUS_FINITE = "rigorous_finite"
+    #: An asymptotic law fitted from finite data. The class where a finite
+    #: observation quietly becomes a claim about all X.
+    EXTRAPOLATED = "extrapolated"
     INFERRED = "inferred"
     HYPOTHESIS = "hypothesis"
     REFUTED = "refuted"
@@ -49,7 +65,7 @@ class Status(StrEnum):
 
 #: Statuses that may not be asserted without the corresponding support field.
 REQUIRES_CITATION = {Status.QUOTED}
-REQUIRES_EXPERIMENT = {Status.MEASURED}
+REQUIRES_EXPERIMENT = {Status.RIGOROUS_FINITE, Status.EXTRAPOLATED}
 REQUIRES_PROOF_SITE = {Status.PROVED}
 
 
@@ -231,8 +247,9 @@ def check(claims: list[Claim]) -> list[str]:
             if dep not in ids:
                 problems.append(f"{c.id}: depends_on unknown claim {dep!r}")
         # A claim may not rest on something weaker than itself.
-        rank = {Status.HYPOTHESIS: 0, Status.INFERRED: 1, Status.MEASURED: 2,
-                Status.QUOTED: 3, Status.PROVED: 3, Status.REFUTED: 0}
+        rank = {Status.HYPOTHESIS: 0, Status.INFERRED: 1, Status.EXTRAPOLATED: 1,
+                Status.RIGOROUS_FINITE: 2, Status.QUOTED: 3, Status.PROVED: 3,
+                Status.REFUTED: 0}
         for dep in c.depends_on:
             d = next(x for x in claims if x.id == dep)
             if rank[c.status] > rank[d.status] and not c.superseded_by:
