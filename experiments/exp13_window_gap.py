@@ -1,4 +1,4 @@
-"""Experiment 12 -- why no ratio class ever puts three moduli in one window.
+"""Experiment 13 -- why no ratio class ever puts three moduli in one window.
 
 Supports Note L. Two sessions measured that the rational incidence graph's
 off-diagonal Gram entries never exceed 2 on a dyadic window, and neither could
@@ -22,7 +22,7 @@ that no Type II split admits. The run therefore reports the floor twice: over al
 classes, and over the pairs a split can actually meet. They differ by a factor
 of five, and the extremal objects are all in the excluded population.
 
-Usage:  python experiments/exp12_window_gap.py [X]  (X = 5000 takes a few minutes)
+Usage:  python experiments/exp13_window_gap.py [X]  (X = 5000 takes a few minutes)
 """
 
 import sys

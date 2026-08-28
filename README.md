@@ -51,7 +51,7 @@ python experiments/exp09_degree_ladder.py 4000
 ```
 
 ```bash
-python experiments/exp12_window_gap.py 2500
+python experiments/exp13_window_gap.py 2500
 ```
 
 No installation needed — the scripts put the repo root on `sys.path`. Requires
