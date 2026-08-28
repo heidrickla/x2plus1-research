@@ -282,7 +282,18 @@ three bounds, and sinh(u₁₂)sinh(u₂₃) at fixed u₁₃ peaks at the *equa
 f·f·f ≤ (√ρ−1/√ρ)³(√ρ+1/√ρ) and **ab < 0.048628·(b−a)^{4/3}**. It excludes
 88–98% of informative classes, **but that figure falls monotonically with X**
 (97.7 → 88.1 over 1500–8000) while O.10's ~35% is flat, so it must not be read
-as an asymptotic. **Quantifier warning**: the per-prime form
+as an asymptotic. **Theorem O.12 is the one that touches the main line.** The rest of Note O
+windows the *moduli* and lets cofactors range free; **FM's (II) bands both**
+(m ~ M, n ~ N; footnote 2 averages over m₁,m₂ ~ x^{1−2c+ε}). Banded cofactors
+give u = n₂/n₁ < 2, while two shared moduli in one window need τ_V² < 3, i.e.
+M/√D > √3, i.e. **u > (5+√21)/2 = 4.7913** — a factor 2.4 out of reach. So
+**the rational graph on the doubly-dyadic configuration is C₄-free, proved, all
+X** (measured: banded Gram 1, free Gram 2, every window at X = 2000/3000/6000).
+That closes the second half of `gaussian-to-rational-bridge`'s stated gap —
+"what is measured over Z is G′ ≤ 2" becomes proved G′ ≤ 1, matching Z[i]. It does
+**not** close the bridge's inference ("both give no main term…"), and says
+nothing about O.2, which is the free-cofactor question. **Quantifier warning**:
+the per-prime form
 v_p(V₁₂)+v_p(V₂₃) ≥ e does *not* give M | V_aV_b for a fixed pair — the ordering
 is computed per prime and 5 of 216 realised triples admit no uniform pair. That
 reduction would prove O.2 in one line and is blocked. It recovers O.7 for M prime with nothing assumed and supersedes

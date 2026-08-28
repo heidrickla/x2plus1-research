@@ -342,6 +342,24 @@ t > 133.875 the admissible a is tiny: **a ≤ 2** at the minimum t, 6 at 10³.
 R₁₂·R₂₃ = R₁₃, and sinh(u₁₂)sinh(u₂₃) at fixed u₁₃ peaks at the *equal* split, so
 **ab < 0.048628·(b−a)^{4/3}**.
 
+**And O.12 is the one that touches the main line.** Everything above windows the
+*moduli* and lets the cofactors range freely — but Ford–Maynard's (II) is
+bilinear over **m ~ M and n ~ N**, so both variables are banded, and footnote 2
+averages over m₁, m₂ ~ x^{1−2c+ε}. Two banded cofactors give u = n₂/n₁ < 2, while
+a pair of shared moduli in one window needs τ_V² < 3, hence M/√D > √3, hence
+**u > (5+√21)/2 = 4.7913**:
+
+> **Theorem O.12.** Cofactors within a factor 4.7913 — in particular in one
+> dyadic band — share **at most one** modulus in any dyadic window. The rational
+> graph restricted to the doubly-dyadic configuration is **C₄-free**.
+
+`gaussian-to-rational-bridge` says *"what is proved over Z[i] is G ≤ 1; what is
+measured over Z is G′ ≤ 2"*. O.12 closes that second half — over Z, on the
+configuration (II) quantifies over, **G′ ≤ 1 is proved for all X**, matching the
+Z[i] bound exactly. It does **not** close the bridge's remaining inference
+("both give no main term, so the conclusion is unchanged"), and it says nothing
+about O.2: (1,41) shares 730 and 1370 with 41/1 far outside any band.
+
 **Read the coverage over the right denominator.** A class with fewer than three
 shared moduli cannot host a triple, and at X = 3000 only **60 of 1,815,154**
 classes have three at all — so the 99% a sweep over all classes reports is
