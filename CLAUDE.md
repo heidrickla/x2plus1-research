@@ -741,6 +741,20 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   makes it more likely to be repeated.** Nobody had to be reminded to extend the D
   axis a second and third time; the second happened because the first had paid.
 
+- **A bounded search that finds a clean pattern is the most persuasive way to
+  talk yourself out of a caution you had already got right.** The other session
+  searched cofactors ≤ 300 and found every failure witness below cofactor 9 —
+  D = 11 at (3,4), D = 14 at (3,5), D = 19 at (4,5), D = 39 at (5,8) — concluded
+  that failures announce themselves at tiny cofactors, and on that basis
+  **downgraded its own earlier warning** that the surviving D might simply be
+  under-swept. The warning was correct: D = 35's witness is at **(2249, 3756)**,
+  three orders of magnitude outside the search that "established" the pattern.
+  **A bound's silence is not evidence about what lies outside it** — and the
+  damage was not the wrong pattern but the retracted caution, which had been
+  right before the evidence arrived. When a bounded search produces a clean law,
+  the first question is what the bound excludes, and the second is whether the
+  law is being used to retire a doubt that the search could not have addressed.
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified
