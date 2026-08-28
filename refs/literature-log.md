@@ -42,7 +42,7 @@ python -c "from pypdf import PdfReader; print(PdfReader('refs/pdf/FI-asymptotic-
 ### 2026-08-27 (second pass) — reading list items 4–9
 
 - **[HB]** Heath-Brown, *Primes represented by x³+2y³* — **read**. Answered the
-  standing [VERIFY] in [Note C](../notes/note-C-requirements.md): he does *not*
+  standing [VERIFY] in [Note C](../notes/note-C-requirements.md), now discharged: he does *not*
   use [ASP], because (R1) "is not quite met", and he judged it likely relaxable.
   This reversed the previous turn's conclusion that Step 2 was the wrong half.
 - **Iwaniec 1978** — original paywalled; statement and method taken from

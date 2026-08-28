@@ -736,6 +736,20 @@
         "ledger"
       ],
       "notes": "Pintz states the phenomenon degree-uniformly and states no mechanism. Note L supplies a mechanism (alpha = 1/d, kappa = X^{2-d}, no Ford-Maynard triple for d >= 2) and no phenomenon. Neither substitutes for the other, and the ladder should not be described as explaining Pintz's sentence -- it is consistent with it, which is weaker."
+    },
+    {
+      "id": "level-deficit-is-a-log-power",
+      "status": "inferred",
+      "statement": "Step 2 checkpoint, unit 1 of 3. Through DFI Lemma 2, prime detection needs the sieving level z > Q^{1/2} (a survivor of norm <= Q with no prime factor below Q^{1/2} is prime) and Lemma 2 requires D > z, hence D > Q^{1/2}. Note B gives sum_{d<=D}|r_d| ~ D, so (R)'s A(x)(log x)^{-222} forces D << Q^{1/2}(log Q)^{-222}. The deficit is a factor of (log Q)^{222}: a fixed LOG-POWER, not a power of Q.",
+      "depends_on": [
+        "type-I-level",
+        "dfi-lemma2-reaches-P2-and-stops",
+        "asp-R1"
+      ],
+      "tags": [
+        "type_i"
+      ],
+      "notes": "Notable because the repo's other headline shortfalls are powers -- x^{1/6} against (R1), a sixth of an exponent between Merikoski and FI -- and this one is not. But it is the deficit for Lemma 2's HYPOTHESIS ORDERING only, and says nothing about the bilinear forms Lemma 2 leaves behind. Quoting unit 1 without units 2 (a change of norm at fixed exponent, Prop 1 signed vs absolute) and 3 (Chowla for x^2+1, wide open) would describe the problem as nearly solved. Units 2 and 3 are Note G's."
     }
   ]
 }

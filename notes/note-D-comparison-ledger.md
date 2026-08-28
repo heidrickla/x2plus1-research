@@ -148,8 +148,8 @@ never reaches.
 
 ## The fourth published sequence, and the limit of κ
 
-The [VERIFY] asking for "a fourth sequence with a known outcome" is now
-**discharged**, and by a better sequence than the family above supplies: only
+The [VERIFY] asking for "a fourth sequence with a known outcome" is discharged,
+and by a better sequence than the family above supplies: only
 k = 2 in that family has a known outcome, so it tests the *law* but not the
 *criterion*. Merikoski's a² + (b²+1)² (arXiv:2112.03617, 2022) has one, and its
 density is deliberately identical to a² + b⁴. Measured by

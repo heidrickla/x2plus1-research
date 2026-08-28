@@ -322,8 +322,16 @@ sum over this repo's residues r_d. Two directly reusable inputs:
 
 Proposition 1 is the more interesting of the two here, because [Note
 J](note-J-mobius-in-progressions.md) reduces the Type II input to a statement
-about exactly these residues in progressions. **[VERIFY]** whether Proposition 1
-transfers, and at what level.
+about exactly these residues in progressions. **[VERIFY] discharged**:
+Proposition 1 bounds the *signed* sum L_d(M) = Σ_{M<m≤2M} ρ_h(dm), and
+[exp07](../experiments/exp07_absolute_values.py) measures that the difficulty
+here is entirely in the absolute values. So it is the right object in the wrong
+norm, and the reason is structural rather than incidental —
+[Note G](note-G-spectral.md) records that the signed form is what a spectral
+expansion naturally produces. Proposition 2 is worse for our purposes, not
+better: its hypothesis is **"Suppose α, β are supported on primes"** (p. 426),
+i.e. *both* coefficients restricted, which is narrower than the "β_n will be
+supported on primes" of p. 437.
 
 ### How far below 2/3 the literature actually reaches
 
@@ -389,7 +397,8 @@ conclusion already reached.
 **3. The divisor-bounded escape is unavailable, and by a shorter route than the
 density argument.** Theorem 2.7(c), p. 8: C⁻(1/2, 0, ν) = 0 = C⁻_bd(1/2, 0, ν)
 at ν = 0.1616, and C⁻_bd(1/2, 0, 3/19) = 0. **Divisor-boundedness buys nothing
-once ν is small, whatever the density.** The [VERIFY] this note carried — is
+once ν is small, whatever the density.** The [VERIFY] this note carried is discharged —
+was
 x²+1's indicator weight divisor-bounded, and does that exempt it? — is answered:
 it is, and it does not.
 
@@ -492,6 +501,39 @@ Everything past that point is in Lemma 2's own output: the special bilinear form
 Σ_{w<n<y} β_n Σ_{(m,n)=1} α_m c_{mn}. **(33) is the object of
 [Note F](note-F-failure-localisation.md), and (32) is the object of
 [Note J](note-J-mobius-in-progressions.md).**
+
+### The Step 2 checkpoint, unit 1 of 3: the level deficit is a log-power
+
+*The plan (§2.5) asks for "a quantitative statement of how far current bounds
+fall short". It has no single answer, because the shortfall is measured in three
+incommensurable units. This is the first; units 2 and 3 are
+[Note G](note-G-spectral.md)'s.*
+
+Through Lemma 2, prime detection needs the sieving level z above Q^{1/2} — a
+survivor of norm ≤ Q with no prime factor below Q^{1/2} is prime — and Lemma 2
+requires **D > z**. So it needs
+
+> D > Q^{1/2}.
+
+What is available: [Note B](note-B-type-I.md) gives Σ_{d≤D}|r_d| ≍ D, so (R)'s
+requirement Σ_{d≤D} μ²(d)|r_d| ≤ A(x)(log x)^{−222} forces
+
+> D ≪ Q^{1/2}(log Q)^{−222}.
+
+> **The deficit is a factor of (log Q)^{222}. A fixed log-power, not a power
+> of Q.**
+
+That is worth stating precisely because the repo's own headline figures — the
+x^{1/6} shortfall against (R1), the sixth of an exponent between Merikoski and
+FI — are powers, and this one is not. Nothing here is close in the way those
+are far: at the level, and *only* at the level, x² + 1 misses by logarithms.
+
+**And that is exactly as encouraging as it sounds, which is not very.** The
+log-power gap is the deficit for Lemma 2's *hypothesis ordering* alone. It says
+nothing about the bilinear forms Lemma 2 leaves behind, which is where the other
+two units live and where the shortfall stops being an exponent at all. A repo
+that quoted unit 1 without units 2 and 3 would be describing the problem as
+nearly solved.
 
 **And the record is now sourced.** Pintz's survey, *Landau's problems on primes*,
 J. Théor. Nombres Bordeaux **21** (2009), §19, states it as a theorem:
@@ -768,15 +810,20 @@ The three literature markers are resolved; what replaced them is sharper.
 
 **Now open, in priority order.**
 
-- **Read Duke–Friedlander–Iwaniec §6 directly** (*Ann. of Math.* **141** (1995),
-  423–441). Everything in this note about DFI is at two removes. The claim that
-  x² + 1 *meets* DFI's Type I hypothesis is `inferred` and load-bearing.
-- **[VERIFY]** Ford–Maynard Theorem 2.4's escape clause is divisor-bounded
-  weights, and DFI is the divisor-bounded setting. Is x² + 1's weight
-  divisor-bounded in their sense, and does Theorem 2.4 therefore apply to it or
-  exempt it? This is the sharpest live question in the repo.
-- **[VERIFY]** Xiannan Li's sieve reaches ≈ x^{0.6418} unconditionally. What in
-  it is density-limited, and does the limit come from Type I or Type II?
+- ~~Read Duke–Friedlander–Iwaniec §6 directly~~ — **done**, from the author's
+  scan; and the claim that x² + 1 *meets* DFI's Type I hypothesis is now
+  `refuted`, not `inferred`.
+- ~~Ford–Maynard Theorem 2.4's escape clause~~ — **[VERIFY] discharged**, twice
+  over. The weight is divisor-bounded and it does not exempt: Theorem 2.7(c)
+  kills C⁻_bd once ν is small. And on the third reading Theorem 2.4 never
+  applied here at all — its hypothesis is P ∈ A\*₂, which needs ν ≥ 1/3.
+- **[VERIFY]** — still open, and narrowed. Xiannan Li's sieve reaches
+  2/3 − 5/201 = **0.641791** (γ = 5/67), now sourced to
+  [arXiv:2111.05403](https://arxiv.org/abs/2111.05403). He says only that "our
+  current methods fail in numerous places once the exponential density drops
+  below 2/3" — which is not a Type I versus Type II attribution. **The open
+  part is exactly that attribution**, and the paper has not been read at source
+  here.
 
 ## Adversarial review
 

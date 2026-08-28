@@ -276,6 +276,13 @@ The registry claim `large-moduli-cannot-help` is scoped to Type I accordingly.
   restriction is validated for the *level*, not for the exponent. That is evidence about the
   **truth**, not about provability, and it is prime moduli only — the
   all-moduli cross-check is **[VERIFY]** and not yet run at scale.
-- *Is the X^{3/4} range right?* It comes from DFI's window, which this repo
-  knows at two removes. If DFI's Type II range is different, the level changes.
-  **[VERIFY]** — the same dependency Note C flags.
+- *Is the X^{3/4} range right?* **[VERIFY] — still open, and the reason is now
+  specific rather than "at two removes".** DFI has since been read at source,
+  but only through the author's scanned copy, whose OCR does not render
+  Proposition 2's exponents reliably — the displayed bound comes through as
+  "N4M3+", which cannot be trusted to give 3/8. What *is* legible in that
+  proposition, and matters more, is its hypothesis: **"Suppose α, β are
+  supported on primes"** (p. 426). Both coefficients restricted. So the X^{3/4}
+  range, if it is right, is a range for prime-supported coefficients on both
+  sides — narrower than this note's μ-weighted object, not wider. Settling the
+  exponent needs a clean copy of pp. 425–426.

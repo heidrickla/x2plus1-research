@@ -210,11 +210,30 @@ d = 1 and raises for every d ≥ 2.
 > x² + 1 is the *least degenerate member of a degenerate class*, not a special
 > case.
 
-That is a uniform explanation of why every single-variable Landau-type question
-is stuck, and it makes Note F an instance of something general rather than a
-fact about one polynomial. It is also, deliberately, not a claim about
-truth — it is a claim about what the Type I/II framework can express, and the
-standing warning on C⁻ = 0 applies here verbatim.
+That is a uniform account of why every single-variable Landau-type question is
+stuck, and it makes Note F an instance of something general rather than a fact
+about one polynomial. It is also, deliberately, not a claim about truth — it is
+a claim about what the Type I/II framework can express, and the standing warning
+on C⁻ = 0 applies here verbatim.
+
+### Exactly which d-uniform statement is new, and which are not
+
+Three different degree-uniform statements are in play here and only one of them
+is this repo's. Keeping them apart is the whole of the claim:
+
+| statement, for every degree | status |
+|---|---|
+| **almost-primes**: p(f) ≤ deg f + 1 | **known, and old** — Bukhstab 1967, after Rademacher 1924, Ricci 1936, Kuhn 1953–54. Pintz §19. |
+| **primes**, degree ≥ 2 | **unknown**, and Pintz says so outright (p. 5). |
+| **Type I/II admissibility**, degree ≥ 2 | **not found in the literature** by two independent sweeps. This one is ours. |
+
+So the ladder is not a new statement about what is known; it is a statement
+about what the *framework* can express, and its novelty rests on a negative
+literature result, which is the weakest kind of novelty claim. Pintz states the
+phenomenon and no mechanism; this note states a mechanism and no phenomenon. The
+ladder is **consistent with** his sentence, which is weaker than explaining it,
+and deliberately so — "our result explains a documented phenomenon" is the exact
+sentence shape this repo has had to withdraw twice.
 
 ## Adversarial review
 
