@@ -507,3 +507,23 @@ def test_prop_O1_needs_its_window_hypothesis():
     assert U3 * U3 == t3
     assert (U3 * X_ + 2 * 3 * a * Y_) % M == 0
     assert (U3 * Y_ + 2 * 3 * b * X_) % M == 0
+
+
+def test_rational_gram_reaches_three_outside_a_window():
+    """G(17,26) = 3 -- the rational Gram entry is not bounded by 2 in general.
+
+    Shared moduli 1, 85, 2966965.  This does NOT contradict the window bound:
+    those span seven orders, so no dyadic window holds two of them.  "Max 2" is
+    a statement about windows, not about G, and a sweep reporting max 2 over
+    cofactor bands has simply not looked at small enough N.
+    """
+    n1, n2 = 17, 26
+    shared = [1, 85, 2966965]
+    for m in shared:
+        for n in (n1, n2):
+            v = m * n
+            assert isqrt(v - 1) ** 2 + 1 == v, (m, n, v)
+    assert len(shared) == 3
+    # no dyadic window holds two of them
+    for i in range(len(shared) - 1):
+        assert shared[i + 1] >= 2 * shared[i], shared

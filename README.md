@@ -68,22 +68,37 @@ Python ≥ 3.11 with `sympy` and `numpy` (and `pymupdf` for
 C₄-free lemma.**
 
 **And the objection is stronger than C₄-freeness, in a way that does not depend
-on the constant.** Measured at X = 3000, the *mean* of G(n₁,n₂) over pairs in a
-dyadic band [N, 2N) falls like **1/N** — 2.000, 0.667, 0.254, 0.0865, 0.0243 at
-N = 8, 32, 128, 512, 2048 — while the **maximum stays at 2**. So for large N the
-expected Gram entry is far below 1 while G is an integer taking only the values
-0, 1, 2. At N ≈ 2048 the mean is 0.024 against a granularity of 1:
+on the constant.** Measured, the *mean* of G(n₁,n₂) over cofactor pairs in a
+dyadic band [N, 2N) is **small against an integer-valued count** throughout the
+range the sieve uses. At X = 6000: 0.0956, 0.0296, 0.0083 at N = 512, 2048, 8192.
+At N ≈ 2048 the mean is 0.030 against a granularity of 1:
 
 > **what dispersion would call the error is forty times what it would call the
 > main term.**
 
 C₄-freeness says the count is *small*. This says there is **nothing for the
-argument to be about**: a bounded integer-valued count with mean o(1) admits no
-decomposition into a main term plus a smaller error, **whatever the bound is**.
-So the objection survives a bound of 2, 3, or any constant — and the Z[i] → Z
-transfer is correspondingly less load-bearing than it looks. *(The 1/N shape is
-the content; the constant is not claimed, since a naive independence heuristic is
-off by a stable 5–6×.)* That took three revisions to get right; the earlier framings
+argument to be about**: a bounded integer-valued count with mean well below 1
+admits no decomposition into a main term plus a smaller error, **whatever the
+bound is**. So the objection survives a bound of 2, 3, or any constant — and the
+Z[i] → Z transfer is correspondingly less load-bearing than it looks.
+
+**Three qualifications, each found by re-measuring rather than reading.** The
+decay is **not 1/N** — the fitted exponent over the falling range is ≈ 0.8. The
+mean is **U-shaped, not monotone**: it bottoms out near N ≈ X and climbs back to
+0.51 by N ≈ X²/4, where cofactors are so large that only a handful of tiny moduli
+are available and every pair shares them. And the **maximum is not 2**: it is
+**3** at N = 16, witnessed by G(17, 26) = 3 with shared moduli 1, 85 and
+2 966 965 — verified directly, since 17 = 4²+1, 26 = 5²+1, 85·17 = 38²+1,
+85·26 = 47²+1, 2966965·17 = 7102²+1, 2966965·26 = 8783²+1. That is *consistent*
+with the window bound, because those three moduli span seven orders of magnitude
+and no dyadic window holds two of them — but "max 2" is a statement about
+windows, not about G.
+
+**None of that touches the argument, because the sieve only uses N ≤ X.** ASP's
+(B1) forces the modulus M ≥ √x = X, so the cofactor n = (x²+1)/m is at most X —
+exactly the range where the mean is small and falling. The rise and the drop in
+the maximum both happen well beyond it. *(The constant is not claimed either: a
+naive independence heuristic is off by a stable 5–6×.)* That took three revisions to get right; the earlier framings
 are kept as `refuted` entries in
 [`research_state/claims.json`](research_state/claims.json).
 
