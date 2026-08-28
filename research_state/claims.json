@@ -1102,11 +1102,11 @@
       "id": "root-grouping-splits-the-two-normalisations",
       "status": "rigorous_finite",
       "statement": "S_mu(M) puts one absolute value per MODULUS, spanning every root of -1 mod m; exp05's rho is per (q,root) PROGRESSION. Measured at X = 1e6 over ten doublings of M (512..524288): per-progression M-exponent 0.5046 with S/sqrt(MX) drifting by x1.032; per-modulus M-exponent 0.4803 with S/sqrt(MX) drifting by x0.873. The gap is inter-root cancellation at exactly the square-root rate: S_prog/S_mod tracks sqrt(#prog/#mod) to within 2% across the range, while the mean root count per modulus rises 2.652 -> 3.694.",
-      "experiment": "sieve of mu(x^2+1) to X = 1e6 plus per-band summation in both groupings; Note M",
+      "experiment": "experiments/exp15_m_exponent.py",
       "tags": [
         "type_ii"
       ],
-      "notes": "Corrects an overstatement made the same day, that exp02's S_mu and exp05's per-progression sums are the same sum. The mu((x^2+1)/m) = mu(m) mu(x^2+1) reduction is right and stands; the identification of the result with exp05's quantity is not. Consequence for Note M is favourable and worth stating in that direction: S_mu ~ sqrt(MX)/sqrt(mean roots per modulus) is slightly BELOW sqrt(MX), i.e. slightly more cancellation than the law claims, so the saving X/S_mu is if anything larger than Note M quotes. The measurement also reaches X = 1e6, an order of magnitude past exp02's Gaussian-incidence route, which is what the mu(x^2+1) reduction buys."
+      "notes": "Corrects an overstatement made the same day, that exp02's S_mu and exp05's per-progression sums are the same sum. The mu((x^2+1)/m) = mu(m) mu(x^2+1) reduction is right and stands; the identification of the result with exp05's quantity is not. Consequence for Note M is favourable and worth stating in that direction: S_mu ~ sqrt(MX)/sqrt(mean roots per modulus) is slightly BELOW sqrt(MX), i.e. slightly more cancellation than the law claims, so the saving X/S_mu is if anything larger than Note M quotes. The measurement also reaches X = 1e6, an order of magnitude past exp02's Gaussian-incidence route, which is what the mu(x^2+1) reduction buys. Cross-checked at a second X: exp15 at X = 60000 gives per-progression 0.4998 and per-modulus 0.4626, against 0.5046 and 0.4803 at X = 1e6. The per-progression exponent is 1/2 to within 0.005 at both, and the per-modulus deficit is present at both while its size moves with the mean root count, as the mechanism predicts."
     }
   ]
 }

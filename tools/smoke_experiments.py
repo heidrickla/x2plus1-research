@@ -46,6 +46,7 @@ SIZES: dict[str, list[str]] = {
     "exp12_tau_multiplier.py": ["1500"],   # no pairs with m >= 1000 below ~1000
     "exp13_window_gap.py": ["400"],
     "exp14_live_configurations.py": ["600"],  # ratio_classes is O(X^2)
+    "exp15_m_exponent.py": ["60000"],  # needs bands above M = 512 to fit
 }
 
 TIMEOUT = 300
