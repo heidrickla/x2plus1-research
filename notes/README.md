@@ -90,7 +90,12 @@ moduli 10 and 17, in an infinite Pell orbit, so over Z the graph contains
 bound does not exist. What supplies the constant 2 is the window — orbit members
 are ~4.6×10⁵ apart, so a dyadic window admits one from each of two orbits.
 **But (II) bands the cofactors too**, and there the coarsening
-does not survive: [FM]'s (II) is bilinear over m ∼ M *and* n ∼ N, and **Theorem
+does not survive: [FM]'s (II) has **arbitrary divisor-bounded coefficients**, so it implies its own
+doubly-banded restriction (take ξ_m = 0 off [M,2M), κ_n = 0 off [N,2N)) — and
+footnote 2's quantity is doubly banded outright, its pair by their own
+"m₁,m₂ ∼ x^{1−2c+ε}" and its shared variable by their own J ⊆ (x/2,x], which
+forces a ratio-2 range. *(Their (II) sums over (x/2)^θ < m ⩽ x^{θ+ν}, which is
+**not** a band when ν > 0; the coefficients supply the banding, not the range.)* And **Theorem
 O.12** proves that cofactors within a factor (5+√21)/2 = 4.7913 — a dyadic band
 is a factor 2 — share at most one modulus per dyadic window. So over Z, on the
 configuration the hypotheses actually quantify over, **G′ ≤ 1 is proved for all

@@ -47,7 +47,8 @@ all X**, matching the Gaussian bound exactly. A dyadic band is a factor 2, so th
 margin is 2.4×.
 
 That is the configuration a Type II hypothesis quantifies over — [FM]'s (II) is
-bilinear over m ∼ M *and* n ∼ N, and their footnote 2 averages over banded
+arbitrary in its coefficients, so it implies its own doubly-banded
+restriction, and their footnote 2 averages over banded
 moduli. **So the table above compares the Gaussian bound against the wrong
 rational object.** Against the right one the two agree:
 
@@ -896,7 +897,8 @@ full-graph count and the bounded windowed count are the same orbit structure rea
 at two scales, and neither is evidence about the other.
 
 **And the constant is 2 only because the cofactors are free.** Band them as well
-— which is what [FM]'s (II) does, being bilinear over m ∼ M *and* n ∼ N — and
+— which is what [FM]'s (II) reaches, via arbitrary coefficients rather than via
+its m-range, which is not a band when ν > 0 — and
 Theorem O.12 gives **1**: two cofactors within a factor (5+√21)/2 = 4.7913 share
 at most one modulus per dyadic window, proved, for all X. The orbits above have
 cofactor ratios far outside that; the K_{6,2} witness shares moduli 10 and 17
