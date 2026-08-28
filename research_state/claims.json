@@ -481,14 +481,14 @@
     {
       "id": "sqrt-kappa-is-the-poisson-length",
       "status": "inferred",
-      "statement": "For A = {a + f(b)i} with a << Q^{1/2} and b << B, |A| ~ Q^{1/2}B so kappa = |A|^2/Q = B^2 identically, and sqrt(kappa) = B is the range of the Poisson summation variables in the Type II reduction (Merikoski p.4: 'for any B_1, B_2 << X^{1/4}' at alpha = 3/4). For x^2+1, B = 1: Poisson summation over one point is the identity, so there is no main term to evaluate and no exponential sum to bound.",
+      "statement": "For A = {a + f(b)i} with a << Q^{1/2} and b << B, |A| ~ Q^{1/2}B so kappa = |A|^2/Q = B^2 identically, and sqrt(kappa) = B is the range of the Poisson summation variables in the Type II reduction. Merikoski p.4 states the identification directly: 'For Delta != 0 applying the Poisson summation formula to the sums over b_1 and b_2 we get a main term ... N(a; Delta) := B_1 B_2 / Delta^2 |{...}|', with the ranges given as 'for any B_1, B_2 << X^{1/4}' at alpha = 3/4. For x^2+1, B = 1: Poisson summation over one point is the identity, so there is no main term to evaluate and no exponential sum to bound.",
       "depends_on": [
         "merikoski-b2plus1-captures-primes"
       ],
       "tags": [
         "type_ii"
       ],
-      "notes": "kappa = B^2 is arithmetic. The identification of B with the Poisson range is this repo's reading of Merikoski p.4 and is not stated anywhere in the literature; that is the inferred step. It is also only checked for sequences of the form a + f(b)i."
+      "notes": "kappa = B^2 is arithmetic. CORRECTED: an earlier version of these notes said the identification of B with the Poisson range 'is this repo's reading of Merikoski p.4 and is not stated anywhere in the literature'. It IS stated -- p.4 says Poisson is applied to the sums over b_1 and b_2, and the resulting main term carries B_1 B_2 explicitly. What remains inferred is only the GENERALISATION to arbitrary A = {a + f(b)i} and the identification of B with sqrt(kappa); the Poisson step itself is quoted. Found by applying 'pull the paragraph, not the clause' to Merikoski -- the fourth time in one session, and the first where the fuller text STRENGTHENED a claim rather than correcting one. The same passage supplies the mechanism Note K already records: Weil on the shifted curve gives |Delta|^{1/2+eps}, sufficient only to N << X^{1/3-eta}, against N^eps on FI's homogeneous one, which is why a^2+b^4 reaches X^{1/2-eta}."
     },
     {
       "id": "fm-footnote2-is-note-F-G",
