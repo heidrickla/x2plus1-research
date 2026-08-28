@@ -345,3 +345,64 @@ def test_a_modulus_root_pair_is_a_primitive_gaussian_ideal():
         assert len(roots) == primitive_ideals(m), m
         checked += 1
     assert checked > 400, f"only {checked} moduli checked"
+
+
+def test_the_mobius_sieve_agrees_with_sympy_on_x2plus1():
+    """exp16's mobius_of_x2plus1 against sympy, value by value.
+
+    That sieve is what makes S_mu computable past exp02's ceiling -- it underpins
+    root-grouping-splits-the-two-normalisations and
+    saving-law-measured-through-theta-half -- and it was written in one sitting
+    with no independent check. Its delicate parts are the p^2 branch (which must
+    zero mu rather than flip it) and the leftover cofactor above X (which must be
+    a single prime, since two factors above X would multiply past X^2+1).
+
+    A sieve that is wrong in the same way everywhere would still produce a smooth
+    law and a clean exponent, so agreement with an independent implementation is
+    the only thing that distinguishes "the measurement is right" from "the
+    measurement is self-consistent".
+    """
+    import sys
+    from pathlib import Path
+    from sympy import mobius
+
+    repo = Path(__file__).resolve().parent.parent
+    sys.path.insert(0, str(repo / "experiments"))
+    from exp16_m_exponent import mobius_of_x2plus1
+
+    X = 4000
+    sieved = mobius_of_x2plus1(X)
+    for x in range(1, X + 1):
+        assert sieved[x] == mobius(x * x + 1), (x, x * x + 1, int(sieved[x]))
+    # and the non-squarefree values must actually be present, or the p^2 branch
+    # is untested by the comparison above
+    zeros = sum(1 for x in range(1, X + 1) if sieved[x] == 0)
+    assert zeros > 300, f"only {zeros} zero values; the p^2 branch is barely exercised"
+
+
+def test_ratio_classes_agrees_with_an_independent_construction():
+    """polyseq.ratio_classes against a divisor-built incidence table.
+
+    A dozen tests consume ratio_classes and none checks it: if it were wrong they
+    would agree with each other and all be wrong together. This rebuilds the same
+    object from divisors of x^2+1 rather than from pairwise gcds, so an error in
+    either construction shows as a disagreement.
+    """
+    from collections import defaultdict
+    from math import gcd
+
+    from x2plus1.polyseq import ratio_classes
+
+    X = 500
+    mine = defaultdict(set)
+    values = {x: x * x + 1 for x in range(1, X + 1)}
+    for x in range(1, X + 1):
+        for y in range(x + 1, X + 1):
+            g = gcd(values[x], values[y])
+            if g > 1:
+                mine[(values[x] // g, values[y] // g)].add(g)
+    theirs = ratio_classes(X)
+    assert set(mine) == set(theirs), "class sets differ"
+    for key in mine:
+        assert sorted(mine[key]) == sorted(theirs[key]), key
+    assert len(mine) > 5000, f"only {len(mine)} classes; range too small to mean much"
