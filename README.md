@@ -302,7 +302,8 @@ fourth was proved *unreachable by congruences*:
 | (ξ, τ_pξ, τ_p²ξ), any p | closed by **O.5**: τ_p² ∈ T ⟹ M \| 8p², against M < D |
 | any triple, threshold | **O.4**: b/a > 133.875, assuming nothing about which multiplier acts |
 | two **distinct** multipliers, M odd prime | closed by **O.7** |
-| M composite | open |
+| M odd squarefree, gcd(V,M) = 1 | closed by **O.8** (hypothesis observed, not proved) |
+| M even, M non-squarefree, or gcd(V,M) > 1 | open |
 
 **O.7 is the result; O.6 is the lemma under it.** For M an odd prime, exactly one of M \| S,
 M \| T holds at each solution and it forces the sign of U_p ≡ ±2pa. The exact
@@ -325,8 +326,13 @@ Its only hypothesis is M ∤ V, and the window supplies it via the exact
 **a·|V|(X_jY_i + X_iY_j) = M(X_j² − X_i²)** — the factor a is load-bearing —
 which gives |V| < 0.57735·M/√D < M. And the hypothesis is sharp: **every**
 realised M-odd-prime class with three moduli has M | V on its two-step, at ratios
-of 10⁴ and up. **M composite is what remains**, for the same reason O.3 had a
-2-adic gap: the signs can differ across the factorisation.
+of 10⁴ and up. **O.8 pushes it from prime to squarefree** on the back of an identity worth
+having by itself: **S·T = −M·m**, whence gcd(M,S)·gcd(M,T) = M for M odd. The
+dichotomy is really a *factorisation* M = M⁺M⁻ that swaps at each step. Its one
+hypothesis, gcd(V,M) = 1, holds on **every** in-window pair observed (295 of 295)
+but is **not proved** — it is equivalent to g = gcd(U,V) = 1, the quantity Prop
+O.1 tracks, where in-window only a·g² < M is known. **M even is outside all of
+it**: a, b both odd makes M and V both even.
 
 *(I first wrote O.6 up as "the integrality route cannot close O.2". That was too
 strong — the evidence only showed those two conditions are vacuous — and the

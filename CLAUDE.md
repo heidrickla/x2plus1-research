@@ -260,8 +260,18 @@ nothing about which multipliers act.** Its only hypothesis is M ∤ V, supplied 
 the window through the exact **a·|V|(X_jY_i + X_iY_j) = M(X_j²−X_i²)** — *the
 factor a is load-bearing, and dropping it fails 3389 of 4033 pairs* — giving
 |V| < 0.57735·M/√D < M. The hypothesis is sharp: every realised M-odd-prime class
-with three moduli has M | V on its two-step, at ratios of 10⁴ and up. **M
-composite remains open**, for the same reason O.3 had a 2-adic gap.
+with three moduli has M | V on its two-step, at ratios of 10⁴ and up. **Theorem O.8 pushes it from prime to
+squarefree**, on an identity worth having alone: **S·T = −M·m** (from
+a(Y²−X²) = M(X²+1) = M·am), whence **gcd(M,S)·gcd(M,T) = M** for M odd — so the
+dichotomy is a *factorisation* M = M⁺M⁻ that swaps at each step. Its one
+hypothesis is **gcd(V,M) = 1**, which holds on every in-window pair observed
+(295 of 295 at X = 6000) but is **not proved**; it is equivalent to
+g = gcd(U,V) = 1, the quantity Prop O.1's chain tracks, where in-window only
+a·g² < M is known. **Two conditions, not one**: coprimality separates swap from
+non-swap (every non-swap has gcd(V,M) > 1), while squarefreeness makes the split
+a *dichotomy* rather than partial — M = 9 gives (3,3), neither p^e | S nor
+p^e | T. **M even is outside all of it**: a, b both odd makes M and V both even,
+so gcd(V,M) ≥ 2 automatically.
 
 **I first wrote O.6 up as "the integrality route cannot close O.2" and that was
 too strong** — the evidence showed only that those two *composite* conditions are
