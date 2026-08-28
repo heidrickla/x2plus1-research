@@ -89,10 +89,12 @@ mean is **U-shaped, not monotone**: it bottoms out near N ≈ X and climbs back 
 are available and every pair shares them. And the **maximum is not 2**: it is
 **3** at N = 16, witnessed by G(17, 26) = 3 with shared moduli 1, 85 and
 2 966 965 — verified directly, since 17 = 4²+1, 26 = 5²+1, 85·17 = 38²+1,
-85·26 = 47²+1, 2966965·17 = 7102²+1, 2966965·26 = 8783²+1. That is *consistent*
-with the window bound, because those three moduli span seven orders of magnitude
-and no dyadic window holds two of them — but "max 2" is a statement about
-windows, not about G.
+85·26 = 47²+1, 2966965·17 = 7102²+1, 2966965·26 = 8783²+1. Two qualifications
+make it precise: one of the three is the **unit modulus m = 1**, which no Type II
+hypothesis admits (it confines both variables to ranges), so **excluding units the
+maximum is 2**; and the three span seven orders, so no dyadic window holds two of
+them. "Max 2" is a statement about *windows*, and a cofactor-band sweep reporting
+2 has simply not gone to small enough N.
 
 **None of that touches the argument, because the sieve only uses N ≤ X.** ASP's
 (B1) forces the modulus M ≥ √x = X, so the cofactor n = (x²+1)/m is at most X —

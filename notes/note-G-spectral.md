@@ -134,8 +134,11 @@ statement that DFI's parity-breaking input does not exist here.
 > out near N ≈ X and climbing back to 0.51 by N ≈ X²/4, where cofactors are large
 > enough that only a few tiny moduli exist and every pair shares them. And the
 > maximum is **3**, not 2: G(17, 26) = 3 with shared moduli 1, 85, 2 966 965 —
-> consistent with the *window* bound, since those span seven orders, but "max 2"
-> is about windows, not about G. **None of it touches the argument**, because
+> though one of the three is the **unit modulus m = 1**, which no Type II
+> hypothesis admits, so **excluding units the maximum is 2**. It is also
+> consistent with the *window* bound, since those span seven orders. "Max 2" is
+> about windows, not about G, and a cofactor-band sweep reporting 2 has not gone
+> to small enough N. **None of it touches the argument**, because
 > (B1) forces M ≥ √x = X and hence the cofactor n ≤ X, which is exactly the range
 > where the mean is small and falling.
 >

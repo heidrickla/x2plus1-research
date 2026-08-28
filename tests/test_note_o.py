@@ -524,6 +524,9 @@ def test_rational_gram_reaches_three_outside_a_window():
             v = m * n
             assert isqrt(v - 1) ** 2 + 1 == v, (m, n, v)
     assert len(shared) == 3
-    # no dyadic window holds two of them
+    # ... but one of them is the UNIT modulus, which no Type II hypothesis admits
+    assert 1 in shared
+    assert len([m for m in shared if m > 1]) == 2, "excluding units the max is 2"
+    # and no dyadic window holds two of them
     for i in range(len(shared) - 1):
         assert shared[i + 1] >= 2 * shared[i], shared
