@@ -820,6 +820,21 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   the first question is what the bound excludes, and the second is whether the
   law is being used to retire a doubt that the search could not have addressed.
 
+- **A wrong identification between two notes' machinery costs more than a wrong
+  answer, because it manufactures an apparent contradiction.** Note L's ε and
+  Note O's τ act on the same solution set of aY² − bX² = M. Identifying them —
+  *"the fundamental multiplier is the fundamental automorph"*, which sounds like
+  a definition — produced "two moduli of **one orbit** inside a window", which
+  **contradicts Prop L.1** and reads as a defect in it. The natural next move is
+  to go looking for the error in Note L, and there is none: ε² = 1.679×10⁷ and
+  τ₁² = 1.877, two different objects differing by a factor of 8.95×10⁶. **Every
+  other trap here produces a wrong answer; this one produces a wrong
+  *retraction*, of something correct, in someone else's work.** What separated
+  them was computing *both* quantities on *one* example — the same instrument as
+  asking why two derivations of a constant agree, aimed at two pieces of
+  machinery instead of two derivations. **When two notes' objects look like the
+  same object, evaluate both on one instance before believing it.**
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified
