@@ -2084,6 +2084,18 @@
         "method"
       ],
       "notes": "INFERRED: three measured gaps and a reading of what they have in common, not a theorem. CORRECTED: this first said the D axis is 'the one place proof and data agree exactly'. It is not, and it is not an exception to the gap -- it IS instance (2) of it, read as its own opposite. The two constituent facts are true (every observed failure lies outside the proved reach, and nothing inside it has ever failed) but they state SOUNDNESS, not tightness. The reach ends at D <= 4.899 and the smallest observed failure is D = 11, so D = 5, 6, 7, 8, 9, 10 lie between: six values permitted to fail, protected by no proof, and unfallen to X = 8000. WHAT IS TRUE is that the D axis is where the gap is NARROWEST -- six values wide, against 39 of 60 classes and a reach that falls with X. That is worth saying and is a different statement from 'exactly', which would invite a reader to conclude the bound is tight there. So the honest summary of the thread is not 'these theorems nearly close O.2' but 'the size arguments are now sharp enough to be worth stating and are still nowhere near what is true, and the gap between them is arithmetic nobody here has reached'."
+    },
+    {
+      "id": "tau-moves-between-orbits-epsilon-within-them",
+      "status": "proved",
+      "statement": "Note L's eps and Note O's tau are different group actions on the same solution set of a Y^2 - b X^2 = M, and neither note relates them. eps -- the fundamental automorph, u^2 - D v^2 = 1 -- moves WITHIN an orbit, and Prop L.1's spacing m'/m -> eps^2 >= phi^4 = 6.854 is why a window holds at most one member of each orbit. tau_k -- the multiplier, U^2 = M^2 + 4k^2 D -- moves BETWEEN orbits, and tau_1^2 can sit well below 2, which is how two moduli land in one window. At (1,41), Note L's own windowed witness: eps = 2049 + 320 sqrt41 = 4098 so within-orbit m'/m ~ 1.7e7, while tau_1 = (42 + 2 sqrt41)/40 = 1.37016 and tau_1^2 = 1.87733 against an observed 1370/730 = 1.87671 -- four places, the gap being the finite '+1' correction. So the two moduli in that window are in DIFFERENT orbits, brought together by tau and not by eps.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Makes the whole structure legible and explains why the two notes never collided: the windowed Gram entry counts ORBITS that tau reaches inside one window, with eps guaranteeing at most one member per orbit, and Conjecture O.2 is the statement that tau never reaches three. I nearly got this backwards -- I assigned moduli to orbits by |V| = 2, reasoning that the fundamental multiplier is the fundamental automorph, and measured 'two moduli of one orbit in a window', which would have contradicted Prop L.1. The arithmetic at (1,41) is what separated them: 1.877 against 1.7e7 is not a near miss. Prop L.1's own hedge stands -- its spacing is asymptotic ('x'/x -> eps') and the note already records the proved bound as O_eps(N^eps) with the constant 2 rigorous_finite.",
+      "proof_site": "notes/note-L-over-Z.md; tests/test_arithmetic_facts.py::test_tau_moves_between_orbits_and_epsilon_within_them"
     }
   ]
 }

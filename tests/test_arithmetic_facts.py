@@ -1261,3 +1261,51 @@ def test_the_invariant_is_M_times_f_of_zero_with_a_leading_coefficient_caveat():
             assert 2 * (a * Yv * Yv - b * Xv * Xv) == 39 * M, (a, b, m)
             checked += 1
     assert checked > 500, checked
+
+
+def test_tau_moves_between_orbits_and_epsilon_within_them():
+    """The bridge between Note L's spacing and Note O's multiplier.
+
+    Both notes act on the same solution set of a Y^2 - b X^2 = M and neither
+    relates its group to the other's. They are different actions:
+
+      Note L's eps -- the fundamental automorph, u^2 - D v^2 = 1 -- moves WITHIN
+      an orbit, and Prop L.1's spacing m'/m -> eps^2 >= phi^4 = 6.854 is why a
+      window holds at most one member of each orbit.
+
+      Note O's tau_k -- the multiplier, U^2 = M^2 + 4k^2 D -- moves BETWEEN
+      orbits, and tau_1^2 can be well below 2, which is exactly how two moduli
+      land in one window.
+
+    At (a,b) = (1,41), the pair Note L records as its windowed witness:
+
+        eps = 2049 + 320 sqrt 41 = 4098,  so within-orbit m'/m ~ eps^2 = 1.7e7
+        tau_1 = (42 + 2 sqrt 41)/40 = 1.37016,  tau_1^2 = 1.87733
+        observed 1370/730 = 1.87671
+
+    tau_1^2 matches the observed ratio to four places (the gap is the finite "+1"
+    correction), while eps^2 is seven orders larger. So the two moduli in that
+    window are in DIFFERENT orbits, brought together by tau and not by eps --
+    and the windowed Gram entry counts orbits that tau reaches inside one window.
+    Conjecture O.2 is the statement that it never reaches three.
+    """
+    from math import isqrt, sqrt
+
+    a, b = 1, 41
+    M, D = b - a, a * b
+    u, v = 2049, 320
+    assert u * u - D * v * v == 1                      # fundamental automorph
+    eps = u + v * sqrt(D)
+    assert eps ** 2 > 1e7                              # within-orbit: enormous
+
+    t = M * M + 4 * D
+    U = isqrt(t)
+    assert U * U == t and U == 42                      # fundamental multiplier
+    tau2 = ((U + 2 * sqrt(D)) / M) ** 2
+    assert abs(tau2 - 1.87733) < 1e-5                  # between-orbit: under 2
+    assert abs(tau2 - 1370 / 730) < 1e-3               # and it is the observed ratio
+
+    for m, x in ((730, 27), (1370, 37)):               # both really are moduli
+        assert m == x * x + 1
+        y = isqrt(b * m - 1)
+        assert y * y + 1 == b * m
