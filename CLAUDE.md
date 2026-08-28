@@ -497,9 +497,10 @@ against the |V| ≥ 2 threshold **(1+√2)⁴ = 33.9706** (the parity form, whic
 the 7.11× decomposes exactly: **7.09× is the non-τ₁ allowance O.12 must carry,
 0.33% is the actual slack**. The extremal witness *is* a τ₁ step — τ₁² = 1.997707
 against an observed 1.997691 — and D = 4's two sub-threshold cycles are non-τ₁,
-so *above ⟺ τ₁* separates. **Bounds stated for all configurations are loose by
-the width of the configurations that do not occur; restricted to the realised
-type, the size argument is attained.** That is a different diagnosis from "size
+so *above ⟺ τ₁* separates **over the range measured — that separation is an
+observation, not a theorem**. **Bounds stated for all configurations are loose by
+the width of the configurations that are not observed to occur; restricted to the
+realised type, the size argument is attained.** That is a different diagnosis from "size
 cannot see arithmetic", with a different implication for whether the method could
 ever be sharp. It does not close O.2 or improve O.12 — the non-τ₁ case is the
 cross-orbit configuration multipliers do not predict, so the gap is *named*, not

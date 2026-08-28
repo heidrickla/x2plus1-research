@@ -1234,7 +1234,11 @@ gives whenever M is odd — it rises to **13.9282** at X₁ = 1 and **33.9706**
 asymptotically. And empirically nothing happens far above even that: the
 **minimum n₂/n₁ observed is 34.0811**, at (37, 1261) with moduli 866 and 1730 —
 **7.11× the |V| ≥ 1 bound**, and only **0.33% above** the 33.9706 that |V| ≥ 2
-gives asymptotically. **⚠ This line previously recorded 43.79 at (34, 1489),
+gives asymptotically. **That 0.33% carries a condition, stated in full in
+O.13 some 1400 lines below and repeated here because this is where a reader
+meets the number first: it is sharpness against the |V| ≥ 2 threshold, and
+|V| ≥ 2 binds because every realised extremum measured is a τ₁ step — measured
+absence over a finite range, not a theorem.** **⚠ This line previously recorded 43.79 at (34, 1489),
 moduli 1073 and 1973, "9.1×". That pair is genuine but is not the minimum, and
 the reason it looked like one is the anchored-window defect**: 866 and 1730 have
 ratio 1.9977 so they lie in one dyadic window, but a sweep stepping
