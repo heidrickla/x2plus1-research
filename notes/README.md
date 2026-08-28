@@ -95,10 +95,35 @@ has an admissible Ford–Maynard triple, and d = 1 — Dirichlet — is the only
 single-variable degree with anything for a bilinear form to cancel. x² + 1 is
 the least degenerate member of a degenerate class. [Note L](note-L-over-Z.md).
 
-**Checkpoints.** Step 1 closes when Note C states a precise bilinear inequality
-whose proof implies the theorem (plan §1.5). Step 2 closes when Notes F and G
-together give a clean conjectural inequality over Z[i] plus a quantitative
-statement of how far current bounds fall short (plan §2.5).
+## The plan's checkpoints cannot close as worded, and that is a finding
+
+*The charter is not edited by work (CLAUDE.md), so this is recorded here rather
+than there. Both checkpoints name a vehicle the work has since shown is
+unavailable.*
+
+**§1.5** asks for "a precise bilinear inequality … whose proof would imply the
+theorem **via the asymptotic sieve**." The inequality exists — it is
+[Note F](note-F-failure-localisation.md)'s Question F, with ranges and a target
+saving. But [ASP] does not apply to this sequence: (R1) needs D > x^{2/3} and
+Note B caps the level at x^{1/2}, so the admissible range for D is empty
+(`asp-inapplicable`, proved, and computed by
+`x2plus1.exponents.asp_applies`, which raises). The clause "via the asymptotic
+sieve" cannot be satisfied by anything.
+
+**§2.5** asks for "a clean conjectural inequality over Z[i] (**an estimate for a
+specific sum of Kloosterman sums or spectral coefficients**) that implies the
+theorem, together with a quantitative statement of how far current bounds fall
+short." The second half is delivered — [Note G](note-G-spectral.md) has it, as
+two incommensurable units. The first half names Kloosterman sums, and Note F
+proves there are none to estimate: G(n₁,n₂) is identically 0 or 1, so dispersion
+produces no exponential sum at all. Note G's own premise had to be corrected
+once for the same reason.
+
+**So the honest status is: the deliverables exist and the success criteria do
+not fit them.** Both criteria presuppose machinery this repo has since shown
+does not reach x² + 1 — which is, in a sense, the project's result, arriving in
+the form of its own checkpoints becoming unmeetable. Amending the plan is the
+user's call, not the work's.
 
 Every note carries an **Adversarial review** section, per plan §Cross-cutting.
 Do not mark a note `draft` without filling it in.
