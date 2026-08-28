@@ -1094,7 +1094,12 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   is for whole claims and fires only on `refuted`, and there is no vocabulary for
   *a claim that corrects one figure inside another that otherwise stands*. Do not
   add a field for it; grep. Same instrument as **grep for the number before
-  deriving it**, aimed at the other end of the operation. **And grep
+  deriving it**, aimed at the other end of the operation. **And never grep for your own paraphrase of a field when you
+  can read the field.** A check for `'passes unseen'` in a claim's notes reported
+  the notes lost; they were present and said `'would pass unseen'`. That produced
+  a false loss report sent to the other session and retracted a minute later —
+  the grep-for-the-negation error at the smallest possible scale, against text
+  written by the same hand ten minutes earlier. **And grep
   *everywhere*, not only where you were working**: running this over the registry
   and this session's own notes found nothing further, and extending it to the
   other session's note found their `τ_V² < 3` premise carrying the same D = 1
