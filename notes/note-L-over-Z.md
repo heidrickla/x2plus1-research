@@ -417,19 +417,145 @@ exactly that remainder and to nothing else.
 
 Note O's decidable criterion — (a, b) admissible, some k ≥ 2 with
 a² + (4k²−2)ab + b² a perfect square, and r₁·r_k < 2 — was reconstructed here
-independently to check its coverage. In the box a ≤ 60, b ≤ 300 000 it gives
-**322 candidates**, with D from 12 352 to 16 897 024 and median 1 651 620.
-Note O's stated tightest, (1, 115921) at k = 22 with r₁r_k = 1.3093, is
-reproduced exactly — but is not the tightest: **(1, 226801) at k = 26 gives
-1.2540**. Of the three tighter ones found here, all give 2B/M strictly between
-2 and 3, so none is a counterexample.
+independently. In the box a ≤ 60, b ≤ 300 000 it gives **534 candidates** under
+the corrected admissibility (4 ∤ n; an earlier count of 322 used a test that
+let 4 | n through). Note O's stated tightest, (1, 115921) at k = 22, is
+reproduced; **(1, 226801) at k = 26 is tighter.**
 
-The orbit walk covered 44 of those. That number now measures something narrower
-than it did: Theorem O.3 disposes of every candidate whose triple involves the
-fundamental multiplier, so the walk's coverage matters only for the p, q ≥ 2
-remainder. The original caveat still holds for that remainder — the population
-grows with the box and seed-reachability correlates with small D — but it is no
-longer the main line of defence.
+Then the criterion was tested against the thing it is supposed to predict, and
+it does not predict it.
+
+### The candidate criterion counts configurations that are not there, and misdescribes the ones that are
+
+**Two different equations.** They are easy to conflate because both are Pell
+equations in D = ab and M = b−a, and neither name advertises the difference:
+
+| | equation | what it is |
+|---|---|---|
+| multiplier at index k | U² − D V² = M², V = 2k | a ratio **between solution classes** |
+| shared modulus | Y² − D X² = aM | an actual m with am, bm ∈ A |
+
+The second is Prop L.1's conic in disguise: b(x²+1) = a(y²+1) with
+m = (x²+1)/a, so (a,b) is occupied **exactly when the Gram entry G(a,b) ≥ 1** —
+the same object [Note F](note-F-failure-localisation.md) bounds. A multiplier is
+well defined whether or not any class of the second equation is occupied. So a
+candidate list built from multipliers may be counting empty configurations.
+
+**It is.** Occupancy tested directly, by QR-sieving x in 22 residue filters
+before any exact isqrt, so the bound is large enough to mean something
+(x ≤ 4×10⁷):
+
+| a | b | occupied? | smallest x | smallest m | |
+|---:|---:|---|---:|---:|---|
+| 1 | 5 | yes | 1 | 2 | calibration |
+| 1 | 115921 | **yes** | 387 | 149 770 | tightest of the parallel session's 95 |
+| 1 | 226801 | **yes** | 185 | 34 226 | tightest of the 534 |
+| 1 | 1761985 | yes | 296 | 87 617 | |
+| 5 | 1265009 | yes | 357 407 | 2.55×10¹⁰ | |
+| 2 | 2813785 | no | — | — | |
+| 1 | 360361 | no | — | — | ω(M) = 6 near-miss |
+| 37 | 158377 | no | — | — | ω(M) = 6 near-miss |
+| 1 | 12352 | no | — | — | smallest D of the 534 |
+
+Occupancy is **selective, not rare** — and the parallel session's independent
+count agrees, 42 of its 95 occupied. The first row of (1, 115921) is checked by
+hand outside any script: 387² + 1 = 149 770 and 115 921 × 149 770 = 131 763² + 1.
+
+**And on the live pairs the criterion's r is not the modulus ratio.** Every
+shared modulus of the tightest candidate, to x ≤ 2×10⁸:
+
+    x =       387   m =           149,770
+    x =     2,249   m =         5,058,002
+    x =   147,709   m =    21,817,948,682
+    x = 2,054,872   m = 4,222,498,936,385
+
+    consecutive ratios:  33.77,  4313.55,  193.53
+    max moduli in one dyadic window:  1
+
+The criterion put this pair at the top of both lists with an r-product near 1.3;
+τ₁² is 1.0118; the smallest ratio between two of its actual moduli is **33.77**.
+Same on the others — (1, 226801) has one shared modulus below 2×10⁸, and
+(1, 1761985) has two, spaced by 1.2 million. Window multiplicity 1 in all three.
+
+**The framework is not wrong; it is being asked the wrong question.** On the 379
+classes that genuinely put two moduli in one window at X = 3000, the observed
+ratio is τ₁² to within 10⁻³ in **359 of 379 (94.7%)**, median relative error
+**1.7×10⁻⁵** — exactly as `close_pairs` documents. So τ predicts a realised
+close pair's ratio essentially perfectly, and nothing in that derivation needs
+revisiting. What it does not do is tell you whether the class it points at is
+occupied, and on the tightest candidates it is not: the near neighbour is the
+empty class, and the occupied moduli sit ε² apart instead.
+
+> **A candidate list built from multipliers selects pairs where two classes
+> *could* be close. Whether the close pair is the *occupied* pair is a different
+> question, and on every tightest candidate found here the answer is no.**
+
+That retires the geometric attack on Conjecture O.2 from both directions. The
+drift measurement that prompted this — minimum diagnostic ratio falling 20.2 →
+0.95 across six decades of b, crossing 1 at (2, 2813785) — is **withdrawn**: that
+pair is unoccupied, and the quantity was the wrong one regardless. The parallel
+session's factor of four is withdrawn on the same grounds, by them.
+
+### Generate from the realised side: the residuals are the live configurations
+
+The failure above is a search direction, and reversing it fixes it. Generating
+candidates from multipliers and testing occupancy afterwards searches a mostly
+empty parameter space. The other order cannot:
+
+> **Enumerate realised ratio classes, keep those with two moduli in one dyadic
+> window, and read off which multiplier index explains the ratio.** Live by
+> construction — occupancy is the input, not a filter applied later, and the
+> multiplier structure is the output.
+
+The 20 outliers of the positive control are exactly this method's first run.
+Most are small-m cases where the documented O(1/m) correction dominates. One is
+not, and it is the sharpest single object this repo has for the open question:
+
+> **(1, 423125).** Shared moduli **m = 10 and m = 17**, ratio **1.70** — inside
+> a dyadic window. τ₁² = 1.00617, so the fundamental multiplier does *not*
+> explain it; **k = 91 does**, with r₉₁² = 1.73765. The pair has exactly two
+> multipliers, k = 1 and k = 91.
+
+Verified independently of any parameterisation: 10 − 1 = 3², 423125·10 − 1 =
+2057², 17 − 1 = 4², 423125·17 − 1 = 2682². And enumerated exhaustively —
+**x ≤ 3×10⁸ yields those two moduli and nothing else**, from x = 3 and x = 4.
+
+Three things make it the right test case:
+
+1. **The close pair is realised at a non-fundamental multiplier.** Every other
+   live close pair examined here sits at k = 1. This is the shape Conjecture O.2
+   is about, occurring.
+2. **M = 423124 = 2²·13·79·103 is even, so Theorem O.3 is mute on it** — it is
+   in precisely the regime the parity extension would bring inside.
+3. **There is no third, and the reason is visible.** A third modulus at the
+   fundamental step would sit at 10 × 1.00617 = 10.06 or 17 × 1.00617 = 17.10;
+   neither is an integer. τ₁ does not act on either occupied modulus, which is
+   Prop O.1's conclusion appearing on a live configuration rather than a
+   hypothetical one.
+
+Any extension of O.3 to even M must permit exactly two in a window here. That is
+a concrete falsifier, and this repo did not previously have one.
+
+### Theorem O.3 survives this, and its hypothesis is narrower than it reads
+
+O.3 is **conditional** — if ξ exists and both τ₁ and τ_k act on it, contradiction
+— so an empty configuration cannot produce a counterexample to it either.
+Vacuity is safe for a negative result. Nothing above touches it, and it is
+verified here independently (see above).
+
+What is worth recording next to it is the reach of its hypothesis, *M = b−a
+squarefree and odd*. For a = 1: b admissible and odd forces b ≡ 1 (mod 4), hence
+M ≡ 0 (mod 4). So
+
+> **O.3 is mute on every a = 1 pair with b odd — including both live candidates
+> above, M = 115 920 and M = 226 800.**
+
+Of the 534 candidates, **104 (19.5%)** have M odd and squarefree. Of admissible
+b < 400 000 at a = 1, 33.9% give M odd. That is not a defect in a theorem that
+is true as stated; it is the observation that "no dyadic window holds three"
+reads considerably broader than a statement mute on four fifths of the
+candidates and on the a = 1 family this note identifies as driving the full
+graph's growth.
 
 ## So Note F's conclusion transfers, and here is exactly how much is proved
 
@@ -608,3 +734,24 @@ admissible triples.
 - *Does the degree ladder rest on a fit?* No. α = 1/d and κ = X^{2−d} are
   arithmetic; only the Gram column is measured, and it is measured at fixed X
   across degrees rather than extrapolated in X.
+- *The candidate-criterion section refutes work done in this repo — is it
+  over-corrected?* It is scoped deliberately. What is refuted is that r₁·r_k
+  predicts window multiplicity, and with it every count of "candidates where a
+  triple could occur". What stands: the recount to 534, the tightest-candidate
+  correction, the τ² law (positive control, 94.7% within 10⁻³), and Theorem O.3,
+  which is conditional and so cannot be damaged by a configuration being empty.
+- *Is the drift measurement withdrawn for the right reason?* Two independent
+  ones, either sufficient. Its crossing point (2, 2813785) is unoccupied, and
+  the quantity it measured does not predict window behaviour even on occupied
+  pairs. It was recorded here for less than an hour and never left the repo.
+- *Does one live pair carry too much weight?* (1, 423125) is one object, and the
+  note claims exactly one thing from it: that the non-fundamental shape occurs,
+  in the even-M regime O.3 cannot reach. It bounds nothing — how many such
+  configurations exist is open, and `generate-candidates-from-the-realised-side`
+  is `inferred` precisely because it is a claim about search, not about counts.
+- *Was the population defect avoidable?* It was recorded in this repo already,
+  as `triples-cannot-be-settled-by-measurement`, and both sessions walked into
+  it anyway — one of them (this one) while citing it. The registry entry names
+  the trap for configurations that never occur; what it did not say is that a
+  *parameter* can be well defined on an empty configuration, which is how the
+  trap was re-entered one level down.

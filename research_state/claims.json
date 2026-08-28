@@ -967,13 +967,14 @@
     },
     {
       "id": "orbit-walk-covers-a-small-part-of-the-candidates",
-      "status": "rigorous_finite",
+      "status": "refuted",
       "statement": "Reconstructing Note O's candidate criterion independently -- (a,b) admissible, some k >= 2 with a^2 + (4k^2-2)ab + b^2 a perfect square, and r_1 * r_k < 2 -- gives 322 candidates for a <= 60, b <= 300000, with D from 12,352 to 16,897,024 and median 1,651,620. The parallel session's orbit walk covers 44. Its stated tightest candidate (1,115921) at k = 22, r_1 r_k = 1.3093, is reproduced exactly here but is not the tightest: (1,226801) at k = 26 gives 1.2540. Superseded in importance, not in fact, by Theorem O.3.",
       "experiment": "candidate reconstruction in-session from the criterion in Note O; see Note L",
       "tags": [
         "type_ii"
       ],
-      "notes": "SCOPE NARROWED after Theorem O.3 (see theorem-O3-verified-independently). The walk's coverage was the main line of defence for the whole triple question; it is now the line of defence only for the Conjecture O.2 remainder, triples whose two multipliers are both non-fundamental. Every triple involving tau_1 is closed unconditionally, so the 44-of-322 coverage figure no longer bounds what is known -- it bounds only what the walk itself established. The original caveat still applies to the remainder: the population grows with the box and seed-reachability correlates with small D. Also checked: all three candidates found here tighter than Note O's stated tightest give 2B/M strictly between 2 and 3, so none is a counterexample."
+      "notes": "REFUTED, not by a recount but because the population is the wrong one. The criterion (a,b) admissible + some k >= 2 with a^2+(4k^2-2)ab+b^2 square + r_1 r_k < 2 selects pairs where two SOLUTION CLASSES could be close. It does not select pairs whose OCCUPIED moduli are close, and on the tightest candidates it demonstrably does not: (1,115921) has r-product ~1.3 and its smallest real modulus ratio is 33.77. Counting how much of that space a walk covers measures nothing. The recount itself (534 under corrected admissibility, 4 | n rejected; 322 was computed with a test that let 4 | n through) and the tightest-candidate correction (1,226801) both stand as arithmetic.",
+      "superseded_by": "multiplier-r-does-not-predict-window-multiplicity"
     },
     {
       "id": "theorem-O3-verified-independently",
@@ -984,6 +985,47 @@
         "type_ii"
       ],
       "notes": "An independent check of a parallel session's theorem, done because that session's earlier unconditional claim had to be retracted and because Prop O.1 was likewise verified link-by-link before adoption. Both sides of the disjointness are populated (609 and 477), so this is NOT the vacuous-population failure recorded in triples-cannot-be-settled-by-measurement -- the empty set is the intersection, not either side. The k=1 => j=2 step is an identity: U_1 = sqrt((b-a)^2 + 4ab) = a+b, so B_1 = M. Scope: the theorem covers triples using the fundamental multiplier; Conjecture O.2, shape (xi, tau_p xi, tau_q xi) with p,q >= 2, is untouched by it."
+    },
+    {
+      "id": "multiplier-r-does-not-predict-window-multiplicity",
+      "status": "rigorous_finite",
+      "statement": "A multiplier at index k solves U^2 - D V^2 = M^2 (V = 2k); a shared modulus solves Y^2 - D X^2 = aM. The first is a ratio between solution CLASSES of the second and exists whether or not any class is occupied, so r_1 r_k does not predict a pair's dyadic-window multiplicity. On (1,115921), the tightest candidate found by either session, the criterion gives r-product ~1.3 while the four actual shared moduli below x = 2e8 have consecutive ratios 33.77, 4313.55, 193.53 and window multiplicity 1. Same on (1,226801) (one modulus below 2e8) and (1,1761985) (two, ratio 1.2e6).",
+      "experiment": "QR-sieved exhaustive modulus enumeration to x <= 2e8; recorded in Note L, 'The candidate criterion counts configurations that are not there'",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The framework itself is exact where it applies -- see tau-squared-law-exact-on-realised-close-pairs. The failure is class occupancy: the near-neighbour class the multiplier points at is the empty one, so the occupied moduli sit epsilon^2 apart. This refutes orbit-walk-covers-a-small-part-of-the-candidates and withdraws the drift measurement described in it, and the parallel session withdrew its own factor-of-four and 44-of-44 coverage figure on the same grounds."
+    },
+    {
+      "id": "tau-squared-law-exact-on-realised-close-pairs",
+      "status": "rigorous_finite",
+      "statement": "On the 379 ratio classes that genuinely put two shared moduli inside one dyadic window at X = 3000, the observed modulus ratio equals tau_1^2 = ((sqrt b + sqrt a)/(sqrt b - sqrt a))^2 to within 1e-3 in 359 of 379 (94.7%), with median relative error 1.7e-5.",
+      "experiment": "positive control over x2plus1.polyseq.ratio_classes(3000); recorded in Note L",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The positive control that separates 'the framework is wrong' from 'the framework is being asked the wrong question'. It is the latter: close_pairs' documented tau^2 identification is exact on realised close pairs, so the discrepancy in multiplier-r-does-not-predict-window-multiplicity is entirely class occupancy. Of the 20 outliers, most are small-m where the documented O(1/m) correction dominates; one, (1,423125), is a genuine non-fundamental close pair -- see live-non-fundamental-close-pair."
+    },
+    {
+      "id": "live-non-fundamental-close-pair",
+      "status": "rigorous_finite",
+      "statement": "(a,b) = (1, 423125) has exactly two shared moduli for x <= 3e8: m = 10 (x=3) and m = 17 (x=4), ratio 1.70, inside one dyadic window. tau_1^2 = 1.00617 does not explain that ratio; k = 91 does, with r_91^2 = 1.73765. The pair's only multipliers are k = 1 and k = 91. M = b-a = 423124 = 2^2*13*79*103 is EVEN, so Theorem O.3 is mute on it.",
+      "experiment": "QR-sieved exhaustive enumeration to x <= 3e8; arose as a residual of the tau^2 positive control. Note L, 'Generate from the realised side'",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Verified without any parameterisation: 10-1 = 3^2, 423125*10-1 = 2057^2, 17-1 = 4^2, 423125*17-1 = 2682^2. The first live instance of a close pair realised at a NON-fundamental multiplier -- the shape Conjecture O.2 concerns -- and it sits in the even-M regime O.3 cannot reach. No third modulus exists: a fundamental step from either would land at 10.06 or 17.10, neither an integer, which is Prop O.1's conclusion on a live configuration. Any extension of O.3 to even M must permit exactly two in a window here, so this is a concrete falsifier for that lemma."
+    },
+    {
+      "id": "generate-candidates-from-the-realised-side",
+      "status": "inferred",
+      "statement": "Live configurations for the triple question should be generated by enumerating realised ratio classes, keeping those with two moduli in one dyadic window, and reading off which multiplier index explains the ratio -- not by generating candidates from multipliers and testing occupancy afterwards. The first order cannot produce a dead configuration; the second searches a mostly empty parameter space.",
+      "experiment": "",
+      "tags": [
+        "type_ii",
+        "method"
+      ],
+      "notes": "Inferred, not proved: it is a claim about search efficiency, supported by the fact that the method's first run (the 20 residuals of the tau^2 positive control) produced live-non-fundamental-close-pair without looking for it, while both sessions' multiplier-first sweeps produced candidate lists now refuted wholesale. Answers the open sentence in the parallel session's Note O -- 'no candidate-generation method known to select live configurations'. What it does NOT do is bound how many such configurations exist."
     }
   ]
 }
