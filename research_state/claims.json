@@ -140,7 +140,7 @@
     {
       "id": "sqrt-MX-law",
       "status": "extrapolated",
-      "statement": "sum_m |sum_n mu(n) 1[mn in A]| ~ sqrt(MX) for M <= X, saturating at ~|A| for M >= X. Ratio to sqrt(MX) is 0.88-0.93 over X = 2e4..1e5 by direct measurement (exp02). TWO GROUPINGS, and the law differs between them. Per PROGRESSION -- one absolute value per (q,root) -- it is sqrt(MX) flat, confirmed over four decades X = 1e4..1e7 in exp05's rho = S/(pairs*sqrt(n)) and flat in M at X = 1e6 in exp16. Per MODULUS -- one absolute value per rational m, spanning all its roots, which is what ASP's (B) asks for -- inter-root cancellation at the square-root rate gives S_mu(M) ~ sqrt(MX)/(log M)^{1/4}, measured M-exponent 0.4803 against 0.5046.",
+      "statement": "sum_m |sum_n mu(n) 1[mn in A]| ~ sqrt(MX) for M <= X, saturating for M >= X at DIAG = sum_x mu^2(x^2+1) d_M(x) ~ 0.253 X -- of order |A| but not |A|, see S-saturates-at-DIAG-not-at-A. Ratio to sqrt(MX) is 0.88-0.93 over X = 2e4..1e5 by direct measurement (exp02). TWO GROUPINGS, and the law differs between them. Per PROGRESSION -- one absolute value per (q,root) -- it is sqrt(MX) flat, confirmed over four decades X = 1e4..1e7 in exp05's rho = S/(pairs*sqrt(n)) and flat in M at X = 1e6 in exp16. Per MODULUS -- one absolute value per rational m, spanning all its roots, which is what ASP's (B) asks for -- inter-root cancellation at the square-root rate gives S_mu(M) ~ sqrt(MX)/(log M)^{1/4}, measured M-exponent 0.4803 against 0.5046.",
       "experiment": "experiments/exp02_bilinear_pilot.py; experiments/exp05_mobius_progressions.py",
       "tags": [
         "type_ii"
@@ -1210,6 +1210,16 @@
         "type_ii"
       ],
       "notes": "The chain is Cauchy-Schwarz (exact), Q2 = DIAG + OFF (exact), DIAG ~ X (measured, saving-law-measured-through-theta-half), #m ~ M/sqrt(log M) (Landau-Ramanujan), and OFF = o(DIAG) (measured, and equal to Chowla for this polynomial). Getting the VALUE to 0.7% -- not just the shape -- is a quantitative check on the whole decomposition, and it is a measurement of OFF as a by-product: the prediction used Q2 = DIAG, i.e. OFF = 0, so the 0.8% residual bounds OFF/DIAG at about 0.016 at this M, consistent with the parallel session's |OFF|/DIAG decaying to 0.038 at their largest M. Constants came from four separate runs at two values of X, on both sides of the collaboration; the agreement is therefore not self-consistency."
+    },
+    {
+      "id": "S-saturates-at-DIAG-not-at-A",
+      "status": "rigorous_finite",
+      "statement": "S_mu(M) saturates at DIAG = sum_x mu^2(x^2+1) d_M(x) ~ 0.253 X, not at |A| = X. At X = 2e5 over M = X .. 32X, S/DIAG = 0.5447, 0.7404, 0.8508, 0.9259, 0.9647, 0.9839 -- monotone to 1 -- while S/X reaches only 0.2494 and S/T only 0.7540, converging to DIAG/T = 0.7658. The mechanism is exact: for M >> X almost every modulus carries a single x, so its inner sum is one mu value and |sum| is 1 on squarefree x^2+1 and 0 otherwise, which counts squarefree incidences, which is DIAG.",
+      "experiment": "experiments/exp16_m_exponent.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Refines sqrt-MX-law's 'saturating at ~|A| for M >= X'. That is right to within a constant, since 0.253 X is of order X, but the ceiling is DIAG rather than |A| and the constant is 0.25 rather than 1 -- so 'saturating at |A|' read literally is wrong by a factor of four, in the same way 'the saving is exactly zero' read as S = T is wrong by 2.41. Both are true statements about orders whose literal readings are false, in one sentence of the same claim. Predicted before measuring, from the observation that a modulus with one x contributes |mu| in {0,1}; the prediction is what the run tested."
     }
   ]
 }
