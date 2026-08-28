@@ -1407,6 +1407,46 @@ bridge describes — Z[i] side proved, Z side not — and it can be checked:
 > rather than transferred. What it removes is any reading of the c-family as
 > evidence that the transfer is reliable.
 
+**And there is a mechanism underneath, on the next axis out — D itself.** In
+x² + D, four consecutive arguments k…k+3 give a 4-cycle exactly when
+
+> (k²+D)((k+3)²+D) − ((k+1)²+D)((k+2)²+D) = **4(D − k² − 3k − 1)**
+
+*(identity verified symbolically)* — because k(k+3) and (k+1)(k+2) differ by 2
+while the D-linear parts differ by 4. So the cycle exists precisely for
+**D = k² + 3k + 1**: D = 1, 5, 11, 19, 29, 41, 55, …
+
+| k | D | the four values | product | cofactors | moduli | |
+|---|---|---|---|---|---|---|
+| 0 | **1** | 1, 2, 5, 10 | 10 | {1, 5} | {1, 2} | **the unit, twice** |
+| 1 | 5 | 6, 9, 14, 21 | 126 | {3, 7} — ratio 2.33 | {2, 3} | one ratio ≥ 2 |
+| 2 | 11 | 15, 20, 27, 36 | 540 | {3, 4} | {5, 9} | **genuine** |
+| 3 | 19 | 28, 35, 44, 55 | 1540 | — | — | genuine |
+| 4 | 29 | 45, 54, 65, 78 | 3510 | — | — | genuine |
+
+> **x²+1 IS the k = 0 member.** It does not avoid the family — its instance is
+> **degenerate**, because one of the four values is 0²+1 = **1**, the unit modulus
+> that no Type II hypothesis admits and that this repo excludes everywhere else
+> for exactly that reason. D = 5 escapes for a *second and unrelated* reason,
+> which is why the first genuine counterexample is D = 11 and not D = 5. Both
+> ratios fall toward 1 as k grows, so the later members are not marginal cases
+> scraping under the threshold — they are deeply doubly dyadic, and there are
+> infinitely many.
+
+**This does not touch O.12, which is about x²+1.** What it removes is any reading
+of O.12 as an instance of something general: **its conclusion fails for an
+explicit infinite family of degree-2 sequences**, and x²+1's escape has a *cause*
+rather than being a brute fact. Three results now bound it from three sides — the
+genericity control shows the property failing off the line family, c = 6 shows it
+failing within the line family, and this shows **why the survivor survives**.
+
+**And it is the same methodological error twice.** c = 6 came from extending an
+axis neither session extended; D = 11 came from extending the next one. Both
+times the property had been checked at five or six values and read as general.
+**"What would the sweep look like if the finding were absent" applies to the axis
+as much as to the population**: a sweep stopping at c = 5, or D = 10, looks
+identical whether the property is universal or holds on a short initial segment.
+
 > **What that is and is not.** It is evidence for the **transfer** — "C₄-free
 > over Z[i] ⟹ G′ ≤ 1 over Z on the banded configuration" — at cases it was not
 > built on. It is **not** evidence for the bridge's other half, the inference from

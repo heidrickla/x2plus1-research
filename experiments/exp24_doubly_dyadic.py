@@ -152,6 +152,48 @@ def control(Q=60000):
     print("  1 at every size, everything else grows with Q.")
 
 
+def fm_footnote_quantity(X=12000):
+    """Ford-Maynard's footnote-2 mean, with and without the second band.
+
+    Their footnote averages G over m_1, m_2 ~ x^{1-2c+eps}, and (II) bands n as
+    well, so the quantity is doubly dyadic and O.12 caps it at 1.  The banded
+    column tests by RATIO, not by an anchored window.
+    """
+    inc = incidence({x * x + 1 for x in range(1, X + 1)})
+    print()
+    print("FORD-MAYNARD FOOTNOTE 2.  (II) bands n as well as m, so the quantity")
+    print("is doubly dyadic and O.12 caps it at 1.  The recorded means are the")
+    print("moduli-unrestricted ones.")
+    print(f"{'N band':>13} {'#cof':>5} {'mean G free-m':>14} {'max':>4}"
+          f" | {'mean G banded-m':>16} {'max':>4}")
+    N = 8
+    while N <= 128:
+        ns = sorted(n for n in inc if N <= n < 2 * N)
+        if len(ns) < 2:
+            N *= 2
+            continue
+        tf = tb = npairs = mf = mb = 0
+        for i in range(len(ns)):
+            for j in range(i + 1, len(ns)):
+                npairs += 1
+                sh = inc[ns[i]] & inc[ns[j]]
+                tf += len(sh)
+                mf = max(mf, len(sh))
+                g = _window_count(sh)
+                tb += g
+                mb = max(mb, g)
+        print(f"[{N:5},{2*N:6}) {len(ns):5} {tf/npairs:14.4f} {mf:4}"
+              f" | {tb/npairs:16.4f} {mb:4}")
+        N *= 2
+    print("  On the configuration (II) quantifies over the mean NEVER exceeds 1,")
+    print("  and the only band attaining 1 holds two cofactors -- a single pair.")
+    print("  NOTE: the 'mean >= 1' line in fm-barrier-range-is-small-moduli is")
+    print("  THIS REPO'S paraphrase, not the footnote's, which is a condition on")
+    print("  the ERROR TERM.  For a 0/1 indicator, 'better than O(1)' means")
+    print("  knowing it exactly -- which is Note F's pointwise reading, now")
+    print("  available over Z and not only over Z[i].")
+
+
 def line_family(X=1200, cmax=8):
     """x^2 + c^2: the Z side, where only Z[i] is proved.  It FAILS at c = 6."""
     print(f"\nLINE FAMILY x^2 + c^2 at X = {X}")
@@ -187,4 +229,5 @@ if __name__ == "__main__":
     XX = int(sys.argv[1]) if len(sys.argv) > 1 else 1200
     main(XX)
     control(min(60000, max(20000, XX * XX // 20)))
+    fm_footnote_quantity(min(12000, max(2000, 4 * XX)))
     line_family(min(1200, max(400, XX)))
