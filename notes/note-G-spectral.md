@@ -173,11 +173,36 @@ it "is wide open for any polynomials with nonlinear irreducible factors".
 > **Shortfall: the trivial bound has never been beaten by any amount, for the
 > easiest special case of the statement we need.**
 
+**That is a statement about proofs, and reading it as a statement about the sum
+gets the situation backwards.** The sum was never measured here until it was, and
+it cancels — visibly:
+
+| X | Σ_{x≤X} μ(x²+1) | \|S\|/√X | \|S\|/X |
+|---:|---:|---:|---:|
+| 10⁴ | 134 | 1.34 | 1.3×10⁻² |
+| 6.4×10⁵ | −730 | 0.91 | 1.1×10⁻³ |
+| 2.56×10⁶ | 482 | 0.30 | 1.9×10⁻⁴ |
+| 4×10⁶ | 675 | 0.34 | 1.7×10⁻⁴ |
+
+**|S|/√X stays between 0.21 and 1.34 across more than two decades** —
+square-root cancellation, unmistakably, with |S|/X down to 1.7×10⁻⁴. So the
+estimate this checkpoint needs at θ = 0 **is visibly true**, and the whole of the
+difficulty is that nobody can prove it. That is a materially different position
+from a sequence that misbehaves, and the sentence above invites the opposite
+reading.
+
+*(No law is fitted and none should be: two decades of data is not an asymptotic,
+which is exactly what the `rigorous_finite` / `extrapolated` split exists to
+prevent. `chowla-for-x2plus1-is-open` is untouched — this bears on how the
+shortfall should be described, not on whether it is open.)*
+
 ### Why the units matter more than any single figure
 
 They are in increasing order of hopelessness and decreasing order of
 measurability. A reader given only the exponent in unit 1 would conclude the
-problem is close; a reader given unit 2 would conclude it is untouched. Both
+problem is close; a reader given unit 2 would conclude it is untouched — and
+"untouched" is the wrong word, since the sum cancels at square-root rate and it
+is only the *proof* that is missing. Both
 readings come from the same reduction, which is why the checkpoint must state
 both and refuse to average them.
 
