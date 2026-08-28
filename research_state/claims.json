@@ -2057,6 +2057,33 @@
       "notes": "Replaces `conjecture-D-equals-one-is-the-unique-survivor`, refuted at D = 2. The lesson is in where it broke: the conjecture rested on counting classes -- more X, more candidates, eventually one realises the configuration -- which is a good heuristic wherever the bound is merely tight and says nothing where the bound is UNSATISFIABLE. Small D is the second regime and the heuristic had no purchase there. Two derivations hours apart give the same boundary: |V| >= 2 covering D <= 4 is c <= 2 in the line family, which is exactly the earlier finding that |V| >= 2 extends O.12 to c = 2 and no further. THE DISCRIMINATING TEST WAS RUN AND THE ARGUMENT'S BOUNDARY IS NOT THE EMPIRICAL ONE. D = 5,6,7,8,9,10 all HOLD at X = 5000 and X = 7000 -- none has fallen, well past the proved reach of D <= 4. And the prediction that D = 5 should fall FIRST has the direction backwards: a larger D gives a LOOSER bound, so if looseness drove the timing then D = 10 would fail before D = 5. What the data actually shows is that timing is governed by whether a witness exists at accessible cofactors, which is arithmetic rather than monotone in D: D = 11, 14, 19 fail by X = 1200 at cofactors below 6 -- 11 and 19 are in the k^2+3k+1 family, which supplies witnesses at four consecutive arguments -- while D = 20 needed X = 4000 and cofactors (47,63), and D = 35 needed X = 2500 and cofactors (2249,3756). So D = 11 fails far earlier than D = 20 despite a tighter bound. CONCLUSION: the empirical boundary is at least 10, the proved boundary is 4, and the gap is the same necessary-not-sufficient gap as O.11's 39 of 60 admissible classes holding no triple. The argument's boundary is not an artefact -- it is the only PROVED one -- but it is not the real boundary either.",
       "proof_site": "",
       "superseded_by": ""
+    },
+    {
+      "id": "size-bounds-permit-far-more-than-occurs-at-every-scale",
+      "status": "rigorous_finite",
+      "statement": "Every bound in the Note O apparatus permits far more than occurs, at three independent scales. (1) O.11 at X = 3000: 39 of 60 informative classes satisfy 3ab < 0.048628 (b-a)^{4/3} and NONE holds three moduli in a window. (2) The D axis: the same bound permits failure for every D >= 5, and D = 5,6,7,8,9,10 have not failed to X = 8000. (3) O.11's measured reach FALLS with X -- 97.7% at X = 1500 to 88.1% at 8000, so the admissible set grows -- and nothing in the growth realises a triple. Three necessary-not-sufficient gaps, all in the same direction.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "A statement about the METHOD rather than about x^2+1, and the three instances make it hard to read as coincidence. Every bound in this apparatus is a size argument -- |V| against M/sqrt(3D), ratios against a window, products against (MD)^{4/3} -- and size arguments cannot see the arithmetic that actually forbids these configurations. That is why closing the gap has resisted twelve theorems: the theorems bound, and the obstruction is not a bound. It also predicts where further size arguments will end up, which is the practical content: sharpening a constant moves the admissible set and not the realised one. Noticed after the parallel session observed the gap appears 'at every level of this structure' -- both of us had been reporting instances of it separately for hours without naming it. Depends on nothing: all three instances are measurements, and the claim does not rest on the conjecture it sits next to. The dependency guard rejected that edge -- the FOURTH time tonight it has caught me listing a neighbouring result as a premise because it is the thing the claim is near. A claim about the same subject is not a claim resting on it, and I have now made that error once per hour with the guard catching every one.",
+      "proof_site": "",
+      "superseded_by": ""
+    },
+    {
+      "id": "size-arguments-cannot-see-the-arithmetic",
+      "status": "inferred",
+      "statement": "Three necessary-but-not-sufficient gaps appear at three scales in the Note O thread, all in the same direction: 39 of 60 informative classes clear O.11 and none holds a triple; D = 5..10 lie outside every proved reach and none has fallen to X = 8000; and O.11's proved reach falls with X (97.7% to 88.1% over X = 1500..8000) while nothing realises the excess. The bounds permit far more than occurs at every level. That is a statement about the METHOD rather than about x^2+1: every bound in this apparatus -- O.4's tau_min^4 < 2 + 1/X_1^2, O.9's 3ab < M^{4/3}, O.11's constant, O.12's (5+sqrt21)/2 -- is a SIZE argument, and size arguments cannot see the arithmetic that actually forbids the configurations.",
+      "depends_on": [
+        "theorem-O11-coupled-ratios",
+        "O12-covers-exactly-D-at-most-root-six"
+      ],
+      "tags": [
+        "note_o",
+        "method"
+      ],
+      "notes": "INFERRED: three measured gaps and a reading of what they have in common, not a theorem. THE ONE PLACE PROOF AND DATA AGREE EXACTLY is the D axis -- every observed failure lies outside the proved reach (smallest is D = 11 against a boundary of 4.899) and nothing inside it has ever failed, which a loose bound would not produce. So the honest summary of the thread is not 'these theorems nearly close O.2' but 'the size arguments are now sharp enough to be worth stating and are still nowhere near what is true, and the gap between them is arithmetic nobody here has reached'."
     }
   ]
 }
