@@ -96,6 +96,25 @@ thresholds have not been checked either way.
 
 ---
 
+## The k = 2 gap is a named bottleneck, not an obscure corner
+
+Worth separating from "it is open", because it changes how much the question is
+worth. Tsang–Yip's Theorem 1.9 covers k ≥ 2 for multiplicative Hilbert cubes,
+and then:
+
+> *"When k = 2, we are not able to prove a result similar to Corollary 1.7, where
+> the upper bound on the dimension of multiplicative Hilbert cubes only depends
+> on the shift. **This is mainly due to the fact, mentioned earlier, that it is an
+> open problem to show that for each n ≠ 0, there is an absolute upper bound on
+> min{|A|, |B|} for a bipartite Diophantine tuple**"*
+
+So the k = 2 bipartite bound is what blocks their own downstream result. Two
+places in one paper name it: once as an open question in its own right, once as
+the reason a theorem stops short. Combined with the vacuity of the standard gap
+principle at k = 2, the picture is consistent — **the case is open because the
+standard tool returns nothing there, and its being open costs the area
+something.**
+
 ## The one thing the literature says is open, and we have data on
 
 Tsang–Yip Question 1.3 for k = 2. Measured here, exhaustively to X = 9000:
