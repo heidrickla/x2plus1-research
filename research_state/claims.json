@@ -1326,6 +1326,17 @@
         "comparison"
       ],
       "notes": "Gives Note K's 'kappa is necessary and not sufficient' a candidate for the sufficient part, with the interpretation from the-main-term-is-smaller-than-the-granularity: mean G > 1 says a main term exists for dispersion to decompose. A PREDICTION, NOT A CONFIRMATION -- four sequences, one band, one Q, and two of the four are the pair the observation was built from (mean-G-separates-x2plus1-from-a2b4). The content is the other two. a^2+b^6 sits at 0.559, below the line, and THIS REPO HAS READ NO SOURCE ON ITS STATUS: kappa-invariant covers a^2+b^{2k} for k = 2..6 as a kappa measurement only, and the repo's non-negotiable forbids asserting a literature outcome from memory. If a^2+b^6 is captured somewhere, this is refuted; if open, it is one point of independent support. Someone should read a source before this is quoted as more than a pattern in four numbers."
+    },
+    {
+      "id": "fi-flag-the-b6-family-as-unfinished",
+      "status": "quoted",
+      "statement": "Friedlander-Iwaniec, in the a^2+b^4 paper, p.952: 'Further interesting connections to elliptic curves hold for primes of the form 27a^2 + 4b^6 and there is some hope to produce such primes using our arguments in the domain Z[zeta_3].'",
+      "citation": "Friedlander-Iwaniec, 'The polynomial X^2+Y^4 captures its primes', Annals of Math. 148 (1998), p.952",
+      "tags": [
+        "literature",
+        "comparison"
+      ],
+      "notes": "'Some hope to produce' is not a result: as of that paper the b^6 shape was a target the authors thought their method might reach and had not. Relevant to mean-G-crosses-one-where-kappa-does-not, whose one below-the-line sequence with no known outcome is a^2+b^6 at mean G 0.559. Density matches: a << Q^{1/2}, b << Q^{1/6} gives |A| ~ Q^{2/3} and kappa ~ Q^{1/3} = 158 at Q = 4e6, against 115 measured. DOES NOT SETTLE THE CURRENT STATUS -- 27a^2+4b^6 is not literally a^2+b^6, and a 1998 remark says nothing about 2026 -- so the classifier's prediction stays a prediction. What it does establish is that the sequence the classifier puts below the line is one the authors of the method that captured its neighbour singled out as not yet done. Found by grepping the repo's own PDFs, which is how the repo's rule against asserting literature status from memory is supposed to be discharged."
     }
   ]
 }

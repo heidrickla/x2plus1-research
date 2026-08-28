@@ -180,8 +180,22 @@ other two: a² + b⁶ sits at 0.559, below the line, and this repo has **not** r
 source on its status — the `kappa-invariant` family runs k = 2…6 for the κ
 measurement only. If a² + b⁶ is captured somewhere in the literature, the
 classifier is refuted; if it is open, that is one point of independent support.
-Someone should look it up before this is quoted as more than a pattern in four
-numbers. And max G does *not* separate them — 2, 22, 107, 97 puts a² + b⁶ between
+One point of support, found by
+searching the sources rather than asserting from memory: **Friedlander–Iwaniec
+themselves flag the b⁶ family as unfinished**, in the a²+b⁴ paper, p. 952:
+
+> "Further interesting connections to elliptic curves hold for primes of the form
+> **27a² + 4b⁶** and there is **some hope to produce such primes** using our
+> arguments in the domain Z[ζ₃]."
+
+"Some hope to produce" is not a result — as of that paper the b⁶ shape was a
+target they thought their method might reach and had not. The density matches:
+a ≪ Q^{1/2}, b ≪ Q^{1/6} gives |A| ≍ Q^{2/3}, hence κ ≍ Q^{1/3} = 158 at
+Q = 4×10⁶, against the 115 measured. **This does not settle the current status**
+— 27a²+4b⁶ is not literally a²+b⁶, and a 1998 remark says nothing about 2026 —
+so the prediction stands as a prediction. But the one sequence the classifier
+puts below the line is one the authors of the method that captured its neighbour
+singled out as *not yet done*. And max G does *not* separate them — 2, 22, 107, 97 puts a² + b⁶ between
 the captured pair — so it is the mean specifically.
 
 ## What actually separates them: the curve desingularises
