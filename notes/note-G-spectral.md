@@ -21,6 +21,12 @@ Bruggeman–Motohashi, Sarnak).
 dispersion produces no Kloosterman sums here. That is true of **dispersion** and
 false as a verdict on **spectral methods**, and the difference matters.*
 
+*Page numbers here were off by one until checked against 300 dpi rasterisations
+of the Duke scan rather than its OCR layer. The quotations were verbatim; the
+citations were not. Anything else in this repo taken from that PDF's text layer
+should be re-checked the same way — `pymupdf.open(path)[n].get_pixmap(dpi=300)`,
+where scan index n is article page n + 422.*
+
 Duke–Friedlander–Iwaniec's proof is spectral, and it is about exactly this
 repo's residues — the roots of ν² + 1 ≡ 0. They relate the roots directly to the
 Laplacian spectrum via Poincaré series, quoting from the paper:
@@ -28,16 +34,16 @@ Laplacian spectrum via Poincaré series, quoting from the paper:
 > "For the proof of Proposition 1 we could transform C_d(M) into sums of
 > Kloosterman sums (using Hooley's idea of relating the solutions of quadratic
 > congruences to representations of the modulus by quadratic forms) and then
-> employ estimates from the spectral theory of automorphic forms." (p. 427)
+> employ estimates from the spectral theory of automorphic forms." (p. 426)
 
 > "…roots of the congruence to the spectrum of the Laplacian **without passing
 > through Kloosterman sums along the way**, although the Weil bound for the
-> latter will ultimately be used." (p. 427)
+> latter will ultimately be used." (p. 426)
 
 > "§3. Estimation of the Poincaré series. … we use the spectral expansion which
 > leads to the result in a less circuitous fashion. … the spectral theorem gives
 > P(z) = Σ(P, u_j)u_j(z) + Σ_a ∫ (P, E_a(·, ½+it)) E_a(z, ½+it) dt, where
-> {u_j(z)} is an orthonormal system of **Maass cusp forms**…" (p. 429)
+> {u_j(z)} is an orthonormal system of **Maass cusp forms**…" (p. 428)
 
 So the machinery does not need dispersion to produce Kloosterman sums for it. It
 reaches the arithmetic object directly. **Option (b) below — "the spectral route
@@ -63,7 +69,7 @@ Two further cautions, both from DFI themselves:
   knew these did not exist (as conjectured by Selberg) we could arrange our
   arguments differently. This would yield sharper estimates but **the same range
   of uniformity** and hence would be of no advantage for our applications."
-  (p. 427). Uniformity in d is precisely what this repo needs — moduli to
+  (p. 426). Uniformity in d is precisely what this repo needs — moduli to
   X^{3/4} — so the obvious strengthening buys nothing on the axis that matters.
 - **The saving is tiny.** The exponent 1/20 in Proposition 1 indicates heavy
   loss in the argument. Even before the norm question, there is little room.

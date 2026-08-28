@@ -198,6 +198,18 @@ either has an analogue over Z[i].
 - **Selberg**, on the parity phenomenon — the barrier being broken.
 
 
+## Check your sources before quoting them
+
+```bash
+python tools/check_sources.py
+```
+
+Exactly one source in this repo is a **scan** — Duke–Friedlander–Iwaniec — and
+it is the one that produced two refuted claims in a day, because its OCR layer
+renders prose correctly and displayed mathematics as noise. Everything else is
+born-digital and its extracted text can be trusted. The script says which is
+which and how to rasterise the ones that need it.
+
 ## PDFs
 
 `refs/pdf/` holds locally fetched copies and is **gitignored** — the papers are
