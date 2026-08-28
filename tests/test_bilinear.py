@@ -131,3 +131,24 @@ def test_c4_freeness_does_not_depend_on_the_split():
     for X in (500, 2000):
         C, *_ = incidence(by_x_range(X), 1, 10**18)
         assert max_offdiagonal_gram(C) <= 1, X
+
+
+def test_merikoski_sequence_is_indistinguishable_from_a2b4_here():
+    """Note K: a^2+(b^2+1)^2 has the same kappa and the same 4-cycles as a^2+b^4.
+
+    Merikoski (arXiv:2112.03617) proves primes for this sequence, but only to
+    Type II range N << X^{1/3-eta} where Friedlander-Iwaniec reach X^{1/2-eta}.
+    Nothing measured here separates the two, which is the point: kappa is a
+    necessary condition, never a sufficient one. What separates them is the
+    singularity type of the Type II curve, invisible to a degree count.
+    """
+    from x2plus1.sequences import a2_bsq_plus_D_sequence
+    from x2plus1.typeII import is_c4_free
+    Q = 10**5
+    fi = a2_bsq_plus_D_sequence(Q, 0)        # = a^2 + b^4
+    mer = a2_bsq_plus_D_sequence(Q, 1)       # = a^2 + (b^2+1)^2
+    assert fi.name == "a^2+b^4" and mer.name == "a^2+(b^2+1)^2"
+    assert abs(len(fi) - len(mer)) / len(fi) < 0.01      # same density
+    for seq in (fi, mer):
+        C, *_ = incidence(seq, 100, 1000)
+        assert not is_c4_free(C)                          # both have 4-cycles

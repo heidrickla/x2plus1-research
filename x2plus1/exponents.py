@@ -149,6 +149,34 @@ def kappa_exponent(alpha) -> Fraction:
     return 2 * _F(alpha) - 1
 
 
+def ford_maynard_theta(alpha) -> Range:
+    """The admissible Type II start theta for a sequence of density x^alpha.
+
+    [FM] p. 7, for J subset (x/2, x] with x^{1-c} elements: "one can only hope
+    for (I) to hold for gamma < 1 - c and (II) for theta > c". The first half
+    is Note B's ceiling arrived at from the other direction. The second half,
+    against (1.1) p. 1 -- "0 <= theta < 1/2" -- is what places this sequence:
+
+        alpha = 3/4  ->  theta in [1/4, 1/2)   (Friedlander-Iwaniec, Merikoski)
+        alpha = 2/3  ->  theta in [1/3, 1/2)   (Heath-Brown)
+        alpha = 1/2  ->  theta >= 1/2 and theta < 1/2, which is empty.
+
+    All four entries of [FM] Table 1 p. 3 sit at theta = c exactly (epsilons
+    omitted), so the lower endpoint is where the literature actually works.
+
+    Raises when there is no admissible theta at all -- i.e. x^2+1 has no
+    Ford-Maynard parameter triple, which is a cleaner placement than arguing
+    about the epsilon in gamma.
+    """
+    c = Fraction(1) - _F(alpha)
+    if c >= Fraction(1, 2):
+        raise ImpossibleExponentError(
+            f"[FM] theta for alpha={alpha}: (II) needs theta > c = {c}, "
+            f"(1.1) needs theta < 1/2 -- the admissible range is empty"
+        )
+    return Range(c, Fraction(1, 2))
+
+
 def asp_applies(sequence: str) -> Range:
     """The admissible level of distribution for [ASP] on a named sequence.
 

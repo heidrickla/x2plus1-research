@@ -10,8 +10,8 @@ import pytest
 
 from x2plus1.exponents import (
     ALPHA, ImpossibleExponentError, Range, asp_applies, asp_r1,
-    gamma_annihilation_threshold, inner_range_exponent, kappa_exponent,
-    truncation_exponent, type_i_ceiling,
+    ford_maynard_theta, gamma_annihilation_threshold, inner_range_exponent,
+    kappa_exponent, truncation_exponent, type_i_ceiling,
 )
 
 
@@ -80,10 +80,16 @@ def test_kappa_exceeds_one_exactly_when_alpha_exceeds_half():
 
 
 def test_dfi_level_half_is_reachable_where_asp_is_not():
-    """Note C: x^2+1 meets DFI's Type I budget but not ASP's.
+    """Note C: DFI's Type I *exponent* is reachable here where ASP's is not.
 
     DFI needs theta ~ 1/2; the ceiling is alpha = 1/2; so the admissible set is
     the single point 1/2 -- tight, but non-empty, unlike ASP.
+
+    This is a statement about exponents only. It is NOT the claim that x^2+1
+    satisfies DFI's Type I hypothesis, which is `refuted` in the registry
+    (x2plus1-meets-dfi-typeI): DFI's Theorem S is normalised to x and is
+    vacuous on a sequence of mass x^{1/2}. The exponents line up; the
+    hypothesis does not.
     """
     ceiling = type_i_ceiling(ALPHA["x^2+1"])
     dfi = Range.at_least(Fraction(1, 2))
@@ -102,3 +108,33 @@ def test_note_j_moduli_range_sits_below_the_sequence_size():
     """
     moduli = Range.at(Fraction(3, 4))
     assert moduli.hi < 1
+
+
+def test_ford_maynard_admits_the_solved_densities_and_not_this_one():
+    """[FM] p.7 with (1.1) p.1: theta > c = 1 - alpha, and theta < 1/2.
+
+    Note C's placement of x^2+1 used to run through the epsilon in gamma. This
+    is the same conclusion without the epsilon: at alpha = 1/2 there is no
+    admissible theta at all, so the sequence has no Ford-Maynard triple.
+    """
+    assert ford_maynard_theta(Fraction(3, 4)).lo == Fraction(1, 4)   # FI, Merikoski
+    assert ford_maynard_theta(Fraction(2, 3)).lo == Fraction(1, 3)   # Heath-Brown
+    with pytest.raises(ImpossibleExponentError):
+        ford_maynard_theta(ALPHA["x^2+1"])
+
+
+def test_the_literature_sits_at_theta_equal_to_c():
+    """Every entry of [FM] Table 1 p.3 with a known density has theta = 1 - alpha.
+
+    (gamma, theta, nu) as tabulated, epsilons omitted by their own caption.
+    """
+    table = {                    # alpha,        gamma,        theta,        nu
+        "a^2+b^4":       (Fraction(3, 4), Fraction(3, 4), Fraction(1, 4), Fraction(1, 2)),
+        "x^3+2y^3":      (Fraction(2, 3), Fraction(2, 3), Fraction(1, 3), Fraction(1, 3)),
+        "a^2+(b^2+1)^2": (Fraction(3, 4), Fraction(3, 4), Fraction(1, 4), Fraction(1, 12)),
+    }
+    for name, (alpha, gamma, theta, nu) in table.items():
+        assert gamma == alpha, name                       # gamma = 1 - c
+        assert theta == Fraction(1) - alpha, name         # theta = c
+        assert theta in ford_maynard_theta(alpha), name
+        assert nu > 0, name                               # (1.1) needs nu > 0

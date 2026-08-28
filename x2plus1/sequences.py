@@ -100,6 +100,37 @@ def a2b4_sequence(norm_bound: int) -> GaussianSequence:
     return GaussianSequence("a^2+b^4", norm_bound, elements, facs)
 
 
+def a2_bsq_plus_D_sequence(norm_bound: int, D: int = 1) -> GaussianSequence:
+    """A = { a + (b^2 + D) i : a, b >= 1, a^2 + (b^2 + D)^2 <= norm_bound }.
+
+    Merikoski's sequence [MER, Thm 1, p. 2]: a^2 + (b^2+1)^2, proved in 2022 to
+    capture infinitely many primes.  It is the *fourth published sequence with a
+    known outcome*, and the only one whose inner variable carries this project's
+    own polynomial -- Merikoski's Type II counting problem is
+    x_1^2 + 1 = a(x_2^2 + 1) over F_p [MER, Section 5, p. 16], and his rho_1(d)
+    (p. 6) is this repo's rho(d).
+
+    D = 0 recovers a^2 + b^4, which is why the comparison is sharp: the density
+    is the same (alpha = 3/4, so the same kappa), and the *only* difference is
+    that the Type II curve desingularises.  See Note K.
+    """
+    elements: list[Gauss] = []
+    facs: list[list[tuple[Gauss, int]]] = []
+    b = 1
+    while (b * b + D) ** 2 < norm_bound:
+        c = (b * b + D) ** 2
+        A = isqrt(norm_bound - c)
+        if A >= 1:
+            F = sieve_shifted_square(A, c)
+            for a in range(1, A + 1):
+                z = (a, b * b + D)
+                elements.append(z)
+                facs.append(_gauss_factor_shifted(z, F[a]))
+        b += 1
+    name = "a^2+b^4" if D == 0 else f"a^2+(b^2+{D})^2"
+    return GaussianSequence(name, norm_bound, elements, facs)
+
+
 def a2b2k_sequence(norm_bound: int, k: int) -> GaussianSequence:
     """A = { a + b^k i : a, b >= 1, a^2 + b^{2k} <= norm_bound }.
 

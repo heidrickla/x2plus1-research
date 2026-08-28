@@ -15,6 +15,8 @@ Iwaniec 1978 (P₂ for x²+1) or Friedlander–Iwaniec 1998?**
 | 2026-08-27 | C | `Friedlander Iwaniec asymptotic sieve for primes hypotheses`; `X^2+Y^4 captures its primes arXiv` | Both 1998 Annals papers located as arXiv preprints and read directly. | not checked |
 | 2026-08-27 | C (rev.) | `Heath-Brown primes represented by x^3+2y^3 pdf`; `Iwaniec 1978 almost-primes quadratic polynomials`; `relaxing FI hypothesis (R1) level of distribution thin sequences` | [HB] obtained and read (Oxford ORA). Iwaniec 1978 paywalled — read via an MSc exposition. No work found relaxing (R1). | not yet |
 | 2026-08-27 | **supersession scan** | `primes x^2+1 Landau progress since Iwaniec 1978`; `Green Sawhney primes p^2+4q^2`; `Hecke Gaussian primes narrow sectors` | **Run.** Iwaniec 1978 still stands for x²+1. Two significant nearby results found — see below. | **no** |
+| 2026-08-27 | K | `X^2+(Y^2+1)^2 captures its primes`; `Ford-Maynard Table 1 examples from the literature` | [MER] 2112.03617 obtained and read; Ford–Maynard re-read on a third pass. | not yet |
+| 2026-08-27 | K (AI scan) | `OpenAI mathematics breakthrough July/August 2026`; `AI analytic number theory sieve parity barrier 2026`; `bilinear sums modular square roots 2026` | **Run**, at the user's question. Nothing bears on this repo — see below. | **no** |
 
 ## Standing entries
 
@@ -105,6 +107,58 @@ Both of the repo's load-bearing `inferred` claims resolved, and both corrected.
 Three of the repo's four recorded DFI facts turned out to be Green–Sawhney's
 strengthening rather than DFI's, and the Ford–Maynard placement was one ε off in
 the direction that matters. Details in [Note C](../notes/note-C-requirements.md).
+
+### 2026-08-27 (fifth pass) — Merikoski read, Ford–Maynard read a third time
+
+- **[MER]** Merikoski, [arXiv:2112.03617v2](https://arxiv.org/abs/2112.03617),
+  *The polynomials X²+(Y²+1)² and X²+(Y³+Z³)² also capture their primes* —
+  **read**. It is the fourth published sequence with a known outcome, its
+  density is identical to a²+b⁴ by construction, and its Type II congruence is
+  x₁²+1 ≡ a(x₂²+1). [Note K](../notes/note-K-merikoski.md).
+- **[FM] third reading.** Prompted by finding this repo's comparison sequences
+  in their Table 1. Two of the repo's recorded facts were wrong: Theorem 2.4
+  never applied here (its hypothesis needs ν ≥ 1/3), and the γ = 1/2 − ε
+  distinction is one their own table caption discards. Their footnote 2, p. 7
+  names Note F's counting function as the barrier. Details in
+  [Note C](../notes/note-C-requirements.md).
+
+### 2026-08-27 — the AI scan, run and negative
+
+Asked directly: has any of the 2026 machine-produced mathematics opened a route
+here? **No.** Recording it so the question is not re-opened from headlines.
+
+- **OpenAI, *Ten Advances in Mathematics and Theoretical Computer Science***
+  (August 2026, [cdn.openai.com/pdf/ten-proofs-oai.pdf](https://cdn.openai.com/pdf/ten-proofs-oai.pdf),
+  253 pp., abstract read at source). The ten are: high-dimensional sphere
+  packing (Cohn–Elkies), binary and spherical codes, existence of a nonsofic
+  group, Connes's rigidity conjecture, arithmetic circuit complexity, quantum
+  parallel repetition, hardness of the closest vector problem, Ehrhart's volume
+  conjecture, multicolor Ramsey numbers, and two extremal-graph conjectures of
+  Erdős. **None is analytic number theory**; none involves sieves, bilinear
+  forms, or primes. The later GPT-5.6 report is the cycle double cover
+  conjecture — graph theory. Nothing here touches ν, G(n₁,n₂), or Type II.
+- **AIM workshop "AI and Number Theory", May 2026** ([problem list](https://aimath.org/pastworkshops/aint26problemlist.pdf),
+  notes by Jane Shi). Its §1 *Big problems* — "generally viewed to be out of
+  reach of current methods and likely will require new ideas" — opens with
+  **Problem 1: "Prove that n²+1 is prime infinitely often."** The workshop's
+  own §2 lists where AI might help, and this is not in it. That is an
+  independent, dated assessment agreeing with this repo's position, and it is
+  the most useful thing the AI scan turned up.
+- **Adjacent and screened out**: a 2026 cluster on bilinear sums with *modular
+  square roots* — Baier [2601.15448](https://arxiv.org/abs/2601.15448),
+  [2603.00768](https://arxiv.org/abs/2603.00768),
+  [2605.01635](https://arxiv.org/abs/2605.01635) (2603.25814 withdrawn, merged
+  into 2605.01635); Shparlinski–Xiao
+  [2601.10113](https://arxiv.org/abs/2601.10113) (Type-I and Type-II shifted
+  bilinear sums of Salié sums). Also Pascadi,
+  [2511.08445](https://arxiv.org/abs/2511.08445), and
+  [2607.24311](https://arxiv.org/abs/2607.24311), on bilinear forms with
+  Kloosterman sums. **Abstracts only — not read at source.** They bilinearise
+  over the *radicand* y in x² ≡ y (mod p), or over Kloosterman moduli; this
+  repo's object varies the *modulus* d in ν² ≡ −1 (mod d), which is the DFI
+  Proposition 1 shape. And by [Note F](../notes/note-F-failure-localisation.md)
+  there are no Kloosterman sums here to bound. Logged as adjacent, not
+  applicable, and **unread** — if that is ever leaned on, read them first.
 
 ### Still not done
 

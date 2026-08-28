@@ -22,12 +22,23 @@ difficulty is in the absolute values** — the signed sum is under 2% of the
 absolute-value sum, and |·| per modulus *is* the arbitrary coefficient. Notes F
 and J describe one obstruction from two sides.
 
+**Note K** adds the fourth published sequence with a known outcome: Merikoski's
+a²+(b²+1)², which has the *same density and the same κ* as a²+b⁴ and a Type II
+range a sixth of an exponent shorter. **So κ > 1 is necessary and not
+sufficient** — only the direction κ = 1 ⟹ forest is load-bearing. √κ is the
+length of the Poisson sum in [MER] p. 4; for x²+1 it is 1.
+
 **Position against the literature** (all read at source): ASP needs D > x^{2/3}
 and this sequence caps at x^{1/2}; DFI's Theorem S is normalised to x and is
-*vacuous* on a sequence of mass x^{1/2}; Ford–Maynard place x²+1 at γ = 1/2 − ε,
-inside the regime their results kill, with C⁻ = 0 already following from Selberg
-once ν = 0. C⁻ = 0 is about **what these axioms can prove**, never about whether
-x²+1 is prime infinitely often — do not conflate them.
+*vacuous* on a sequence of mass x^{1/2}; Ford–Maynard's binding parameter is
+**ν, not γ** — every entry in their Table 1 has ν > 0 (smallest: Merikoski's
+1/12), and ν = 0 here gives C⁻ = 0 by Selberg and their Theorem 2.1. Their
+footnote 2 p. 7 names Note F's G(n₁,n₂) as the barrier. Their Theorem 2.4 never
+applied here, and the γ = 1/2 − ε argument is `refuted`; the clean placement is
+that θ > c = 1/2 collides with (1.1)'s θ < 1/2, so there is no admissible triple
+at all (`x2plus1.exponents.ford_maynard_theta`). C⁻ = 0 is about **what these
+axioms can prove**, never about whether x²+1 is prime infinitely often — do not
+conflate them.
 
 Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
 `python -m pytest -q` before trusting any measurement.

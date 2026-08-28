@@ -120,6 +120,30 @@ either has an analogue over Z[i].
     [arXiv:1811.05507](https://arxiv.org/abs/1811.05507), Conj. 1.1
     (JEMS **24** (2022), 737–772) — settled by Green–Sawhney at n = 4.
 
+## Read during verification (2026-08-27, fourth pass — [Note K](../notes/note-K-merikoski.md))
+
+28. **Merikoski**, "The polynomials X²+(Y²+1)² and X²+(Y³+Z³)² also capture
+    their primes", [arXiv:2112.03617v2](https://arxiv.org/abs/2112.03617),
+    58 pp. **Read** (pp. 1–8, 14–17). Theorem 1 p. 2: primes a²+(b²+1)² are
+    infinite, ≍ X^{3/4}/log X — a **lower bound of the right order, not an
+    asymptotic**. Type I to D ≤ X^{3/4−η′} (Prop. 4, p. 7); Type II for
+    X^{1/4+η} ≪ N ≪ X^{1/3−η} (Prop. 12, p. 15), narrower than FI's X^{1/2−η}
+    because desingularising the curve costs the error term what it saves the
+    main term (pp. 4–5, §5 p. 16). Coefficients: α arbitrary bounded, β with
+    Siegel–Walfisz (4.1) p. 14, reduced to main term 0 (4.2) p. 15. His ρ₁(d)
+    (p. 6) is this repo's ρ(d), and his Type II congruence is x₁²+1 ≡ a(x₂²+1).
+    **The fourth published sequence with a known outcome**, and the control that
+    separates density from structure.
+29. **Ford & Maynard** re-read, third pass — items above at entry 21 are
+    incomplete in one place and misleading in another. **Table 1, p. 3**
+    ("epsilons omitted") lists Merikoski Thm 1 at (γ,θ,ν) = (3/4, 1/4, 1/12) and
+    DFI at (1/2, 0, 1/3); every entry has ν > 0. **Theorem 2.4's hypothesis is
+    P ∈ A\*₂** (p. 6), which needs ν ≥ 1/3 or θ+ν = 1/2, so it never applied to
+    this sequence. **Footnote 2, p. 7** names #{n : nm₁, nm₂ ∈ J} — Note F's
+    G — as the barrier to extending θ+ν. **p. 7**: for J of size x^{1−c}, "one
+    can only hope for (I) to hold for γ < 1 − c and (II) for θ > c", which with
+    (1.1)'s θ < 1/2 leaves x²+1 no admissible triple.
+
 ## Also worth having
 
 - **Hecke**, on the angular equidistribution of Gaussian primes (Note A §1.2).

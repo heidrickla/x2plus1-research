@@ -42,6 +42,10 @@ python experiments/exp03_density_ledger.py 10000000
 python experiments/exp04_kappa_family.py 10000000 6
 ```
 
+```bash
+python experiments/exp08_merikoski_ledger.py 10000000
+```
+
 No installation needed — the scripts put the repo root on `sys.path`. Requires
 Python ≥ 3.11 with `sympy` and `numpy`.
 
@@ -75,16 +79,23 @@ conclusion is weaker than the trivial bound. An earlier version of this README
 said x² + 1 *meets* DFI's Type I hypothesis. It does not; that claim is now
 `refuted` in the registry.
 
-**Ford–Maynard** (arXiv:2407.14368) map the parameter space, and x² + 1 sits
-below the knife-edge rather than on it. Their (I) demands a log-power saving at
-level *exactly* x^γ; [Note B](notes/note-B-type-I.md) gives Type I for
-D = o(x^{1/2}), failing at x^{1/2} — so γ = 1/2 − ε for every ε, never 1/2,
-which is precisely the regime their Theorems 2.4 and 4.16 kill. Worse, by
-[Note F](notes/note-F-failure-localisation.md) there is no arbitrary-coefficient
-Type II range at all, i.e. **ν = 0**, and then C⁻ = 0 follows from **Selberg's
-example** (their p. 2) — the oldest result in the paper, with no ε-loss. The
-divisor-bounded escape is also closed: their Theorem 2.7(c) gives
-C⁻_bd(1/2, 0, ν) = 0 for small ν, whatever the density.
+**Ford–Maynard** (arXiv:2407.14368) map the parameter space, and the parameter
+that places x² + 1 is **ν**, not γ. By [Note F](notes/note-F-failure-localisation.md)
+there is no arbitrary-coefficient Type II range at all, i.e. **ν = 0**, and then
+C⁻ = 0 follows from **Selberg's example** (their p. 2) — the oldest result in the
+paper, with no ε-loss — and from their Theorem 2.1 (p. 3). Every one of the eight
+entries in their Table 1 (p. 3) has ν > 0; the smallest is Merikoski's 1/12. The
+divisor-bounded escape is closed for the same reason: their Theorem 2.7(c) gives
+C⁻_bd(1/2, 0, ν) = 0 for small ν, whatever the density. And their footnote 2
+(p. 7) names Note F's counting function #{n : nm₁, nm₂ ∈ J} as the barrier to
+extending θ+ν, calling it "typically very difficult"; here it is provably ≤ 1.
+
+Cleanest placement, computed rather than argued
+(`x2plus1.exponents.ford_maynard_theta`): for J of size x^{1−c} they say "one
+can only hope for (I) to hold for γ < 1 − c and (II) for θ > c" (p. 7), while
+(1.1) requires θ < 1/2. At density x^{1/2}, c = 1/2, and **there is no
+admissible triple at all.** Two earlier readings of this paper are `refuted` in
+the registry; the γ = 1/2 − ε argument was the second of them.
 
 **Read that correctly.** C⁻ = 0 says *these axioms cannot prove primality* —
 there exists an admissible sequence with no primes. It says nothing about
@@ -152,17 +163,20 @@ the repo's derived invariant and the paper's stated hypothesis. In the window
 
 ### The density ledger
 
-| sequence | A(x) | κ > 1? (Type II non-degenerate) | A(x) > x^{2/3}? (ASP applies) |
-|---|---|---|---|
-| a² + b⁴ (FI 1998) | x^{3/4} | ✅ | ✅ — D = x^{3/4−5ε} achieved |
-| x³ + 2y³ (Heath-Brown 2001) | x^{2/3} | ✅ | at the boundary **[VERIFY]** |
-| x² + 1 | **x^{1/2}** | ❌ (κ = 1) | ❌ |
+| sequence | A(x) | κ > 1? (Type II non-degenerate) | ν (Ford–Maynard Table 1) | A(x) > x^{2/3}? (ASP applies) |
+|---|---|---|---|---|
+| a² + b⁴ (FI 1998) | x^{3/4} | ✅ | 1/2 | ✅ — D = x^{3/4−5ε} achieved |
+| a² + (b²+1)² (Merikoski 2022) | x^{3/4} | ✅ (same κ) | **1/12** | ✅ but unused — Harman, lower bound only |
+| x³ + 2y³ (Heath-Brown 2001) | x^{2/3} | ✅ | 1/3 | at the boundary **[VERIFY]** |
+| x² + 1 | **x^{1/2}** | ❌ (κ = 1) | **0** | ❌ |
+
+The second row is the control: same density, same κ to 0.04%, and a Type II
+range a sixth of an exponent shorter. **κ is necessary, not sufficient** —
+[Note K](notes/note-K-merikoski.md), [`exp08`](experiments/exp08_merikoski_ledger.py).
+The column that separates every solved case from this one is ν.
 
 ### Not yet done
 
-- **Read Duke–Friedlander–Iwaniec §6 directly** (*Ann. of Math.* **141** (1995),
-  423–441). Everything above about DFI is at two removes, and the claim that
-  x² + 1 *meets* its Type I hypothesis is `inferred` and load-bearing.
 - **An absolute-value analogue of DFI's Proposition 1.** Prop 1 bounds a
   *signed* sum over this repo's residues; [exp07](experiments/exp07_absolute_values.py)
   shows the difficulty is entirely in the absolute values, so what is needed is
@@ -172,8 +186,18 @@ the repo's derived invariant and the paper's stated hypothesis. In the window
   apply; nobody has written down what its hypotheses become at X = |A|.
 - Iwaniec 1978 is second-hand (paywalled); BFI I–III and *Opera de Cribro*
   Ch. 24–25 unobtained.
-- [Note G](notes/note-G-spectral.md) is still a skeleton, and Note F's lemma
-  says it may have nothing to act on.
+- [Note G](notes/note-G-spectral.md) is still marked a skeleton, though its
+  premise has been corrected: DFI's method *is* spectral and does reach these
+  residues without dispersion — it just lands on Proposition 1, i.e. the signed
+  norm again.
+- **Green–Sawhney** ([arXiv:2410.04189](https://arxiv.org/abs/2410.04189)) is
+  still unread, and still the highest-value unread item. The plan's Green–Tao
+  exclusion is `green-tao-excluded` in the registry, deliberately non-fatal, and
+  must be re-argued rather than obeyed.
+- The 2026 bilinear-sums-with-modular-square-roots cluster is logged in
+  [refs/literature-log.md](refs/literature-log.md) from abstracts only. It
+  bilinearises over the radicand, not the modulus, so it is filed as adjacent —
+  but that judgement rests on abstracts, not readings.
 
 ## Conventions
 

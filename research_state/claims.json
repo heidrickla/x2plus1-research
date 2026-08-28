@@ -133,7 +133,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "A degree heuristic supported across a one-parameter family, not a theorem. The C4-free lemma is the proved statement in the neighbourhood. A law fitted from finite data, not a theorem: the extrapolation from the measured range to all X is the unsupported step."
+      "notes": "A degree heuristic supported across a one-parameter family, not a theorem. The C4-free lemma is the proved statement in the neighbourhood. A law fitted from finite data, not a theorem: the extrapolation from the measured range to all X is the unsupported step. Bounded from the other side by kappa-necessary-not-sufficient: at fixed density, kappa does not determine the achievable Type II range. Only the direction kappa = 1 => forest is used by Note F."
     },
     {
       "id": "sqrt-MX-law",
@@ -250,7 +250,7 @@
       "status": "quoted",
       "statement": "Ford-Maynard Theorem 4.16 gives C^-(gamma,theta,nu) = 0 whenever gamma < 1/2 and gamma not in [theta,theta+nu]; Theorem 2.4 gives C^-(P_eps) = 0 at gamma = 1/2 with eps losses, remarking that 'one cannot hope to obtain non-trivial lower bounds on primes without some additional assumptions'. The escape named is divisor-bounded weights. This repo initially placed x^2+1 at gamma = 1/2 exactly; see x2plus1-sits-below-gamma-half, which corrects that to gamma = 1/2 - eps.",
       "citation": "Ford-Maynard, On the theory of prime producing sieves, arXiv:2407.14368, Thm 2.4 p.6 and Thm 4.16 p.17",
-      "notes": "The gamma = 1/2 reading was wrong; the corrected placement is one epsilon below, inside the killed regime."
+      "notes": "The gamma = 1/2 reading was wrong, and so was the correction to it: see fm-no-admissible-theta-at-density-half. Theorem 2.4 is quoted correctly here but does not apply to this sequence -- its hypothesis P in A*_2 requires nu >= 1/3 or theta + nu = 1/2, and Note F gives nu = 0. Its role on FM p.6 is the opposite of the use this repo made of it: the divisor-bounded repair of Theorem 2.4 is what rescues Duke-Friedlander-Iwaniec."
     },
     {
       "id": "merikoski-sparse-sets-off-chart",
@@ -376,7 +376,7 @@
     },
     {
       "id": "x2plus1-sits-below-gamma-half",
-      "status": "quoted",
+      "status": "refuted",
       "statement": "Ford-Maynard's (I) demands a log-power saving at level exactly x^gamma. Note B gives Type I for D = o(x^{1/2}) and failing at x^{1/2}, so x^2+1 is at gamma = 1/2 - eps for every eps, never gamma = 1/2 -- i.e. inside the P_eps regime that their Theorems 2.4 and 4.16 kill, not the gamma = 1/2 case where they assert C^{+-} = 1.",
       "citation": "Ford-Maynard, arXiv:2407.14368v1, hypothesis (I) p.2, Theorem 2.4 p.6, Theorem 4.16 p.17",
       "depends_on": [
@@ -384,7 +384,9 @@
       ],
       "tags": [
         "type_ii"
-      ]
+      ],
+      "superseded_by": "fm-no-admissible-theta-at-density-half",
+      "notes": "Refuted on the third reading of arXiv:2407.14368v1, for the attribution rather than the placement. Theorem 2.4's hypothesis is P in A*_2 = {(1/2,0,nu) : 1/3 <= nu < 1/2} union {(1/2,theta,1/2-theta) : 0 <= theta <= 1/3} (p.6); this sequence has nu = 0 and is in neither component, so Theorem 2.4 never applied. Theorem 4.16 does apply on the strict reading gamma < 1/2. But the gamma = 1/2 vs 1/2 - eps distinction was never load-bearing: FM's Table 1 caption reads 'epsilons omitted', so by that standard every entry including Friedlander-Iwaniec's x^{3/4-5eps} sits at gamma = level - eps. The conclusion C^- = 0 survives by Selberg / Theorem 2.1, which turn on nu = 0 and not on gamma at all."
     },
     {
       "id": "divisor-bounded-escape-unavailable",
@@ -435,6 +437,92 @@
         "type_ii"
       ],
       "notes": "Corrects Note G, which had assumed the spectral route was inapplicable because dispersion produces no Kloosterman sums here. True of dispersion, false of spectral methods. But spectral is not an independent option: it is the engine behind Prop 1, so it inherits the wrong-norm problem measured in exp07."
+    },
+    {
+      "id": "merikoski-b2plus1-captures-primes",
+      "status": "quoted",
+      "statement": "Merikoski (2022) proves sum_{p<=X} #{p = a^2+(b^2+1)^2} asymptotic to X^{3/4}/log X -- a lower bound of the correct order, NOT an asymptotic formula. Type I to D <= X^{3/4-eta'} (Prop. 4); Type II for X^{1/4+eta} << N << X^{1/3-eta} (Prop. 12), against Friedlander-Iwaniec's X^{1/4+eta} << N << X^{1/2-eta}. Coefficients: alpha(m) bounded and arbitrary, beta(n) bounded with the Siegel-Walfisz property (4.1), reduced to Siegel-Walfisz with main term 0 (4.2) by a device of Heath-Brown.",
+      "citation": "Merikoski, The polynomials X^2+(Y^2+1)^2 and X^2+(Y^3+Z^3)^2 also capture their primes, arXiv:2112.03617v2, Thm 1 p.2, Prop. 4 p.7, (4.1) p.14, Prop. 12 p.15, Prop. 13 p.16",
+      "tags": [
+        "type_ii",
+        "ledger"
+      ],
+      "notes": "The fourth published sequence with a known outcome. Its density is identical to a^2+b^4 by construction, so it varies structure while holding density fixed. Merikoski p.6 defines rho_1(d) = #{nu (d) : nu^2+1 = 0 (d)}, which is this repo's rho."
+    },
+    {
+      "id": "merikoski-desingularisation-trade",
+      "status": "quoted",
+      "statement": "The +1 desingularises the Type II curve and that cuts both ways. Main term: for a != 0,1 the homogenisation (1-a)x_0^2 + x_1^2 - a x_2^2 is non-singular, so Weil gives eps_p(a) << p^{1/2} and the divisor sum truncates at d <= log^{2C}X -- 'having (b^2+1)^2 rather than b^4 turns out to be a friend rather than an enemy'. Error term: on the non-singular curve S(a,h1,h2;Delta) << |Delta|^{1/2+eps} << N^{1/2+eps}, 'sufficient provided that N << X^{1/3-eta}', where FI's singular curve gives S_FI << N^eps, 'which is why for a^2+b^4 one can handle the Type II sums up to N << X^{1/2-eta}'.",
+      "citation": "Merikoski, The polynomials X^2+(Y^2+1)^2 and X^2+(Y^3+Z^3)^2 also capture their primes, arXiv:2112.03617v2, pp. 4-5 and Section 5 p.16",
+      "depends_on": [
+        "merikoski-b2plus1-captures-primes"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Both halves of the trade run through the Poisson sum over b1, b2 with B1,B2 << X^{1/4}. Neither survives B = 1. So this is not a route for x^2+1; it is the mechanism that explains why kappa alone cannot predict the Type II range."
+    },
+    {
+      "id": "kappa-necessary-not-sufficient",
+      "status": "rigorous_finite",
+      "statement": "At Q = 10^7, a^2+b^4 and a^2+(b^2+1)^2 agree in |A| to 0.02%, in kappa to 0.04% (2368.2 vs 2367.2) and in max-over-splits min(D_m,d_n) to 2.7% (41.22 vs 40.12), and both have 4-cycles. The literature separates them by 1/6 in the Type II exponent and by asymptotic vs lower-bound. So kappa > 1 is necessary for a usable Type II range and is not sufficient.",
+      "experiment": "experiments/exp08_merikoski_ledger.py",
+      "depends_on": [
+        "merikoski-b2plus1-captures-primes"
+      ],
+      "tags": [
+        "type_ii",
+        "ledger"
+      ],
+      "notes": "The first control in this repo that varies structure at fixed density; every earlier comparison varied both together. Downgrades how much weight Notes D and F may put on kappa. The direction Note F actually uses -- kappa = 1 implies a forest implies no main term -- is unaffected."
+    },
+    {
+      "id": "sqrt-kappa-is-the-poisson-length",
+      "status": "inferred",
+      "statement": "For A = {a + f(b)i} with a << Q^{1/2} and b << B, |A| ~ Q^{1/2}B so kappa = |A|^2/Q = B^2 identically, and sqrt(kappa) = B is the range of the Poisson summation variables in the Type II reduction (Merikoski p.4: 'for any B_1, B_2 << X^{1/4}' at alpha = 3/4). For x^2+1, B = 1: Poisson summation over one point is the identity, so there is no main term to evaluate and no exponential sum to bound.",
+      "depends_on": [
+        "merikoski-b2plus1-captures-primes"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "kappa = B^2 is arithmetic. The identification of B with the Poisson range is this repo's reading of Merikoski p.4 and is not stated anywhere in the literature; that is the inferred step. It is also only checked for sequences of the form a + f(b)i."
+    },
+    {
+      "id": "fm-footnote2-is-note-F-G",
+      "status": "quoted",
+      "statement": "Ford-Maynard name Note F's counting function as the barrier: 'Showing one can take theta + nu >= 1 - 2c is closely related to estimating #{n : nm_1, nm_2 in J} with an error term better than O(1) on average over m_1, m_2 ~ x^{1-2c+eps} (i.e. to show bilinear cancellation in the error term), which is typically very difficult outside of special situations.' That is G(n_1,n_2) with the variables named the other way.",
+      "citation": "Ford-Maynard, On the theory of prime producing sieves, arXiv:2407.14368v1, footnote 2 p.7",
+      "depends_on": [
+        "c4-free"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "External evidence that Note F measures the right object; Note F was derived from the Z[i] structure, not read out of a paper. Where they say 'typically very difficult', Note F proves the count is 0 or 1, so the error term IS O(1) and no averaging helps."
+    },
+    {
+      "id": "fm-table1-every-entry-has-positive-nu",
+      "status": "quoted",
+      "statement": "Ford-Maynard's Table 1, caption 'Examples from the literature (epsilons omitted)', lists eight successful (gamma, theta, nu). Every one has nu > 0. The smallest is Merikoski Thm 1 at (3/4, 1/4, 1/12); Friedlander-Iwaniec are at (3/4, 1/4, 1/2) and Duke-Friedlander-Iwaniec at (1/2, 0, 1/3). So gamma = 1/2 is not fatal in itself -- with nu = 1/3 and divisor-bounded weights it works, and FM p.6 says so: 'This was exploited in Duke-Friedlander-Iwaniec [7] in the case theta = 0, nu = 1/3'.",
+      "citation": "Ford-Maynard, On the theory of prime producing sieves, arXiv:2407.14368v1, Table 1 p.3 and p.6",
+      "tags": [
+        "type_ii",
+        "ledger"
+      ],
+      "notes": "nu = 1/12 suffices for a lower bound via Harman's sieve, so the bar is not a wide arbitrary-coefficient Type II range; it is nu > 0. Note F gives nu = 0 here."
+    },
+    {
+      "id": "fm-no-admissible-theta-at-density-half",
+      "status": "inferred",
+      "statement": "x^2+1 has no admissible Ford-Maynard parameter triple. For J of size x^{1-c}, FM p.7: 'one can only hope for (I) to hold for gamma < 1 - c and (II) for theta > c'; and (1.1) p.1 requires 0 <= theta < 1/2. At density x^{1/2}, c = 1/2, so (II) needs theta > 1/2 and (1.1) needs theta < 1/2. Computed by x2plus1.exponents.ford_maynard_theta, which raises at alpha = 1/2 and returns [1/4,1/2) at alpha = 3/4 and [1/3,1/2) at alpha = 2/3.",
+      "depends_on": [
+        "type-I-level"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The deduction is the repo's; FM state the two ingredients but never draw the conclusion for c >= 1/2, and 'one can only hope' is an informal remark inside their discussion of the family P_theta, not a theorem. What it replaces is the gamma = 1/2 - eps argument, which turned on a distinction FM's own Table 1 caption discards. Also worth noting: their 'gamma < 1 - c' is Note B's ceiling, reached independently."
     }
   ]
 }

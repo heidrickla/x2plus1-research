@@ -1,0 +1,171 @@
+# Note K — Merikoski's a² + (b²+1)², and what κ cannot see
+
+*Added. Status: draft. Supported by
+[`exp08`](../experiments/exp08_merikoski_ledger.py) and
+`tests/test_bilinear.py::test_merikoski_sequence_is_indistinguishable_from_a2b4_here`.
+Source read directly: [MER] = Merikoski, [arXiv:2112.03617v2](https://arxiv.org/abs/2112.03617),
+*The polynomials X²+(Y²+1)² and X²+(Y³+Z³)² also capture their primes*, 58 pp.*
+
+This note exists because [Note D](note-D-comparison-ledger.md) carried a
+standing request for **a fourth published sequence with a known outcome**, and
+one turned up that is far better than the request: Merikoski's sequence differs
+from Friedlander–Iwaniec's by a single `+1` inside the inner polynomial, and its
+Type II counting problem is *literally this repo's own congruence*.
+
+## Why this sequence and not another
+
+> "the argument fails to capture primes of the form a² + f(b)² for
+> non-homogeneous quadratic polynomials f(b)" — [MER] p. 2
+
+That is the FI method meeting x² + 1's polynomial for the first time.
+Merikoski's Theorem 1 (p. 2) fixes it:
+
+> Σ_{p≤X} Σ_{p = a²+(b²+1)²} 1 ≍ X^{3/4} / log X.
+
+Note the `≍`: **a lower bound of the right order, not an asymptotic.** And
+[MER] p. 6 defines
+
+> ρ₁(d) := |{ν (d) : ν² + 1 ≡ 0 (d)}|
+
+which is [Note A](note-A-dictionary.md)'s ρ(d), unchanged.
+
+Setting D = 0 in `a2_bsq_plus_D_sequence` recovers a² + b⁴ exactly, so the two
+sequences can be compared with one variable changed and nothing else.
+
+## The measurement: κ cannot tell them apart
+
+`python experiments/exp08_merikoski_ledger.py 10000000`
+
+| sequence | \|A\| | κ | √κ | max min-degree | ratio | C₄-free? | max Gram |
+|---|---:|---:|---:|---:|---:|:--:|---:|
+| a² + b⁴ | 153 890 | 2368.2 | 48.66 | 41.22 | 0.85 | no | 667 |
+| a² + (b²+1)² | 153 856 | 2367.2 | 48.65 | 40.12 | 0.82 | no | 213 |
+| x² + 1 | 3 162 | 1.0 | 1.00 | 1.26 | 1.26 | **yes** | 1 |
+
+Rows 1 and 2 agree in |A| to 0.02%, in κ to 0.04%, and in max min-degree to
+2.7%. The literature separates them by **a sixth in the Type II exponent**:
+
+| | Type I | Type II range | conclusion |
+|---|---|---|---|
+| a² + b⁴ [FI] | D ≤ X^{3/4−5ε} | X^{1/4+η} ≪ N ≪ X^{1/2−η} | asymptotic |
+| a² + (b²+1)² [MER] | D ≤ X^{3/4−η′} (Prop. 4, p. 7) | X^{1/4+η} ≪ N ≪ X^{1/3−η} (Prop. 12, p. 15) | lower bound only |
+
+**So κ is a necessary condition and never a sufficient one.** This is the
+sharpest available correction to how the ledger has been reading κ: κ = 1 for
+x² + 1 says the bilinear structure is *absent*, which no method can repair; but
+κ ≫ 1 says nothing about how much of that structure is *usable*.
+
+## What actually separates them: the curve desingularises
+
+[MER] p. 4 gives the reduction. After Cauchy–Schwarz the task is a count over
+
+> b₁² + 1 ≡ a(b₂² + 1) (mod Δ),  Δ = Im(z̄₁z₂),  B₁, B₂ ≪ X^{1/4},
+
+against FI's b₁² ≡ a b₂² (mod Δ). Poisson summation in b₁, b₂ splits this into
+a main term N₁(a;Δ) = |{x₁,x₂ (Δ) : x₁²+1 ≡ a(x₂²+1)}| and an error term of
+exponential sums. Then the trade, both halves quoted:
+
+- **Main term — the +1 helps.** For a ≠ 0, 1 the homogenisation
+  (1−a)x₀² + x₁² − a x₂² = 0 is *non-singular* ([MER] p. 16), so Weil gives
+  ε_p(a) ≪ p^{1/2} and the divisor sum truncates at d ≤ log^{2C}X. FI's curve
+  x₁² ≡ a x₂² is singular, N_FI(a;p) = p + (a/p)p, and that Jacobi-symbol sum
+  "cannot be truncated" — they must show cancellation in z₁, z₂ instead.
+  > "for the main term having (b²+1)² rather than b⁴ turns out to be a friend
+  > rather than an enemy" — [MER] p. 5
+- **Error term — the +1 hurts, and this is what costs the sixth.** On the
+  non-singular curve S(a,h₁,h₂;Δ) ≪ |Δ|^{1/2+ε} ≪ N^{1/2+ε}, "sufficient
+  provided that N ≪ X^{1/3−η}". On FI's singular curve one "morally" gets
+  S_FI ≪ N^ε, "which is why for a²+b⁴ one can handle the Type II sums up to
+  N ≪ X^{1/2−η}" ([MER] p. 4).
+
+**Both halves of the trade run through the b-sum.** There is no version of
+either that survives B = 1.
+
+## √κ is the length of the Poisson sum
+
+For A = {a + f(b)i} with a ≪ Q^{1/2} and b ≪ B, we have |A| ≍ Q^{1/2}B, so
+
+> κ = |A|²/Q = B²,  **√κ = B**
+
+identically — not a fit. What Merikoski supplies is the *meaning* of B: it is
+the range [MER] p. 4 names for the Poisson summation variables, B₁, B₂ ≪ X^{1/4}
+at α = 3/4. So the repo's κ is not merely a degree heuristic that happens to
+track α; **√κ is the length of the sum every Type II argument in this family
+applies Poisson summation to.**
+
+For x² + 1, B = 1. Poisson summation over a single point is the identity map;
+there is no main term to evaluate, no exponential sum to bound, and no curve —
+singular or not — to apply Weil to. [Note D](note-D-comparison-ledger.md)
+already said "a large sieve over one point is the trivial bound"; this is the
+same statement with a published mechanism attached to it.
+
+The degree claim `kappa-invariant` — that max over splits of min(D_m, d_n) ≍ √κ
+— remains `extrapolated`. The identity √κ = B is arithmetic and is not what that
+claim is about.
+
+## Ford–Maynard place this sequence too, and the placement is the useful part
+
+[FM] Table 1, p. 3 ("Examples from the literature (**epsilons omitted**)")
+lists eight rows. Three matter here:
+
+| γ | θ | ν | reference | property |
+|---|---|---|---|---|
+| 3/4 | 1/4 | 1/2 | Friedlander–Iwaniec | p = x² + y⁴ |
+| 3/4 | 1/4 | **1/12** | Merikoski, Thm. 1 | p = x² + (y²+1)² |
+| 1/2 | 0 | 1/3 | Duke–Friedlander–Iwaniec | x² ≡ a (mod p), x/p in a short interval |
+
+Two things follow, and both cut against how [Note C](note-C-requirements.md)
+had been arguing.
+
+1. **ν = 1/12 suffices.** Merikoski's Type II range is a twelfth of an exponent
+   wide, and Harman's sieve converts it into a lower bound of the right order.
+   The bar is not "a wide arbitrary-coefficient Type II range". It is ν > 0.
+2. **γ = 1/2 is not itself fatal.** DFI sit at γ = 1/2 with ν = 1/3 and succeed,
+   via exactly the divisor-bounded route ([FM] p. 6: "This was exploited in
+   Duke–Friedlander–Iwaniec [7] in the case θ = 0, ν = 1/3").
+
+So the discriminating parameter across the whole table is ν, and every entry has
+ν > 0. [Note F](note-F-failure-localisation.md) proves ν = 0 here. See
+[Note C](note-C-requirements.md) § *The Ford–Maynard placement, corrected
+again* for what that does to the earlier γ = 1/2 − ε argument.
+
+## The coefficient class is the honest one
+
+[MER] Prop. 12, p. 15 takes α(m) and β(n) bounded, with β supported on
+squarefree n coprime to P(W) and satisfying the Siegel–Walfisz property (4.1),
+p. 14; Prop. 13, p. 16 reduces to β with Siegel–Walfisz main term 0 (4.2).
+
+That is **α arbitrary, β Siegel–Walfisz** — not arbitrary on both sides. It is
+the same class [CLAUDE.md](../CLAUDE.md) insists the repo keep separate from the
+adversarial one, and it is exactly the class
+[Note J](note-J-mobius-in-progressions.md) measures: an arbitrary bounded α is
+worst-cased by α(m) = sign(Σ_n β(n)c_{mn}), which is the absolute value per
+modulus. So Note J's object
+
+> Σ_q | Σ_{x ≡ r_q (q)} μ(x²+1) |
+
+is *the Merikoski-class Type II sum for this sequence*, not a weaker relative of
+it. Note J's measurement — signed sum under 2% of the absolute-value sum — is
+therefore a measurement of the quantity Prop. 12 would have to control.
+
+## Adversarial review
+
+- *Is this a fourth data point, or the same point twice?* It is genuinely new in
+  the direction that matters: the density is deliberately **identical** to
+  a² + b⁴, so the sequence tests whether anything other than density is being
+  measured. It is not new evidence about density, and must not be counted as a
+  fourth density.
+- *Where is two-parameter freedom being smuggled in?* Nowhere new — but this
+  note is the first place the repo can say what the second parameter *is used
+  for*, rather than that it exists. It is the Poisson variable.
+- *Does this open a route for x² + 1?* No, and the note should not be read that
+  way. Every step of [MER] §4–5 needs B → ∞. The one transferable item is
+  negative: the desingularisation trick that rescues the main term costs half an
+  exponent in the error term, so even granting a b-sum, the +1 makes the range
+  *narrower*, not wider.
+- *Does κ survive?* As a necessary condition, yes, and strengthened — it is now
+  identified with a quantity in the published arguments. As anything sufficient,
+  no, and it was never claimed to be; this note is the falsification test that
+  says so out loud.
+- *Where is parity broken?* In [MER], by Harman's sieve fed with ν = 1/12 at
+  γ = 3/4. Nothing here breaks parity at γ = 1/2 with ν = 0.

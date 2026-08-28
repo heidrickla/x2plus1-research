@@ -91,6 +91,17 @@ norm bound the maximum off-diagonal Gram entry is **667**.
 > used.** Not in Type I, not in the local densities, not in the choice of
 > sieve — here, to make G(n₁, n₂) large enough to have a main term.
 
+**How much weight κ can carry, corrected.** κ = 1 ⟹ forest ⟹ no main term is
+a real implication and it is what this note rests on. The converse is not
+available and this note should not be read as suggesting it: a² + (b²+1)² has
+the *same* density, the same κ to 0.04%, and the same max min-degree to 3% as
+a² + b⁴, yet its provable Type II range is a sixth of an exponent shorter and
+it yields a lower bound where a² + b⁴ yields an asymptotic
+([Note K](note-K-merikoski.md), [`exp08`](../experiments/exp08_merikoski_ledger.py)).
+That is the first control the repo has that varies structure while holding
+density fixed, and it says κ is **necessary and not sufficient**. Nothing above
+depends on sufficiency — the argument here runs entirely through κ = 1.
+
 ## Under a level-1/2 sieve, this lemma is the whole obstruction
 
 [Note C](note-C-requirements.md) establishes that a prime-detecting sieve
@@ -126,6 +137,33 @@ is o(X) for M = o(X). So the lemma above proves:
 Every drop of the required saving must come from the arithmetic of μ along the
 fibres, with no help whatever from the incidence geometry. That is precisely
 the regime the parity barrier governs.
+
+## Ford–Maynard name this exact counting function
+
+Found on a third pass through arXiv:2407.14368v1, footnote 2, p. 7. Explaining
+why a set J ⊆ (x/2, x] with x^{1−c} elements resists Type II estimates beyond
+θ + ν = 1 − 2c:
+
+> "Showing one can take θ + ν ⩾ 1 − 2c is closely related to estimating
+> **#{n : nm₁, nm₂ ∈ J}** with an error term better than O(1) on average over
+> m₁, m₂ ∼ x^{1−2c+ϵ} (i.e. to show bilinear cancellation in the error term),
+> which is typically very difficult outside of special situations."
+
+That is G, with the roles of the two variables named the other way round. So
+the object this note is built on is the object the literature's own survey of
+the method identifies as the barrier — and where they say "typically very
+difficult", the lemma above says, for this sequence, **impossible**: the count
+is 0 or 1, so the error term *is* O(1) and no averaging can improve it.
+
+Two consequences worth stating separately:
+
+- It is external evidence that the repo is measuring the right thing. Note F was
+  derived here from the Gaussian-integer structure, not read out of a paper.
+- It sharpens what "special situation" means. a² + b⁴ is one: its incidence
+  graph has 4-cycles in abundance (max off-diagonal Gram entry **667** at
+  Q = 10⁷, against **1** here). So is a² + (b²+1)², measurably to within a few
+  percent of it — see [Note K](note-K-merikoski.md), which is the reminder that
+  having 4-cycles is necessary and not sufficient.
 
 ## Candidate problem statement
 

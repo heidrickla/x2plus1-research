@@ -337,9 +337,12 @@ Two sieves break parity below x^{2/3}, and neither reaches x^{1/2}:
   distribution 5/8, with a general floor of 0.61634….
 
 And **Ford–Maynard** (arXiv:2407.14368) map the parameter space directly. Their
-Theorem 4.16: C⁻(γ, θ, ν) = 0 whenever γ < 1/2 and γ ∉ [θ, θ+ν]. Their
+Theorem 4.16: C⁻(γ, θ, ν) = 0 whenever γ < 1/2 and γ ∉ [θ, θ+ν]. ~~Their
 Theorem 2.4 is the one that bites here, because **x² + 1 sits at γ = 1/2
-exactly**: with ε losses, C⁻(P_ε) = 0, and they comment that "one cannot hope to
+exactly**~~ — *struck: Theorem 2.4's hypothesis is P ∈ A\*₂, which requires
+ν ≥ 1/3 (or θ+ν = 1/2); this sequence has ν = 0 and is not in it. See "The
+Ford–Maynard placement, corrected again" below.* Theorem 2.4 says:
+with ε losses, C⁻(P_ε) = 0, and they comment that "one cannot hope to
 obtain non-trivial lower bounds on primes without some additional assumptions".
 The escape they name is divisor-bounded weights — which is precisely the
 Duke–Friedlander–Iwaniec setting. *That escape is closed; see below.* Maynard's ICM survey states that all current
@@ -357,10 +360,18 @@ repo.*
 regime.** Ford–Maynard's (I) demands a log-power saving at level *exactly* x^γ.
 [Note B](note-B-type-I.md) gives Σ_{d≤D}|r_d| ≍ D against A(x) = x^{1/2}, so
 Type I holds for D = o(x^{1/2}) and **fails at x^{1/2}**. In their convention
-that is γ = 1/2 − ε for every ε and never γ = 1/2 — i.e. exactly P_ε, exactly
-what Theorem 2.4 and Theorem 4.16 kill. The consolation that "at γ = 1/2 exactly
-they assert C^{±} = 1" is void, because γ = 1/2 exactly is the one case this
-sequence does not have.
+that is γ = 1/2 − ε for every ε and never γ = 1/2 — i.e. exactly P_ε, and
+Theorem 4.16 (γ < 1/2 and γ ∉ [θ, θ+ν]) applies directly. The consolation that
+"at γ = 1/2 exactly they assert C^{±} = 1" is void, because γ = 1/2 exactly is
+the one case this sequence does not have.
+
+> **Third reading, and this correction is itself over-corrected.** Two things
+> are wrong with the paragraph above. It names Theorem 2.4, which does not
+> apply. And it leans on a distinction — γ = 1/2 versus 1/2 − ε — that
+> Ford–Maynard's own Table 1 caption discards ("epsilons omitted"): by that
+> standard *every* entry in the table is at γ = level − ε, including
+> Friedlander–Iwaniec, whose theorem is at x^{3/4−5ε}. The conclusion C⁻ = 0
+> survives without the ε-hair, by a shorter route. See below.
 
 **2. The binding result is not Theorem 2.4 at all — it is Selberg.** By [Note
 F](note-F-failure-localisation.md) the sequence has **no arbitrary-coefficient
@@ -414,8 +425,82 @@ would collapse the distinction the repo is relying on. Here it demonstrably does
 not upgrade — Note F is a proof that it cannot — so this sequence is a genuine
 counterexample to their expectation. That is the sharpest thing the repo has.
 
-**γ = 1/2 is a knife-edge in the literature's own map, and x² + 1 sits just
-below it.**
+### The Ford–Maynard placement, corrected again
+
+*Third reading of arXiv:2407.14368v1, prompted by reading Merikoski
+([Note K](note-K-merikoski.md)) and finding this sequence in their Table 1. The
+conclusion does not move; the route to it does, and the route this note had been
+using was wrong in two places.*
+
+**Theorem 2.4 does not apply to x² + 1.** Its hypothesis is P ∈ A\*₂, and
+(p. 6)
+
+> A\*₂ := {(1/2, 0, ν) : 1/3 ≤ ν < 1/2} ∪ {(1/2, θ, 1/2 − θ) : 0 ≤ θ ≤ 1/3}.
+
+Both components demand substantial Type II information — ν ≥ 1/3 in the first,
+ν = 1/2 − θ ≥ 1/6 in the second. By [Note F](note-F-failure-localisation.md)
+this sequence has ν = 0. Theorem 2.4 is a statement about the ε-continuity of
+C⁻ for sequences that *do* have a Type II range, and its point on p. 6 is the
+opposite of the use this note was making of it: it is the theorem whose
+divisor-bounded repair **rescues** Duke–Friedlander–Iwaniec.
+
+**What does apply, and needs no ε-bookkeeping, is ν.** Two results, both
+already quoted in this note, and both indifferent to how γ's epsilon is
+recorded:
+
+- Selberg, quoted at [FM] p. 2: ν = 0 gives sequences satisfying (I) for
+  arbitrary γ < 1 with Σ_p a_p = 0.
+- Theorem 2.1, p. 3: "For all γ < 1, there is a constant ν₀(γ) > 0 such that …
+  if … ν ≤ ν₀(γ) … C⁻(γ, θ, ν) = 0."
+
+And Theorem 4.16 (p. 17) applies too, on the strict reading γ < 1/2. Three
+routes, one conclusion. **The ε in γ was never load-bearing; ν = 0 is.**
+
+**The cleanest placement is by θ, not by γ.** [FM] p. 7, for a set
+J ⊆ (x/2, x] with x^{1−c} elements:
+
+> "one can only hope for (I) to hold for γ < 1 − c and (II) for θ > c"
+
+against (1.1), p. 1: **0 ≤ θ < 1/2**. For x² + 1, c = 1/2, so (II) needs
+θ > 1/2 while (1.1) needs θ < 1/2. **There is no admissible Ford–Maynard triple
+for a sequence of density x^{1/2} at all.** Computed rather than argued:
+`x2plus1.exponents.ford_maynard_theta` returns [1/4, 1/2) at α = 3/4 and
+[1/3, 1/2) at α = 2/3, and raises at α = 1/2.
+
+The first half of that sentence is worth noticing on its own: γ < 1 − c = 1/2
+is [Note B](note-B-type-I.md)'s ceiling, reached from the other direction and
+by different means. The repo derived it; Ford–Maynard state it as what one can
+hope for.
+
+**Their footnote 2, p. 7, is Note F's lemma.** On why θ + ν ≥ 1 − 2c is hard:
+
+> "Showing one can take θ + ν ⩾ 1 − 2c is closely related to estimating
+> #{n : nm₁, nm₂ ∈ J} with an error term better than O(1) on average over
+> m₁, m₂ ∼ x^{1−2c+ϵ} (i.e. to show bilinear cancellation in the error term),
+> which is typically very difficult outside of special situations."
+
+That counting function is **exactly** G(n₁, n₂) = #{m : mn₁ ∈ A, mn₂ ∈ A}, the
+object [Note F](note-F-failure-localisation.md) is about. Ford–Maynard name it
+as the barrier and say it is usually hard; Note F proves that for A = {x+i} it
+is *identically* ≤ 1, i.e. the error term is O(1) and provably cannot be
+improved. This is the closest thing the repo has to an external statement that
+it is measuring the right object, and it was found on the third pass through the
+paper.
+
+**What the table shows.** [FM] Table 1, p. 3, caption *"Examples from the
+literature (epsilons omitted)"* — eight entries, and **every one has ν > 0**.
+The smallest is Merikoski's Theorem 1 at (γ, θ, ν) = (3/4, 1/4, **1/12**), a
+lower bound via Harman's sieve. Duke–Friedlander–Iwaniec sit at (1/2, 0, 1/3):
+**γ = 1/2 is not fatal in itself** — with ν = 1/3 and divisor-bounded weights it
+works, and [FM] p. 6 says so in as many words.
+
+So the correct headline is not that x² + 1 sits an ε below a knife-edge in γ.
+It is that **every successful entry in the literature's own table has ν > 0,
+Merikoski shows ν = 1/12 is enough, and this sequence has ν = 0 by a theorem.**
+
+~~**γ = 1/2 is a knife-edge in the literature's own map, and x² + 1 sits just
+below it.**~~ — *struck; see above. The knife-edge is ν = 0, and x²+1 is on it,
+not near it.*
 
 ## The hypotheses, quoted
 

@@ -16,6 +16,7 @@ the structure is in place and the content is not.
 | [H](note-H-numerical-pilot.md) | Numerical pilot | §2.4.4 | draft |
 | [I](note-I-a2b4-replay.md) | a²+b⁴ replay | §2.4.5 | draft — harness calibrated |
 | [J](note-J-mobius-in-progressions.md) | Möbius in progressions | *added* | draft — names the missing input, and localises the difficulty to the absolute values |
+| [K](note-K-merikoski.md) | Merikoski's a²+(b²+1)² | *added* | draft — the fourth published sequence; κ is necessary, not sufficient |
 
 ## Read Note C first
 
@@ -49,11 +50,18 @@ modulus *is* the arbitrary outer coefficient. Measured: the signed sum is under
 exactly what C₄-freeness kills.
 
 After reading Duke–Friedlander–Iwaniec and Ford–Maynard at source, the position
-is worse than earlier drafts recorded. x² + 1 sits at γ = 1/2 − ε, inside the
-regime Ford–Maynard's results kill; with ν = 0 (Note F) C⁻ = 0 already follows
-from Selberg; and the divisor-bounded escape is closed by their Thm 2.7(c). The
-claim that x² + 1 *meets* DFI's Type I hypothesis is **refuted** — DFI's Theorem
-S is normalised to x and is vacuous on a sequence of mass x^{1/2}.
+is worse than earlier drafts recorded. With ν = 0 (Note F) C⁻ = 0 already
+follows from Selberg; the divisor-bounded escape is closed by their Thm 2.7(c);
+and the claim that x² + 1 *meets* DFI's Type I hypothesis is **refuted** — DFI's
+Theorem S is normalised to x and is vacuous on a sequence of mass x^{1/2}.
+
+**The Ford–Maynard placement is stated by ν, not by γ.** A third reading (see
+Note C, *The Ford–Maynard placement, corrected again*) withdrew two things: the
+attribution to their Theorem 2.4, whose hypothesis P ∈ A\*₂ requires ν ≥ 1/3 and
+so never applied here, and the weight put on γ = 1/2 − ε versus 1/2, a
+distinction their own Table 1 caption discards. What binds is ν = 0, by Selberg
+and by their Theorem 2.1; every entry in their Table 1 has ν > 0, and their
+footnote 2 p. 7 names Note F's G(n₁,n₂) as the barrier.
 
 **Checkpoints.** Step 1 closes when Note C states a precise bilinear inequality
 whose proof implies the theorem (plan §1.5). Step 2 closes when Notes F and G

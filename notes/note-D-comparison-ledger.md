@@ -144,8 +144,34 @@ Measured at Q = 10⁷ (`experiments/exp04_kappa_family.py`):
 The ratio is constant to within 8% across a factor of 16 in √κ. **κ is a law,
 not a coincidence of the three published densities** — and the incidence graph
 becomes a forest exactly at α = 1/2, the endpoint the family approaches but
-never reaches. The [VERIFY] asking for "a fourth sequence with a known outcome"
-is answered by a one-parameter family instead.
+never reaches.
+
+## The fourth published sequence, and the limit of κ
+
+The [VERIFY] asking for "a fourth sequence with a known outcome" is now
+**discharged**, and by a better sequence than the family above supplies: only
+k = 2 in that family has a known outcome, so it tests the *law* but not the
+*criterion*. Merikoski's a² + (b²+1)² (arXiv:2112.03617, 2022) has one, and its
+density is deliberately identical to a² + b⁴. Measured by
+[`exp08`](../experiments/exp08_merikoski_ledger.py) at Q = 10⁷:
+
+| sequence | \|A\| | κ | √κ | max min-degree | ratio | C₄-free? | outcome |
+|---|---:|---:|---:|---:|---:|:--:|---|
+| a² + b⁴ | 153 890 | 2368.2 | 48.66 | 41.22 | 0.85 | no | asymptotic, Type II to X^{1/2−η} |
+| a² + (b²+1)² | 153 856 | 2367.2 | 48.65 | 40.12 | 0.82 | no | lower bound, Type II to X^{1/3−η} |
+| x² + 1 | 3 162 | 1.0 | 1.00 | 1.26 | 1.26 | **yes** | open |
+
+The first two rows agree in every column to within 3%, and the literature
+separates them by a sixth in the Type II exponent. **So κ is a necessary
+condition and not a sufficient one**, and this ledger should not be read as
+predicting outcomes. What κ measures is whether there is bilinear structure to
+work with at all; how much of it is usable is decided by the singularity type
+of the Type II curve, which no degree count sees. [Note K](note-K-merikoski.md)
+has the mechanism.
+
+The same note identifies √κ with the range B of the Poisson summation variable
+in [MER] p. 4 — for A = {a + f(b)i} the identity κ = B² is immediate — which is
+what the "one point" remark above amounts to in the published arguments.
 
 Status: this is `measured`, not `proved` — the degree computation is a
 heuristic. The proved statement in the neighbourhood is
