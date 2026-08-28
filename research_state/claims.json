@@ -2012,7 +2012,7 @@
     },
     {
       "id": "conjecture-D-equals-one-is-the-unique-survivor",
-      "status": "inferred",
+      "status": "refuted",
       "statement": "CONJECTURE. For every D > 1 the doubly-dyadic C4-free property fails at sufficiently large X, so D = 1 is the unique survivor. Evidence: the survivor set thins under every extension of X -- 24 values held at X = 1500, D = 35 fell at 2500, D = 20 fell at 4000, two of twenty-three across one doubling -- and the M*D mechanism gives the reason. The bound 3ab < (M D)^{4/3} is a condition on the cofactor class, not on X, so a larger X supplies more candidate classes at fixed D and eventually one that both satisfies the bound and realises the configuration. D = 1 is different only because it has O.12, a PROOF, rather than a surviving sweep.",
       "experiment": "experiments/exp23_prose_claims_made_runnable.py",
       "depends_on": [
@@ -2022,8 +2022,9 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "INFERRED, and the gap is that 'eventually one appears' is a heuristic about counting classes, not an argument that a class satisfying the bound must also realise the configuration. The bound is necessary and has never been shown sufficient -- the parallel session's own finding that 39 of 60 informative classes are admissible under O.11 and none holds a triple is exactly that gap, one level up. So this is a conjecture with a mechanism and an attrition curve behind it, not a theorem in waiting. Recorded because the alternative reading -- that the survivors at any given X are a stable set -- is what the data at X = 1500 looked like, and it was wrong twice within two doublings.",
-      "proof_site": ""
+      "notes": "INFERRED, and the gap is that 'eventually one appears' is a heuristic about counting classes, not an argument that a class satisfying the bound must also realise the configuration. The bound is necessary and has never been shown sufficient -- the parallel session's own finding that 39 of 60 informative classes are admissible under O.11 and none holds a triple is exactly that gap, one level up. So this is a conjecture with a mechanism and an attrition curve behind it, not a theorem in waiting. Recorded because the alternative reading -- that the survivors at any given X are a stable set -- is what the data at X = 1500 looked like, and it was wrong twice within two doublings. REFUTED at D = 2, by the parallel session, from my own invariant. With the invariant M*D the parameter s = sqrt(ab)/(M D) = sqrt(u)/((u-1)D), and O.12's condition tau(V)^2 < 3 is V*s < 1/sqrt3, so a banded pair in one window needs (u-1)D/sqrt(u) > V sqrt3 while a band supplies (u-1)/sqrt(u) < 1/sqrt2. Hence D <= V sqrt6 makes the necessary condition UNSATISFIABLE. At V >= 1 that covers D = 1 and 2 outright: at D = 2 the arithmetic is 1.41421 < 1.73205, a 22% margin. So D = 2 is a second survivor and it is PROVED, not observed. My conjecture reached for small D where the bound is not tight but unsatisfiable -- no cofactor class can meet the condition however many X supplies -- which is precisely the regime the counting heuristic behind it does not describe.",
+      "proof_site": "",
+      "superseded_by": "conjecture-every-D-outside-O12s-reach-fails"
     },
     {
       "id": "O12-covers-exactly-D-at-most-root-six",
@@ -2040,6 +2041,22 @@
         "gram"
       ],
       "notes": "V IS EVEN ON THIS AXIS TOO, so the |V| >= 2 row is available: over D = 1..6 the minimum |V| is 2, 4, 6, 4, 2, 4 and no odd value occurs in 1,238 pairs; with V != 0 that gives |V| >= 2 directly. (V-is-even-whenever-M-is-odd is proved for D = 1; the general-D statement is observed, not proved.) CONSEQUENCE FOR THE UNIQUENESS CONJECTURE: at small D the bound is not merely tight but UNSATISFIABLE -- no number of candidate classes at larger X can produce a configuration -- so the attrition argument reaches D > 4, not D > 1, and x^2+2 in particular can never fail. RECONCILES WITH THE LINE-FAMILY ANALYSIS, computed independently and before the M*D invariant was known: there D = c^2, so |V| >= 2 covering D <= 4 is c <= 2, which is exactly the earlier finding that |V| >= 2 extends O.12 to c = 2 and no further. Two routes to the same boundary. NOTE the gap between what the ARGUMENT covers (D <= 2, or <= 4 with parity) and what the PROPERTY appears to satisfy (D = 1..10 and beyond at the sizes swept) -- but 'appears' is doing real work there, since D = 35 held at X = 1500 and failed at X = 2500."
+    },
+    {
+      "id": "conjecture-every-D-outside-O12s-reach-fails",
+      "status": "inferred",
+      "statement": "CORRECTED CONJECTURE. O.12's argument, run with the M*D invariant, PROVES the doubly-dyadic C4-free property for small D: a banded pair in one window needs (u-1)D/sqrt(u) > V sqrt3 against a band's (u-1)/sqrt(u) < 1/sqrt2, so D <= V sqrt6 is unsatisfiable. |V| >= 1 gives D = 1, 2 unconditionally; |V| >= 2 gives D = 1, 2, 3, 4, and V is even for every D tested -- 0 odd |V| out of 15,084 consecutive pairs across D = 1..6 at X = 2500 -- though that is proved only for D = 1. Outside that reach the property is conjectured to fail at sufficiently large X, which the attrition supports: D = 35 fell at X = 2500 and D = 20 at X = 4000. Note D = 5 and 6 are NOT covered by the bound and hold empirically, so the bound is sufficient and not necessary.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "x2plus1-is-the-D-equals-one-end-where-every-bound-is-tightest",
+        "theorem-O12-doubly-dyadic-c4-free"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Replaces `conjecture-D-equals-one-is-the-unique-survivor`, refuted at D = 2. The lesson is in where it broke: the conjecture rested on counting classes -- more X, more candidates, eventually one realises the configuration -- which is a good heuristic wherever the bound is merely tight and says nothing where the bound is UNSATISFIABLE. Small D is the second regime and the heuristic had no purchase there. Two derivations hours apart give the same boundary: |V| >= 2 covering D <= 4 is c <= 2 in the line family, which is exactly the earlier finding that |V| >= 2 extends O.12 to c = 2 and no further.",
+      "proof_site": "",
+      "superseded_by": ""
     }
   ]
 }
