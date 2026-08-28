@@ -1,0 +1,198 @@
+{
+  "claims": [
+    {
+      "id": "type-I-level",
+      "status": "proved",
+      "statement": "For A = {x+i : x <= X}, |r_d| <= 1 for every admissible ideal and this is sharp, so sum_{N(d)<=D}|r_d| ~ D and Type I holds exactly for D = o(X) = o(Q^{1/2}).",
+      "proof_site": "notes/note-B-type-I.md; tests/test_arithmetic_facts.py::test_type_i_error_per_modulus_is_at_most_one",
+      "tags": [
+        "type_i"
+      ]
+    },
+    {
+      "id": "admissible-density",
+      "status": "proved",
+      "statement": "The number of admissible Gaussian ideals of norm <= D is ~ (3/2pi) D, the residue of zeta(s)L(s,chi_4)/zeta(2s) at s=1.",
+      "proof_site": "notes/note-A-dictionary.md; tests/test_arithmetic_facts.py::test_admissible_ideal_count_matches_zeta_L_over_zeta2"
+    },
+    {
+      "id": "divisibility-is-a-congruence",
+      "status": "proved",
+      "statement": "d divides x+i if and only if x == r_d (mod N(d)) for a single residue r_d with r_d^2+1 == 0.",
+      "proof_site": "notes/note-A-dictionary.md; tests/test_arithmetic_facts.py::test_divisibility_is_the_congruence_of_note_a"
+    },
+    {
+      "id": "c4-free",
+      "status": "proved",
+      "statement": "For A = {x+i}, the bilinear incidence graph contains no 4-cycle, so G(n1,n2) = #{m : mn1, mn2 in A} <= 1 for n1 != n2. Holds from both sides, in m and in n alike.",
+      "proof_site": "notes/note-F-failure-localisation.md; tests/test_bilinear.py::test_incidence_graph_of_the_line_is_c4_free",
+      "depends_on": [
+        "divisibility-is-a-congruence"
+      ],
+      "tags": [
+        "type_ii"
+      ]
+    },
+    {
+      "id": "asp-R1",
+      "status": "quoted",
+      "statement": "Hypothesis (R1) of the asymptotic sieve for primes requires x^{2/3} < D(x) < x.",
+      "citation": "Friedlander-Iwaniec, Asymptotic sieve for primes, Ann. of Math. 148 (1998), p.1043 (arXiv:math/9811186)",
+      "tags": [
+        "asp"
+      ]
+    },
+    {
+      "id": "asp-thin-ceiling",
+      "status": "quoted",
+      "statement": "'for thin sequences A one cannot expect (R) to hold with D(x) > A(x)'.",
+      "citation": "ASP p.1044",
+      "tags": [
+        "type_i"
+      ]
+    },
+    {
+      "id": "asp-gamma-annihilation",
+      "status": "quoted",
+      "statement": "x^{2/3} is the threshold below which the coefficient gamma(n,C) of hypothesis (B) is annihilated: 'd must be quite a bit smaller than N to ensure that mu(d) does not completely neutralize mu(n) ... our hypothesis (B) can be realistic only if D is somewhat larger than x^{2/3+eps}'.",
+      "citation": "ASP p.1045",
+      "depends_on": [
+        "asp-R1"
+      ],
+      "tags": [
+        "asp"
+      ]
+    },
+    {
+      "id": "asp-inapplicable",
+      "status": "proved",
+      "statement": "The Friedlander-Iwaniec asymptotic sieve as stated cannot be applied to x^2+1: (R1) demands D > x^{2/3} while Type I caps at x^{1/2}, so the admissible range for D is empty.",
+      "proof_site": "notes/note-C-requirements.md",
+      "depends_on": [
+        "type-I-level",
+        "asp-R1"
+      ],
+      "tags": [
+        "asp"
+      ]
+    },
+    {
+      "id": "hb-alpha-hierarchy",
+      "status": "quoted",
+      "statement": "Heath-Brown's density exponent alpha places the problems at alpha = 1 (Dirichlet), 3/4 (a^2+b^4), 2/3 (x^3+2y^3), and 1/2 (x^2+1).",
+      "citation": "Heath-Brown, Primes represented by x^3+2y^3, Acta Math. 186 (2001), p.2 of the Oxford ORA preprint"
+    },
+    {
+      "id": "hb-R1-not-met",
+      "status": "quoted",
+      "statement": "Heath-Brown did not use the asymptotic sieve: 'their condition (R1) is not quite met in our case ... Although it seems possible that Friedlander and Iwaniec's hypothesis (R1) might be relaxed sufficiently for our application, we have chosen instead to present our own version of the sieve argument.'",
+      "citation": "HB p.3",
+      "depends_on": [
+        "asp-R1"
+      ],
+      "tags": [
+        "asp"
+      ]
+    },
+    {
+      "id": "hb-level",
+      "status": "quoted",
+      "statement": "Heath-Brown's sequence has level of distribution X^{2-eps} for values of size X^3, i.e. x^{2/3-eps} -- short of (R1) by an epsilon.",
+      "citation": "HB Lemmas 2.1-2.2, p.5",
+      "depends_on": [
+        "hb-R1-not-met"
+      ]
+    },
+    {
+      "id": "fi-level",
+      "status": "quoted",
+      "statement": "For a^2+b^4 the level of distribution D = x^{3/4-5eps} is achieved, 'apart from the eps, the best that one can hope for'.",
+      "citation": "Friedlander-Iwaniec, X^2+Y^4 captures its primes, Prop. 3.5, p.962 (arXiv:math/9811185)"
+    },
+    {
+      "id": "fi-typeI-mechanism",
+      "status": "quoted",
+      "statement": "FI's Type I gain comes from applying the Davenport-Halberstam large sieve to the points nu/d with nu^2+1 == 0 (mod d), which for moduli in a short interval are spaced by 1/4D rather than 1/D^2.",
+      "citation": "X2Y4 Lemma 3.2 and surrounding text, p.957",
+      "notes": "This repo previously guessed the mechanism was Poisson summation in b. That was wrong; corrected in Note D."
+    },
+    {
+      "id": "fi-typeII-range",
+      "status": "quoted",
+      "statement": "FI prove the Type II bound B(x;N) << A(x)(log x)^{4-A} for x^{1/4+eta} < N < x^{1/2}(log x)^{-B}.",
+      "citation": "X2Y4 Prop. 4.1, p.963",
+      "tags": [
+        "type_ii"
+      ]
+    },
+    {
+      "id": "kappa-invariant",
+      "status": "measured",
+      "statement": "Over dyadic splits, max min(D_m, d_n) ~ sqrt(kappa) = |A|/Q^{1/2}. Measured ratio 0.85-0.92 across the family a^2+b^{2k}, k=2..6 (alpha 0.75 down to 0.583), and 1.26 for x^2+1 where sqrt(kappa)=1.",
+      "experiment": "experiments/exp04_kappa_family.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "A degree heuristic supported across a one-parameter family, not a theorem. The C4-free lemma is the proved statement in the neighbourhood."
+    },
+    {
+      "id": "sqrt-MX-law",
+      "status": "measured",
+      "statement": "sum_m |sum_n mu(n) 1[mn in A]| ~ sqrt(MX) for M <= X, saturating at ~|A| for M >= X. Ratio to sqrt(MX) is 0.88-0.93, stable from X = 2e4 to 1e5.",
+      "experiment": "experiments/exp02_bilinear_pilot.py",
+      "tags": [
+        "type_ii"
+      ]
+    },
+    {
+      "id": "no-saving-in-required-window",
+      "status": "measured",
+      "statement": "In the window (B1) would require, M in (x^{1/2}, x^{3/4}), the measured bilinear sum shows no saving at all: S_mu/A(x) = 0.93, 1.00, 1.01.",
+      "experiment": "experiments/exp02_bilinear_pilot.py",
+      "depends_on": [
+        "sqrt-MX-law"
+      ],
+      "tags": [
+        "type_ii"
+      ]
+    },
+    {
+      "id": "harness-calibration",
+      "status": "measured",
+      "statement": "Inside FI's proved Prop. 4.1 window the harness sees a^2+b^4 drop to S_mu/|A| = 0.16-0.52 while x^2+1 sits at 0.84-1.01; outside it both saturate. Confirms direction, not magnitude: a log-power saving is invisible over one decade.",
+      "experiment": "experiments/exp03_density_ledger.py"
+    },
+    {
+      "id": "large-moduli-cannot-help",
+      "status": "inferred",
+      "statement": "BFI, Zhang, Polymath 8 and Maynard raise the level of distribution for primes in arithmetic progressions, a sequence of density x/log x, and cannot lift the D <= A(x) ceiling, which is a counting bound.",
+      "notes": "Reasoning, not a reading of those papers. Under verification.",
+      "depends_on": [
+        "asp-thin-ceiling"
+      ],
+      "tags": [
+        "type_i"
+      ]
+    },
+    {
+      "id": "iwaniec-1978-P2",
+      "status": "inferred",
+      "statement": "Iwaniec (1978) proved that irreducible an^2+bn+c with a>0 and c odd takes P_2 values infinitely often, via a lower-bound weighted sieve; this remains the record for x^2+1.",
+      "notes": "The original is paywalled; statement taken from an MSc exposition (arXiv:1910.02885), so it is second-hand and classed accordingly."
+    },
+    {
+      "id": "typeI-poisson-in-b",
+      "status": "refuted",
+      "statement": "FI's Type I gain for a^2+b^4 comes from Poisson summation in the b variable.",
+      "notes": "Guessed by this repo, then refuted by reading X2Y4 p.957: the mechanism is a Davenport-Halberstam large sieve over the roots nu of nu^2+1 == 0 (mod d). Kept so it is not silently re-asserted.",
+      "superseded_by": "fi-typeI-mechanism"
+    },
+    {
+      "id": "obstruction-is-type-I",
+      "status": "refuted",
+      "statement": "The obstruction for x^2+1 is Type I, not Type II, so the bilinear programme is the wrong half.",
+      "notes": "Asserted in this repo, then withdrawn. ASP p.1045 shows (R1) is precisely the condition that hypothesis (B) is non-vacuous, so the two are one hypothesis and the dichotomy was malformed.",
+      "superseded_by": "asp-gamma-annihilation"
+    }
+  ]
+}

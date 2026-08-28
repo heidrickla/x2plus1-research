@@ -50,11 +50,11 @@ in [ASP] p. 1059, in the remark on hypothesis (9.2):
 | sequence | A(x) | vs. x^{2/3} | D achieved |
 |---|---|---|---|
 | a² + b⁴ | x^{3/4} | **above** | **x^{3/4−5ε}** ([X2Y4] Prop. 3.5, p. 962) |
-| x³ + 2y³ | x^{2/3} | at the boundary | — **[VERIFY]** |
+| x³ + 2y³ | x^{2/3} | at the boundary | **x^{2/3−ε}** ([HB] Lem. 2.1–2.2, p. 5) |
 | x² + 1 | **x^{1/2}** | **below** | ≤ x^{1/2}, and no D is admissible |
 
-So Step 2 as framed by the plan is attacking the wrong half. See
-[§ Consequences](#consequences-for-the-plan) below.
+x³ + 2y³ sits exactly on the boundary and misses (R1) by ε; x² + 1 misses by
+x^{1/6}. See [§ Consequences](#consequences-for-the-plan) below.
 
 ---
 

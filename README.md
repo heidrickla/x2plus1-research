@@ -18,6 +18,7 @@ x^{1/2}.** Everything here is instrumentation for that search.
 | [experiments/](experiments/) | runnable scripts; each names the note it supports. |
 | [tests/](tests/) | unit tests, plus `test_arithmetic_facts.py` — machine-checked statements of the lemmas the notes rely on. |
 | [refs/](refs/) | bibliography and a literature-scan log. |
+| [research_state/claims.json](research_state/claims.json) | every claim with an enforced epistemic status — `proved` / `quoted` / `measured` / `inferred` / `refuted` — checked by `tests/test_claims.py`. |
 
 ## Quick start
 
@@ -35,6 +36,10 @@ python experiments/exp02_bilinear_pilot.py 20000
 
 ```bash
 python experiments/exp03_density_ledger.py 10000000
+```
+
+```bash
+python experiments/exp04_kappa_family.py 10000000 6
 ```
 
 No installation needed — the scripts put the repo root on `sys.path`. Requires

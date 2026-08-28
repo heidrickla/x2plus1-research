@@ -94,15 +94,63 @@ sequence: Note F's C₄-free lemma is a theorem and survives any change of sieve
 So the Type I line is the one that binds *for [ASP] specifically*, and the
 Type II line is the one that binds *for the problem*.
 
-**[VERIFY]** discharged for the density line: Heath-Brown's α is the same
-exponent and he places all four problems on it himself ([HB] p. 2), so κ for
-x³ + 2y³ is no longer inferred. FI do achieve **D = Q^{3/4−5ε}** for a² + b⁴
-([X2Y4] Prop. 3.5, p. 962), which they call "apart from the ε, the best that
-one can hope for" — confirming both that the ledger's "Type I actually achieved"
-line is real and that the D ≤ |A| ceiling is attained. **[VERIFY]** still: the
-*mechanism* (that the gain comes from summing over b) is inferred from the
-shape of the problem, not read from §3; and κ for Heath-Brown's set is computed
-from |A| ≍ Q^{2/3} rather than checked against the paper.
+All three of this note's **[VERIFY]**s are now discharged, one by correcting an
+error.
+
+*Density.* Heath-Brown's α is the same exponent and he places all four problems
+on it himself ([HB] p. 2), so the hierarchy is quoted, not inferred.
+
+*Level achieved.* FI reach D = Q^{3/4−5ε} ([X2Y4] Prop. 3.5, p. 962), "apart
+from the ε, the best that one can hope for"; Heath-Brown reaches Q^{2/3−ε}
+([HB] Lem. 2.1–2.2, p. 5). So the D ≤ |A| ceiling is real and attained in both
+solved cases.
+
+*Mechanism — previously stated wrongly.* This note guessed the gain came from
+Poisson summation in b. It does not. [X2Y4] §3 (p. 957) observes that for
+moduli in a short interval 8D/9 < d ≤ D the points ν/d with ν² + 1 ≡ 0 (mod d)
+are spaced by 1/4D rather than 1/D², and applies **the Davenport–Halberstam
+large sieve** to them, giving Lemma 3.2:
+
+> Σ_{D<d≤2D} Σ_{ν²+1≡0 (d)} |Σ_{n≤N} α_n e(νn/d)|² ≪ (D + N)‖α‖².
+
+Note what those ν are: the roots of ν² + 1 ≡ 0, i.e. exactly this repo's
+admissible ideals ([Note A](note-A-dictionary.md)). The structure FI exploit is
+the *same* structure x² + 1 has. What differs is that they have a **vector α**
+— supplied by the second variable — for the large sieve to average over. For
+x² + 1 that vector has one entry, and a large sieve over one point is the
+trivial bound. **That is the two-parameter freedom, stated exactly**, and it is
+a sharper statement than the one this note originally guessed.
+
+## Is κ a law, or three coincidences?
+
+Three published sequences cannot distinguish the two. So the family
+
+> A_k = { a + b^k i : a² + b^{2k} ≤ Q },  |A_k| ≍ Q^{1/2 + 1/(2k)}
+
+was swept — it interpolates between α = 1 (k = 1, all of Z[i]), α = 3/4 (k = 2,
+the FI set), α = 2/3 (k = 3, Heath-Brown's density) and, as k → ∞, α = 1/2,
+which is the line Im z = 1. κ predicts max_M min(D_m, d_n) ≍ √κ = Q^{1/(2k)}.
+Measured at Q = 10⁷ (`experiments/exp04_kappa_family.py`):
+
+| sequence | α | \|A\| | √κ predicted | max min-degree | ratio | C₄-free? |
+|---|---:|---:|---:|---:|---:|:--:|
+| a² + b⁴ | 0.750 | 153 890 | 48.66 | 41.22 | **0.85** | no |
+| a² + b⁶ | 0.667 | 40 661 | 12.86 | 11.45 | **0.89** | no |
+| a² + b⁸ | 0.625 | 20 676 | 6.54 | 5.81 | **0.89** | no |
+| a² + b¹⁰ | 0.600 | 12 951 | 4.10 | 3.78 | **0.92** | no |
+| a² + b¹² | 0.583 | 9 400 | 2.97 | 2.72 | **0.91** | no |
+| x² + 1 | 0.500 | 3 162 | 1.00 | 1.26 | 1.26 | **yes** |
+
+The ratio is constant to within 8% across a factor of 16 in √κ. **κ is a law,
+not a coincidence of the three published densities** — and the incidence graph
+becomes a forest exactly at α = 1/2, the endpoint the family approaches but
+never reaches. The [VERIFY] asking for "a fourth sequence with a known outcome"
+is answered by a one-parameter family instead.
+
+Status: this is `measured`, not `proved` — the degree computation is a
+heuristic. The proved statement in the neighbourhood is
+[Note F](note-F-failure-localisation.md)'s C₄-free lemma. See
+[`research_state/claims.json`](../research_state/claims.json).
 
 ## Adversarial review
 
@@ -112,8 +160,7 @@ from |A| ≍ Q^{2/3} rather than checked against the paper.
 - *Where is parity broken?* In the a² + b⁴ column, at the bilinear form. The
   ledger's value is that it localises the difference to two lines of the same
   nature.
-- *Is κ a real invariant or a coincidence of three data points?* Three
-  sequences is not evidence. What makes κ more than numerology is the degree
-  computation in Note F, which derives it rather than fitting it. Still worth
-  testing against a fourth sequence with a known outcome — e.g. all of Z[i]
-  (κ = Q), or a thin set of density strictly between 1/2 and 3/4. **[VERIFY]**
+- *Is κ a real invariant or a coincidence of three data points?* **Answered
+  above**, and more strongly than the objection asked: swept across the family
+  a² + b^{2k} for k = 2…6, the predicted ratio holds to within 8% over a factor
+  of 16 in √κ. Still `measured`, not `proved`.

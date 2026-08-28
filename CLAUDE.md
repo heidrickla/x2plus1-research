@@ -21,6 +21,43 @@ notes honest.
 - **Adversarial review of every note** (plan §Cross-cutting): where is
   two-parameter freedom being smuggled in, and where is parity actually broken?
 
+## The claim registry — read before writing a finding
+
+`research_state/claims.json` records every established claim with an **enforced
+epistemic status**, checked by `tests/test_claims.py`. The pattern is adapted
+from the sibling repo `rh-research-engine` (`core/models.py`, `core/nogo.py`,
+`docs/EPISTEMIC_BOUNDARIES.md`), whose governing rule applies here too:
+
+> A guard that is not on the path is not a guard.
+
+The vocabulary is deliberately not interchangeable:
+
+| status | requires | meaning |
+|---|---|---|
+| `proved` | `proof_site` naming a note **and** a test | proved in this repo |
+| `quoted` | `citation` with a page/result locator | verbatim from a source |
+| `measured` | `experiment` naming the script | numerically observed only |
+| `inferred` | `notes` saying what is missing | reasoning, not reading or proof |
+| `hypothesis` | — | proposed; screened against no-go rules |
+| `refuted` | `superseded_by` | kept so it cannot be silently re-asserted |
+
+**`inferred` is the class this repo needed.** Twice a conclusion was over-read
+from evidence that did not support it — "the obstruction is Type I, not Type II",
+then "(R1) is soft". Both are in the registry as `refuted`, with what replaced
+them. An inferred claim reads exactly like a quoted one in prose; the status is
+the only thing that keeps them apart.
+
+Before proposing a route, screen it:
+
+```python
+from x2plus1.claims import screen
+screen("open the square and bound by Weil")   # -> ['dispersion-at-alpha-half']
+```
+
+No-go rules match on **wording as well as tags**, so a ruled-out route cannot be
+resurrected by renaming its tag. `green-tao-excluded` is deliberately non-fatal:
+it is contested by Green–Sawhney and must be re-argued, not obeyed.
+
 ## Code conventions
 
 - Exact integer arithmetic in Z[i] — int pairs, never `complex`. Floats appear

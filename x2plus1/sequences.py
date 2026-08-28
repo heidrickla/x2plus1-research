@@ -100,6 +100,41 @@ def a2b4_sequence(norm_bound: int) -> GaussianSequence:
     return GaussianSequence("a^2+b^4", norm_bound, elements, facs)
 
 
+def a2b2k_sequence(norm_bound: int, k: int) -> GaussianSequence:
+    """A = { a + b^k i : a, b >= 1, a^2 + b^{2k} <= norm_bound }.
+
+    The one-parameter family interpolating between the solved cases and this
+    project's.  Since a <~ Q^{1/2} and b <~ Q^{1/(2k)},
+
+        |A| ~ Q^{1/2 + 1/(2k)},   so   alpha = 1/2 + 1/(2k)
+
+    k = 1 is a^2+b^2 (alpha = 1, all of Z[i]); k = 2 is the Friedlander-Iwaniec
+    set a^2+b^4 (alpha = 3/4); k = 3 has alpha = 2/3, the density of
+    Heath-Brown's x^3+2y^3; and k -> infinity approaches alpha = 1/2, which is
+    x^2+1 (the b = 1 line).  Note D uses this family to test whether
+
+        kappa = |A|^2 / Q = Q^{1/k},   max_M min(D_m, d_n) ~ sqrt(kappa) = Q^{1/(2k)}
+
+    is a real invariant or a coincidence of the three published data points.
+    """
+    if k < 1:
+        raise ValueError("k must be >= 1")
+    elements: list[Gauss] = []
+    facs: list[list[tuple[Gauss, int]]] = []
+    b = 1
+    while b ** (2 * k) < norm_bound:
+        c = b ** (2 * k)
+        A = isqrt(norm_bound - c)
+        if A >= 1:
+            F = sieve_shifted_square(A, c)
+            for a in range(1, A + 1):
+                z = (a, b**k)
+                elements.append(z)
+                facs.append(_gauss_factor_shifted(z, F[a]))
+        b += 1
+    return GaussianSequence(f"a^2+b^{2 * k}", norm_bound, elements, facs)
+
+
 def by_x_range(X: int) -> GaussianSequence:
     """A = { x + i : 1 <= x <= X }.  Convenience wrapper in the x variable."""
     return x2plus1_sequence(X * X + 1)
