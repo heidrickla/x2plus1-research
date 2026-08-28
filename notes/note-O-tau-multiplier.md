@@ -1041,16 +1041,37 @@ two", and that is the only step that changes.
 
 **So there is no remaining case.** The parallel session's intermediate form
 restricted to M₁ = ∏{odd p ‖ M} and left classes with M₁ = 1 silent — M a power
-of two times a powerful odd part, 1.02% at X = 3000. The valuation form covers
-those too, and **excludes 99.2% of them**.
+of two times a powerful odd part. The valuation form covers those too.
 
-| | classes at X = 3000 | share |
-|---|---:|---:|
-| excluded outright by 3ab < M^{4/3} | 1,801,672 | **99.26%** |
-| admissible | 13,482 | 0.74% |
-| silent | 0 | — |
-
-*(74.56% of these have M even, which O.9 as stated did not reach at all.)*
+> ### ⚠ THE DENOMINATOR — and both of us got this wrong
+>
+> A first version of this section reported **99.26% of classes excluded**. That
+> figure is over *every* ratio class, and **a class with fewer than three shared
+> moduli cannot host a triple whatever any theorem says**. At X = 3000 only
+> **60 of 1,815,154 classes have three shared moduli at all** — so the theorem is
+> vacuous on 99.997% of what was being counted, and the percentage measured the
+> vacuity, not the reach.
+>
+> **On the informative population — classes with ≥ 3 shared moduli — it is ~35%,
+> and stable:**
+>
+> | X | informative classes | excluded by 3ab < M^{4/3} |
+> |---:|---:|---:|
+> | 2000 | 48 | 17 (**35.4%**) |
+> | 3000 | 60 | 21 (**35.0%**) |
+> | 4000 | 70 | 24 (**34.3%**) |
+> | 6000 | 96 | 34 (**35.4%**) |
+>
+> The comparison with the M₁ form survives and is the honest gain: on the same
+> 60 classes at X = 3000 the M₁ form excludes **9 (15.0%) and is silent on 21
+> (35.0%)**, while the valuation form excludes **21 (35.0%) and is silent on
+> none**. More than double the reach, and no silent class — but **35%, not 99%**.
+>
+> This is the repo's own rule — *the informative subset is never the one the loop
+> naturally counts* — arriving in a new place, and it caught both sessions within
+> the hour for the same mechanical reason: `ratio_classes` returns every class,
+> so sweeping every class is what one writes. **A percentage here must carry its
+> population in the same sentence.**
 
 **What was M even and M non-squarefree** is now covered; the sign argument's
 apparent need for them was an artefact of working at e = 1: U² ≡ (Va)² only gives M | A_VB_V in general, and the signs can differ

@@ -1394,3 +1394,28 @@ def test_O10_the_sign_is_the_e_equals_one_shadow():
                 assert s + t == 1, (a, b, m, p)     # exactly one, i.e. a sign
                 n += 1
     assert n > 500, n
+
+
+def test_O10_coverage_is_measured_over_the_informative_population():
+    """~35% of classes that COULD host a triple, not ~99% of all classes.
+
+    A class with fewer than three shared moduli cannot host a triple whatever any
+    theorem says, so it is vacuous for this question.  At X = 3000 only 60 of
+    1,815,154 classes have three shared moduli, so a percentage over all classes
+    measures the vacuity and not the reach.
+    """
+    allc = inf = exc_all = exc_inf = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 2:
+            continue
+        allc += 1
+        bad = 3 * a * b >= M ** (4 / 3)
+        exc_all += bad
+        if len(ms) >= 3:
+            inf += 1
+            exc_inf += bad
+    assert inf >= 5, inf
+    assert inf / allc < 0.001, (inf, allc)          # the denominator is vacuous
+    assert exc_all / allc > 0.95                    # the misleading figure
+    assert 0.2 < exc_inf / inf < 0.6, (exc_inf, inf)  # the honest one, ~35%

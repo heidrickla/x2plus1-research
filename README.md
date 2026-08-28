@@ -333,9 +333,17 @@ Three values in {±1} cannot be pairwise distinct, so at every p some pair agree
 
 > **M | V₁₂·V₂₃·V₁₃**, and in a window |V| < M/√(3D), forcing **3ab < (b−a)^{4/3}**.
 
-At X = 4000 that excludes **499,188 of 503,054** M-odd-squarefree classes (99.2%)
-outright, and with O.4's t > 133.875 the admissible a is tiny: **a ≤ 2** at the
-minimum t, 6 at 10³, 19 at 10⁴. For M prime it recovers O.7 with nothing
+**O.10 drops even the odd/squarefree hypothesis**, replacing the two-valued
+sign by a valuation split s + t ≥ e — the sign is its e = 1 shadow — so
+**M | V₁₂V₂₃V₁₃ for any M** and **3ab < (b−a)^{4/3}** unconditionally. With O.4's
+t > 133.875 the admissible a is tiny: **a ≤ 2** at the minimum t, 6 at 10³.
+
+**Read its coverage over the right denominator.** A class with fewer than three
+shared moduli cannot host a triple, and at X = 3000 only **60 of 1,815,154**
+classes have three at all. Over the informative population the bound excludes
+**~35%** — 17/48, 21/60, 24/70, 34/96 at X = 2000, 3000, 4000, 6000 — not the
+99% a sweep over all classes reports. *(Both sessions published the vacuous
+figure first.)* For M prime it recovers O.7 with nothing
 assumed. The load-bearing identities are **S·T = −M·m** and the cofactor-free
 **V·W = M(m_i − m_j)**, W = X_jY_i + X_iY_j.
 

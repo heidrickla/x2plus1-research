@@ -265,8 +265,17 @@ hypothesis, by pigeonhole**: for p | M, aY² = bX² + M gives Y² ≡ X² (mod p
 each solution has a **sign** σ = ±1 with Y ≡ σX, and V_ij ≡ X_iX_j(σ_j − σ_i)
 makes **p | V_ij ⟺ σ_i = σ_j**. Three values in {±1} cannot be pairwise
 distinct, so **M | V₁₂V₂₃V₁₃**; with |V| < M/√(3D) in a window that forces
-**3ab < (b−a)^{4/3}** — excluding **99.2%** of such classes, and leaving a ≤ 2 at
-O.4's minimum t. It recovers O.7 for M prime with nothing assumed and supersedes
+**3ab < (b−a)^{4/3}**. **Theorem O.10 then drops the odd/squarefree hypothesis
+entirely**: replace the sign by the valuation split s_i + t_i ≥ e with
+s = min(e, v_p(S)), t = min(e, v_p(T)); either p^{s} | S or p^{t} | T kills V, so
+v_p(V_ij) ≥ max(min(s_i,s_j), min(t_i,t_j)), and ordering s₁ ≤ s₂ ≤ s₃ gives
+v_p(V₁₂) + v_p(V₂₃) ≥ e. **The sign is the e = 1 shadow**, where S·T = −M·m
+forces s + t = 1 exactly. **READ THE COVERAGE OVER THE INFORMATIVE POPULATION**:
+a class with fewer than three shared moduli cannot host a triple, and only **60
+of 1,815,154** classes at X = 3000 have three at all — so the bound excludes
+**~35%** (17/48, 21/60, 24/70, 34/96 at X = 2000–6000), **not the 99% a sweep
+over all classes reports**. Both sessions published the vacuous figure first; a
+percentage here must carry its population in the same sentence. It recovers O.7 for M prime with nothing assumed and supersedes
 O.8. The load-bearing identities are **S·T = −M·m** and the cofactor-free
 **V·W = M(m_i − m_j)** with W = X_jY_i + X_iY_j (the parallel session's form;
 mine had a spurious a). **Theorem O.8, now superseded, pushed it from prime to
