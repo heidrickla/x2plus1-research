@@ -148,3 +148,60 @@ def test_V_is_even_when_a_and_b_are_both_odd():
     for a, b, mi, mj, V, _t in PAIRS:
         if a % 2 and b % 2:
             assert V % 2 == 0, (a, b, mi, mj, V)
+
+
+# --- Theorem O.3: the divisibility and the geometry are incompatible ---------
+
+def _multipliers(a, b, kmax=25):
+    """(k, U_k) for every |V| = 2k multiplier of the pair (a, b)."""
+    M = b - a
+    for k in range(1, kmax):
+        t = M * M + 4 * k * k * a * b
+        u = isqrt(t)
+        if u * u == t:
+            yield k, u
+
+
+def test_j_equals_two_exactly_at_k_one():
+    """j = 2 B_k / M satisfies j = 2 iff k = 1, and j >= 3 for k >= 2.
+
+    This is what makes the trivial multiplier special and forces e = j^2-4 >= 5
+    in Theorem O.3.
+    """
+    seen = 0
+    for a, b in [(1, 5), (2, 85), (1, 85), (5, 481), (1, 65), (13, 449)]:
+        M = b - a
+        for k, U in _multipliers(a, b):
+            seen += 1
+            j2 = 2 * (U - 2 * k * a)
+            assert (j2 == 2 * M) == (k == 1), (a, b, k)
+            if k >= 2:
+                assert j2 > 2 * M, (a, b, k)
+    assert seen > 5
+
+
+def test_divisibility_forces_the_M_formula():
+    """M | 2B_k with j = 2B_k/M forces M = 8ka(2k-j)/(j^2-4)."""
+    checked = 0
+    for a in range(1, 60):
+        for b in range(a + 1, 900):
+            if __import__("math").gcd(a, b) != 1:
+                continue
+            M = b - a
+            for k, U in _multipliers(a, b):
+                if (2 * (U - 2 * k * a)) % M:
+                    continue
+                j = 2 * (U - 2 * k * a) // M
+                if j == 2:
+                    continue
+                assert M * (j * j - 4) == 8 * k * a * (2 * k - j), (a, b, k, j)
+                checked += 1
+    assert checked > 0, "no k >= 2 divisibility instances found -- test vacuous"
+
+
+def test_the_incompatibility_quantity_is_always_positive():
+    """e^2 + 4jwe + 2w^2(2e-1) > 0 for j >= 3, so Theorem O.3's chain closes."""
+    for j in range(3, 200):
+        e = j * j - 4
+        for w in range(1, 200):
+            assert e * e + 4 * j * w * e + 2 * w * w * (2 * e - 1) > 0

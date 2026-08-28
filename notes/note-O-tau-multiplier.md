@@ -286,11 +286,70 @@ cycle closure** (longest 6000 states) over the candidates with a reachable seed:
 So the obstruction is global rather than local, and it is finitely checkable per
 class: the target residue set is non-empty but the conic's orbit misses it.
 
+### Theorem O.3 — the two conditions are incompatible
+
+The orbit walk turns out to have been unnecessary, and seeing why gives a proof.
+Mod M we have b ≡ a, so in the coordinates **S = X+Y, T = X−Y** the class
+automorph **diagonalises**:
+
+> S → (t + ua)S,  T → (t − ua)T,  with (t+ua)(t−ua) ≡ t² − Du² = 1 (mod M).
+
+Both eigenvalues are **units**, so each condition holds for an entire orbit or
+for none of it — which is exactly what the 44 walks observed, and why walking
+was pointless.
+
+> **Theorem O.3.** Let M = b − a be squarefree and odd. Then no dyadic window
+> contains three shared moduli of the form (ξ, τ₁ξ, τ_kξ) with k ≥ 2.
+
+*Proof.* τ₁ integral means M | 2a(X+Y), so M | S. Writing
+A_k = U_k + 2ka, B_k = U_k − 2ka, the τ_k condition is A_kS + B_kT ≡ 0 (mod 2M),
+which given M | S reduces to M | B_kT. If p | X and p | M then bX² − aY² = −M
+forces p | Y and hence p² | M, so squarefreeness gives gcd(X, M) = 1; with S ≡ 0
+we have T ≡ 2X, so gcd(T, M) = 1 and
+
+> **M | 2B_k.**  Put j = 2B_k/M ∈ ℤ_{>0}.
+
+Now j = 2 ⟺ k = 1: U_k = M + 2ka squares to M² + 4kaM + 4k²a², equal to
+M² + 4k²ab exactly when M = k(b−a), i.e. k = 1. And j > 2 for k ≥ 2, since
+U_k > M + 2ka ⟺ kM > M. **So j ≥ 3.** *(Checked on 14,923 multipliers, zero
+violations.)* Squaring 2U_k = jM + 4ka against U_k² = M² + 4k²D gives
+
+> **M = 8ka(2k − j)/(j² − 4)**,  so with w = 2k − j > 0 and e = j² − 4 ≥ 5,
+> M = 8kaw/e and b = a + M.
+
+Meanwhile r_k < 2 requires 2k = (M/2√D)(√r_k − 1/√r_k) < M/(2√2·√D), i.e.
+M > 2√2·k√(ab). Substituting M = 8kaw/e and b = a + 8kaw/e, and using
+k = (j+w)/2, this becomes
+
+> e² + 4jwe + 2w²(2e − 1) < 0.
+
+For j ≥ 3 we have e ≥ 5, so every term is positive. Contradiction. ∎
+
+**The two requirements pull opposite ways**: the divisibility forces M *small*
+relative to a, and the geometry forces M *large* relative to √(ab). Machine
+check of the disjointness, over admissible (a,b) with a ≤ 400:
+
+| | count |
+|---|---|
+| configurations satisfying the divisibility M \| 2B_k | 199 |
+| …of those, also satisfying r₁r_k < 2 | **0** |
+| configurations satisfying r₁r_k < 2 (the 95 candidates) | 95 |
+| …of those, also satisfying the divisibility | **0** |
+
+The two sets are disjoint, from both directions. The nearest miss is
+a = 1, b = 481, k = 20, j = 4, where the divisibility holds and r₁r_k = 18.36
+against the 2 it needs.
+
 *Scope, precisely.* This rules out triples of the shape (ξ, τ₁ξ, τ_kξ) for the
 smallest available k, over 44 complete orbits. It does not rule out triples built
 from other multiplier combinations, and it does not cover classes whose least
-solution exceeds the search. It is not a proof of O.2 — it is the first
-mechanism found that is negative on every instance and checkable in finite time.
+solution exceeds the search. **It is not a proof of O.2.** A triple's two multipliers need not include τ₁:
+the general shape is (ξ, τ_pξ, τ_qξ) with p, q ≥ 1, whose compatibility
+determinant is A_pB_q − A_qB_p = 4a(pU_q − qU_p), and Theorem O.3 handles only
+p = 1. It also assumes M squarefree and odd, which holds for 17 of the 95
+candidates. **What is proved is a theorem about the natural case, not the
+general one** — and after two retractions today the difference is worth
+labouring.
 
 *Caveat, stated because it is the only thing keeping this from being a flat
 refutation:* the 110 triples live in wide windows (ratio ≥ 13), not dyadic ones.
