@@ -1067,6 +1067,16 @@
         "type_ii"
       ],
       "notes": "Run via the streaming enumeration exp14 defines. classes-separate-across-windows measured the same thing with the ratio-class sweep, which exp14 showed misses configurations -- the second modulus is accepted on b*m2-1 being square whether or not its own y2 falls below X. The extra configurations contain no triple either, so the earlier claim is strengthened rather than undercut. Worth keeping distinct from the earlier one because it is a different enumeration, not a larger X."
+    },
+    {
+      "id": "multipliers-act-freely-the-window-is-the-content",
+      "status": "rigorous_finite",
+      "statement": "'tau^2 xi is never integral' is FALSE as a bare statement; Proposition O.1 is true only with its window qualifier. A ratio class is an infinite orbit, so the fundamental multiplier acts on it repeatedly. For (a,b) = (1,5) the shared moduli are 1, 2, 10, 65, 442 with ratios converging to tau_1^2 = phi^4 = 6.8541, and the multipliers are k = 1, 3, 8, 21, 55, 144 with r_k^2 = 6.854, 46.979, 321.997, 2207, 15127, 103682 -- exactly the powers of tau_1^2, a cyclic semigroup, all of which act.",
+      "experiment": "direct enumeration of the moduli and multipliers of (1,5); Note L, the O.1 passage",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "What makes O.1 true is its step (2), |V| < M/sqrt(D) -- the only place the window enters, as tests/test_polyseq.py::test_prop_O1_chain_holds_on_real_pairs' docstring already said. The orbit steps by 6.854 > 2, so a dyadic window holds one member and the geometric-progression triple cannot fit. So the content of O.1 is the window, not the integrality. An earlier draft of Note L stated it without the qualifier; the machine check was never wrong because it tests the window-restricted chain on close pairs. Observed on the multiplier side by the parallel session (18,116 solutions with one acting multiplier, 215 with two, some with six) and confirmed here on the modulus side."
     }
   ]
 }

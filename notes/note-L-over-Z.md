@@ -149,12 +149,28 @@ draft of this section claimed the constant outright; a later one claimed
 are withdrawn.
 
 What Note O does establish, and it is real, is
-**Proposition O.1: Q̄² ∤ (ξ₁), so τ²ξ₁ is never integral** — no window holds
-three moduli in geometric progression under a *single* multiplier. Its four
-links are verified here independently
+**Proposition O.1: within a dyadic window, Q̄² ∤ (ξ₁)** — no window holds three
+moduli in geometric progression under a *single* multiplier. Its four links are
+verified here independently
 (`tests/test_polyseq.py::test_prop_O1_chain_holds_on_real_pairs`, zero
 violations over 379 close pairs): N(ξ) = aM, |V| < M/√D, g = gcd(U,V) divides M,
 and a g² < M with 8× to spare.
+
+**The window qualifier is not decoration, and an earlier draft of this note
+dropped it.** It said "τ²ξ₁ is never integral", which is false, and elementarily
+so: a class *is* an infinite orbit, so τ₁ acts on it again and again. For
+(a,b) = (1,5) the shared moduli are 1, 2, 10, 65, 442, … with ratios converging
+to τ₁² = φ⁴ = 6.8541, and the multipliers are
+
+    k     = 1,     3,      8,      21,     55,      144
+    r_k^2 = 6.854, 46.979, 321.997, 2207,  15127,   103682
+
+— precisely the powers of τ₁², a cyclic semigroup. Every one of them acts. What
+makes O.1 true is step (2), |V| < M/√D, which is the only place the window
+enters: the orbit steps by 6.854 > 2, so a dyadic window holds *one* member, and
+the geometric-progression triple cannot fit. The content of O.1 is the window,
+not the integrality. (Observed on the multiplier side by the parallel session,
+confirmed here on the modulus side.)
 
 What it does **not** establish is the general statement. A third modulus from a
 *different* multiplier gives ξ₃ = ±(Q″/Q̄″)ξ₁, so (ξ₁) must be divisible by both
