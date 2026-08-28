@@ -26,8 +26,14 @@ arbitrary bounded coefficients admits no cancellation at any split. That is a
 theorem about the sequence and survives any change of sieve. **And it survives the
 change of ring**: Theorem O.12 proves G′ ≤ 1 over **Z** for cofactors within a
 factor (5+√21)/2 = 4.7913 — in particular within one dyadic band — on every
-dyadic modulus window, and [FM]'s (II) is bilinear over m ∼ M *and* n ∼ N, so
-banded pairs are all it sees. The C₄-free input therefore no longer arrives
+dyadic modulus window, and [FM]'s (II) has **arbitrary divisor-bounded
+coefficients**, so it implies its own doubly-banded restriction (ξ_m = 0 off
+[M,2M), κ_n = 0 off [N,2N)) — while footnote 2's quantity is doubly banded
+outright, its pair by their own "m₁,m₂ ∼ x^{1−2c+ε}" and its shared variable by
+their own J ⊆ (x/2,x], which forces a ratio-2 range. *(Their (II) sums over
+(x/2)^θ < m ⩽ x^{θ+ν} — **not** a band when ν > 0. The coefficients supply the
+banding, not the range; verified at source, `fm-configuration-is-doubly-banded-
+at-source`.)* The C₄-free input therefore no longer arrives
 through `gaussian-to-rational-bridge`; it is available on both sides. What is
 still `inferred` is only the reading of their quantifier, which is the same
 reading the bridge always rested on.
