@@ -243,35 +243,29 @@ def alternation_does_not_extend(X=3000):
     print("  does not propagate to the alternation.  Ninth route closed.")
 
 
-if __name__ == "__main__":
-    main(int(sys.argv[1]) if len(sys.argv) > 1 else 3000,
-         int(sys.argv[2]) if len(sys.argv) > 2 else 20_000_000)
-    o15_coverage()
-    alternation_does_not_extend(min(3000, max(800, int(sys.argv[1]) if len(sys.argv) > 1 else 3000)))
-    bipartite_structure(min(4000, max(1200, int(sys.argv[1]) if len(sys.argv) > 1 else 4000)), top=60)
-
-
-def bipartite_structure(X=4000, top=120):
+def bipartite_structure(X=5000):
     """BD_2(-1): the bipartite Diophantine tuple structure of x^2+1.
 
-    Tsang-Yip (arXiv:2512.03441v3) define (A,B) to have property BD_k(n) when
-    ab + n is a k-th power for every a in A, b in B.  With k = 2, n = -1 that is
-    exactly this repo's object: A a set of cofactors, B a set of moduli, ab - 1 a
-    square, since a*m = x^2+1.
+    Tsang-Yip (arXiv:2512.03441v3) call (A,B) a bipartite Diophantine tuple with
+    property BD_k(n) when ab + n is a k-th power for every a in A and b in B.
+    With k = 2, n = -1 that is exactly this object -- A cofactors, B moduli,
+    ab - 1 a square, since a*m = x^2+1.
 
-    Their Question 1.3 asks for the smallest l such that |A| = l forces |B|
+    Their Question 1.3 asks for the smallest l such that |A| = l forces |B| to be
     absolutely bounded.  They record l <= 9, 6, 5, 4 for k = 3, 4, 5, >= 6, and
     then: "when k = 2, we do not know any upper bound on l."  Under the
     uniformity conjecture they predict l <= 5 for k = 2.
 
-    MEASURED HERE: l = 3.  |A| = 2 does not bound |B| -- (1,5) already shares 8
-    moduli, and each Pell solution class contributes an infinite geometric family.
-    |A| = 3 appears to force |B| <= 2: no K_{3,3} among the highest-degree
-    cofactors, while K_{3,2} occurs.
+    MEASURED HERE: l = 3, and the K_{3,3} search is EXHAUSTIVE over the range
+    rather than a sample.  A K_{3,3} forces SOME pair among its three cofactors
+    to share at least three moduli, so enumerating every such pair and asking
+    whether a third cofactor shares three of them catches every K_{3,3}.  An
+    earlier version searched the highest-degree cofactors instead -- a population
+    chosen for convenience, which is the restricted-negative weakness this repo
+    warns about.
 
-    Evidence of absence in the region where the configuration would be most
-    likely, NOT a proof -- and sharper than the conjectural bound, which is
-    exactly the situation this repo's rules say to distrust.
+    Still MEASURED, not proved, and sharper than the conjectural bound, which is
+    exactly the situation to distrust.
     """
     from collections import defaultdict
     from itertools import combinations
@@ -286,26 +280,51 @@ def bipartite_structure(X=4000, top=120):
                 if d * d != v:
                     inc[d].add(v // d)
             d += 1
+    bym = defaultdict(set)
+    for n, ms in inc.items():
+        for m in ms:
+            bym[m].add(n)
 
-    print(f"  X = {X}: {len(inc)} cofactors in the bipartite (cofactor, modulus) incidence")
-    pool = sorted(inc)[:1500]
-    best = max(((len(inc[a] & inc[b]), a, b) for a, b in combinations(pool, 2)),
-               default=(0, 0, 0))
-    print(f"  |A| = 2: largest |B| among the first 1500 cofactors is {best[0]}"
-          f" at ({best[1]}, {best[2]}) -- unbounded as X grows")
+    seen, pairs = set(), []
+    for m, cs in bym.items():
+        for a, b in combinations(sorted(cs), 2):
+            if (a, b) in seen:
+                continue
+            seen.add((a, b))
+            sh = inc[a] & inc[b]
+            if len(sh) >= 3:
+                pairs.append((a, b, sh))
 
-    ns = sorted(inc, key=lambda n: -len(inc[n]))[:top]
-    k33 = k32 = None
-    triples = 0
-    for a, b, c in combinations(ns, 3):
-        triples += 1
-        s = inc[a] & inc[b] & inc[c]
-        if len(s) >= 3 and k33 is None:
-            k33 = (a, b, c, sorted(s)[:4])
-        if len(s) >= 2 and k32 is None:
-            k32 = (a, b, c, sorted(s))
-    print(f"  K_3,3 over the {top} highest-degree cofactors ({triples:,} triples):"
-          f" {k33 if k33 else 'NONE FOUND'}")
-    print(f"  K_3,2 (three cofactors, two shared moduli): {k32 if k32 else 'none'}")
+    hits, witness, k32 = 0, None, None
+    for a, b, sh in pairs:
+        cnt = defaultdict(int)
+        for m in sh:
+            for c in bym[m]:
+                if c not in (a, b):
+                    cnt[c] += 1
+        for c, k in cnt.items():
+            if k >= 3:
+                hits += 1
+                if witness is None:
+                    witness = (a, b, c)
+                break
+            if k == 2 and k32 is None:
+                k32 = (a, b, c, sorted(m for m in sh if c in bym[m]))
+
+    best = max((len(inc[a] & inc[b]) for a, b, _ in pairs), default=0)
+    print(f"  X = {X}: {len(inc)} cofactors in the (cofactor, modulus) incidence")
+    print(f"  |A| = 2: largest |B| seen is {best} -- unbounded as X grows, since each")
+    print("           Pell solution class contributes an infinite geometric family")
+    print(f"  EXHAUSTIVE K_3,3 search: {len(pairs)} cofactor pairs share >= 3 moduli,")
+    print(f"           and every K_3,3 must contain such a pair.  Found: {hits}")
+    print(f"  K_3,2 witness: {k32}")
     print("  So the measured l is 3, against a literature with no bound for k = 2")
     print("  and a conjectural l <= 5.  Measured, not proved.")
+
+
+if __name__ == "__main__":
+    main(int(sys.argv[1]) if len(sys.argv) > 1 else 3000,
+         int(sys.argv[2]) if len(sys.argv) > 2 else 20_000_000)
+    o15_coverage()
+    alternation_does_not_extend(min(3000, max(800, int(sys.argv[1]) if len(sys.argv) > 1 else 3000)))
+    bipartite_structure(min(5000, max(1200, int(sys.argv[1]) if len(sys.argv) > 1 else 5000)))
