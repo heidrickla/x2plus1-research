@@ -16,6 +16,17 @@ A = {x+i}, G(n₁,n₂) = #{m : mn₁, mn₂ ∈ A} ≤ 1, so a bilinear form wi
 arbitrary bounded coefficients admits no cancellation at any split. That is a
 theorem about the sequence and survives any change of sieve.
 
+**And there is a stronger form that does not depend on the bound being 1.** At
+X = 3000 the mean of G over pairs in a dyadic band [N,2N) is 2.000, 0.667, 0.254,
+0.0865, **0.0243** at N = 8, 32, 128, 512, 2048 — falling like 1/N — while max G
+stays at 2. So for N ≫ 1 the expected Gram entry is far below 1 *while G is an
+integer taking only 0, 1, 2*: at N ≈ 2048, a mean of 0.024 against a granularity
+of 1, so **what dispersion would call the error is forty times what it would call
+the main term.** Any bounded integer-valued count with mean o(1) has no
+decomposition into main term plus smaller error, so this survives a bound of 2 or
+3 — which makes `gaussian-to-rational-bridge` even less load-bearing than the
+C₄-free form needs it to be.
+
 **And DFI say, on p. 425, that the arbitrary-coefficient bilinear form *is* the
 parity-breaking input** — "this problem has been partially surmounted by adding
 new information about general bilinear forms of the type (8) … here α_m and β_n
