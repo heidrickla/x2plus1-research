@@ -790,6 +790,30 @@ class it has twice been burned by.
   error*, and a uniformly bounded count supplies no main term at any constant.
   So the conclusion is unchanged and the constant is all that moves.
 
+**And "no main term" can be given a number, which the repo had never done.** At
+X = 3000 the mean of G(n₁,n₂) over pairs in a dyadic band [N, 2N):
+
+| N | 8 | 32 | 128 | 512 | 2048 |
+|---|---:|---:|---:|---:|---:|
+| mean G | 2.000 | 0.667 | 0.254 | 0.0865 | **0.0243** |
+| max G | 2 | 2 | 2 | 2 | 2 |
+
+The mean falls like **1/N** while the maximum stays at 2. So for N ≫ 1 the
+expected Gram entry is far below 1 **while G is an integer taking only the values
+0, 1, 2**. At N ≈ 2048 the mean is 0.024 against a granularity of 1:
+
+> **the quantity dispersion would call the error is forty times the quantity it
+> would call the main term.**
+
+That is a stronger objection than C₄-freeness, because it does not depend on the
+bound being exactly 1 or exactly 2 — *any* bounded integer-valued count with mean
+o(1) has no decomposition into a main term plus a smaller error. The bound tells
+you the count is small; this tells you there is nothing for the argument to be
+about. (A naive independence heuristic predicts mean G = ρ(n₁)ρ(n₂)/N and the
+observed mean is 5–6× that, stably. The *constant* should not be trusted — the
+heuristic uses the mean of ρ rather than the mean of the product, and pairs
+sharing a modulus are correlated — but the 1/N shape is what the argument needs.)
+
 What would close the gap is a uniform bound on integer points of the conic
 n₂x² − n₁y² = n₁ − n₂ in a box — classical Pell theory, but **this repo has not
 read a source for it**, and per the repo's own rule the exponent is not being
