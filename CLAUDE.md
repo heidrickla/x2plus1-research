@@ -118,7 +118,12 @@ something.
 **Note K** adds the fourth published sequence with a known outcome: Merikoski's
 a²+(b²+1)², which has the *same density and the same κ* as a²+b⁴ and a Type II
 range a sixth of an exponent shorter. **So κ > 1 is necessary and not
-sufficient** — only the direction κ = 1 ⟹ forest is load-bearing. √κ is the
+sufficient** — only the direction κ = 1 ⟹ forest is load-bearing. **And κ is a
+reparameterisation of α, not an independent invariant**: |A| = Q^α gives
+κ = Q^{2α−1} identically, so κ > 1 ⟺ α > 1/2 and "κ > 1 is necessary" *is*
+"density above 1/2 is necessary" — the literature's own boundary, Li's record
+being 0.6418. Never quote a κ observation as independent evidence for a density
+conclusion, or the reverse. √κ is the
 length of the Poisson sum in [MER] p. 4; for x²+1 it is 1. **And mean G is NOT the
 sufficient part** — a classifier proposed and refuted within the hour by the test
 built to check it. At Q = 4×10⁶, band N ∈ [2048, 4096):
