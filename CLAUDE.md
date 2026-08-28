@@ -663,6 +663,27 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   comparison; derivation supplies the property; **and here the measurement was
   the misleading one.**
 
+- **A guard can check a strictly weaker proposition than the one it is named
+  for, and neither of the other two countermeasures reaches it.** `exp09` sweeps
+  `M = 2; while M <= cap: …; M *= 2` — windows **anchored at powers of two** —
+  while `rational-gram-bounded-on-windows` says *"every dyadic window [M,2M)"*.
+  [8,16) and [16,32) between them **miss (9,17)**, which is precisely how the
+  other session's line-family sweep reported the property *holding* at c = 6 on
+  the very witness that refutes it. Injected-violation testing does not catch
+  this (the sweep can fail, and does), nor do enumeration floors (it covers a
+  large population). It reports on a real property — just not the one in the
+  claim. Re-measured by ratio: the conclusion survives at X = 2000 and 4000, so
+  only the evidence was narrower than the wording.
+  **The countermeasure is a wording check, not a code check: for each claim, does
+  the experiment quantify over the same set the statement does?** "Every dyadic
+  window" versus "every power-of-two window" is a difference visible in the
+  sentence and invisible in the output — the same instrument as the source-
+  paraphrase check, turned inward, where the drift is between claim and code
+  rather than between paper and claim. What actually caught it was **two
+  computations disagreeing**, which is the redundancy argument in its most direct
+  form: not a second reading, a second *computation* whose disagreement was
+  itself the signal.
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified
