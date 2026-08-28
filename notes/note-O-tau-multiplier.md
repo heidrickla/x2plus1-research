@@ -1875,10 +1875,14 @@ pointing the same way:
 statement about the **method**, not about x²+1: every bound in this apparatus —
 O.4's τ_min⁴ < 2 + 1/X₁², O.9's 3ab < M^{4/3}, O.11's constant, O.12's
 (5+√21)/2 — comes from a **size** argument, and size arguments cannot see the
-arithmetic that actually forbids the configurations. The one place the two agree
-exactly is the D axis, where every observed failure lies outside the proved reach
-and nothing inside it has ever failed — proof and data meeting at the boundary,
-which a loose bound would not do.
+arithmetic that actually forbids the configurations. **The D axis is where the gap is narrowest, not where it is
+absent.** Every observed failure lies outside the proved reach and nothing inside
+it has ever failed — but that states the bound is **sound**, not that it is
+**tight**. The reach ends at D ≤ 4.899 and the smallest observed failure is
+D = 11, so **D = 5, 6, 7, 8, 9, 10 lie between them**: six values permitted to
+fail, protected by no proof, and unfallen to X = 8000. That is row (2) of the
+table above, not an exception to it — **six values wide, against 39 of 60 classes
+and a reach that falls with X.**
 
 **So the honest summary of the O-thread is not "these theorems nearly close
 O.2".** It is: *the size arguments are now sharp enough to be worth stating and
