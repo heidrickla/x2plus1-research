@@ -994,10 +994,13 @@ recovers **O.7** as the case M prime: there step 3 gives M | V_ij for some pair,
 against 0 < |V_ij| < M/√(3D) < M. So O.7 holds with **no hypothesis at all**, not
 merely with one that happens to be observed.
 
-**It is not a weak condition.** At X = 4000, **499,188 of 503,054 classes with M
-odd squarefree (99.2%) fail 3ab < M^{4/3}** and so are excluded outright.
-Combined with O.4's t > 133.875, the admissible a is tiny: **a ≤ 2** at the
-minimum admissible t, 6 at t = 10³, 19 at t = 10⁴.
+**How strong is it? — read the denominator, and see the correction under O.10.**
+Over *all* M-odd-squarefree classes, 499,188 of 503,054 (99.2%) fail
+3ab < M^{4/3} — but a class with fewer than three shared moduli cannot host a
+triple whatever any theorem says, so that figure measures vacuity. On the
+**informative** population it is **~35%**, flat in X. Combined with O.4's
+t > 133.875 the admissible a is small: **a ≤ 2** at the minimum admissible t,
+6 at t = 10³, 19 at t = 10⁴.
 
 *(The parity input |V| even whenever M is odd is `V-is-even-whenever-M-is-odd`
 in the registry, proved there rather than restated here.)*

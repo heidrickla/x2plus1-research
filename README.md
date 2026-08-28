@@ -223,11 +223,16 @@ evaluate:
 > {x₁,x₄} = {x₂,x₃}, which collapses the cycle. ∎
 
 So there is no congruence to detect, no exponential sum, no Weil bound — the
-count is already 0 or 1. **That lemma is about Z[i].** Over Z, where the
-literature's Type II hypotheses actually live, the same graph is *not* C₄-free —
-one rational modulus merges several Gaussian ideals — and the Gram entries are 2
-rather than 1 on every dyadic window. Bounded either way, so the conclusion is
-unchanged and only the constant moves, but the transfer is `inferred`.
+count is already 0 or 1. **That lemma is about Z[i]** — but it no longer has to be.
+Over Z, where the literature's Type II hypotheses actually live, one rational
+modulus merges several Gaussian ideals, and with the cofactors ranging freely the
+Gram entries reach 2 rather than 1. **On the configuration (II) actually
+quantifies over — m ∼ M *and* n ∼ N — Theorem O.12 proves G′ ≤ 1 over Z as well**,
+for all X, matching the Gaussian bound exactly. The witness for the free case
+shows why: its 4-cycle has n₂/n₁ = 71978/1189 = **60.5**, and sixty-fold
+separation is what row-merging needs and what a bilinear form's own range
+forbids. Bounded either way, so the conclusion is unchanged; what remains
+`inferred` is the reading of their quantifier, not a numerical gap.
 [Note L](notes/note-L-over-Z.md). Measured dispersion exponent: **θ = 1.00–1.03 at every
 split, worse than trivial.** From the density side, mean degrees satisfy
 D_m·d_n ≍ |A|²/Q =: κ independent of the split, so max over splits of
@@ -623,9 +628,11 @@ The column that separates every solved case from this one is ν.
   open question the repo is not merely blocked on.** Its sharp form is
   measurable: *on any solution ξ, at most one acting multiplier has modulus
   ratio < 2*. Theorem O.3′ proves the case where one of the two is the trivial
-  multiplier τ₁; the gap is p, q ≥ 2, which is realised — (53, 423125) has its
-  close pair at k = 12 with τ₁ excluded — but only once in 379 close pairs at
-  X = 3000. Proving it upgrades `rational-gram-bounded-on-windows` from
+  multiplier τ₁, and **O.7 proves it outright for M an odd prime** while
+  **O.10/O.11** give the unconditional necessary condition
+  ab < 0.048628·(b−a)^{4/3} for every M. Nothing structural is left; what remains
+  is quantitative, and none of the classes the bounds admit holds a triple
+  anyway. Proving it upgrades `rational-gram-bounded-on-windows` from
   `rigorous_finite` to `proved`. **It changes no conclusion**: a bounded count
   supplies no main term at 1, 2 or 3 alike, so a counterexample would not weaken
   the obstruction either. Worth doing for the status; worth knowing that is all
