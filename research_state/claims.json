@@ -2009,6 +2009,21 @@
         "gram"
       ],
       "notes": "0 failures over 2268 solutions here across D = 1, 2, 5, 11, 29, 39, 52, and 5354 pairs in the parallel session, together with the pair identity V W = D M (m_i - m_j). IT SUBSUMES EVERY D-COINCIDENCE FOUND TONIGHT: the line-family break at c = 6 (there D = c^2 and the |V| bound weakens by exactly c^2, measured before the reason was known); the 4-cycle family D = k^2+3k+1; and the seven unit-free triples at D <= 60. AND THE DENSITY IS A PREDICTION THAT COULD HAVE FAILED: over D <= 160 at X = 900, 51 of 160 (31.9%) admit a unit-free triple, none with D <= 25, and D = 1 does not -- which is the shape a bound loosening like D^{4/3} predicts and not the shape a sporadic set would have. THE HEADLINE THIS GIVES: x^2+1 is the D = 1 end of a one-parameter family, the point at which every bound in the apparatus is tightest. The Note O theorems are not weakened by this; they are located."
+    },
+    {
+      "id": "conjecture-D-equals-one-is-the-unique-survivor",
+      "status": "inferred",
+      "statement": "CONJECTURE. For every D > 1 the doubly-dyadic C4-free property fails at sufficiently large X, so D = 1 is the unique survivor. Evidence: the survivor set thins under every extension of X -- 24 values held at X = 1500, D = 35 fell at 2500, D = 20 fell at 4000, two of twenty-three across one doubling -- and the M*D mechanism gives the reason. The bound 3ab < (M D)^{4/3} is a condition on the cofactor class, not on X, so a larger X supplies more candidate classes at fixed D and eventually one that both satisfies the bound and realises the configuration. D = 1 is different only because it has O.12, a PROOF, rather than a surviving sweep.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "x2plus1-is-the-D-equals-one-end-where-every-bound-is-tightest",
+        "theorem-O12-doubly-dyadic-c4-free"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "INFERRED, and the gap is that 'eventually one appears' is a heuristic about counting classes, not an argument that a class satisfying the bound must also realise the configuration. The bound is necessary and has never been shown sufficient -- the parallel session's own finding that 39 of 60 informative classes are admissible under O.11 and none holds a triple is exactly that gap, one level up. So this is a conjecture with a mechanism and an attrition curve behind it, not a theorem in waiting. Recorded because the alternative reading -- that the survivors at any given X are a stable set -- is what the data at X = 1500 looked like, and it was wrong twice within two doublings.",
+      "proof_site": ""
     }
   ]
 }
