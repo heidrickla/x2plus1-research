@@ -76,9 +76,17 @@ Ford–Maynard's binding parameter is **ν, not γ** — every entry in their Ta
 footnote 2 p. 7 names Note F's G(n₁,n₂) as the barrier. Their Theorem 2.4 never
 applied here, and the γ = 1/2 − ε argument is `refuted`; the clean placement is
 that θ > c = 1/2 collides with (1.1)'s θ < 1/2, so there is no admissible triple
-at all (`x2plus1.exponents.ford_maynard_theta`). C⁻ = 0 is about **what these
-axioms can prove**, never about whether x²+1 is prime infinitely often — do not
-conflate them.
+at all (`x2plus1.exponents.ford_maynard_theta`). **C⁻ is the LOWER-BOUND constant** — [FM] p. 2 at
+source: "a non-trivial lower bound for primes whenever C⁻(γ, θ, ν) > 0". So
+C⁻ = 0 closes **infinitude**, not merely the asymptotic, which matters because
+infinitude is all Landau's problem needs. The same page covers the Harman sieve
+explicitly ("especially those relying on the iterative techniques of the Harman
+sieve … demonstrating general limitations of the Type I/Type II setup") —
+stronger than Li's remark, which is about *asymptotic* estimates where the
+objection was about lower bounds. And the standing warning now needs stating
+more carefully rather than less: C⁻ = 0 is about **what these axioms can
+prove**, never about whether x²+1 is prime infinitely often — do not conflate
+them.
 
 **Notes N and O** are the two additions the plan does not list. N re-argues the
 Green–Tao exclusion from Green–Sawhney: it survives, but not for the plan's
