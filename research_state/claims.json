@@ -1275,14 +1275,26 @@
     },
     {
       "id": "fm-barrier-asks-for-G-exactly",
-      "status": "inferred",
+      "status": "refuted",
       "statement": "Ford-Maynard's footnote 2 (p.7) asks for '#{n : n m_1, n m_2 in J} with an error term better than O(1) on average over m_1, m_2 ~ x^{1-2c+eps}'. At c = 1/2 that range is m_1, m_2 ~ x^eps. The mean of G over a cofactor band [N,2N) falls like (log X)/N (the-main-term-is-smaller-than-the-granularity), so at N = x^eps the mean is (log x)/x^eps -- still tending to 0 for every fixed eps > 0 -- while G is a non-negative integer equal to 0 for almost every pair. An error genuinely below 1 therefore PINS THE VALUE: at this density their requirement is not an estimation problem but a request to determine G exactly.",
       "experiment": "",
       "tags": [
         "type_ii",
         "literature"
       ],
-      "notes": "Inferred: FM state the requirement, this repo evaluates it at its own density using its own measurement. Composes fm-barrier-is-unconditional-at-density-half (the hypothesis theta+nu >= 1-2c is vacuous at c = 1/2, so the barrier applies to every Type II range) with the-main-term-is-smaller-than-the-granularity (mean G ~ 1/N against an integer count). Together they say the barrier applies always and asks for something exact. The positive control mean-G-separates-x2plus1-from-a2b4 is what keeps this from proving too much: at a^2+b^4's density the same footnote asks for an error below 1 against a mean of 3.59, which is an ordinary estimation problem. The 1/N in the first version was corrected to (log X)/N after measuring the X-dependence; the reading survives because x^eps beats log x for every fixed eps > 0, and with room."
+      "notes": "REFUTED the same day, by the parallel session, and the error is a direction. The footnote averages over m_1, m_2 ~ x^{1-2c+eps}, which at c = 1/2 is x^eps -- and SMALL eps means SMALL moduli: at x = 1.44e8, x^0.05 = 2.6 and x^0.10 = 6.5. I read N = x^eps as large and concluded the mean was small there. It is the opposite end. Measured at X = 12000, mean G is 2.000, 1.333, 0.810, 0.577 at N = 8, 16, 32, 64, i.e. >= 1 for eps <~ 0.18, and below eps ~ 0.11 the band holds at most one cofactor so the average is over an empty set. So 'an error below 1 pins the value' does not follow at the footnote's range as eps -> 0, which is where the footnote's eps lives. WHAT SURVIVES: fm-barrier-is-unconditional-at-density-half (the hypothesis is vacuous at c = 1/2) and the-main-term-is-smaller-than-the-granularity in the range the SIEVE uses, which is the point -- see fm-barrier-range-is-small-moduli.",
+      "superseded_by": "fm-barrier-range-is-small-moduli"
+    },
+    {
+      "id": "fm-barrier-range-is-small-moduli",
+      "status": "rigorous_finite",
+      "statement": "Ford-Maynard's footnote 2 averages over m_1, m_2 ~ x^{1-2c+eps}, which at c = 1/2 is x^eps -- SMALL moduli as eps -> 0, not large. Measured at X = 12000: mean G = 2.000, 1.333, 0.810, 0.577 over N = 8, 16, 32, 64, with 2, 4, 7, 13 cofactors in the band respectively. So the mean is >= 1 for eps <~ 0.18, and below eps ~ 0.11 the band holds at most one cofactor and the average is over an empty set. The mean of G is U-shaped in N, bottoming near N ~ X and rising again as the cofactors grow large enough that only a few tiny moduli exist and every pair shares them.",
+      "experiment": "experiments/exp13_window_gap.py",
+      "tags": [
+        "type_ii",
+        "literature"
+      ],
+      "notes": "Refutes fm-barrier-asks-for-G-exactly, which read the footnote's range as large moduli. Found by the parallel session and verified here: at x = 1.44e8, x^0.05 = 2.6 and x^0.10 = 6.5. TWO CAUTIONS on the small-N end. The averages there are over 1 to 13 pairs, so they are the informative-subset problem in its own right -- a 'mean' over one pair is not an average. And the full-graph maximum at small N is 3, at G(17,26) with shared moduli 1, 85, 2966965 (verified here directly), but one of those is the UNIT cofactor m = 1, which full-graph-growth-is-pell already records as inadmissible in a Type II hypothesis where both variables are confined to ranges; excluding it gives 2. WHAT IS UNAFFECTED, and it is the load-bearing part: ASP's (B1) forces M >= sqrt(x) = X, so the cofactor n = (x^2+1)/m is at most X -- exactly the range where the mean is small and falling. The rise, the max-3 and the small-N regime all sit outside what the sieve uses."
     }
   ]
 }
