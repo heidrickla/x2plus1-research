@@ -352,6 +352,12 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     Notes G, J and M, none of which named the transfer. Nothing in those sentences
     is false; the error is entirely in which object a reader takes them to be
     about. The transfer is `gaussian-to-rational-bridge`, `inferred`.
+  - *a silent no-op edit* — a scripted `replace` whose anchor had changed wrote
+    back identical content and printed success; `git commit` then said "nothing
+    to commit", which was misread as a collision with the parallel session
+    because that had genuinely happened twice the same night. **Every string edit
+    must assert its anchor**, and a *plausible* explanation for an anomaly is
+    what stops you checking the implausible one.
   Nothing checks a proposition's statement against its own proof, because the
   tests test the proof. The one checkable habit: **a correction that reaches only
   a claim's `notes` has not landed** — notes are where history goes, the statement
