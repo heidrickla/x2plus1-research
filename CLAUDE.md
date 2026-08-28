@@ -252,6 +252,24 @@ from the sibling repo `rh-research-engine` (`core/models.py`, `core/nogo.py`,
 
 > A guard that is not on the path is not a guard.
 
+**And a corollary this repo earned the hard way:** *a guard is not verified until
+it has failed on an injected violation.* A claim-id guard written specifically to
+catch vacuous passes was itself passing vacuously — its identifier pattern
+silently skipped 26 of 103 ids, including `sqrt-MX-law` and the very `refuted`
+claim used to test it. It did not fail to catch a violation; it failed to see the
+input, and reported green. Inject a known-bad case before trusting any guard.
+
+**The status vocabulary does not protect the statement.** Five times in one day a
+quantity was computed correctly and *described* in a way that silently changed
+what it was — r_k as modulus-ratio vs X-ratio, DFI's "determinant" ac − b² vs the
+discriminant, S_μ grouped per modulus vs per progression, a signed OFF read as
+monotone, a tolerance quoted without its X. Every one was caught by
+**recomputing**, never by rereading, and three sat next to a correct machine
+check whose docstring carried the qualifier the prose had dropped. Tests protect
+the computation. Nothing protects the paraphrase, and the paraphrase is what gets
+written into `claims.json` and quoted. Write the convention where the symbol is
+defined.
+
 The vocabulary is deliberately not interchangeable:
 
 | status | requires | meaning |
