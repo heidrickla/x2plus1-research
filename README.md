@@ -227,12 +227,17 @@ measured 2 unproved.
 
 Extended by [`exp17`](experiments/exp17_sharp_form.py), which restricts to the
 slice y/x ≥ 3+2√2 where a second in-window multiplier is geometrically possible
-at all: at X = 40000, over 55.5M ratio classes, **6 019 solutions each carry
-exactly one in-window multiplier and zero carry two**. Those are not a sample — acting is
+at all: at X = 40000, over 55.5M ratio classes, **6 019 solutions carry exactly
+one in-window multiplier and zero carry two**. **But most of those are vacuous** —
+a solution whose (a,b) has only *one* in-window multiplier could never have
+carried two. Counting only the informative ones, whose (a,b) has ≥ 2 in-window
+multipliers: **3 at X = 3000 and 9 at X = 14000**. That is the evidence base, and
+this README quoted the larger number until the check was run. Those are not a sample — acting is
 orbit-invariant, so one solution settles its whole infinite class, and each of the
-6 019 is **decided completely**. What the run misses is classes whose least
-solution exceeds X, and nothing bounds how many of those there are. The margin
-has stopped moving — smallest competing ratio 14.15 at both X = 14000 and
+informative solution is **decided completely** — acting is orbit-invariant, so
+one solution settles its whole infinite class. What the run misses is classes
+whose least solution exceeds X, and nothing bounds how many of those there are.
+The margin has stopped moving — smallest competing ratio 14.15 at both X = 14000 and
 X = 40000, at the same witness (1, 16133) — a factor 7.1 above the 2 a window
 needs.
 

@@ -34,6 +34,13 @@ the (x,y) square.  And an in-window multiplier has index k < M/(4 sqrt2 sqrt D),
 so the k-loop is bounded by the geometry rather than by an arbitrary ceiling.
 This script reaches past that bound deliberately, to report the margin.
 
+READ THE INFORMATIVE COUNT, NOT THE TOTAL.  A solution whose (a,b) has only ONE
+in-window multiplier could never have carried two, so it is vacuous for O.2.  At
+X = 3000 there are 449 solutions carrying one and only THREE that are
+informative; at X = 14000, 2093 and NINE.  Quoting the total is
+`triples-cannot-be-settled-by-measurement` one level down, and this script
+reported only the total until that was noticed.
+
 Usage:  python experiments/exp17_sharp_form.py [X]
 """
 
@@ -86,6 +93,7 @@ def main(X=3000):
     classes = ratio_classes_in_slice(X)
     hist = Counter()
     nsol = 0
+    informative = 0
     worst = None
     for (a, b), ms in classes.items():
         mult = multipliers(a, b)
@@ -96,6 +104,8 @@ def main(X=3000):
             if not act:
                 continue
             nsol += 1
+            if sum(1 for _k, _U, r in mult if r < 2) >= 2:
+                informative += 1
             inwin = [r for _k, r in act if r < 2]
             hist[len(inwin)] += 1
             if len(inwin) == 1:
@@ -106,13 +116,20 @@ def main(X=3000):
     print(f"X = {X}   slice y/x >= {SLOPE:.4f}   ratio classes in slice: {len(classes)}")
     print(f"  solutions with at least one acting multiplier : {nsol}")
     print(f"  in-window acting multipliers per solution     : {dict(sorted(hist.items()))}")
+    print(f"  INFORMATIVE -- their (a,b) has >=2 in-window multipliers, so a")
+    print(f"                 second COULD have acted                : {informative}")
     two = sum(v for k, v in hist.items() if k >= 2)
     print()
     print(f"  SOLUTIONS WITH TWO OR MORE IN-WINDOW (i.e. a triple): {two}")
     if two:
         print("  ^^ Conjecture O.2 is FALSE and this is the counterexample.")
+    elif informative:
+        print(f"  none, over {informative} INFORMATIVE solutions -- and note that is the")
+        print(f"  number that matters, not the {hist.get(1,0)} carrying one.  A solution whose")
+        print(f"  (a,b) has only ONE in-window multiplier could never have carried two.")
     elif hist.get(1):
-        print(f"  none, over {hist[1]} solutions that carry one -- so every chance was taken")
+        print(f"  none -- but ZERO solutions were informative, so this run proves nothing")
+        print(f"  about O.2.  Raise X until the informative count is positive.")
     else:
         print("  none, and none carried even ONE -- this run proves nothing, raise X")
     if worst:

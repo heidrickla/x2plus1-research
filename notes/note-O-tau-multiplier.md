@@ -814,8 +814,22 @@ ceiling:
 | 14 000 | 2 583 | **2 093** | **0** | 14.15 at (1, 16133), m = 3970 |
 | 40 000 | 6 796 | **6 019** | **0** | 14.15 at (1, 16133), m = 3970 |
 
-So the evidence base for the sharp form is **6 019 solutions that each carry
-exactly one in-window multiplier and could have carried a second** — not an
+**Read those middle columns with care — most of them are vacuous.** A solution
+whose (a,b) has only *one* in-window multiplier could never have carried two, so
+it says nothing about O.2. Counting only the solutions whose (a,b) has **≥ 2**
+in-window multipliers:
+
+| X | carrying exactly one | **informative** | with two |
+|---:|---:|---:|---:|
+| 3 000 | 449 | **3** | 0 |
+| 14 000 | 2 093 | **9** | 0 |
+
+So the evidence base is **9 informative solutions at X = 14000**, not 2 093 —
+and this note quoted the larger number until the check was run. That is
+`triples-cannot-be-settled-by-measurement` one level down, after both sessions
+had named it and after I had applied it to the *class* count (31 of 278 939)
+without thinking to apply it here. The earlier sentence claimed 6 019 solutions
+"could have carried a second" — not an
 absence measured over a vacuous population, which is the distinction
 `triples-cannot-be-settled-by-measurement` insists on. The margin drifts slowly
 (14.91 → 14.15) and stays a factor of 7 above the 2 a window needs.
