@@ -387,6 +387,18 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   right. Only reading past the clause finds them. The normalisation convention
   behind the second was inside the very sentence `fm-no-admissible-theta-at-
   density-half` is built on.
+- **If the values reproduce but no law does, record the values.** One quantity —
+  the mean of G over cofactor bands — took four corrections in one session
+  because three different laws were fitted to it and all three failed: 1/N, then
+  (log X)/N, then N/X for the left arm of its U. Every time, the *values*
+  reproduced exactly between two independent constructions and the *law* did not.
+  Some measured quantities here are reproducible and unparameterised, and naming
+  a shape for them is a reflex worth suppressing. The tell is that the
+  disconfirming number was already in hand each time and got closer each time:
+  first a second X was never taken, then a drift was recorded at 5.6 and the law
+  quoted anyway, then the counterexample sat two rows apart in the same printed
+  table. `rigorous_finite` is the status for values; `extrapolated` is for a
+  fitted law and demands the fit be shown to hold.
 - **The informative subset is never the one the loop naturally counts.** An
   absence is evidence only in proportion to the configurations that *could* have
   contradicted it, and the natural loop counts everything it visited. Three times
