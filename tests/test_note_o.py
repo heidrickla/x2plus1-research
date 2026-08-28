@@ -1519,48 +1519,46 @@ def test_O12_threshold_and_that_a_dyadic_band_is_inside_it():
 
 
 def test_O12_banded_cofactors_share_at_most_one_modulus_per_window():
-    """C_4-free on the doubly-dyadic configuration; free cofactors reach 2."""
+    """C_4-free on the doubly-dyadic configuration; free cofactors reach 2.
+
+    "ANY dyadic window" means ANY two shared moduli within a factor 2 of each
+    other -- NOT windows anchored at powers of two.  An anchored sweep is a
+    strictly WEAKER test: [8,16) and [16,32) between them miss the pair (9,17),
+    which is the witness that breaks this property at c = 6.  The first version
+    of this test anchored, and would have passed on a counterexample.
+    """
     from collections import defaultdict
 
     XX = 700
-    inc = defaultdict(list)
+    inc = defaultdict(set)
     for x in range(1, XX + 1):
         v = x * x + 1
         d = 1
         while d * d <= v:
             if v % d == 0:
-                inc[d].append(v // d)
+                inc[v // d].add(d)
                 if d * d != v:
-                    inc[v // d].append(d)
+                    inc[d].add(v // d)
             d += 1
+    ns = sorted(inc)
     worst_banded = worst_free = 0
-    windows = 0
-    M = 4
-    while M * 2 <= XX * XX + 1:
-        ms = [m for m in range(M, 2 * M) if m in inc]
-        if ms:
-            windows += 1
-            cof = defaultdict(set)
-            for m in ms:
-                for n in inc[m]:
-                    cof[n].add(m)
-            ns = list(cof)
-            N = 1
-            while N <= XX * XX:
-                band = [n for n in ns if N <= n < 2 * N]
-                for i in range(len(band)):
-                    for j in range(i + 1, len(band)):
-                        g = len(cof[band[i]] & cof[band[j]])
-                        assert g <= 1, (M, band[i], band[j], g)   # O.12
-                        worst_banded = max(worst_banded, g)
-                N *= 2
-            for i in range(len(ns)):
-                for j in range(i + 1, len(ns)):
-                    worst_free = max(worst_free, len(cof[ns[i]] & cof[ns[j]]))
-        M *= 4
-    assert windows >= 4, windows
+    n_banded = 0
+    for i, n1 in enumerate(ns):
+        for n2 in ns[i + 1:]:
+            sh = sorted(inc[n1] & inc[n2])
+            if not sh:
+                continue
+            best = max(
+                (sum(1 for q in sh if p <= q < 2 * p) for p in sh), default=0
+            )
+            if n2 < 2 * n1:                      # cofactors in one band
+                n_banded += 1
+                assert best <= 1, (n1, n2, sh)   # O.12
+                worst_banded = max(worst_banded, best)
+            worst_free = max(worst_free, best)
+    assert n_banded > 500, n_banded
     assert worst_banded == 1, worst_banded
-    assert worst_free >= 2, worst_free      # and free cofactors DO reach 2
+    assert worst_free >= 2, worst_free       # free cofactors DO reach 2
 
 
 def test_O12_has_slack_so_the_range_may_be_read_loosely():
@@ -1582,3 +1580,47 @@ def test_O12_has_slack_so_the_range_may_be_read_loosely():
     # and the smallest ratio actually realised, recorded from exp24's sweep
     assert 1489 / 34 > 43.7 and abs(1489 / 34 - 43.7941) < 1e-3
     assert (1489 / 34) / thr1 > 9        # 9.1x the proved bound
+
+
+def test_windowed_gram_bound_holds_for_UNANCHORED_windows_too():
+    """"Every dyadic window [M,2M)" means every M, not every power of two.
+
+    `rational-gram-bounded-on-windows` is measured by exp09, whose sweep is
+    `M = 2; while M <= cap: ...; M *= 2` -- anchored.  That is strictly weaker
+    than the claim's wording: [8,16) and [16,32) between them miss the pair
+    (9,17), which is exactly how the line-family sweep passed on a counterexample
+    at c = 6.  Here the stronger statement is checked directly, and holds.
+    """
+    from collections import defaultdict
+
+    XX = 900
+    inc = defaultdict(set)
+    for x in range(1, XX + 1):
+        v = x * x + 1
+        d = 1
+        while d * d <= v:
+            if v % d == 0:
+                inc[v // d].add(d)
+                if d * d != v:
+                    inc[d].add(v // d)
+            d += 1
+    ns = sorted(inc)
+    anchored = unanchored = 0
+    pairs = 0
+    for i, n1 in enumerate(ns):
+        for n2 in ns[i + 1:]:
+            sh = sorted(inc[n1] & inc[n2])
+            if len(sh) < 2:
+                continue
+            pairs += 1
+            M = 1
+            while M <= XX * XX:
+                anchored = max(anchored, sum(1 for m in sh if M <= m < 2 * M))
+                M *= 2
+            unanchored = max(
+                unanchored,
+                max(sum(1 for q in sh if p <= q < 2 * p) for p in sh),
+            )
+    assert pairs > 50, pairs
+    assert anchored == 2, anchored
+    assert unanchored == 2, unanchored       # the stronger statement holds too
