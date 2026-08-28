@@ -70,12 +70,132 @@ Step 2 is done when Note F + Note G together give a clean conjectural inequality
 
 ---
 
+---
+
+## Where Steps 1 and 2 landed
+
+*Added after Steps 1–2 were worked through. The working principle above — locate
+the exact lemma that fails at density x^{1/2}, rather than attempt the theorem —
+was followed, and it succeeded. The lemma was found, and it is not repairable
+inside the framework.*
+
+**Note F's C₄-free lemma.** For A = {x+i}, G(n₁,n₂) = #{m : mn₁, mn₂ ∈ A} ≤ 1
+over Z[i], and Theorem O.12 gives G′ ≤ 1 over Z on the doubly-banded
+configuration. So the off-diagonal term in 2.2 step 3 has no main term to
+separate from an error term: the quantity a dispersion argument needs to average
+is a 0/1 indicator.
+
+**And that configuration is the one the literature quantifies over.**
+Ford–Maynard's (II) has arbitrary divisor-bounded coefficients, so it implies its
+own doubly-banded restriction; and their J ⊆ (x/2, x] confines the shared
+variable to a factor-2 window by their own definition. Their footnote 2 (p. 7)
+names this counting function as the barrier. With ν = 0 forced by Selberg,
+C⁻ = 0 — which closes *infinitude*, not merely the asymptotic.
+
+**Scope.** This is a theorem about what the Type I/II axioms can prove. It says
+nothing about whether x²+1 is prime infinitely often, and the two must never be
+conflated. Steps 1 and 2 are therefore complete in the only sense available: the
+obstruction is located, named, and shown to be structural rather than technical.
+
+**What is left is one Diophantine question**, below.
+
+---
+
+## Step 3 — The bipartite Diophantine problem
+
+### 3.1 Objective
+
+The incidence underlying Note F is a **bipartite Diophantine tuple**. Writing
+a·m = x²+1 for a cofactor a and modulus m, the pair (a, m) satisfies
+**a·m − 1 = x²**, so a set of cofactors A and a set of moduli B with every
+product a·m of the form x²+1 is exactly a tuple with property **BD₂(−1)** in the
+sense of Tsang–Yip. Two targets, and they are not the same problem:
+
+1. **The unrestricted question (the literature's).** Is min{|A|, |B|} bounded by
+   an absolute constant for BD₂(−1)? Tsang–Yip's Theorem 1.1 settles k ≥ 3; for
+   k = 2 they state plainly that no upper bound on ℓ is known. Measured here:
+   ℓ = 3, exhaustively to X = 9000.
+2. **The windowed question (this project's).** Conjecture O.2 — can one dyadic
+   window hold three shared moduli of a single cofactor pair? This is what the
+   Type II obstruction actually needs, and it is weaker than (1) in the shared
+   variable and stronger in the constraint on it.
+
+Neither is needed to close Steps 1–2. Both are now the live mathematics.
+
+### 3.2 Background to master
+
+- Diophantine m-tuples and D(n)-sets; M_k(n) and the bounds M_k(n) ≪_k log(|n|+1).
+  The resolved cases: M₂(1) = 4 (He–Togbé–Ziegler), **M₂(−1) = 3**
+  (Bonciocat–Cipu–Mignotte).
+- Bipartite tuples BD_k(n) (Tsang–Yip); the same objects in Bugeaud–Dujella and
+  Bugeaud–Gyarmati two decades earlier.
+- **Gap principles** — Dujella's; c > 4ab for regular quadruples; the
+  by-range extension counts for a triple.
+- **Linear forms in logarithms, Baker's method, Baker–Davenport reduction**
+  (Dujella–Pethő, "A generalization of a theorem of Baker and Davenport").
+  *This is the field's standard tool and this project has never used it.* Note O
+  concluded that any proof must be about occupancy rather than congruences, and
+  that size arguments cannot reach O.2; Baker's method is neither.
+- Nagell, Theorem 108a: solution classes of a generalized Pell equation, with
+  bounded fundamental solutions. Note O uses the same decomposition (Prop L.1's
+  orbits) and recorded Nagell as "running the wrong way"; Dujella uses it to
+  *classify*, not to bound from below.
+- The uniformity conjecture (Bombieri–Lang) and what it predicts here: ℓ ≤ 5 for
+  k = 2, via hyperelliptic y² = (a₁x+n)···(a₅x+n).
+
+### 3.3 Deliverables
+
+1. **Note P — method record.** *(exists)* The failure taxonomy behind CLAUDE.md's
+   rules. Not mathematics; keep it current.
+2. **Note Q — the dictionary.** Translate Note O's vocabulary into the m-tuple
+   literature's and back: cofactor/modulus ↔ element/extension; multiplier τ ↔ ?;
+   automorph ε ↔ the Pell recursion; "window" ↔ a constraint the literature does
+   not appear to impose. State precisely which of the two targets each of
+   O.4–O.18 bears on.
+3. **Note R — literature audit.** For each result in the O-thread, is it known?
+   Priority order: the gap principles (O.4, O.13, O.15), the per-prime sign
+   criterion (O.17), and the ℓ = 3 structure. **This gates any writing up.**
+4. **Note S — Baker attempt.** Set up the linear form in logarithms for two
+   solutions of aY² − bX² = M·D lying in one window, and reduce. Determine what
+   it gives, even weakly. This is the tool the project has not tried.
+5. **Note T — the ℓ = 3 evidence, presented.** The exhaustive K₃,₃ search, the
+   sharp K₃,₂ cutoff, the unit-free witness, the mod-4 side constraint — as data
+   on an open question, with the searches' populations stated.
+
+### 3.4 Reading
+
+- Tsang–Yip, "Bipartite Diophantine tuples and their applications,"
+  arXiv:2512.03441 — definition, Theorem 1.1, Question 1.3.
+- Bonciocat–Cipu–Mignotte, "There is no Diophantine D(−1)-quadruple,"
+  arXiv:2010.09200.
+- Dujella, "An absolute bound for the size of Diophantine m-tuples" — the Pell
+  system, Nagell's classification, the congruences mod 2c.
+- Dujella–Pethő, "A generalization of a theorem of Baker and Davenport" (1998).
+- Bugeaud–Dujella on special bipartite families.
+- Dujella's book on Diophantine m-tuples (Tsang–Yip ref. [17]) and his
+  bibliography at web.math.pmf.unizg.hr/~duje/ref.html (≈596 entries).
+
+### 3.5 Checkpoint
+
+Step 3 is done when **Note R** reports, result by result, which parts of the
+O-thread are known and which are not — because that decides whether there is a
+paper — **and** Note S records what a Baker-method attempt yields, even if the
+answer is that it does not reach the windowed configuration.
+
+*Not a checkpoint: proving O.2. It is open, nine routes are closed with reasons,
+and the honest position is that it needs a tool this project has not used.*
+
+---
+
 ## Cross-cutting
 
 - **Literature scan** before each note: arXiv (math.NT), search terms "x^2+1 primes", "Gaussian primes thin set", "bilinear forms Gaussian integers", "Landau problems sieve". Confirm nothing supersedes Iwaniec 1978 / Friedlander–Iwaniec 1998.
+- **And for Step 3, a different set of terms**, because the object has a name in another literature: "Diophantine m-tuple", "D(-1)-tuple", "bipartite Diophantine tuple", "gap principle", "simultaneous Pell equations", "Baker–Davenport reduction". *This scan was skipped for two months and the O-thread was built without it; when it was finally run it identified the object immediately.* Run it **before** extending Note O, not after.
 - **Adversarial review** of every note: what two-parameter freedom is being smuggled in? Where is parity actually being broken?
 - **Don't** pursue Green–Tao / nilsequence methods; single-variable polynomials are outside their scope.
 - **Don't** expect GRH or zero-density results to substitute for Type II; they control primes in progressions, not in the sparse sequence.
+- **Don't** treat a result in Note O as new until Note R says so. The nine closed routes, the gap principles and the sign criteria all live in an area with ~596 catalogued references and two decades of work on the same equations.
+- **Do** state which of the two Step 3 targets any new result bears on. The unrestricted question and the windowed one are different problems, and a result about one is not evidence about the other.
 
 ## Reading list (ordered)
 1. Iwaniec–Kowalski, *Analytic Number Theory* — Ch. 3, 6, 11, 12, 17.
@@ -87,3 +207,11 @@ Step 2 is done when Note F + Note G together give a clean conjectural inequality
 7. Elstrodt–Grunewald–Mennicke, *Groups Acting on Hyperbolic 3-Space*.
 8. Motohashi, "Trace formula over the hyperbolic upper half space" and related Z[i] Kloosterman papers.
 9. Zhang (2014); Polymath 8a/8b; Maynard, "Small gaps between primes."
+
+**Step 3 additions.**
+10. Tsang–Yip, "Bipartite Diophantine tuples and their applications," arXiv:2512.03441 — the definition of BD_k(n), Theorem 1.1 (k ≥ 3), and Question 1.3 with its k = 2 gap.
+11. Bonciocat–Cipu–Mignotte, "There is no Diophantine D(−1)-quadruple," arXiv:2010.09200.
+12. Dujella, "An absolute bound for the size of Diophantine m-tuples" — the Pellian system, Nagell's classification, congruences mod 2c.
+13. Dujella–Pethő, "A generalization of a theorem of Baker and Davenport" (1998) — the reduction this project has not attempted.
+14. Bugeaud–Dujella; Bugeaud–Gyarmati — the same bipartite objects, two decades earlier.
+15. Dujella, *Diophantine m-tuples* (book), and his bibliography web.math.pmf.unizg.hr/~duje/ref.html (≈596 entries).
