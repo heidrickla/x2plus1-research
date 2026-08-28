@@ -993,3 +993,54 @@ def test_doubly_dyadic_c4_freeness_fails_at_c_equals_six():
 
     assert banded_hits(6) > 0, "c = 6 must have a doubly-dyadic 4-cycle"
     assert banded_hits(5) == 0, "c = 5 must not"
+
+
+def test_four_consecutive_x_give_a_cycle_exactly_when_D_is_k2_plus_3k_plus_1():
+    """Why x^2+1 escapes: its member of the generic family is the unit case.
+
+    For f(x) = x^2 + D, four consecutive arguments k, k+1, k+2, k+3 satisfy
+
+        (k^2+D)((k+3)^2+D) - ((k+1)^2+D)((k+2)^2+D) = 4(D - k^2 - 3k - 1)
+
+    -- since k(k+3) and (k+1)(k+2) differ by 2, and the D-linear parts differ by
+    4. So the product of the outer two equals the product of the inner two, i.e.
+    a 4-cycle, EXACTLY when
+
+        D = k^2 + 3k + 1:   D = 1, 5, 11, 19, 29, 41, 55, ...
+
+    and the escapes are two, both special:
+
+      k = 0, D = 1   values 1, 2, 5, 10 -- the first is the UNIT modulus, which
+                     no Type II hypothesis admits. This is x^2+1.
+      k = 1, D = 5   values 6, 9, 14, 21 -- cofactor ratio 1.5 but modulus ratio
+                     14/6 = 2.333, so not doubly dyadic.
+      k >= 2         both ratios below 2 and falling to 1: (1.333, 1.800) at
+                     D = 11, (1.250, 1.571) at 19, (1.200, 1.444) at 29.
+
+    So doubly-dyadic C4-freeness fails for an infinite explicit family of degree-2
+    sequences, and x^2+1 is not merely a member that happens to survive -- it is
+    the k = 0 member, whose cycle is degenerate for the same reason the unit
+    cofactor is excluded everywhere else in this repo.
+    """
+    for k in range(0, 40):
+        for D in range(1, 200):
+            lhs = (k * k + D) * ((k + 3) ** 2 + D) \
+                - ((k + 1) ** 2 + D) * ((k + 2) ** 2 + D)
+            assert lhs == 4 * (D - k * k - 3 * k - 1), (k, D)
+
+    seen_unit = seen_wide = seen_cycle = 0
+    for k in range(0, 8):
+        D = k * k + 3 * k + 1
+        v = [(k + j) ** 2 + D for j in range(4)]
+        assert v[0] * v[3] == v[1] * v[2], (k, v)        # the cycle, always
+        cof, mod = v[1] / v[0], v[2] / v[0]
+        if v[0] == 1:
+            seen_unit += 1
+            assert (k, D) == (0, 1)                      # only x^2+1
+        elif mod >= 2:
+            seen_wide += 1
+            assert (k, D) == (1, 5)                      # only D = 5
+        else:
+            seen_cycle += 1
+            assert cof < 2 and mod < 2                   # genuinely doubly dyadic
+    assert (seen_unit, seen_wide, seen_cycle) == (1, 1, 6)
