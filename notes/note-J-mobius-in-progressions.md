@@ -20,9 +20,15 @@ sieve, and, in Ford–Maynard's axioms, is the statement that ν = 0.
 > **Scope, and this sentence crosses a boundary.** Note F's lemma is about
 > **ideals of Z[i]**; [ASP], [DFI] and [FM] quantify their Type II hypotheses
 > over **rational** m and n. The step between them is
-> `gaussian-to-rational-bridge`, `inferred` — over Z the graph is *not* C₄-free
-> (max windowed Gram 2, not 1, and the unwindowed count is unbounded: see
-> [Note L](note-L-over-Z.md)). Bounded is all the argument uses, so the
+> `gaussian-to-rational-bridge`, `inferred`. **On the configuration [FM]'s (II)
+> actually quantifies over — m and n *each* banded — Theorem O.12 proves the
+> rational graph is C₄-free too, G′ ≤ 1, for all X**, matching the Z[i] bound
+> exactly: cofactors within a factor (5+√21)/2 = 4.7913 share at most one modulus
+> per dyadic window, and one dyadic band is a factor 2, so the margin is 2.4×.
+> Off that configuration — cofactors ranging freely — the graph is *not* C₄-free
+> (windowed Gram 2, e.g. (1,41) sharing 730 and 1370, and the unwindowed count is
+> unbounded: [Note L](note-L-over-Z.md)), but 41/1 is nowhere near one band, so a
+> Type II hypothesis never sees it. Bounded is all the argument uses, so the
 > conclusion does not move; but "ν = 0" is reached through the bridge and not
 > directly from Note F. The rest of this note names A = {x + i} where it means
 > the Gaussian object, and says so where it does not.
@@ -209,8 +215,9 @@ over signs ε_q, i.e.
 which is **exactly an arbitrary outer coefficient** — the thing
 [Note F](note-F-failure-localisation.md) proves this sequence cannot support.
 *(The q here are **rational** moduli, while Note F's lemma is about ideals of
-Z[i]; over Z the **windowed** Gram entry is 2 rather than 1, and the
-unwindowed one is unbounded ([Note L](note-L-over-Z.md), K_{s,2} for every s). The transfer is
+Z[i]; over Z the **windowed** Gram entry is 1 — the same as over Z[i] —
+on the doubly-dyadic configuration these hypotheses quantify over (Theorem O.12),
+2 when the cofactors range freely, and the unwindowed one is unbounded ([Note L](note-L-over-Z.md), K_{s,2} for every s). The transfer is
 `gaussian-to-rational-bridge`, `inferred`; the conclusion survives because
 bounded is bounded, and [Note G](note-G-spectral.md) states it in full.)*
 So it is worth measuring what the absolute values cost. Against the signed sum
