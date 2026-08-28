@@ -292,6 +292,20 @@ therefore a measurement of the quantity Prop. 12 would have to control.
   negative: the desingularisation trick that rescues the main term costs half an
   exponent in the error term, so even granting a b-sum, the +1 makes the range
   *narrower*, not wider.
+- *The mean-G classifier was added to this note and refuted in the same hour —
+  should it be here at all?* Yes, and struck rather than deleted, because the
+  refutation is the transferable part. What it demonstrates is a failure mode the
+  rest of this note is exposed to: κ is *also* a statistic fitted to a handful of
+  sequences with known outcomes, and this note's whole method is to add data
+  points to that handful. The classifier died because a fifth point was chosen
+  for being decisive rather than available. **The same test has not been run
+  against κ**, and κ's "necessary" half is safe only because it is a much weaker
+  claim than the classifier attempted.
+- *Does the FI quotation now stand on nothing?* It stands on itself — it is a
+  verbatim quote with a page reference — but it was *gathered* as support for a
+  statement that was already false, which is worth remembering when it is next
+  cited. Evidence collected to support a conclusion is not evidence discovered
+  while testing one.
 - *Does κ survive?* As a necessary condition, yes, and strengthened — it is now
   identified with a quantity in the published arguments. As anything sufficient,
   no, and it was never claimed to be; this note is the falsification test that
