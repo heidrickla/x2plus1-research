@@ -580,3 +580,79 @@ def threshold_family(X=6000, D=1):
           f" {sub} below (1+sqrt2)^4,")
     print(f"  of which {viol} violate O.13' (a^2-ab+b^2 not a perfect square).")
     print("  Measured absence over a finite range -- not a proof that none exists.")
+
+
+def exceptional_branch(AMAX=1200, XMAX=3_000_000):
+    """Is O.13's exceptional branch inhabited, and if so what empties it?
+
+    Closing the branch would turn O.12's proved 4.7913 into O.13's 33.9706, a
+    factor 7.09.  Two filters are available before any occupancy question:
+
+      Eisenstein -- a^2 - ab + b^2 must be a perfect square (V = 1 admissible);
+      Gaussian   -- n | x^2+1 is solvable iff 4 does not divide n and n has no
+                    prime factor 3 mod 4, so BOTH cofactors must pass.
+
+    Neither closes it: the branch is inhabited.  What empties it is occupancy --
+    (25,481) shares two moduli, 2 and 53546, a ratio of 26773.  Which is the
+    wall Note O records for O.2: any proof must be about occupancy, not
+    congruences.
+    """
+    from math import isqrt
+    lo, hi = 5 + 2 * 6 ** 0.5, (1 + 2 ** 0.5) ** 4
+    N = int(AMAX * hi) + 2
+    spf = list(range(N + 1))
+    for i in range(2, isqrt(N) + 1):
+        if spf[i] == i:
+            for j in range(i * i, N + 1, i):
+                if spf[j] == j:
+                    spf[j] = i
+    ok = [False] * (N + 1)
+    for n in range(1, N + 1):
+        m, good = n, True
+        while m > 1:
+            p, e = spf[m], 0
+            while m % p == 0:
+                m //= p
+                e += 1
+            if (p == 2 and e > 1) or (p % 4 == 3):
+                good = False
+                break
+        ok[n] = good
+    prim = []
+    for a in range(2, AMAX + 1):
+        if not ok[a]:
+            continue
+        for b in range(int(lo * a) + 1, int(hi * a) + 1):
+            q = a * a - a * b + b * b
+            r = isqrt(q)
+            if r * r == q and ok[b]:
+                from math import gcd
+                if gcd(a, b) == 1:
+                    prim.append((a, b))
+    print(f"  a <= {AMAX} admissible, u in ({lo:.4f}, {hi:.4f}):"
+          f" {len(prim)} PRIMITIVE pairs passing both filters.")
+    print("  So neither the Eisenstein nor the Gaussian condition closes the branch.")
+    print(f"  {'pair':>20} {'u':>9} {'#shared moduli':>15} {'in one window':>14}"
+          f" {'spread':>12}")
+    for a, b in prim:
+        roots = [r for r in range(a) if (r * r + 1) % a == 0]
+        ms = set()
+        for r in roots:
+            x = r if r else a
+            while x <= XMAX:
+                v = x * x + 1
+                if v % a == 0:
+                    m = v // a
+                    t = b * m - 1
+                    s = isqrt(t)
+                    if s * s == t:
+                        ms.add(m)
+                x += a
+        ms = sorted(ms)
+        win = max((sum(1 for q in ms if p <= q < 2 * p) for p in ms), default=0)
+        spread = f"{ms[-1]/ms[0]:.0f}x" if len(ms) > 1 else "-"
+        print(f"  {f'({a},{b})':>20} {b/a:>9.4f} {len(ms):>15} {win:>14} {spread:>12}")
+    print("  None realises two shared moduli in one window.  And the reason is")
+    print("  OCCUPANCY, not congruence: (25,481) shares 2 and 53546, ratio 26773.")
+    print("  Bounded search -- a bound's silence is not evidence about what lies")
+    print("  outside it, and larger a is untested.")

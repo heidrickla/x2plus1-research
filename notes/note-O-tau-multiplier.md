@@ -2639,3 +2639,38 @@ not the check.
 bound with τ_V² < 3, which is why 4.7913 is below even the V = 1 value of
 9.8990: it is not merely covering V = 1, it is also carrying the finite
 correction. The two allowances are separate and multiply.
+
+### O.13″ The exceptional branch is inhabited, and what empties it is occupancy
+
+Closing O.13′'s second branch would turn O.12's proved 4.7913 into **33.9706**,
+a factor 7.09 — the single largest improvement available to the theorem. Two
+filters apply before any occupancy question is asked:
+
+- **Eisenstein.** a² − ab + b² must be a perfect square, for V = 1 to exist.
+- **Gaussian.** n | x²+1 is solvable iff 4 ∤ n and n has no prime factor
+  ≡ 3 (mod 4). **Both** cofactors must pass — a condition the Eisenstein one
+  knows nothing about, so there was reason to hope the two are incompatible.
+
+**They are not.** At a ≤ 1200 four primitive pairs pass both:
+
+| pair | u | shared moduli (x ≤ 3×10⁶) | most in one window | spread |
+|---|---:|---:|---:|---:|
+| (25, 481) | 19.2400 | **2** — {2, 53546} | 1 | **26773×** |
+| (505, 7897) | 15.6376 | 0 | 0 | — |
+| (865, 22873) | 26.4428 | 1 — {74} | 1 | — |
+| (985, 29593) | 30.0437 | 0 | 0 | — |
+
+So the branch is **inhabited**, and neither congruence filter empties it.
+
+**What empties it is occupancy.** (25, 481) *does* share two moduli — 2 and
+53546, both verified (25·2 = 7²+1, 481·2 = 31²+1) — and they are a factor
+**26773** apart. Nothing forbids the configuration; the moduli simply are not
+near each other.
+
+**Which is the wall this note already records for O.2**: *any proof must be
+about occupancy, not congruences.* The gap between O.12 and O.13′ is therefore
+not a gap that a sharper local argument can close — it is the same difficulty,
+at a different scale, and that is the useful thing to know about it.
+
+⚠ Bounded: a ≤ 1200 and x ≤ 3×10⁶. Larger a is untested, and a bound's silence
+is not evidence about what lies outside it.
