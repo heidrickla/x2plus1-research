@@ -557,6 +557,18 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   every one would have been caught by the single question above, asked *before*
   the sweep rather than after.
 
+- **A comparison feels like a finding; a property feels like a restatement — and
+  the property is usually the stronger result.** "The mean drops below the
+  barrier's line" reads as a discovery. "The count is a 0/1 indicator, so an
+  error term better than O(1) means knowing it exactly" reads as a restatement,
+  because Note F had said it for Z[i] already. The second is strictly stronger —
+  pointwise rather than on average, and immune to the objection that sinks the
+  first ("your band holds two cofactors"). **The stronger result looked like the
+  smaller one**, and the weaker one was nearly published instead. Same asymmetry
+  that let the Plücker constant survive: a right-*shaped* sentence beats a right
+  statement. When a comparison and a property are both available, suspect the
+  comparison.
+
 - **Paraphrases of a source drift toward whatever makes the local argument
   work, and only re-reading the sentence catches it.** `fm-barrier-range-is-
   small-moduli` was read — by the other session, quoting it back — as recording
