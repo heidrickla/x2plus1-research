@@ -1948,13 +1948,49 @@ the statement. What is claimed is the direction, which is the same at all three
 sizes.)* And **the maximum moduli realised is two at every size**, against the
 three a triple needs.
 
+**Three thresholds, one constant.** All of them are conditions on M/√D, and
+M/√D = (u−1)/√u with u = b/a, so each converts to a cofactor ratio:
+
+| configuration | needs M/√D > | i.e. u > | closed form |
+|---|---:|---:|---|
+| a **pair** in one window | 4√2 = 5.6569 | **33.9706** | (1+√2)⁴ |
+| a **chain** (a second in-window multiplier, k ≥ 2) | 8√2 = 11.3137 | **129.9923** | (4√2 + √33)² |
+| a **triple** (Theorem O.4) | 4(2^{1/4}+2^{3/4}) = 11.4840 | **133.8748** | [(1+√2)(1+√2+2^{5/4})]² |
+
+*(All three verified to six places.)* The chain sits **3.8825 below** the triple —
+exactly as it must, since a triple needs a chain **and something more**. The
+8√2 is the determinant route's constant, |V| ≥ 4 read as k ≥ 2.
+
+**And that is why the 43 are empty: the two requirements pull opposite ways.**
+
+| u = b/a | classes | max shared moduli |
+|---|---:|---:|
+| < 2 | 530,837 | 2 |
+| 2 – 10 | 710,187 | **8** |
+| 10 – 100 | 392,697 | 6 |
+| 100 – 10³ | 124,151 | 4 |
+| > 10³ | 57,283 | 3 |
+
+*(Reproduced independently.)* **A chain needs u > 129.99; the maximum modulus
+count falls with u.** So the range where a chain is *possible* is precisely the
+range where the moduli to use it are **scarcest** — which is why the 43
+chain-admitting classes carry at most two moduli against the three a triple
+needs.
+
+> **⚠ Not established as structural.** Three moduli **do** occur above u = 10³,
+> so modulus count alone does not forbid a triple. What is established is that
+> the two conditions are **in tension**, and that the tension is quantified — not
+> that it is decisive.
+
 > **⚠ "realises two moduli" and "realises two moduli IN ONE WINDOW" are different
 > counts, and they first diverge at X = 6000.** Of the five classes realising two
 > moduli there, **four** have them inside one window — (1,423125) at 10, 17;
 > (1,51701) at 82, 145; (53,423125) at 10, 17; (37,26245) at 545, 986 — while
 > **(13, 27145) has moduli 2 and 530, a ratio of 265**. At X = 3000 all three
 > coincided, so the distinction was invisible there and the smaller table cannot
-> show it.
+> show it. **And (37, 26245) at 545, 986 is a fourth live close pair**, not among
+> `exp14`'s three — so the smaller table was hiding a witness as well as a
+> distinction.
 
 **And the three that realise a k ≥ 2 step are exactly `exp14`'s live
 non-fundamental close pairs:**
