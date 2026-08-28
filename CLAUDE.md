@@ -7,7 +7,16 @@ notes honest.
 
 *This section is the compaction fallback. `tools/session_primer.py` prints a
 live version of it via a SessionStart/compact hook, but that hook only binds in
-sessions that start with `.claude/settings.json` already present — so this file,
+sessions that start with `.claude/settings.json` already present — **true of
+`SessionStart` specifically, and not of hooks in general.** `SessionStart` cannot
+fire for a session that has already begun: the event is past and adding the hook
+later does not bring it back. `Stop` and `UserPromptSubmit` fire repeatedly for
+the life of a session and settings are re-read each time, so those *do* bind
+mid-session. (Reported by the supervisor session from its own case — it created
+`.claude/settings.json` mid-session and its `Stop` hook fired on the next attempt
+to end a turn. Not independently verified here, and not verifiable from inside a
+running session.) So the primer genuinely does not protect a session that started
+without it, and that limitation does not generalise — so this file,
 which is always loaded, carries the same state by hand. Keep it current; a stale
 version here is worse than none.*
 
