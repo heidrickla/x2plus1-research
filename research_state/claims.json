@@ -1643,7 +1643,7 @@
         "window",
         "gram"
       ],
-      "notes": "NOT A WEAK CONDITION: at X = 4000, 499,188 of 503,054 classes with M odd squarefree (99.2%) fail 3ab < M^{4/3} and are excluded outright. With O.4's t > 133.875 the admissible a is tiny -- a <= 2 at the minimum admissible t, 6 at t = 1e3, 19 at t = 1e4. Verified at X = 4000: 0 failures over 1,588,226 sign determinations and 1317 (p,pair) equivalence checks; 0 failures of M | V12 V23 V13 over the realised triples; 0 failures of |V| < M/sqrt(3D) over 139 in-window pairs. THE CLEANER IDENTITY IS THE PARALLEL SESSION'S: V W = M (m_i - m_j) with W = X_j Y_i + X_i Y_j -- mine divided by a, and the cofactor cancels entirely (0 failures over 2747 pairs). It also gives gcd(V,M) = 1 <=> M | W for M odd squarefree. STILL OPEN: M even and M non-squarefree, where sigma is undefined -- at M = 9 the pair (gcd(M,S), gcd(M,T)) is (3,3) and p | X becomes possible."
+      "notes": "SUPERSEDED BY theorem-O10-valuation, which drops the odd and squarefree hypotheses entirely by replacing the two-valued sign with a valuation split s + t >= e. Kept because the sign is the e = 1 shadow of that and is how the argument was found. NOT A WEAK CONDITION: at X = 4000, 499,188 of 503,054 classes with M odd squarefree (99.2%) fail 3ab < M^{4/3} and are excluded outright. With O.4's t > 133.875 the admissible a is tiny -- a <= 2 at the minimum admissible t, 6 at t = 1e3, 19 at t = 1e4. Verified at X = 4000: 0 failures over 1,588,226 sign determinations and 1317 (p,pair) equivalence checks; 0 failures of M | V12 V23 V13 over the realised triples; 0 failures of |V| < M/sqrt(3D) over 139 in-window pairs. THE CLEANER IDENTITY IS THE PARALLEL SESSION'S: V W = M (m_i - m_j) with W = X_j Y_i + X_i Y_j -- mine divided by a, and the cofactor cancels entirely (0 failures over 2747 pairs). It also gives gcd(V,M) = 1 <=> M | W for M odd squarefree. STILL OPEN: M even and M non-squarefree, where sigma is undefined -- at M = 9 the pair (gcd(M,S), gcd(M,T)) is (3,3) and p | X becomes possible."
     },
     {
       "id": "V-is-even-whenever-M-is-odd",
@@ -1685,6 +1685,22 @@
       ],
       "notes": "The hypothesis 'M odd squarefree' was doing two jobs and only one of them was needed. Squarefreeness of M is used nowhere: what is used is v_p(M) = 1 at the single prime being worked at, and M_1 collects exactly those primes. Oddness of M is not needed either -- only oddness of p. Verified on M EVEN specifically, which is the new range: sign well defined, p never divides X, and p | V iff the signs agree, over 200+ (pair, p) instances at X = 2000. The conclusion is a configuration that does not occur, so only the hypotheses are checkable; they are checked on pairs, which do occur. COVERAGE FIGURES CORRECTED, and the first version was the repo's own trap. I reported '95.68% of classes excluded outright, silent on 1.02%' over ALL 1,815,154 classes -- of which 1,815,094 have FEWER THAN 3 MODULI and cannot host a triple regardless. So 99.997% of that denominator was vacuous and both figures were meaningless as stated. On the 60 classes that could host one, the bound excludes 15% and is silent on 35%. The rule this repo already carries -- the informative subset is never the one the loop naturally counts -- and I wrote a sweep over every class because every class is what ratio_classes returns. The THEOREM is unaffected; only its advertised reach was.",
       "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_the_sign_argument_needs_only_an_odd_prime_exactly_dividing_M"
+    },
+    {
+      "id": "theorem-O10-valuation",
+      "status": "proved",
+      "statement": "Theorem O.10. For ANY M = b-a -- odd or even, squarefree or not -- M | V_12 V_23 V_13 for three shared moduli of a class; hence, since a dyadic window gives 0 < |V| < M/sqrt(3D), a window holds three only if 3ab < (b-a)^{4/3}. Proof: gcd(a,M) = 1, and for p^e || M, b == a mod p^e with aY^2 = bX^2 + M gives Y^2 == X^2 mod p^e, i.e. p^e | S T (Lemma S T = -M m). With s_i = min(e, v_p(S_i)) and t_i = min(e, v_p(T_i)) we get s_i + t_i >= e; p^{s_i} | S_i gives Y_i == -X_i mod p^{s_i} and p^{t_i} | T_i gives Y_i == X_i mod p^{t_i}, either of which kills V_ij, so v_p(V_ij) >= max(min(s_i,s_j), min(t_i,t_j)). Ordering s_1 <= s_2 <= s_3 gives v_p(V_23) >= s_2 and v_p(V_12) >= e - s_2, so their sum is >= e.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O10_valuation_split_and_the_V_lower_bound_for_every_M; tests/test_note_o.py::test_O10_M_divides_the_product_of_the_three_Vs_for_every_M; tests/test_note_o.py::test_O10_the_sign_is_the_e_equals_one_shadow",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "ST-equals-minus-M-times-m"
+      ],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "THE SIGN IS THE e = 1 SHADOW: at v_p(M) = 1, S T = -M m forces s + t = 1 exactly, so (s,t) is (1,0) or (0,1), which is sigma = -+1. 'Three signs in {+-1} collide' becomes 'order by s and take the middle two', and that is the only step that changes. NO CASE REMAINS: O.9 needed M odd squarefree and the parallel session's intermediate M_1 = prod{odd p || M} form left 1.02% of classes silent (M a power of two times a powerful odd part); the valuation form covers those and excludes 99.2% of them. At X = 3000, 1,801,672 of 1,815,154 classes with M >= 2 are excluded outright (99.26%), 13,482 admissible, zero silent -- and 74.56% of them have M even, which O.9 did not reach at all. Verified 0 failures at X = 4000 over 12,447,219 checks of s + t >= e, 6266 of the v_p(V) bound, 224 of the ordered two-term sum, and M | V12 V23 V13 on every realised triple in all categories (odd squarefree 23, odd non-squarefree 39, even non-squarefree 216)."
     }
   ]
 }

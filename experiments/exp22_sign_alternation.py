@@ -391,6 +391,81 @@ def theorem_O9(X):
     print("  coprimality assumption, which turned out not to be needed.")
 
 
+def _vp(n, p):
+    if n == 0:
+        return 10 ** 9
+    v = 0
+    while n % p == 0:
+        n //= p
+        v += 1
+    return v
+
+
+def theorem_O10(X):
+    """The valuation form: no hypothesis on M at all."""
+    from sympy import factorint
+    classes = ratio_classes(X)
+    n_st = bad_st = n_lb = bad_lb = n_two = bad_two = 0
+    tot = exc = 0
+    cat = {}
+    for (a, b), ms in classes.items():
+        M = b - a
+        if M < 2:
+            continue
+        tot += 1
+        exc += 3 * a * b >= M ** (4 / 3)
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        fac = factorint(M)
+        for p, e in fac.items():
+            sv = [min(e, _vp(x + y, p)) for x, y in zip(xs, ys)]
+            tv = [min(e, _vp(x - y, p)) for x, y in zip(xs, ys)]
+            for i in range(len(ms)):
+                n_st += 1
+                bad_st += sv[i] + tv[i] < e
+            for i in range(len(ms)):
+                for j in range(i + 1, len(ms)):
+                    V = xs[i] * ys[j] - xs[j] * ys[i]
+                    n_lb += 1
+                    bad_lb += _vp(V, p) < max(min(sv[i], sv[j]),
+                                              min(tv[i], tv[j]))
+            if len(ms) >= 3:
+                order = sorted(range(len(ms)), key=lambda i: sv[i])
+                for q in range(len(order) - 2):
+                    i1, i2, i3 = order[q], order[q + 1], order[q + 2]
+                    v12 = xs[i1] * ys[i2] - xs[i2] * ys[i1]
+                    v23 = xs[i2] * ys[i3] - xs[i3] * ys[i2]
+                    n_two += 1
+                    bad_two += _vp(v12, p) + _vp(v23, p) < e
+        if len(ms) >= 3:
+            sq = all(e == 1 for e in fac.values())
+            k = ("even" if M % 2 == 0 else "odd") + ("-sqfree" if sq else "-non")
+            for i in range(len(ms)):
+                for j in range(i + 1, len(ms)):
+                    for kk in range(j + 1, len(ms)):
+                        v12 = xs[i] * ys[j] - xs[j] * ys[i]
+                        v23 = xs[j] * ys[kk] - xs[kk] * ys[j]
+                        v13 = xs[i] * ys[kk] - xs[kk] * ys[i]
+                        good = abs(v12 * v23 * v13) % M == 0
+                        c = cat.setdefault(k, [0, 0])
+                        c[0 if good else 1] += 1
+    print(f"  s_i + t_i >= e                              : {n_st} checks,"
+          f" {bad_st} failures")
+    print(f"  v_p(V) >= max(min(s,s), min(t,t))           : {n_lb} checks,"
+          f" {bad_lb} failures")
+    print(f"  ordered by s: v_p(V12) + v_p(V23) >= e      : {n_two} checks,"
+          f" {bad_two} failures")
+    print("  M | V12 V23 V13, by category of M:")
+    for k in sorted(cat):
+        good, bad = cat[k]
+        print(f"     {k:14} {good:5} hold, {bad:5} fail")
+    print(f"  So 3ab < (b-a)^(4/3) for ANY M.  Of {tot} classes with M >= 2,")
+    print(f"  {exc} are excluded outright ({exc/tot:.2%}); NONE is silent.")
+    print("  The sign of section 4 is the e = 1 shadow: there S T = -M m forces")
+    print("  s + t = 1 exactly, so (s,t) is (1,0) or (0,1).")
+
+
 def main(X=3000):
     print("1. THE ALTERNATION")
     alternation(X)
@@ -412,6 +487,10 @@ def main(X=3000):
     print("6. THEOREM O.9 -- the same conclusion with NO hypothesis, by")
     print("   pigeonhole on a two-valued sign.")
     theorem_O9(X)
+    print()
+    print("7. THEOREM O.10 -- the sign becomes a VALUATION, and then there is no")
+    print("   hypothesis on M at all, and no remaining case.")
+    theorem_O10(X)
 
 
 if __name__ == "__main__":

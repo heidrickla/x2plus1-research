@@ -1300,3 +1300,97 @@ def test_O9_the_window_bound_and_the_resulting_inequality():
     for t in (133.875, 1000.0, 10000.0):
         assert int((t - 1) ** 2 / (3 * t) ** 1.5) == {133.875: 2, 1000.0: 6,
                                                       10000.0: 19}[t]
+
+
+def _vp(n, p):
+    if n == 0:
+        return 10 ** 9
+    v = 0
+    while n % p == 0:
+        n //= p
+        v += 1
+    return v
+
+
+def test_O10_valuation_split_and_the_V_lower_bound_for_every_M():
+    """s_i + t_i >= e, and v_p(V_ij) >= max(min(s,s), min(t,t)).  Any M."""
+    from sympy import factorint
+
+    n_st = n_lb = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 2:
+            continue
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for p, e in factorint(M).items():
+            assert a % p != 0, (a, b, p)            # gcd(a,M) = 1
+            s = [min(e, _vp(x + y, p)) for x, y in zip(xs, ys)]
+            t = [min(e, _vp(x - y, p)) for x, y in zip(xs, ys)]
+            for i in range(len(ms)):
+                assert s[i] + t[i] >= e, (a, b, ms[i], p, s[i], t[i])
+                n_st += 1
+            for i in range(len(ms)):
+                for j in range(i + 1, len(ms)):
+                    V = xs[i] * ys[j] - xs[j] * ys[i]
+                    assert _vp(V, p) >= max(min(s[i], s[j]), min(t[i], t[j])), (
+                        a, b, ms[i], ms[j], p)
+                    n_lb += 1
+    assert n_st > 1000 and n_lb > 200, (n_st, n_lb)
+
+
+def test_O10_M_divides_the_product_of_the_three_Vs_for_every_M():
+    """The ordered two-term sum gives p^e, hence M | V12 V23 V13 -- any M."""
+    from sympy import factorint
+
+    n = 0
+    kinds = set()
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 2 or len(ms) < 3:
+            continue
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        fac = factorint(M)
+        kinds.add((M % 2 == 0, any(e > 1 for e in fac.values())))
+        # the ordered two-term bound, per prime
+        for p, e in fac.items():
+            s = [min(e, _vp(x + y, p)) for x, y in zip(xs, ys)]
+            order = sorted(range(len(ms)), key=lambda i: s[i])
+            for q in range(len(order) - 2):
+                i1, i2, i3 = order[q], order[q + 1], order[q + 2]
+                v12 = xs[i1] * ys[i2] - xs[i2] * ys[i1]
+                v23 = xs[i2] * ys[i3] - xs[i3] * ys[i2]
+                assert _vp(v12, p) + _vp(v23, p) >= e, (a, b, p)
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                for k in range(j + 1, len(ms)):
+                    v12 = xs[i] * ys[j] - xs[j] * ys[i]
+                    v23 = xs[j] * ys[k] - xs[k] * ys[j]
+                    v13 = xs[i] * ys[k] - xs[k] * ys[i]
+                    assert abs(v12 * v23 * v13) % M == 0, (a, b, ms[i], ms[j], ms[k])
+                    n += 1
+    assert n > 5, n
+    assert len(kinds) >= 2, kinds       # more than one parity/squarefree class
+
+
+def test_O10_the_sign_is_the_e_equals_one_shadow():
+    """At v_p(M) = 1, S T = -M m forces s + t = 1, so (s,t) is (1,0) or (0,1)."""
+    from sympy import factorint
+
+    n = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 2:
+            continue
+        for p, e in factorint(M).items():
+            if e != 1:
+                continue
+            for m in ms:
+                x, y = isqrt(a * m - 1), isqrt(b * m - 1)
+                s, t = min(1, _vp(x + y, p)), min(1, _vp(x - y, p))
+                assert s + t == 1, (a, b, m, p)     # exactly one, i.e. a sign
+                n += 1
+    assert n > 500, n

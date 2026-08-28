@@ -1002,9 +1002,58 @@ entirely**: the relation is between V, W, M and the modulus gap alone. It also
 gives the dual reading — for M odd squarefree, exactly one of V, W is divisible
 by each p | M, so **gcd(V,M) = 1 ⟺ M | W**.
 
-**What remains open is M even and M non-squarefree.** The sign and the exact
-splitting both use that M is odd and squarefree — at M = 9 the pair
-(gcd(M,S), gcd(M,T)) is (3,3), p | X becomes possible, and σ is undefined: U² ≡ (Va)² only gives M | A_VB_V in general, and the signs can differ
+### Theorem O.10 — no hypothesis on M at all: the sign becomes a valuation
+
+O.9 needs M odd squarefree because it needs a two-valued **sign**. The p-adic
+version needs nothing: replace the sign by a **valuation split**, and the
+pigeonhole by an ordering.
+
+> Fix p^e ‖ M. Since gcd(a, b) = 1 and M = b − a, **gcd(a, M) = 1**. Then
+> b ≡ a (mod p^e) and aY² = bX² + M give **Y² ≡ X² (mod p^e)**, i.e. p^e | S·T
+> — which is Lemma O.8.1 again, S·T = −M·m.
+>
+> Put **s_i = min(e, v_p(S_i))** and **t_i = min(e, v_p(T_i))**. Then
+> **s_i + t_i ≥ e**: if v_p(S) ≥ e then s = e; otherwise
+> v_p(T) ≥ e − v_p(S) gives t ≥ e − s.
+>
+> p^{s_i} | S_i means Y_i ≡ −X_i (mod p^{s_i}), and p^{t_i} | T_i means
+> Y_i ≡ X_i (mod p^{t_i}). Either congruence kills V_ij = X_iY_j − X_jY_i, so
+>
+> **v_p(V_ij) ≥ max( min(s_i,s_j), min(t_i,t_j) ).**
+>
+> **Order s₁ ≤ s₂ ≤ s₃.** Then v_p(V₂₃) ≥ min(s₂,s₃) = s₂ and
+> v_p(V₁₂) ≥ min(t₁,t₂) ≥ e − s₂, so **v_p(V₁₂) + v_p(V₂₃) ≥ e**. ∎
+
+> **Theorem O.10.** For **any** M = b − a — odd or even, squarefree or not —
+> **M | V₁₂·V₂₃·V₁₃**; and since a window gives 0 < |V| < M/√(3D),
+>
+> **3ab < (b − a)^{4/3}.**
+
+*(0 failures at X = 4000 over 12,447,219 checks of s + t ≥ e, 6266 of the
+v_p(V) lower bound, and 224 of the ordered two-term sum; and M | V₁₂V₂₃V₁₃ holds
+on every realised triple in all four categories — odd squarefree 23,
+odd non-squarefree 39, even non-squarefree 216.)*
+
+**The sign was the e = 1 shadow of this.** At v_p(M) = 1, s and t lie in {0,1}
+and S·T = −M·m forces s + t = 1 exactly, so (s,t) is (1,0) or (0,1) — precisely
+σ = ∓1. "Three signs in {±1} collide" becomes "order by s and take the middle
+two", and that is the only step that changes.
+
+**So there is no remaining case.** The parallel session's intermediate form
+restricted to M₁ = ∏{odd p ‖ M} and left classes with M₁ = 1 silent — M a power
+of two times a powerful odd part, 1.02% at X = 3000. The valuation form covers
+those too, and **excludes 99.2% of them**.
+
+| | classes at X = 3000 | share |
+|---|---:|---:|
+| excluded outright by 3ab < M^{4/3} | 1,801,672 | **99.26%** |
+| admissible | 13,482 | 0.74% |
+| silent | 0 | — |
+
+*(74.56% of these have M even, which O.9 as stated did not reach at all.)*
+
+**What was M even and M non-squarefree** is now covered; the sign argument's
+apparent need for them was an artefact of working at e = 1: U² ≡ (Va)² only gives M | A_VB_V in general, and the signs can differ
 across the prime factorisation of M — which is exactly the 2-adic gap O.3 already
 had. **M odd prime is 54 of the 379 realised close pairs (14%)**, so this is a
 real slice rather than a corner, and the surviving case is the composite one.
