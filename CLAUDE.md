@@ -520,6 +520,18 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     known to hold" — and measure before writing either.** (Nothing is fitted;
     `chowla-for-x2plus1-is-open` is untouched.)
   Nothing checks a proposition's statement against its own proof, because the
+  **And watch the trajectory, not just the instances.** Three laws were fitted to
+  one decay in one night, and the *disconfirming evidence got closer to hand each
+  time*: with 1/N there was only one X and nothing to contradict it; with
+  (log X)/N a drift was noticed, written down at 5.6, and the law quoted anyway;
+  with N/X the counterexample sat **two rows apart in the same printed table**.
+  Availability of the refutation went up while use of it went down — which is the
+  opposite of what learning looks like, and is what confidence in a framework
+  does when it outruns the evidence for it. If a third instance of one error
+  class is easier to catch than the first and was still missed, the problem is
+  not attention; it is that the framework has started supplying the answer before
+  the data does.
+
   tests test the proof. The one checkable habit: **a correction that reaches only
   a claim's `notes` has not landed** — notes are where history goes, the statement
   is what gets quoted. `test_retracted_wording_is_not_still_in_the_statement`
