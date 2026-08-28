@@ -146,6 +146,25 @@ threshold coincidence above is therefore a fact about the parameterisation, and
 "κ is sharp at the threshold" should be read as *κ is not violated there*, never
 as *κ locates it*.
 
+**And the D axis is the strongest form of all three, because it needs no
+perturbation.** For x² + D the sequence has |A| = X and Q = X² + D, so
+
+> **κ = X²/(X² + D) → 1 for every fixed D**
+
+At X = 10⁴ the whole family sits within 4×10⁻⁷ of 1 — κ = 0.999999990 at D = 1
+against 0.999999610 at D = 39, **a spread in the ninth decimal**. Meanwhile D
+decides the structure completely: D = 1, 2 hold unconditionally, D = 4 holds on
+parity, and D = 6, 11, 19, 36, 39 fail with explicit witnesses, **D = 39 with a
+banded triple**.
+
+> **An entire one-parameter family has κ → 1 throughout and splits into
+> proved-holds and proved-fails.**
+
+The line-count argument explains the A_B coincidence away; the two-point argument
+needs an O(1) perturbation a reader can call artificial. This needs neither —
+x² + D are natural sequences, one per D, and **the parameter κ cannot resolve is
+the parameter that decides the answer.**
+
 **What this does not show.** It is about the binary property. One 4-cycle moves
 max G from 1 to 2 and leaves mean G at O(1/X), and [this note's own refuted
 classifier](#mean-g-separates-them-where-κ-does-not--refuted-by-the-test-built-to-confirm-it)
