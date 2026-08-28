@@ -666,23 +666,42 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
 
 - **Before believing a sweep's headline, ask what its output would look like if
   the finding were absent. If that looks the same, the sweep measured nothing.**
-  (The parallel session's formulation; five instances here in one night, and it
-  subsumes all of them.) *Consistency vs silence*: a grep for contradictions
-  returns nothing whether both notes agree or only one speaks. *Vacuous
-  denominator*: 95.68% excluded reads the same whether the theorem is strong or
-  99.997% of the classes cannot host the configuration anyway. *Absent base
-  rate*: 27-of-28 uncited claims reads the same whether the notes are negligent
-  or id-citation is simply not the convention (it is not — 20%). *The a ≥ 2
-  column*: a column of zeros looks the same whether it is a law or a range the
-  sweep cannot reach (largest available b is 8321 against a 7×10⁴ crossover).
-  *Fixed windows across sequences*: comparing x²+c² on [64,256) gives Gram
-  2,3,3,3,4,5,6 across c = 1…13 — "the Z-vs-Z[i] gap widens with c" — and
-  normalising each window to that sequence's own √Q gives **2 throughout**, since
-  x²+c² starts at 1+c² and a fixed window sits at a different depth in each.
-  Every one of these produced a correct number and an unlicensed inference, and
-  every one would have been caught by the single question above, asked *before*
-  the sweep rather than after.
+  (The parallel session's formulation.) This is *one* rule and it arrived wearing
+  a different statistic each time — percentage, population, extremum, axis — which
+  is why restating it more clearly never helped and why it fired repeatedly after
+  being written down. **The operational form is a question, not a principle:
+  *which set does the claim range over, and is that the set I computed?*** — asked
+  out loud, before the number is read. Every instance below produced a correct
+  number and an unlicensed inference:
 
+  - *Vacuous denominator.* "95.68% of classes excluded" and "99.2% excluded" read
+    the same whether a theorem is strong or **1,815,094 of 1,815,154 classes have
+    fewer than three moduli and cannot host the configuration**. On the 60 that
+    can, the figures are 15% and 54.5%.
+  - *Consistency vs silence.* A grep for contradictions returns nothing whether
+    both notes agree or only one speaks — so agreement was read as neither having
+    said it, when Note L had.
+  - *Absent base rate.* 27-of-28 uncited claims reads the same whether the notes
+    are negligent or id-citation is simply not the convention (it is not — 20%).
+  - *Missing direction of travel.* A bound at ~35% that is **flat** in X and one
+    at 97.7% → 88.1% that is **falling** are different objects; "6.85× better"
+    tells a reader the opposite of what the data says about the limit.
+  - *A column of zeros.* Empty at a ≥ 2 looks the same whether it is a law or a
+    range the sweep cannot reach — largest available b was 8321 against a 7×10⁴
+    crossover.
+  - *Fixed windows across sequences.* x²+c² on [64,256) gives max Gram
+    2,3,3,3,4,5,6 across c — "the gap widens with c" — and normalised to each
+    sequence's own √Q it is **2 throughout**: the window was varying, not the
+    sequence.
+  - *Extremum where the worst case was needed.* max ε was exactly c² and would
+    have restored a threshold; **min ε was 10⁻⁸** and restores nothing.
+  - *The loop's natural population.* An X-loop counts moduli, so it reports the
+    mean over all bands when the informative statistic lives in one band; the
+    informative subset is never the one the loop naturally counts.
+  - *The unextended axis.* A sweep stopping at c = 5 or D = 10 looks identical
+    whether the property is universal or holds on a short initial segment. Both
+    were checked at five or six values and read as general; both failed at the
+    next one.
 - **A comparison feels like a finding; a property feels like a restatement — and
   the property is usually the stronger result.** "The mean drops below the
   barrier's line" reads as a discovery. "The count is a 0/1 indicator, so an
@@ -825,56 +844,6 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   hazard is specific to auditing notes at volume, which is exactly when it is
   most likely to fire.
 
-- **A percentage carries its population in the same sentence, or it is not a
-  measurement.** Two coverage figures went into the notes within an hour — "the
-  bound excludes 95.68% of classes" (mine) and "99.2% are excluded outright"
-  (the parallel session's) — both over *every* class `ratio_classes` returns. Of
-  1,815,154 classes at X = 3000, **1,815,094 have fewer than three shared moduli
-  and cannot host the configuration the theorem forbids**. The denominator was
-  99.997% vacuous. On the 60 classes that could host one the figures are **15%**
-  and **54.5%**. Neither theorem changed; both advertised reaches were fiction.
-  This is [the informative-subset rule](#) one level out: there the loop counted
-  the wrong *rows*, here it counted the wrong *universe*, and both times the
-  wrong one was simply what the enumerator happened to return. **Before dividing,
-  say out loud which population the question is about, and check that the
-  denominator is it.**
-  **And a rate needs a base rate before it means anything.** A sweep for claims
-  added tonight that no note cites returned **27 of 28** — alarming, and about to
-  become a defect report against the other session's note. The base rate for
-  pre-existing claims is **20%**: citing claims by id simply is not the
-  convention here, and every theorem in question is discussed by name five to
-  fourteen times in that note. The sweep was measuring the wrong thing and only
-  the base rate said so. **Three faces of one error in one night** — wrong
-  denominator, missing direction of travel, absent base rate — and each time the
-  number was correct and the inference drawn from it was not.
-  **A high hit rate from an audit is the signal to check the audit.** Three
-  instances the same night, and in all three the *audit* was what was broken: an
-  orphan-claim sweep at 27 of 28 (id-citation is not the convention — base rate
-  20%); a missing-floor audit at 11 of 34 whose regex could not parse
-  `assert len(x) > N`, which is how the floors it was hunting are written
-  (corrected count: **0**); and the other session's own floor audit at 27 of 40,
-  covered by module-level `assert PAIRS` guards it did not model. A detector that
-  fires on a third of its population is describing itself. **The one real hole was
-  found by reading a test, not by any of the three sweeps.** And the reason both
-  audits failed is sharper than "audits are noisy": **each regex missed the
-  *idiomatic* form of the construct it was searching for**, because the idiomatic
-  form is the one written without thinking about how it would be matched. A
-  pattern-matcher written by the same hand that wrote the pattern systematically
-  misses the unmarked case.
-
-- **The informative-subset rule names a class, and each instance wears a
-  different statistic.** It fired three times on a single claim within one hour,
-  twice *after* being written down: a percentage over a population 99.997% of
-  which was vacuous; a sweep whose target set was empty by construction (the
-  configuration a theorem forbids cannot be measured); and a bound checked
-  against **max** ε where the worst case needs **min** ε — max was exactly c²,
-  which would have restored a threshold, and min was 10⁻⁸, which restores
-  nothing. Percentage, population, extremum: three costumes, one error. Restating
-  the rule more clearly does not help, because the difficulty is not in the rule
-  but in recognising an instance as one. **The operational form is a question,
-  not a principle: *which subset does the claim range over, and is that the
-  subset I computed?*** — asked out loud, before the number is read.
-
 - **When a recorded number does not reproduce, read the paragraph it sits in
   before looking for a bug.** Note M's squarefree densities did not match a fresh
   exact sieve. I proposed inconsistent rounding (a story fitted to two rows that
@@ -957,16 +926,6 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   quoted anyway, then the counterexample sat two rows apart in the same printed
   table. `rigorous_finite` is the status for values; `extrapolated` is for a
   fitted law and demands the fit be shown to hold.
-- **The informative subset is never the one the loop naturally counts.** An
-  absence is evidence only in proportion to the configurations that *could* have
-  contradicted it, and the natural loop counts everything it visited. Three times
-  in one session: 278 939 ratio classes above threshold of which **31** could
-  hold a triple; 379 "candidates where a triple could occur" of which most were
-  unoccupied; 2 093 solutions carrying one in-window multiplier of which **9**
-  had a second to pair with. Each time the loop was correct and its total was
-  the wrong number, and the third happened *after* the rule was written into the
-  README by the session that then broke it. Report the informative count, and
-  refuse to conclude when it is zero.
 - **Every string edit asserts its anchor.** A `replace` whose anchor text has
   moved writes back identical content and reports success; `git commit` then says
   "nothing to commit, working tree clean", which is easy to misread as a
