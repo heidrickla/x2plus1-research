@@ -14,13 +14,15 @@
       "id": "admissible-density",
       "status": "proved",
       "statement": "The number of admissible Gaussian ideals of norm <= D is ~ (3/2pi) D, the residue of zeta(s)L(s,chi_4)/zeta(2s) at s=1.",
-      "proof_site": "notes/note-A-dictionary.md; tests/test_arithmetic_facts.py::test_admissible_ideal_count_matches_zeta_L_over_zeta2"
+      "proof_site": "notes/note-A-dictionary.md; tests/test_arithmetic_facts.py::test_admissible_ideal_count_matches_zeta_L_over_zeta2",
+      "notes": ""
     },
     {
       "id": "divisibility-is-a-congruence",
       "status": "proved",
       "statement": "d divides x+i if and only if x == r_d (mod N(d)) for a single residue r_d with r_d^2+1 == 0.",
-      "proof_site": "notes/note-A-dictionary.md; tests/test_arithmetic_facts.py::test_divisibility_is_the_congruence_of_note_a"
+      "proof_site": "notes/note-A-dictionary.md; tests/test_arithmetic_facts.py::test_divisibility_is_the_congruence_of_note_a",
+      "notes": ""
     },
     {
       "id": "c4-free",
@@ -42,7 +44,8 @@
       "citation": "Friedlander-Iwaniec, Asymptotic sieve for primes, Ann. of Math. 148 (1998), p.1043 (arXiv:math/9811186)",
       "tags": [
         "asp"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": "asp-thin-ceiling",
@@ -64,7 +67,8 @@
       ],
       "tags": [
         "asp"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": "asp-inapplicable",
@@ -84,7 +88,8 @@
       "id": "hb-alpha-hierarchy",
       "status": "quoted",
       "statement": "Heath-Brown's density exponent alpha places the problems at alpha = 1 (Dirichlet), 3/4 (a^2+b^4), 2/3 (x^3+2y^3), and 1/2 (x^2+1).",
-      "citation": "Heath-Brown, Primes represented by x^3+2y^3, Acta Math. 186 (2001), p.2 of the Oxford ORA preprint"
+      "citation": "Heath-Brown, Primes represented by x^3+2y^3, Acta Math. 186 (2001), p.2 of the Oxford ORA preprint",
+      "notes": ""
     },
     {
       "id": "hb-R1-not-met",
@@ -96,7 +101,8 @@
       ],
       "tags": [
         "asp"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": "hb-level",
@@ -105,13 +111,15 @@
       "citation": "HB Lemmas 2.1-2.2, p.5",
       "depends_on": [
         "hb-R1-not-met"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": "fi-level",
       "status": "quoted",
       "statement": "For a^2+b^4 the level of distribution D = x^{3/4-5eps} is achieved, 'apart from the eps, the best that one can hope for'.",
-      "citation": "Friedlander-Iwaniec, X^2+Y^4 captures its primes, Prop. 3.5, p.962 (arXiv:math/9811185)"
+      "citation": "Friedlander-Iwaniec, X^2+Y^4 captures its primes, Prop. 3.5, p.962 (arXiv:math/9811185)",
+      "notes": ""
     },
     {
       "id": "fi-typeI-mechanism",
@@ -127,7 +135,8 @@
       "citation": "X2Y4 Prop. 4.1, p.963",
       "tags": [
         "type_ii"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": "kappa-invariant",
@@ -241,7 +250,8 @@
       "id": "green-sawhney-alpha-one",
       "status": "quoted",
       "statement": "Green-Sawhney prove an asymptotic for primes p^2+nq^2 with p,q prime, n = 0 or 4 mod 6; at n=4 this settles Friedlander-Iwaniec's Gaussian Primes Conjecture. Their sequence has alpha = 1 and is not thin by FI's own criterion.",
-      "citation": "Green-Sawhney, Primes of the form p^2+nq^2, arXiv:2410.04189v3 Theorem 1.1 p.1 and p.2; FI Conjecture 1.1, arXiv:1811.05507v1 p.3"
+      "citation": "Green-Sawhney, Primes of the form p^2+nq^2, arXiv:2410.04189v3 Theorem 1.1 p.1 and p.2; FI Conjecture 1.1, arXiv:1811.05507v1 p.3",
+      "notes": ""
     },
     {
       "id": "parity-broken-below-two-thirds",
@@ -292,7 +302,8 @@
       "proof_site": "notes/note-J-mobius-in-progressions.md; tests/test_note_j.py::test_fibres_are_arithmetic_progressions_with_difference_conj_m",
       "tags": [
         "type_ii"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": "mobius-ideal-equals-mobius-norm",
@@ -301,7 +312,8 @@
       "proof_site": "notes/note-J-mobius-in-progressions.md; tests/test_note_j.py::test_mobius_of_the_ideal_equals_mobius_of_the_norm",
       "depends_on": [
         "divisibility-is-a-congruence"
-      ]
+      ],
+      "notes": ""
     },
     {
       "id": "typeII-is-BV-for-mobius",
@@ -691,27 +703,27 @@
       "id": "kappa-threshold-is-sharp",
       "status": "rigorous_finite",
       "statement": "For A_B = {a + b^2 i : b in B}, kappa = |B|^2 exactly, and 4-cycles appear at |B| = 2 -- the same threshold. Verified with both artefacts excluded: B = {2,3} (so 1 not in B and neither b divides the other, killing the dilation z -> (b2/b1)^2 z), cofactor floor N(n) >= N(m) (killing the unit column). Explicit: n1 = 4+2i, n2 = 19+7i share m = 1+4i and m = 2+6i, all four products associates of elements of A_{2,3}. A parallel session obtained ~300 collisions for each of B = {2,3},{2,5},{3,5},{3,4} against ~600 for the leaky {1,2},{1,3}.",
-      "experiment": "verified in-session against x2plus1.sequences.a2b4_restricted_sequence; see Note K",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
       "depends_on": [
         "kappa-necessary-not-sufficient"
       ],
       "tags": [
         "type_ii"
       ],
-      "notes": "So kappa must NOT be demoted for being off by an exponent -- it is sharp at the threshold for this family. 'Necessary, not sufficient' stands on the a^2+(b^2+1)^2 control, which is about how much kappa buys ABOVE the threshold, not about where the threshold is."
+      "notes": "So kappa must NOT be demoted for being off by an exponent -- it is sharp at the threshold for this family. 'Necessary, not sufficient' stands on the a^2+(b^2+1)^2 control, which is about how much kappa buys ABOVE the threshold, not about where the threshold is. Was PROSE in the `experiment` field, which the registry's rule for `rigorous_finite` -- \"`experiment` naming the script\" -- does not admit; the parallel session's guard found it. exp23 computes it, and it reproduces exactly."
     },
     {
       "id": "c4-freeness-is-arithmetic-not-density",
       "status": "rigorous_finite",
       "statement": "C4-freeness forces sum_n C(d_n,2) <= C(R,2). At Q = 10^6 the x^2+1 graph sits far below that ceiling -- col-side ratio 0.048, 0.016, 0.005 on windows [16,64), [64,256), [256,1024) -- i.e. 20x to 400x fewer edges than C4-freeness would permit. a^2+b^4 gives 29.0, 7.71, 1.95 on the same windows, exceeding 1 as it must. So the lemma is nowhere near binding as an edge count: the graph is far sparser than C4-freeness requires, and the cycles that appear once a second line is added are created by arithmetic rather than by density.",
-      "experiment": "verified in-session via x2plus1.typeII.incidence; see Note K",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
       "depends_on": [
         "c4-free"
       ],
       "tags": [
         "type_ii"
       ],
-      "notes": "Explains why a density statistic like kappa cannot locate the threshold: the constraint that bites is not an edge count. The a^2+b^4 row is the control that the measure detects the difference at all."
+      "notes": "Explains why a density statistic like kappa cannot locate the threshold: the constraint that bites is not an edge count. The a^2+b^4 row is the control that the measure detects the difference at all. Was PROSE in the `experiment` field, which the registry's rule for `rigorous_finite` -- \"`experiment` naming the script\" -- does not admit; the parallel session's guard found it. exp23 computes it, and it reproduces exactly."
     },
     {
       "id": "dfi-lemma2-reaches-P2-and-stops",
@@ -1094,12 +1106,12 @@
     {
       "id": "squarefree-density-of-x2plus1-is-flat",
       "status": "rigorous_finite",
-      "statement": "The density of x <= X with x^2+1 squarefree is 0.895200, 0.894900, 0.894860, 0.894847 at X = 1e4, 1e5, 1e6, 1e7 -- flat to four places, changes -3.0e-4, -4.0e-5, -1.3e-5. Only p = 2 and p = 1 mod 4 admit p^2 | x^2+1, each costing density 2/p^2, so a sieve truncated at P = 20000 has error under 1e-5.",
-      "experiment": "p^2 sieve over the roots of -1 mod p^2; Note M, 'The two measurements of the law are the same sum'",
+      "statement": "The density of x <= X with x^2+1 squarefree is 0.895200, 0.894890, 0.894856 at X = 1e4, 1e5, 1e6 -- exact counts 8952, 89489, 894856 -- flat to four places, changes -3.1e-4, -3.4e-5. Only p = 2 and p = 1 mod 4 admit p^2 | x^2+1, and p = 2 never does (x^2+1 = 1 or 2 mod 4), so the density is the constant prod_{p = 1 (4)} (1 - 2/p^2) times the p = 2 factor 1.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
       "tags": [
         "type_ii"
       ],
-      "notes": "Load-bearing for sqrt-MX-law's range. With cofactor-mobius-factors-on-squarefree-values, exp02's S_mu and exp05's per-progression sums agree exactly on the squarefree x, so the whole discrepancy is this density -- and a constant factor cannot move an exponent. At X = 4000 over the band [300,600) the aggregate ratio of the two sums is 0.884, consistent with the density. Measured here, not quoted: the constant is presumably classical but no source has been read for it in this repo."
+      "notes": "Load-bearing for sqrt-MX-law's range. With cofactor-mobius-factors-on-squarefree-values, exp02's S_mu and exp05's per-progression sums agree exactly on the squarefree x, so the whole discrepancy is this density -- and a constant factor cannot move an exponent. At X = 4000 over the band [300,600) the aggregate ratio of the two sums is 0.884, consistent with the density. Measured here, not quoted: the constant is presumably classical but no source has been read for it in this repo. CORRECTED, and the correction is why prose citations matter. The recorded row at X = 1e5 was 0.894900; the exact count is 89489, i.e. 0.894890. The rows had been rounded to inconsistent precision -- 1e6's 0.894856 was written 0.894860 (5 places), 1e5's 0.894890 was written 0.894900 (4 places, padded) -- and the recorded CHANGES -3.0e-4, -4.0e-5, -1.3e-5 were then computed from the rounded values, so they were wrong in the second figure (-3.4e-5, not -4.0e-5). Now stated as exact integer counts, which cannot be silently re-rounded. The sieve was checked against sympy factorint at X = 2000 and 20000 before any of this was believed. The CONCLUSION is untouched: flat to four places, and 0.8948 is not DIAG/T = 0.766."
     },
     {
       "id": "root-grouping-splits-the-two-normalisations",
@@ -1177,11 +1189,11 @@
       "id": "rational-graph-thickens-one-side-not-both",
       "status": "rigorous_finite",
       "statement": "Over Z the incidence graph is rich in complete bipartite subgraphs with one side of size 2 and has none with both sides 3. Largest K_(2,s) at X = 4000 is s = 8, at cofactors (1,5) with moduli 2, 10, 65, 442, 3026, 20737, 142130, 974170; and rational-graph-contains-K-s-2 gives K_(6,2). K_(3,3): ZERO instances among the 300 highest-degree cofactors at X = 4000, every one of the nine incidences re-verified from the definition.",
-      "experiment": "in-session divisor-based incidence build; recorded in Note L, 'The sharper form of the Z-vs-Z[i] gap'",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
       "tags": [
         "type_ii"
       ],
-      "notes": "NOT exhaustive: a K_(3,3) needs all three cofactors to have degree >= 3 and the sweep takes the 300 largest, so the claim is about that finite population and no more. The parallel session reaches the same conclusion at X = 6000 by an independent route -- after a first version that reported 19 spurious instances because the third cofactor could equal the first, a correct computation of the wrong thing. Content: the row-merging that breaks C4-freeness thickens the graph in each direction separately and in neither jointly, which says WHICH completeness survives the Z[i] -> Z transfer and is sharper than 'max Gram 2 instead of 1'."
+      "notes": "NOT exhaustive: a K_(3,3) needs all three cofactors to have degree >= 3 and the sweep takes the 300 largest, so the claim is about that finite population and no more. The parallel session reaches the same conclusion at X = 6000 by an independent route -- after a first version that reported 19 spurious instances because the third cofactor could equal the first, a correct computation of the wrong thing. Content: the row-merging that breaks C4-freeness thickens the graph in each direction separately and in neither jointly, which says WHICH completeness survives the Z[i] -> Z transfer and is sharper than 'max Gram 2 instead of 1'. Was PROSE in the `experiment` field, which the registry's rule for `rigorous_finite` -- \"`experiment` naming the script\" -- does not admit; the parallel session's guard found it. exp23 computes it, and it reproduces exactly."
     },
     {
       "id": "saving-law-measured-through-theta-half",
@@ -1434,6 +1446,20 @@
         "type_ii"
       ],
       "notes": "Verified from ratio_classes rather than the parallel session's construction. The orbit-crossing point mattered and they flagged it themselves: it is not obvious that the U^2 - D V^2 = M^2 relation survives a change of orbit, and it does. WHY O.4 IS THE MOST VALUABLE RESULT IN NOTE O, stated here because its author has been careful to undersell it: it is the ONLY one there that assumes nothing about which multiplier acts. O.3, O.3' and O.3'' all require tau_1, so none touches live-non-fundamental-close-pair or anything else in the p,q >= 2 gap; O.4 does, because composition does not care which multipliers the two steps use. THE AUTHOR'S CAVEATS STAND AND SHOULD TRAVEL WITH IT: necessary condition rather than contradiction, quadruples a threshold, and not binding -- smallest two-step ratio 14.50 at (1,533) against the 2 a window needs, a factor 7.25. A statement about what the argument reaches, not about the sequence. CITATION, stated precisely because I had just written the rule about this and nearly broke it. exp19 covers the closed forms exactly, and it iterates the SAME consecutive pairs from ratio_classes computing the same V = |X_i Y_{i+1} - X_{i+1} Y_i|. What it does NOT do is assert that M^2 + D V^2 is a perfect square -- it takes the square root and proceeds. That assertion, and the 1596-pairs-zero-failures count, are mine and were run in-session, not by exp19. So the citation is right for the thresholds and one step short for step (1); the parallel session's exp21_note_O_verifications.py may close it, and if so this should point there instead. CLOSED. The parallel session added the assertion to exp19 directly -- `bad_pell += Upair*Upair - D*V*V != M*M`, commented 'STEP 1, asserted rather than assumed' -- so the citation is now exact rather than one step short. Running it: X = 3000 gives 1950 pairs, 0 failures. My in-session 1596 was a smaller X and is superseded by the reproducible number; the count is size-dependent, and exp19 skips X_i = 0, so the population is stated rather than left to the reader. Note what closed the gap was not a better argument but someone running the check in a file that gets rerun. Reproduced at TWO sizes, which is the point of moving it out of an in-session script: exp19 gives 1596/0 at X = 2500 -- exactly the number I had run in-session -- and 1950/0 at X = 3000."
+    },
+    {
+      "id": "sign-alternation-closes-the-integrality-route",
+      "status": "proved",
+      "statement": "Proposition O.6. For M = b-a an odd prime, exactly one of M | S, M | T holds at each solution (S = X+Y, T = X-Y), and it forces the sign of U_p == eps_p 2pa: M | S => M | B_p, M | T => M | A_p. The exact identities are M S' = A_p S + V_p M X and M T' = B_p T - V_p M X, and in subcase A, A_p beta = M + 4p^2 a with A_p == 4pa forces beta == p (mod M), so T' == 2X(beta - p) == 0. THE SUBCASE THEREFORE ALTERNATES AT EVERY STEP. Consequently a triple has eps_p = +1 and eps_q = -1, and both of the composite's integrality conditions become automatic: q U_p + p U_q == 0 and U_p U_q + 4pq D == 0 (mod M). So the integrality route cannot close Conjecture O.2.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O6_exact_identities_and_that_the_naive_form_is_wrong; tests/test_note_o.py::test_O6_dichotomy_and_that_the_subcase_alternates; tests/test_note_o.py::test_O6_sign_is_forced_and_beta_is_congruent_to_p; tests/test_note_o.py::test_O6_opposite_signs_make_the_composite_conditions_vacuous",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [],
+      "tags": [
+        "note_o",
+        "window",
+        "closed_route"
+      ],
+      "notes": "A NEGATIVE result, and the point is the mechanism rather than another threshold. Verified at X = 3000 over M odd prime: 246 steps, alternates 246 times and stays the same 0 times; eps forced by the subcase and beta == p (resp. alpha == -p) with 0 failures; and 0 failures over 493 opposite-sign (p,q) pairs against 40 of 246 same-sign pairs FAILING both conditions -- so the conditions have content and the alternation is what removes it. THE NAIVE IDENTITY IS WRONG: S' = A_p S / M, which the mod-M relation suggests, fails on 246 of 246 pairs; only M S' = A_p S + V_p M X holds. The necessary conditions M | A_p S and M | B_p T survive that error, the orbit bookkeeping does not, and the first version of this argument was built on the wrong form. NOT VACUOUS: M odd prime is 54 of the 379 realised close pairs (14%), so what fails is the method, not the coverage. This is the mechanism behind the recorded empirical observation that all 95 candidates are satisfiable mod M -- for M odd prime that is now a proof, and it says why."
     }
   ]
 }

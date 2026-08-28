@@ -248,10 +248,10 @@ def test_retracted_wording_is_not_still_in_the_statement():
 #
 # THIS LIST MUST ONLY SHRINK. Do not add to it: write the experiment instead.
 PROSE_EXPERIMENT_FIELDS = {
-    "kappa-threshold-is-sharp",
-    "c4-freeness-is-arithmetic-not-density",
-    "squarefree-density-of-x2plus1-is-flat",
-    "rational-graph-thickens-one-side-not-both",
+    # Four came off this list when exp23 was written; the guard fired on all
+    # four, which is what it is for.  What remains is refuted -- a refuted claim
+    # is kept so it cannot be silently re-asserted, and reproducing numbers that
+    # were wrong buys nothing.  That is a decision, not a backlog.
     "orbit-walk-covers-a-small-part-of-the-candidates",   # refuted; kept as-is
 }
 

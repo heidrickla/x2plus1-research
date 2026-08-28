@@ -517,9 +517,16 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   sessions *edit that file*, so scoping to it excludes nothing. A pathspec
   protects you only where the sessions touch disjoint paths, which is precisely
   the case that was never the problem. On a genuinely shared file the only
-  defence is to look at what the diff *contains*: `git diff -- <path> | grep -o
-  '"id": "[a-z0-9-]*"' | sort -u` before committing, and expect the ids you
-  edited and no others. Verified from `git show`, not from the report — the other
+  defence is to look at what the diff *contains* — and to do it by **parsing both
+  versions and comparing**, not by grepping the diff. The grep form was tried
+  here first and is wrong: a claim's `"id"` line is *context*, not a changed
+  line, so it reports every id whose neighbour moved. On the very next commit it
+  named seven ids where four had changed, and three of the phantoms belonged to
+  the other session — the check was one step from producing a false accusation
+  of exactly the collision it was written to detect. The correct form loads
+  `git show HEAD:<path>` and the working file, keys both by id, and diffs the
+  dicts; it reported four, which was right. **A check that over-reports on a
+  shared file is not the safe direction: it manufactures collisions.** Verified from `git show`, not from the report — the other
   session flagged it, and the flag was right, but a collision report is a claim
   like any other.
   **And one edit per block**: a script with two `replace` calls
