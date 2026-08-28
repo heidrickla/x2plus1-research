@@ -974,3 +974,91 @@ def test_O6_opposite_signs_make_the_composite_conditions_vacuous():
     assert opp > 100, opp
     assert bad_opp == 0, bad_opp          # automatic, so the route is dead
     assert same > 50 and bad_same > 0     # but the conditions do have content
+
+
+def test_O7_the_V_identity_carries_a_factor_of_a():
+    """a |V| (X_j Y_i + X_i Y_j) = M (X_j^2 - X_i^2), over ALL pairs.
+
+    Dropping the a is the natural slip and makes the bound come out with a
+    spurious factor; with it, the M/(2 sqrt D) form is exact.
+    """
+    n = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                V = abs(xs[i] * ys[j] - xs[j] * ys[i])
+                assert a * V * (xs[j] * ys[i] + xs[i] * ys[j]) == M * (
+                    xs[j] ** 2 - xs[i] ** 2
+                ), (a, b, ms[i], ms[j])
+                n += 1
+    assert n > 200, n
+
+
+def test_O7_in_window_forces_M_does_not_divide_V():
+    """|V| < 0.57735 M/sqrt(D) <= 0.40825 M < M on every in-window pair."""
+    bound = (sqrt(3) - 1 / sqrt(3)) / 2
+    assert abs(bound - 0.5773502692) < 1e-9
+    n, worst = 0, 0.0
+    for (a, b), ms in CLASSES.items():
+        M, D = b - a, a * b
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            if xs[i] < 1:
+                continue
+            for j in range(i + 1, len(ms)):
+                if ms[j] >= 2 * ms[i]:
+                    continue
+                V = abs(xs[i] * ys[j] - xs[j] * ys[i])
+                assert 0 < V < bound * M / sqrt(D), (a, b, ms[i], ms[j], V)
+                assert V % M != 0, (a, b, ms[i], ms[j], V)
+                worst = max(worst, V * sqrt(D) / M)
+                n += 1
+    assert n > 100, n
+    assert worst < bound          # and the bound is not attained
+
+
+def test_O7_dichotomy_and_flip_hold_on_every_in_window_prime_pair():
+    """The two ingredients of O.7, on the configurations that do occur."""
+    from sympy import isprime
+
+    n = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 3 or M % 2 == 0 or not isprime(M):
+            continue
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                if ms[j] >= 2 * ms[i]:
+                    continue
+                c1 = ((xs[i] + ys[i]) % M == 0, (xs[i] - ys[i]) % M == 0)
+                c2 = ((xs[j] + ys[j]) % M == 0, (xs[j] - ys[j]) % M == 0)
+                assert sum(c1) == 1 and sum(c2) == 1, (a, b, c1, c2)
+                assert c1 != c2, (a, b, ms[i], ms[j])
+                n += 1
+    assert n > 20, n
+
+
+def test_O7_realised_prime_triples_escape_exactly_by_M_dividing_V():
+    """The proof's only hypothesis is M nmid V, and every realised triple has M | V.
+
+    Recorded from experiments/exp22_sign_alternation.py at X = 6000. These are
+    real triples, far outside any window (ratios of 1e4 and up), which is how
+    |V| gets past 0.57735 M/sqrt(D).
+    """
+    for a, b, m1, m3, V in [(2, 13, 5, 48985, 110), (2, 5, 13, 18241, 18),
+                            (2, 25, 13, 499001, 322)]:
+        M = b - a
+        assert V % M == 0, (a, b, V, M)
+        assert m3 > 2 * m1                        # nowhere near one window
+        x1, y1 = isqrt(a * m1 - 1), isqrt(b * m1 - 1)
+        x3, y3 = isqrt(a * m3 - 1), isqrt(b * m3 - 1)
+        assert abs(x1 * y3 - x3 * y1) == V, (a, b)

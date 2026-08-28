@@ -751,7 +751,7 @@ closed and the τ₁-assuming cases were closed by O.3″. The live witness
 (53, 423125) at k = 12 is a pair, so it does not exhibit the surviving case
 either; nothing realised does.
 
-### Proposition O.6 — the sign alternates, and that closes the integrality route
+### Proposition O.6 — the sign alternates at every step
 
 With O.3″ covering the τ₁-assuming cases and O.5 the equal-multiplier case, what
 survived of O.2 was two **distinct** multipliers. This is the attempt to close
@@ -794,18 +794,86 @@ are **automatic**:
 same-sign pairs fail both** — so the conditions genuinely have content, and the
 alternation is precisely what removes it.)*
 
-> **So the integrality route cannot close O.2.** The structure that lets τ_p act
-> on ξ₁ is the same structure that makes τ_q's action on ξ₂ integrality-free.
-> Whatever forbids a third modulus is **not a congruence**.
+> **So the composite's integrality conditions carry no information.** The
+> structure that lets τ_p act on ξ₁ is the same structure that makes τ_q's action
+> on ξ₂ integrality-free.
+
+> ### ⚠ CORRECTED — this section first concluded "the integrality route cannot
+> close O.2", and that is **too strong**. What is dead is the *composite's
+> integrality conditions*, which is what the numbers above measure. The
+> **alternation itself** is a different constraint — a consistency condition, not
+> a divisibility — and **Theorem O.7 below closes the M odd prime case with it**.
+> The correct statement is the narrow one: those two conditions are vacuous.
+> Recorded rather than rewritten, because "route X is dead" was asserted here on
+> evidence that only showed "sub-route X′ is dead", which is the single most
+> repeated error in this repo.
 
 **This is the mechanism behind an observation already in the repo.** "There is no
-local obstruction — all 95 candidates are satisfiable mod M — so O.2 is not a
-congruence statement" was an empirical remark about 95 cases. For M an odd prime
-it is now a proof, and it says *why*: the signs alternate.
+local obstruction — all 95 candidates are satisfiable mod M" was an empirical
+remark about 95 cases. For M an odd prime the *pointwise* satisfiability is now
+explained: the signs alternate, so each composite condition holds for free. What
+does **not** follow — and what this note wrongly inferred for an hour — is that
+no congruence-flavoured argument can work. The alternation is itself such an
+argument, and it closes the case.
 
 **And the case was worth closing, which is why the failure is informative.**
 M odd prime is **54 of the 379 realised close pairs (14%)**, not a corner. What
 fails is the method, not the coverage.
+
+### Theorem O.7 — Conjecture O.2, proved for M an odd prime
+
+The alternation is not just a description; it is a **consistency** constraint,
+and three moduli in one window violate it. The whole proof is that a two-step
+chain and the one-step composite disagree about where ξ₃ sits.
+
+> **The exact identity.** For any two solutions,
+> **a·|V|·(X_jY_i + X_iY_j) = M(X_j² − X_i²)**.
+> *(0 failures over 4033 pairs at X = 6000. The factor a is easy to drop — my
+> first version did — and it is what makes the next line come out clean.)*
+>
+> **The in-window bound.** aY² = bX² + M > bX² gives Y > X√(b/a), so
+> X_jY_i + X_iY_j > 2X_iX_j√(b/a) and
+>
+> **|V| < (M/2√D)(R − 1/R)**,  R = X_j/X_i.
+>
+> A window with X_i ≥ 1 gives R² = X_j²/X_i² < 2 + 1/X_i² ≤ 3, so R − 1/R < 2/√3
+> and **|V| < 0.57735·M/√D ≤ 0.40825·M < M**. Since V ≠ 0, **M ∤ V for every
+> in-window pair.** *(0 failures over 751 in-window pairs, max |V|√D/M = 0.3529
+> against the bound 0.57735; and M | V occurs 0 times.)*
+>
+> **The dichotomy needs exactly that.** Both M | S and M | T give M | X and M | Y,
+> so M² | aY² − bX² = M, i.e. M = 1. Neither gives M | A_V and M | B_V, hence
+> M | A_V − B_V = 2Va, hence M | V — excluded. So **exactly one holds**.
+>
+> **The contradiction.** Let ξ₁, ξ₂, ξ₃ lie in one dyadic window. All three
+> pairwise ratios are < 2, so M ∤ V for all three steps and Proposition O.6
+> applies to each. Say ξ₁ is in subcase A. Then ξ₂ is in B, so ξ₃ is in A. But
+> **ξ₁ → ξ₃ is itself a single step**, so ξ₃ is in B. By the dichotomy ξ₃ cannot
+> be both. ∎
+
+> **Theorem O.7.** For M = b − a an odd prime, no dyadic window contains three
+> shared moduli of the class (a, b). This is **Conjecture O.2 for M odd prime**,
+> and it assumes nothing about which multipliers act — it covers p ≠ q.
+
+**The realised triples escape exactly where the proof says they must.** M ∤ V is
+the only hypothesis, and every realised M-odd-prime class holding three moduli
+has **M | V on its two-step**:
+
+| (a,b) | M | two-step | V₁₃ | V₁₃/M |
+|---|---|---|---|---|
+| (2, 13) | 11 | 5 → 48985 | 110 | 10 |
+| (2, 5) | 3 | 13 → 18241 | 18 | 6 |
+| (2, 25) | 23 | 13 → 499001 | 322 | 14 |
+
+Those triples are real and far outside any window — ratios of 10⁴ and up — which
+is precisely how |V| gets past 0.577·M/√D. *(Over all pairs with M odd prime at
+X = 6000: 454 of 459 flip the subcase, and **all 5 that do not have M | V**.)*
+
+**What remains open is M composite.** The dichotomy and the sign both use that M
+is prime: U² ≡ (Va)² only gives M | A_VB_V in general, and the signs can differ
+across the prime factorisation of M — which is exactly the 2-adic gap O.3 already
+had. **M odd prime is 54 of the 379 realised close pairs (14%)**, so this is a
+real slice rather than a corner, and the surviving case is the composite one.
 
 **And the candidate criterion in the withdrawn section was the wrong shape**,
 which matters only for reading that section's numbers. For three moduli

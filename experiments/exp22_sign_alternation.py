@@ -1,9 +1,15 @@
-"""Experiment 22 -- why the integrality route cannot close Conjecture O.2.
+"""Experiment 22 -- the sign alternation, and Conjecture O.2 for M an odd prime.
 
 Supports Note O.  After O.3'' closed the tau_1-assuming cases and O.5 closed the
 equal-multiplier case, what survived of O.2 was exactly two DISTINCT multipliers.
-This script is the attempt to close that for M = b-a an odd prime, and the
-finding is that it CANNOT be closed this way -- with a mechanism.
+This script closes that for M = b-a an odd prime.
+
+    CORRECTED.  This file first concluded "the integrality route cannot close
+    O.2".  That was TOO STRONG and is the repo's most-repeated error: the
+    evidence showed only that the COMPOSITE'S INTEGRALITY CONDITIONS are vacuous
+    (section 2, which stands).  The ALTERNATION itself is a different kind of
+    constraint -- a consistency condition rather than a divisibility -- and it
+    closes the case (section 4).  Kept as a correction rather than a rewrite.
 
 THE SETUP.  Mod M we have b == a, so tau_p acting on xi = (X,Y) gives
 
@@ -37,14 +43,25 @@ AUTOMATIC:
     q U_p + p U_q   ==  2pqa - 2pqa  == 0     (mod M)
     U_p U_q + 4pq D ==  -4pq a^2 + 4pq a^2 == 0
 
-So the route dies.  The structure that lets tau_p act on xi_1 is the same
-structure that makes tau_q's action on xi_2 integrality-free.  Same-sign pairs
-WOULD be constrained -- 34 of 234 fail both conditions -- but the alternation
-never produces them.
+So those two conditions carry no information.  The structure that lets tau_p act
+on xi_1 is the same structure that makes tau_q's action on xi_2
+integrality-free.  Same-sign pairs WOULD be constrained -- 40 of 246 fail both --
+but the alternation never produces them.
 
-This is the mechanism behind the recorded observation that all 95 candidates are
-satisfiable mod M, i.e. that O.2 is not a congruence statement.  That was an
-empirical remark about 95 cases; for M odd prime it is now a proof.
+THEOREM O.7, which is what the alternation does close.  Three moduli in one
+window make xi_1 -> xi_2 -> xi_3 flip TWICE, back to subcase A, while the single
+step xi_1 -> xi_3 flips ONCE, to B.  The dichotomy forbids both.  Its only
+hypothesis is M nmid V, and the window supplies it:
+
+    a |V| (X_j Y_i + X_i Y_j) = M (X_j^2 - X_i^2)    [exact; the factor a is
+                                                      easy to drop, and I did]
+    Y > X sqrt(b/a)  =>  |V| < (M/2 sqrt D)(R - 1/R),  R = X_j/X_i
+    ratio < 2 with X_i >= 1  =>  R^2 < 3  =>  |V| < 0.57735 M/sqrt(D) < M.
+
+So for M an odd prime, no dyadic window holds three shared moduli -- Conjecture
+O.2 on that slice, assuming nothing about which multipliers act.  Realised
+triples escape exactly where the proof says they must: all three at X = 6000 have
+M | V on their two-step, and sit at ratios of 1e4 and up.
 
 Usage:  python experiments/exp22_sign_alternation.py [X]
 """
@@ -168,7 +185,7 @@ def composite_is_automatic(amax=30, bmax=3000, kcap=60):
     print(f"     M | 2(q U_p + p U_q): {badV2} failures;"
           f"  M | U_p U_q + 4pq D: {badU2} failures")
     print("  -> the conditions DO have content; the alternation is exactly what")
-    print("     removes it.  So the integrality route cannot close O.2.")
+    print("     removes it.  But that kills only THESE TWO CONDITIONS -- see 4.")
     return n, badV, badU, m, badV2
 
 
@@ -184,6 +201,64 @@ def non_vacuity(X):
     print("  have covered, and the route is what fails.")
 
 
+def theorem_O7(X):
+    """The in-window V bound, and how realised triples escape it."""
+    from math import sqrt
+    classes = ratio_classes(X)
+    BOUND = (sqrt(3) - 1 / sqrt(3)) / 2
+    n_id = bad_id = n_win = bad_bound = bad_div = 0
+    worst = 0.0
+    n_alt = bad_alt = 0
+    tri = []
+    for (a, b), ms in classes.items():
+        M, D = b - a, a * b
+        if M < 3:
+            continue
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            if xs[i] < 1:
+                continue
+            for j in range(i + 1, len(ms)):
+                V = abs(xs[i] * ys[j] - xs[j] * ys[i])
+                n_id += 1
+                bad_id += a * V * (xs[j] * ys[i] + xs[i] * ys[j]) != M * (
+                    xs[j] ** 2 - xs[i] ** 2)
+                if ms[j] >= 2 * ms[i]:
+                    continue
+                n_win += 1
+                bad_bound += not V < BOUND * M / sqrt(D)
+                bad_div += V % M == 0
+                worst = max(worst, V * sqrt(D) / M)
+                if M % 2 and isprime(M):
+                    c1 = ((xs[i] + ys[i]) % M == 0, (xs[i] - ys[i]) % M == 0)
+                    c2 = ((xs[j] + ys[j]) % M == 0, (xs[j] - ys[j]) % M == 0)
+                    n_alt += 1
+                    bad_alt += sum(c1) != 1 or sum(c2) != 1 or c1 == c2
+        if len(ms) >= 3 and M % 2 and isprime(M):
+            V13 = abs(xs[0] * ys[2] - xs[2] * ys[0])
+            tri.append((a, b, M, ms[0], ms[2], V13, V13 % M == 0))
+    print(f"  a|V|(X_j Y_i + X_i Y_j) = M(X_j^2 - X_i^2): {n_id} pairs,"
+          f" {bad_id} failures   (the factor a is easy to drop)")
+    print(f"  IN-WINDOW pairs: {n_win}")
+    print(f"     |V| < {BOUND:.5f} M/sqrt(D): {bad_bound} failures;"
+          f" max |V|sqrt(D)/M = {worst:.6f}")
+    print(f"     M | V: {bad_div} occurrences -- so M nmid V, which is O.7's")
+    print(f"     ONLY hypothesis.")
+    print(f"  M odd prime, in-window: {n_alt} pairs; dichotomy+flip failures:"
+          f" {bad_alt}")
+    print("  THEOREM O.7.  Three moduli in one window would make xi_1 -> xi_2 ->")
+    print("  xi_3 flip twice (back to subcase A) while the single step")
+    print("  xi_1 -> xi_3 flips once (to B).  The dichotomy forbids both.")
+    print("  So for M an odd prime, no window holds three -- Conjecture O.2 on")
+    print("  that slice, with no hypothesis on which multipliers act.")
+    print("  Realised triples escape exactly where the proof says they must:")
+    for a, b, M, m1, m3, V, d in tri:
+        print(f"     (a,b)=({a},{b}) M={M}: {m1} -> {m3}, V = {V},"
+              f" M | V ? {d}  (V/M = {V // M if d else '-'})")
+
+
 def main(X=3000):
     print("1. THE ALTERNATION")
     alternation(X)
@@ -193,6 +268,10 @@ def main(X=3000):
     print()
     print("3. THE CASE IS NOT VACUOUS")
     non_vacuity(X)
+    print()
+    print("4. THEOREM O.7 -- and the composite conditions being vacuous does NOT")
+    print("   mean the route is dead; the ALTERNATION itself closes it.")
+    theorem_O7(X)
 
 
 if __name__ == "__main__":
