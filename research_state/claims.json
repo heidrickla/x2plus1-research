@@ -2442,7 +2442,7 @@
       "id": "O7-does-not-extend-to-odd-composite-M",
       "status": "rigorous_finite",
       "statement": "The route from O.17 to a per-prime version of O.7 is CLOSED. O.7 closes Conjecture O.2 for M an odd PRIME by parity: two steps flip the subcase twice, the one-step composite flips it once, and the dichotomy forbids both. O.17 shows the composite integrality criterion is a per-prime sign, which suggests the alternation is too, and that the parity argument would then run at each prime of any odd M. It does not. At X = 3000, over unit-free classes with M odd composite and at least two shared moduli, per prime r | M: 794 alternate at every step, 20 do NOT, and in 18 further cases the dichotomy itself fails so no local sign is defined. Counterexamples include (2,65) M = 63 at r = 7 with codes [1,1,-1], (2,925) M = 923 at r = 71, (2,5945) M = 5943 at r = 7, (10,673) M = 663 at r = 3, and (2,185) M = 183 at r = 3.",
-      "experiment": null,
+      "experiment": "experiments/exp26_triple_branch.py",
       "depends_on": [
         "theorem-O7-M-odd-prime",
         "O17-composite-criterion-is-a-per-prime-sign"

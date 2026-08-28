@@ -131,11 +131,6 @@ def main(amax=3000, xmax=20_000_000):
     print("  about what lies outside it.")
 
 
-if __name__ == "__main__":
-    main(int(sys.argv[1]) if len(sys.argv) > 1 else 3000,
-         int(sys.argv[2]) if len(sys.argv) > 2 else 20_000_000)
-
-
 def o15_coverage(sizes=(3000, 6000)):
     """How much of the LIVE population does O.15's threshold remove?
 
@@ -182,3 +177,74 @@ def o15_coverage(sizes=(3000, 6000)):
     print("  The informative reach FALLS with X (88% -> 70%), so no claim is made")
     print("  about its limit.  Quoting the figure over all classes instead would")
     print("  give ~99% and mean nothing.")
+
+
+def alternation_does_not_extend(X=3000):
+    """O.18 -- route nine on O.2, closed.
+
+    O.7 closes O.2 for M an odd PRIME by parity: two steps flip the subcase
+    twice, the one-step composite flips it once, and O.6's dichotomy forbids
+    both.  O.17 shows the composite integrality criterion is a PER-PRIME sign,
+    which suggests the alternation is too -- and if it were, the parity argument
+    would run at each prime of any odd M and close O.2 for all odd M.
+
+    It does not.  O.6's dichotomy (exactly one of M | S, M | T) is proved using
+    M prime: both holding would give M | 4pa hence M | p.  At a prime power
+    dividing a composite M that step does not survive, which is what the
+    dichotomy failures below are.
+
+    Unit-free only (a >= 2): a = 1 is inadmissible for any Type II hypothesis, so
+    counterexamples there would prove nothing.
+    """
+    from collections import Counter
+    from math import isqrt
+
+    from sympy import factorint
+
+    from x2plus1.polyseq import ratio_classes
+
+    cls = ratio_classes(X)
+    stat = Counter()
+    examples = []
+    for (a, b), ms in cls.items():
+        M = b - a
+        if M % 2 == 0 or M == 1 or a == 1:
+            continue
+        ms = sorted(ms)
+        if len(ms) < 2:
+            continue
+        primes = list(factorint(M))
+        if len(primes) < 2:                  # M odd PRIME is O.7's case
+            continue
+        Xs = [isqrt(a * m - 1) for m in ms]
+        Ys = [isqrt(b * m - 1) for m in ms]
+        if any(x * x != a * m - 1 for x, m in zip(Xs, ms)):
+            continue
+        for r in primes:
+            sub = [((xi + yi) % r == 0, (xi - yi) % r == 0) for xi, yi in zip(Xs, Ys)]
+            if any(s[0] == s[1] for s in sub):
+                stat["dichotomy fails -- no local sign"] += 1
+                continue
+            code = [1 if s[0] else -1 for s in sub]
+            same = sum(1 for i in range(len(code) - 1) if code[i] == code[i + 1])
+            stat["alternates at every step" if same == 0 else "does NOT always alternate"] += 1
+            if same and len(examples) < 6:
+                examples.append((a, b, M, r, code))
+
+    print(f"  X = {X}, unit-free classes with M odd COMPOSITE and >= 2 shared moduli,")
+    print("  per prime r | M:")
+    for k, v in stat.most_common():
+        print(f"    {v:>6}  {k}")
+    print("  counterexamples (a, b, M, r, subcase codes):")
+    for e in examples:
+        print(f"    {e}")
+    print("  So the alternation is a statement about M PRIME, not about each prime")
+    print("  of M: the per-prime structure O.17 exposes for the composite criterion")
+    print("  does not propagate to the alternation.  Ninth route closed.")
+
+
+if __name__ == "__main__":
+    main(int(sys.argv[1]) if len(sys.argv) > 1 else 3000,
+         int(sys.argv[2]) if len(sys.argv) > 2 else 20_000_000)
+    o15_coverage()
+    alternation_does_not_extend(min(3000, max(800, int(sys.argv[1]) if len(sys.argv) > 1 else 3000)))
