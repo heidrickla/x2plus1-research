@@ -302,6 +302,19 @@ the objection that would sink a mean argument.
 > question aimed at a citation. **Paraphrases drift in the direction that makes
 > the local argument work.**
 
+**Positive control — the 0/1 property is not generic.** Doubly-dyadic max Gram at
+Q = 2.5×10⁴ / 5×10⁴ / 10⁵: **x²+1 = 1, 1, 1** (proved, 0 banded pairs sharing
+two); a²+b⁶ = 6, 7, 11; x³+2y³ = 5, 9, 15; a²+b⁴ = 26, 60, 66; a²+(b²+1)² = 33,
+67, 67. x²+1 is at 1 at every size where the value is a *theorem*; everything
+else **grows with Q**. **Which explains the footnote's own hedge** — for a count
+ranging over 0…67 there is something to average, for a 0/1 indicator there is
+not. **⚠ NOT a classifier, and the ordering is not even stable**: a²+b⁶ (not
+known captured) is *above* the captured x³+2y³ at Q = 2.5×10⁴ and below it at the
+other two, so it cannot separate captured from open. x³+2y³ is in the table
+because it is what killed the mean-G classifier, and it was run before the
+framing was chosen. **The claim is a difference in kind, not a position in an
+ordering.**
+
 **What is left of O.2.** Nothing structural — no hypothesis on M survives. What
 remains is quantitative: at X = 8000, 13 of 109 informative classes clear O.11,
 all with a = 1, and none holds three moduli in a window. **The bounds are not
@@ -567,7 +580,13 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   smaller one**, and the weaker one was nearly published instead. Same asymmetry
   that let the Plücker constant survive: a right-*shaped* sentence beats a right
   statement. When a comparison and a property are both available, suspect the
-  comparison.
+  comparison. **And note where each comes from: a sweep emits comparisons, a
+  derivation emits properties.** The tooling biases toward the weaker form, which
+  is an argument for deriving before measuring — the reverse of the order most of
+  this repo's findings were produced in. It also explains the other survivors:
+  "the mean is U-shaped", "κ crosses 1 where C₄-freeness does", and the Plücker
+  constant are each a *relation between two numbers* standing in for a
+  *statement about one object*, and each time the relation was the weaker claim.
 
 - **Paraphrases of a source drift toward whatever makes the local argument
   work, and only re-reading the sentence catches it.** `fm-barrier-range-is-
