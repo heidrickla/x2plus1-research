@@ -49,6 +49,31 @@ def _claims_summary() -> str:
     return "\n".join(lines)
 
 
+def _where_things_stand() -> str:
+    """The state section of CLAUDE.md, read rather than duplicated.
+
+    This used to be hardcoded prose, and it drifted: it asserted that x^2+1
+    meets DFI's Type I hypothesis for several commits after that claim became
+    `refuted` in the registry. A primer that re-injects a refuted claim into
+    every future session is worse than no primer, so the text now has exactly
+    one home.
+    """
+    path = REPO / "CLAUDE.md"
+    if not path.exists():
+        return "(CLAUDE.md missing)"
+    lines = path.read_text(encoding="utf-8").splitlines()
+    try:
+        start = lines.index("## Where things stand")
+    except ValueError:
+        return "(CLAUDE.md has no 'Where things stand' section)"
+    body = []
+    for line in lines[start + 1:]:
+        if line.startswith("## "):
+            break
+        body.append(line)
+    return "\n".join(body).strip()
+
+
 def _open_markers() -> str:
     out = []
     for p in sorted((REPO / "notes").glob("*.md")) + sorted((REPO / "refs").glob("*.md")):
@@ -67,13 +92,10 @@ the Friedlander-Iwaniec asymptotic sieve reformulated over Z[i]. Read README.md
 and notes/README.md first; the charter is x2plus1-research-plan.md (do not edit
 it without deliberate reason).
 
-THE CENTRAL RESULT so far: the obstruction is Type II, and it is Note F's
-C4-free lemma -- for A = {{x+i}}, G(n1,n2) = #{{m : mn1, mn2 in A}} <= 1, so the
-worst-case bilinear form has no cancellation at any split. This is a theorem
-about the sequence and survives any change of sieve. Note C establishes that
-FI's x^{{2/3}} is ASP's threshold, not prime detection's: the DFI sieve runs at
-Type I level x^{{1/2}}, which x^2+1 MEETS, and fails only its arbitrary-
-coefficient Type II hypothesis.
+WHERE THINGS STAND (verbatim from CLAUDE.md, which is the one hand-maintained
+copy -- this script does not carry its own version of it)
+
+{_where_things_stand()}
 
 DISCIPLINE, and this repo has burned itself twice by ignoring it:
   - research_state/claims.json records every claim with an ENFORCED status
