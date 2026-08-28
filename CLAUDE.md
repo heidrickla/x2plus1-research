@@ -460,6 +460,22 @@ D = 5…10 is six values permitted-and-unfallen, which is row (2) itself. **So t
 theorems nearly close O.2" but "the size arguments are now sharp enough to state
 and still nowhere near what is true".**
 
+**⚠ That last sentence is now known to be the wrong diagnosis, and the right one
+is sharper.** The extremal unit-free cofactor ratio for x²+1 is **34.0811** at
+(37, 1261) — against O.12's |V| ≥ 1 threshold of 4.7913 that is 7.11×, but
+against the |V| ≥ 2 threshold **(1+√2)⁴ = 33.9706** (the parity form, which
+*holds*) it is **1.0033**. The bound is **sharp to a third of a percent**, and
+the 7.11× decomposes exactly: **7.09× is the non-τ₁ allowance O.12 must carry,
+0.33% is the actual slack**. The extremal witness *is* a τ₁ step — τ₁² = 1.997707
+against an observed 1.997691 — and D = 4's two sub-threshold cycles are non-τ₁,
+so *above ⟺ τ₁* separates. **Bounds stated for all configurations are loose by
+the width of the configurations that do not occur; restricted to the realised
+type, the size argument is attained.** That is a different diagnosis from "size
+cannot see arithmetic", with a different implication for whether the method could
+ever be sharp. It does not close O.2 or improve O.12 — the non-τ₁ case is the
+cross-orbit configuration multipliers do not predict, so the gap is *named*, not
+closed.
+
 **What is left of O.2.** Nothing structural — no hypothesis on M survives. What
 remains is quantitative: at X = 8000, 13 of 109 informative classes clear O.11,
 all with a = 1, and none holds three moduli in a window. **The bounds are not
