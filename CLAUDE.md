@@ -837,6 +837,19 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   machinery instead of two derivations. **When two notes' objects look like the
   same object, evaluate both on one instance before believing it.**
 
+- **Two sessions on one machine share `/tmp`, and a commit message written there
+  will be committed by the other session.** Commit `a142e23` adds 59 lines to
+  Note O under the message *"My own five prose citations; four now run, and one
+  of them was wrong"* — a message written four hours earlier, by the other
+  session, for an unrelated commit. Cause: `/tmp/msg.txt`, written during a
+  `git commit --amend -F /tmp/msg.txt` and still holding that text when the
+  second session used the same path. **Nothing was lost and the log is wrong**:
+  a reader following it finds 59 lines of Note O filed as claim-citation work.
+  Use the session scratchpad — the path is in the system prompt and is
+  session-specific — never `/tmp`, for message files, for background-job output,
+  for anything. This is the collision hazard that `git commit -- <paths>` cannot
+  see, because it happens before git is involved.
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified
