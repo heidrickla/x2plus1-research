@@ -880,6 +880,16 @@
         "type_ii"
       ],
       "notes": "The V histogram and the asymptotic comparison were run in-session against exp13's ratio_classes; exp13 itself reports the window and two-step statistics rather than V. Bears on Note O's Proposition O.1. If its step (i) derives P = Q^2 from |V| = 2 -- which gives U = +-(a+b) -- then it covers only that case, and the general one has |V| = 2k with U^2 = M^2 + 4k^2 D, a different factorisation. Also proved here by parity: for a, b both odd, X_k = Y_k (mod 2) since m odd makes both even and m even makes both odd, so V is always even and |V| = 1 is impossible. That much IS a lemma."
+    },
+    {
+      "id": "V-is-even-so-never-one",
+      "status": "proved",
+      "statement": "For a shared modulus m of (a, b) with a, b both odd, X^2 = am-1 and Y^2 = bm-1 give X = Y (mod 2): m odd makes am, bm odd so X^2, Y^2 even so X, Y both even; m even makes both odd. Hence V = X_i Y_j - X_j Y_i is always EVEN, so |V| >= 2 and |V| = 1 is impossible.",
+      "proof_site": "notes/note-L-over-Z.md; tests/test_polyseq.py::test_V_is_always_even_so_never_one",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Two lines, and it settles the 'never 1' half of Note O's step (ii) with no hypothesis. The other half -- 'always 2' -- is NOT a lemma: see V-is-the-asymptotic-not-the-constant-2, where |V| is 24, 66 and 182 for pairs with large M/sqrt(D), matching the asymptotic to 0.1-4%."
     }
   ]
 }

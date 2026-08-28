@@ -161,3 +161,38 @@ def test_phi_squared_is_the_smallest_fundamental_automorph():
     assert abs(best[0] - phi2) < 1e-9, best
     assert best[1] == 5
     assert phi2 ** 2 > 2          # m'/m >= phi^4 = 6.854 > 2: one per window
+
+
+def test_V_is_always_even_so_never_one():
+    """Note L / Note O: |V| >= 2 is parity, not a coincidence.
+
+    A shared modulus m of (a, b) gives X^2 = am - 1 and Y^2 = bm - 1. For a, b
+    both odd: if m is odd then am and bm are odd, so X^2 and Y^2 are even, so X
+    and Y are both even; if m is even then both are odd. Either way
+
+        X_k = Y_k  (mod 2),
+
+    hence V = X_i Y_j - X_j Y_i = X_i X_j - X_j X_i = 0 (mod 2).
+
+    So |V| = 1 is impossible and the minimum is 2. That much is a lemma; "|V| is
+    always 2" is not -- see `V-is-the-asymptotic-not-the-constant-2`, where |V|
+    takes the values 24, 66 and 182 for pairs with large M/sqrt(D).
+    """
+    from x2plus1.polyseq import ratio_classes
+    classes = ratio_classes(900)
+    checked = 0
+    for (a, b), ms in classes.items():
+        if a % 2 == 0 or b % 2 == 0 or len(ms) < 2:
+            continue
+        for i in range(len(ms) - 1):
+            mi, mj = ms[i], ms[i + 1]
+            Xi, Yi = isqrt(a * mi - 1), isqrt(b * mi - 1)
+            Xj, Yj = isqrt(a * mj - 1), isqrt(b * mj - 1)
+            if Xi * Xi != a * mi - 1 or Yi * Yi != b * mi - 1:
+                continue
+            if Xj * Xj != a * mj - 1 or Yj * Yj != b * mj - 1:
+                continue
+            checked += 1
+            assert (Xi - Yi) % 2 == 0 and (Xj - Yj) % 2 == 0, (a, b, mi, mj)
+            assert (Xi * Yj - Xj * Yi) % 2 == 0, (a, b, mi, mj)
+    assert checked > 100, f"only {checked} pairs exercised; the test is too weak"

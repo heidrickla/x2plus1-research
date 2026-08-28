@@ -264,6 +264,37 @@ m = 10, 17, 24650, 42850, with close pairs (10, 17) at ratio 1.700 and
 *consecutive* positions, which is what "three in one window" would require. The
 statement is about consecutive triples, not about classes.
 
+### |V| ≥ 2 is parity; |V| = 2 is not a lemma
+
+[Note O](note-O-tau-multiplier.md)'s invariant V = X_iY_j − X_jY_i satisfies
+U² − DV² = M², and the case |V| = 2 forces U² = M² + 4ab = (a+b)². Two facts
+about it, and only one is a theorem.
+
+> **Lemma.** For a, b both odd, V is always even, so |V| ≥ 2.
+>
+> *Proof.* X² = am − 1 and Y² = bm − 1. If m is odd then am and bm are odd, so
+> X² and Y² are even and X, Y are both even; if m is even then both are odd.
+> Either way X ≡ Y (mod 2), so V = X_iY_j − X_jY_i ≡ X_iX_j − X_jX_i ≡ 0 (mod 2). ∎
+
+Machine-checked (`tests/test_polyseq.py::test_V_is_always_even_so_never_one`).
+So "never |V| = 1" needs no hypothesis.
+
+**"Always |V| = 2" does, and it is false.** At X = 4000 the histogram over 498
+close pairs is {2: 495, 24: 1, 66: 1, 182: 1}, and the three are not anomalies —
+they are the asymptotic |V| ≈ (M/2√D)(√r − 1/√r) working:
+
+| M/√D | \|V\| | predicted | rel. err | (a, b) |
+|---:|---:|---:|---:|---|
+| 89.3 | 24 | 24.0 | 0.001 | (53, 423125) |
+| 227.4 | 66 | 65.7 | 0.005 | (1, 51701) |
+| 650.5 | 182 | 174.6 | 0.041 | (1, 423125) |
+
+Their M/√D is 89, 227, 650 against a median of 11.96, and the |V| = 2 population
+itself runs from 5.6666 to 87.0. So |V| = 2 is not a lemma with three exceptions:
+**|V| is whatever the asymptotic gives**, and it equals 2 for pairs near the
+minimal-separation configuration — which is most of them, because the close-pair
+condition r < 2 already forces M/√D > 5.657.
+
 ## So Note F's conclusion transfers, and here is exactly how much is proved
 
 - **Proved, Z[i]:** G(n₁,n₂) ≤ 1, at every split and on the full graph
