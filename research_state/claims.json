@@ -1530,9 +1530,9 @@
       "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_odd_squarefree_M_always_has_a_prime_not_dividing_V"
     },
     {
-      "id": "O7-should-extend-to-odd-squarefree-M",
+      "id": "the-minimal-hypothesis-for-O8-is-a-common-prime",
       "status": "inferred",
-      "statement": "O.7's conclusion -- no dyadic window holds three shared moduli -- should extend from M an odd prime to M odd squarefree, and the dichotomy step does so cleanly. Run the argument at a prime power p^e || M rather than at M. Exactly one of p^e | A_V, p^e | B_V holds: p^e | A_V B_V since p^e | M | A_V B_V; and p | A_V with p | B_V would give p | A_V - B_V = 2Va hence p | V, excluded by the pigeonhole above, so p misses one of them, say A_V, whence p^e | B_V and p^e does not divide A_V. Both-divide is also killed directly: p^e | S and p^e | T give p^e | X and p^e | Y, so p^{2e} | aY^2 - bX^2 = M, contradicting p^e || M.",
+      "statement": "Theorem O.8 assumes gcd(V,M) = 1 on each of the three pairwise steps. That is SUFFICIENT but not necessary: the three-moduli contradiction can be run at a SINGLE prime p | M, needing only p not dividing V_12, V_23 and V_13. At such a p the local subcase (whether p | S or p | T) is defined and flips at every step, so xi_1 -> xi_2 -> xi_3 returns it while xi_1 -> xi_3 flips it, and one prime suffices for the contradiction -- the whole pair (gcd(M,S), gcd(M,T)) need not swap. So the minimal hypothesis is 'some p | M divides none of the three V', which is strictly weaker than gcd(V,M) = 1.",
       "experiment": "experiments/exp22_sign_alternation.py",
       "depends_on": [
         "odd-squarefree-M-always-admits-a-prime-not-dividing-V"
@@ -1540,7 +1540,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "INFERRED, and what is missing is precise: Proposition O.6, the sign alternation, is stated and verified mod M and I have not checked that it runs mod p^e. The dichotomy step above I did derive. So this is two thirds of an extension, and the remaining third is somebody re-running O.6's argument with p^e in place of M -- which is the parallel session's note, so it is theirs to confirm or refute rather than mine to assert. Filed as `inferred` rather than `proved` for exactly that gap; the last time a conclusion was over-read from a derivation that covered most of the steps, it went into this registry as `refuted`.",
+      "notes": "What the pigeonhole buys and what it does not. PER STEP the hypothesis is FREE for M odd squarefree: if every p | M divided V then M = rad(M) | V, against 0 < |V| < M. So the dichotomy is unconditional at some prime for each step separately. It does NOT give the three-step version, because the pigeonhole can return a DIFFERENT prime for each of the three steps, and three proper subsets of the primes of M can cover them all. Making the bad sets empty -- gcd(V,M) = 1 -- is one way to force a common prime and is what O.8 assumes; requiring a common prime is another and is weaker. Empirically they do not separate: every in-window pair with M odd has gcd(V,M) = 1 (their 295/295 at X = 6000), so no realised configuration distinguishes the two hypotheses, and the weaker one is worth stating only because it is what a proof would actually have to supply. INFERRED: I derived the single-prime reduction from their statement of the argument, and have not re-derived Proposition O.6's flip at a single prime rather than mod M, which is the step that would make it real.",
       "proof_site": "",
       "superseded_by": ""
     },

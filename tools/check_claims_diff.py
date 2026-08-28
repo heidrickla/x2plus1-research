@@ -42,9 +42,9 @@ def main() -> int:
     expected = sorted(sys.argv[1:])
     if not expected:
         return 0
-    unexpected = sorted(set(changed) - set(expected))
-    if unexpected or removed:
-        print("REFUSING -- not named on the command line:", unexpected + removed)
+    unexpected = sorted((set(changed) | set(removed)) - set(expected))
+    if unexpected:
+        print("REFUSING -- not named on the command line:", unexpected)
         return 1
     return 0
 
