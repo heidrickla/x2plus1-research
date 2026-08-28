@@ -428,10 +428,31 @@ no purchase on the second.
 
 | D | status |
 |---|---|
-| ≤ 2 | **proved**, unconditional — (u−1)D/√u < 1.41421 < √3 |
-| 3, 4 | **proved** on \|V\| ≥ 2, i.e. on evenness — observed for D ≤ 6, proved only at D = 1 |
-| 5 … 10 | **unfallen** to X = 7000, unprotected, unexplained |
+| ≤ 2 | **proved for all X₁**, unconditional |
+| 3, 4 | **proved for all X₁** on \|V\| ≥ 2 (evenness) |
+| 5, 6, 7 | **proved asymptotically**, unprotected at small X₁ |
+| 8, 9, 10 | **permitted by both forms**, unfallen to X = 8000 |
 | 11, 14, 19, 20, 21, 23, … | **fallen**, with witnesses |
+
+**There are two reaches, and that is what the middle rows were waiting for.**
+With the M·D invariant the threshold becomes **(u−1)/√u > 2√2·V / D** — divided
+by D — and a band supplies 1/√2, so a banded pair needs **D > 4V**. That is the
+*asymptotic* form, from R² < 2. The *worst-case* form, from τ_V² < 3 at X₁ = 1,
+gives **D > V√6** instead:
+
+| | \|V\| ≥ 1 | \|V\| ≥ 2 |
+|---|---|---|
+| X₁ = 1, all X | D ≤ 2 | **D ≤ 4** |
+| asymptotic | D ≤ 3 | **D ≤ 7** |
+
+and **D = 8 is exactly the crossover**: (u−1)/√u = 4√2/8 = 1/√2 at u = 2 on the
+nose. So D = 5, 6, 7 hold to X = 8000 **because they are asymptotically
+protected** — a failure there would have to come from X₁ small — while 8, 9, 10
+are permitted by both forms and simply have not fallen.
+
+**It also predicts the x²+39 banded triple rather than recording it.** At D = 39
+a banded pair needs only u > 1.1559, and the witness (5, 8) has u = 1.6 with
+(u−1)/√u = 0.4743 against a threshold of 0.1450.
 
 The 5…10 gap is the interesting one and it is not a gap in the sweep: the bound
 permits failure there and no failure is found, which is the same
