@@ -53,6 +53,17 @@ factor of two and a half. And the Cauchy–Schwarz chain predicts that 2.41 **to
 a μ² weight of **0.7658**, not the squarefree density 0.8948, because divisor
 count in a band and squarefreeness are correlated.
 
+**The θ-axis is now measured end to end, and the picture is sharper than
+"the difficulty is the absolute values".** At θ = 0 the plain Chowla sum has
+**square-root cancellation**: |Σ_{x≤X} μ(x²+1)|/√X stays in [0.21, 1.34] over
+X = 10⁴…4×10⁶. With the divisor weight — the *signed* Type II sum — it is still
+O(√T) uniformly across a factor of 1024 in M. **So the estimate this repo needs
+at θ = 0 is visibly TRUE; the whole difficulty is that nobody can prove it**, and
+"the trivial bound has never been beaten" describes the literature, not the sum.
+What costs is the absolute value, and **the cost grows with M**: signed/absolute
+decays 0.096 → 0.005 across that range, so the 2% figure is understated exactly
+where (B1) needs it.
+
 **Note J** reduces the Type II input to a Bombieri–Vinogradov statement for
 μ(x²+1) in arithmetic progressions, and then measures that **the whole
 difficulty is in the absolute values** — the signed sum is under 2% of the
