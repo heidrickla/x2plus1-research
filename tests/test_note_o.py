@@ -1684,3 +1684,57 @@ def test_O13prime_threshold_family_and_the_V_equals_one_condition():
     M, Dc = b - a, a * b
     assert isqrt(a * a - a * b + b * b) ** 2 == a * a - a * b + b * b
     assert isqrt((M * Ds) ** 2 + Dc) ** 2 != (M * Ds) ** 2 + Dc
+
+
+def test_O15_distinct_multipliers_raise_the_triple_threshold():
+    """Theorem O.15: O.5 forbids V = W, so the composite is at least tau_2 tau_3.
+
+    O.14 bounds the composite below by tau_min^2 -- both steps at the minimum --
+    which is precisely the configuration O.5 closes. With |V| >= 2 unconditional
+    and V != W forced, the binding pair is (2,3) in general and (2,4) when a, b
+    are both odd, since the parity lemma then makes every V even.
+
+    Checked two ways -- bisection and a symbolic solve -- because the whole result
+    is a numeric threshold, and the (2,2) row must reproduce O.4's 53.6942 or the
+    composite formula is not the one O.4 uses.
+    """
+    from math import sqrt
+
+    def tau(V, s):
+        return sqrt(1 + V * V * s * s) + V * s
+
+    def s_of_u(u):
+        return 1.0 / (sqrt(u) - 1.0 / sqrt(u))
+
+    def threshold(V, W, X1):
+        R = sqrt(2 + 1.0 / (X1 * X1))
+        lo, hi = 1.0001, 1e9
+        for _ in range(200):
+            mid = (lo + hi) / 2
+            if tau(V, s_of_u(mid)) * tau(W, s_of_u(mid)) < R:
+                hi = mid
+            else:
+                lo = mid
+        return hi
+
+    # the (2,2) row must be O.4 / O.14's number, or the formula is a different one
+    assert abs(threshold(2, 2, 1) - 53.6942) < 1e-3
+    assert abs(threshold(2, 2, 10 ** 9) - 133.8748) < 1e-3
+
+    # the theorem's two branches
+    assert abs(threshold(2, 3, 1) - 82.5571) < 1e-3
+    assert abs(threshold(2, 4, 1) - 117.4171) < 1e-3
+    assert abs(threshold(2, 3, 10 ** 9) - 207.8186) < 1e-3
+    assert abs(threshold(2, 4, 10 ** 9) - 297.7611) < 1e-3
+
+    # monotone in each index, which is why (2,3) and (2,4) are the binding pairs
+    assert threshold(2, 2, 1) < threshold(2, 3, 1) < threshold(2, 4, 1) < threshold(3, 4, 1)
+
+    # independent symbolic confirmation of the two headline values
+    import sympy as sp
+    u, s = sp.symbols("u s", positive=True)
+    sub = {s: 1 / (sp.sqrt(u) - 1 / sp.sqrt(u))}
+    for V, W, want in ((2, 3, 82.5571), (2, 4, 117.4171)):
+        expr = ((sp.sqrt(1 + V ** 2 * s ** 2) + V * s)
+                * (sp.sqrt(1 + W ** 2 * s ** 2) + W * s)).subs(sub) ** 2 - 3
+        assert abs(float(sp.nsolve(expr, u, 100)) - want) < 1e-3

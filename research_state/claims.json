@@ -2371,6 +2371,23 @@
         "gram"
       ],
       "notes": "CONSEQUENCE, and it is the point: every threshold in Notes O.12/O.13/O.14 that carried a V = 1 branch loses it. The pair threshold becomes 13.9282 at X_1 = 1 and (1+sqrt2)^4 = 33.9706 asymptotically, unconditionally, against O.12's proved 4.7913 -- a factor 2.91 at worst and 7.09 asymptotically. The triple threshold becomes 53.6942 at X_1 = 1 and 133.8748 asymptotically, which closes the exception Theorem O.4 carries. And O.13''/O.14's exceptional branch is empty for a PROVED reason rather than by occupancy: its five enumerated candidates all have a, b both odd, so parity already forbade V = 1 for them. Found by asking why every candidate in that branch had both cofactors odd -- a pattern across five points, which this repo's rules say to distrust, and which turned out to be forced for two different reasons depending on the case."
+    },
+    {
+      "id": "O15-triple-threshold-rises-with-distinct-multipliers",
+      "status": "proved",
+      "statement": "Theorem O.15. A dyadic window contains three shared moduli of a coprime admissible pair only if u > 82.5571, and only if u > 117.4171 when a and b are both odd; asymptotically 207.8186 and 297.7611. O.14 puts the threshold at 53.6942 by bounding the composite below by tau_min^2, i.e. both steps at the minimum -- which is exactly the configuration Theorem O.5 forbids ('no dyadic window contains (xi, tau_p xi, tau_p^2 xi)'), and since U^2 = M^2 + D V^2 determines U from V up to sign, same V means the same multiplier, so a triple forces V != W. With |V| >= 2 unconditional (V-never-one-unconditionally): if a, b are both odd the parity lemma makes every V even so {V,W} contains {2,4}; otherwise odd V is permitted but V = 1 is not, so {V,W} contains {2,3}. Solving (tau_V tau_W)^2 < 2 + 1/X_1^2 with tau_V = sqrt(1+V^2 s^2) + V s and s = 1/(sqrt u - 1/sqrt u) gives the stated values. Improves O.4's necessary condition by 1.5375x unconditionally and 2.1868x on the both-odd branch.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O15_distinct_multipliers_raise_the_triple_threshold",
+      "experiment": "experiments/exp26_triple_branch.py",
+      "depends_on": [
+        "theorem-O5-equal-multiplier-case-closed",
+        "V-never-one-unconditionally"
+      ],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "Values cross-checked by bisection and by an independent symbolic solve, both to four decimals; the (2,2) row reproduces O.4's 53.6942 and 133.8748, which checks that the composite formula is the one those results use. NECESSARY, not sufficient, and it does not touch O.2: nothing here forbids a triple above 117.4171, which is where the conjecture lives. What it does is remove the range O.14 had to enumerate -- every candidate O.14 found sits below 53.6942 and is now excluded twice over, by the threshold and by V = 1 being impossible."
     }
   ]
 }

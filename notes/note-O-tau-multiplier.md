@@ -2858,3 +2858,45 @@ already covers as a necessary condition without settling it.
 silence is not evidence about what lies outside it. The counts are size-dependent
 even where the conclusion is not — (505, 7897) shows 0 shared moduli at
 x ≤ 5×10⁶ and 1 at x ≤ 2×10⁷.
+
+---
+
+## O.15 Combining O.5 with |V| ≥ 2: the triple threshold rises to 82.5571
+
+O.14 puts the triple threshold at 53.6942 (X₁ = 1) by bounding the composite
+below by τ_min², i.e. by taking **both steps at the minimum**. Theorem O.5
+forbids exactly that: *"No dyadic window contains (ξ, τ_pξ, τ_p²ξ), for any
+p ≥ 1, provided X₁ ≥ 1"*, and its own derivation states the case as "when the
+two steps carry the same multiplier". Since U² = M² + DV² determines U from V up
+to sign, **same V means the same multiplier**, so a triple forces V ≠ W.
+
+Combining that with `V-never-one-unconditionally` (|V| ≥ 2, no hypothesis):
+
+- if a, b are **both odd**, Note L's parity lemma makes every V even, so
+  {V, W} ⊇ {2, 4};
+- otherwise exactly one is even and odd V is permitted, but V = 1 is not, so
+  {V, W} ⊇ {2, 3}.
+
+The window needs (τ_V τ_W)² < 2 + 1/X₁², with τ_V = √(1 + V²s²) + Vs and
+s = √(ab)/M = 1/(√u − 1/√u):
+
+| (V, W) | X₁ = 1 | X₁ → ∞ | |
+|---|---:|---:|---|
+| (2, 2) | 53.6942 | 133.8748 | **excluded by O.5** |
+| (2, 3) | **82.5571** | 207.8186 | one cofactor even |
+| (2, 4) | **117.4171** | 297.7611 | a, b both odd |
+
+> **Theorem O.15.** *A dyadic window contains three shared moduli of a coprime
+> admissible pair only if u > 82.5571, and only if u > 117.4171 when a and b are
+> both odd. Asymptotically the thresholds are 207.8186 and 297.7611.*
+
+So the unconditional necessary condition improves on O.4's 53.6942 by a factor
+**1.5375**, and by **2.1868** on the both-odd branch that covers every candidate
+O.14 enumerated.
+
+*(Values cross-checked by bisection and by an independent symbolic solve, both to
+four decimals. The three columns of the first row reproduce O.4 and O.14, which
+is the check that the composite formula is the same one those results use.)*
+
+⚠ This is a **necessary** condition, not a proof of O.2. Nothing here forbids a
+triple above 117.4171, and that is where the conjecture lives.
