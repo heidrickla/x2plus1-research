@@ -12,6 +12,8 @@ it is worth having the sieve be the primary tool rather than a convenience.
 
 from __future__ import annotations
 
+import random
+
 from sympy import factorint, primerange
 from sympy.ntheory.residue_ntheory import sqrt_mod
 
@@ -125,3 +127,95 @@ def check_factorisation(x: int, fac: list[tuple[Gauss, int]]) -> bool:
     for pi, e in fac:
         prod = mul(prod, power(pi, e))
     return norm(prod) == x * x + 1 and exact_div((x, 1), prod) is not None
+
+
+def _spf_sieve(limit: int) -> list[int]:
+    """Smallest prime factor for every n <= limit."""
+    spf = list(range(limit + 1))
+    i = 2
+    while i * i <= limit:
+        if spf[i] == i:
+            for j in range(i * i, limit + 1, i):
+                if spf[j] == j:
+                    spf[j] = i
+        i += 1
+    return spf
+
+
+def admissible_roots_upto(Q_max: int) -> dict[int, list[int]]:
+    """{q: roots of r^2+1 == 0 (mod q)} for every admissible q <= Q_max.
+
+    Same content as calling `roots_of_minus_one` on each q, but built in bulk:
+    a smallest-prime-factor sieve, one square root of -1 per prime p == 1 (4)
+    lifted to prime powers by Hensel, then CRT along each q's factorisation.
+    `roots_of_minus_one` calls sympy's `factorint` and `sqrt_mod` per modulus,
+    which is what capped Note J's all-moduli cross-check at X <= 10^5.
+
+    Admissible means q = 1, or q = 2^e0 * prod p^e with e0 <= 1 and every
+    p == 1 (mod 4); everything else has no root and is omitted.
+    """
+    if Q_max < 1:
+        return {}
+    spf = _spf_sieve(Q_max)
+    rng = random.Random(0)
+
+    # one root per prime power, by Hensel lifting from the prime
+    prime_power_roots: dict[int, list[int]] = {}
+    for p in range(2, Q_max + 1):
+        if spf[p] != p:
+            continue
+        if p == 2:
+            prime_power_roots[2] = [1]          # and 4 | r^2+1 is insoluble
+            continue
+        if p % 4 == 3:
+            continue
+        r = _sqrt_minus_one_pow(p, rng)
+        pe, prev = p, r
+        while pe <= Q_max:
+            prime_power_roots[pe] = sorted({prev, pe - prev})
+            nxt = pe * p
+            if nxt > Q_max:
+                break
+            # Hensel: lift prev mod pe to a root mod pe*p
+            f = prev * prev + 1
+            inv = pow(2 * prev % nxt, -1, nxt)
+            prev = (prev - f * inv) % nxt
+            pe = nxt
+
+    out: dict[int, list[int]] = {1: [0]}
+    for q in range(2, Q_max + 1):
+        residues, modulus, ok = [0], 1, True
+        n = q
+        while n > 1:
+            p = spf[n]
+            e = 0
+            while n % p == 0:
+                n //= p
+                e += 1
+            pe = p**e
+            if (p == 2 and e >= 2) or p % 4 == 3:
+                ok = False
+                break
+            local = prime_power_roots.get(pe)
+            if local is None:
+                ok = False
+                break
+            inv = pow(modulus, -1, pe)
+            residues = [
+                (a + modulus * ((b - a) * inv % pe)) % (modulus * pe)
+                for a in residues
+                for b in local
+            ]
+            modulus *= pe
+        if ok:
+            out[q] = sorted(residues)
+    return out
+
+
+def _sqrt_minus_one_pow(p: int, rng: random.Random) -> int:
+    """A square root of -1 mod p for p == 1 (mod 4). pow-based, not sqrt_mod."""
+    while True:
+        a = rng.randrange(2, p)
+        r = pow(a, (p - 1) // 4, p)
+        if (r * r) % p == p - 1:
+            return r

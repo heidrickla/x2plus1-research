@@ -40,14 +40,27 @@ def band_sum_prime_moduli(mu: np.ndarray, X: int, lo: int, hi: int, seed: int = 
     return total, pairs, terms
 
 
+_ROOT_TABLE: dict[int, dict[int, list[int]]] = {}
+
+
 def band_sum_all_moduli(mu: np.ndarray, X: int, lo: int, hi: int) -> tuple[int, int, int]:
-    """Same over every admissible modulus, prime or not. Slower; a cross-check."""
-    from x2plus1.factorization import roots_of_minus_one
+    """Same over every admissible modulus, prime or not.
+
+    Uses the bulk root table rather than sympy's factorint per modulus, which is
+    what had capped this cross-check at X <= 10^5. The table is built once per
+    ceiling and cached; it reproduces Note B's sum_q rho(q)/Q -> 3/(2 pi) to five
+    digits, which is the check that it is the same object.
+    """
+    from x2plus1.factorization import admissible_roots_upto
+    table = _ROOT_TABLE.get(hi)
+    if table is None:
+        _ROOT_TABLE.clear()                 # one ceiling at a time; they are large
+        table = _ROOT_TABLE[hi] = admissible_roots_upto(hi)
     total = 0
     pairs = 0
     terms = 0
     for q in range(max(lo, 2), hi):
-        for r in roots_of_minus_one(q):
+        for r in table.get(q, ()):
             sl = mu[(r if r else q)::q]
             total += abs(int(sl.sum()))
             pairs += 1

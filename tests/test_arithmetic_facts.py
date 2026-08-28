@@ -110,3 +110,29 @@ def test_mu_of_x2plus1_is_not_multiplicative_in_x():
     for a, b in witnesses:
         assert gcd(a, b) == 1
         assert mobius(a * a + 1) * mobius(b * b + 1) != mobius((a * b) ** 2 + 1), (a, b)
+
+
+def test_bulk_root_table_agrees_with_the_per_modulus_reference():
+    """admissible_roots_upto is a bulk rebuild of roots_of_minus_one.
+
+    Built for Note J's all-moduli cross-check, which sympy's factorint per
+    modulus had capped at X <= 10^5.
+    """
+    from x2plus1.factorization import admissible_roots_upto, roots_of_minus_one
+    table = admissible_roots_upto(3000)
+    for q in range(1, 3001):
+        assert table.get(q, []) == roots_of_minus_one(q), q
+
+
+def test_bulk_root_table_reproduces_the_admissible_ideal_density():
+    """sum_q rho(q) / Q -> 3/(2 pi), Note B's calibration, from the other side.
+
+    The Type I harness measures this by enumerating Gaussian ideals; this counts
+    roots of r^2+1 = 0 (mod q). Two independent code paths, same constant.
+    """
+    import math
+    from x2plus1.factorization import admissible_roots_upto
+    Q = 200000
+    table = admissible_roots_upto(Q)
+    ideals = sum(len(v) for v in table.values())
+    assert ideals / Q == pytest.approx(3 / (2 * math.pi), rel=0.002)

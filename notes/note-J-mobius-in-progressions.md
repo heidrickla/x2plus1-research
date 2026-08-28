@@ -288,15 +288,48 @@ The registry claim `large-moduli-cannot-help` is scoped to Type I accordingly.
 - *Is c = 0 over-read?* It was: ±0.04 was one draw, not an error bar. The
   phase-varied figure is c = −0.057 ± 0.19, i.e. c = 0 to a resolution of
   |c| ≲ 0.2, over three decades of X.
-- *Is the prime-moduli restriction distorting the object?* Cross-checked. Over
-  **all** admissible moduli (`exp05 --all-moduli`, X ≤ 10⁵, which is as far as
-  the per-modulus factorisation reaches), ρ = 0.636–0.667 against 0.64–0.73 for
-  prime moduli — same magnitude, same shape. What the cross-check cannot do is
-  fit an independent log-power: 10⁴…10⁵ is half a decade, and the fit is
-  correspondingly meaningless (−0.82 at one u, −0.11 at another). So the
-  restriction is validated for the *level*, not for the exponent. That is evidence about the
-  **truth**, not about provability, and it is prime moduli only — the
-  all-moduli cross-check is **[VERIFY]** and not yet run at scale.
+- *Is the prime-moduli restriction distorting the object?* **Cross-checked at
+  scale — [VERIFY] discharged.** The cap was never mathematical: it was sympy's
+  `factorint` being called once per modulus. `factorization.admissible_roots_upto`
+  builds the whole root table in bulk — an SPF sieve, one square root of −1 per
+  prime p ≡ 1 (4) lifted by Hensel, CRT along each q — which reaches Q = 10⁶ in
+  0.9 s where the per-modulus route capped the run at X ≤ 10⁵. It agrees with
+  `roots_of_minus_one` exactly on q ≤ 3000, and reproduces
+  Σ_q ρ(q)/Q → 3/(2π) = 0.47746 as **0.47744** at Q = 10⁶ — the same constant
+  [Note B](note-B-type-I.md) measures by enumerating Gaussian ideals, from an
+  unrelated code path.
+
+  Over all admissible moduli, X = 10⁴ … 10⁷ — **four decades**, ending with a
+  band of 4.3 million (q, root) pairs — ρ per band, averaged over the X ladder:
+
+  | band | (q, root) pairs | mean ρ | sd across X |
+  |---|---:|---:|---:|
+  | [10, 10²) | 44 | 0.605 | 0.0900 |
+  | [10², 10³) | 430 | 0.640 | 0.0411 |
+  | [10³, 10⁴) | 4 294 | 0.635 | 0.0120 |
+  | [10⁴, 10⁵) | 42 988 | 0.630 | 0.0018 |
+  | [10⁵, 10⁶) | 429 684 | 0.632 | 0.0004 |
+
+  **ρ ≈ 0.632 in every well-populated band, flat in M across four orders of
+  magnitude and flat in X** — against 0.64–0.73 for prime moduli. So the prime
+  restriction is not distorting the object.
+
+  The fitted log-power depends on how many moduli a lane has, and that is
+  diagnosable rather than mysterious. With no cut, the lanes give −0.342, 0.351,
+  −0.213, −0.080, −0.031, −0.049; restricted to bands with ≥ 10⁴ pairs they give
+  **c = −0.032 and +0.016**. The drift at small u is sampling noise, and the
+  scatter behaves exactly as sampling noise must:
+
+  > sd(ρ)·√pairs = 0.60, 0.85, 0.79 for the three bands with eight X-values
+  > each — constant to 20% while the pair count varies by a factor of 100.
+
+  (The two largest bands give 0.37 and 0.23, but they have only 5 and 3
+  X-values, so their sd is itself badly estimated; they are shown, not used.)
+
+  **So c = 0 to a resolution of about ±0.05 in the lanes that can resolve
+  anything**, which is tighter than the prime-moduli figure of −0.057 ± 0.19 and
+  independent of it. Still finite data, and still evidence about the **truth**,
+  not about provability.
 - *Is the X^{3/4} range right?* **No — [VERIFY] discharged, against this note.**
   DFI's page images render cleanly at 300 dpi even though the scan's OCR layer
   does not, and the range as stated here does not survive reading them.

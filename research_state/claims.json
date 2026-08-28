@@ -326,7 +326,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "Cross-checked against all admissible moduli at X <= 1e5: rho = 0.636-0.667 vs 0.64-0.73 for prime moduli, so the restriction does not distort the level. It cannot check the exponent -- half a decade is too short to fit one. Fitted at fixed M band, not fixed u -- at fixed u the finite-n dependence of rho confounds the log-power and the fit scatters from -0.31 to +0.13. An earlier run normalised by the nominal band length and reported rho ~ 0.655; corrected to ~0.72, which leaves the fitted c unchanged. Shuffle and iid controls agree with the actual value to 1-2%, so mu shows no detectable structure along these progressions."
+      "notes": "Cross-checked against all admissible moduli at X <= 1e5: rho = 0.636-0.667 vs 0.64-0.73 for prime moduli, so the restriction does not distort the level. It cannot check the exponent -- half a decade is too short to fit one. Fitted at fixed M band, not fixed u -- at fixed u the finite-n dependence of rho confounds the log-power and the fit scatters from -0.31 to +0.13. An earlier run normalised by the nominal band length and reported rho ~ 0.655; corrected to ~0.72, which leaves the fitted c unchanged. Shuffle and iid controls agree with the actual value to 1-2%, so mu shows no detectable structure along these progressions. ALL-MODULI CROSS-CHECK, run at scale: every admissible modulus, X = 10^4..10^7, four decades, ending with a band of 4.3M (q,root) pairs. Mean rho per band is 0.605, 0.640, 0.635, 0.630, 0.632 for bands of 44, 430, 4294, 42988, 429684 pairs -- flat in M across four orders of magnitude and flat in X, against 0.64-0.73 for prime moduli. Fitted log-power restricted to bands with >= 10^4 pairs: c = -0.032 and +0.016, i.e. c = 0 to about +-0.05, tighter than and independent of the prime-moduli -0.057 +- 0.19. The apparent drift in sparse lanes is SAMPLING NOISE, diagnosed rather than assumed: sd(rho)*sqrt(pairs) = 0.60, 0.85, 0.79 for the three bands with eight X-values each, constant to 20% while the pair count varies by a factor of 100."
     },
     {
       "id": "mobius-indistinguishable-from-random",
@@ -806,6 +806,20 @@
         "type_ii"
       ],
       "notes": "This places Note F much more sharply than 'dispersion has no main term': Note F is the statement that DFI's PARITY-BREAKING INPUT DOES NOT EXIST for this sequence. Found by the parallel session and verified here from the images independently. Note also what they NEED (arbitrary coefficients, (8)) versus what they PROVE (Prop. 2, beta on primes) -- the same gap [FM] footnote 1 expects to close in general and Note F shows cannot close here. Their 'plausible' bounds on the same page are L_d(M) << M^{1/2}(hdM)^eps and B(M,N) << ||alpha|| ||beta|| (M+N)^{1/2}(hMN)^eps, against Prop. 1's achieved L_d(M) << (h,d)^{1/20}(d/M)^{1/20}M^{1+eps}."
+    },
+    {
+      "id": "bulk-root-table-reproduces-note-B-constant",
+      "status": "rigorous_finite",
+      "statement": "factorization.admissible_roots_upto builds the full table of roots of r^2+1 = 0 (mod q) for all admissible q <= Q_max in bulk (SPF sieve, one sqrt(-1) per prime p = 1 mod 4 lifted by Hensel, CRT along each q). It agrees with roots_of_minus_one exactly for q <= 3000, and gives sum_q rho(q)/Q = 0.47744 at Q = 10^6 against the predicted 3/(2 pi) = 0.47746. That is Note B's calibration constant, reproduced from an unrelated code path -- Note B measures it by enumerating Gaussian ideals, this by counting roots of a congruence.",
+      "experiment": "tests/test_arithmetic_facts.py::test_bulk_root_table_agrees_with_the_per_modulus_reference; tests/test_arithmetic_facts.py::test_bulk_root_table_reproduces_the_admissible_ideal_density",
+      "depends_on": [
+        "admissible-density",
+        "divisibility-is-a-congruence"
+      ],
+      "tags": [
+        "type_i"
+      ],
+      "notes": "Written to lift Note J's all-moduli cross-check off its X <= 10^5 cap, which was sympy's factorint per modulus rather than anything mathematical. Reaches Q = 10^6 in 0.9s. The agreement with 3/(2 pi) to five digits is the check that it is the same object as the Type I harness's."
     }
   ]
 }
