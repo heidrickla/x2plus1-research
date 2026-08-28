@@ -350,3 +350,70 @@ def test_rho_bound_holds_under_the_modulus_ratio_condition():
                     loose_viol += rho * rho >= Fraction(9, 8)
     assert tight > 0, "no multipliers inside a window -- test vacuous"
     assert loose_viol > 0, "the looser reading must actually violate, or the test proves nothing"
+
+
+def test_delta_identity_and_that_it_vanishes_exactly_at_p_one():
+    """delta_p (2M + delta_p + 4pa) = 4 p a M (p-1), with B_p = M + delta_p.
+
+    Exact.  delta_p = 0 iff p = 1, which is why tau_1 is special -- the same
+    fact as j = 2 <=> k = 1 and as M_2 = 1, seen as a single vanishing.
+    """
+    from math import gcd
+    seen = one = 0
+    for a in range(1, 40):
+        for b in range(a + 1, 4000):
+            if gcd(a, b) != 1:
+                continue
+            M, D = b - a, a * b
+            for p in range(1, 40):
+                t = M * M + 4 * p * p * D
+                U = isqrt(t)
+                if U * U != t:
+                    continue
+                d = (U - 2 * p * a) - M
+                assert d * (2 * M + d + 4 * p * a) == 4 * p * a * M * (p - 1), (a, b, p)
+                assert (d == 0) == (p == 1), (a, b, p, d)
+                if p >= 2:
+                    assert d < 2 * a * p * (p - 1), (a, b, p, d)   # exact bound
+                seen += 1
+                one += p == 1
+    assert seen > 100 and one > 0
+
+
+def test_at_most_one_acting_multiplier_lies_inside_a_window():
+    """The sharp form of Conjecture O.2, measured with occupancy as the input.
+
+    A third modulus in one window is exactly a SECOND in-window multiplier
+    acting on the same xi.  None is ever found; when a second multiplier acts
+    alongside an in-window one its ratio is an order of magnitude too large.
+    """
+    from x2plus1.polyseq import ratio_classes
+
+    C = ratio_classes(700)
+    checked = inwindow = 0
+    for (a, b), ms in C.items():
+        M, D = b - a, a * b
+        ks = []
+        for k in range(1, 120):
+            t = M * M + 4 * k * k * D
+            U = isqrt(t)
+            if U * U == t:
+                ks.append((k, U))
+        if not ks:
+            continue
+        for m in ms:
+            X, Y = isqrt(a * m - 1), isqrt(b * m - 1)
+            act = [k for k, U in ks
+                   if (U * X + 2 * k * a * Y) % M == 0 and (U * Y + 2 * k * b * X) % M == 0]
+            if not act:
+                continue
+            checked += 1
+            small = []
+            for k in act:
+                s = 4 * k * sqrt(D) / M
+                if ((s + sqrt(s * s + 4)) / 2) ** 2 < 2:
+                    small.append(k)
+            assert len(small) <= 1, (a, b, m, small)
+            inwindow += len(small) == 1
+    assert checked > 0, "no acting multipliers -- test vacuous"
+    assert inwindow > 0, "no in-window multiplier at all -- test proves nothing"

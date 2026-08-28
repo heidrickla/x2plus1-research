@@ -711,6 +711,68 @@ wholesale. This is the list a reader should trust.*
 - Two earlier claims retracted in place above: "no window holds three" as proved,
   and N(ξ) = ±M.
 
+### The sharp form of O.2, and the identity behind it
+
+*Measured the right way round — occupancy as the input, per the inverted method.*
+
+For each realised solution ξ, ask which multipliers actually **act** on it, i.e.
+for which k is τ_kξ integral. Two facts, neither of which I expected.
+
+**Multipliers act freely, and often several at once.** Over 1.8M solutions at
+X = 3000, 18,116 admit one acting multiplier, 215 admit two, and some admit six.
+The acting set can be a whole cyclic semigroup: (1,5) at m = 2 admits
+k ∈ {1, 3, 8, 21, 55, 144}, which are exactly τ₁, τ₁², τ₁³, … — τ₃ = (7+3√5)/2
+= φ⁴ = τ₁². So "τ² is never integral" is **false in general**, and O.3′ is not
+saying otherwise: it forbids it only in the window regime, and (1,5) has
+r₁ = 6.854.
+
+**But never two inside a window.** Restricting to acting multipliers with
+modulus ratio r < 2:
+
+| | count |
+|---|---|
+| solutions ξ with at least one acting multiplier | 13,840 |
+| with exactly one acting multiplier at r < 2 | 327 |
+| **with two or more at r < 2** | **0** |
+
+> **Sharp form of O.2.** On any ξ, at most one acting multiplier has r < 2.
+
+This is equivalent to O.2 — a third modulus in the window is exactly a second
+in-window multiplier — and it is the form that is directly measurable. The margin
+is wide: when a second multiplier acts alongside an in-window one, its ratio is
+at least **14.91** (over 53 such cases) against the 2 a window needs. Examples:
+(1,901) at m = 842 acts at k = 1, 27, 465 with ratios 1.143, 14.91, …;
+(1,85) at m = 17 acts at k = 1, 9, 56, 189.
+
+**Why it is a statement about classes, not members.** The acting conditions are
+M | A_kS and M | B_kT, and the automorph diagonalises S, T with **unit**
+eigenvalues mod M — so acting is **orbit-invariant**. Either τ_k acts on every
+member of a class or on none. That is the same fact the parallel session sees
+from the dual side, where the cofactors sharing moduli {10, 17} form two
+interleaved orbits of 17x² − 10y² = −7 with two-step ratio (ε²)² = 459,682, so a
+dyadic window admits **one member from each of two orbits** — and that is the
+measured constant 2, not a coincidence.
+
+### An exact identity behind the constant 17
+
+Writing **B_p = M + δ_p**, the relation A_pB_p = M(M + 4p²a) with A_p = B_p + 4pa
+gives
+
+> **δ_p(2M + δ_p + 4pa) = 4paM(p − 1)**
+
+— exact, **0 violations over 1,002,709 multipliers**. Two consequences:
+
+- **δ_p = 0 exactly when p = 1.** So B₁ = M identically. This is the cleanest
+  statement of why τ₁ is special, and it is the same fact as j = 2 ⟺ k = 1 and
+  as M₂ = 1, now visible as a single vanishing.
+- Since 2M + δ_p + 4pa > 2M, the identity gives the exact bound
+  **δ_p < 2ap(p−1)** for p ≥ 2.
+
+And it recovers O.3′'s constant from an independent route: the geometry gives
+ρ_p < 1.06066, i.e. δ_p < 0.06066M; then d_p = gcd(δ_p, M) ≤ δ_p < 0.06066M, so
+**M/d_p > 16.48, i.e. ≥ 17** — the same 17 as the integer-in-(c, 1.06066c)
+argument, reached without it.
+
 **Open.** Conjecture O.2, with no mechanism. It does now have a
 candidate-generation method that cannot produce a dead configuration, due to the
 parallel session and recorded here because it inverts everything above:
