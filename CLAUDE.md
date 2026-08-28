@@ -415,7 +415,9 @@ orbit — Prop L.1's ε² ≥ φ⁴ = 6.854 is why a window holds at most one pe
 τ₁² can sit below 2 — which is how two moduli land in one window at all. At
 (1,41) they are seven orders apart: ε² = **1.679×10⁷** against
 τ₁² = **1.877328**, versus the observed 1370/730 = 1.876712 (matching to four
-places, the residual being O.4's finite +1). **So the windowed Gram entry counts
+places, the residual being O.4's finite +1; **identically at the unit-free
+(2,82) = 2·(1,41), which scales the conic and carries the same τ₁ to six
+places — the witness Note L now leads with**). **So the windowed Gram entry counts
 the orbits τ reaches inside one window, ε gives at most one member per orbit, and
 O.2 is the statement that τ never reaches three** — the sentence neither note
 contained. ⚠ **The plausible identification is backwards**: assigning orbits by
