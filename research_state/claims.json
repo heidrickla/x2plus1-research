@@ -1257,7 +1257,7 @@
       "id": "the-main-term-is-smaller-than-the-granularity",
       "status": "rigorous_finite",
       "statement": "At X = 3000 the mean of G(n1,n2) over pairs in a dyadic band [N,2N) is 2.0, 0.667, 0.254, 0.0865, 0.0243 at N = 8, 32, 128, 512, 2048 -- falling across that range, and NO CLEAN LAW IS CLAIMED for the decay: 1/N is wrong (the mean grows with X at fixed N: 0.2246, 0.2536, 0.2754 at N = 128 for X = 1500, 3000, 6000), and (log X)/N is wrong too (mean*N/log X is 4.05 at N = 128 but 5.6 at N = 512 and 7.8 at N = 8192, drifting). The values are what is claimed -- while max G is 2 at every band. So for N >> 1 the expected Gram entry is far below 1 while G itself is an integer taking only the values 0, 1, 2. At N ~ 2048 the mean is 0.024 against a granularity of 1: the quantity a dispersion argument would call the error is FORTY TIMES the quantity it would call the main term.",
-      "experiment": "experiments/exp13_window_gap.py",
+      "experiment": "experiments/exp20_gram_mean.py",
       "tags": [
         "type_ii"
       ],
@@ -1267,7 +1267,7 @@
       "id": "mean-G-separates-x2plus1-from-a2b4",
       "status": "rigorous_finite",
       "statement": "POSITIVE CONTROL for the-main-term-is-smaller-than-the-granularity. At Q = 4e6, over the same dyadic cofactor bands and the same divisor-built incidence: x^2+1 has mean G = 0.667, 0.228, 0.082, 0.022 with max G = 2 throughout, at N = 32, 128, 512, 2048; a^2+b^4 has mean G = 85.2, 42.0, 12.4, 3.59 with max G = 805, 584, 201, 107. At N = 2048 the means differ by a factor of 164. So the sequence that DOES capture its primes has a main term of 3.59 with the count fluctuating around it, and x^2+1 has a mean of 0.022 with an integer count -- nothing to decompose.",
-      "experiment": "experiments/exp13_window_gap.py",
+      "experiment": "experiments/exp20_gram_mean.py",
       "tags": [
         "type_ii",
         "comparison"
@@ -1290,7 +1290,7 @@
       "id": "fm-barrier-range-is-small-moduli",
       "status": "rigorous_finite",
       "statement": "Ford-Maynard's footnote 2 averages over m_1, m_2 ~ x^{1-2c+eps}, which at c = 1/2 is x^eps -- SMALL moduli as eps -> 0, not large. Measured at X = 12000: mean G = 2.000, 1.333, 0.810, 0.577 over N = 8, 16, 32, 64, with 2, 4, 7, 13 cofactors in the band respectively. So the mean is >= 1 for eps <~ 0.18, and below eps ~ 0.11 the band holds at most one cofactor and the average is over an empty set. The mean of G is U-shaped in N, bottoming near N ~ X and rising again as the cofactors grow large enough that only a few tiny moduli exist and every pair shares them.",
-      "experiment": "experiments/exp13_window_gap.py",
+      "experiment": "experiments/exp20_gram_mean.py",
       "tags": [
         "type_ii",
         "literature"
@@ -1301,7 +1301,7 @@
       "id": "gram-mean-is-minimal-at-the-balanced-split",
       "status": "rigorous_finite",
       "statement": "The mean of G over cofactor bands is U-shaped in N and its minimum sits at N = 1.37 X at both X = 3000 and X = 6000, with min mean G = 0.01319 and 0.00827. The balanced split of the bilinear form is n = m = sqrt(x^2+1) ~ X, so the Gram mean is smallest exactly where the Type II sum lives. The minimum also DEEPENS with X, 0.01319 -> 0.00827 for a doubling. The RIGHT arm is a function of N/X^2: at X = 3000 and X = 6000 the values 0.09041/0.09041, 0.23767/0.23830, 0.51416/0.51446 coincide at equal N/X^2, three to four digits. The LEFT arm is NOT a function of N/X -- at N/X = 0.34 it is 0.0466 against 0.0296 -- nor of N alone, since at fixed N it grows about 11% per doubling of X. No scaling variable is claimed for it.",
-      "experiment": "experiments/exp13_window_gap.py",
+      "experiment": "experiments/exp20_gram_mean.py",
       "tags": [
         "type_ii"
       ],
@@ -1311,7 +1311,7 @@
       "id": "mean-G-is-small-across-ASP-admissible-range",
       "status": "rigorous_finite",
       "statement": "The cofactor bands measured are exactly the range ASP's (B1) admits for its inner variable. In ASP's normalisation x = Q, so sqrt(x) = X, and with the level capped at D <= Q^{1/2} = X (Note B) the range Delta^{-1} sqrt(D) < N < delta^{-1} sqrt(x) is roughly sqrt(X) < N < X -- at X = 3000, N from 55 to 3000. Measured mean G there: 0.1596, 0.0865, 0.0466, 0.0243 at N = 256, 512, 1024, 2048, falling monotonically and never above 0.16. The U's argmin at N = 1.37 X sits just ABOVE the top of the admissible range, so within (B1) the mean is falling throughout and is smallest at the top.",
-      "experiment": "experiments/exp13_window_gap.py",
+      "experiment": "experiments/exp20_gram_mean.py",
       "tags": [
         "type_ii"
       ],
@@ -1321,7 +1321,7 @@
       "id": "mean-G-crosses-one-where-kappa-does-not",
       "status": "refuted",
       "statement": "At Q = 4e6 over the band N in [2048,4096): x^2+1 has kappa 1.00 and mean G 0.0219 (max 2); a^2+b^6 has kappa 115.4 and mean G 0.5590 (max 22); a^2+b^4 has kappa 1297.5 and mean G 3.592 (max 107); a^2+(b^2+1)^2 has kappa 1269.3 and mean G 12.809 (max 97). So mean G exceeds 1 for both sequences KNOWN to capture their primes and falls below 1 for x^2+1, while kappa does not separate them: a^2+b^6 has kappa >> 1 with mean below 1, and a^2+b^4 and a^2+(b^2+1)^2 have nearly equal kappa (1297 vs 1269) with means differing by 3.6x. Max G does not separate them either -- 2, 22, 107, 97 puts a^2+b^6 between the captured pair.",
-      "experiment": "experiments/exp13_window_gap.py",
+      "experiment": "experiments/exp20_gram_mean.py",
       "tags": [
         "type_ii",
         "comparison"
@@ -1344,12 +1344,12 @@
       "id": "mean-G-does-not-classify",
       "status": "rigorous_finite",
       "statement": "Mean G does NOT separate sequences that capture their primes from those that do not. At Q = 4e6, band N in [2048,4096): x^3+2y^3, CAPTURED by Heath-Brown, has kappa 75.1 and mean G 0.1888 with max G 79; a^2+b^6, not known captured, has kappa 115.4 and mean G 0.5590 with max G 22. The captured sequence has the LOWER mean, and it is below 1. Full table: x^2+1 0.0219, x^3+2y^3 0.1888, a^2+b^6 0.5590, a^2+b^4 3.5920, a^2+(b^2+1)^2 12.8086 -- captured sequences at 0.19, 3.59 and 12.81, non-captured at 0.02 and 0.56, interleaved.",
-      "experiment": "experiments/exp13_window_gap.py",
+      "experiment": "experiments/exp20_gram_mean.py",
       "tags": [
         "type_ii",
         "comparison"
       ],
-      "notes": "Refutes mean-G-crosses-one-where-kappa-does-not, which was recorded about an hour earlier and reached both Note K and the CLAUDE.md fallback. The refuting test was chosen precisely because it was decisive: x^3+2y^3 and a^2+b^6 both have |A| ~ Q^{2/3} hence kappa ~ Q^{1/3}, so kappa CANNOT distinguish them and a real classifier had to. Mean G does not. WHAT SURVIVES is the narrow original observation, mean-G-separates-x2plus1-from-a2b4: the argument that a bounded integer count with mean o(1) has no main term does not prove too much, because a^2+b^4 has mean 3.59 at the band where x^2+1 has 0.022. That is a two-sequence control and was never a classifier; generalising it to a four-sequence law was the error, and it was built from two points and 'confirmed' on two more of which one had no known outcome. SOURCE FOR THE REFUTING POINT, since the whole refutation rests on x^3+2y^3 being captured and asserting that from memory would be the repo's first non-negotiable violated in the act of enforcing another: hb-alpha-hierarchy cites Heath-Brown, 'Primes represented by x^3+2y^3', Acta Math. 186 (2001) -- the title is the theorem -- and hb-level and hb-R1-not-met corroborate from the same paper. Not taken from memory.",
+      "notes": "Refutes mean-G-crosses-one-where-kappa-does-not, which was recorded about an hour earlier and reached both Note K and the CLAUDE.md fallback. The refuting test was chosen precisely because it was decisive: x^3+2y^3 and a^2+b^6 both have |A| ~ Q^{2/3} hence kappa ~ Q^{1/3}, so kappa CANNOT distinguish them and a real classifier had to. Mean G does not. WHAT SURVIVES is the narrow original observation, mean-G-separates-x2plus1-from-a2b4: the argument that a bounded integer count with mean o(1) has no main term does not prove too much, because a^2+b^4 has mean 3.59 at the band where x^2+1 has 0.022. That is a two-sequence control and was never a classifier; generalising it to a four-sequence law was the error, and it was built from two points and 'confirmed' on two more of which one had no known outcome. SOURCE FOR THE REFUTING POINT, since the whole refutation rests on x^3+2y^3 being captured and asserting that from memory would be the repo's first non-negotiable violated in the act of enforcing another: hb-alpha-hierarchy cites Heath-Brown, 'Primes represented by x^3+2y^3', Acta Math. 186 (2001) -- the title is the theorem -- and hb-level and hb-R1-not-met corroborate from the same paper. Not taken from memory. A SECOND, INDEPENDENT REASON the classifier was wrong, visible once exp20 made it reproducible at a second Q: the threshold is not stable in Q. At Q = 2.5e5 even a^2+b^4 sits at 0.8200, below 1, while at Q = 4e6 it is 3.5920. So 'mean G > 1' does not name a fixed property of a sequence at all -- it names a property of a sequence AT A Q. That alone should have killed it before the x^3+2y^3 test, and it was invisible while the numbers lived in a scratchpad script run once.",
       "depends_on": [
         "hb-alpha-hierarchy",
         "mean-G-separates-x2plus1-from-a2b4"

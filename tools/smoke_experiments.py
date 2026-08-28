@@ -48,6 +48,7 @@ SIZES: dict[str, list[str]] = {
     "exp14_live_configurations.py": ["600"],  # ratio_classes is O(X^2)
     "exp15_cauchy_schwarz_reduction.py": ["40000"],
     "exp16_m_exponent.py": ["60000"],  # needs bands above M = 512 to fit
+    "exp20_gram_mean.py": ["40000"],  # O(Q) divisor build; keep small
     "exp17_sharp_form.py": ["1200"],
     "exp18_ck_region.py": ["900"],
     "exp19_composition_bound.py": ["1200"],
