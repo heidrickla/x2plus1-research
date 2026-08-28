@@ -402,6 +402,15 @@ The parallel session's larger census agrees: over a ≤ 60, b ≤ 300000, **104 
 squarefree. "No window holds three" reads broader than a statement mute on four
 fifths of them and on the whole a = 1 family.
 
+**The parity hypothesis is redundant, and that is not good news.** Since a and b
+are admissible and coprime, either both are ≡ 1 (mod 4) — forcing **4 | M** — or
+one is ≡ 2 (mod 4), forcing **M odd**. So **M ≡ 2 (mod 4) never occurs**
+(verified: 0 of 59,811 admissible coprime pairs). Hence "M squarefree" already
+implies "M odd", O.3's hypothesis simplifies to squarefreeness alone — and
+dropping "odd" gains nothing, because the family O.3 misses is exactly
+**4 | M**, i.e. a and b both odd, which for a = 1 is every odd b. Reaching it
+needs a **2-adic** argument, not a parity one.
+
 **But the gap is exactly one step, not the whole proof.** The condition is
 2M | A_kS + B_kT. τ₁ gives M | 2S; for M *odd* that is M | S, whence M | B_kT
 and gcd(T,M) = 1 gives M | B_k. For M *even*, M | 2S only gives S ≡ 0 (mod M/2)
@@ -632,8 +641,30 @@ wholesale. This is the list a reader should trust.*
 - Two earlier claims retracted in place above: "no window holds three" as proved,
   and N(ξ) = ±M.
 
-**Open.** Conjecture O.2, with no mechanism and no candidate-generation method
-that is known to select live configurations.
+**Open.** Conjecture O.2, with no mechanism. It does now have a
+candidate-generation method that cannot produce a dead configuration, due to the
+parallel session and recorded here because it inverts everything above:
+
+> **Enumerate realised ratio classes, take those with two moduli in one window,
+> and read off which multiplier index explains the ratio.** Occupancy is the
+> *input*, not an afterthought; the multiplier structure is the output.
+
+Generating candidates from multipliers and testing occupancy searches a mostly
+empty parameter space — that is what went wrong with the 95 and the 322. Running
+it the other way cannot. The method's first product is the sharpest object
+either of us has:
+
+> **(1, 423125)**, live, with shared moduli m = 10 and m = 17 at ratio 1.70 —
+> inside a window — where τ₁² = 1.00617 and the realised close pair sits at
+> **k = 91**, r₉₁² = 1.73765. (Both verified: 10−1 = 3², 423125·10−1 = 2057²;
+> 17−1 = 4², 423125·17−1 = 2682².)
+
+This is one of the three |V| ∉ {2} cases from the top of this note — |V| = 182 =
+2·91 — seen from the other end. It shows the close pair of a live class can be
+realised at a **non-fundamental** multiplier, so a triple's two multipliers need
+not include τ₁, which is exactly the p, q ≥ 2 gap O.3 does not cover. And
+M = 423124 = 4 × 105781 is even, so O.3 is mute on it: it is a test case for any
+extension, which must permit *two* moduli in a window there.
 
 ## Adversarial review
 

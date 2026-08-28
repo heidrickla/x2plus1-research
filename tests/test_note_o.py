@@ -205,3 +205,52 @@ def test_the_incompatibility_quantity_is_always_positive():
         e = j * j - 4
         for w in range(1, 200):
             assert e * e + 4 * j * w * e + 2 * w * w * (2 * e - 1) > 0
+
+
+def test_M_is_never_two_mod_four():
+    """a, b admissible and coprime => M = b-a is odd or divisible by 4.
+
+    Both odd forces a = b = 1 mod 4 hence 4 | M; one even forces M odd.  So
+    "M squarefree" already implies "M odd" and Theorem O.3's parity hypothesis
+    is redundant -- while the family it misses is exactly 4 | M.
+    """
+    from x2plus1.factorization import roots_of_minus_one
+    from math import gcd
+
+    def adm(k):
+        return k == 1 or bool(roots_of_minus_one(k))
+
+    seen = 0
+    for a in range(1, 200):
+        if not adm(a):
+            continue
+        for b in range(a + 1, 1200):
+            if gcd(a, b) != 1 or not adm(b):
+                continue
+            seen += 1
+            assert (b - a) % 4 != 2, (a, b)
+    assert seen > 1000
+
+
+def test_the_non_fundamental_close_pair_of_1_423125():
+    """A live class whose close pair sits at k = 91, not k = 1.
+
+    Shows a triple's multipliers need not include tau_1 -- the p,q >= 2 gap
+    Theorem O.3 does not cover -- and M = 423124 is even, so O.3 is mute here.
+    Any extension to even M must still PERMIT these two in a window.
+    """
+    a, b = 1, 423125
+    for m in (10, 17):
+        assert isqrt(a * m - 1) ** 2 == a * m - 1
+        assert isqrt(b * m - 1) ** 2 == b * m - 1
+    assert 17 < 2 * 10                       # both in one dyadic window
+    M, D = b - a, a * b
+    assert M % 2 == 0 and M % 4 == 0         # outside O.3's hypothesis
+    ks = [k for k in range(1, 120)
+          if isqrt(M * M + 4 * k * k * D) ** 2 == M * M + 4 * k * k * D]
+    assert ks == [1, 91], ks
+    tau1_sq = ((sqrt(b) + sqrt(a)) / (sqrt(b) - sqrt(a))) ** 2
+    assert tau1_sq == pytest.approx(1.00617, rel=1e-3)
+    s = 4 * 91 * sqrt(D) / M
+    r91 = ((s + sqrt(s * s + 4)) / 2) ** 2
+    assert r91 == pytest.approx(17 / 10, rel=0.03)   # the REALISED ratio
