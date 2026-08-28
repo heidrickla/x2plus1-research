@@ -1343,3 +1343,46 @@ def test_the_chain_threshold_is_four_root_two_plus_root_thirty_three_squared():
 
     # the constant is O.12's, i.e. |V| >= 4 read as k >= 2
     assert abs(8 * sqrt(2) - 11.3137) < 1e-4
+
+
+def test_all_the_window_thresholds_are_one_formula_in_V():
+    """The pair and chain thresholds are the same expression at |V| = 2 and 4.
+
+    |V| < (M/2 sqrt D)(R - 1/R) with R^2 < 2 gives |V| < 0.35355 M/sqrt(D), so
+    |V| >= V0 requires M/sqrt(D) > 2 sqrt2 V0. Converting with
+    M/sqrt(D) = (u-1)/sqrt(u) and solving v^2 - 2 sqrt2 V0 v - 1 = 0 at v = sqrt u:
+
+        u > (sqrt2 V0 + sqrt(2 V0^2 + 1))^2
+
+    which is one formula for the whole table:
+
+        V0 = 2   M/sqrt D > 4 sqrt2  = 5.6569    u > 33.9706  = (1+sqrt2)^4
+        V0 = 4   M/sqrt D > 8 sqrt2  = 11.3137   u > 129.9923 = (4sqrt2+sqrt33)^2
+        V0 = 6                        16.9706         289.9966
+        V0 = 8                        22.6274         513.9981
+
+    So the doubling 4 sqrt2 -> 8 sqrt2 between the pair and chain thresholds is
+    exactly |V| >= 2 -> |V| >= 4, and (1+sqrt2)^2 = 2 sqrt2 + 3 = sqrt2*2 +
+    sqrt(9) is the V0 = 2 case of sqrt2 V0 + sqrt(2 V0^2 + 1).
+
+    Expanding, u = 4 V0^2 + 1 + 2 sqrt2 V0 sqrt(2 V0^2 + 1) -> **8 V0^2 + 2**
+    from below, with the gap falling 0.029, 0.008, 0.003, 0.002.
+    """
+    from math import sqrt
+
+    def thresh(V0):
+        return (sqrt(2) * V0 + sqrt(2 * V0 * V0 + 1)) ** 2
+
+    assert abs(thresh(2) - (1 + sqrt(2)) ** 4) < 1e-9      # the pair threshold
+    assert abs(thresh(2) - 33.9706) < 1e-3
+    assert abs(thresh(4) - (4 * sqrt(2) + sqrt(33)) ** 2) < 1e-9   # the chain
+    assert abs(thresh(4) - 129.9923) < 1e-3
+    assert abs(sqrt(2) * 2 + sqrt(9) - (1 + sqrt(2)) ** 2) < 1e-12
+
+    prev = 1.0
+    for V0 in (2, 4, 6, 8):
+        u = thresh(V0)
+        gap = (8 * V0 * V0 + 2) - u
+        assert 0 < gap < prev                              # approached from below
+        prev = gap
+        assert abs((u - 1) / sqrt(u) - 2 * sqrt(2) * V0) < 1e-9   # solves it
