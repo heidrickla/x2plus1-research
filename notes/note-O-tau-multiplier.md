@@ -999,6 +999,9 @@ odd squarefree (99.2%) fail 3ab < M^{4/3}** and so are excluded outright.
 Combined with O.4's t > 133.875, the admissible a is tiny: **a ≤ 2** at the
 minimum admissible t, 6 at t = 10³, 19 at t = 10⁴.
 
+*(The parity input |V| even whenever M is odd is `V-is-even-whenever-M-is-odd`
+in the registry, proved there rather than restated here.)*
+
 **And the pair-level identity is cleaner without the cofactor** — the parallel
 session's, and distinct from Lemma O.8.1 (S·T = −M·m is about a single modulus,
 V·W about a pair). It is mine divided by a:
@@ -1042,6 +1045,27 @@ pigeonhole by an ordering.
 v_p(V) lower bound, and 224 of the ordered two-term sum; and M | V₁₂V₂₃V₁₃ holds
 on every realised triple in all four categories — odd squarefree 23,
 odd non-squarefree 39, even non-squarefree 216.)*
+
+> ### ⚠ DO NOT reduce the two-term sum to a fixed pair
+>
+> The step above gives **v_p(V₁₂) + v_p(V₂₃) ≥ e**, two terms rather than three,
+> and the obvious next move is to conclude **M | V_a·V_b for some fixed pair** —
+> which with |V| < M/√(3D) would give M ≤ |V_aV_b| < M²/(3D), i.e.
+> **3ab < b − a**, impossible for a ≥ 1. That closes Conjecture O.2 in one line,
+> and it is **wrong**.
+>
+> **The ordering that selects the pair is computed per prime**, so different
+> primes select different pairs, and only the *three*-term product is uniform
+> across all of them. **5 of 216 realised triples admit no single pair whose
+> product M divides**: (1,481) M = 480; (1,925) M = 924; (1,106) M = 105;
+> (1,2465) M = 2464; (1,1450) M = 1449 — every one with M carrying ≥ 3 distinct
+> primes, which is exactly the room the orderings need to disagree.
+>
+> *(The parallel session made this move an hour after establishing the two-term
+> form, and caught it only because the conclusion 3ab < b − a is false by
+> inspection. A slightly weaker over-reach would have shipped. Recorded here, not
+> only in CLAUDE.md, because Note O is where someone works on O.2.)*
+
 
 **The sign was the e = 1 shadow of this.** At v_p(M) = 1, s and t lie in {0,1}
 and S·T = −M·m forces s + t = 1 exactly, so (s,t) is (1,0) or (0,1) — precisely
@@ -1141,11 +1165,21 @@ question cannot see.
 | 8000 | 109 | 76 | 33 | 13 | **0** |
 
 **119 informative classes with a ≥ 2 across the six sizes, and O.11 excludes
-every one.** That matters because `full-graph-growth-is-pell` already records
-that **n₁ = 1 cannot occur in a Type II hypothesis**, where both variables are
-confined to ranges — the unit cofactor is an artefact of the full graph, not a
-configuration the sieve ever meets. So on the classes the Type II question
-actually ranges over, O.11 is currently exhaustive.
+every one** — and **that fact carries no information.**
+
+> **⚠ The a ≥ 2 column cannot test the question.** The largest b among informative
+> classes with a ≥ 2 is **925 at X = 3000 and 8321 at X = 6000**, against an
+> a = 2 crossover of **7×10⁴**. Nothing with a ≥ 2 is within an order of magnitude
+> of being admitted, so "O.11 excludes every one" is a statement about the sweep's
+> reach and not about a ≥ 2.
+>
+> **The headline this nearly produced was false.** Since `full-graph-growth-is-pell`
+> records that n₁ = 1 cannot occur in a Type II hypothesis, *"O.11 is exhaustive
+> on exactly the classes the Type II question ranges over"* was true of every
+> number in the sweep, connected two notes — and is **wrong**, for range reasons
+> alone. Same shape as the Plücker constant: correct arithmetic, correct-sounding
+> synthesis, no causal content. Caught by the parallel session asking not where
+> the crossover is but **how far the data is from it**.
 
 > **⚠ This is a range effect, not a law, and the law is easy to write down.**
 > O.11 admits (a, b) as soon as ab < c·(b−a)^{4/3}, and for **fixed a** the right
@@ -1154,6 +1188,56 @@ actually ranges over, O.11 is currently exhaustive.
 > sweep does not reach far enough in b, and it **will** fill in at larger X. The
 > honest statement is the finite one: *no informative class with a ≥ 2 is admitted
 > for X ≤ 8000*, and the a = 1 column is already filling (1, 2, 3, 5, 8, 13).
+
+### Theorem O.12 — C₄-freeness over Z, on the configuration Type II uses
+
+Everything above windows the **moduli** and lets the cofactors range freely. But
+Ford–Maynard's (II) is a bilinear form over **m ~ M and n ~ N**: *both* variables
+sit in ranges, and `fm-barrier-range-is-small-moduli` records that footnote 2
+averages over m₁, m₂ ~ x^{1−2c+ε} — the cofactors are banded too. On that
+configuration the question is not O.2 at all, and it is already settled.
+
+> **Two cofactors in one dyadic band are within a factor 2 of each other**, so
+> u = n₂/n₁ < 2 and, with d = gcd(n₁,n₂), **b/a = n₂/n₁ < 2**.
+
+Run the pair bound at the weakest multiplier the lattice permits. A pair of
+shared moduli m_i < m_j < 2m_i with X_i ≥ 1 needs X_j > τ_V X_i, so
+m_j/m_i > (τ_V²X_i² + 1)/(X_i² + 1) and **τ_V² < 2 + 1/X_i² ≤ 3**. τ is
+increasing in |V| and |V| ≥ 1, so τ_V ≥ τ(1) = √(1+s²) + s with s = √D/M; and
+τ(1)² < 3 forces s < 1/√3, i.e. **M/√D > √3**. Finally M/√D = (u−1)/√u, and
+
+> (u−1)/√u > √3  ⟺  u² − 5u + 1 > 0  ⟺  **u > (5+√21)/2 = 4.7913**.
+
+> **Theorem O.12.** If n₂/n₁ < (5+√21)/2 = 4.7913 — in particular if n₁ and n₂
+> lie in **one dyadic band** — then they share **at most one modulus in any
+> dyadic window**. The rational incidence graph restricted to the doubly-dyadic
+> configuration is **C₄-free**.
+
+*(Margin 2.4×, and it uses |V| ≥ 1 rather than the parity lemma's |V| ≥ 2, so it
+does not depend on a, b's parity. Asymptotically, τ_V² < 2 gives M/√D > 2√2 and
+u > 5 + 2√6 = 9.899; with |V| ≥ 2 it is the familiar 33.97.)*
+
+**Measured, and the contrast is exactly the theorem.** At every dyadic modulus
+window from [8,16) to [2^23, 2^24) at X = 3000 and 6000:
+
+| cofactors | max Gram entry |
+|---|---|
+| both in one dyadic band | **1** |
+| free | **2** |
+
+**Why this matters outside Note O.** `gaussian-to-rational-bridge` is `inferred`,
+and its stated gap is: *"What is proved over Z[i] is G ≤ 1; what is measured over
+Z is G′ ≤ 2 on every dyadic window for X ≤ 8000."* O.12 closes that sentence's
+second half — over Z, on the configuration (II) quantifies over, **G′ ≤ 1 is
+proved, for all X, and it matches the Z[i] bound exactly** rather than being a
+measured constant one larger.
+
+> **What it does not close.** The bridge's remaining content is the *inference*
+> "both give no main term, so the conclusion is unchanged". That step is
+> untouched; O.12 removes the quantitative discrepancy and the finite floor, not
+> the reasoning. And it says nothing about O.2, which is the free-cofactor
+> question — a pair like (1, 41) with moduli 730 and 1370 is a genuine G′ = 2 and
+> is simply not a Type II configuration.
 
 **What was M even and M non-squarefree** is now covered; the sign argument's
 apparent need for them was an artefact of working at e = 1: U² ≡ (Va)² only gives M | A_VB_V in general, and the signs can differ

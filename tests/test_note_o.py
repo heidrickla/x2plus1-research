@@ -1501,3 +1501,63 @@ def test_O11_admits_only_unit_cofactor_classes_in_this_range():
         b = next(b for b in range(a + 1, 3 * 10 ** 6, 97)
                  if a * b < c * (b - a) ** (4 / 3))
         assert b > floor, (a, b)      # admitted at large b for every a
+
+
+def test_O12_threshold_and_that_a_dyadic_band_is_inside_it():
+    """u > (5+sqrt21)/2 = 4.7913 is needed for two shared moduli in a window."""
+    thr = (5 + sqrt(21)) / 2
+    assert abs(thr - 4.7912878475) < 1e-9
+    # tau(1)^2 < 3  =>  s < 1/sqrt3  =>  M/sqrtD > sqrt3;  M/sqrtD = (u-1)/sqrt u
+    assert abs((thr - 1) / sqrt(thr) - sqrt(3)) < 1e-12
+    assert thr > 2                       # a dyadic band cannot reach it
+    assert thr / 2 > 2.39                # with a factor 2.4 to spare
+    # the asymptotic version, and the |V| >= 2 version, for contrast
+    asym = 5 + 2 * sqrt(6)
+    assert abs((asym - 1) / sqrt(asym) - 2 * sqrt(2)) < 1e-12
+    assert abs(asym - 9.8989794856) < 1e-9
+    assert (1 + sqrt(2)) ** 4 > asym > thr > 2
+
+
+def test_O12_banded_cofactors_share_at_most_one_modulus_per_window():
+    """C_4-free on the doubly-dyadic configuration; free cofactors reach 2."""
+    from collections import defaultdict
+
+    XX = 700
+    inc = defaultdict(list)
+    for x in range(1, XX + 1):
+        v = x * x + 1
+        d = 1
+        while d * d <= v:
+            if v % d == 0:
+                inc[d].append(v // d)
+                if d * d != v:
+                    inc[v // d].append(d)
+            d += 1
+    worst_banded = worst_free = 0
+    windows = 0
+    M = 4
+    while M * 2 <= XX * XX + 1:
+        ms = [m for m in range(M, 2 * M) if m in inc]
+        if ms:
+            windows += 1
+            cof = defaultdict(set)
+            for m in ms:
+                for n in inc[m]:
+                    cof[n].add(m)
+            ns = list(cof)
+            N = 1
+            while N <= XX * XX:
+                band = [n for n in ns if N <= n < 2 * N]
+                for i in range(len(band)):
+                    for j in range(i + 1, len(band)):
+                        g = len(cof[band[i]] & cof[band[j]])
+                        assert g <= 1, (M, band[i], band[j], g)   # O.12
+                        worst_banded = max(worst_banded, g)
+                N *= 2
+            for i in range(len(ns)):
+                for j in range(i + 1, len(ns)):
+                    worst_free = max(worst_free, len(cof[ns[i]] & cof[ns[j]]))
+        M *= 4
+    assert windows >= 4, windows
+    assert worst_banded == 1, worst_banded
+    assert worst_free >= 2, worst_free      # and free cofactors DO reach 2
