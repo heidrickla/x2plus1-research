@@ -652,8 +652,13 @@ wholesale. This is the list a reader should trust.*
 - Mod M the automorph diagonalises in S, T with **unit** eigenvalues, so every
   integrality condition is orbit-invariant.
 - τ₁ acting is exactly M | S; equivalently M₂ = 1 in the M = M₁M₂ splitting.
+- The identity M(ρ² − 1) = 4ka(k − ρ) with ρ = B_k/M, and ρ < 1.06066 from the
+  geometry.
 - **Theorem O.3**, for M odd squarefree: no window holds (ξ, τ₁ξ, τ_kξ), k ≥ 2.
-  Reaches 17 of 95 candidates here, 104 of 534 in the parallel session's census.
+- **Theorem O.3′**, superseding it: the same conclusion whenever
+  **gcd(M, 2X) ≤ 16**, with no hypothesis on M. Squarefreeness forces
+  gcd(X,M) = 1 hence c | 2, so O.3 is the special case. O.3′ reaches even and
+  non-squarefree M — including (53, 423125), where c = 2 and 12.
 
 **Measured, and trustworthy as measurements.**
 

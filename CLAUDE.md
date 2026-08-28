@@ -90,13 +90,28 @@ for a whole orbit or none. τ₁ acting is exactly M | S; then τ_k forces
 M | 2B_k with B_k = U_k − 2ka, so M = 8ka(2k−j)/(j²−4) for j = 2B_k/M ≥ 3, and
 the geometry r_k < 2 needs M > 2√2·k√(ab). Together those give
 e² + 4jwe + 2w²(2e−1) < 0 with every term positive. **So for M odd squarefree no
-window holds (ξ, τ₁ξ, τ_kξ).** Divisibility wants M small, geometry wants it
-large; 199 configurations satisfy one and 0 the other, and vice versa for 95.
+window holds (ξ, τ₁ξ, τ_kξ)** — and **Theorem O.3′ supersedes that**: with
+ρ = B_k/M the identity M(ρ²−1) = 4ka(k−ρ) plus the geometry force ρ < 1.06066,
+while integrality makes c·ρ an integer for c = gcd(M, 2X); an integer in
+(c, 1.06066c) needs c ≥ 17. **So the conclusion holds whenever gcd(M, 2X) ≤ 16,
+with no hypothesis on M at all** — reaching the even, non-squarefree cases O.3
+was mute on.
 
-**O.2 — no window holds three, at all — is still open**, and the gap is p, q ≥ 2
-where the M = M₁M₂ factorisation is not forced. Measured there: 274 two-multiplier
-pairs, 0 fitting a window, the binding ratio q/(√(b/a)/4√2) never below **3.91**
-when it must be under 1. A factor of four, not a contradiction.
+**O.2 — no window holds three, at all — is still open**, and the gap is p, q ≥ 2:
+a close pair can be realised at a **non-fundamental** multiplier, witnessed by
+(53, 423125) with m = 10, 17 at k = 12 (τ₁ excluded, 1.046 against 1.700).
+Realised once in 379 close pairs at X = 3000 — rare, not absent.
+
+**The big methodological finding, which cost both sessions a day of work.**
+Generating candidates from *multipliers* and testing occupancy afterwards
+searches a mostly-empty parameter space, and worse, **r₁·r_k is a ratio between
+solution classes and does not predict the spacing of the occupied moduli** — on
+(1, 115921) it predicts 1.31 and the observed minimum ratio is 33.77. Every
+r-product statistic either session produced is withdrawn. The correct direction
+is inverted: **enumerate realised ratio classes, take those with two moduli in a
+window, and read off which multiplier index explains the ratio** — occupancy is
+the input, so it cannot produce a dead configuration. Check the residual on the
+index; eyeballing it produced a misattribution that `exp14` caught.
 
 Two dead ends worth not repeating. The ideal route (Q̄, Q̄″ coprime) is **closed**:
 coprimality holds in 5 of 65 cases where it can be observed. And there is **no
