@@ -1738,3 +1738,39 @@ def test_O15_distinct_multipliers_raise_the_triple_threshold():
         expr = ((sp.sqrt(1 + V ** 2 * s ** 2) + V * s)
                 * (sp.sqrt(1 + W ** 2 * s ** 2) + W * s)).subs(sub) ** 2 - 3
         assert abs(float(sp.nsolve(expr, u, 100)) - want) < 1e-3
+
+
+def test_O16_composite_integrality_reduces_to_one_congruence():
+    """Lemma O.16: tau_1 tau_2 in T <=> M | 2(U_2 + 4a).
+
+    The composite carries two conditions, M | U_1 U_2 + 8D and M | 4U_1 + 2U_2.
+    Mod M, with b == a so D == a^2 and U_1 = a+b == 2a, they are 2a(U_2+4a) and
+    2(U_2+4a); gcd(a,M) = 1 makes them the same condition.
+
+    Checked against the full two-condition test on every class admitting both
+    multipliers -- if they ever disagreed the reduction would be wrong.
+    """
+    from math import gcd, isqrt
+
+    total = agree = satisfied = 0
+    for a in range(1, 60):
+        for b in range(a + 1, 4000):
+            if gcd(a, b) != 1:
+                continue
+            M, D = b - a, a * b
+            u1s, u2s = M * M + 4 * D, M * M + 16 * D
+            u1, u2 = isqrt(u1s), isqrt(u2s)
+            if u1 * u1 != u1s or u2 * u2 != u2s:
+                continue
+            total += 1
+            full = ((u1 * u2 + 8 * D) % M == 0) and ((4 * u1 + 2 * u2) % M == 0)
+            derived = (2 * (u2 + 4 * a)) % M == 0
+            agree += full == derived
+            satisfied += full
+            assert u1 == a + b, (a, b, u1)          # k = 1 is the trivial multiplier
+
+    assert total >= 150, f"only {total} classes admit both multipliers -- range too small"
+    assert agree == total, f"the reduction disagreed on {total - agree} of {total}"
+    # restrictive but not closing: the case survives, unlike O.5's p = q
+    assert 0 < satisfied < total, (satisfied, total)
+    assert satisfied / total < 0.2, f"expected ~14%, got {satisfied / total:.0%}"

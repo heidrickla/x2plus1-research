@@ -2900,3 +2900,36 @@ is the check that the composite formula is the same one those results use.)*
 
 ⚠ This is a **necessary** condition, not a proof of O.2. Nothing here forbids a
 triple above 117.4171, and that is where the conjecture lives.
+
+### O.16 The minimal distinct composite reduces to one congruence
+
+O.15 leaves (V, W) = (2, 4) — the note's k = 1, 2 — as the binding configuration.
+O.5 closes p = q because τ_p² ∈ T becomes a divisibility on M alone; this note
+records that the composite for p ≠ q "does not collapse the same way". It does
+not, but it reduces to a single congruence, which is worth having explicitly.
+
+With τ_p = (U_p + 2p√D)/M and U_p² = M² + 4p²D,
+
+> τ₁τ₂ = (U₁U₂ + 8D + (4U₁ + 2U₂)√D)/M²,
+
+so τ₁τ₂ ∈ T requires **M | U₁U₂ + 8D** and **M | 4U₁ + 2U₂**. Reduce mod M using
+b ≡ a, hence D = ab ≡ a² and U₁ = a + b ≡ 2a:
+
+> U₁U₂ + 8D ≡ 2a(U₂ + 4a),  4U₁ + 2U₂ ≡ 2(U₂ + 4a).
+
+Since gcd(a, M) = gcd(a, b − a) = 1, the two conditions are the same one:
+
+> **Lemma O.16.** *τ₁τ₂ ∈ T ⟺ M | 2(U₂ + 4a), where U₂ = √(M² + 16D).*
+
+**Machine-checked: 155 classes at a < 60, b < 4000 admit both k = 1 and k = 2
+multipliers, and the criterion agrees with the full two-condition test on all
+155, with zero disagreements.**
+
+**It is restrictive but does not close the case.** Only **21 of the 155** satisfy
+it — 14% — of which 17 have U₂ ≡ −4a (mod M) exactly and 4 rely on the factor 2,
+which needs M even. So unlike O.5's p = q, there is a sign available and the case
+survives; the note's assessment was right, and this is the number behind it.
+
+⚠ Closing (1,2) alone would not close O.2: it would raise O.15's binding pair to
+(1,3), not eliminate it. The value here is that the condition is now one
+congruence rather than two, and its density is measured.
