@@ -165,10 +165,14 @@ sweep either of us has run contains zero instances of it. The absence of triples
 is the thing to be explained, not evidence about the mechanism proposed to
 explain it.
 
-So the honest position is: the *pair* structure is explained, the *triple*
-question is reduced to one ideal-theoretic statement, and the bound is not
-improved. The only unconditional constraint anyone has on a triple is the
-Plücker one below, which has no ideal theory in it.
+So the honest position is: the *pair* structure is explained, and the *triple*
+question splits. **Triples involving the fundamental multiplier are now closed
+unconditionally** — Theorem O.3 below, for M squarefree and odd, verified here
+independently. Triples with both multipliers non-fundamental (shape
+(ξ, τ_pξ, τ_qξ), p, q ≥ 2) remain reduced to the one ideal-theoretic statement,
+Conjecture O.2. The bound is still not improved, and the only unconditional
+constraint covering *every* shape is the Plücker one below, which has no ideal
+theory in it.
 
 **Earlier status, kept: the class count is unbounded, so the proposition does not
 reach the constant 2.**
@@ -371,23 +375,61 @@ question rests on 31 informative classes, and 278,908 of the rest could not have
 contradicted anything. "Verified over hundreds of thousands of ratio classes"
 would have been true and thoroughly misleading.
 
-### How much of the candidate space the orbit walk covers
+### Theorem O.3 closes the natural case, and the walk is not needed for it
 
-[Note O](note-O-tau-multiplier.md)'s decidable criterion — (a, b) admissible,
-some k ≥ 2 with a² + (4k²−2)ab + b² a perfect square, and r₁·r_k < 2 — was
-reconstructed here independently to check its coverage. In the box a ≤ 60,
-b ≤ 300 000 it gives **322 candidates**, with D from 12 352 to 16 897 024 and
-median 1 651 620. Note O's stated tightest, (1, 115921) at k = 22 with
-r₁r_k = 1.3093, is reproduced exactly — but is not the tightest: **(1, 226801)
-at k = 26 gives 1.2540**.
+[Note O](note-O-tau-multiplier.md) now proves the k = 1 case outright, and the
+proof removes the need for the orbit walk rather than extending it. **Mod M, in
+the coordinates S = X+Y, T = X−Y, the class automorph diagonalises with both
+eigenvalues units**, so integrality holds for a whole orbit or for none of it —
+a single representative decides each class, and walking 44 of them was answering
+a question one computation settles.
 
-The orbit walk covers 44. So "44 of 44 orbits, no triple" should be quoted with
-its box and its seed-reachability filter attached: the candidate population is
-larger than the 95 the walk was drawn from and keeps growing with the box, and
-seed-reachability correlates with small D, which is also where the orbit is
-shortest. None of that is a criticism of the mechanism, which is decidable and
-negative on every instance it has been run on — it is a statement about how much
-of the space that is.
+The statement: **for M = b−a squarefree and odd, no dyadic window holds three
+shared moduli of the form (ξ, τ₁ξ, τ_kξ) with k ≥ 2.** The two requirements are
+incompatible — divisibility forces M = 8ka(2k−j)/(j²−4) with j = 2B_k/M an
+integer, while the geometry of a dyadic window forces M > 2√2·k√(ab), and the
+two conditions have no common solution.
+
+**Verified here independently**, by regenerating every multiplier in a ≤ 50,
+b ≤ 60 000 from the Pell condition rather than from Note O's code — 224 670
+multipliers, of which 220 077 have k = 1:
+
+| checked | result |
+|---|---|
+| k = 1 ⟹ j = 2 exactly | 220 077 cases, **0 violations** |
+| identity M = 8ka(2k−j)/(j²−4) on integer-j cases | holds exactly |
+| k ≥ 2 satisfying the divisibility | 609 |
+| k ≥ 2 satisfying the window geometry | 477 |
+| k ≥ 2 satisfying **both** | **0** |
+
+The k = 1 ⟹ j = 2 step is an identity, not a coincidence: U₁ = √(M² + 4ab) =
+√((b−a)² + 4ab) = a+b, so B₁ = (a+b) − 2a = b−a = M and j = 2M/M = 2. The
+disjointness is what the theorem asserts, and the two populations are both large
+and cleanly separated — this is not a vacuous "no instances" check of the kind
+`triples-cannot-be-settled-by-measurement` warns about, because both sides are
+populated and it is their intersection that is empty.
+
+**What stays open is O.2**, triples of shape (ξ, τ_pξ, τ_qξ) with p, q ≥ 2 —
+neither multiplier the fundamental one. The coverage critique below applies to
+exactly that remainder and to nothing else.
+
+### How much of the candidate space is left, and what the walk covered
+
+Note O's decidable criterion — (a, b) admissible, some k ≥ 2 with
+a² + (4k²−2)ab + b² a perfect square, and r₁·r_k < 2 — was reconstructed here
+independently to check its coverage. In the box a ≤ 60, b ≤ 300 000 it gives
+**322 candidates**, with D from 12 352 to 16 897 024 and median 1 651 620.
+Note O's stated tightest, (1, 115921) at k = 22 with r₁r_k = 1.3093, is
+reproduced exactly — but is not the tightest: **(1, 226801) at k = 26 gives
+1.2540**. Of the three tighter ones found here, all give 2B/M strictly between
+2 and 3, so none is a counterexample.
+
+The orbit walk covered 44 of those. That number now measures something narrower
+than it did: Theorem O.3 disposes of every candidate whose triple involves the
+fundamental multiplier, so the walk's coverage matters only for the p, q ≥ 2
+remainder. The original caveat still holds for that remainder — the population
+grows with the box and seed-reachability correlates with small D — but it is no
+longer the main line of defence.
 
 ## So Note F's conclusion transfers, and here is exactly how much is proved
 

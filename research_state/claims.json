@@ -968,12 +968,22 @@
     {
       "id": "orbit-walk-covers-a-small-part-of-the-candidates",
       "status": "rigorous_finite",
-      "statement": "Reconstructing Note O's candidate criterion independently -- (a,b) admissible, some k >= 2 with a^2 + (4k^2-2)ab + b^2 a perfect square, and r_1 * r_k < 2 -- gives 322 candidates for a <= 60, b <= 300000, with D from 12,352 to 16,897,024 and median 1,651,620. The parallel session's orbit walk covers 44. Its stated tightest candidate (1,115921) at k = 22, r_1 r_k = 1.3093, is reproduced exactly here but is not the tightest: (1,226801) at k = 26 gives 1.2540.",
+      "statement": "Reconstructing Note O's candidate criterion independently -- (a,b) admissible, some k >= 2 with a^2 + (4k^2-2)ab + b^2 a perfect square, and r_1 * r_k < 2 -- gives 322 candidates for a <= 60, b <= 300000, with D from 12,352 to 16,897,024 and median 1,651,620. The parallel session's orbit walk covers 44. Its stated tightest candidate (1,115921) at k = 22, r_1 r_k = 1.3093, is reproduced exactly here but is not the tightest: (1,226801) at k = 26 gives 1.2540. Superseded in importance, not in fact, by Theorem O.3.",
       "experiment": "candidate reconstruction in-session from the criterion in Note O; see Note L",
       "tags": [
         "type_ii"
       ],
-      "notes": "Bears on the scope of the 44-of-44 orbit result. If their 95 is the full candidate list then the box matters enormously; if it is the seed-reachable subset then 44 walked out of >= 322 existing is about 14% coverage. Either way the population is larger than 95 and grows with the box, so '44 of 44' should be quoted with the box and the reachability filter attached. Not a criticism of the mechanism, which is sound and decidable -- a statement about how much of the space it has been run on."
+      "notes": "SCOPE NARROWED after Theorem O.3 (see theorem-O3-verified-independently). The walk's coverage was the main line of defence for the whole triple question; it is now the line of defence only for the Conjecture O.2 remainder, triples whose two multipliers are both non-fundamental. Every triple involving tau_1 is closed unconditionally, so the 44-of-322 coverage figure no longer bounds what is known -- it bounds only what the walk itself established. The original caveat still applies to the remainder: the population grows with the box and seed-reachability correlates with small D. Also checked: all three candidates found here tighter than Note O's stated tightest give 2B/M strictly between 2 and 3, so none is a counterexample."
+    },
+    {
+      "id": "theorem-O3-verified-independently",
+      "status": "rigorous_finite",
+      "statement": "Note O's Theorem O.3 -- for M = b-a squarefree and odd, no dyadic window holds three shared moduli of the form (xi, tau_1 xi, tau_k xi) with k >= 2 -- was re-derived and checked here from the Pell condition rather than from the parallel session's code. Over a <= 50, b <= 60000: 224,670 multipliers, of which 220,077 have k = 1 and ALL give j = 2B/M = 2 exactly (0 violations); the identity M = 8ka(2k-j)/(j^2-4) holds exactly on every integer-j case; and among k >= 2, 609 satisfy the divisibility and 477 satisfy the window geometry M > 2*sqrt(2)*k*sqrt(ab), with 0 satisfying both.",
+      "experiment": "in-session regeneration of all multipliers from M^2 + 4k^2 D a perfect square; recorded in Note L, section 'Theorem O.3 closes the natural case'",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "An independent check of a parallel session's theorem, done because that session's earlier unconditional claim had to be retracted and because Prop O.1 was likewise verified link-by-link before adoption. Both sides of the disjointness are populated (609 and 477), so this is NOT the vacuous-population failure recorded in triples-cannot-be-settled-by-measurement -- the empty set is the intersection, not either side. The k=1 => j=2 step is an identity: U_1 = sqrt((b-a)^2 + 4ab) = a+b, so B_1 = M. Scope: the theorem covers triples using the fundamental multiplier; Conjecture O.2, shape (xi, tau_p xi, tau_q xi) with p,q >= 2, is untouched by it."
     }
   ]
 }
