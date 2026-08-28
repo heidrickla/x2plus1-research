@@ -179,6 +179,20 @@ statement that DFI's parity-breaking input does not exist here.
 > N/X² = 0.233 only about four moduli exist, so a pair shares one roughly half the
 > time.
 >
+> **Measured directly, the largest modulus seen tracks the ceiling** — so this is
+> a counting identity rather than an empirical scaling, which is why the collapse
+> is exact to three or four digits:
+>
+> | N/X² | ceiling X²/N | largest m seen | distinct m | mean G |
+> |---:|---:|---:|---:|---:|
+> | 0.0146 | 68.7 | 65 | 17 | 0.0904 |
+> | 0.0583 | 17.2 | 17 | 6 | 0.2377 |
+> | 0.2330 | 4.29 | 2 | 2 | 0.5142 |
+> | 0.4660 | 2.15 | 2 | 2 | 0.8911 |
+>
+> The distinct-modulus column makes the direction concrete: with **two** available
+> moduli a pair shares one 89% of the time; with **seventeen**, 9%.
+>
 > The **left** arm has no such variable because there *both* counts matter and the
 > modulus count carries its own X-dependence — which is why it does not collapse
 > under N/X — at N/X = 0.34 it is 0.0466
