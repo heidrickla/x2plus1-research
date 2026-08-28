@@ -732,6 +732,14 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   the computations, not the reviews** — redundancy at the identities *and* at the
   sweeps, on different axes, with disagreement as the alarm. Three of tonight's
   findings arrived this way, including both that reframed the O-thread.
+  **And the reason is a mechanism, not a preference.** A checklist item costs
+  attention *every* time and pays only when it fires, so its expected value falls
+  as vigilance decays — which is why every rule in this file was broken by its own
+  author within an hour of being written. An axis extension costs attention once
+  and **raises the probability of the next one**, because the payoff is itself the
+  motivation. **The countermeasure that works unattended is the one whose success
+  makes it more likely to be repeated.** Nobody had to be reminded to extend the D
+  axis a second and third time; the second happened because the first had paid.
 
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
