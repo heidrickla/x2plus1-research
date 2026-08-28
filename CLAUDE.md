@@ -348,9 +348,23 @@ Selberg via [FM] p. 2 and Theorem 2.1. **This repo never derives ν = 0 from the
 counting function.** Footnote 2 corroborates that we measure the object the
 literature names as the barrier — *relevance*, not a derivation step. It binds
 only `fm-barrier-is-unconditional-at-density-half`, where the footnote **is** the
-source. What `gaussian-to-rational-bridge` actually carries is the reading of
-what (II) quantifies over, a different sentence, which **could** be settled by
-reading more carefully.
+source. What `gaussian-to-rational-bridge` actually carried is the reading of
+what (II) quantifies over — and **that has now been settled by reading, exactly
+as this line predicted it could be.** Three independent grounds, all at source:
+(i) **the shared variable is window-confined by FM's own definition of J** —
+p. 7, *"J ⊆ (x/2, x] containing x^{1−c} elements"*, so n·m₁ ∈ J forces
+x/(2m₁) < n ≤ x/m₁, **a ratio of exactly 2**, and the window is not a
+restriction this repo imposes but one their own set supplies; (ii) the pair is
+banded by footnote 2's own *"m₁, m₂ ∼ x^{1−2c+ε}"*; and (iii) **(II) implies
+every doubly-banded restriction of itself**, since it is stated "for any complex
+numbers ξ_m, κ_n with |ξ_m| ⩽ τ^B(m)" — so ξ_m = 0 off [M,2M) and κ_n = 0 off
+[N,2N) are admissible choices. *(Route (iii) is needed because (II)'s m-range
+((x/2)^θ, x^{θ+ν}] is **not** itself a band when ν > 0; the arbitrariness of the
+coefficients is what supplies the banding.)* So O.12 governs exactly the
+configuration FM quantify over, as a matter of their text rather than our
+reading. What remains `inferred` is the *other* sentence — the Z[i]→Z transfer
+this claim is named for — and the count-to-ν step, which rests on the source's
+own "closely related to" and is off the path anyway.
 
 **Positive control — the 0/1 property is not generic.** Doubly-dyadic max Gram at
 Q = 2.5×10⁴ / 5×10⁴ / 10⁵: **x²+1 = 1, 1, 1** (proved, 0 banded pairs sharing
@@ -839,27 +853,32 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   the faithful numbers in a claim's `notes` while its `statement` still led with
   the anchored ones is the same half-correction this file already warns about.
 
-- **The cross-session message channel is the only uninstrumented one, and it
-  needs no gate — but nothing may live there alone.** Every mechanism here
-  operates on the repo: the claims gate, the prose gate, the suite, the status
-  vocabulary. Messages between sessions pass through none of them, and both
-  sessions have now sent one carrying a claim stronger than the artefact it
-  described. **The instinct to gate them is wrong**: the message channel is
-  precisely where the duplicated-computation safeguard runs — four errors in one
-  night were caught because a claim was *stated to the other session*, which
-  then computed it independently and disagreed. Slowing that exchange would
-  remove the detector to protect against the thing the detector catches.
-  **The two failure modes are different and only one is dangerous.** The other
-  session's was *message stronger than artefact* — self-correcting, because the
-  artefact is what gets read later. Mine was worse both times: the message and
-  the artefact were wrong **together** (the "D-dependence is in the matrix"
-  over-read, and the D = 4 converse, which shipped in `14109e1` before I
-  withdrew it). A message that overstates a correct artefact is a
-  misunderstanding; a message that faithfully reports a wrong artefact is a
-  defect with a witness. **So the rule is not "check the messages" but "a claim
-  that exists only in a message has been checked by nothing"** — put it in the
-  registry, where the status vocabulary forces you to say how you know it.
+- **Two sessions on one machine collide below every guard you build.** All three
+  hazards found tonight sit *underneath* the pathspec, the claims gate and the
+  prose gate, because each happens before or outside git.
 
+  - ***Shared temp.*** `/tmp`, `$TMP` and `%TEMP%` all resolve to the same user
+    directory here. A commit message written to `$TMP/msg.txt` by one session was
+    picked up by the other's `git commit -F`, filing **59 lines of Note O under an
+    unrelated title**; six files from three *further* sessions were sitting in the
+    same directory. Use the session scratchpad named in the system prompt — for
+    message files, for background-job output, for everything. The countermeasure
+    at this layer is **content addressing, not path trust: a hash survives a
+    shared path, a filename does not.**
+  - ***Shared files.*** `git commit -- <path>` scopes what git commits but cannot
+    separate two authors inside one file. Five times a paragraph from one session
+    landed in the other's commit; `4f3e99a` is titled "two rules" and adds
+    **three** bullets. `tools/check_claims_diff.py` fixes this where there are
+    ids; `tools/check_prose_diff.py` covers `- **…**` headings; **neither sees an
+    edit that extends an existing paragraph**, which is the case that still gets
+    through.
+  - ***The message channel.*** Nothing checks it, and twice a message carried a
+    **stronger claim than the artefact it described** — both times the committed
+    artefact was correct. Do not gate it: the exchange *is* the
+    duplicated-computation detector, and four errors tonight were caught because
+    a claim was stated and then independently computed. **State the claim id and
+    let the reader check the artefact**, and remember that *a claim existing only
+    in a message has been checked by nothing.*
 - **A guard can check a strictly weaker proposition than the one it is named
   for, and neither of the other two countermeasures reaches it.** `exp09` sweeps
   `M = 2; while M <= cap: …; M *= 2` — windows **anchored at powers of two** —
@@ -956,28 +975,6 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   machinery instead of two derivations. **When two notes' objects look like the
   same object, evaluate both on one instance before believing it.**
 
-- **Two sessions on one machine share `/tmp`, and a commit message written there
-  will be committed by the other session.** Commit `a142e23` adds 59 lines to
-  Note O under the message *"My own five prose citations; four now run, and one
-  of them was wrong"* — a message written four hours earlier, by the other
-  session, for an unrelated commit. Cause: `/tmp/msg.txt`, written during a
-  `git commit --amend -F /tmp/msg.txt` and still holding that text when the
-  second session used the same path. **Nothing was lost and the log is wrong**:
-  a reader following it finds 59 lines of Note O filed as claim-citation work.
-  Use the session scratchpad — the path is in the system prompt and is
-  session-specific — never `/tmp`, for message files, for background-job output,
-  for anything. This is the collision hazard that `git commit -- <paths>` cannot
-  see, because it happens **before git is involved** — below every guard here:
-  the pathspec scopes what git commits, floors bound what a check sees, and
-  `check_claims_diff` compares content, and none of them touches a file read
-  earlier. **The countermeasure at that layer is content addressing rather than
-  path trust: a hash survives a shared path, a filename does not.** Verified on
-  this side afterwards — no repo tooling writes to shared temp (nothing in
-  `tools/`, `experiments/`, `x2plus1/`, `tests/`), and the one commit whose
-  message came from a temp read matches its diff exactly, so the leak went
-  outward only. `$TMP` and `%TEMP%` resolve to the same shared directory as
-  `/tmp` here; six files from three *other* sessions were sitting in it.
-
 - **A citation to the nearest script you own is invisible to every check but
   running it.** The prose-citation defect (`experiment` naming a sentence) is
   visible in the string and a guard catches it. Its successor is not: **eleven
@@ -1059,19 +1056,6 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   both errors produced *apparent violations of a correct bound*, which is what
   sent each of us back to the derivation. A wrong invariant that happened to
   produce no violation would still be there.
-
-- **Every gate here operates on the repo; nothing checks the messages.** The
-  claims gate, the prose gate, the test suite, the registry statuses — all of
-  them act on artefacts. Cross-session messages pass through none of them, and
-  twice in one night a message carried a **stronger claim than the artefact it
-  described**: once weakening another session's identity ((a+b)² − 4ab = (b−a)²,
-  which holds unconditionally) on the strength of a measurement about a different
-  quantity, and once calling a `rigorous_finite` claim `refuted`. **Both times
-  the committed artefact was correct and only the message was wrong.** That is
-  the expected direction — the artefact is written under gates and the message is
-  not — but it means a collaborator's picture can drift from the repo's while the
-  repo stays sound. **State the claim id in the message and let the reader check
-  the artefact**, rather than restating the content in looser words.
 
 - **A skipped check looks exactly like a passing one unless the runner says
   otherwise.** `tools/smoke_experiments.py` prints `SKIP -- no size recorded` for
