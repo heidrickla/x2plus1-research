@@ -1554,7 +1554,7 @@ for D = 1; the general-D statement is observed here, not proved.)*
 > | 11, 14, 19 | X ≤ 1200 | below 6 |
 > | 35 | X = 2500 | (2249, 3756) |
 > | 20 | X = 4000 | (47, 63) |
-> | 5–10 | **not by X = 8000** | — |
+> | 5–10 | **not by X = 8000** (all six, verified) | — |
 >
 > **D = 11 falls far earlier than D = 20 despite having the tighter bound**,
 > because 11 and 19 lie in the k²+3k+1 family, which hands over a witness at four
