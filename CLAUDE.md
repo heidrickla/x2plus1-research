@@ -359,7 +359,25 @@ power of two** — [8,16) and [16,32) between them miss (9,17), so an anchored
 sweep passes on the counterexample, and mine did. It does **not** refute the
 bridge for x²+1, where the Z side is *proved* by O.12 rather than transferred.
 
-**And the mechanism is on the next axis out — D itself.** In x²+D, four
+**THE ONE MECHANISM UNDERNEATH ALL THE D-COINCIDENCES: the invariant is M·D.**
+From a·m = X²+D and b·m = Y²+D, b(X²+D) = abm = a(Y²+D), so **aY² − bX² = M·D**
+— what Note O calls M is really M·D, and **every bound built on it weakens by a
+factor of D**. O.9 becomes 3ab < (M·D)^{4/3}, which separates the cases exactly:
+at cofactors (5,8) with M = 3, that is 120 vs **4.33** at D = 1 (forbidden, none
+occurs) and 120 vs **572.24** at D = 39 (permitted, and the triple occurs). Same
+bound, same cofactors — **D is the whole difference**. It subsumes the c = 6
+break (D = c², bound weakens by exactly c²), the family below, and the seven
+unit-free triples at D ≤ 60; and the density is a prediction that could have
+failed — 51 of 160 D ≤ 160 admit a unit-free triple, **none with D ≤ 25**, which
+is the shape a D^{4/3} loosening predicts and not the shape of a sporadic set.
+**So x²+1 is the D = 1 end of a one-parameter family — the point where every
+bound in the apparatus is tightest.** The twelve theorems are not weakened by
+that; they are *located*. ⚠ And **the right axis is the discriminant**:
+4(x²+bx+c) = (2x+b)² + |Δ|, so the line family (Δ = −4c²), the D family
+(Δ = −4D) and general quadratics are one axis — 11 discriminant classes checked,
+all agreeing internally, 0 disagreements.
+
+**The next axis out — D itself.** In x²+D, four
 consecutive arguments k…k+3 give a 4-cycle exactly when
 **(k²+D)((k+3)²+D) − ((k+1)²+D)((k+2)²+D) = 4(D − k² − 3k − 1)** *(verified
 symbolically)*, so precisely for **D = k²+3k+1 = 1, 5, 11, 19, 29, …**.

@@ -1433,6 +1433,43 @@ while the D-linear parts differ by 4. So the cycle exists precisely for
 > scraping under the threshold — they are deeply doubly dyadic, and there are
 > infinitely many.
 
+### The one mechanism underneath all of it: the invariant is M·D, not M
+
+Every D-coincidence recorded above is one statement. From a·m = X² + D and
+b·m = Y² + D we get b(X²+D) = abm = a(Y²+D), hence
+
+> **aY² − bX² = (b − a)·D = M·D.**
+
+*(0 failures over 2268 solutions across D = 1, 2, 5, 11, 29, 39, 52 here, and
+over 5354 pairs in the parallel session — together with **V·W = D·M·(m_i − m_j)**,
+the pair identity with D in place of the c² found earlier along the line family.)*
+
+**So the quantity Note O calls M is really M·D**, and every bound built on it
+weakens by a factor of D. O.9 becomes **3ab < (M·D)^{4/3}**, and that separates
+the cases exactly. At the cofactor pair (5, 8), where M = 3:
+
+| D | 3ab | (M·D)^{4/3} | |
+|---|---:|---:|---|
+| 39 | 120 | **572.24** | permitted — **and the triple occurs** |
+| 1 | 120 | **4.33** | forbidden — and none occurs |
+
+**Same bound, same cofactors. D is the whole difference.**
+
+It subsumes every coincidence on this axis: the line-family break at **c = 6**
+(there D = c², and the |V| bound weakens by exactly c² — measured before the
+reason was known); the 4-cycle family **D = k² + 3k + 1**; and the seven
+unit-free triples at D ≤ 60. **And the density confirms the mechanism rather than
+merely agreeing with it**: over D ≤ 160 at X = 900, **51 of 160 (31.9%) admit a
+unit-free triple, none with D ≤ 25**, and D = 1 does not. A bound loosening like
+D^{4/3} predicts exactly that shape — nothing until D is large enough, then a
+positive density. A sporadic set would look completely different.
+
+> **So the honest headline is better than "x²+1 is special".** It is the **D = 1
+> end of a one-parameter family — the point at which every bound in this
+> apparatus is at its tightest** — which is why the Note O conclusions hold there
+> and essentially nowhere else. The twelve theorems are not weakened by this.
+> They are **located**.
+
 **The right axis is the discriminant, which unifies all of these.** Completing the
 square gives **4(x² + bx + c) = (2x+b)² + |Δ|** with Δ = b² − 4c, so a general
 quadratic is x² + D on the arguments of one parity, up to a factor 4. The
