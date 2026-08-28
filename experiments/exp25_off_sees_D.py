@@ -98,6 +98,62 @@ def one_D(X, M, D):
             sum(pair.values()) / npair if npair else 0.0, npair)
 
 
+def two_matrices(X, M):
+    """ELEMENT-indexed vs COFACTOR-indexed, same values, same window.
+
+    The Cauchy-Schwarz expansion decides which matrix OFF contains, and it is
+    the ELEMENT one: Q_2 = sum_m (sum_{x : m | x^2+D} mu_x)^2 expands to
+    DIAG + sum_{x != y} mu_x mu_y #{m ~ M : m | x^2+D and m | y^2+D}.  Note F
+    and Prop L.1 are about #{m : m n1, m n2 in A}, indexed by COFACTORS.
+    CLAUDE.md called these one object; they are not, and the gap is a number.
+
+    Both means are printed over BOTH denominators, because our two sessions
+    also differed there -- mean over supported pairs against mean over all
+    pairs -- which disguised the disagreement a second time.
+    """
+    from collections import defaultdict
+    print(f"\n  ELEMENT vs COFACTOR, X = {X}, one window [{M}, {2*M})")
+    print(f"  {'D':>4} | {'CO max':>6} {'CO m/supp':>10} {'CO m/all':>10}"
+          f" | {'EL max':>6} {'EL m/supp':>10} {'EL m/all':>10}")
+    for D in D_AXIS:
+        vals = [x * x + D for x in range(1, X + 1)]
+        inband, cof = defaultdict(list), defaultdict(set)
+        for v in vals:
+            d = 1
+            while d * d <= v:
+                if v % d == 0:
+                    q = v // d
+                    if M <= d < 2 * M:
+                        inband[d].append(v); cof[q].add(d)
+                    if q != d and M <= q < 2 * M:
+                        inband[q].append(v); cof[d].add(q)
+                d += 1
+        pel = defaultdict(int)
+        for vs in inband.values():
+            for i in range(len(vs)):
+                for j in range(i + 1, len(vs)):
+                    pel[(vs[i], vs[j])] += 1
+        ns = sorted(cof)
+        pco = {}
+        for i, n1 in enumerate(ns):
+            for n2 in ns[i + 1:]:
+                sh = len(cof[n1] & cof[n2])
+                if sh:
+                    pco[(n1, n2)] = sh
+        def stats(p, tot):
+            return (max(p.values(), default=0),
+                    sum(p.values()) / len(p) if p else 0.0,
+                    sum(p.values()) / tot if tot else 0.0)
+        me, se, ae = stats(pel, len(vals) * (len(vals) - 1) // 2)
+        mc, sc, ac = stats(pco, len(ns) * (len(ns) - 1) // 2)
+        print(f"  {D:>4} | {mc:>6} {sc:>10.4f} {ac:>10.6f}"
+              f" | {me:>6} {se:>10.4f} {ae:>10.6f}")
+    print("  The COFACTOR Gram -- the C_4 object -- is flat in D (max exactly 2")
+    print("  throughout, mean slightly FALLING).  The ELEMENT matrix rises.  So the")
+    print("  D-dependence below is about the Cauchy-Schwarz chain and NOT about")
+    print("  C_4-freeness, and must never be quoted as the latter.")
+
+
 def main(X=20000, bands=(1000, 2500)):
     print(f"X = {X}.  The SAME incidence matrix, weighted by mu (OFF) and")
     print("unweighted (G), in one pass -- no difference of size, band or")
@@ -154,6 +210,8 @@ def main(X=20000, bands=(1000, 2500)):
     print(f"  max G is not even stable across bands"
           f" ({[allrows[b1][D][3] for D in D_AXIS]} vs"
           f" {[allrows[b2][D][3] for D in D_AXIS]}) -- quote the mean, not the max.")
+
+    two_matrices(3000, 1000)
 
 
 if __name__ == "__main__":

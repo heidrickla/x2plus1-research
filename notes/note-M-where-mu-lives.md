@@ -685,9 +685,32 @@ D with an ordering matching the structure at neither size. Their conclusion —
 the analytic side* — is the sharpest form of this repo's position.
 
 **OFF is the test that locates it.** OFF is not merely a third analytic
-quantity; it *is* the Gram matrix, μ-weighted:
+quantity; it *is* an incidence matrix, μ-weighted:
 
   Q₂ = DIAG + OFF,  OFF = Σ_{x≠y} μ(x²+D) μ(y²+D) · G_M(x, y).
+
+**⚠ Which matrix — and it is not the C₄ one.** The kernel above is indexed by
+**elements** x, y (it counts divisors of gcd(x²+D, y²+D) in the band), as the
+expansion forces and as §M's own "every pair is y = x + h" already implies. Note
+F's G and Prop L.1 are indexed by **cofactors**, #{m : mn₁, mn₂ ∈ A}. CLAUDE.md
+called them the same object; they are not. On the same values, one window
+[1000, 2000), X = 3000:
+
+| D | cofactor max | mean/supp | mean/all | element max | mean/supp | mean/all |
+|---:|---:|---:|---:|---:|---:|---:|
+| 1 | **2** | 1.0245 | 0.0150 | 2 | 1.0043 | 0.00067 |
+| 2 | **2** | 1.0222 | 0.0136 | 4 | 1.0427 | 0.00110 |
+| 6 | **2** | 1.0220 | 0.0110 | 5 | 1.0521 | 0.00126 |
+| 11 | **2** | 1.0188 | 0.0130 | 7 | 1.1944 | 0.00254 |
+| 39 | **2** | 1.0149 | 0.0147 | 6 | 1.1656 | 0.00301 |
+
+**The cofactor Gram is flat in D — max exactly 2 throughout, mean slightly
+*falling*. The element matrix rises.** So the D-dependence reported below is a
+statement about the Cauchy–Schwarz chain, **not** about C₄-freeness, and must
+never be quoted as the latter. *(Note that the singly-windowed cofactor Gram is
+blind to D even though the **doubly-banded** one is not — O.12 holds at D ≤ 4 and
+fails at D = 11. The structural distinction lives in the doubly-banded
+configuration specifically.)*
 
 So the weighted and unweighted readings of **one incidence matrix** can be taken
 in a single pass, at the same X, over the same band, on the same population —

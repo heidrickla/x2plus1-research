@@ -472,8 +472,21 @@ the *window* is the content.
 
 **The θ axis and the Gram axis are the same object.** S_μ(M)² ≤ #{m∼M}·Q₂ with
 **Q₂ = DIAG + OFF** exactly, DIAG ≍ X the squarefree incidence count and
-OFF = Σ_{x≠y} μ(x²+1)μ(y²+1)·**G_M(x,y)** — literally the Gram entries Prop L.1
-bounds. Cauchy–Schwarz is tight (S/CS ≈ 0.75) and |OFF|/DIAG ≤ 0.5, so the
+OFF = Σ_{x≠y} μ(x²+1)μ(y²+1)·**G_M(x,y)** — **NOT the Gram entries Prop L.1
+bounds**, which was this file's wording and is a conflation of two matrices.
+OFF's kernel is indexed by **elements**: expanding Q₂ gives
+#{m ∼ M : m | x²+D and m | y²+D}, the divisors of a gcd — which the paragraph
+below already knows, since it writes every pair as y = x + h. Prop L.1 and Note
+F's G are indexed by **cofactors**, #{m : mn₁, mn₂ ∈ A}. Measured on the same
+values in one window [1000,2000) at X = 3000, they are not close: **cofactor max
+2 for every D ∈ {1,2,6,11,39} with mean 1.025 → 1.015 (flat), element max
+2,4,5,7,6 with mean 1.004 → 1.19 (rising)**. So the **structural matrix is blind
+to D and the matrix inside OFF is not**, and only the Cauchy–Schwarz algebra —
+not the name "Gram" — decides which one appears where. Found by two sessions
+computing "mean G" on different axes and disagreeing, which is the redundancy
+argument doing exactly what this file claims for it; and note the two
+*denominators* differed too (mean over supported pairs 1.02 against mean over
+all pairs 0.015), so the disagreement was doubly disguised. Cauchy–Schwarz is tight (S/CS ≈ 0.75) and |OFF|/DIAG ≤ 0.5, so the
 *upper* bound §1 needs follows from OFF = o(DIAG), giving
 S_μ(M) ≪ √(MX/√(log M)) = √(MX)/(log M)^{1/4}. **But temper it**: bounding G_M
 and discarding signs is 11×–1988× too weak, so OFF = o(DIAG) is itself a
