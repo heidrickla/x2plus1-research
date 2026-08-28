@@ -1009,6 +1009,19 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   sent each of us back to the derivation. A wrong invariant that happened to
   produce no violation would still be there.
 
+- **Every gate here operates on the repo; nothing checks the messages.** The
+  claims gate, the prose gate, the test suite, the registry statuses — all of
+  them act on artefacts. Cross-session messages pass through none of them, and
+  twice in one night a message carried a **stronger claim than the artefact it
+  described**: once weakening another session's identity ((a+b)² − 4ab = (b−a)²,
+  which holds unconditionally) on the strength of a measurement about a different
+  quantity, and once calling a `rigorous_finite` claim `refuted`. **Both times
+  the committed artefact was correct and only the message was wrong.** That is
+  the expected direction — the artefact is written under gates and the message is
+  not — but it means a collaborator's picture can drift from the repo's while the
+  repo stays sound. **State the claim id in the message and let the reader check
+  the artefact**, rather than restating the content in looser words.
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified
