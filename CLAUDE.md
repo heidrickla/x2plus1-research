@@ -88,14 +88,21 @@ U = ±(a+b) uniquely. Mod M we have b ≡ a, so in S = X+Y, T = X−Y the automo
 diagonalises with **unit** eigenvalues — hence each integrality condition holds
 for a whole orbit or none. τ₁ acting is exactly M | S; then τ_k forces
 M | 2B_k with B_k = U_k − 2ka, so M = 8ka(2k−j)/(j²−4) for j = 2B_k/M ≥ 3, and
-the geometry r_k < 2 needs M > 2√2·k√(ab). Together those give
+the geometry needs M > 2√2·k√(ab). Together those give
 e² + 4jwe + 2w²(2e−1) < 0 with every term positive. **So for M odd squarefree no
 window holds (ξ, τ₁ξ, τ_kξ)** — and **Theorem O.3′ supersedes that**: with
 ρ = B_k/M the identity M(ρ²−1) = 4ka(k−ρ) plus the geometry force ρ < 1.06066,
 while integrality makes c·ρ an integer for c = gcd(M, 2X); an integer in
 (c, 1.06066c) needs c ≥ 17. **So the conclusion holds whenever gcd(M, 2X) ≤ 16,
 with no hypothesis on M at all** — reaching the even, non-squarefree cases O.3
-was mute on.
+was mute on. **The geometry there is r_k² < 2, equivalently M > 4√2·k√(ab), and
+the distinction decides the theorem**: the modulus ratio is τ², not τ, so r_k² < 2
+is what "both fit one dyadic window" means. Under the weaker r_k < 2 (which is
+M > (8/3)·k√(ab)) the ρ bound is **false** — 193 violations in 277, ρ reaching
+1.2375. Verified with the identity exact in rationals over 1455 multipliers; the
+correct hypothesis leaves 73 of them, so O.3′ reaches less than the loose form
+suggests. Machine-checked in `tests/test_arithmetic_facts.py`. A corollary for
+any surviving text: a window holding three needs **r₁·r_k < √2**, not < 2.
 
 **O.2 — no window holds three, at all — is still open**, and the gap is p, q ≥ 2:
 a close pair can be realised at a **non-fundamental** multiplier, witnessed by
