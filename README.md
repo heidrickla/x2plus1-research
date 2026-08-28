@@ -293,17 +293,27 @@ violations and is sharp to four decimals. O.4 is still only a necessary
 condition, and not a binding one: the nearest realised configuration clearing its
 threshold sits a factor 7.25 from a window.
 
-**Where Conjecture O.2 now stands.** Three of its cases closed tonight and the
-fourth was proved *unreachable by congruences*:
+**Where Conjecture O.2 now stands.**
 
 | case | status |
 |---|---|
-| (ξ, τ₁ξ, τ_kξ), k ≥ 2 | closed by **O.3″**, sharpened to a joint (c,k) region |
-| (ξ, τ_pξ, τ_p²ξ), any p | closed by **O.5**: τ_p² ∈ T ⟹ M \| 8p², against M < D |
-| any triple, threshold | **O.4**: b/a > 133.875, assuming nothing about which multiplier acts |
-| two **distinct** multipliers, M odd prime | closed by **O.7** |
-| M odd squarefree | **O.9** cuts it to 3ab < (b−a)^{4/3}, **no hypothesis** — 99.2% of such classes excluded outright |
-| M even or non-squarefree | open |
+| (ξ, τ₁ξ, τ_kξ), k ≥ 2 | **O.3″**, a joint (c,k) region; k = 2 excluded for all c ≤ 33 |
+| (ξ, τ_pξ, τ_p²ξ), any p | **O.5**: τ_p² ∈ T ⟹ M \| 8p², against M < D. Supersedes Prop O.1 |
+| any triple, threshold | **O.4**: τ_min⁴ < 2 + 1/X₁², i.e. b/a > 133.875 asymptotically |
+| M an odd prime | **O.7** — no window holds three, full stop |
+| M odd squarefree | **O.9**: 3ab < (b−a)^{4/3}, no hypothesis |
+| **any M whatsoever** | **O.10**, and **O.11** sharpens it 6.85× to ab < 0.048628·(b−a)^{4/3} |
+| cofactors also banded (the Type II configuration) | **O.12** — C₄-free, G′ ≤ 1 |
+| O.2 itself | still open, and **conclusion-neutral** |
+
+**Nothing structural survives** — no hypothesis on M is left. What remains is
+quantitative: at X = 8000, 13 of 109 informative classes clear O.11, all with
+a = 1, and none holds three moduli in a window. **The bounds are not what forbids
+triples in nature.** And closing O.2 would move `rational-gram-bounded-on-windows`
+from `rigorous_finite` to `proved` and change no conclusion — Note L says so
+directly, so the volume of this thread should not be read as stakes. The
+exception is **O.12**, which is about a different configuration and does touch
+the main line.
 
 **O.7 is the result; O.6 is the lemma under it.** For M an odd prime, exactly one of M \| S,
 M \| T holds at each solution and it forces the sign of U_p ≡ ±2pa. The exact
