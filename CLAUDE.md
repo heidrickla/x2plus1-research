@@ -382,6 +382,15 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     because that had genuinely happened twice the same night. **Every string edit
     must assert its anchor**, and a *plausible* explanation for an anomaly is
     what stops you checking the implausible one.
+  - *a claim stated to an order, read as an equality* — a distinct failure, and
+    the hardest, because **both halves are true**. `sqrt-MX-law`'s one sentence
+    contains two: "saturating at ~|A| for M ≥ X" is right about the order and
+    wrong by **4×** literally (the ceiling is DIAG ≈ 0.253·X, since above the
+    boundary each modulus carries one x and |Σ| counts squarefree incidences);
+    and "the saving is exactly zero at θ = 1/2" is right about the *exponent*,
+    Q^{(1/2−θ)/2} = Q⁰, and wrong by **2.41** read as S = T. Neither is a false
+    statement and neither would fail any guard. **Write the constant, or write
+    "to within a constant" — never a bare ≍ that a reader will use numerically.**
   Nothing checks a proposition's statement against its own proof, because the
   tests test the proof. The one checkable habit: **a correction that reaches only
   a claim's `notes` has not landed** — notes are where history goes, the statement
