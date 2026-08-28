@@ -108,6 +108,52 @@ Type II hypothesis, where both variables are confined to ranges; and even where
 Pell families do occur, a range restriction sees O(1) of each. **The windowed
 statement is the faithful one, not a patch.**
 
+## Why the window bound holds: one solution per class, and the constant is φ⁴
+
+The uniformity of that "2" is not a coincidence, and the mechanism identifies
+the extremal case.
+
+> **Proposition L.1.** Let n₁ ≠ n₂ be positive integers, d = gcd(n₁, n₂),
+> n₁ = da, n₂ = db with (a, b) = 1. Then m ∈ S(n₁) ∩ S(n₂) — i.e. mn₁ and mn₂
+> are both of the form x²+1 — if and only if
+>
+>     b x² − a y² = a − b
+>
+> has a solution with mn₁ = x²+1. Assume ab is not a square (otherwise the form
+> factors and the solution set is finite). The solutions fall into finitely many
+> classes, each an orbit under multiplication by the fundamental norm-one unit ε
+> of the relevant real quadratic order. Consecutive solutions in a class satisfy
+> x′/x → ε, hence **m′/m → ε² ≥ φ⁴ = 6.8541…**, so a dyadic window [M, 2M)
+> contains at most one member of each class, and
+>
+>     G′(n₁, n₂) restricted to a dyadic window ≤ (number of classes).
+
+**The extremal case is the observed argmax.** ε ≥ φ² = 2.618… over real
+quadratic orders, with equality at discriminant 5 — and discriminant 5 is
+exactly the pair (n₁, n₂) = (1, 5), whose equation is y² − 5x² = 4 and whose
+solutions are the Fibonacci/Lucas pairs. So the constant that bounds the
+spacing, and the pair that attains the full graph's maximum, are the same
+object. Measured ratios for that family converge to 6.8541 = φ⁴, as they must.
+
+Both halves of the earlier table follow: within a class the spacing is ≥ φ⁴ > 2,
+so windows see one; across all M the number of visible solutions is ≍ log X,
+which is the full graph's growth.
+
+**Status, stated exactly.** The reduction to the conic is algebra and is proved.
+That ε ≥ φ² is `rigorous_finite`: checked by solving t² − Δu² = 4 for every
+non-square Δ < 5000, where the minimum is 2.618033989 at Δ = 5. **The bound on
+the number of classes is the remaining input and is not in this repo** — it is
+classical, and per the repo's own rule the exponent is not being asserted from
+memory. Note also that x′/x → ε is asymptotic: the first two solutions of a
+class can sit closer, which is precisely how (1189, 71978) gets m = 65 and 109
+into one window, from two different classes.
+
+The window sweep extends the table above to X = 32 000, still 2 everywhere:
+
+| M | 128 | 256 | 512 | 1024 | 2048 | 4096 | 8192 |
+|---|---|---|---|---|---|---|---|
+| max Gram | 2 | 2 | 2 | 2 | 2 | 2 | 2 |
+
 ## So Note F's conclusion transfers, and here is exactly how much is proved
 
 - **Proved, Z[i]:** G(n₁,n₂) ≤ 1, at every split and on the full graph

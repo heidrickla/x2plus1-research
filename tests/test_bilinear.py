@@ -121,11 +121,21 @@ def test_a2b4_incidence_graph_is_not_c4_free():
 
 
 def test_c4_freeness_does_not_depend_on_the_split():
-    """The lemma's proof never mentions the norm ranges.
+    """The lemma's proof never mentions the norm ranges. OVER Z[i].
 
-    So the FULL divisor incidence graph -- every m | a, no range restriction --
-    must also be C4-free. This is what rules out escaping the lemma by choosing
-    an unbalanced or well-factorable decomposition: there is no split to choose.
+    So the FULL divisor incidence graph -- every ideal m | a, no range
+    restriction -- is also C4-free. This rules out escaping the lemma by
+    choosing an unbalanced or well-factorable decomposition: there is no split
+    to choose.
+
+    SCOPE, and it matters. This is a statement about ideals of Z[i]. The
+    RATIONAL graph -- m, n rational integers, which is what [ASP], [DFI] and
+    Ford-Maynard's (II) actually quantify over -- is NOT C4-free: a rational
+    modulus carries several Gaussian ideals of the same norm, and merging those
+    rows creates cycles. Explicitly, 65*1189 = 278^2+1, 65*71978 = 2163^2+1,
+    109*1189 = 360^2+1, 109*71978 = 2801^2+1. Over Z the full-graph Gram grows
+    (6 -> 9 as X goes 500 -> 8000) while every dyadic window stays pinned at 2.
+    The Z counterpart lives in tests/test_polyseq.py; see Note L.
     """
     from x2plus1.typeII import max_offdiagonal_gram
     for X in (500, 2000):

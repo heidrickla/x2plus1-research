@@ -112,3 +112,52 @@ def test_divisibility_is_a_congruence_for_any_polynomial():
         rs = set(r for r in range(m) if evaluate(coeffs, r) % m == 0)
         for x in range(1, 300):
             assert (evaluate(coeffs, x) % m == 0) == (x % m in rs)
+
+
+def test_the_conic_reduction_is_exact():
+    """Proposition L.1's algebra: m shared <=> b x^2 - a y^2 = a - b.
+
+    Checked against the two pairs Note L uses, by direct search rather than by
+    trusting the derivation.
+    """
+    from math import gcd
+    for n1, n2, expected in [(1, 5, [2, 10, 65, 442, 3026]), (1189, 71978, [65, 109])]:
+        d = gcd(n1, n2)
+        a, b = n1 // d, n2 // d
+        found = []
+        for m in range(1, 4000 if n1 == 1 else 200):
+            v1, v2 = m * n1 - 1, m * n2 - 1
+            if v1 < 0 or v2 < 0:
+                continue
+            x, y = isqrt(v1), isqrt(v2)
+            if x >= 1 and y >= 1 and x * x == v1 and y * y == v2:
+                found.append(m)
+                assert b * (x * x + 1) == a * (y * y + 1)      # the conic
+                assert b * x * x - a * y * y == a - b
+        assert found == [m for m in expected if m < (4000 if n1 == 1 else 200)]
+
+
+def test_phi_squared_is_the_smallest_fundamental_automorph():
+    """Proposition L.1's constant, over every non-square discriminant < 1200.
+
+    eps >= phi^2 = 2.618..., attained at Delta = 5 -- which is the pair (1,5),
+    the same pair that attains the full graph's maximum. So the constant that
+    bounds the spacing and the extremal pair are the same object.
+    """
+    phi2 = (3 + 5 ** 0.5) / 2
+    best = (float("inf"), None)
+    for D in range(2, 1200):
+        r = isqrt(D)
+        if r * r == D:
+            continue
+        for u in range(1, 60000):
+            v = D * u * u + 4
+            t = isqrt(v)
+            if t * t == v:
+                eps = (t + u * D ** 0.5) / 2
+                if eps < best[0]:
+                    best = (eps, D)
+                break
+    assert abs(best[0] - phi2) < 1e-9, best
+    assert best[1] == 5
+    assert phi2 ** 2 > 2          # m'/m >= phi^4 = 6.854 > 2: one per window

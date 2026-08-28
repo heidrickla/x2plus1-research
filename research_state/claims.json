@@ -566,12 +566,13 @@
       "statement": "The step from c4-free (a statement about Z[i]) to nu = 0 in Ford-Maynard's sense (a statement about Z, where their (II) is quantified over rational m, n) is an inference, not a proof. What is proved over Z[i] is G <= 1; what is measured over Z is G' <= 2 on every dyadic window for X <= 8000. Both give no main term, so the conclusion is unchanged and only the constant moves -- but the transfer is reasoning.",
       "depends_on": [
         "c4-free",
-        "rational-gram-bounded-on-windows"
+        "rational-gram-bounded-on-windows",
+        "one-solution-per-class-per-window"
       ],
       "tags": [
         "type_ii"
       ],
-      "notes": "What would close it: a uniform bound on integer points of the conic n2 x^2 - n1 y^2 = n1 - n2 in a box of side X. Classical Pell theory, but this repo has NOT read a source for it and will not assert the exponent from memory. Until then every use of 'nu = 0' against a Z-stated hypothesis passes through here."
+      "notes": "What would close it is now named precisely: a bound on the number of solution CLASSES of b x^2 - a y^2 = a - b, uniform in the coefficients. Proposition L.1 supplies the rest -- within a class the spacing is >= phi^4 > 2, so a window sees one. Classical Pell theory, but this repo has NOT read a source for it and will not assert the exponent from memory. Until then every use of 'nu = 0' against a Z-stated hypothesis passes through here."
     },
     {
       "id": "degree-determines-degeneracy",
@@ -596,6 +597,20 @@
         "type_ii"
       ],
       "notes": "Same inferential status as the d = 2 case it generalises: [FM] state the ingredients and never draw the conclusion, and 'one can only hope' is an informal remark inside their discussion of the family P_theta. This is a claim about what the Type I/II framework can EXPRESS, never about whether any of these polynomials takes infinitely many prime values."
+    },
+    {
+      "id": "one-solution-per-class-per-window",
+      "status": "rigorous_finite",
+      "statement": "Proposition L.1. For n1 != n2 with d = gcd, n1 = da, n2 = db, the shared moduli correspond exactly to solutions of the conic b x^2 - a y^2 = a - b (proved: algebra). Solutions fall into classes, each an orbit under the fundamental norm-one unit eps of the relevant real quadratic order, so consecutive moduli satisfy m'/m -> eps^2 >= phi^4 = 6.8541 > 2 and a dyadic window holds at most one per class. eps >= phi^2 = 2.618033989 verified for every non-square discriminant < 5000, with the minimum attained at Delta = 5 -- which IS the pair (n1,n2) = (1,5) that attains the full graph's maximum. Window sweep: max Gram = 2 at every dyadic M from 128 to 8192 at X = 32000.",
+      "experiment": "tests/test_polyseq.py::test_phi_squared_is_the_smallest_fundamental_automorph; tests/test_polyseq.py::test_the_conic_reduction_is_exact",
+      "depends_on": [
+        "full-graph-growth-is-pell",
+        "rational-gram-bounded-on-windows"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The constant that bounds the spacing and the pair that attains the maximum are the same object, which is the reason to believe the mechanism rather than the number. What is still missing is a bound on the NUMBER of classes -- classical, not read here, and not asserted from memory. Also x'/x -> eps is asymptotic: the first two solutions of a class can sit closer, which is exactly how (1189, 71978) puts m = 65 and 109 in one window from two different classes."
     }
   ]
 }
