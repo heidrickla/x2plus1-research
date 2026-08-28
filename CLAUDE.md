@@ -436,6 +436,19 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   right. Only reading past the clause finds them. The normalisation convention
   behind the second was inside the very sentence `fm-no-admissible-theta-at-
   density-half` is built on.
+- **A claim's `experiment` must name something that reproduces its numbers.**
+  Nine of roughly forty claims with an experiment field named a file that
+  computed something *adjacent* — seven pointed at `exp13`, which does two-step
+  ratios and no mean, diagonal, argmin or cross-sequence table; two pointed at
+  `exp16`, which did neither the signed sum nor the Cauchy–Schwarz bound. The
+  numbers had come from scratchpad scripts run once and discarded. `tests/
+  test_claims.py::test_support_paths_exist` checks the file *exists*, which is
+  not the same question. **And writing the experiment is not bookkeeping: both
+  times, the rerun at a second size produced something the one-shot script could
+  not** — the mean-G classifier's threshold turned out to move with Q, and the
+  Cauchy–Schwarz chain turned out to predict at every band rather than one. If a
+  number is worth a claim it is worth a script that can be run again at a
+  different size.
 - **A control is not a classifier.** A control shows an argument does not prove
   too much and needs exactly two points: a²+b⁴ has mean G 3.59 where x²+1 has
   0.022, so the mean-o(1) objection does not rule out dispersion for the sequence
