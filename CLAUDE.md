@@ -878,6 +878,13 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     ids; `tools/check_prose_diff.py` covers `- **…**` headings; **neither sees an
     edit that extends an existing paragraph**, which is the case that still gets
     through.
+  - ***Your own stale copy.*** A read-modify-write race: a script read
+    CLAUDE.md, a 55-second test run followed, the other session committed a
+    rewrite of that region inside the window, and the write put the stale copy
+    back — dropping ~50 lines. **No staging discipline can see this**, because
+    `git diff --cached` shows exactly what you meant to write. The only signal was
+    **91 deletions against a 20-line addition**, printed in output nobody reads.
+    **Re-read immediately before writing, and read the diff's deletion count.**
   - ***The message channel.*** Nothing checks it, and twice a message carried a
     **stronger claim than the artefact it described** — both times the committed
     artefact was correct. Do not gate it: the exchange *is* the
@@ -885,6 +892,13 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     a claim was stated and then independently computed. **State the claim id and
     let the reader check the artefact**, and remember that *a claim existing only
     in a message has been checked by nothing.*
+
+  **Three mechanisms on one file, each invisible to the guard built for the
+  previous one**: a pathspec cannot separate two authors, a diff-check cannot see
+  a stale read, and a gate could be invoked in a mode with no verdict. All three
+  are fixed and **none of the fixes would have caught the other two** — which is
+  the argument for treating a shared file as hostile rather than for adding a
+  fourth guard.
 
 - **How a check fails, and every way found here was silent.** A guard that
   reports nothing is the default failure; not one of the six below produced a
