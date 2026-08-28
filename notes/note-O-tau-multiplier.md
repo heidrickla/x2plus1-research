@@ -1526,6 +1526,37 @@ stops there unconditionally. *(Thresholds: u must exceed 4.7913 at D = 1 and
 2.3187 at D = 2, both above the 2 a band supplies; at D = 3 it is 1.7676, below
 it, and the argument fails.)*
 
+**There are two forms of the reach, and they answer different questions.** The
+window condition is R² < 2 + 1/X₁², so:
+
+| | condition | \|V\| ≥ 1 | \|V\| ≥ 2 |
+|---|---|---|---|
+| **all X** (X₁ ≥ 1) | τ_V² < 3 | D ≤ √6, i.e. **D ≤ 2** | D ≤ 2√6, i.e. **D ≤ 4** |
+| **asymptotic** (X₁ → ∞) | τ_V² < 2 | D ≤ 4V, i.e. **D ≤ 4** | D ≤ 4V, i.e. **D ≤ 8** |
+
+The asymptotic row is the M·D invariant applied to the threshold family: the
+condition M/√(ab) > 2√2·V becomes **(u−1)/√u > 2√2·V/D** — *the threshold divided
+by D* — and a band supplies (u−1)/√u < 1/√2, so a banded pair needs **D > 4V**.
+
+> **D = 4V is COVERED, not the crossover.** A band gives u < 2 **strictly**, so
+> (u−1)/√u approaches 1/√2 without attaining it; at D = 4V the requirement is
+> exactly 1/√2 and no banded u reaches it. The first *uncovered* values are
+> **D = 5** at |V| ≥ 1 and **D = 9** at |V| ≥ 2. *(At D = 9, u = 1.9 gives 0.6529
+> against a threshold of 0.6285 — permitted.)*
+
+**And this explains measurements neither form could explain alone.** **D = 5, 6,
+7, 8** are *asymptotically* protected but **not** protected at small X₁ — which
+is exactly why they hold to X = 8000 without being proved, since a failure there
+would have to come from X₁ small. **D = 9, 10** are permitted by *both* forms and
+still unfallen: the necessary-not-sufficient gap, now with an exact left
+endpoint. **D = 11** is the first observed failure, at u₀ = 1.6632, well inside a
+band.
+
+**It also turns the x²+39 banded triple from a discovery into a prediction.** At
+D = 39 a banded pair needs only u > 1.1559, and the witness (5, 8) has u = 1.6
+with (u−1)/√u = 0.4743 against a threshold of 0.1450. **Banded pairs become
+possible from D = 9 on**, so the triple was not an accident of search.
+
 **|V| is even on this axis too**, so the second row is available: over D = 1…6,
 minimum |V| is 2, 4, 6, 4, 2, 4 and **no odd value occurs in 1,238 pairs**. Since
 V ≠ 0, evenness gives |V| ≥ 2 directly. *(`V-is-even-whenever-M-is-odd` is proved
