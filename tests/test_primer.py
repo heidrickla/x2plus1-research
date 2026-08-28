@@ -1,16 +1,20 @@
-"""The primer must be small enough to be DELIVERED, and must not duplicate CLAUDE.md.
+"""CLAUDE.md must stay readable, and the primer must stay deliverable.
 
-`tools/session_primer.py` runs as a SessionStart hook and returns its text in
-hookSpecificOutput.additionalContext.  A hook that returns too much is not
-delivered: the host truncates it to a ~2 kB preview and writes the rest to a file
-that nothing reads.  That happened -- measured at 51.3 kB, and by the time it was
-noticed the primer had grown to 66 kB -- because the primer reproduced CLAUDE.md's
-"Where things stand" section verbatim, and CLAUDE.md is already injected into
-every session as project instructions.
+Both have failed in the same direction, twice.
 
-The failure was silent in the worst direction: the hook exited 0, printed valid
-JSON, and delivered almost nothing.  These tests are the guard, and the last one
-verifies the guard can actually fail rather than passing vacuously.
+CLAUDE.md grew to 1,601 lines / 18,657 words of narrative prose. A file that long
+is not read at session start -- it is skimmed, and the compensating move is to add
+indexes and pointers into it, which is the same failure one step removed. It is now
+a rules-and-facts document; these tests keep it one.
+
+tools/session_primer.py returns its text from a SessionStart hook. A hook that
+returns too much is not delivered: the host truncates it to a ~2 kB preview and
+spills the rest to a file nothing reads. That happened -- measured at this repo's
+own session start, "Output too large (51.3KB)" -- because the primer reproduced
+CLAUDE.md's state section verbatim while CLAUDE.md was already in context.
+
+Both failures were silent: the hook exited 0 with valid JSON, and the long file
+was still "loaded". Nothing reported anything.
 """
 
 import json
@@ -19,15 +23,16 @@ import subprocess
 import sys
 from pathlib import Path
 
-import pytest
-
 REPO = Path(__file__).resolve().parent.parent
 PRIMER = REPO / "tools" / "session_primer.py"
+CLAUDE = REPO / "CLAUDE.md"
 
-#: Comfortably under the size at which delivery was observed to fail (51.3 kB),
-#: and large enough for the live material to grow.  Lower is better: every byte
-#: is spent before any work starts.
-BUDGET = 20_000
+#: CLAUDE.md is read in full at the start of every session. Prose is what made it
+#: unreadable, so the budget is in WORDS. It was 18,657; it is now ~1,400.
+CLAUDE_WORD_BUDGET = 3_000
+
+#: Comfortably under the size at which hook delivery was observed to fail (51.3 kB).
+PRIMER_BUDGET = 20_000
 
 
 def _context() -> str:
@@ -37,77 +42,74 @@ def _context() -> str:
     return json.loads(r.stdout)["hookSpecificOutput"]["additionalContext"]
 
 
-def _state_section() -> str:
-    text = (REPO / "CLAUDE.md").read_text(encoding="utf-8")
-    start = text.index("## Where things stand")
-    rest = text[start:]
-    nxt = re.search(r"\n## ", rest[1:])
-    return rest[: nxt.start() + 1] if nxt else rest
+# --------------------------------------------------------------- CLAUDE.md
 
+def test_claude_md_stays_short_enough_to_actually_read():
+    words = len(CLAUDE.read_text(encoding="utf-8").split())
+    assert words <= CLAUDE_WORD_BUDGET, (
+        f"CLAUDE.md is {words:,} words, over the {CLAUDE_WORD_BUDGET:,} budget. It is "
+        "read in full at every session start. It reached 18,657 words once, at which "
+        "point it stopped being read and started being indexed. Cut it -- do not raise "
+        "the budget."
+    )
+
+
+def test_claude_md_is_rules_and_facts_not_prose():
+    """Narrative paragraphs are what made it unreadable. Bullets and tables are not."""
+    text = CLAUDE.read_text(encoding="utf-8")
+    body = [p.strip() for p in re.split(r"\n\s*\n", text) if p.strip()]
+    prose = []
+    for p in body:
+        if p.startswith(("#", "-", "|", " ", "\t", ">")):
+            continue
+        if len(p.split()) > 60:          # a long free-standing paragraph
+            prose.append(p[:80])
+    assert not prose, (
+        "CLAUDE.md has grown narrative paragraphs again: " + "; ".join(prose)
+    )
+
+
+# ------------------------------------------------------------------ primer
 
 def test_primer_runs_and_emits_valid_hook_json():
     ctx = _context()
-    assert ctx.strip(), "primer produced empty context"
-    assert "x2plus1-research" in ctx
+    assert ctx.strip() and "x2plus1-research" in ctx
 
 
 def test_primer_is_small_enough_to_be_delivered():
     n = len(_context())
-    assert n <= BUDGET, (
-        f"primer context is {n:,} chars, over the {BUDGET:,} budget. A SessionStart "
-        "hook this large is truncated to a preview and spilled to a file, so it "
-        "delivers nothing. Shrink it -- do not raise the budget without checking "
-        "the host actually delivers the larger payload."
+    assert n <= PRIMER_BUDGET, (
+        f"primer context is {n:,} chars, over {PRIMER_BUDGET:,}. A SessionStart hook "
+        "this large is truncated to a preview and spilled to a file, so it delivers "
+        "nothing. Shrink it -- do not raise the budget without checking the host "
+        "actually delivers the larger payload."
     )
 
 
-def test_primer_indexes_the_state_section_rather_than_copying_it():
-    """CLAUDE.md is already in context; reproducing it is pure waste."""
-    ctx = _context()
-    section = _state_section()
-    # a distinctive run of prose from the middle of the section
-    middle = re.sub(r"\s+", " ", section[len(section) // 2: len(section) // 2 + 300]).strip()
-    probe = middle[50:200]
-    assert probe, "could not build a probe from the state section"
+def test_primer_does_not_reproduce_claude_md():
+    """CLAUDE.md is already injected as project instructions; copying it is waste."""
+    ctx, text = _context(), CLAUDE.read_text(encoding="utf-8")
     flat_ctx = re.sub(r"\s+", " ", ctx)
-    assert probe not in flat_ctx, (
-        "the primer is reproducing CLAUDE.md's state section verbatim. That text is "
-        "already injected as project instructions, so this is the same content twice "
-        "in one context -- and it is what pushed the hook past the delivery limit."
+    body = re.sub(r"\s+", " ", text)
+    probe = body[len(body) // 2: len(body) // 2 + 160]
+    assert probe and probe not in flat_ctx, (
+        "the primer is reproducing CLAUDE.md. That text is already in context; this is "
+        "the defect that made the hook undeliverable."
     )
-
-
-def test_primer_index_is_derived_from_claude_md_not_hardcoded():
-    """It must read the file, so it cannot drift -- that part of the design was right."""
-    ctx = _context()
-    section = _state_section()
-    paras = [p.strip() for p in re.split(r"\n\s*\n", section) if p.strip().startswith("**")]
-    assert paras, "no bold-led paragraphs in the state section"
-    first = re.sub(r"\s+", " ", paras[0].replace("**", "").replace("*", "")).strip()[:60]
-    assert first in re.sub(r"\s+", " ", ctx), (
-        "the primer's index does not match CLAUDE.md's first state paragraph, so it is "
-        "not being read from the file"
-    )
-    assert f"{len(paras)} paragraphs" in ctx or str(len(paras)) in ctx
 
 
 def test_primer_carries_the_live_material_claude_md_cannot():
-    """The primer's whole value-add is what a static file cannot hold."""
     ctx = _context()
     for marker in ("CLAIM REGISTRY", "RECENT COMMITS", "UNCOMMITTED", "OPEN [VERIFY] MARKERS"):
         assert marker in ctx, f"primer lost its live section: {marker}"
-    assert "REFUTED (do not re-assert)" in ctx or "refuted" in ctx
 
 
-def test_the_size_guard_can_actually_fail():
-    """Injected violation: the guard is not verified until it has failed on one.
-
-    Reconstructs what the primer used to emit -- its live material plus the state
-    section verbatim -- and asserts THAT would breach the budget. If this ever
-    passes, the budget has been raised to the point of being decorative.
-    """
-    would_be = len(_context()) + len(_state_section())
-    assert would_be > BUDGET, (
-        "the old verbatim-copy behaviour would NOT breach the budget, so the budget "
-        "no longer detects the defect it exists for"
+def test_both_guards_can_actually_fail():
+    """Injected violation: a guard is not verified until it has failed on one."""
+    text = CLAUDE.read_text(encoding="utf-8")
+    # the old file's word count must breach the CLAUDE.md budget
+    assert 18_657 > CLAUDE_WORD_BUDGET, "the word budget no longer detects the old file"
+    # the old primer behaviour -- primer plus a verbatim copy -- must breach its budget
+    assert len(_context()) + len(text) * 6 > PRIMER_BUDGET, (
+        "the primer budget no longer detects a verbatim copy of the state"
     )
