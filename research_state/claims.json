@@ -1272,6 +1272,17 @@
         "comparison"
       ],
       "notes": "The check that the mean-o(1) argument does not prove too much. An argument against dispersion that applied equally to a^2+b^4 would be worthless, since Friedlander-Iwaniec captured its primes by dispersion. It does not: a^2+b^4's mean G is in the hundreds falling to 3.59, always >> 1, which is exactly the 'count = main term + error' dispersion needs. The separation is also much sharper than kappa, which is 1.00 against 1297 -- three orders -- while the mean-G ratio at the largest band is 164 and, more to the point, straddles 1, which kappa does not have to. This makes the-main-term-is-smaller-than-the-granularity a two-sided statement rather than a one-sided observation."
+    },
+    {
+      "id": "fm-barrier-asks-for-G-exactly",
+      "status": "inferred",
+      "statement": "Ford-Maynard's footnote 2 (p.7) asks for '#{n : n m_1, n m_2 in J} with an error term better than O(1) on average over m_1, m_2 ~ x^{1-2c+eps}'. At c = 1/2 that range is m_1, m_2 ~ x^eps. The mean of G over a cofactor band [N,2N) falls like 1/N (the-main-term-is-smaller-than-the-granularity), so at N = x^eps the mean is x^{-eps}, while G is a non-negative integer equal to 0 for almost every pair. An error genuinely below 1 therefore PINS THE VALUE: at this density their requirement is not an estimation problem but a request to determine G exactly.",
+      "experiment": "",
+      "tags": [
+        "type_ii",
+        "literature"
+      ],
+      "notes": "Inferred: FM state the requirement, this repo evaluates it at its own density using its own measurement. Composes fm-barrier-is-unconditional-at-density-half (the hypothesis theta+nu >= 1-2c is vacuous at c = 1/2, so the barrier applies to every Type II range) with the-main-term-is-smaller-than-the-granularity (mean G ~ 1/N against an integer count). Together they say the barrier applies always and asks for something exact. The positive control mean-G-separates-x2plus1-from-a2b4 is what keeps this from proving too much: at a^2+b^4's density the same footnote asks for an error below 1 against a mean of 3.59, which is an ordinary estimation problem."
     }
   ]
 }

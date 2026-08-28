@@ -690,6 +690,20 @@ bilinear cancellation in the error term for G; Note F says G ∈ {0,1}, so there
 is no main term and hence no error term to cancel. **The barrier they describe
 as "typically very difficult" is, for this sequence, not difficult but empty.**
 
+**And the footnote's own precision requirement can be evaluated.** It asks for
+"an error term better than O(1) on average over m₁, m₂ ∼ x^{1−2c+ε}", which at
+c = 1/2 is **m₁, m₂ ∼ x^ε**. [Note L](note-L-over-Z.md) measures the mean of G
+over a cofactor band [N, 2N) to fall like **1/N**, so at N = x^ε the mean is
+**x^{−ε}** — while G is a non-negative integer, equal to 0 for almost every pair.
+
+> So "an error term better than O(1)" is, here, a request to determine G
+> **exactly**: the main term is x^{−ε}, the quantity is an integer, and any
+> error genuinely below 1 pins the value. What [FM] call typically very difficult
+> is, at this density, not an estimation problem at all.
+
+That is `inferred` — [FM] state the requirement and this repo evaluates it at its
+own density — and it is the sharpest form the placement takes.
+
 **What the table shows.** [FM] Table 1, p. 3, caption *"Examples from the
 literature (epsilons omitted)"* — eight entries, and **every one has ν > 0**.
 The smallest is Merikoski's Theorem 1 at (γ, θ, ν) = (3/4, 1/4, **1/12**), a
