@@ -120,28 +120,27 @@ see if the answer moves* — applies here, because nobody chose the decade band
 boundaries.
 
 [`exp06`](../experiments/exp06_fit_robustness.py) varies the band phase and
-takes the spread as the error bar, with two injected-signal controls. At
-X ≤ 10⁶, 8 phases:
+takes the spread as the error bar, with two injected-signal controls. Over
+X = 10⁴…10⁷ (7 ladder points), 12 phases:
 
 | signal | mean c | spread | range |
 |---|---:|---:|---:|
-| **actual** | **−0.038** | 0.153 | [−0.117, +0.036] |
-| iid null (no log-power by construction) | +0.092 | 0.077 | [+0.047, +0.124] |
-| injected damping (log X)^{−1/2} | **−0.463** | 0.229 | [−0.577, −0.348] |
+| **actual** | **−0.057** | 0.186 | [−0.150, +0.036] |
+| iid null (no log-power by construction) | −0.002 | 0.102 | [−0.066, +0.035] |
+| injected damping (log X)^{−1/2} | **−0.482** | 0.176 | [−0.579, −0.403] |
 
-The injected control is the one that licenses the reading: the estimator
-**recovers a genuine −0.5 as −0.46**, so it has real power to see a log-power of
-that size. Without it, "c ≈ 0" would be indistinguishable from an estimator that
-cannot see anything at all.
-
-The null returns +0.09 rather than 0, so the estimator carries a small positive
-bias; the actual signal sits 0.13 below the null, well inside the combined
-spread.
+The injected control is what licenses the reading: the estimator **recovers a
+genuine −0.5 as −0.48**, so it has real power to see a log-power of that size.
+Without it, "c ≈ 0" would be indistinguishable from an estimator that cannot see
+anything at all. The null comes back unbiased at −0.002, and the actual signal
+sits 0.055 from it — a tenth of the spread.
 
 > **Conclusion: the law is √(MX) with no log-power correction, to a resolution
 > of |c| ≲ 0.2.** Per-progression cancellation is clean square-root. This
 > discharges the caveat Note H has carried since it was first measured — but at
-> a fifth of the precision first claimed. The honest figure is ±0.15, not ±0.04.
+> a quarter of the precision first claimed. The honest figure is ±0.19, not
+> ±0.04, and the difference is entirely that the first number was one draw
+> rather than an error bar.
 
 ### The constant, and a control that matters more than it
 

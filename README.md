@@ -56,35 +56,62 @@ Friedlander–Iwaniec's asymptotic sieve requires Type I to level **D > x^{2/3}*
 ((R1), ASP p. 1043), which x² + 1 cannot reach — [Note B](notes/note-B-type-I.md)
 caps it at x^{1/2}. And ASP p. 1045 shows x^{2/3} is precisely where the
 bilinear coefficient γ(n,C) is annihilated, so within ASP the two hypotheses are
-one. **But x^{2/3} is ASP's threshold, not prime detection's:**
+one. **But x^{2/3} is ASP's threshold, not prime detection's** — Heath-Brown hit the
+same wall at α = 2/3, judged it likely relaxable, and wrote his own sieve
+instead (HB p. 3). What the obstruction actually is took three sources read
+directly to pin down, and the answer is not the one this repo held for most of
+its life.
 
-| | ASP | **DFI** (used by Green–Sawhney) |
-|---|---|---|
-| Type I needed | x^{2/3} | **x^{1/2}(log X)^{−C}** |
-| x² + 1 meets it? | ❌ short by x^{1/6} | ✅ **yes** ([Note B](notes/note-B-type-I.md)) |
-| Type II coefficients | μ, truncated | **arbitrary 1-bounded** |
-| x² + 1 meets it? | vacuous (γ ≡ 0) | ❌ **fails outright**, θ ≈ 1.000 |
+### The obstruction, as the sources actually state it
 
-So a level-1/2 prime-detecting sieve exists and is in current use, x² + 1
-satisfies its Type I hypothesis, and the whole obstruction lands on Type II —
-where the incidence graph being C₄-free means the worst case has **no
-cancellation at any split**. With β = μ the same ranges give θ = 0.63–0.83; it
-is specifically the arbitrary-coefficient requirement that fails.
+**Duke-Friedlander-Iwaniec** ([Duke's own scan](https://www.math.ucla.edu/~wdduke/preprints/equidistribution.pdf))
+— the sieve Green–Sawhney use. Its §6 is *Combinatorial identities*, not a
+sieve; its Theorem S needs Type I at x^{1/2−ε} and concludes only o(π(x)); and
+its Type II coefficients are **not arbitrary** — "β_n will be supported on
+primes" (p. 437). The arbitrary-coefficient version is Green–Sawhney's
+strengthening. And DFI's sequence has α = 1, so applied verbatim to A = {x+i}
+the whole apparatus is **vacuous**: the hypotheses hold trivially and the
+conclusion is weaker than the trivial bound. An earlier version of this README
+said x² + 1 *meets* DFI's Type I hypothesis. It does not; that claim is now
+`refuted` in the registry.
 
-Ford–Maynard map the parameter space and put x² + 1 on a knife-edge: their
-Thm 4.16 gives C⁻ = 0 for γ < 1/2 outside [θ, θ+ν], and Thm 2.4 gives C⁻ = 0 at
-**γ = 1/2 with ε losses**, escaping only via divisor-bounded weights. Two sieves
-break parity below x^{2/3} — Li unconditionally to ≈ x^{0.6418}, Merikoski
-conditionally at 5/8 — and neither reaches x^{1/2}. Maynard's ICM survey asks
-(Question 21) whether adapting them below 1/2 is even plausible.
+**Ford–Maynard** (arXiv:2407.14368) map the parameter space, and x² + 1 sits
+below the knife-edge rather than on it. Their (I) demands a log-power saving at
+level *exactly* x^γ; [Note B](notes/note-B-type-I.md) gives Type I for
+D = o(x^{1/2}), failing at x^{1/2} — so γ = 1/2 − ε for every ε, never 1/2,
+which is precisely the regime their Theorems 2.4 and 4.16 kill. Worse, by
+[Note F](notes/note-F-failure-localisation.md) there is no arbitrary-coefficient
+Type II range at all, i.e. **ν = 0**, and then C⁻ = 0 follows from **Selberg's
+example** (their p. 2) — the oldest result in the paper, with no ε-loss. The
+divisor-bounded escape is also closed: their Theorem 2.7(c) gives
+C⁻_bd(1/2, 0, ν) = 0 for small ν, whatever the density.
 
-**Supersession scan: Iwaniec 1978 still stands.** Green–Sawhney
-([arXiv:2410.04189](https://arxiv.org/abs/2410.04189), Acta Math.) settle FI's
-Gaussian Primes Conjecture at n = 4, but their sequence has **α = 1** — sharing
-Dirichlet's rung, not thin at all — so the plan's exclusion of Green–Tao methods
-survives on its stated grounds. Merikoski's sparse-set work
-([arXiv:2302.11331](https://arxiv.org/abs/2302.11331)) runs at α ≈ 1 − δ, and
-b = 1 is off its chart rather than a limit of it.
+**Read that correctly.** C⁻ = 0 says *these axioms cannot prove primality* —
+there exists an admissible sequence with no primes. It says nothing about
+whether x² + 1 is prime infinitely often.
+
+### What survives, and it is narrow
+
+- **DFI's Lemma 2 is scale-free.** It assumes only Σ_{n≡0(d)}|c_n| ≤ γ(d)X with
+  γ submultiplicative and γ(p) ≤ c/p — which A = {x+i} satisfies with
+  γ(d) = ρ(d)/d and X ≍ x^{1/2}. The machinery *does* reach a thin sequence;
+  the hypotheses must then be re-normalised to X = |A|, and it is at that level
+  that Note F's obstruction bites. Neither DFI nor Green–Sawhney writes the
+  thin-sequence version down.
+- **DFI's equidistribution theorem is about this repo's residues.** It covers
+  aX²+2bX+c with ac−b² > 0, so ν²+1 ≡ 0 (mod p) is literally the case, and
+  their Weyl sum ρ_h(n) is the sum over the r_d of [Note A](notes/note-A-dictionary.md).
+  Their Proposition 1 bounds those residues **in arithmetic progressions** —
+  exactly the shape [Note J](notes/note-J-mobius-in-progressions.md) reduces the
+  Type II input to. Whether it transfers is the sharpest open question here.
+- **The β = μ cancellation is outside their axioms**, but only in one precise
+  form. A μ-restricted Type II is *weaker* than the arbitrary-coefficient one at
+  the same range, so restricting coefficients is not per se an escape. It is new
+  information only because it holds on ranges where the arbitrary-coefficient
+  hypothesis fails outright — which, by Note F, is every range. Ford–Maynard
+  expect such specialised results to upgrade to full ones (footnote 1, p. 3);
+  Note F is a proof that here they cannot, which makes this sequence a
+  counterexample to that expectation.
 
 ### The two supporting results
 

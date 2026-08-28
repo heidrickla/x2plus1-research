@@ -258,12 +258,67 @@ a hypothesis of a sieve.
 > Note F's lemma standing alone as the blocker. Everything earlier in this note
 > about (R1) remains true *of [ASP]*, and is no longer the operative constraint.
 
-**Caveat, and it is a real one.** DFI's hypotheses here are read at two removes
-— from a subagent's report of Green–Sawhney's Lemma 3.2, which is itself
-quoting DFI. Neither DFI nor Green–Sawhney has been read directly in this repo.
-The Type I entry above is therefore `inferred`, not `quoted`, in
-[`research_state/claims.json`](../research_state/claims.json). Reading DFI §6
-directly is now the top task.
+### DFI read directly — four corrections to the above
+
+*The paper is paywalled at the Annals, but Duke posts a scan himself at
+[math.ucla.edu/~wdduke/preprints/equidistribution.pdf](https://www.math.ucla.edu/~wdduke/preprints/equidistribution.pdf)
+(byte-identical copy independently re-fetched by a second reader). The
+table above was built from a report of Green–Sawhney's Lemma 3.2 quoting DFI,
+and three of its four entries turn out to describe **Green–Sawhney's
+strengthening, not DFI**.*
+
+1. **§6 is not a sieve.** It is titled *Combinatorial identities* — a Buchstab/
+   Legendre identity whose outputs are Lemma 3 and **Theorem S** (p. 437).
+2. **DFI's Type II coefficients are *not* arbitrary.** The class is stated
+   exactly at p. 437: "|α_m| ≤ ω(m), |β_n| ≤ 1, |λ_d| ≤ 1 … and, in our case,
+   **β_n will be supported on primes**", and Proposition 2 (p. 426) is proved
+   only under that restriction, with the remark that "the restriction to n₁, n₂
+   primes simplifies much of the argument, yet it is just this type that is
+   needed for our application." Green–Sawhney **drop** it and demand "any
+   1-bounded sequences α_a, β_b" — so the arbitrary-coefficient hypothesis this
+   note attributed to DFI is Green–Sawhney's.
+3. **DFI's own Type I level is x^{1/2−ε}**, not X^{1/2}(log X)^{−C}; and
+   Theorem S concludes only **Σ_{p≤x} c_p ≪ ε·π(x)** — o(π(x)), not a log-power
+   saving. Green–Sawhney strengthen every axis.
+4. **DFI's sequence is not thin: α = 1.** Applied verbatim to A = {x+i}, whose
+   mass is X^{1/2} inside norm bound X, Theorem S and Green–Sawhney's Lemma 3.2
+   are **vacuous** — the hypotheses hold trivially and the conclusion is weaker
+   than the trivial bound.
+
+### But DFI's engine is scale-free, and that is the constructive part
+
+Theorem S is normalised to x. **Lemma 2 (p. 436) is not.** It assumes only
+
+> (27) Σ_{n ≡ 0 (d)} |c_n| ≤ γ(d)·X with γ submultiplicative, and (29) γ(p) ≤ c/p,
+
+which A = {x+i} satisfies with γ(d) = ρ(d)/d and X ≍ x^{1/2} — exactly [Note
+A](note-A-dictionary.md)'s local densities. So the machinery **does** apply to a
+thin sequence; what changes is that the Type I and Type II hypotheses must then
+be re-normalised to X = |A|, demanding cancellation of size |A|(log)^{−B} rather
+than x(log)^{−B}.
+
+> **It is at that re-normalised level that [Note F](note-F-failure-localisation.md)'s
+> C₄-free obstruction bites.** Neither DFI nor Green–Sawhney ever writes the
+> thin-sequence version down, so this is the first place the repo's obstruction
+> and the literature's machinery are stated in the same normalisation.
+
+### The equidistribution theorem is about this repo's residues
+
+DFI's actual theorem (p. 424) is for f(X) = aX² + 2bX + c with D = ac − b² > 0.
+**Taking a = 1, b = 0, c = 1 gives D = 1, so ν² + 1 ≡ 0 (mod p) is literally the
+case covered**, and their ρ_h(n) = Σ_{f(ν)≡0 (n)} e(hν/n) is exactly the Weyl
+sum over this repo's residues r_d. Two directly reusable inputs:
+
+- **Proposition 1** (p. 425): L_d(M) = Σ_{M<m≤2M} ρ_h(dm) ≪
+  (h,d)^{1/20}(d/M)^{1/20}M^{1+ε} — a nontrivial bound on r_d **in arithmetic
+  progressions**, uniform in d up to d ≍ M.
+- **Proposition 2** (p. 426): a genuine Type II bound with M^{3/8}, for β
+  supported on primes.
+
+Proposition 1 is the more interesting of the two here, because [Note
+J](note-J-mobius-in-progressions.md) reduces the Type II input to a statement
+about exactly these residues in progressions. **[VERIFY]** whether Proposition 1
+transfers, and at what level.
 
 ### How far below 2/3 the literature actually reaches
 
@@ -286,7 +341,76 @@ Duke–Friedlander–Iwaniec setting. Maynard's ICM survey states that all curre
 approaches break down below x^{1/2} and asks (Question 21) whether adapting
 them is even plausible.
 
-**γ = 1/2 is a knife-edge in the literature's own map, and x² + 1 is on it.**
+### Ford–Maynard read directly — and it is worse than the knife-edge
+
+*Read in full (arXiv:2407.14368v1, 107 pp.), then adversarially re-extracted
+page by page by a second reader who verified every quotation and overturned the
+first reading's conclusion. Three corrections, and they all cut against the
+repo.*
+
+**1. x² + 1 is not at γ = 1/2. It is at γ = 1/2 − ε, which is the killed
+regime.** Ford–Maynard's (I) demands a log-power saving at level *exactly* x^γ.
+[Note B](note-B-type-I.md) gives Σ_{d≤D}|r_d| ≍ D against A(x) = x^{1/2}, so
+Type I holds for D = o(x^{1/2}) and **fails at x^{1/2}**. In their convention
+that is γ = 1/2 − ε for every ε and never γ = 1/2 — i.e. exactly P_ε, exactly
+what Theorem 2.4 and Theorem 4.16 kill. The consolation that "at γ = 1/2 exactly
+they assert C^{±} = 1" is void, because γ = 1/2 exactly is the one case this
+sequence does not have.
+
+**2. The binding result is not Theorem 2.4 at all — it is Selberg.** By [Note
+F](note-F-failure-localisation.md) the sequence has **no arbitrary-coefficient
+Type II range**, i.e. ν = 0 in their sense. Ford–Maynard, p. 2:
+
+> "Selberg [28] showed that whenever ν = 0, there are examples of a_n with
+> b_n = 1 for all n which satisfy (I) for arbitrary γ < 1 but with Σ_p a_p = 0,
+> so non-trivial Type II information is necessary to detect primes."
+
+Their Theorem 2.1 is the quantitative version. So the Type I/II framework
+returns C⁻ = 0 for this repo's parameters by the **oldest result in the paper**,
+with no ε-loss and no A*₂ membership question. Theorem 2.4 is a refinement of a
+conclusion already reached.
+
+**3. The divisor-bounded escape is unavailable, and by a shorter route than the
+density argument.** Theorem 2.7(c), p. 8: C⁻(1/2, 0, ν) = 0 = C⁻_bd(1/2, 0, ν)
+at ν = 0.1616, and C⁻_bd(1/2, 0, 3/19) = 0. **Divisor-boundedness buys nothing
+once ν is small, whatever the density.** The [VERIFY] this note carried — is
+x²+1's indicator weight divisor-bounded, and does that exempt it? — is answered:
+it is, and it does not.
+
+### What survives, stated narrowly
+
+C⁻ = 0 is a statement about **what these axioms can prove**, not about x² + 1.
+It means there exists an admissible sequence with no primes; it says nothing
+about whether x² + 1 is prime infinitely often. Do not conflate the two.
+
+The one direction Ford–Maynard leave open is arithmetic information **not
+expressible as (I)/(II) with arbitrary coefficients** (p. 18):
+
+> "It would be naturally be desirable to have a theory which can incorporate
+> such additional arithmetic information, or to generate new means to
+> distinguish sets which contain primes from the examples produced here which do
+> not."
+
+The repo's β = μ cancellation ([Note J](note-J-mobius-in-progressions.md)) is a
+candidate — **but only in one precise form**. A μ-restricted Type II is *weaker*
+than the arbitrary-coefficient one at the same range, so every Ford–Maynard
+counterexample satisfies it a fortiori; restricting coefficients cannot per se
+be an escape. It is new information **only because it holds on ranges where the
+arbitrary-coefficient hypothesis fails outright** — which, by Note F, is every
+range. That is the narrow statement, and it is the only one the sources support.
+
+Against it, Ford–Maynard's own expectation (footnote 1, p. 3):
+
+> "A mild generalization of the underlying methods should allow one to establish
+> (I) and (II) in full."
+
+i.e. they expect specialised-coefficient results to upgrade to full ones, which
+would collapse the distinction the repo is relying on. Here it demonstrably does
+not upgrade — Note F is a proof that it cannot — so this sequence is a genuine
+counterexample to their expectation. That is the sharpest thing the repo has.
+
+**γ = 1/2 is a knife-edge in the literature's own map, and x² + 1 sits just
+below it.**
 
 ## The hypotheses, quoted
 
