@@ -1616,6 +1616,13 @@ def test_the_pair_bound_is_sharp_to_a_third_of_a_percent():
     2, which is why the cofactor ratio is nearly extremal -- the two are the same
     constraint seen on two axes.
 
+    **The 0.33% is conditional and must not be quoted bare.** It is sharpness
+    against the |V| >= 2 threshold, and |V| >= 2 binds only because every
+    realised extremum measured is a tau_1 step -- measured absence over a finite
+    range, not a theorem. The non-tau_1 case is the cross-orbit configuration
+    multipliers do not predict, so the gap between O.12's 4.7913 and 33.9706 is
+    NAMED, not closed.
+
     Worth stating against this repo's own "size bounds permit far more than
     occurs at every scale": **this one does not**. The three instances recorded
     there -- 39 of 60 admissible classes, the D = 9,10 strip, O.11's falling
