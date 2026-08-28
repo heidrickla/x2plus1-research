@@ -2110,6 +2110,20 @@
       ],
       "notes": "Makes O.2's content at a given X completely explicit, and the reduction is severe: 1.8 million classes down to 43, then to 3 once the moduli have to exist, then to 0 because none of the 3 has a third modulus. The population that matters is 'classes admitting two in-window multipliers', which is 43 -- not classes with three moduli (60) and not all classes (1.8M). And the three that realise a k >= 2 step are the SAME three exp14 found as the live non-fundamental close pairs, from a completely different construction: exp14 searched the realised side by streaming enumeration, this counts multiplier indices satisfying a Pell condition. Two routes, same three configurations, which is the strongest confirmation either has.",
       "proof_site": ""
+    },
+    {
+      "id": "the-orbit-grouping-has-no-easy-criterion",
+      "status": "rigorous_finite",
+      "statement": "Grouping a class's shared moduli into automorph orbits has no cheap criterion, and the two obvious candidates both fail. (1) The ORDER'S FUNDAMENTAL UNIT is wrong: for (1,5) the form is Y^2 - 5X^2 = 4 and the observed modulus ratios are 5, 6.5, 6.8, 6.8462, 6.8529, 6.8539, 6.8541 converging to phi^4 = 6.8541, so the automorph is phi^2 = 2.6180 -- which lies in Z[phi] and NOT in Z[sqrt5], whose fundamental unit 9+4sqrt5 = 17.9443 would predict a ratio of 322 and split one orbit into many. (2) M | V is wrong in the opposite direction: at (1,5) with m = 2, 10 we have V = -2 and M = 4, so M does not divide V, yet the two are in the SAME orbit. That is forced rather than accidental -- the subcase alternates along an orbit (Prop O.6), and p | V holds exactly when the subcases agree, so consecutive orbit members necessarily have M not dividing V.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "tau-moves-between-orbits-epsilon-within-them"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Recorded as an obstacle rather than a result, because the parallel session asked for a measurement that needs this grouping -- the minimum ratio spanning three populated orbits, and whether that margin shrinks as the orbit count grows -- and I would rather report that I cannot compute it reliably than produce a number from a wrong grouping. That is the near-miss recorded one claim earlier, arriving again within the hour: a plausible identification between two pieces of machinery, which here would have silently mis-partitioned the moduli and produced a margin that measures nothing. The correct criterion is the automorph of the FORM, which depends on the discriminant and on which order the relevant unit lives in, and is a real computation rather than a one-line test.",
+      "proof_site": ""
     }
   ]
 }
