@@ -123,6 +123,9 @@ quantitative statement of how far current bounds fall short — which is
   {x + ci} for any fixed c. It fails as soon as Im varies — which is exactly
   a² + b⁴. Worth stating in that generality in the write-up.
 - *Is C₄-freeness really fatal, or just fatal to* this *dispersion arrangement?*
-  Open. Cauchy–Schwarz in **n** instead of m, or an unbalanced/well-factorable
-  split, gives a different Gram matrix. **[VERIFY]** — the current claim is
-  about the arrangement in plan §2.2, and should not be over-read.
+  Cauchy–Schwarz in **n** has now been run: the maximum off-diagonal entry of
+  C·Cᵀ is also 1, at every split. That is forced — a 4-cycle is a 4-cycle
+  whichever side is squared — so no rearrangement of the *square* helps.
+  What remains genuinely open is whether a well-factorable or unbalanced
+  decomposition of m avoids squaring at all. **[VERIFY]**, and it is the only
+  surviving line of attack on the lemma.

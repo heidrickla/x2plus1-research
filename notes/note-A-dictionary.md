@@ -75,11 +75,17 @@ so #{admissible d : N(d) ≤ D} ~ (3/2π)·D. Measured: 0.4771 at D = 64 000
 
 A is the set of Gaussian integers on the line Im z = 1. Hecke's theorem gives
 angular equidistribution of Gaussian primes, and equidistribution in sectors;
-neither says anything here, because a horizontal line is not a sector — it is a
-degenerate, measure-zero direction, and it contains ~ Q^{1/2} lattice points out
-of the ~ Q of norm ≤ Q. Any argument that would follow from sector
-equidistribution is therefore automatically insufficient. **[VERIFY]** the
-precise sense in which the known thin-region results stop short (plan §1.2).
+neither says anything here, because a horizontal line is not a sector.
+
+Hecke proved, via Grössencharacters λ_k and their L-functions, that the angles
+of Gaussian primes equidistribute in [0, π/2). The narrow-sector refinements
+are the closest available: unconditionally Ricci reaches sectors of width
+X^{−3/10+ε}, and even under GRH the limit is X^{−1/2+ε}. All of these are
+statements about **sectors** — two-dimensional regions of positive measure. The
+line Im z = 1 is a one-dimensional subvariety carrying ~Q^{1/2} of the ~Q
+lattice points of norm ≤ Q, and no sector result, however narrow, specialises
+to it. So the degeneracy is not that the region is small; it is that it is not
+a region.
 
 ## Adversarial review
 
@@ -92,5 +98,10 @@ precise sense in which the known thin-region results stop short (plan §1.2).
 
 ## Open
 
-- **[VERIFY]** the statement of Hecke's theorem being appealed to, with a
-  reference, and what the best known result on Gaussian primes in thin regions is.
+- **[VERIFY]** The narrow-sector figures (Ricci's X^{−3/10+ε}; X^{−1/2+ε} under
+  GRH) are from a literature search, not from reading the sources. They are
+  context, not load-bearing — no line of this repo's argument rests on them.
+- The nearest genuinely relevant result is *On Gaussian primes in sparse sets*
+  ([arXiv:2302.11331](https://arxiv.org/abs/2302.11331)): primes a² + b² with
+  b confined to a set of size X^{1/2−δ}. Our problem is that set having **one**
+  element. Unread — see [Note C](note-C-requirements.md)'s Open list.

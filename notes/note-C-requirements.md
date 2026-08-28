@@ -28,9 +28,12 @@ Page references are to the Annals pagination printed in the arXiv preprints.
 > Σ_{d≤D}|r_d| ≍ D, so (R) forces D ≤ A(x) = x^{1/2}. Since
 > x^{1/2} < x^{2/3}, **the admissible range for D is empty.**
 >
-> Read the next section before drawing conclusions from this. Heath-Brown hit
-> the same wall at α = 2/3 and routed around it, so (R1) is the negotiable
-> hypothesis — the durable obstruction is Type II.
+> **(R1) is not a separate hypothesis from the bilinear one.** [ASP] p. 1045
+> shows x^{2/3} is exactly the threshold below which the coefficient γ(n,C) in
+> (B) is annihilated — so "is the obstruction Type I or Type II?" is malformed.
+> At A(x) = x^{1/2} there is no room for the parity-breaking mechanism, and
+> that single fact surfaces as (R1) failing, as (B) going vacuous, and as
+> [Note F](note-F-failure-localisation.md)'s forest.
 
 Friedlander and Iwaniec state the general principle themselves, p. 1044:
 
@@ -55,11 +58,11 @@ So Step 2 as framed by the plan is attacking the wrong half. See
 
 ---
 
-## Heath-Brown's precedent — and what it does to the conclusion above
+## Heath-Brown's precedent
 
-**This section revises the reading of the finding, not the finding.** (R1) is
-genuinely unsatisfiable for x² + 1. But [HB] shows that (R1) failing is not, by
-itself, fatal — it has happened before and was worked around.
+(R1) is genuinely unsatisfiable for x² + 1. [HB] shows that (R1) failing is not
+*by itself* fatal — it has happened before and was worked around. The section
+after this one bounds how far that precedent reaches.
 
 ### Heath-Brown uses the same density exponent
 
@@ -115,23 +118,13 @@ Heath-Brown's workaround closed a gap of ε. For x² + 1 the gap is a sixth of a
 exponent. Nothing in [HB] suggests a bespoke sieve could absorb that, and his
 own remark is scoped to "our application".
 
-### The revised priority
+### How far the precedent reaches
 
-The previous version of this note concluded "the obstruction is Type I, not
-Type II" and deprioritised Step 2. That reordering was premature. The accurate
-statement is:
-
-- **(R1)'s x^{2/3} is soft** — precedent exists for relaxing it, and it is a
-  hypothesis of one theorem.
-- **κ = 1 is hard.** [Note F](note-F-failure-localisation.md)'s C₄-free lemma is
-  a theorem about the sequence, not a hypothesis of a sieve. It survives any
-  change of sieve, and at α = 1/2 it says the Type II incidence structure
-  degenerates to a forest. [HB] independently stresses that the Type II bound,
-  not the sieve procedure, is "the most novel part" of his proof.
-
-**So Step 2 is the right half after all.** What Note C establishes is narrower
-than last stated: ASP *as written* does not apply, and the reason is (R1) — but
-(R1) is the negotiable hypothesis and Type II is where the difficulty lives.
+Heath-Brown stresses that the Type II bound, not the sieve procedure, is "the
+most novel part" of his proof — so the difficulty at α = 2/3 was bilinear, and
+the sieve was bookkeeping he preferred to redo himself. That is a real
+precedent for replacing (R1). The next section bounds it: his gap was ε, and
+the quantity (R1) protects degrades by a *power* at α = 1/2.
 
 ### What is available at α = 1/2
 
@@ -145,6 +138,79 @@ cross it. *(Read via an exposition, not the original — see
 [refs/bibliography.md](../refs/bibliography.md).)*
 
 ---
+
+## Where the x^{2/3} is spent — answered
+
+*This was the note's live question. It is answered on [ASP] p. 1045, in the
+discussion of (B), not anywhere in §§3–8.*
+
+The literal string x^{2/3} occurs three times in [ASP]: the statement of (R1)
+(p. 1043), Theorem 2's hypothesis list (p. 1059), and one estimate in §9
+(p. 1062, bounding E21 — and there it is paired with (9.2), so it belongs to
+the non-squarefree machinery). **In the main proof of Theorem 1, §§3–8, (R1) is
+never invoked.** That looked at first like evidence the exponent is an
+artefact. It is not. FI explain it directly:
+
+> "There is also the Möbius function μ(d) in the coefficient γ(n, C). Here d
+> must be quite a bit smaller than N to ensure that **μ(d) does not completely
+> neutralize μ(n)**. By (B1–B3) we know that d < C < (x/Δ)·N·D^{−3/2}, so **our
+> hypothesis (B) can be realistic only if D is somewhat larger than
+> x^{2/3+ε}**." — [ASP] p. 1045
+
+So (R1) is not a technical constraint sitting beside (B). **It is the condition
+under which (B) is not vacuous.** The mechanism:
+
+- (B3) sets the divisor truncation at C = xD^{−1}; (B1) puts n in a range with
+  N ≳ √D.
+- γ(n, C) = Σ_{d|n, d≤C} μ(d). If C exceeds n, this is Σ_{d|n} μ(d) = **0** for
+  every n > 1.
+- So C ≲ N is needed for the coefficient to be anything at all, and
+  xD^{−1} ≲ √D ⟺ **D ≳ x^{2/3}**.
+
+FI are explicit on the same page that this is where parity-breaking lives:
+
+> "our stipulation of the lower bound restriction N > Δ^{−1}√D in (B1) is
+> essential; indeed by narrowing this slightly to N > √D we would not be able
+> to break the parity problem. … the source of cancellation in the bilinear
+> form in (B) comes from the sign changes of the Möbius function μ(mn)."
+
+### What that does to the "Type I or Type II?" question
+
+**It dissolves it.** (R1) and (B) are not two independent hypotheses to be
+failed separately — (R1) is the statement that (B) has content. Asking which
+half obstructs x² + 1 was malformed. The single fact is that at A(x) = x^{1/2}
+there is no room for ASP's parity-breaking mechanism, and it shows up three
+ways:
+
+| symptom | where |
+|---|---|
+| (R1) unsatisfiable: D ≤ A(x) = x^{1/2} < x^{2/3} | [Note B](note-B-type-I.md) |
+| (B) vacuous: C = xD^{−1} = x^{1/2} against N ≈ x^{1/4}, so C/N ≈ x^{1/4} and γ(n,C) ≡ 0 | this note |
+| incidence matrix is a forest: κ = 1 | [Note F](note-F-failure-localisation.md) |
+
+Note that C ≲ √D together with D ≤ A(x) gives x/A(x) ≲ √A(x), i.e.
+**A(x) ≳ x^{2/3}** — the sieve's density threshold, re-derived from the
+mechanism rather than read off (9.2).
+
+### And it re-scopes Heath-Brown's remark
+
+At D = x^{2/3−ε}: C = x^{1/3+ε} against √D = x^{1/3−ε/2}, so C/√D = x^{1.5ε}.
+The neutralisation is *marginal* — which is exactly the situation in which "it
+seems possible that (R1) might be relaxed sufficiently for our application"
+([HB] p. 3) is a reasonable thing to write. At D = x^{1/2}, C/N ≈ x^{1/4}: the
+coefficient does not weaken, it vanishes.
+
+**So the previous revision of this note over-corrected.** "(R1) is soft" is true
+by an ε and false by a power. The accurate statement:
+
+> (R1)'s x^{2/3} encodes the condition for ASP's parity-breaking to exist at
+> all. It is negotiable at the margin — Heath-Brown negotiated it — and it is
+> not negotiable by a sixth of an exponent.
+
+This does not resurrect the claim that Step 2 is the wrong half. It says the
+halves are the same half. [Note F](note-F-failure-localisation.md)'s C₄-free
+lemma remains the sharpest *sequence-intrinsic* statement of the obstruction,
+and it is the one that survives changing sieve.
 
 ## The hypotheses, quoted
 
@@ -282,19 +348,25 @@ theorem's hypotheses, and [HB] is the precedent for replacing them.
 
 ## Open
 
-- **[VERIFY]** Where in [ASP] §§3–8 is x^{2/3} actually used, and how far down
-  does [HB]'s "seems possible that (R1) might be relaxed" actually go? He needed
-  ε; we need 1/6. Reading [HB] §§2–3 against [ASP] §§3–8 is the concrete task.
-- **[VERIFY]** Does any post-2001 work state an asymptotic sieve for primes with
-  a Type I requirement below x^{2/3}? The scan has not been run properly.
-  Candidates spotted and unread:
-  [arXiv:2111.04136](https://arxiv.org/abs/2111.04136) (prime values of
-  f(a,b²)), [arXiv:2112.03617](https://arxiv.org/abs/2112.03617) (X²+(Y²+1)²
-  — note the inner y²+1), [arXiv:2407.14368](https://arxiv.org/abs/2407.14368)
-  (theory of prime-producing sieves).
-- **Settled, no longer open.** Heath-Brown's relation to [ASP] (he does not use
-  it, and says why); x³+2y³'s position at the boundary; that a² + b⁴ attains
-  D = A(x)^{1−ε}.
+Everything this note was blocked on is now answered. What remains:
+
+- **[VERIFY]** Does the Green–Sawhney machinery bear on this? *Primes of the
+  form p² + nq²* ([arXiv:2410.04189](https://arxiv.org/abs/2410.04189), 2024)
+  proves an asymptotic for p² + nq² with p, q prime and n ≡ 0, 4 (mod 6),
+  settling FI's "Gaussian primes conjecture" at n = 4 — over **Q(i)**, this
+  repo's setting. Their Type II input uses Gowers-norm technology (concatenation
+  theorems; the quasipolynomial inverse theorem), which the plan's
+  §Cross-cutting rules out. Their sequence is two-variable with α = 1, so the
+  exclusion is still defensible — but it should be re-argued rather than left
+  standing unexamined. **This is the highest-value unread item in the repo.**
+- **[VERIFY]** *On Gaussian primes in sparse sets*
+  ([arXiv:2302.11331](https://arxiv.org/abs/2302.11331)) proves infinitely many
+  primes a² + b² with b ∈ B for B of size X^{1/2−δ}. Our problem is B = {1},
+  the maximally sparse case, so it does not apply — but it is the nearest frame
+  in the literature and the δ it can reach is worth knowing exactly.
+- **[VERIFY]** [arXiv:2407.14368](https://arxiv.org/abs/2407.14368), *On the
+  theory of prime producing sieves* — the likeliest place for a restated or
+  relaxed (R1).
 
 ## Adversarial review
 

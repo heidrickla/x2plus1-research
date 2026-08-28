@@ -42,44 +42,54 @@ Python ≥ 3.11 with `sympy` and `numpy`.
 
 ## State of play
 
-Note C is filled in from the sources ([ASP](https://arxiv.org/abs/math/9811186),
-[X2Y4](https://arxiv.org/abs/math/9811185), and Heath-Brown's
-[x³+2y³](https://ora.ox.ac.uk/objects/uuid:ebb25eb4-a19e-4049-8117-3269e140b0fe)).
+Note C is answered from the sources ([ASP](https://arxiv.org/abs/math/9811186),
+[X2Y4](https://arxiv.org/abs/math/9811185),
+[HB](https://ora.ox.ac.uk/objects/uuid:ebb25eb4-a19e-4049-8117-3269e140b0fe)).
 
 **The asymptotic sieve for primes, as stated, does not apply to x² + 1.**
-Hypothesis (R1) requires a level of distribution **D > x^{2/3}** (ASP p. 1043);
-FI also note (p. 1044) that "for thin sequences A one cannot expect (R) to hold
-with D(x) > A(x)". Here A(x) = x^{1/2} < x^{2/3}, so the admissible range for D
-is empty.
+Hypothesis (R1) needs a level of distribution D > x^{2/3} (ASP p. 1043), and
+[Note B](notes/note-B-type-I.md) proves this sequence caps at D ≤ A(x) = x^{1/2}.
 
-**But (R1) is the negotiable half.** Heath-Brown hit the same wall at α = 2/3 —
-"their condition (R1) is not quite met in our case … Although it seems possible
-that Friedlander and Iwaniec's hypothesis (R1) might be relaxed sufficiently for
-our application, we have chosen instead to present our own version of the sieve
-argument" (HB p. 3) — and he stresses that the Type II bound "is the most novel
-part of our proof, and not the sieve procedure". So the durable obstruction is
-Type II, and Note F's C₄-free lemma is a property of the sequence that survives
-any change of sieve.
+**And "Type I or Type II?" turns out to be a false dichotomy.** ASP p. 1045:
 
-Heath-Brown also supplies the frame: his exponent α(f) is A(x)'s exponent, and
-he places all four problems on it (p. 2), naming x² + 1 at α = 1/2.
+> "Here d must be quite a bit smaller than N to ensure that μ(d) does not
+> completely neutralize μ(n). By (B1–B3) we know that d < C < (x/Δ)·N·D^{−3/2},
+> so our hypothesis (B) can be realistic only if D is somewhat larger than
+> x^{2/3+ε}."
 
-| sequence | α | κ > 1? (Type II non-degenerate) | (R1): D > x^{2/3}? | level achieved |
+x^{2/3} is the threshold below which the bilinear hypothesis is *vacuous*: the
+truncation C = xD^{−1} must stay under N ≈ √D, or γ(n,C) = Σ_{d|n, d≤C} μ(d)
+collapses to Σ_{d|n} μ(d) = 0. So (R1) is the condition that (B) has content,
+and one fact — no room for the parity-breaking mechanism at A(x) = x^{1/2} —
+surfaces three ways:
+
+| symptom | where |
+|---|---|
+| (R1) unsatisfiable: D ≤ A(x) = x^{1/2} < x^{2/3} | [Note B](notes/note-B-type-I.md) |
+| (B) vacuous: C = x^{1/2} against N ≈ x^{1/4}, so C/N ≈ x^{1/4} | [Note C](notes/note-C-requirements.md) |
+| incidence matrix is a forest: κ = 1 | [Note F](notes/note-F-failure-localisation.md) |
+
+Combining C ≲ √D with D ≤ A(x) re-derives the sieve's density threshold
+**A(x) ≳ x^{2/3}** from the mechanism rather than from a hypothesis.
+
+| sequence | α | κ > 1? | (R1) | level achieved |
 |---|---|---|---|---|
 | a² + b⁴ (FI 1998) | 3/4 | ✅ | ✅ met | x^{3/4−5ε} |
-| x³ + 2y³ (HB 2001) | 2/3 | ✅ | ❌ short by **x^ε** — worked around | x^{2/3−ε} |
+| x³ + 2y³ (HB 2001) | 2/3 | ✅ | ❌ short by **x^ε** — HB wrote his own sieve | x^{2/3−ε} |
 | x² + 1 | **1/2** | ❌ (κ = 1) | ❌ short by **x^{1/6}** | x^{1/2}(log x)^{−222} |
 
-Heath-Brown's workaround closed a gap of ε; x² + 1's is a sixth of an exponent,
-and it additionally sits at κ = 1 where the Type II structure degenerates. The
-record at α = 1/2 remains Iwaniec 1978: P₂, from a lower-bound weighted sieve —
-i.e. exactly the parity-limited conclusion.
+Heath-Brown judged (R1) "possible … to relax" for a gap of ε; this needs a
+sixth of an exponent, where the coefficient does not weaken but vanishes. The
+record at α = 1/2 remains Iwaniec 1978: P₂, from a lower-bound weighted sieve.
 
-Live question:
-
-> **Where in ASP §§3–8 is the x^{2/3} actually spent, and how far down does
-> Heath-Brown's "seems possible that (R1) might be relaxed" go?** He needed ε;
-> this needs 1/6.
+**Supersession scan: run, and Iwaniec 1978 still stands.** The nearest recent
+result is Green–Sawhney, *Primes of the form p² + nq²*
+([arXiv:2410.04189](https://arxiv.org/abs/2410.04189), 2024) — an asymptotic
+for p² + nq² with p, q prime, n ≡ 0, 4 (mod 6), settling FI's "Gaussian primes
+conjecture" at n = 4, over **Q(i)**. Unread, and the highest-value item in the
+repo. Their Type II input is Gowers-norm technology, which the plan's
+§Cross-cutting rules out — that exclusion now needs re-arguing rather than
+standing unexamined.
 
 ### The two supporting results
 
@@ -128,13 +138,18 @@ the repo's derived invariant and the paper's stated hypothesis. In the window
 
 ### Not yet done
 
-- **The supersession scan has still not been run.** Reading-list items 1–5 are
-  read; nothing found so far relaxes (R1), but that is absence of evidence from
-  three targeted searches, not a scan. The most promising unread leads are
-  [arXiv:2112.03617](https://arxiv.org/abs/2112.03617) (X²+(Y²+1)² — note the
-  inner y²+1) and [arXiv:2407.14368](https://arxiv.org/abs/2407.14368).
+- **Read Green–Sawhney**, then decide whether the plan's Green–Tao exclusion
+  survives. Other unread leads:
+  [arXiv:2302.11331](https://arxiv.org/abs/2302.11331) (Gaussian primes in
+  sparse sets — our problem is its sparse set having one element),
+  [arXiv:2407.14368](https://arxiv.org/abs/2407.14368),
+  [arXiv:2112.03617](https://arxiv.org/abs/2112.03617).
+- **The scan was three searches, not a literature review.** Enough to say
+  nothing obvious supersedes Iwaniec 1978; not enough to be sure.
 - **Iwaniec 1978 is second-hand.** The original is paywalled; its statement and
   method were read from an MSc exposition.
+- **[Note G](notes/note-G-spectral.md) is still a skeleton**, and Note F's
+  lemma says it may have nothing to act on.
 - **Reading-list items 6–9 (BFI, EGM, Motohashi, Zhang/Polymath/Maynard) were
   deliberately skipped**, with the reasoning written out at the end of
   [refs/bibliography.md](refs/bibliography.md). In short: the spectral sources

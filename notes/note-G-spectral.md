@@ -26,9 +26,17 @@ So Note G cannot be executed as written. Either:
 - **(b)** the spectral route is inapplicable to this sequence, in which case
   that is itself the deliverable and Step 2's checkpoint needs restating.
 
-Deciding between (a) and (b) is the first task, and it should not be attempted
-before [Note C](note-C-requirements.md) is unblocked — the shape of the sum the
-sieve actually wants may differ from the one plan §2.2 constructs.
+Deciding between (a) and (b) is the first task. [Note
+C](note-C-requirements.md) is now answered and sharpens the question rather
+than settling it: the sum ASP actually wants is the one in (B), and at
+A(x) = x^{1/2} its coefficient γ(n,C) is annihilated — so there is no
+well-posed sum to reformulate spectrally *for ASP*. Any spectral attempt must
+therefore first name a different sieve.
+
+Cauchy–Schwarz in n has now been ruled out as an escape (see
+[Note E](note-E-naive-dispersion.md)): the Gram matrix is ≤ 1 from that side
+too. The only untested rearrangement is a well-factorable or unbalanced
+decomposition of m that avoids squaring altogether.
 
 ## Background still to master (plan §2.3)
 

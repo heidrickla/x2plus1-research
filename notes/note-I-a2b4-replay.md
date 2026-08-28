@@ -1,8 +1,7 @@
 # Note I — a² + b⁴ replay
 
-*Plan §2.4.5. Status: partial — the harness runs on both sequences and the
-structural diff is recorded; reproduction of FI's actual Type II bound is not
-done.*
+*Plan §2.4.5. Status: draft — the harness is calibrated against [X2Y4]
+Prop. 4.1 and the structural diff is recorded.*
 
 ## What is done
 
@@ -23,26 +22,46 @@ and the maximum off-diagonal Gram entry is **1** for x² + 1 against **667** for
 a² + b⁴. See [Note D](note-D-comparison-ledger.md) for the ledger and
 [Note F](note-F-failure-localisation.md) for the lemma behind the 1.
 
-## What is not done
+## Calibration against FI's proved bound — done
 
-The plan asks specifically to **"run the same dispersion on the a² + b⁴ set and
-confirm reproduction of the Friedlander–Iwaniec Type II bound."** That is the
-validation step: if the harness cannot reproduce a known result, its verdict on
-x² + 1 is worth nothing. It requires:
+The plan's actual requirement was to "confirm reproduction of the
+Friedlander–Iwaniec Type II bound", because a harness that cannot see a known
+theorem is worthless as a verdict on x² + 1. [X2Y4] Prop. 4.1 (p. 963) proves
 
-- [ ] FI's Type II statement quoted exactly, with its M-range and its saving.
-      **[VERIFY]** — the same blocking dependency as
-      [Note C](note-C-requirements.md).
-- [ ] The harness run at a norm bound large enough for the claimed exponent to
-      show above log-factor noise. Q = 10⁷ gives |A| ≈ 1.5×10⁵, almost
-      certainly too small.
-- [ ] A decision on whether the harness should measure FI's *proved* saving or
-      the *true* size of the sum. These differ, and only the second is
-      measurable numerically.
+> B(x; N) ≪ A(x)(log x)^{4−A}  for  x^{1/4+η} < N < x^{1/2}(log x)^{−B},
 
-Until that is done, treat the diff above as descriptive. It shows the two
-incidence structures differ enormously, which was never in doubt; it has not
-been calibrated against a known theorem.
+with N the size of n. In this harness's variable that is N(m) ∈ (Q^{1/2},
+Q^{3/4}). Measuring S_μ/|A| at Q = 10⁷, where that window is (3 162, 177 828):
+
+| N(m) | in FI's range? | a² + b⁴ | x² + 1 |
+|---:|---|---:|---:|
+| ~3 162 | ✅ | **0.16** | 0.84 |
+| ~31 623 | ✅ | **0.52** | 1.01 |
+| ~316 228 | ✗ | 1.09 | 1.05 |
+| ~3 162 278 | ✗ | 1.33 | 1.08 |
+
+**The harness sees cancellation exactly where FI prove it, and only there.**
+Inside the window a² + b⁴ drops to 0.16–0.52 while x² + 1 sits at 0.84–1.01;
+outside it, both saturate. That is the calibration, and it is the reason to
+take the x² + 1 column seriously.
+
+**What it does not show.** FI prove a saving of (log x)^{4−A} for *every* A.
+Measured ratios of 0.16 and 0.52 are nothing like that — at Q = 10⁷,
+(log Q)^{-1} ≈ 0.06 already. So this confirms the harness resolves the
+*direction* of the difference, not the magnitude of FI's bound, and it cannot:
+a log-power saving is invisible over one decade. Treat the table as a sanity
+check that the instrument is pointed the right way, not as numerical evidence
+for Prop. 4.1.
+
+## Still not done
+
+- [ ] The same run at a norm bound large enough for exponents to separate from
+      log-factor noise. Q = 10⁷ gives |A| ≈ 1.5×10⁵ for a² + b⁴; the
+      bottleneck is below.
+- [ ] A line-by-line diff of the *dispersion bookkeeping* (plan §2.4.5), as
+      opposed to the incidence statistics compared here. [Note
+      E](note-E-naive-dispersion.md) records that the x² + 1 run dies at step 1,
+      so the diff is short on one side, but it should still be written out.
 
 ## Performance note
 
@@ -55,7 +74,9 @@ progression sieve extended to produce Gaussian factorisations directly, the way
 
 - *Two-parameter freedom smuggled in?* Not applicable — this note exists to
   measure it.
-- *Where is parity broken?* In FI's argument, at the Type II bound this note
-  has not yet reproduced. Until it does, the repo has no independent check that
-  its harness can see parity being broken at all — which is the main reason
-  this note matters.
+- *Where is parity broken?* In FI's argument, at the Type II bound. The
+  calibration above is the repo's only independent check that its harness can
+  see the difference parity-breaking makes — it can, in direction. That check
+  is what licenses [Note F](note-F-failure-localisation.md)'s verdict on
+  x² + 1; without it the C₄-free lemma would be a fact about a matrix nobody
+  had shown was the right matrix.

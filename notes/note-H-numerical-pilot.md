@@ -101,8 +101,20 @@ already unsatisfiable — but it matters for any future sieve that might relax
 
 ## To do
 
-- Run the sweep at X = 10⁵ and 10⁶ and fit θ(u) with log-power corrections;
-  check the √(MX) law is stable rather than a small-X coincidence.
+- ~~Run the sweep at X = 10⁵.~~ **Done, and the law is stable.** Ratio of the
+  measured sum to √(MX), for M < X:
+
+  | u = log M / log X | X = 2×10⁴ | X = 10⁵ |
+  |---:|---:|---:|
+  | ≈ 0.3–0.35 | 0.72 | 0.88 |
+  | ≈ 0.5–0.58 | 0.92 | 0.93 |
+  | ≈ 0.7–0.81 | 0.91 | 0.88 |
+  | ≈ 0.9 | — | 0.90 |
+
+  and for M ≥ X the saturation is exact at both sizes: S_μ/A(x) = 1.00, 1.00,
+  1.01 (X = 2×10⁴) and 1.00, 1.00, 1.01 (X = 10⁵). A factor of 5 in X moves
+  nothing. Still not enough to separate √(MX) from √(MX)(log X)^c — that needs
+  several decades, and the caveat below stands.
 - Restrict n to Gaussian *primes* (the case the sieve actually applies to) and
   compare.
 - Repeat for a² + b⁴ at matched norm and diff against FI's proved Type II range

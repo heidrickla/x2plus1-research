@@ -30,7 +30,7 @@ Lines marked **←** are where the two-parameter freedom of (a, b) is used.
 | Type I error per modulus | ≤ **1**, sharp | ≍ Q^{1/4} trivially — one per value of b | |
 | Type I error, summed | ≍ D | ≍ D·Q^{1/4} trivially | |
 | Type I as a fraction of \|A\| | D/Q^{1/2} | D·Q^{1/4}/Q^{3/4} = D/Q^{1/2} | same trivially |
-| Type I actually achieved | **cannot exceed Q^{1/2}** — no second variable to sum | **beyond** the trivial level, by summing over b | **←** |
+| Type I actually achieved | **cannot exceed Q^{1/2}** — no vector to average over | **beyond** the trivial level, by a Davenport–Halberstam large sieve over the roots ν of ν²+1 ≡ 0 (mod d) | **←** |
 | rectangle density κ = \|A\|²/Q | **1** | Q^{1/2} | **←** |
 | max_M min(D_m, d_n) = √κ | **1** (measured 1.26) | Q^{1/4} (predicted 48.7, measured 41.2) | **←** |
 | max off-diagonal Gram entry | **1** (C₄-free — proved) | **667** at Q = 10⁶ | **←** |
@@ -46,7 +46,8 @@ factors. The *trivial* Type I bookkeeping is also identical once normalised by
 |A|. The freedom is used in exactly two places, and they are the same place
 twice:
 
-1. **In Type I**, to sum over the second variable and beat the trivial level.
+1. **In Type I**, to supply a vector of coefficients for a large sieve to
+   average over, beating the trivial level.
 2. **In Type II**, to make the incidence matrix thick, so that the Gram matrix
    G(n₁, n₂) has a main term for dispersion to work on.
 

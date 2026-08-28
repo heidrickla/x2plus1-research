@@ -64,9 +64,35 @@ this file carries the citations and what each source is needed *for*.
 Needed specifically for: well-factorable weights, Deligne bounds, and whether
 either has an analogue over Z[i].
 
+## Post-2001, found by the supersession scan
+
+15. **Green & Sawhney**, "Primes of the form p² + nq²",
+    [arXiv:2410.04189](https://arxiv.org/abs/2410.04189) (2024). For n ≡ 0, 4
+    (mod 6): infinitely many primes p² + nq² with p, q both prime, with an
+    asymptotic; n = 4 settles Friedlander–Iwaniec's "Gaussian primes
+    conjecture". Type I/II over **Q(√−n)**; the Type II input is Gowers-norm
+    technology. **Unread — highest priority.** Note that it cuts against the
+    plan's exclusion of Green–Tao methods (§Cross-cutting).
+16. **"On Gaussian primes in sparse sets"**,
+    [arXiv:2302.11331](https://arxiv.org/abs/2302.11331). Primes a² + b² with
+    b in a set of size X^{1/2−δ}. Our problem is that set having one element.
+    Unread.
+17. **"On the theory of prime producing sieves"**,
+    [arXiv:2407.14368](https://arxiv.org/abs/2407.14368). Likeliest place for a
+    restated or relaxed (R1). Unread.
+18. **"The polynomials X²+(Y²+1)² and X²+(Y³+Z³)² also capture their primes"**,
+    [arXiv:2112.03617](https://arxiv.org/abs/2112.03617). Note the inner
+    y² + 1; α is still 3/4. Unread.
+19. **Pintz**, "Landau's problems on primes" — survey,
+    [renyi.hu](https://www.renyi.hu/~pintz/pjapr.pdf). Not read; the obvious
+    place to check the state of the art on all four problems at once.
+
 ## Also worth having
 
 - **Hecke**, on the angular equidistribution of Gaussian primes (Note A §1.2).
+  Narrow-sector refinements: Ricci (unconditional, width X^{−3/10+ε}) and
+  X^{−1/2+ε} under GRH. Figures from a search, not from the sources; they are
+  context only — nothing in the repo rests on them.
 - **Selberg**, on the parity phenomenon — the barrier being broken.
 
 

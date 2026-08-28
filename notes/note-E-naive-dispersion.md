@@ -1,6 +1,6 @@
 # Note E — Naïve dispersion run
 
-*Plan §2.4.1. Status: partial — executed and the outcome recorded; the
+*Plan §2.4.1. Status: draft — executed both ways, outcome recorded; the
 line-by-line bookkeeping against FI is not yet written.*
 
 ## Execution of plan §2.2, steps 1–3
@@ -46,10 +46,11 @@ step in §2.2 presupposes a main-term/error split of G that does not exist here.
 
 - The line-by-line diff against the a² + b⁴ run required by plan §2.4.5 —
   that is [Note I](note-I-a2b4-replay.md).
-- Try Cauchy–Schwarz in **n** instead of m, and unbalanced splits. The Gram
-  matrix is then #{n : mn₁ ∈ A, mn₂ ∈ A}; by the same lemma (which is symmetric
-  in m and n) it is also ≤ 1, so this is expected to fail identically — but it
-  should be *run*, not assumed. **[VERIFY]**
+- ~~Try Cauchy–Schwarz in **n** instead of m.~~ **Run.** At X = 2×10⁴, the
+  maximum off-diagonal entry of C·Cᵀ (Cauchy–Schwarz in n, Gram entry
+  #{n : m₁n ∈ A, m₂n ∈ A}) is **1** at every split tested — identical to CᵀC.
+  As the lemma predicts, since a 4-cycle is a 4-cycle whichever side you square.
+  The failure is not an artefact of which variable is chosen.
 - Well-factorable / Zhang-style splittings of m (plan §2.3, last bullet): does
   any decomposition produce a Gram matrix with a main term? The C₄-free lemma
   suggests no, since it is a statement about A itself and not about the split.
