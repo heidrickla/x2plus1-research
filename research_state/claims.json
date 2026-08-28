@@ -835,7 +835,7 @@
     {
       "id": "classes-separate-across-windows",
       "status": "rigorous_finite",
-      "statement": "Exhaustive search over every reduced ratio (y^2+1)/(x^2+1) for x < y <= 3000 finds each pair (a,b) with ALL its shared moduli: 2014 pairs have >= 2, the largest has 8 ((a,b) = (1,5): m = 2, 10, 65, 442, 3026, 20737, ...). Yet no pair anywhere in the search puts more than TWO moduli in a single dyadic window -- (1,5), (1,13), (1,10) give 1; (1,85), (1,65), (5,481) give 2. So the solution classes are real and numerous, but the classes themselves separate across windows.",
+      "statement": "Over EVERY reduced ratio class (y^2+1)/(x^2+1), not a sample: at X = 3000 there are 2014 classes with >= 2 shared moduli, of which 1636 put at most one modulus in a dyadic window and 378 put two -- and NONE puts three. At X = 6000: 3916 classes, 3167 / 749 / ZERO. A parallel session reached the same wall from the other side, 580 pairs achieving Gram 2 for X <= 8000 with Dickson class bounds of 2, 4, 8, 16 and 32, all giving exactly 2. Since consecutive members of one class are eps^2 >= phi^4 = 6.85 apart while a dyadic window has ratio 2, two moduli in one window must come from two DIFFERENT classes. So what is measured is: at most two classes are ever populated in a single dyadic window, uniformly, even when 32 classes exist.",
       "experiment": "targeted ratio-bucket search, in-session; see Note L",
       "depends_on": [
         "one-solution-per-class-per-window"
@@ -843,7 +843,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "This is what the corrected Proposition L.1 does NOT explain. The proposition gives one member per class per window; the measured constant 2 needs the classes to separate too, and that is observed rather than proved. (1,85) is the pair the parallel session raised from Dickson as the counterexample to a bounded class count; it appears here with 5 shared moduli and a window maximum of 2."
+      "notes": "The one place in Note L where a measurement might still become a theorem, and neither session has it. NOT explained by counting classes -- Dickson bounds how many EXIST, not how many carry a solution with m in range and x <= X -- and NOT explained by the spacing, which is a within-class statement. Dickson's side condition (|a-b| odd with <= 1 odd prime factor) does not recover it either: only 19% of the classes attaining 2 satisfy it at X = 3000 and 15% at X = 6000, and the other 85% attain exactly 2 as well."
     }
   ]
 }

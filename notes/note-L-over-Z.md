@@ -175,10 +175,35 @@ with *all* its shared moduli — 2014 pairs with ≥ 2, the largest with **8**. 
 | (5, 481) | 2, 97, 146, 7450 (4) | **2** |
 
 So the classes are real and there are many of them — but **the classes are
-themselves spread across windows**, and no pair anywhere in the search puts more
-than two moduli in one dyadic window. Proposition L.1 explains one member per
-class; what it does not explain, and what the measurement shows, is that the
-*classes* separate too.
+themselves spread across windows**. Over *every* ratio class, not a sample:
+
+| X | classes with ≥ 2 shared moduli | window max = 1 | = 2 | **= 3** |
+|---:|---:|---:|---:|---:|
+| 3 000 | 2 014 | 1 636 | 378 | **0** |
+| 6 000 | 3 916 | 3 167 | 749 | **0** |
+
+**Never three.** A parallel session reached the same wall from the other side —
+580 pairs achieving Gram 2 for X ≤ 8000, with Dickson class bounds of 2, 4, 8,
+16 and 32, and every one of them giving exactly 2.
+
+**And the right statement is sharper than "at most 2 solutions".** Consecutive
+members of one class are ε² ≥ φ⁴ ≈ 6.85 apart while a dyadic window has ratio 2,
+so two moduli in one window *must* come from two different classes. What is
+measured is therefore
+
+> **at most two classes are ever populated in a single dyadic window, uniformly
+> — even when 32 classes exist.**
+
+That is not explained by counting classes (Dickson bounds how many *exist*, not
+how many carry a solution with m in range and x ≤ X) and it is not explained by
+the spacing (which is a within-class statement). It is the one place in this note
+where a measurement might still become a theorem, and neither session has it.
+
+**Dickson's side condition does not recover it.** The condition that would force
+the class bound to 2 is |a−b| odd with at most one odd prime factor. Of the
+classes attaining a window maximum of 2, only **19%** satisfy it at X = 3000 and
+**15%** at X = 6000 — and the other 85% attain exactly 2 as well. The constant is
+not coming from a small class count.
 
 **Does N^ε still suffice for the conclusion?** Probably, and it is worth being
 explicit that this is reasoning: dispersion needs *count = main term + error*,
