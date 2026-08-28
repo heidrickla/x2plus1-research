@@ -1231,10 +1231,18 @@ window from [8,16) to [2^23, 2^24) at X = 3000 and 6000:
 **O.12 is not knife-edge, which matters if "range" is read loosely.** The proved
 threshold is 4.7913 using only |V| ≥ 1; with |V| ≥ 2 — which the parity lemma
 gives whenever M is odd — it rises to **13.9282** at X₁ = 1 and **33.9706**
-asymptotically. And empirically nothing happens far above even that: over 125
-cofactor pairs sharing two moduli in one window at X = 3000, the **minimum
-n₂/n₁ observed is 43.79**, at (34, 1489) with moduli 1073 and 1973 — **9.1× the
-proved bound**. So the theorem covers any reasonable reading of "both variables
+asymptotically. And empirically nothing happens far above even that: the
+**minimum n₂/n₁ observed is 34.0811**, at (37, 1261) with moduli 866 and 1730 —
+**7.11× the |V| ≥ 1 bound**, and only **0.33% above** the 33.9706 that |V| ≥ 2
+gives asymptotically. **⚠ This line previously recorded 43.79 at (34, 1489),
+moduli 1073 and 1973, "9.1×". That pair is genuine but is not the minimum, and
+the reason it looked like one is the anchored-window defect**: 866 and 1730 have
+ratio 1.9977 so they lie in one dyadic window, but a sweep stepping
+M = 2, 4, 8, … puts 866 in [512, 1024) and 1730 in [1024, 2048) and never
+compares them, while 1073 and 1973 both sit inside [1024, 2048) and are found.
+**Third recorded instance of that defect** (after `exp09` and the line-family
+c = 6 sweep), and the first to corrupt a number rather than a coverage
+statement. So the theorem covers any reasonable reading of "both variables
 in ranges", not just the dyadic one, and a range as wide as a factor 4.79 is
 already inside it unconditionally.
 
@@ -2587,6 +2595,18 @@ cross-orbit case this note repeatedly records as the one multipliers do not
 predict (on (1, 115921) the multiplier product predicts a modulus ratio 1.31
 against an observed minimum 33.77). It is measured absence over a finite range,
 and a bound's silence is not evidence about what lies outside it.
+
+> **⚠ What in O.13 is new, and what was already here.** The values **13.9282**
+> (X₁ = 1) and **33.9706** (asymptotic) were already recorded above, in the
+> paragraph on O.12 not being knife-edge, reached via |V| ≥ 2 from the parity
+> lemma. O.13 did not discover them and does not claim to. What is new is the
+> **closed form** — 33.9706 = (1+√2)⁴ = 17 + 12√2, and the family
+> u > (√2V + √(2V²+1))² it belongs to — the **characterisation of which V are
+> admissible** (V = 2 always at D = 1 via U = a+b; V = 1 exactly on the
+> Eisenstein condition), and the **extremal measurement** 34.0811, which corrects
+> the 43.79 recorded above. *I wrote O.13 without grepping for its own numbers
+> first; the note and the derivation agreeing is the good case, but the check
+> costs one search and I did not run it.*
 
 ### O.13′ The threshold as a function of V, and what a sub-threshold cycle forces
 
