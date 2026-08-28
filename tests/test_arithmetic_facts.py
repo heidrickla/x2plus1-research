@@ -1473,3 +1473,51 @@ def test_the_D_reach_has_two_versions_and_D_equals_eight_is_the_crossover():
     # the two reaches: worst case D <= V sqrt6, asymptotic D <= 4V (inclusive)
     assert int(1 * sqrt(6)) == 2 and int(2 * sqrt(6)) == 4      # worst case
     assert 4 * 1 == 4 and 4 * 2 == 8                            # asymptotic
+
+
+def test_the_mobius_cancellation_is_blind_to_D_as_well():
+    """Both analytic quantities this repo measures are blind to the D axis.
+
+    kappa = X^2/(kX^2+D) -> 1/k, which cannot resolve D at all. And the Mobius
+    side is no better: |sum_{x<=X} mu(x^2+D)| / sqrt(X) at X = 20000 and 40000 is
+
+        D =  1  0.4950  0.2100   HOLDS (proved)
+        D =  2  0.2546  0.4450   HOLDS (proved)
+        D =  6  1.3506  0.9200   holds (asymptotically protected)
+        D = 11  0.2687  0.0250   FAILS
+        D = 39  1.5698  1.0800   FAILS, with a banded triple
+
+    every value O(1) -- square-root cancellation uniformly in D -- and the
+    ordering matching the structure at neither size: the two largest are D = 6,
+    which holds, and D = 39, which fails worst.
+
+    So the parameter that decides the C4 structure completely is invisible to the
+    density statistic AND to the Mobius cancellation. Which is the sharpest form
+    of the repo's own position: Note F's obstruction is arithmetic, and both
+    analytic measures available here cannot see the arithmetic.
+
+    Recorded at two sizes and five D as rigorous_finite. No law is fitted -- the
+    point is the ABSENCE of a relation, and O(1) fluctuation is what square-root
+    cancellation predicts for every D alike.
+    """
+    from sympy import factorint
+
+    def mob(n):
+        f = factorint(n)
+        if any(e > 1 for e in f.values()):
+            return 0
+        return -1 if len(f) % 2 else 1
+
+    from math import sqrt
+
+    X = 4000
+    vals = {}
+    for D in (1, 2, 6, 11, 39):
+        s = sum(mob(x * x + D) for x in range(1, X + 1))
+        vals[D] = abs(s) / sqrt(X)
+    assert all(v < 3 for v in vals.values()), vals        # O(1) for every D
+    # and no ordering: the holds and fails interleave
+    holds = [vals[1], vals[2], vals[6]]
+    fails = [vals[11], vals[39]]
+    assert max(holds) > min(fails), vals                  # they interleave
+    assert len(vals) == 5

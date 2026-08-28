@@ -2174,6 +2174,19 @@
       "notes": "Completes the connection between the degree ladder and the D axis: DEGREE controls density, D controls structure WITHIN degree 2, and at degree >= 3 the density is already too low for D to have anything to act on. Which is another way of saying degree 2 is the only place any of this is a question -- consistent with the ladder's own finding that d = 1 is solved and d >= 3 is thinner than the sieve needs. Measured at one size only, X = 900, where x^3+D values already reach 7e8; the sparsity argument makes larger X unlikely to change it, but that is reasoning and not measurement. Also worth noting the D = 39 witness here, cofactors (8,11) with moduli 5,8, is the SAME four values as the (5,8) with moduli 8,11 found earlier -- cofactors and moduli exchanged, so the configuration is symmetric.",
       "proof_site": "",
       "superseded_by": ""
+    },
+    {
+      "id": "both-analytic-measures-are-blind-to-D",
+      "status": "rigorous_finite",
+      "statement": "BOTH analytic quantities this repo measures are blind to the D axis. kappa = X^2/(kX^2+D) -> 1/k cannot resolve D at all. And the Mobius side is no better: |sum_{x<=X} mu(x^2+D)|/sqrt(X) at X = 20000 and 40000 is 0.4950/0.2100 at D = 1 (HOLDS), 0.2546/0.4450 at D = 2 (HOLDS), 1.3506/0.9200 at D = 6 (holds, asymptotically protected), 0.2687/0.0250 at D = 11 (FAILS), and 1.5698/1.0800 at D = 39 (FAILS, with a banded triple). Every value is O(1) -- square-root cancellation uniformly in D -- and the ordering matches the structure at neither size: the two largest are D = 6, which holds, and D = 39, which fails worst.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "kappa-is-blind-to-the-D-axis"
+      ],
+      "tags": [],
+      "notes": "The sharpest form of this repo's own position, reached by placing the mu side next to the D axis -- the third deliberate adjacency and the third to pay. Note F says the obstruction is ARITHMETIC rather than density; Note J says the difficulty is in the absolute values. This says the arithmetic parameter that decides the whole C4 structure is invisible to BOTH analytic measures available here. No law is fitted and none should be: the point is the ABSENCE of a relation, and O(1) fluctuation is exactly what square-root cancellation predicts for every D alike. Five values of D at two sizes.",
+      "proof_site": "",
+      "superseded_by": ""
     }
   ]
 }
