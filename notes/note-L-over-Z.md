@@ -57,9 +57,19 @@ rational object.** Against the right one the two agree:
 | rational, cofactors banded (O.12) | **1**, proved |
 | rational, cofactors free | **2**, measured to X ≤ 8000 |
 
-The free-cofactor row is real and is kept — (1,41) shares 730 and 1370, and the
-unwindowed count is unbounded (K_{s,2} for every s, below) — but 41/1 and 60.5
-are nowhere near one band. The row-merging mechanism above is exactly what needs
+The free-cofactor row is real and is kept — and it has a **unit-free** witness,
+which matters because a reader can dismiss one that leans on the unit cofactor no
+Type II hypothesis admits. The same four values that make (1,41) share 730 and
+1370 factor instead as
+
+> **cofactors (2, 82), moduli 365 and 685** — ratio 1.877, one window
+> 2·365 = 730 = 27²+1  82·365 = 29930 = 173²+1
+> 2·685 = 1370 = 37²+1  82·685 = 56170 = 237²+1
+
+Its cofactor ratio is 41, far above O.12's 4.7913, so it is *consistent with* the
+banded theorem rather than in tension with it. The unwindowed count is likewise
+unbounded (K_{s,2} for every s, below) — but 41 and 60.5 are nowhere near one
+band. The row-merging mechanism above is exactly what needs
 sixty-fold separation to operate, and that is why it cannot appear inside a
 bilinear form's own range.
 
