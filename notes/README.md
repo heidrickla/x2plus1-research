@@ -20,6 +20,7 @@ the structure is in place and the content is not.
 | [L](note-L-over-Z.md) | The same question over Z, and over every degree | *added* | draft — Note F's scope, and the degree ladder |
 | [M](note-M-where-mu-lives.md) | Where the μ-cancellation lives | *added* | draft — the two windows are complements; the easiest case is Chowla |
 | [N](note-N-green-tao-exclusion.md) | The Green–Tao exclusion, re-argued | *added* | draft — exclusion survives, quantitatively, and for a different reason than the plan gives |
+| [O](note-O-tau-multiplier.md) | The τ multiplier | *added* | draft — **proves** no dyadic window holds three shared moduli |
 
 ## Read Note C first
 

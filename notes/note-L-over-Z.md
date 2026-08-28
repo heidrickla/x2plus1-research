@@ -139,7 +139,20 @@ Both halves of the earlier table follow: within a class the spacing is ≥ φ⁴
 so windows see one; across all M the number of visible solutions is ≍ log X,
 which is the full graph's growth.
 
-**Status, corrected: the class count is unbounded, so the proposition does not
+**Status, twice corrected — and now superseded by a proof.**
+[Note O](note-O-tau-multiplier.md) closes this unconditionally: **no dyadic
+window contains three shared moduli, for any coprime a < b**, so the window Gram
+entry is **O(1) with no ε**. The route below — bound the class count, then bound
+the window by it — is not the route that worked, and the paragraph that follows
+records why, because the failure is instructive: the class count is the wrong
+quantity, since Dickson bounds how many classes *exist* and the question is how
+many are *populated in range*. Note O's argument uses g = gcd(U, V) and never
+mentions classes at all.
+
+The history below is kept rather than deleted; the first version of it claimed
+the constant 2, the second withdrew to N^ε, and neither reached the truth.
+
+**Second status: the class count is unbounded, so the proposition does not
 reach the constant 2.**
 
 The reduction to the conic is algebra and is proved. That ε ≥ φ² is
