@@ -1915,6 +1915,65 @@ sentence, and **neither note contained it**.
 > its spacing is asymptotic, x′/x → ε, and Note L already records the proved bound
 > as O_ε(N^ε) with the constant 2 as `rigorous_finite`.)*
 
+### Where O.2's content actually lives: 43 classes
+
+The τ/ε structure makes the right population computable. A triple needs a class
+admitting **two in-window multipliers** — indices k with M² + 4k²D a perfect
+square and τ_k² < 2. At X = 3000, over **1,815,155** reduced ratio classes:
+
+| in-window multipliers | classes |
+|---:|---:|
+| 0 | 1,503,796 |
+| 1 | 311,316 |
+| **2** | **43** |
+| 3+ | **0** |
+
+**Of those 43: forty realise exactly one modulus, three realise two, none three.**
+So no chain is realised anywhere, and **O.2's entire content at this X lives on 43
+classes** — of which 40 lack the moduli to use the multipliers they admit.
+
+**And the three that realise a k ≥ 2 step are exactly `exp14`'s live
+non-fundamental close pairs:**
+
+| (a, b) | k | moduli |
+|---|---|---|
+| (1, 423125) | 1, 91 | 10, 17 |
+| (1, 51701) | 1, 33 | 82, 145 |
+| (53, 423125) | 1, 12 | 10, 17 |
+
+**Three independent constructions, same three configurations**: `exp14` streaming
+the *realised* side, a count of multiplier indices satisfying a Pell condition,
+and an independent re-derivation here reproducing 1,503,796 / 311,316 / 43 and
+the same k values exactly.
+
+> **So the supply is not generous where it matters.** Dickson gives
+> 2^{ω(M)+O(1)} orbits, but **τ reaches two of them inside one window in only 43
+> of 1.8 million classes** — and in 40 of those the moduli do not exist to use it.
+
+**This is the fourth refinement of O.2's denominator**, and each was correct
+against its predecessor: 278,939 above threshold → 31 informative classes → 60
+with three shared moduli → **43 admitting two in-window multipliers**. Each time
+the population shrank because a *necessary condition* was noticed, not because
+the data changed.
+
+**⚠ The orbit-margin question this replaces could not be computed, and the reason
+is worth recording.** Partitioning a class's moduli into automorph orbits has no
+cheap criterion, and both obvious ones fail **in opposite directions**:
+
+- **The order's fundamental unit is wrong.** At (1,5) the observed ratios run
+  2, 5, 6.5, 6.8, 6.8462, 6.8529, 6.8539, **6.8541** → φ⁴, so the automorph is
+  **φ² = 2.6180**, which lies in the maximal order **Z[φ]** and *not* in Z[√5],
+  whose fundamental unit 9 + 4√5 = 17.9443 would predict a ratio of **322** and
+  split that single orbit into many.
+- **M | V is wrong the other way.** At (1,5) with m = 2, 10 we have V = −2 and
+  M = 4, so M ∤ V — yet they are in the **same** orbit. And that is *forced*: the
+  subcase alternates along an orbit and p | V holds exactly when subcases agree,
+  so consecutive orbit members **necessarily** have M ∤ V.
+
+A mis-partition yields a margin that measures nothing and **looks exactly like a
+margin** — the same near-miss as the τ/ε conflation, in a form where it would
+have been invisible.
+
 ### What the whole thread says about the method
 
 Three **necessary-but-not-sufficient gaps**, at three different scales, all
