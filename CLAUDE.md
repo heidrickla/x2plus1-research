@@ -848,7 +848,16 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   Use the session scratchpad — the path is in the system prompt and is
   session-specific — never `/tmp`, for message files, for background-job output,
   for anything. This is the collision hazard that `git commit -- <paths>` cannot
-  see, because it happens before git is involved.
+  see, because it happens **before git is involved** — below every guard here:
+  the pathspec scopes what git commits, floors bound what a check sees, and
+  `check_claims_diff` compares content, and none of them touches a file read
+  earlier. **The countermeasure at that layer is content addressing rather than
+  path trust: a hash survives a shared path, a filename does not.** Verified on
+  this side afterwards — no repo tooling writes to shared temp (nothing in
+  `tools/`, `experiments/`, `x2plus1/`, `tests/`), and the one commit whose
+  message came from a temp read matches its diff exactly, so the leak went
+  outward only. `$TMP` and `%TEMP%` resolve to the same shared directory as
+  `/tmp` here; six files from three *other* sessions were sitting in it.
 
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
