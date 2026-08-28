@@ -690,19 +690,34 @@ bilinear cancellation in the error term for G; Note F says G ∈ {0,1}, so there
 is no main term and hence no error term to cancel. **The barrier they describe
 as "typically very difficult" is, for this sequence, not difficult but empty.**
 
-**And the footnote's own precision requirement can be evaluated.** It asks for
-"an error term better than O(1) on average over m₁, m₂ ∼ x^{1−2c+ε}", which at
-c = 1/2 is **m₁, m₂ ∼ x^ε**. [Note L](note-L-over-Z.md) measures the mean of G
-over a cofactor band [N, 2N) to fall like **(log X)/N**, so at N = x^ε the mean is
-**(log x)·x^{−ε}**, still → 0 for every fixed ε > 0 — while G is a non-negative integer, equal to 0 for almost every pair.
+~~**And the footnote's own precision requirement can be evaluated** … so "an
+error term better than O(1)" is a request to determine G exactly.~~
 
-> So "an error term better than O(1)" is, here, a request to determine G
-> **exactly**: the main term is x^{−ε}, the quantity is an integer, and any
-> error genuinely below 1 pins the value. What [FM] call typically very difficult
-> is, at this density, not an estimation problem at all.
+**Struck the same day it was written, and the error is a direction.** At c = 1/2
+the range is x^ε, and **small ε means small moduli** — at x = 1.44×10⁸,
+x^{0.05} = 2.6 and x^{0.10} = 6.5. That paragraph read N = x^ε as *large*. It is
+the opposite end, and the mean of G is large there, not small. Measured at
+X = 12000:
 
-That is `inferred` — [FM] state the requirement and this repo evaluates it at its
-own density — and it is the sharpest form the placement takes.
+| N | 8 | 16 | 32 | 64 |
+|---|---:|---:|---:|---:|
+| mean G | 2.000 | 1.333 | 0.810 | 0.577 |
+| cofactors in band | 2 | 4 | 7 | 13 |
+
+Mean G is ≥ 1 for ε ≲ 0.18, and below ε ≈ 0.11 the band holds at most one
+cofactor, so the average is over an empty set. Two further cautions at that end:
+these means are over 1 to 13 pairs, which is the informative-subset problem in
+its own right; and the full-graph maximum there is **3**, at G(17, 26) with
+shared moduli 1, 85, 2 966 965 — one of which is the **unit** cofactor m = 1,
+inadmissible in a Type II hypothesis confining both variables to ranges
+(`full-graph-growth-is-pell`), and excluding it gives 2.
+
+**What is unaffected is the part that matters.** [ASP]'s (B1) forces M ≥ √x = X,
+so the cofactor n = (x²+1)/m is **at most X** — exactly the range where the mean
+is small and falling. The rise at large N, the max of 3, and the small-N regime
+all sit outside what the sieve uses. The obstruction stands as stated; it was the
+footnote *evaluation* that was wrong, not the placement.
+
 
 **What the table shows.** [FM] Table 1, p. 3, caption *"Examples from the
 literature (epsilons omitted)"* — eight entries, and **every one has ν > 0**.
