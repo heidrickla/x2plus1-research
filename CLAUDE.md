@@ -467,6 +467,35 @@ things came out of it and both are about *placement*, not accuracy:
 So: re-verify by **reading the source, not the note** — the notes were right, and
 the two findings were both invisible from inside them.
 
+**Note F's C₄-free lemma is not about x²+1 — it is about a line.** Every
+A_c = {a+ci : a²+c² ≤ Q} is C₄-free by the same argument (the product *and* the
+sum of the two a's are determined, so the pair is), and every one has
+|A_c| = ⌊√(Q−c²)⌋, hence **κ = 1 − c²/Q → 1 exactly**. A single line cannot have
+κ > 1: its count is its length and its length is √Q. Two lines always admit a
+cycle — (1+2i)(6+2i) = 2+14i = (2+2i)(4+3i) at (c₁,c₂) = (2,3). This *sharpens*
+the obstruction: x²+1 is not unluckily C₄-free, every line is, and α = 1/2 is
+forced for all of them, so there is no nearby line with more room and an escape
+must leave the family. It also explains Note K's κ threshold as a coincidence of
+parameterisation — κ = |B|² counts lines, C₄-freeness permits one, so both are
+functions of the same integer. **Two points settle that κ is not doing the work**:
+A = {x+i} ∪ {2+2i, 4+2i} has κ = 1.000004 at X = 10⁶ against the bare line's
+0.999999, and is not C₄-free.
+
+**The Note O thread (Z-side triple question) is the parallel session's and is
+close to closed.** Its live form is the p-adic valuation argument: with p^e ‖ M,
+s_i = min(e, v_p(S_i)) and t_i = min(e, v_p(T_i)) satisfy s_i + t_i ≥ e, giving
+v_p(V_ij) ≥ max(min(s_i,s_j), min(t_i,t_j)); ordering by s yields
+**M | V₁₂V₁₃V₂₃**, hence **3ab < M^{4/3}** with no hypothesis on M at all.
+Supporting identities: **S·T = −M·m** (theirs) and **V·W = M·(m_i − m_j)** with
+W = X_jY_i + X_iY_j (mine — the cofactor cancels), from which
+gcd(V,M) = 1 ⟺ M | W. **Two traps are recorded there, both live**: the coverage
+figure is over classes with ≥3 moduli (60 of 1,815,154 at X = 3000 — anything
+quoted over all classes is ~30,000× inflated), and the **two-term** strengthening
+v_p(V₁₂)+v_p(V₂₃) ≥ e does *not* give M | V_aV_b for a fixed pair — the ordering
+is per-prime, 5 of 216 triples witness it, and the fixed-pair version would
+close the conjecture in one line via 3ab < b−a. It is `refuted` in the registry
+for exactly that reason.
+
 Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
 `python -m pytest -q` before trusting any measurement.
 
