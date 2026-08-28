@@ -1394,6 +1394,27 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   matched. It did not, so the result was correct by luck. `tools/` has no guard
   for this; the sweep for `PLACEHOLDER`, duplicated sentences and unbalanced
   `~~` across the registry and every note comes back clean as of this writing.)
+- **On a shared file the danger is your own stale copy — a read-modify-write
+  race that no staging discipline can see.** Every rule in this file about
+  `git add -A`, pathspecs and `git diff --cached` assumes the hazard is
+  *committing someone else's work*. The opposite happened: a script here read
+  CLAUDE.md, a 55-second test run went by, the other session committed a rewrite
+  of that region inside the window, and the write put back the **stale copy**,
+  dropping ~50 lines of theirs. **The pathspec worked perfectly** — it committed
+  the working-tree content of exactly that file, and that content was already
+  wrong before git was involved; `git diff --cached` would have shown precisely
+  what was intended. Restored by **merging forward from HEAD~1**, not reverting,
+  since HEAD~1 held both their rewrite and (swept) the new paragraph.
+  **The signal was in the commit output and went unread: 91 deletions against a
+  20-line addition.** On a shared file the check is *deletions*, not staging, and
+  the practice is to **re-read immediately before writing** — leave no gap in
+  which the other session can commit.
+  **And the gate was disarmed by being called in its reporting mode.**
+  `check_prose_diff.py CLAUDE.md` with **no phrases** lists and cannot refuse: it
+  printed the other session's bullet *by name*, said "bullets added: 1", and
+  exited 0. A guard that is on the path can still be invoked in the mode that has
+  no verdict, and then it reads as having passed. **Always pass the phrases.**
+
 - **A guard is not verified until it has failed on an injected violation.** The
   same session's note-to-registry guard passed vacuously: a lowercase-only
   pattern skipped 26 of 103 claim ids, including `sqrt-MX-law` and the refuted
