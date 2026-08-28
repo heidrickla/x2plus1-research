@@ -35,7 +35,7 @@ import sys
 from collections import Counter
 from math import gcd, isqrt, sqrt
 
-from x2plus1.polyseq import ratio_classes
+from x2plus1.factorization import roots_of_minus_one
 
 #: how far to look for a multiplier index explaining an observed ratio
 K_SEARCH = 4000
@@ -78,18 +78,63 @@ def squarefree(n: int) -> bool:
     return True
 
 
+def close_pairs_streaming(X: int):
+    """Every realised close pair reachable from a first solution with x, y <= X.
+
+    Storing all ratio classes to find the few with two close moduli costs O(X^2)
+    memory -- 1.8M classes at X = 3000, and it is the reason this experiment
+    could not be pushed further. It is also unnecessary. If (a,b) has moduli
+    m1 < m2 < 2 m1 then a m1 = x1^2+1 and a m2 = x2^2+1 give
+
+        x2 / x1 = sqrt(m2/m1) < sqrt 2,
+
+    so the second solution is a SHORT search away from the first, in the known
+    residues x = +-r (mod a). Streaming the first solution and searching for the
+    second costs O(1) memory.
+
+    It is also strictly more complete at fixed X: the second modulus is accepted
+    on b*m2 - 1 being square, whether or not its own y2 is below X, so this sees
+    close pairs a ratio-class sweep at the same X cannot.
+    """
+    sq = [x * x + 1 for x in range(X + 1)]
+    root_cache: dict[int, list[int]] = {}
+    for x1 in range(1, X + 1):
+        s1 = sq[x1]
+        for y1 in range(x1 + 1, X + 1):
+            m1 = gcd(s1, sq[y1])
+            if m1 == 1:
+                continue
+            a, b = s1 // m1, sq[y1] // m1
+            if a not in root_cache:
+                root_cache[a] = roots_of_minus_one(a) if a > 1 else [0]
+            limit = int(x1 * 1.41421356) + 1
+            for r in root_cache[a]:
+                start = x1 + 1 + ((r - (x1 + 1)) % a if a > 1 else 0)
+                for x2 in range(start, limit + 1, max(a, 1)):
+                    n2 = x2 * x2 + 1
+                    if n2 % a:
+                        continue
+                    m2 = n2 // a
+                    if m2 >= 2 * m1:
+                        break
+                    v = b * m2 - 1
+                    t = isqrt(v)
+                    if t * t == v:
+                        yield a, b, m1, m2, m2 / m1
+
+
 def main() -> int:
     X = int(sys.argv[1]) if len(sys.argv) > 1 else 3000
-    classes = ratio_classes(X)
 
+    seen = set()
     close = []
-    for (a, b), ms in classes.items():
-        ms = sorted(ms)
-        for i in range(len(ms) - 1):
-            if ms[i + 1] < 2 * ms[i]:
-                close.append((a, b, ms[i], ms[i + 1], ms[i + 1] / ms[i]))
+    for a, b, mi, mj, ratio in close_pairs_streaming(X):
+        if (a, b, mi, mj) in seen:
+            continue
+        seen.add((a, b, mi, mj))
+        close.append((a, b, mi, mj, ratio))
 
-    print(f"X = {X}   realised ratio classes: {len(classes)}")
+    print(f"X = {X}   (streaming enumeration, O(1) memory)")
     print(f"close pairs (two moduli in one dyadic window): {len(close)}")
 
     rows, unexplained = [], 0
