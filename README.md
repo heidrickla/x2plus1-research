@@ -65,7 +65,24 @@ Python ≥ 3.11 with `sympy` and `numpy` (and `pymupdf` for
 ## State of play
 
 **The obstruction is Type II, and it is [Note F](notes/note-F-failure-localisation.md)'s
-C₄-free lemma.**
+C₄-free lemma** — which, as of **Theorem O.12**, holds **over Z as well as over
+Z[i]**, on the configuration Ford–Maynard's (II) actually quantifies over.
+
+Their (II) is bilinear over m ∼ M and n ∼ N, so *both* variables are banded, and
+two banded cofactors satisfy n₂/n₁ < 2 while two shared moduli in one window need
+n₂/n₁ > (5+√21)/2 = 4.7913. So **G′ ≤ 1 over Z, proved, for all X** — matching the
+Gaussian bound exactly rather than sitting one larger on a finite sweep. That
+removes the discrepancy and the finite floor from
+`gaussian-to-rational-bridge`'s stated gap, and makes the footnote-2 counting
+function a **0/1 indicator over Z**, where "an error term better than O(1)" means
+knowing it exactly.
+
+**It is not generic and it is not an instance of anything general.** Every other
+sequence measured reads ≥ 5 and grows with Q; the property fails at c = 6 within
+the line family x²+c²; and x²+1 is the **k = 0 member of the explicit family
+D = k²+3k+1 whose members all admit doubly-dyadic 4-cycles** — its own instance,
+1·10 = 2·5, being degenerate through the unit modulus that no Type II hypothesis
+admits. The escape has a cause.
 
 **And the objection is stronger than C₄-freeness, in a way that does not depend
 on the constant.** Measured, the *mean* of G(n₁,n₂) over cofactor pairs in a
