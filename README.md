@@ -317,6 +317,36 @@ What they call "typically very difficult outside of special situations" is, for
 this sequence, **not difficult but empty**. (`inferred`: they state the
 condition, the evaluation at c = 1/2 is ours.)
 
+### What the Z[i] → Z transfer actually costs
+
+Note F forbids **K₂,₂** over Z[i] — that is C₄-freeness. Over Z, one rational
+modulus carries several primitive Gaussian ideals, and merging those rows breaks
+it. Measured, the breakage is one-sided:
+
+- **K_{2,s} is unbounded** — largest observed s = 9, at cofactors (1, 5) with
+  moduli 2, 10, 65, 442, 3026, 20737, …
+- **K_{s,2} is unbounded too** — six cofactors 1, 53, 423125, 24326641, … all
+  share the moduli {10, 17}, and the family is infinite, being a Prop L.1 orbit
+  read on the dual side.
+- **K₃,₃ does not occur.** Zero instances, exhaustively over the X = 6000
+  incidence structure.
+
+So the merging **thickens each side separately and neither jointly** — a sharper
+statement of the gap than "max Gram 2 instead of 1", because it says which
+completeness survives. It buys nothing quantitatively: Kővári–Sós–Turán on a
+K₃,₃-free graph gives a bound 2–4 orders above the true edge count here, and
+Note F does not use C₄-freeness via edge counting either — it uses it to make the
+Gram matrix diagonal, which is a statement about *cancellation*.
+
+**And the window statement is self-dual.** A cofactor pair sharing a modulus
+satisfies b x² − a y² = a − b; a *modulus* pair shared by a cofactor satisfies
+m₂x² − m₁y² = m₁ − m₂ — the same conic with the roles swapped. So "at most two
+moduli per window for a fixed cofactor pair" and "at most two cofactors per
+window for a fixed modulus pair" are one theorem, and both measure 2. That also
+dissolves the apparent tension above: the six cofactors sharing {10, 17} have
+consecutive ratios 53 and 7983, so **no window holds two of them**. Unbounded
+totals and a bounded window count are one structure read at two scales.
+
 ### It was never about x² + 1
 
 For A = {f(x) : x ≤ X} with deg f = d, the norm bound is Q ≍ X^d and |A| = X, so
