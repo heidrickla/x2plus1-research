@@ -1,0 +1,91 @@
+# Note H — Numerical pilot
+
+*Plan §2.4.4. Status: draft. Produced by
+[`experiments/exp02_bilinear_pilot.py`](../experiments/exp02_bilinear_pilot.py).*
+
+## What is being measured, and why not the obvious thing
+
+The plan says "compute S for moderate X with random bounded coefficients;
+measure the observed cancellation exponent". **Random coefficients measure
+nothing**: any fixed matrix against random signs gives square-root cancellation
+by the central limit theorem, whatever its arithmetic content. The Type II
+hypothesis is a statement about the *worst* case, so three quantities are
+reported instead:
+
+| quantity | definition | meaning |
+|---|---|---|
+| `S_random` | one random sign vector each side | sanity floor only |
+| `S_worst` | max over α, β ∈ {±1} (alternating maximisation, lower bound) | what the incidence structure alone permits |
+| `S_mobius` | Σ_m \|Σ_n μ(n)·1[mn ∈ A]\| | **the faithful sieve quantity** |
+
+`S_mobius` is the right one: the asymptotic sieve's Type II hypothesis carries
+the absolute value outside the m-sum (so α is effectively arbitrary) but
+supplies β = μ, not an adversary. Exponents are reported as θ with |S| = T^θ,
+where T is the number of (m, n) pairs; θ = 1 is no cancellation, θ = ½ is
+square-root.
+
+## Results, X = 2×10⁴ (Q = 4×10⁸, |A| = 20 000)
+
+| N(m) range | rows | cols | T | D_m | d_n | S_mobius | θ | √(MX) |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| [10, 10²) | 44 | 24 666 | 24 691 | 561.16 | 1.00 | 570 | 0.627 | 795 |
+| [10², 10³) | 430 | 21 788 | 22 011 | 51.19 | 1.01 | 2 324 | 0.775 | 2 515 |
+| [10³, 10⁴) | 4 294 | 19 760 | 21 983 | 5.12 | 1.11 | 7 209 | 0.888 | 7 953 |
+| [10⁴, 10⁵) | 20 154 | 8 498 | 22 017 | 1.09 | 2.59 | 18 519 | 0.983 | 25 149 |
+| [10⁵, 10⁶) | 21 996 | 1 633 | 21 996 | 1.00 | 13.47 | 20 058 | 0.991 | 79 527 |
+| [10⁶, 10⁷) | 21 967 | 190 | 21 967 | 1.00 | 115.62 | 20 273 | 0.992 | 251 487 |
+
+Worst-case θ over the same ranges: **0.993–1.000**. No cancellation at all —
+the C₄-free lemma of [Note F](note-F-failure-localisation.md) in numerical
+form.
+
+## The empirical law
+
+For M ≤ X the μ-coefficient sum tracks **√(MX)** to within ~2%:
+
+> Σ_m |Σ_n μ(n)·1[mn ∈ A]| ≍ √(MX) for M ≤ X, and saturates at ≍ T ≍ X for M ≥ X.
+
+Writing M = X^u this is θ = (1 + u)/2, against measured 0.627 (u = 0.34),
+0.775 (u = 0.58), 0.888 (u = 0.81), 0.983 (u ≥ 1). The heuristic is exactly
+what one expects if μ behaves randomly along each fibre: row m has D_m ≍ X/M
+terms with square-root cancellation, and there are ≍ M rows, giving
+M·√(X/M) = √(MX).
+
+## What this says about plausibility
+
+The sieve needs the left side to be ≪ X(log X)^{−A}. Since √(MX) = o(X) exactly
+when M = o(X), the pilot says the Type II hypothesis is **numerically plausible
+for every M ≤ X^{1−δ}, and false for M ≫ X** — the same N^{1/2} wall as Type I
+([Note B](note-B-type-I.md)). Both constraints land on the same line, which is
+the coincidence Note C has to weigh.
+
+So, in the plan's own terms: **the obstruction looks technical, not
+structural.** The truth appears to have the required size; what is missing is a
+method that can reach it, and Note F shows dispersion is not that method.
+
+## Caveats — read before quoting any of this
+
+- **X = 2×10⁴ is small.** The fitted exponents move with X, and a fit over one
+  decade cannot distinguish √(MX) from √(MX)·(log X)^c. Nothing here
+  distinguishes o(X) from X/(log X)^A, which is the distinction that matters.
+- **μ is not adversarial, but it is also not random.** The fit shows μ behaving
+  randomly at this size; the parity barrier is precisely the statement that
+  proving it does so is the whole problem.
+- **The pilot cannot see parity.** A numerical measurement of a true statement
+  reveals nothing about provability. Its only legitimate use is the one the
+  plan assigns it: sanity-checking whether the target saving is plausible.
+
+## To do
+
+- Run the sweep at X = 10⁵ and 10⁶ and fit θ(u) with log-power corrections;
+  check the √(MX) law is stable rather than a small-X coincidence.
+- Restrict n to Gaussian *primes* (the case the sieve actually applies to) and
+  compare.
+- Repeat for a² + b⁴ at matched norm and diff against FI's proved Type II range
+  — that is [Note I](note-I-a2b4-replay.md).
+
+## Adversarial review
+
+- *Two-parameter freedom smuggled in?* No; the pilot only counts.
+- *Where is parity broken?* Nowhere — and this note must not be read as
+  evidence that it can be. It measures a quantity, not a proof.

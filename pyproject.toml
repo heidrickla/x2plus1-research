@@ -1,0 +1,19 @@
+[project]
+name = "x2plus1"
+version = "0.1.0"
+description = "Computational scaffolding for the x^2+1 prime problem via the Friedlander-Iwaniec asymptotic sieve over Z[i]"
+requires-python = ">=3.11"
+dependencies = ["sympy>=1.12", "numpy>=1.26"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+packages = ["x2plus1"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

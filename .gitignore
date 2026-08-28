@@ -1,0 +1,22 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Experiment output: regenerate, don't version.
+experiments/results/*
+!experiments/results/.gitkeep
+
+# Local caches of expensive factorisations.
+cache/
+*.npz
+*.pkl
+
+# Papers are copyrighted; keep refs/ to bibliography + notes only.
+refs/pdf/
+*.pdf
