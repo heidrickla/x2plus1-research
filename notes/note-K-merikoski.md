@@ -165,6 +165,29 @@ needs an O(1) perturbation a reader can call artificial. This needs neither —
 x² + D are natural sequences, one per D, and **the parameter κ cannot resolve is
 the parameter that decides the answer.**
 
+**And along the one axis κ *can* see, it points the wrong way.** For k·x² + D,
+κ = X²/(kX² + D) → **1/k**, so the leading coefficient does move it. Measured at
+X = 1200:
+
+| f | κ → | doubly-dyadic C₄-free? |
+|---|---:|---|
+| x²+1 | 1 | **holds** |
+| x²+39 | 1 | **fails** |
+| 2x²+1 | 1/2 | holds |
+| 2x²+39 | 1/2 | **holds** |
+| 3x²+39 | 1/3 | holds |
+
+**Same κ = 1, opposite outcomes; and the smaller κ holds exactly where the larger
+one fails.** No monotone relation in either direction.
+
+The mechanism is known and it is why: **k imposes k | M·D**, thinning the class
+population and *tightening* the structure, while κ = 1/k *falls* with k. Larger k
+means smaller κ **and** a tighter sequence — density and structure moving in
+opposite directions along the only axis κ resolves.
+
+> **Through D, κ is blind. Through k, κ is inverted. That is everything κ can see
+> of a degree-2 sequence, and neither component carries the property.**
+
 **What this does not show.** It is about the binary property. One 4-cycle moves
 max G from 1 to 2 and leaves mean G at O(1/X), and [this note's own refuted
 classifier](#mean-g-separates-them-where-κ-does-not--refuted-by-the-test-built-to-confirm-it)
