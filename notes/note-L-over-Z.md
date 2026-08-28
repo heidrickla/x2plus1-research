@@ -174,6 +174,36 @@ Both halves of the earlier table follow: within a class the spacing is ≥ φ⁴
 so windows see one; across all M the number of visible solutions is ≍ log X,
 which is the full graph's growth.
 
+**And this is where [Note O](note-O-tau-multiplier.md) attaches, which neither
+note said.** Both act on the solutions of aY² − bX² = M, with *different groups*:
+
+| | acts | step |
+|---|---|---|
+| **ε**, the fundamental automorph u² − Dv² = 1 | **within** an orbit | m′/m → ε² ≥ φ⁴ = 6.854 |
+| **τ_k**, the multiplier U² = M² + 4k²D | **between** orbits | τ₁² can sit **below 2** |
+
+At (1,41) — the windowed witness above — the separation is seven orders of
+magnitude:
+
+> ε = 2049 + 320√41 = 4098, so within-orbit m′/m ≈ **1.7×10⁷**
+> τ₁ = (42 + 2√41)/40 = 1.37016, τ₁² = **1.87733**
+> observed 1370/730 = **1.87671**
+
+τ₁² matches the observed ratio to four places, the gap being the finite "+1"
+correction. **So the two moduli in that window are in different orbits, brought
+together by τ and not by ε.**
+
+> **The windowed Gram entry counts the orbits τ reaches inside one window.** ε
+> guarantees at most one member per orbit; Conjecture O.2 is the statement that
+> τ never reaches three.
+
+*(Recorded because the identification is tempting and wrong: assigning moduli to
+orbits by |V| = 2 — treating the fundamental multiplier as the fundamental
+automorph — produces "two moduli of one orbit in a window", which contradicts
+Prop L.1 and reads as a defect in it. Computing both quantities on one example
+separates them. Prop L.1's hedge is untouched: its spacing is asymptotic, and the
+proved bound remains O_ε(N^ε).)*
+
 **Status, and it has been wrong three times; this version is deliberately
 weaker than the last two.**
 
