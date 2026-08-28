@@ -1356,11 +1356,20 @@ structural — but `V-is-even-whenever-M-is-odd` is proved for c = 1 only, and t
 general-c parity argument is not done here. **The honest boundary: O.12 covers
 c = 1 outright and c = 2 modulo that parity lemma; c ≥ 3 is measured only.**
 
-> **Both obvious repairs are closed.** The bound is **saturated** — max |V| over
-> it is 1.0000, 3.9999, 8.9998 at c = 1, 2, 3, i.e. exactly c² — so it cannot be
-> tightened. And min |V| is **2, 4, 6**, i.e. 2c and not c², so no lower bound of
-> that shape restores the threshold. Anyone generalising O.12 along the line
-> family should know those are the two doors and both are shut.
+> **Three repairs, all closed.** (i) The bound is **saturated** — max |V| over it
+> is 1.0000, 3.9999, 8.9998 at c = 1, 2, 3, exactly c² — so it cannot be
+> tightened. (ii) min |V| is **2, 4, 6, 4, 6** at c = 1…5, i.e. not c², so no
+> lower bound of that shape restores the threshold. (iii) The crude step
+> Y > X√(b/a) is lossy and **the loss grows as c²** — exactly,
+> (Y/X)²/(b/a) − 1 = **ε = c²M/(abm)**, with max ε = 1.0000, 4.0000, 8.9999,
+> 15.9997 at c = 1…4 — which looks as though c²/(1+ε) < 1 would restore the
+> threshold for every c. **It does not: the bound needs the worst case, which is
+> min ε**, and ε ∝ 1/m so min ε is 10⁻⁹–10⁻⁸ and c²/(1+min ε) = c² to four
+> places. *(That is the informative-subset error in a third costume — max where
+> min was needed — on the same claim within an hour.)*
+>
+> Anyone generalising O.12 along the line family should know those are the three
+> doors and all are shut.
 
 **And that turns the line family into a test bed for the bridge.** Over Z[i],
 `kappa-counts-lines-and-c4-freeness-permits-one` proves A_c is C₄-free for
