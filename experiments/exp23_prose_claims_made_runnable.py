@@ -18,6 +18,19 @@ Reproduces:
   squarefree-density-of-x2plus1-is-flat
   rational-graph-thickens-one-side-not-both
 
+and, added later, the claims that had accumulated against this file without it
+computing anything they say -- the same citation defect this script was written
+to fix, committed eleven times by its own author:
+
+  the-gaussian-to-rational-transfer-fails-at-c-equals-six
+  x2plus1-is-the-degenerate-member-of-an-explicit-failing-family
+  O2-and-O12-are-both-special-to-D-equals-one
+  x2plus1-is-the-D-equals-one-end-where-every-bound-is-tightest
+  conjecture-every-D-outside-O12s-reach-fails
+  O2-reduces-to-43-classes-at-X-3000
+  chain-threshold-in-closed-form
+  tau-moves-between-orbits-epsilon-within-them
+
 Feeds Notes K, L, M.
 """
 
@@ -160,6 +173,115 @@ def thickens_one_side(X: int) -> None:
     print("  the s-side grows without bound while the 3-side never reaches 3.")
 
 
+def d_axis(X: int) -> None:
+    """The discriminant axis: which x^2+D hold, which fail, and the mechanism."""
+    from math import gcd
+
+    print()
+    print("THE D AXIS (Notes K, L).  invariant a Y^2 - b X^2 = M*D, so every")
+    print("  bound weakens by D; x^2+1 is the tight end.")
+
+    def banded_fail(D, XX):
+        vals = [x * x + D for x in range(1, XX + 1)]
+        cls = defaultdict(set)
+        for i in range(len(vals)):
+            for j in range(i + 1, len(vals)):
+                g = gcd(vals[i], vals[j])
+                if g > 1:
+                    a, b = vals[i] // g, vals[j] // g
+                    if a < b:
+                        cls[(a, b)].add(g)
+        for (a, b), ms in cls.items():
+            if b / a >= 2:
+                continue
+            ms = sorted(m for m in ms if m > 1)
+            for i in range(len(ms) - 1):
+                if ms[i + 1] < 2 * ms[i]:
+                    return (a, b, ms[i], ms[i + 1])
+        return None
+
+    hold, fail = [], []
+    for D in range(1, 21):
+        (fail if banded_fail(D, X) else hold).append(D)
+    print(f"  X = {X}: doubly-dyadic C4-freeness HOLDS at D = {hold}")
+    print(f"                                     FAILS at D = {fail}")
+    print("  proved reach: D <= 2 unconditional, D <= 4 on |V| >= 2")
+    w = banded_fail(6, X)
+    if w:
+        print(f"  c = 6 witness (D = 36 is c^2): D = 6 fails at {w}")
+    print("  and the 4-cycle on four CONSECUTIVE arguments needs D = k^2+3k+1:")
+    for k in range(0, 5):
+        D = k * k + 3 * k + 1
+        v = [(k + j) ** 2 + D for j in range(4)]
+        tag = "  <- UNIT, degenerate" if v[0] == 1 else (
+            "  <- modulus ratio >= 2" if v[2] / v[0] >= 2 else "")
+        print(f"    k={k} D={D:3d} values {v}  {v[0]}*{v[3]} = {v[1]}*{v[2]}{tag}")
+
+
+def chain_reduction(X: int) -> None:
+    """O.2's content: classes admitting two in-window multipliers."""
+    from math import sqrt
+
+    from x2plus1.polyseq import ratio_classes
+
+    print()
+    print("WHERE O.2's CONTENT LIVES (Note L).  A triple needs a class admitting")
+    print("  TWO in-window multipliers: k with M^2+4k^2 D square and tau_k^2 < 2.")
+    cl = ratio_classes(X)
+    counts = defaultdict(int)
+    withmod = defaultdict(int)
+    for (a, b), ms in cl.items():
+        M, D = b - a, a * b
+        if M < 1:
+            continue
+        kmax = int(0.17678 * M / sqrt(D)) + 2
+        g = 0
+        for k in range(1, kmax + 1):
+            t = M * M + 4 * k * k * D
+            U = isqrt(t)
+            if U * U != t:
+                continue
+            if ((U + 2 * k * sqrt(D)) / M) ** 2 < 2:
+                g += 1
+        counts[g] += 1
+        if g >= 2:
+            withmod[len(ms)] += 1
+    tot = sum(counts.values())
+    print(f"  X = {X}: {tot} classes; in-window multiplier counts "
+          f"{dict(sorted(counts.items()))}")
+    print(f"    of those with >= 2, modulus counts {dict(sorted(withmod.items()))}")
+    print("    -- a triple needs three; the maximum is two")
+    v = 4 * sqrt(2) + sqrt(33)
+    print(f"  chain threshold: u = b/a > (4sqrt2+sqrt33)^2 = {v * v:.4f}")
+    print(f"    against O.4's triple threshold 133.8748, which sits 3.88 above")
+    print("  and the whole family is u > (sqrt2 V0 + sqrt(2 V0^2+1))^2:")
+    for V0 in (2, 4, 6, 8):
+        u = (sqrt(2) * V0 + sqrt(2 * V0 * V0 + 1)) ** 2
+        print(f"    |V| >= {V0}:  M/sqrtD > {2 * sqrt(2) * V0:8.4f}   u > {u:10.4f}"
+              f"   (8V0^2+2 = {8 * V0 * V0 + 2})")
+
+
+def tau_versus_epsilon() -> None:
+    """tau moves between orbits; epsilon moves within them."""
+    from math import sqrt
+
+    print()
+    print("TAU BETWEEN ORBITS, EPSILON WITHIN (Notes L, O).")
+    for a, b, m1, m2 in ((1, 41, 730, 1370), (2, 82, 365, 685)):
+        M, D = b - a, a * b
+        t = M * M + 4 * D
+        U = isqrt(t)
+        tau = (U + 2 * sqrt(D)) / M
+        print(f"  ({a},{b}): U^2 = M^2+4D = {t} = {U}^2;  tau_1 = {tau:.6f}, "
+              f"tau_1^2 = {tau * tau:.6f}  vs observed {m2 / m1:.6f}")
+    u, v = 2049, 320
+    print(f"  and the automorph of Y^2-41X^2=40: u^2 - 41 v^2 = "
+          f"{u * u - 41 * v * v} at ({u},{v}), eps = {u + v * sqrt(41):.1f}, "
+          f"eps^2 = {(u + v * sqrt(41)) ** 2:.3e}")
+    print("  seven orders apart -- the two moduli are in DIFFERENT orbits,")
+    print("  brought together by tau and not by eps.")
+
+
 def main() -> int:
     Q = int(sys.argv[1]) if len(sys.argv) > 1 else 10**6
     X = int(sys.argv[2]) if len(sys.argv) > 2 else 4000
@@ -167,6 +289,9 @@ def main() -> int:
     c4_ceiling(Q)
     squarefree_density(int(sys.argv[3]) if len(sys.argv) > 3 else 10**6)
     thickens_one_side(X)
+    d_axis(min(X, 900))
+    chain_reduction(min(X, 1500))
+    tau_versus_epsilon()
     return 0
 
 
