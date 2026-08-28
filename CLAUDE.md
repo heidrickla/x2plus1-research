@@ -508,6 +508,20 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   sweep the other session's staged work even if you forget to look. (Options
   before the `--`; `git commit -- <paths> -F -` parses `-F` as a pathspec and
   fails.) The check is then a backstop rather than the only defence.
+  **But the pathspec isolates files, not authors, and that is a much weaker
+  guarantee than it sounds.** It was used, correctly, on commit `87a42a8` — whose
+  message describes exactly one thing, making an O.4 citation precise — and that
+  commit carried **nine** claim ids, eight of them the other session's O.3/O.3'
+  repoints and corrected counts, entirely undescribed. The pathspec did its job:
+  it committed the working-tree content of `research_state/claims.json`. Both
+  sessions *edit that file*, so scoping to it excludes nothing. A pathspec
+  protects you only where the sessions touch disjoint paths, which is precisely
+  the case that was never the problem. On a genuinely shared file the only
+  defence is to look at what the diff *contains*: `git diff -- <path> | grep -o
+  '"id": "[a-z0-9-]*"' | sort -u` before committing, and expect the ids you
+  edited and no others. Verified from `git show`, not from the report — the other
+  session flagged it, and the flag was right, but a collision report is a claim
+  like any other.
   **And one edit per block**: a script with two `replace` calls
   whose first raises dies before the second, prints only the second's success
   line, and reads as a full success. That happened here — the anchor an earlier
