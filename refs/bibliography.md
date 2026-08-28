@@ -87,6 +87,32 @@ either has an analogue over Z[i].
     [renyi.hu](https://www.renyi.hu/~pintz/pjapr.pdf). Not read; the obvious
     place to check the state of the art on all four problems at once.
 
+## Read during verification (2026-08-27)
+
+20. **Duke, Friedlander & Iwaniec**, *Ann. of Math.* **141** (1995), 423–441,
+    §6 — the sieve Green–Sawhney actually use. Type I needed only at level
+    X^{1/2}(log X)^{−C}; Type II with **arbitrary** 1-bounded coefficients.
+    **Not read directly; known at two removes.** Top priority.
+21. **Ford & Maynard**, "On the theory of prime producing sieves",
+    [arXiv:2407.14368](https://arxiv.org/abs/2407.14368). Thm 4.16: C⁻ = 0 when
+    γ < 1/2 and γ ∉ [θ, θ+ν]. Thm 2.4: at γ = 1/2 with ε losses C⁻ = 0, escape
+    via divisor-bounded weights. **Does not cite [ASP]** and does not touch (R1).
+22. **Merikoski**, "On Gaussian primes in sparse sets",
+    [arXiv:2302.11331](https://arxiv.org/abs/2302.11331), Compositio Math.
+    **161** (2025), 181–243. α ≈ 1 − δ; does not use [ASP]; b = 1 is off the
+    chart, not a limit.
+23. **Xiannan Li** — unconditional parity-breaking down to exponential density
+    ≈ 0.6418. States that [ASP] and Harman's sieve "fail … below 2/3".
+24. **Merikoski**, exceptional-character parity-breaking at 5/8
+    ([arXiv:2108.01355](https://arxiv.org/abs/2108.01355)).
+25. **Maynard**, ICM survey — all approaches break down below x^{1/2};
+    Question 21 asks whether adapting them is plausible.
+26. **Maynard**, [arXiv:2006.07088](https://arxiv.org/abs/2006.07088);
+    **Lichtman**; **Pascadi** — the 3/5, 7/12, 66/107, 5/8 chain.
+27. **Friedlander & Iwaniec**, Gaussian Primes Conjecture,
+    [arXiv:1811.05507](https://arxiv.org/abs/1811.05507), Conj. 1.1
+    (JEMS **24** (2022), 737–772) — settled by Green–Sawhney at n = 4.
+
 ## Also worth having
 
 - **Hecke**, on the angular equidistribution of Gaussian primes (Note A §1.2).
@@ -119,17 +145,46 @@ of the Type II sum generates them, there is nothing for these sources to act on.
 Reading them first would be reading a tool before knowing there is a job.
 
 **Items 7 and 12–14 (BFI I–III; Zhang; Polymath 8; Maynard) — level of
-distribution beyond 1/2.** These raise the level for **primes in arithmetic
-progressions** — BFI to x^{4/7−ε}, and Iwaniec's well-factorable weights to
-x^{7/12−ε}. That is a sequence of density x/log x. The cap this project faces
-is different in kind: for a sequence of size |A| the number of admissible
-moduli of norm ≤ D is ≍ D, so once D exceeds |A| the moduli outnumber the
-sequence and Σ|r_d| cannot be small
-([Note B](../notes/note-B-type-I.md)). FI state the same thing outright
-([ASP] p. 1044): *"for thin sequences A one cannot expect (R) to hold with
-D(x) > A(x)"*. Well-factorable weights redistribute moduli; they do not
-manufacture sequence elements, so they cannot lift a counting bound.
+distribution beyond 1/2.** Verified, and one attribution in an earlier draft of
+this file was **wrong**:
 
-This is reasoning, not a reading of BFI/Zhang/Maynard — **[VERIFY]** if the
-conclusion ever becomes load-bearing. The plan itself makes the parallel point
-for GRH and zero-density results (§Cross-cutting, last bullet).
+- **x^{4/7−ε} is BFI** — Maynard, arXiv:2006.07088 p. 2, Thm A, attributed to
+  "[2, Theorem 10]", for well-factorable λ_q against π(x;q,a) − π(x)/φ(q).
+- **x^{7/12−ε} is Maynard (2020), not Iwaniec** (this file previously said
+  Iwaniec). Maynard p. 3: Thm 1.2 "extends the range … from the …
+  Bombieri–Friedlander–Iwaniec result … handling moduli of size x^{4/7−ε} to
+  dealing with moduli of size x^{7/12−ε}". Iwaniec's actual contribution is the
+  **well-factorability of the linear sieve weights**, not the exponent.
+  Maynard Thm 1.1 gives x^{3/5−ε} for triply well-factorable weights.
+- **Superseded twice more since**: Lichtman, 66/107 − ε ≈ 0.6168 unconditionally
+  for triply-well-factorable weights; Pascadi Thm 1.3, x^{5/8−ε}.
+- **Zhang / Polymath 8a** concern ψ(x;q,a) over smooth squarefree moduli:
+  Zhang θ = 1/2 + 1/584, Polymath θ = 1/2 + 7/300.
+- **Maynard, "Small gaps between primes" is mis-filed here.** It proves *no new*
+  level of distribution — it defines one (eq. 1.3), invokes Bombieri–Vinogradov
+  for θ < 1/2, and assumes Elliott–Halberstam in Thm 1.4; "the proof is
+  essentially elementary". Re-file it under sieve method, not level of
+  distribution.
+
+**The conclusion stands; the stated reason was too broad.** Every result above
+concerns **primes or smooth numbers in arithmetic progressions**, where
+A(x) = x^{1−o(1)}. None gives a level of distribution exceeding the size of a
+thin sequence. But "weights cannot lift a counting bound" over-reaches as a
+general principle — sparse-moduli and signed-weight estimates are exactly the
+shapes that evade a counting bound. The precise reason these tools are
+inadmissible is narrower and sound:
+
+> [ASP]'s hypothesis (R) sums **absolute values** over **all** squarefree
+> d ≤ D, which leaves no room for sparsity or sign cancellation among moduli;
+> and for A = {x+i} specifically the count is exact — there are ≍ D admissible
+> Gaussian moduli of norm ≤ D, each contributing O(1) to r_d, so
+> Σ\|r_d\| ≪ D and the level is capped at A(x) = x^{1/2}.
+
+Note the modality: FI's p. 1044 and p. 1045 statements are **expectations in
+prose**, not propositions — "one cannot expect", "must be less than". No source
+states D ≤ A(x) as a theorem, and no counterexample was found either.
+
+Verified against Maynard arXiv:2006.07088, Pascadi, and Polymath 8a
+(arXiv:1402.0811), with an adversarial re-check. BFI I–III, Opera de Cribro
+Ch. 24–25 and Iwaniec 1978 remain unobtained (paywalled), so the 4/7 figure is
+taken from Maynard and Pascadi rather than from BFI itself.

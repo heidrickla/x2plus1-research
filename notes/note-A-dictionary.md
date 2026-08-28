@@ -75,17 +75,47 @@ so #{admissible d : N(d) ≤ D} ~ (3/2π)·D. Measured: 0.4771 at D = 64 000
 
 A is the set of Gaussian integers on the line Im z = 1. Hecke's theorem gives
 angular equidistribution of Gaussian primes, and equidistribution in sectors;
-neither says anything here, because a horizontal line is not a sector.
+the relationship is closer than earlier drafts of this note claimed, and the
+correction sharpens the point rather than softening it.
 
-Hecke proved, via Grössencharacters λ_k and their L-functions, that the angles
-of Gaussian primes equidistribute in [0, π/2). The narrow-sector refinements
-are the closest available: unconditionally Ricci reaches sectors of width
-X^{−3/10+ε}, and even under GRH the limit is X^{−1/2+ε}. All of these are
-statements about **sectors** — two-dimensional regions of positive measure. The
-line Im z = 1 is a one-dimensional subvariety carrying ~Q^{1/2} of the ~Q
-lattice points of norm ≤ Q, and no sector result, however narrow, specialises
-to it. So the degeneracy is not that the region is small; it is that it is not
-a region.
+**Hecke.** Via the Grössencharaktere Ξ_k(α) = (α/ᾱ)^{2k} and their L-functions,
+the angles θ_p of Gaussian primes equidistribute in [0, π/2): for fixed
+I ⊆ [0, π/2), #{p : N(p) ≤ X, θ_p ∈ I} ~ (|I|/(π/2))·X/log X. (Math. Z. **1**
+(1918), 357–376; **6** (1920), 11–51. Statement taken from Rudnick–Waxman,
+*Angles of Gaussian primes*, and Huang–Liu–Rudnick §1 eq. (1.1); Hecke's own
+papers not read here.)
+
+**Narrow sectors.**
+
+| statement | width of I | source |
+|---|---|---|
+| asymptotic, unconditional | \|I\| > X^{−3/10+ε} | Ricci |
+| asymptotic, under GRH, **individual** sectors | \|I\| > X^{−1/2+ε} | folklore; stated in HLR §1 |
+| asymptotic, **almost all** sectors, unconditional | \|I\| > X^{−3/5+ε} | Huang–Liu–Rudnick Thm 1 |
+| asymptotic, **almost all** sectors, GRH | \|I\| > X^{−1+ε} | Parzanchevski–Sarnak; Rudnick–Waxman |
+| positive lower bound only | \|I\| ≍ X^{−0.381} (area X^{0.619}) | Harman–Lewis |
+
+Ricci is S. J. Ricci, *Local Distribution of Primes*, PhD thesis, Univ. of
+Michigan, 1976 — **unpublished**, so every citation of the X^{−3/10+ε} figure,
+including this one, is second-hand. Three independent restatements agree
+(Huang–Liu–Rudnick; Stucky, *Q. J. Math.* **72**; Järviniemi–Teräväinen).
+
+**The correction.** A sector anchored at arg = 0 *is* a horizontal strip, so
+sector results do bear on Im z small — Harman–Lewis harvest exactly that
+deduction, obtaining infinitely many primes p = m² + n² with n < p^θ for
+θ ≤ 0.119. The line Im z = 1 is the **width ≍ X^{−1/2} limit** of that family.
+
+That makes the gap precise rather than categorical:
+
+> An asymptotic for sectors of width ≍ X^{−1/2} would prove Landau's fourth
+> problem outright. GRH gives individual sectors only down to X^{−1/2+ε}, and
+> the ε is the whole problem.
+
+Two further cautions. The naive asymptotic 2δx/π **fails** at width X^{−1/2}
+— measured ratios 1.08, 1.07, 1.08, bounded away from 1 — so the limit is not
+merely unproven but has the wrong constant as stated. And the interval
+(0, 1/√X) contains no prime angle of norm ≤ X at all, so the family is
+genuinely truncated at exactly the scale of interest.
 
 ## Adversarial review
 
@@ -98,9 +128,9 @@ a region.
 
 ## Open
 
-- **[VERIFY]** The narrow-sector figures (Ricci's X^{−3/10+ε}; X^{−1/2+ε} under
-  GRH) are from a literature search, not from reading the sources. They are
-  context, not load-bearing — no line of this repo's argument rests on them.
+- The narrow-sector figures above were verified against Huang–Liu–Rudnick,
+  Stucky and Järviniemi–Teräväinen, with all quotes checked. Ricci's thesis
+  itself is unpublished and unread; Harman–Lewis was read only as an OCR'd scan.
 - The nearest genuinely relevant result is *On Gaussian primes in sparse sets*
   ([arXiv:2302.11331](https://arxiv.org/abs/2302.11331)): primes a² + b² with
   b confined to a set of size X^{1/2−δ}. Our problem is that set having **one**

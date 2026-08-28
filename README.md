@@ -47,54 +47,44 @@ Python ≥ 3.11 with `sympy` and `numpy`.
 
 ## State of play
 
-Note C is answered from the sources ([ASP](https://arxiv.org/abs/math/9811186),
-[X2Y4](https://arxiv.org/abs/math/9811185),
-[HB](https://ora.ox.ac.uk/objects/uuid:ebb25eb4-a19e-4049-8117-3269e140b0fe)).
+**The obstruction is Type II, and it is [Note F](notes/note-F-failure-localisation.md)'s
+C₄-free lemma.** That took three revisions to get right; the earlier framings
+are kept as `refuted` entries in
+[`research_state/claims.json`](research_state/claims.json).
 
-**The asymptotic sieve for primes, as stated, does not apply to x² + 1.**
-Hypothesis (R1) needs a level of distribution D > x^{2/3} (ASP p. 1043), and
-[Note B](notes/note-B-type-I.md) proves this sequence caps at D ≤ A(x) = x^{1/2}.
+Friedlander–Iwaniec's asymptotic sieve requires Type I to level **D > x^{2/3}**
+((R1), ASP p. 1043), which x² + 1 cannot reach — [Note B](notes/note-B-type-I.md)
+caps it at x^{1/2}. And ASP p. 1045 shows x^{2/3} is precisely where the
+bilinear coefficient γ(n,C) is annihilated, so within ASP the two hypotheses are
+one. **But x^{2/3} is ASP's threshold, not prime detection's:**
 
-**And "Type I or Type II?" turns out to be a false dichotomy.** ASP p. 1045:
+| | ASP | **DFI** (used by Green–Sawhney) |
+|---|---|---|
+| Type I needed | x^{2/3} | **x^{1/2}(log X)^{−C}** |
+| x² + 1 meets it? | ❌ short by x^{1/6} | ✅ **yes** ([Note B](notes/note-B-type-I.md)) |
+| Type II coefficients | μ, truncated | **arbitrary 1-bounded** |
+| x² + 1 meets it? | vacuous (γ ≡ 0) | ❌ **fails outright**, θ ≈ 1.000 |
 
-> "Here d must be quite a bit smaller than N to ensure that μ(d) does not
-> completely neutralize μ(n). By (B1–B3) we know that d < C < (x/Δ)·N·D^{−3/2},
-> so our hypothesis (B) can be realistic only if D is somewhat larger than
-> x^{2/3+ε}."
+So a level-1/2 prime-detecting sieve exists and is in current use, x² + 1
+satisfies its Type I hypothesis, and the whole obstruction lands on Type II —
+where the incidence graph being C₄-free means the worst case has **no
+cancellation at any split**. With β = μ the same ranges give θ = 0.63–0.83; it
+is specifically the arbitrary-coefficient requirement that fails.
 
-x^{2/3} is the threshold below which the bilinear hypothesis is *vacuous*: the
-truncation C = xD^{−1} must stay under N ≈ √D, or γ(n,C) = Σ_{d|n, d≤C} μ(d)
-collapses to Σ_{d|n} μ(d) = 0. So (R1) is the condition that (B) has content,
-and one fact — no room for the parity-breaking mechanism at A(x) = x^{1/2} —
-surfaces three ways:
+Ford–Maynard map the parameter space and put x² + 1 on a knife-edge: their
+Thm 4.16 gives C⁻ = 0 for γ < 1/2 outside [θ, θ+ν], and Thm 2.4 gives C⁻ = 0 at
+**γ = 1/2 with ε losses**, escaping only via divisor-bounded weights. Two sieves
+break parity below x^{2/3} — Li unconditionally to ≈ x^{0.6418}, Merikoski
+conditionally at 5/8 — and neither reaches x^{1/2}. Maynard's ICM survey asks
+(Question 21) whether adapting them below 1/2 is even plausible.
 
-| symptom | where |
-|---|---|
-| (R1) unsatisfiable: D ≤ A(x) = x^{1/2} < x^{2/3} | [Note B](notes/note-B-type-I.md) |
-| (B) vacuous: C = x^{1/2} against N ≈ x^{1/4}, so C/N ≈ x^{1/4} | [Note C](notes/note-C-requirements.md) |
-| incidence matrix is a forest: κ = 1 | [Note F](notes/note-F-failure-localisation.md) |
-
-Combining C ≲ √D with D ≤ A(x) re-derives the sieve's density threshold
-**A(x) ≳ x^{2/3}** from the mechanism rather than from a hypothesis.
-
-| sequence | α | κ > 1? | (R1) | level achieved |
-|---|---|---|---|---|
-| a² + b⁴ (FI 1998) | 3/4 | ✅ | ✅ met | x^{3/4−5ε} |
-| x³ + 2y³ (HB 2001) | 2/3 | ✅ | ❌ short by **x^ε** — HB wrote his own sieve | x^{2/3−ε} |
-| x² + 1 | **1/2** | ❌ (κ = 1) | ❌ short by **x^{1/6}** | x^{1/2}(log x)^{−222} |
-
-Heath-Brown judged (R1) "possible … to relax" for a gap of ε; this needs a
-sixth of an exponent, where the coefficient does not weaken but vanishes. The
-record at α = 1/2 remains Iwaniec 1978: P₂, from a lower-bound weighted sieve.
-
-**Supersession scan: run, and Iwaniec 1978 still stands.** The nearest recent
-result is Green–Sawhney, *Primes of the form p² + nq²*
-([arXiv:2410.04189](https://arxiv.org/abs/2410.04189), 2024) — an asymptotic
-for p² + nq² with p, q prime, n ≡ 0, 4 (mod 6), settling FI's "Gaussian primes
-conjecture" at n = 4, over **Q(i)**. Unread, and the highest-value item in the
-repo. Their Type II input is Gowers-norm technology, which the plan's
-§Cross-cutting rules out — that exclusion now needs re-arguing rather than
-standing unexamined.
+**Supersession scan: Iwaniec 1978 still stands.** Green–Sawhney
+([arXiv:2410.04189](https://arxiv.org/abs/2410.04189), Acta Math.) settle FI's
+Gaussian Primes Conjecture at n = 4, but their sequence has **α = 1** — sharing
+Dirichlet's rung, not thin at all — so the plan's exclusion of Green–Tao methods
+survives on its stated grounds. Merikoski's sparse-set work
+([arXiv:2302.11331](https://arxiv.org/abs/2302.11331)) runs at α ≈ 1 − δ, and
+b = 1 is off its chart rather than a limit of it.
 
 ### The two supporting results
 
@@ -143,25 +133,15 @@ the repo's derived invariant and the paper's stated hypothesis. In the window
 
 ### Not yet done
 
-- **Read Green–Sawhney**, then decide whether the plan's Green–Tao exclusion
-  survives. Other unread leads:
-  [arXiv:2302.11331](https://arxiv.org/abs/2302.11331) (Gaussian primes in
-  sparse sets — our problem is its sparse set having one element),
-  [arXiv:2407.14368](https://arxiv.org/abs/2407.14368),
-  [arXiv:2112.03617](https://arxiv.org/abs/2112.03617).
-- **The scan was three searches, not a literature review.** Enough to say
-  nothing obvious supersedes Iwaniec 1978; not enough to be sure.
-- **Iwaniec 1978 is second-hand.** The original is paywalled; its statement and
-  method were read from an MSc exposition.
-- **[Note G](notes/note-G-spectral.md) is still a skeleton**, and Note F's
-  lemma says it may have nothing to act on.
-- **Reading-list items 6–9 (BFI, EGM, Motohashi, Zhang/Polymath/Maynard) were
-  deliberately skipped**, with the reasoning written out at the end of
-  [refs/bibliography.md](refs/bibliography.md). In short: the spectral sources
-  estimate Kloosterman sums and Note F shows there are none here, and the
-  large-moduli sources raise the level for a *dense* sequence, which cannot
-  lift a counting bound that comes from |A| itself. That is reasoning, not a
-  reading of those papers.
+- **Read Duke–Friedlander–Iwaniec §6 directly** (*Ann. of Math.* **141** (1995),
+  423–441). Everything above about DFI is at two removes, and the claim that
+  x² + 1 *meets* its Type I hypothesis is `inferred` and load-bearing.
+- **Ford–Maynard Thm 2.4's escape is divisor-bounded weights**, which is the DFI
+  setting. Does it apply to x² + 1's weight or exempt it? Sharpest live question.
+- Iwaniec 1978 is second-hand (paywalled); BFI I–III and *Opera de Cribro*
+  Ch. 24–25 unobtained.
+- [Note G](notes/note-G-spectral.md) is still a skeleton, and Note F's lemma
+  says it may have nothing to act on.
 
 ## Conventions
 

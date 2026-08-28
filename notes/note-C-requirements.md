@@ -30,10 +30,14 @@ Page references are to the Annals pagination printed in the arXiv preprints.
 >
 > **(R1) is not a separate hypothesis from the bilinear one.** [ASP] p. 1045
 > shows x^{2/3} is exactly the threshold below which the coefficient γ(n,C) in
-> (B) is annihilated — so "is the obstruction Type I or Type II?" is malformed.
-> At A(x) = x^{1/2} there is no room for the parity-breaking mechanism, and
-> that single fact surfaces as (R1) failing, as (B) going vacuous, and as
-> [Note F](note-F-failure-localisation.md)'s forest.
+> (B) is annihilated, so within [ASP] the two hypotheses are one.
+>
+> **But x^{2/3} is [ASP]'s threshold, not prime detection's.** A level-1/2
+> prime-detecting sieve exists — Duke–Friedlander–Iwaniec, used by
+> Green–Sawhney — and x² + 1 *meets* its Type I hypothesis while failing its
+> Type II one outright. So the obstruction is Type II, and
+> [Note F](note-F-failure-localisation.md)'s C₄-free lemma is the whole of it.
+> See [§ The x^{2/3} is ASP's threshold](#the-x23-is-asps-threshold-not-prime-detections).
 
 Friedlander and Iwaniec state the general principle themselves, p. 1044:
 
@@ -212,6 +216,78 @@ halves are the same half. [Note F](note-F-failure-localisation.md)'s C₄-free
 lemma remains the sharpest *sequence-intrinsic* statement of the obstruction,
 and it is the one that survives changing sieve.
 
+## The x^{2/3} is ASP's threshold, not prime detection's
+
+*Established by verifying the Open items below. This is the most consequential
+correction in the note, and it finally settles the "which half" question.*
+
+**A prime-detecting sieve that runs at Type I level x^{1/2} exists, and it is in
+current use.** Green–Sawhney do not use [ASP]; they use the
+**Duke–Friedlander–Iwaniec** sieve (*Ann. of Math.* **141** (1995), §6),
+transplanted to ideals of O_K. Their Lemma 3.2 (p. 9) needs
+
+- **Type I at X^{1/2}(log X)^{−C}** — note: not x^{2/3}; and
+- **Type II with arbitrary 1-bounded α_a, β_b for N(b) ∈ [(log X)^C, X^{3/8}]**.
+
+They call their own Type I range "just barely enough" and record that
+"obtaining Type I information at level X^{1/2} in our setting remains an
+interesting open question" (p. 4).
+
+### What that does to x² + 1
+
+| DFI hypothesis | x² + 1 | why |
+|---|---|---|
+| Type I at X^{1/2}(log X)^{−C} | ✅ **met** | [Note B](note-B-type-I.md) gives Σ_{d≤D}\|r_d\| ≍ D, so at D = X(log X)^{−C} the error is A(x)(log X)^{−C} |
+| Type II, **arbitrary** 1-bounded coefficients | ❌ **fails outright** | [Note F](note-F-failure-localisation.md): the incidence graph is C₄-free, so the worst case has no cancellation at any split |
+
+Measured across DFI's stated range at X = 2×10⁴ (X^{3/8} ≈ 1682):
+
+| N(m) | T | worst-case \|S\| | θ | (θ if β = μ) |
+|---:|---:|---:|---:|---:|
+| [10, 10²) | 24 691 | 24 671 | **1.000** | 0.627 |
+| [10², 10³) | 22 011 | 21 843 | **0.999** | 0.775 |
+| [10³, 1682) | 7 319 | 7 249 | **0.999** | 0.825 |
+
+The last column is the point. With β = μ there *is* cancellation. It is
+specifically the **arbitrary-coefficient** requirement that fails — which is
+exactly what C₄-freeness predicts, and it is a theorem about the sequence, not
+a hypothesis of a sieve.
+
+> **So the obstruction for x² + 1 is Type II, unambiguously.** Changing from
+> ASP to a level-1/2 sieve removes the x^{2/3} artefact entirely and leaves
+> Note F's lemma standing alone as the blocker. Everything earlier in this note
+> about (R1) remains true *of [ASP]*, and is no longer the operative constraint.
+
+**Caveat, and it is a real one.** DFI's hypotheses here are read at two removes
+— from a subagent's report of Green–Sawhney's Lemma 3.2, which is itself
+quoting DFI. Neither DFI nor Green–Sawhney has been read directly in this repo.
+The Type I entry above is therefore `inferred`, not `quoted`, in
+[`research_state/claims.json`](../research_state/claims.json). Reading DFI §6
+directly is now the top task.
+
+### How far below 2/3 the literature actually reaches
+
+Two sieves break parity below x^{2/3}, and neither reaches x^{1/2}:
+
+- **Xiannan Li** — unconditional, exponential density 2/3 − γ/3 for γ < 5/67,
+  i.e. down to ≈ x^{0.6418}. Li states outright that both [ASP] and Harman's
+  sieve "fail to prove asymptotic estimates for sequences with exponential
+  density strictly lower than 2/3".
+- **Merikoski** — conditional on exceptional characters, exponent of
+  distribution 5/8, with a general floor of 0.61634….
+
+And **Ford–Maynard** (arXiv:2407.14368) map the parameter space directly. Their
+Theorem 4.16: C⁻(γ, θ, ν) = 0 whenever γ < 1/2 and γ ∉ [θ, θ+ν]. Their
+Theorem 2.4 is the one that bites here, because **x² + 1 sits at γ = 1/2
+exactly**: with ε losses, C⁻(P_ε) = 0, and they comment that "one cannot hope to
+obtain non-trivial lower bounds on primes without some additional assumptions".
+The escape they name is divisor-bounded weights — which is precisely the
+Duke–Friedlander–Iwaniec setting. Maynard's ICM survey states that all current
+approaches break down below x^{1/2} and asks (Question 21) whether adapting
+them is even plausible.
+
+**γ = 1/2 is a knife-edge in the literature's own map, and x² + 1 is on it.**
+
 ## The hypotheses, quoted
 
 Sequence A = (aₙ) of nonnegative reals, A(x) = Σ_{n≤x} aₙ,
@@ -348,25 +424,50 @@ theorem's hypotheses, and [HB] is the precedent for replacing them.
 
 ## Open
 
-Everything this note was blocked on is now answered. What remains:
+The three literature markers are resolved; what replaced them is sharper.
 
-- **[VERIFY]** Does the Green–Sawhney machinery bear on this? *Primes of the
-  form p² + nq²* ([arXiv:2410.04189](https://arxiv.org/abs/2410.04189), 2024)
-  proves an asymptotic for p² + nq² with p, q prime and n ≡ 0, 4 (mod 6),
-  settling FI's "Gaussian primes conjecture" at n = 4 — over **Q(i)**, this
-  repo's setting. Their Type II input uses Gowers-norm technology (concatenation
-  theorems; the quasipolynomial inverse theorem), which the plan's
-  §Cross-cutting rules out. Their sequence is two-variable with α = 1, so the
-  exclusion is still defensible — but it should be re-argued rather than left
-  standing unexamined. **This is the highest-value unread item in the repo.**
-- **[VERIFY]** *On Gaussian primes in sparse sets*
-  ([arXiv:2302.11331](https://arxiv.org/abs/2302.11331)) proves infinitely many
-  primes a² + b² with b ∈ B for B of size X^{1/2−δ}. Our problem is B = {1},
-  the maximally sparse case, so it does not apply — but it is the nearest frame
-  in the literature and the δ it can reach is worth knowing exactly.
-- **[VERIFY]** [arXiv:2407.14368](https://arxiv.org/abs/2407.14368), *On the
-  theory of prime producing sieves* — the likeliest place for a restated or
-  relaxed (R1).
+**Resolved.**
+
+- *Green–Sawhney* (arXiv:2410.04189, accepted Acta Math.). Theorem 1.1 for
+  n ≡ 0, 4 (mod 6), both coordinates prime; at n = 4 it settles FI's Gaussian
+  Primes Conjecture ([FI, arXiv:1811.05507, Conj. 1.1], of which FI wrote that
+  it "requires breaking the parity barrier"). **α = 1**, sharing Dirichlet's
+  rung — one above a² + b⁴, not two, and not thin at all by FI's own criterion.
+  Their Type II input is Gowers U^k norms *of functions on Z at scale X^{1/2}*;
+  the number field carries the sieve, not the norms. **The plan's
+  §Cross-cutting exclusion of Green–Tao methods survives**, on its stated
+  grounds. The method is vacuous rather than false on a mass-X^{1/2} weight:
+  every hypothesis is normalised against the full norm range, and
+  re-normalising would demand power-of-X Gowers savings where their Prop. 4.4
+  supplies (log X)^{−A}.
+- *Merikoski, "On Gaussian primes in sparse sets"* (arXiv:2302.11331,
+  Compositio Math. **161** (2025), 181–243). Infinitude for
+  \|B ∩ [0,Y]\| ≫ Y^{1−δ} (Thm 1.1); δ never made explicit, guessed in
+  (1/20, 1/10), with δ = 1/6 a hard barrier where the Type II range empties.
+  **Does not use [ASP].** Decisively, his A(X) ≍ X^{1/2}\|B\| = X^{1−δ}, so
+  α ≈ 1 − δ — essentially dense, not our regime; and his large-sieve step needs
+  N ≪ X^{−η}\|B\|, so \|B\| = 1 empties the Type II range at any δ. Every b
+  must sit near X^{1/2}, so **b = 1 is off the chart, not a limit of it**.
+- *Ford–Maynard* (arXiv:2407.14368). **Refuted as a source of a relaxed (R1)**:
+  it never cites [ASP], never states (R1) or (B1)–(B3), and never mentions
+  γ(n,C). Its value is the opposite of what was hoped — Theorems 2.4 and 4.16
+  map exactly where γ = 1/2 fails.
+- *arXiv:2112.03617*: α = 3/4 for X²+(Y²+1)², α = 5/6 for X²+(Y³+Z³)². The
+  inner Y²+1 makes the Type II congruence curve non-singular, which helps the
+  main term but *costs* Type II range (N ≪ X^{1/3−η} against FI's X^{1/2−η}).
+  No transfer to one variable.
+
+**Now open, in priority order.**
+
+- **Read Duke–Friedlander–Iwaniec §6 directly** (*Ann. of Math.* **141** (1995),
+  423–441). Everything in this note about DFI is at two removes. The claim that
+  x² + 1 *meets* DFI's Type I hypothesis is `inferred` and load-bearing.
+- **[VERIFY]** Ford–Maynard Theorem 2.4's escape clause is divisor-bounded
+  weights, and DFI is the divisor-bounded setting. Is x² + 1's weight
+  divisor-bounded in their sense, and does Theorem 2.4 therefore apply to it or
+  exempt it? This is the sharpest live question in the repo.
+- **[VERIFY]** Xiannan Li's sieve reaches ≈ x^{0.6418} unconditionally. What in
+  it is density-limited, and does the limit come from Type I or Type II?
 
 ## Adversarial review
 

@@ -118,3 +118,16 @@ def test_a2b4_incidence_graph_is_not_c4_free():
     from x2plus1.typeII import is_c4_free
     C, *_ = incidence(a2b4_sequence(10**5), 100, 1000)
     assert not is_c4_free(C)
+
+
+def test_c4_freeness_does_not_depend_on_the_split():
+    """The lemma's proof never mentions the norm ranges.
+
+    So the FULL divisor incidence graph -- every m | a, no range restriction --
+    must also be C4-free. This is what rules out escaping the lemma by choosing
+    an unbalanced or well-factorable decomposition: there is no split to choose.
+    """
+    from x2plus1.typeII import max_offdiagonal_gram
+    for X in (500, 2000):
+        C, *_ = incidence(by_x_range(X), 1, 10**18)
+        assert max_offdiagonal_gram(C) <= 1, X

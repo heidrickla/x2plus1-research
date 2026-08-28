@@ -164,15 +164,16 @@
     },
     {
       "id": "large-moduli-cannot-help",
-      "status": "inferred",
-      "statement": "BFI, Zhang, Polymath 8 and Maynard raise the level of distribution for primes in arithmetic progressions, a sequence of density x/log x, and cannot lift the D <= A(x) ceiling, which is a counting bound.",
-      "notes": "Reasoning, not a reading of those papers. Under verification.",
+      "status": "quoted",
+      "statement": "Every level-of-distribution result in this literature concerns primes or smooth numbers in arithmetic progressions, where A(x) = x^{1-o(1)}; the best exponent reached is 5/8-eps. x^{7/12-eps} is Maynard (2020), not Iwaniec, whose contribution is the well-factorability of the linear sieve weights.",
+      "notes": "Corrected: an earlier version of this claim attributed 7/12 to Iwaniec, and justified inadmissibility by 'weights cannot lift a counting bound', which over-reaches -- sparse-moduli and signed-weight estimates evade counting bounds. The sound reason is that ASP's (R) sums absolute values over all squarefree d <= D.",
       "depends_on": [
         "asp-thin-ceiling"
       ],
       "tags": [
         "type_i"
-      ]
+      ],
+      "citation": "Maynard arXiv:2006.07088 pp.2-3 (BFI 4/7; Maynard 7/12); Pascadi (Lichtman 66/107, Pascadi 5/8); Polymath 8a arXiv:1402.0811 (Zhang 1/2+1/584, Polymath 1/2+7/300)"
     },
     {
       "id": "iwaniec-1978-P2",
@@ -193,6 +194,85 @@
       "statement": "The obstruction for x^2+1 is Type I, not Type II, so the bilinear programme is the wrong half.",
       "notes": "Asserted in this repo, then withdrawn. ASP p.1045 shows (R1) is precisely the condition that hypothesis (B) is non-vacuous, so the two are one hypothesis and the dichotomy was malformed.",
       "superseded_by": "asp-gamma-annihilation"
+    },
+    {
+      "id": "dfi-typeI-budget",
+      "status": "inferred",
+      "statement": "The Duke-Friedlander-Iwaniec sieve (Ann. of Math. 141 (1995), sec.6), as used by Green-Sawhney, needs Type I only at level X^{1/2}(log X)^{-C} and Type II with arbitrary 1-bounded coefficients over N(b) in [(log X)^C, X^{3/8}].",
+      "notes": "Read at two removes: a subagent's report of Green-Sawhney Lemma 3.2, which itself quotes DFI. Neither DFI nor Green-Sawhney has been read directly in this repo. Reading DFI sec.6 is the top open task.",
+      "tags": [
+        "asp"
+      ]
+    },
+    {
+      "id": "x2plus1-meets-dfi-typeI",
+      "status": "inferred",
+      "statement": "x^2+1 meets DFI's Type I hypothesis: Note B gives sum_{d<=D}|r_d| ~ D, so at D = X(log X)^{-C} the error is A(x)(log X)^{-C}.",
+      "notes": "Depends on dfi-typeI-budget, which is itself second-hand. The arithmetic is this repo's own and is sound; the requirement it is matched against is not verified at source.",
+      "depends_on": [
+        "dfi-typeI-budget"
+      ],
+      "tags": [
+        "type_i"
+      ]
+    },
+    {
+      "id": "dfi-typeII-fails",
+      "status": "measured",
+      "statement": "x^2+1 fails DFI's arbitrary-coefficient Type II hypothesis outright: worst-case theta = 1.000, 0.999, 0.999 across N(m) in [10,100), [100,1000), [1000,1682) at X = 2e4. With beta = mu the same ranges give 0.627, 0.775, 0.825.",
+      "experiment": "experiments/exp02_bilinear_pilot.py",
+      "depends_on": [
+        "c4-free"
+      ],
+      "tags": [
+        "type_ii"
+      ]
+    },
+    {
+      "id": "green-sawhney-alpha-one",
+      "status": "quoted",
+      "statement": "Green-Sawhney prove an asymptotic for primes p^2+nq^2 with p,q prime, n = 0 or 4 mod 6; at n=4 this settles Friedlander-Iwaniec's Gaussian Primes Conjecture. Their sequence has alpha = 1 and is not thin by FI's own criterion.",
+      "citation": "Green-Sawhney, Primes of the form p^2+nq^2, arXiv:2410.04189v3 Theorem 1.1 p.1 and p.2; FI Conjecture 1.1, arXiv:1811.05507v1 p.3"
+    },
+    {
+      "id": "parity-broken-below-two-thirds",
+      "status": "quoted",
+      "statement": "Two sieves break parity below x^{2/3}: Xiannan Li unconditionally, to exponential density 2/3 - gamma/3 for gamma < 5/67 (approx x^{0.6418}), and Merikoski conditionally on exceptional characters at 5/8. Neither reaches x^{1/2}.",
+      "citation": "Li, as reported with Maynard ICM survey Question 21; Merikoski arXiv:2108.01355",
+      "notes": "Quoted via subagent extraction with verbatim checks by an adversarial reviewer; the papers were not read in this repo."
+    },
+    {
+      "id": "ford-maynard-half-knife-edge",
+      "status": "quoted",
+      "statement": "Ford-Maynard Theorem 4.16 gives C^-(gamma,theta,nu) = 0 whenever gamma < 1/2 and gamma not in [theta,theta+nu]; Theorem 2.4 gives C^-(P_eps) = 0 at gamma = 1/2 with eps losses, remarking that 'one cannot hope to obtain non-trivial lower bounds on primes without some additional assumptions'. The escape named is divisor-bounded weights. x^2+1 sits at gamma = 1/2 exactly.",
+      "citation": "Ford-Maynard, On the theory of prime producing sieves, arXiv:2407.14368, Thm 2.4 p.6 and Thm 4.16 p.17"
+    },
+    {
+      "id": "merikoski-sparse-sets-off-chart",
+      "status": "quoted",
+      "statement": "Merikoski proves infinitude of primes a^2+b^2 with b in B for |B cap [0,Y]| >> Y^{1-delta}, without using ASP. His A(X) ~ X^{1/2}|B| = X^{1-delta}, so alpha ~ 1-delta; his large sieve needs N << X^{-eta}|B|, so |B| = 1 empties the Type II range at any delta.",
+      "citation": "Merikoski, On Gaussian primes in sparse sets, arXiv:2302.11331v3, Thms 1.1-1.3; Compositio Math. 161 (2025), 181-243"
+    },
+    {
+      "id": "ford-maynard-relaxes-R1",
+      "status": "refuted",
+      "statement": "Ford-Maynard (arXiv:2407.14368) restates or relaxes FI's hypothesis (R1).",
+      "notes": "Conjectured by this repo as 'the likeliest place for a restated or relaxed (R1)'. Refuted: the paper never cites ASP, never states (R1) or (B1)-(B3), and never mentions gamma(n,C).",
+      "superseded_by": "ford-maynard-half-knife-edge"
+    },
+    {
+      "id": "sector-results-do-not-bear-on-the-line",
+      "status": "refuted",
+      "statement": "No sector equidistribution result, however narrow, bears on the line Im z = 1, because sectors are two-dimensional and the line is not.",
+      "notes": "Asserted in Note A, then refuted: a sector anchored at arg = 0 is a horizontal strip, and Harman-Lewis harvest exactly that to get primes m^2+n^2 with n < p^0.119. The line is the width ~X^{-1/2} limit of the family, and an asymptotic there would prove Landau's fourth problem.",
+      "superseded_by": "sector-limit-is-landau"
+    },
+    {
+      "id": "sector-limit-is-landau",
+      "status": "quoted",
+      "statement": "The line Im z = 1 is the width ~X^{-1/2} limit of the narrow-sector family. Unconditional asymptotics reach width X^{-3/10+eps} (Ricci), GRH reaches X^{-1/2+eps} for individual sectors, and Harman-Lewis get a lower bound at width X^{-0.381}.",
+      "citation": "Huang-Liu-Rudnick, arXiv:1903.04005v1 sec.1; Harman-Lewis, Mathematika 48 (2001), 119-135",
+      "notes": "Ricci's thesis (Univ. Michigan 1976) is unpublished; the X^{-3/10+eps} figure is second-hand from three agreeing restatements."
     }
   ]
 }

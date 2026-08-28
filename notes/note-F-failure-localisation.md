@@ -37,9 +37,19 @@ so {x₁, x₄} and {x₂, x₃} are the roots of one quadratic and agree as mul
 If x₁ = x₂ then m₁n₁ ∼ m₁n₂, so n₁ ∼ n₂; if x₁ = x₃ then m₁n₁ ∼ m₂n₁, so
 m₁ ∼ m₂. Both contradict the hypothesis. ∎
 
-Machine-checked two ways: exhaustively on a box
-(`test_line_admits_no_multiplicative_coincidence`) and on the actual incidence
-matrices at four dyadic splits (`test_incidence_graph_of_the_line_is_c4_free`).
+Machine-checked three ways: exhaustively on a box
+(`test_line_admits_no_multiplicative_coincidence`), on the actual incidence
+matrices at four dyadic splits (`test_incidence_graph_of_the_line_is_c4_free`),
+and on the full unrestricted divisor graph (`test_c4_freeness_does_not_depend_on_the_split`).
+
+**The lemma does not mention the split.** Its proof uses no norm range, so it
+applies to the incidence graph of *every* multiplicative decomposition of A at
+once. Verified: with all divisors admitted and no range restriction, the graph
+is 37 975 × 37 975 with 75 948 edges at X = 8000, and the maximum off-diagonal
+Gram entry is still **1**. So there is no balanced, unbalanced, or
+well-factorable choice of split that escapes it — a well-factorable weight
+λ(m) = Σ_{m=m₁m₂} λ₁(m₁)λ₂(m₂) produces a trilinear form whose every
+Cauchy–Schwarz still lands on a bipartite Gram matrix of exactly this kind.
 
 ## Why this is the failure
 
@@ -81,16 +91,37 @@ norm bound the maximum off-diagonal Gram entry is **667**.
 > used.** Not in Type I, not in the local densities, not in the choice of
 > sieve — here, to make G(n₁, n₂) large enough to have a main term.
 
+## Under a level-1/2 sieve, this lemma is the whole obstruction
+
+[Note C](note-C-requirements.md) establishes that a prime-detecting sieve
+running at Type I level x^{1/2} exists — Duke–Friedlander–Iwaniec, as used by
+Green–Sawhney — and that x² + 1 **meets** its Type I hypothesis. Its Type II
+hypothesis asks for cancellation with **arbitrary 1-bounded coefficients** over
+N(b) ∈ [(log X)^C, X^{3/8}]. Measured there:
+
+| N(m) | worst-case θ | θ with β = μ |
+|---:|---:|---:|
+| [10, 10²) | **1.000** | 0.627 |
+| [10², 10³) | **0.999** | 0.775 |
+| [10³, 1682) | **0.999** | 0.825 |
+
+With β = μ there is cancellation; with arbitrary β there is none. That gap is
+exactly C₄-freeness. **So once the x^{2/3} artefact of [ASP] is removed, this
+lemma stands alone as the obstruction** — and unlike (R1) it is a theorem about
+the sequence, not a hypothesis of a sieve.
+
 ## The important caveat
 
-The sieve does **not** require cancellation for adversarial β. Its Type II
+[ASP] does **not** require cancellation for adversarial β; DFI does. Its Type II
 hypothesis has the absolute value outside the m-sum (so α is effectively
 arbitrary) but supplies **β = μ**. With β = μ the form does cancel: [Note
 H](note-H-numerical-pilot.md) measures Σ_m |Σ_n μ(n)·1[mn ∈ A]| ≍ √(MX), which
 is o(X) for M = o(X). So the lemma above proves:
 
 - ✅ **dispersion cannot work here**, at any split, for a structural reason;
-- ❌ **not** that the Type II hypothesis is false.
+- ✅ **DFI's arbitrary-coefficient Type II hypothesis is false** for this
+  sequence — measured θ ≈ 1 across its whole stated range;
+- ❌ **not** that [ASP]'s μ-coefficient Type II hypothesis is false.
 
 Every drop of the required saving must come from the arithmetic of μ along the
 fibres, with no help whatever from the incidence geometry. That is precisely
@@ -126,6 +157,7 @@ quantitative statement of how far current bounds fall short — which is
   Cauchy–Schwarz in **n** has now been run: the maximum off-diagonal entry of
   C·Cᵀ is also 1, at every split. That is forced — a 4-cycle is a 4-cycle
   whichever side is squared — so no rearrangement of the *square* helps.
-  What remains genuinely open is whether a well-factorable or unbalanced
-  decomposition of m avoids squaring at all. **[VERIFY]**, and it is the only
-  surviving line of attack on the lemma.
+  A well-factorable or unbalanced decomposition does not help either: the
+  lemma holds on the *full* divisor graph, so there is no split to choose. What
+  survives is only the question of whether a method that never squares at all
+  could work — which is a question about methods, not about this lemma.
