@@ -145,8 +145,12 @@ bounds. Cauchy–Schwarz is tight (S/CS ≈ 0.75) and |OFF|/DIAG ≤ 0.5, so the
 *upper* bound §1 needs follows from OFF = o(DIAG), giving
 S_μ(M) ≪ √(MX/√(log M)) = √(MX)/(log M)^{1/4}. **But temper it**: bounding G_M
 and discarding signs is 11×–1988× too weak, so OFF = o(DIAG) is itself a
-μ-cancellation claim. The reduction changes the *shape* of the missing step, not
-its difficulty, and must not be quoted as progress. `sqrt-MX-law` stays
+μ-cancellation claim. **And it closes on Chowla.** For fixed m the solutions form
+ρ(m) progressions mod m, so every pair in OFF is y = x + h and
+**OFF = Σ_m Σ_h Σ_x μ(x²+1)μ((x+h)²+1)** — a two-point correlation of μ(x²+1),
+i.e. `chowla-for-x2plus1-is-open`. So the route is a **restatement**, landing on
+the same blocker as everything else here rather than a new one, and must not be
+quoted as progress. `sqrt-MX-law` stays
 `extrapolated`. The unifying fact: a (modulus, root) pair **is** a primitive
 Gaussian ideal, so per-progression = ℤ[i] and per-modulus = ℤ; the merging of
 several primitive ideals into one rational modulus **creates the 4-cycles that
