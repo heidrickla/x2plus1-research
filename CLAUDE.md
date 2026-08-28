@@ -70,6 +70,26 @@ at all (`x2plus1.exponents.ford_maynard_theta`). C⁻ = 0 is about **what these
 axioms can prove**, never about whether x²+1 is prime infinitely often — do not
 conflate them.
 
+**Notes N and O** are the two additions the plan does not list. N re-argues the
+Green–Tao exclusion from Green–Sawhney: it survives, but not for the plan's
+stated reason — their weight has both coordinates free, δ₁ imposes two
+independent linear conditions, and at their k ≈ 2^347 the normalised Gowers norm
+of a delta is 1 − o(1), so the conclusion is *information-free*. O identifies the
+multiplier τ = (√b+√a)/(√b−√a) behind the close-pair structure and proves it
+cannot act twice on one element. **The general "no window holds three" is NOT
+proved** — it was claimed unconditionally and retracted; the window Gram bound
+stays O_ε(N^ε).
+
+**Two closures, both negative and both durable.** The well-factorable route is
+dead: every theorem in the BFI line buys its level by giving up the absolute
+value (BV has sup_a |·| at level 1/2; BFI x^{4/7−ε} and Maynard x^{3/5−ε} with a
+well-factorable weight and a *fixed* residue class), so beyond level 1/2 there is
+no absolute-value statement to appeal to. And the remaining triple question
+**cannot be settled by measurement** — it concerns a configuration that never
+occurs, so every sweep contains zero instances, and the absence is the thing to
+be explained rather than evidence about a proposed explanation. That trap
+produced two adopted-then-retracted claims in one day.
+
 **Reading sources: rasterise, do not extract.** Exactly one source here is a
 scan — Duke–Friedlander–Iwaniec — and its OCR renders prose correctly while
 mangling displayed mathematics, which is the worst failure mode because it looks
