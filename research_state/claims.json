@@ -144,7 +144,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "A law fitted from finite data, not a theorem: the extrapolation from the measured range to all X is the unsupported step, and that is unchanged. What DID change is the range on record. The statement previously cited only exp02's 2e4..1e5 -- less than one decade -- while carrying Note M's whole theta-axis argument, which needs the shape to hold across the range where the saving Q^{(1/2-theta)/2} is claimed. exp05's four decades were already in the repo under no-log-power-correction; the two claims measure the same law in two normalisations and only one of them said so."
+      "notes": "A law fitted from finite data, not a theorem: the extrapolation from the measured range to all X is the unsupported step, and that is unchanged. What DID change is the range on record. The statement previously cited only exp02's 2e4..1e5 -- less than one decade -- while carrying Note M's whole theta-axis argument, which needs the shape to hold across the range where the saving Q^{(1/2-theta)/2} is claimed. exp05's four decades were already in the repo under no-log-power-correction; the two claims measure the same law in two normalisations and only one of them said so. RANGE UPGRADED, and the earlier wording undersold it. exp02 and exp05 are not 'one law in two normalisations' -- they are the SAME SUM up to the non-squarefree x, because mu((x^2+1)/m) = mu(m) mu(x^2+1) on squarefree values (proved: cofactor-mobius-factors-on-squarefree-values) and mu(m) has modulus 1 so it dies under the absolute value. The residue is governed by squarefree-density-of-x2plus1-is-flat, measured at 0.8948 to four places across 1e4..1e7, i.e. an asymptotic CONSTANT -- which cannot move an exponent. So the exponent in this law has four decades of direct support. The extrapolation to all X is untouched and remains the unsupported step."
     },
     {
       "id": "no-saving-in-required-window",
@@ -1077,6 +1077,26 @@
         "type_ii"
       ],
       "notes": "What makes O.1 true is its step (2), |V| < M/sqrt(D) -- the only place the window enters, as tests/test_polyseq.py::test_prop_O1_chain_holds_on_real_pairs' docstring already said. The orbit steps by 6.854 > 2, so a dyadic window holds one member and the geometric-progression triple cannot fit. So the content of O.1 is the window, not the integrality. An earlier draft of Note L stated it without the qualifier; the machine check was never wrong because it tests the window-restricted chain on close pairs. Observed on the multiplier side by the parallel session (18,116 solutions with one acting multiplier, 215 with two, some with six) and confirmed here on the modulus side."
+    },
+    {
+      "id": "cofactor-mobius-factors-on-squarefree-values",
+      "status": "proved",
+      "statement": "For x^2+1 squarefree and any m | x^2+1, mu((x^2+1)/m) = mu(m) mu(x^2+1). Hence inside S_mu(M) = sum_m |sum_x mu((x^2+1)/m)| the factor mu(m) has modulus 1 and drops out under the absolute value, leaving S_mu(M) = sum_m |sum_{x = +-r mod m} mu(x^2+1)| -- exactly the quantity exp05 measures per progression.",
+      "proof_site": "notes/note-M-where-mu-lives.md; tests/test_arithmetic_facts.py::test_mobius_of_the_cofactor_factors_when_the_value_is_squarefree",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Elementary: N squarefree and m | N force gcd(m, N/m) = 1, so mu(N) = mu(m) mu(N/m), and mu(m)^2 = 1 rearranges it. Recorded because it changes the standing of sqrt-MX-law: exp02 and exp05 were described as measuring one law in two normalisations, and they measure the same sum up to the non-squarefree x."
+    },
+    {
+      "id": "squarefree-density-of-x2plus1-is-flat",
+      "status": "rigorous_finite",
+      "statement": "The density of x <= X with x^2+1 squarefree is 0.895200, 0.894900, 0.894860, 0.894847 at X = 1e4, 1e5, 1e6, 1e7 -- flat to four places, changes -3.0e-4, -4.0e-5, -1.3e-5. Only p = 2 and p = 1 mod 4 admit p^2 | x^2+1, each costing density 2/p^2, so a sieve truncated at P = 20000 has error under 1e-5.",
+      "experiment": "p^2 sieve over the roots of -1 mod p^2; Note M, 'The two measurements of the law are the same sum'",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Load-bearing for sqrt-MX-law's range. With cofactor-mobius-factors-on-squarefree-values, exp02's S_mu and exp05's per-progression sums agree exactly on the squarefree x, so the whole discrepancy is this density -- and a constant factor cannot move an exponent. At X = 4000 over the band [300,600) the aggregate ratio of the two sums is 0.884, consistent with the density. Measured here, not quoted: the constant is presumably classical but no source has been read for it in this repo."
     }
   ]
 }

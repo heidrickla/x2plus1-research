@@ -123,6 +123,50 @@ structural reason is worth recording because it closes a whole direction:
 and multiplicative-function machinery generally, does not apply *as stated* —
 not "applies but is too weak".
 
+## The two measurements of the law are the same sum, not two normalisations
+
+§1 rests on S_μ(M) ≍ √(MX), which is `extrapolated`, and the honest worry has
+been that its *direct* measurement (exp02) spans less than a decade,
+X = 2×10⁴ … 10⁵, while carrying the whole θ-axis argument. The four-decade
+support was recorded as holding "in the equivalent per-progression
+normalisation" (exp05). That understates it. **The two are the same sum.**
+
+> If N = x²+1 is squarefree and m | N, then gcd(m, N/m) = 1, so
+> μ(N) = μ(m)·μ(N/m), and μ(m)² = 1 gives
+>
+>     μ((x²+1)/m) = μ(m)·μ(x²+1).
+
+Inside S_μ(M) = Σ_m |Σ_x μ((x²+1)/m)| the factor μ(m) is a constant of modulus 1
+on the inner sum, so it **drops out under the absolute value**, leaving
+
+    S_μ(M) = Σ_m |Σ_{x ≡ ±r (mod m)} μ(x²+1)|,
+
+which is exactly what exp05 measures per progression. Machine-checked in
+`tests/test_arithmetic_facts.py::test_mobius_of_the_cofactor_factors_when_the_value_is_squarefree`.
+
+**The two differ only on the non-squarefree x, and that correction is an
+asymptotic constant.** Only p = 2 and p ≡ 1 (mod 4) admit p² | x²+1, each
+costing density 2/p², so a sieve truncated at P = 20 000 has error under 10⁻⁵.
+Measured:
+
+| X | density of squarefree x²+1 | change |
+|---:|---:|---:|
+| 10⁴ | 0.895200 | |
+| 10⁵ | 0.894900 | −3.0×10⁻⁴ |
+| 10⁶ | 0.894860 | −4.0×10⁻⁵ |
+| 10⁷ | 0.894847 | −1.3×10⁻⁵ |
+
+Flat to four places. At X = 4000 over the band [300, 600) the aggregate ratio of
+the two sums is 0.884 — a constant-order correction, as the density predicts.
+
+> **A constant factor cannot move an exponent.** So exp05's four decades bear on
+> the exponent in S_μ(M) ≍ √(MX) directly, and the range behind §1 is four
+> decades rather than one.
+
+What is *not* improved: the law is still `extrapolated`. Extrapolating a fitted
+exponent from 10⁷ to all X is the unsupported step, and it is unchanged. What
+changes is that the fit is no longer resting on a single decade.
+
 ## Adversarial review
 
 - *Where is two-parameter freedom smuggled in?* Nowhere, and the θ-axis makes
@@ -138,12 +182,12 @@ not "applies but is too weak".
 - *How much does §1 rest on a fit?* All of it, and the fit's range matters. The
   saving Q^{(1/2−θ)/2} is read straight off S_μ(M) ≍ √(MX), which is
   `extrapolated`. Its direct measurement (exp02) spans **less than one decade**,
-  X = 2×10⁴ … 10⁵ — which would be thin support for an argument about the whole
-  θ-axis. The same law in the per-progression normalisation ρ = S/(pairs·√n)
-  holds across **four decades**, X = 10⁴ … 10⁷ (exp05), and ρ flat is S ≍
-  pairs·√n, which is √(MX) up to the count of admissible moduli in the band. So
-  the range is there; it was recorded under a different claim, and the two
-  claims measure one law in two normalisations.
+  X = 2×10⁴ … 10⁵. The section above closes that gap properly: exp05's four
+  decades are not an analogue but the *same sum*, since μ((x²+1)/m) =
+  μ(m)·μ(x²+1) on squarefree values and the μ(m) dies under the absolute value.
+  The residue is the non-squarefree x, whose density is flat at 0.8948 to four
+  places over 10⁴…10⁷, hence a constant factor, hence unable to move an
+  exponent. The extrapolation to all X remains the unsupported step.
 - *Is the Chowla remark a counsel of despair?* It is a scoping fact. It rules
   out reading Question F as "an estimate someone could plausibly supply", which
   earlier drafts came close to doing, and it says where the difficulty sits

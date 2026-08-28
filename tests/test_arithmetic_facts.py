@@ -242,3 +242,66 @@ def test_O3prime_permits_the_two_observed_moduli_of_the_live_pair():
         y = isqrt(y2)
         assert y * y == y2, m                          # and so is b*m
         assert gcd(M, 2 * x) == expected_c <= 16, m
+
+
+def test_mobius_of_the_cofactor_factors_when_the_value_is_squarefree():
+    """mu((x^2+1)/m) = mu(m) mu(x^2+1) whenever x^2+1 is squarefree.
+
+    Elementary, and it is what links exp02's S_mu to exp05's per-progression
+    sums: if N = x^2+1 is squarefree and m | N then gcd(m, N/m) = 1, so
+    mu(N) = mu(m) mu(N/m), and mu(m)^2 = 1 gives the stated form. Under the
+    absolute value in S_mu(M) = sum_m |sum_x mu((x^2+1)/m)| the mu(m) is a
+    constant of modulus 1 and drops out, leaving exactly the quantity exp05
+    measures per progression. See Note M.
+    """
+    from sympy import divisors, factorint, mobius
+    checked = 0
+    for x in range(1, 400):
+        n = x * x + 1
+        f = factorint(n)
+        if any(e > 1 for e in f.values()):
+            continue
+        for m in divisors(n):
+            assert mobius(n // m) == mobius(m) * mobius(n), (x, m)
+            checked += 1
+    assert checked > 1000, f"only {checked} pairs checked; the range proves little"
+
+
+def test_squarefree_density_of_x2plus1_is_flat():
+    """The correction between the two normalisations is an asymptotic constant.
+
+    Only p = 2 and p = 1 (mod 4) admit p^2 | x^2+1, and each costs density
+    2/p^2, so truncating at P = 20000 costs under 1e-5. Measured 0.895200,
+    0.894900, 0.894860, 0.894847 at X = 1e4 .. 1e7 -- flat to four places. A
+    constant factor cannot move the exponent in S(M) ~ sqrt(M X), which is why
+    exp05's four decades bear on exp02's law and not merely on an analogue.
+    """
+    import numpy as np
+    from math import isqrt
+    from sympy import sqrt_mod
+
+    P = 4000
+    s = np.ones(P + 1, bool)
+    s[:2] = False
+    for i in range(2, isqrt(P) + 1):
+        if s[i]:
+            s[i * i:: i] = False
+    roots = {}
+    for p in np.flatnonzero(s).tolist():
+        if p != 2 and p % 4 != 1:
+            continue
+        r = sqrt_mod(-1, p * p, all_roots=True)
+        if r:
+            roots[p * p] = [int(t) for t in r]
+
+    def density(X):
+        ok = np.ones(X + 1, bool)
+        for q, rs in roots.items():
+            for r in rs:
+                if r <= X:
+                    ok[r:: q] = False
+        return ok[1:X + 1].sum() / X
+
+    d1, d2 = density(20_000), density(200_000)
+    assert abs(d1 - 0.8952) < 2e-3, d1
+    assert abs(d2 - d1) < 1e-3, (d1, d2)
