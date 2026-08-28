@@ -8,7 +8,8 @@ probability model for the gap. This note supplies the mechanism for the **pairs*
 and proves it; it reduces the **triple** question to a statement it does not
 settle, and closes the one route it proposed for settling it.*
 
-*Status: **Proposition O.1 proved (τ² ξ is never integral). Conjecture O.2 — the
+*Status: **Proposition O.1 proved (τ² ξ is not integral **when τξ stays inside the
+window** — the hypothesis is essential, see (1,5) below). Conjecture O.2 — the
 statement the measurements actually make — is OPEN.** A draft of this note
 claimed O.2 as proved; the composition step does not hold and the retraction is
 recorded below rather than edited away. Machine check:
@@ -106,9 +107,11 @@ The last is the smallest consecutive ratio in the entire X = 5000 sweep.
 positions, and **each of them carries its own τ-pair**. At X = 2500 the class
 (a,b) = (1,53) has shared moduli 10, 17, 24650, 42850 — two close pairs,
 (10, 17) at ratio 1.700 and (24650, 42850) at ratio 1.73832, both matching
-τ² = 1.73835. So τ acts twice in that class. What never happens is τ acting
-twice **from the same ξ**, which is what a third modulus in one window requires.
-The proposition below is about that, and the per-class count is unbounded.
+τ² = 1.73835. So τ acts twice in that class. What the proposition forbids is τ
+acting twice **from the same ξ while both images stay inside the window** —
+which is what a third modulus in one window requires. Without the window clause
+it is false: (1,5) at m = 2 has τ₁ and τ₁² = τ₃ both acting. The per-class count
+is unbounded and so, outside a window, is the per-solution count.
 
 > **Proposition O.1.** Let a < b be coprime, M = b − a, D = ab, and let ξ₁ be a
 > solution with m_i ≥ 2 **such that τξ₁ lies in the same dyadic window as ξ₁**

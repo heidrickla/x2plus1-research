@@ -99,7 +99,11 @@ stated reason — their weight has both coordinates free, δ₁ imposes two
 independent linear conditions, and at their k ≈ 2^347 the normalised Gowers norm
 of a delta is 1 − o(1), so the conclusion is *information-free*. O identifies the
 multiplier τ = (√b+√a)/(√b−√a) behind the close-pair structure and proves it
-cannot act twice on one element. **The general "no window holds three" is NOT
+cannot act twice on one element **while both images stay inside the window** —
+the window clause is essential and its omission made an earlier statement of
+Proposition O.1 false, with (1,5) at m = 2 the counterexample (τ₁ and τ₁² = τ₃
+both act there; it escapes because a·g² = 4 = M, and it escapes *because*
+r₁ = 6.854 is nowhere near a window). **The general "no window holds three" is NOT
 proved** — it was claimed unconditionally and retracted; the window Gram bound
 stays O_ε(N^ε).
 
