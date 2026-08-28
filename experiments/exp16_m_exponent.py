@@ -1,4 +1,4 @@
-"""Experiment 15 -- the M-exponent of S_mu(M), and where the grouping matters.
+"""Experiment 16 -- the M-exponent of S_mu(M), and where the grouping matters.
 
 Supports Note M.
 
@@ -28,7 +28,7 @@ sqrt(#prog/#mod) to within a couple of percent -- so the aggregate law is
 slightly BELOW sqrt(MX).  That is more cancellation than the law claims, so the
 saving X/S_mu in Note M is conservative.
 
-Usage:  python experiments/exp15_m_exponent.py [X]     (X = 1e6 takes ~2 min)
+Usage:  python experiments/exp16_m_exponent.py [X]     (X = 1e6 takes ~2 min)
 """
 
 import _bootstrap  # noqa: F401

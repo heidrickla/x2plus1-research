@@ -1102,7 +1102,7 @@
       "id": "root-grouping-splits-the-two-normalisations",
       "status": "rigorous_finite",
       "statement": "S_mu(M) puts one absolute value per MODULUS, spanning every root of -1 mod m; exp05's rho is per (q,root) PROGRESSION. Measured at X = 1e6 over ten doublings of M (512..524288): per-progression M-exponent 0.5046 with S/sqrt(MX) drifting by x1.032; per-modulus M-exponent 0.4803 with S/sqrt(MX) drifting by x0.873. The gap is inter-root cancellation at exactly the square-root rate: S_prog/S_mod tracks sqrt(#prog/#mod) to within 2% across the range, while the mean root count per modulus rises 2.652 -> 3.694.",
-      "experiment": "experiments/exp15_m_exponent.py",
+      "experiment": "experiments/exp16_m_exponent.py",
       "tags": [
         "type_ii"
       ],
@@ -1122,8 +1122,8 @@
     {
       "id": "row-merging-pays-the-mu-sum-and-costs-the-gram-bound",
       "status": "rigorous_finite",
-      "statement": "Several primitive Gaussian ideals share one rational modulus. In the incidence graph that merging creates 4-cycles, so the rational Gram entry is 2 where the Gaussian one is 1 (rational-graph-not-c4-free). In the mu-sum the same merging puts several ideal sums inside one absolute value, where they cancel at the square-root rate: S_prog/S_mod tracks sqrt(#prog/#mod) to within 2% over ten doublings of M. One mechanism, opposite signs -- it costs the Gram bound and it pays the Type II sum.",
-      "experiment": "experiments/exp15_m_exponent.py",
+      "statement": "Several primitive Gaussian ideals share one rational modulus. In the incidence graph that merging creates 4-cycles, so the rational Gram entry is 2 where the Gaussian one is 1 (rational-graph-not-c4-free). In the mu-sum the same merging puts several ideal sums inside one absolute value, where they cancel at the square-root rate: S_prog/S_mod tracks sqrt(#prog/#mod) to within 2% at X = 1e6 over ten doublings of M (11% at X = 1e5 -- the tightness is range-dependent; the robust part is the sign). One mechanism, opposite signs -- it costs the Gram bound and it pays the Type II sum.",
+      "experiment": "experiments/exp16_m_exponent.py",
       "tags": [
         "type_ii"
       ],
