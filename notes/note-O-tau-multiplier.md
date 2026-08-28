@@ -178,6 +178,12 @@ the last step because M = b − a < b. This contradicts M ≤ a g². ∎
 
 ## Where the proof stops, and why O.2 is still open
 
+> **⚠ READ THIS SECTION AS HISTORY.** It records the retraction of an early
+> unconditional claim and the state of the argument at that point. **Theorems
+> O.7–O.11 below supersede it**: O.2 is now proved for M an odd prime, and for
+> every M the inequality 3ab < (b−a)^{4/3} — sharpened to 0.048628·(b−a)^{4/3} —
+> is a proved necessary condition. What remains is quantitative, not structural.
+
 **This is a retraction.** A draft of this note, and a message to the parallel
 session, claimed O.2 as an unconditional theorem. It is not, and the error was
 in the composition step, which read:
@@ -248,8 +254,10 @@ a million are silent: they have too few moduli for the question to arise. Any
 statement of the form "verified over hundreds of thousands of classes" would be
 true and misleading, and this note should not make it.
 
-The threshold itself is the parallel session's, and with O.2 open it is now the
-**only unconditional constraint on a triple** anyone has. V is a 2×2
+The threshold itself is the parallel session's, and at the time it was written it
+was the **only unconditional constraint on a triple** anyone had. *(It is no
+longer: Theorems O.4 and O.9–O.11 give stronger ones, and the constant recorded
+here does not follow from the derivation stated — see the correction below.)* V is a 2×2
 determinant, so three solutions satisfy the Plücker relation
 V_ij X_k − V_ik X_j + V_jk X_i = 0 (machine-checked in Note L as
 `test_three_term_determinant_identity`). With X_k/X_i < √2 that forces
@@ -1410,7 +1418,25 @@ wholesale. This is the list a reader should trust.*
   which is *observed on every in-window pair* (295 of 295) and **not proved**. It
   is equivalent to g = gcd(U,V) = 1, the quantity Prop O.1 tracks.
 
-**What is left of O.2**: M even, M non-squarefree, or gcd(V,M) > 1.
+- **O.9**: for M odd squarefree, no hypothesis — each solution carries a **sign**
+  σ = ±1 with Y ≡ σX (mod p), p | V_ij ⟺ σ_i = σ_j, and three signs cannot be
+  pairwise distinct. So **M | V₁₂V₂₃V₁₃** and **3ab < (b−a)^{4/3}**.
+- **O.10**, dropping *every* hypothesis on M: the sign becomes a **valuation
+  split** s_i + t_i ≥ e with s = min(e, v_p(S)), t = min(e, v_p(T)); ordering
+  s₁ ≤ s₂ ≤ s₃ gives v_p(V₁₂) + v_p(V₂₃) ≥ e. The sign is its e = 1 shadow.
+- **O.11**: R₁₂R₂₃ = R₁₃ couples the three bounds, and sinh(u₁₂)sinh(u₂₃) at
+  fixed u₁₃ peaks at the **equal** split, so the constant improves **6.85×** to
+  **ab < 0.048628·(b−a)^{4/3}**.
+
+**What is left of O.2.** Nothing structural — no hypothesis on M survives. What
+is left is **quantitative**: at X = 8000, 13 of 109 informative classes clear
+O.11's inequality, all with a = 1, and none of them holds three moduli in a
+window. **The bounds are not what forbids triples in nature** — the same verdict
+as O.3″ and O.4, now reached from a proved inequality rather than a threshold.
+
+**And O.11's reach is falling**, 97.7% → 88.1% over X = 1500–8000, with the
+admissible count doubling per doubling of X. Whatever closes the remaining
+classes is not a refinement of this constant.
 
 **Measured, and trustworthy as measurements.**
 
