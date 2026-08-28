@@ -1099,6 +1099,31 @@ admissible triples.
   in the even-M regime O.3 cannot reach. It bounds nothing — how many such
   configurations exist is open, and `generate-candidates-from-the-realised-side`
   is `inferred` precisely because it is a claim about search, not about counts.
+- *Three laws were fitted to the mean-G decay and all three withdrawn — why keep
+  the measurement at all?* Because the argument never needed a law. It needs the
+  mean to be well below 1 while the count is an integer, and 0.0243 at N = 2048
+  is a measured value that two independent constructions agree on to five digits.
+  The withdrawals cost four corrections and bought nothing, which is the case
+  for recording values and refusing shapes — and this note now says so three
+  times because it was learned three times.
+- *"Mean G is minimal at the balanced split" — is the argmin real or a dyadic
+  artefact?* The bands are dyadic, so the resolution is a factor 2 and the
+  argmin cannot be located more finely than that. What is measured is that it
+  stays in the **same band relative to X** across a factor 4 in X, from two
+  constructions. That is weaker than "the minimum is at 1.37X" and stronger than
+  "the minimum is somewhere near X", and the note should be read as the former.
+- *Does the K_{3,3}-free result support anything?* Less than it looks. My sweep
+  took the 300 highest-degree cofactors, so it is a sample; the parallel
+  session's filtered on the necessary conditions and is exhaustive over what
+  appears with x ≤ 6000. Neither says anything beyond that range, and a
+  K_{3,3}-free *graph* is not what any argument here uses — the load-bearing
+  facts are the windowed count and the mean, and this is context.
+- *The unwindowed bound does not exist (K_{s,2} for every s) — does that
+  undercut the windowed one?* No, and the orbit structure is why: members of one
+  Prop L.1 orbit are spaced by at least φ⁴, so a window admits one per orbit and
+  the two counts are the same structure at two scales. But it does mean any
+  future statement about "the Gram entry" must say *windowed* or be wrong, and
+  the repo has at least one sentence per note that predates that discipline.
 - *Was the population defect avoidable?* It was recorded in this repo already,
   as `triples-cannot-be-settled-by-measurement`, and both sessions walked into
   it anyway — one of them (this one) while citing it. The registry entry names
