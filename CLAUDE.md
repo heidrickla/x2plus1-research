@@ -204,7 +204,18 @@ window holds (ξ, τ₁ξ, τ_kξ)** — and **Theorem O.3′ supersedes that**:
 while integrality makes c·ρ an integer for c = gcd(M, 2X); an integer in
 (c, 1.06066c) needs c ≥ 17. **So the conclusion holds whenever gcd(M, 2X) ≤ 16,
 with no hypothesis on M at all** — reaching the even, non-squarefree cases O.3
-was mute on. **The geometry there is r_k² < 2, equivalently M > 4√2·k√(ab), and
+was mute on. **And O.3″ sharpens O.3′ into a joint (c,k) region**: the
+chain discards a term at ρ² < 9/8 − ρ/(8k), and ρ > 1 is free (U_k > 2k√(ab) >
+2ka; Λ > 0 with ρ² < 1 forces ρ > k ≥ 1). Keeping it, with g = cρ ∈ ℤ the
+identity reads M(g−c)(g+c) = 4kac(kc−g) and a triple needs
+**(4k+√(16k²+2))(2c+1) < c(kc−c−1)**. k → ∞ gives back c ≥ 17, so **O.3′ is the
+k-free shadow of O.3″**, while **k = 2 is excluded for every c ≤ 33**. k = 1 is
+the boundary that hid it — U₁ = a+b, ρ = 1 exactly, Λ = 0/0. Reading "cρ ∈ ℤ
+needs 1/(ρ−1)" off the ρ bound gives 33 not 34 at k = 2; **that route spends
+ρ > 1 on the −ρ term while the region form substitutes ρ ≥ (c+1)/c in both**, so
+the region form is the parent and the ρ bound its weaker corollary. O.3″ leaves
+O.2's p,q ≥ 2 gap untouched and is far from binding: every realised acting
+in-window multiplier with k ≥ 2 has c ∈ {2,4} against a threshold of 17. **The geometry there is r_k² < 2, equivalently M > 4√2·k√(ab), and
 the distinction decides the theorem**: the modulus ratio is τ², not τ, so r_k² < 2
 is what "both fit one dyadic window" means. Under the weaker r_k < 2 (which is
 M > (8/3)·k√(ab)) the ρ bound is **false** — 193 violations in 277, ρ reaching

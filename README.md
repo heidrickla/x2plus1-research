@@ -261,6 +261,21 @@ non-fundamental close pairs. The proof turns on ρ = B_k/M, where the identity
 M(ρ² − 1) = 4ka(k − ρ) and the window force ρ < 1.06066, while integrality makes
 c·ρ an integer — and an integer in (c, 1.06066c) needs c ≥ 17.
 
+**O.3″ sharpens that to a joint (c, k) region.** The chain reaches
+ρ² < 9/8 − ρ/(8k) and discards the second term using ρ > 0 — but **ρ > 1 is
+free**: U_k > 2k√(ab) > 2ka since b > a, and Λ > 0 with ρ² < 1 would force
+ρ > k ≥ 1. Keeping it, with g = cρ ∈ ℤ the identity becomes
+M(g−c)(g+c) = 4kac(kc−g), and the window turns that into
+
+> a triple needs **(4k + √(16k²+2))(2c+1) < c(kc − c − 1)**.
+
+k → ∞ recovers c ≥ 17, so **O.3′ is exactly the k-free shadow of O.3″**, while at
+k = 2 it forbids everything with **c ≤ 33** — double O.3′'s reach at the smallest
+index a triple can use. **k = 1 is the boundary that hid this**: there U₁ = a+b,
+so ρ = 1 exactly and Λ = 0/0. It does not touch O.2's p, q ≥ 2 gap, and it is
+nowhere near binding — every realised acting in-window multiplier with k ≥ 2 has
+c ∈ {2, 4} against a threshold of 17.
+
 **The general statement — no window holds three, full stop — is not proved.** It
 was claimed unconditionally for about an hour and retracted. Its sharp form is
 measurable and measured: *on any solution ξ, at most one acting multiplier has
