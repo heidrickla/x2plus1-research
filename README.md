@@ -411,7 +411,13 @@ The column that separates every solved case from this one is ν.
   x²+1, which Teräväinen calls "wide open for any polynomials with nonlinear
   irreducible factors" (arXiv:2010.07924v4, pp. 1–2). For this sequence the
   trivial bound has never been beaten by any amount, at any level, signed or
-  absolute. [Note M](notes/note-M-where-mu-lives.md).
+  absolute — **in the literature.** The sum itself cancels: measured,
+  |Σ_{x≤X} μ(x²+1)|/√X stays between 0.21 and 1.34 across more than two decades,
+  reaching |S|/X = 1.7×10⁻⁴ at X = 4×10⁶. So the estimate needed at θ = 0 is
+  **visibly true and unprovable by current methods**, which is a different
+  position from a sequence that misbehaves. No law is fitted: two decades is not
+  an asymptotic, and Chowla for x²+1 remains open.
+  [Note M](notes/note-M-where-mu-lives.md), [Note G](notes/note-G-spectral.md).
 - **An absolute-value analogue of DFI's Proposition 1.** Prop 1 bounds a
   *signed* sum over this repo's residues; [exp07](experiments/exp07_absolute_values.py)
   shows the difficulty is entirely in the absolute values, so what is needed is
