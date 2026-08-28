@@ -821,6 +821,24 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   comparison; derivation supplies the property; **and here the measurement was
   the misleading one.**
 
+- **The anchored-window defect was systematic across this repo's sweeps and
+  changed no conclusion — and fixing it made one conclusion stronger.** Found in
+  three independent places: `exp09`'s degree ladder, Note O's extremal-ratio
+  measurement (where it corrupted a *value*, 43.79 for the true 34.0811), and
+  `exp20`'s mean-G decay — the measurement the entire Type II argument rests on.
+  In every case the conclusion survived. In the last it **improved**: every
+  anchored mean is *higher* than the ratio mean, over roughly a third of the
+  population, so `the-main-term-is-smaller-than-the-granularity` is better
+  supported by the faithful quantification (0.0213 at N = 2048) than by the
+  figures the repo had recorded (0.0243). **A defect whose repair strengthens the
+  result is the rarest kind here** — every other one tonight cost something — and
+  it is evidence the conclusions were not resting on the anchoring. **The
+  systematic-ness is the finding**: one wording defect, reproduced independently
+  in three sweeps years apart in style, because "dyadic band" reads as an
+  interval when it means a ratio. And note where the repair had to land: putting
+  the faithful numbers in a claim's `notes` while its `statement` still led with
+  the anchored ones is the same half-correction this file already warns about.
+
 - **The cross-session message channel is the only uninstrumented one, and it
   needs no gate — but nothing may live there alone.** Every mechanism here
   operates on the repo: the claims gate, the prose gate, the suite, the status
@@ -862,6 +880,16 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   computations disagreeing**, which is the redundancy argument in its most direct
   form: not a second reading, a second *computation* whose disagreement was
   itself the signal.
+  **It turned out to be systematic, and it cost nothing.** Found in three places
+  — `exp09`'s degree ladder, the extremal-ratio measurement, and `exp20`'s mean-G
+  decay, which is the number the whole "no main term" argument is built from —
+  and **every conclusion survived**. At exp20 the faithful reading is *lower* at
+  every scale (1.7500, 0.6562, 0.2429, 0.0799, 0.0213 against 2.0000, 0.6667,
+  0.2536, 0.0865, 0.0243) over roughly three times the population, so fixing it
+  **strengthened** the result. A defect that improves the conclusion when
+  corrected is the only one of the night that cost nothing — and three
+  independent sweeps carrying it while none of the conclusions depended on it is
+  itself evidence that the conclusions were not resting on the sweep's shape.
 
 - **Duplicated computation is the only safeguard here that works while nobody is
   paying attention.** Every other countermeasure in this file requires someone to
