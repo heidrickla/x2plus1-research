@@ -197,6 +197,22 @@ forbids K_{2,2} over Z[i], while over Z the *unwindowed* bound does not exist.
 The window is what supplies the constant — orbit members are ~4.6×10⁵ apart, so
 a dyadic window admits one from each of the two orbits, which is the measured 2.
 
+**O.2 in one configuration, and the place to start if anyone reopens it:
+(a,b) = (2, 8321)**, M = 8319. Live (shared moduli 8065, 8581); a close pair
+(ratio 1.06398); τ₁ explains it to five decimals; a **second** in-window
+multiplier exists (k = 9, r₉ = 1.73542 < 2); and the residues permit both. So a
+third modulus at ≈ 13996 would fit the window — **and it is not there**. Every
+ingredient lines up and **occupancy alone forbids the triple**. That is why all
+eight recorded routes fail: each tries to rule out something the residues, the
+geometry and the multiplier existence all permit. Pinned by a test.
+
+**Eight routes on O.2's general case are closed with reasons** (Note O). The two
+that most look worth retrying and are not: **there is no residue obstruction at
+all** — the exact four linear conditions plus the conic are simultaneously
+solvable for all 21 pairs that survive the cheap αβ | M filter — and **Nagell
+runs the wrong way**, bounding fundamental solutions from above when a lower
+bound is what is needed. Any proof must be about **occupancy**, not congruences.
+
 **The big methodological finding, which cost both sessions a day of work.**
 Generating candidates from *multipliers* and testing occupancy afterwards
 searches a mostly-empty parameter space, and worse, **r₁·r_k is a ratio between
