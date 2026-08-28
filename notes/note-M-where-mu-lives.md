@@ -172,9 +172,16 @@ the object Prop L.1 bounds and Theorem O.3′ constrains. Measured at X = 2×10�
 
 Three things to read off. **DIAG is flat in M** — ≈ 5.05×10⁴ across a 256-fold
 range — because each x has O(1) divisors in a dyadic band, so DIAG ≍ X.
-**OFF/DIAG decays monotonically** to 0.038. And **Cauchy–Schwarz is tight**,
-S_μ/CS ≈ 0.75 at every M, so the |T_m| are equidistributed and no single modulus
-carries the sum.
+**OFF is small relative to DIAG**, |OFF|/DIAG ≤ 0.51 and mostly under 0.11. And
+**Cauchy–Schwarz is tight**, S_μ/CS ≈ 0.75 at every M, so the |T_m| are
+equidistributed and no single modulus carries the sum.
+
+*Not monotone, and the first draft of this paragraph said it was.* OFF is a
+**signed** sum and changes sign with X and M: at X = 10⁵ the same three bands
+give −0.166, −0.126, +0.095. The reduction needs |OFF| ≪ DIAG, which is what is
+observed; reading one run's monotone column as a trend was an over-read, and
+[`exp15`](../experiments/exp15_cauchy_schwarz_reduction.py) now reports the
+worst |OFF|/DIAG rather than the endpoints.
 
 So the upper bound reduces to one input:
 
@@ -277,6 +284,68 @@ the two sums is 0.884 — a constant-order correction, as the density predicts.
 What is *not* improved: the law is still `extrapolated`. Extrapolating a fitted
 exponent from 10⁷ to all X is the unsupported step, and it is unchanged. What
 changes is that the fit is no longer resting on a single decade.
+
+## The grouping is the Z-vs-Z[i] distinction, and the merging cuts both ways
+
+The two groupings of the previous section are not an implementation detail.
+**A (modulus, root) pair *is* a primitive Gaussian ideal of that norm** — an
+ideal coprime to its conjugate. Checked over all 3145 admissible m < 20 000,
+zero mismatches. (Primitivity is the whole content: (5) has norm 25 but 5 ∤ x²+1
+ever, while 𝔭² and 𝔭̄² do correspond to the two roots mod 25. A first version of
+this check counted all ideals of norm m and disagreed on 54 of 687 moduli,
+correctly.) The counts match because both are 2^{#odd primes}: by CRT and Hensel
+on the root side, by choosing 𝔭^e or 𝔭̄^e at each odd prime on the ideal side.
+
+So:
+
+| grouping | absolute value per | this is |
+|---|---|---|
+| per progression | primitive Gaussian ideal | the **Z[i]** sum |
+| per modulus | rational m | the **Z** sum |
+
+And **[ASP]'s (B) asks for the second.** Its display, quoted in
+[Note C](note-C-requirements.md) from p. 1043, is
+Σ_m | Σ_{N<n≤2N, mn≤x} γ(n)μ(mn)a_{mn} | with m rational and the inner sum over
+every n with mn ∈ A — hence over every root at once. **The sieve-relevant law is
+the per-modulus one**, exponent 0.480, not the per-progression 0.505.
+
+> **The same row-merging that breaks C₄-freeness over Z supplies the extra
+> cancellation in the μ-sum.** Several primitive Gaussian ideals share one
+> rational modulus. In the incidence graph that merging creates 4-cycles, so the
+> rational Gram entry is 2 where the Gaussian one is 1 ([Note L](note-L-over-Z.md),
+> `rational-graph-not-c4-free`). In the μ-sum the same merging puts several ideal
+> sums inside one absolute value, where they cancel at the square-root rate.
+> **One mechanism, opposite signs: it costs the Gram bound and it pays the
+> Type II sum.**
+
+## The law has an identified log correction, and two routes predict it
+
+Putting the mean root count into the law: the number of primitive ideals per
+admissible modulus grows like √(log M), so
+
+    S_μ(M) = S_prog / √(mean roots per modulus) ≍ √(MX) / (log M)^{1/4}.
+
+The parallel session reaches the same form from the other side — Cauchy–Schwarz
+gives S_μ(M)² ≤ #{m ∼ M}·Q₂, and with #{m ∼ M} ≍ M/√(log M) by Landau–Ramanujan
+that is S_μ ≪ √(MX/√(log M)), the identical exponent. Measured at X = 10⁶ across
+ten doublings:
+
+| normalisation | drift over M = 512 … 524288 |
+|---|---:|
+| S_μ / √(MX) | ×0.873 |
+| S_μ·(log M)^{1/4} / √(MX) | **×1.052** |
+
+So the (log M)^{1/4} accounts for essentially all of the residual drift, and the
+refined law fits to 5% where the plain one fits to 13%.
+
+**This does not promote anything.** The upper-bound half now has a proof shape —
+Cauchy–Schwarz is exact, the diagonal is a divisor count, the modulus count is
+Landau–Ramanujan, and only the off-diagonal cancellation is measured — but
+`sqrt-MX-law` stays `extrapolated` because that last input is the whole
+difficulty. What changes is its *shape*: the missing step is cancellation in
+Σ_{x≠y} μ(x²+1)μ(y²+1)·G_M(x,y), where G_M is this repo's own Gram entry, rather
+than an exponent fitted over four decades. That is the first place the θ-axis and
+the Gram axis meet.
 
 ## Adversarial review
 

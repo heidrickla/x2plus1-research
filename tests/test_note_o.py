@@ -417,3 +417,37 @@ def test_at_most_one_acting_multiplier_lies_inside_a_window():
             inwindow += len(small) == 1
     assert checked > 0, "no acting multipliers -- test vacuous"
     assert inwindow > 0, "no in-window multiplier at all -- test proves nothing"
+
+
+def test_second_moment_decomposition_is_exact():
+    """Q2 = DIAG + OFF, the identity behind Note M's Cauchy-Schwarz reduction.
+
+    DIAG counts squarefree incidences; OFF is the signed Gram sum
+    sum_{x!=y} mu mu G_M(x,y).  Checked by computing both sides independently.
+    """
+    import numpy as np
+    from x2plus1.factorization import roots_of_minus_one
+    from x2plus1.mobius import mobius_x2plus1
+
+    X, M = 4000, 60
+    mu = mobius_x2plus1(X)
+    Q2 = 0.0
+    diag = 0
+    off = 0.0
+    for m in range(M, 2 * M):
+        rs = roots_of_minus_one(m)
+        starts = {r % m for r in rs} | {(m - r) % m for r in rs}
+        starts.discard(0)
+        if not starts:
+            continue
+        cols = [np.arange(r, X + 1, m, dtype=np.int64) for r in sorted(starts)]
+        xs = np.unique(np.concatenate(cols))
+        xs = xs[xs >= 1]
+        v = mu[xs]
+        Q2 += float(v.sum()) ** 2
+        diag += int((v != 0).sum())
+        s = float(v.sum())
+        off += s * s - float((v * v).sum())          # the x != y part, directly
+    assert diag > 0, "no incidences -- test vacuous"
+    assert Q2 == pytest.approx(diag + off, rel=1e-9)
+    assert abs(off) < diag, (off, diag)              # |OFF| << DIAG, the measured input
