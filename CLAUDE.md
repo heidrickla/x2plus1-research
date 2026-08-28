@@ -33,8 +33,8 @@ still `inferred` is only the reading of their quantifier, which is the same
 reading the bridge always rested on.
 
 **And there is a stronger form that does not depend on the bound being 1.** At
-X = 3000 the mean of G over pairs in a dyadic band [N,2N) is 2.000, 0.667, 0.254,
-0.0865, **0.0243** at N = 8, 32, 128, 512, 2048 — but the first two are over **1 and 21 pairs**, so read them as barely defined rather than as data. So over the range the sieve uses
+X = 3000 the mean of G over cofactor pairs of **ratio < 2** is 1.750, 0.656, 0.243,
+0.0799, **0.0213** at N = 8, 32, 128, 512, 2048, over 4, 64, 844, 12124 and 163256 pairs — the first is over **four pairs**, so read it as barely defined rather than as data. *(This line used to quote the **anchored**-band values 2.000, 0.667, 0.254, 0.0865, 0.0243 over 1, 21, 276, 4186, 56280 pairs, from bands [N,2N) with N stepped by powers of four — which never forms a pair like (9,17) of ratio 1.89. The ratio form is **lower at every sieve-relevant scale over ~3× the population**, so the argument is slightly better supported than recorded, and the U-shape survives: 0.0171 at N = 8192 climbing to 0.5400 at N = 2097152.)* So over the range the sieve uses
 the expected Gram entry is far below 1 *while G is integer-valued*: at N ≈ 2048,
 a mean of 0.024 against a granularity of 1, so **what dispersion would call the
 error is tens of times what it would call the main term.**
@@ -1042,6 +1042,17 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   not — but it means a collaborator's picture can drift from the repo's while the
   repo stays sound. **State the claim id in the message and let the reader check
   the artefact**, rather than restating the content in looser words.
+
+- **A skipped check looks exactly like a passing one unless the runner says
+  otherwise.** `tools/smoke_experiments.py` prints `SKIP -- no size recorded` for
+  any experiment missing a `SIZES` entry, counts it, and **returns success** —
+  so `exp25` was not being run at all while the run reported fine. That is the
+  enumeration-floor defect in the tool whose whole job is checking the others,
+  and it is invisible from the exit status. Same shape as a test that half-runs:
+  the failure is *partial*, so nothing about the output looks wrong. **A runner
+  that can skip needs to fail on skips, or at least report them in its exit
+  status** — and the general form is that any check with a "not applicable"
+  branch has a silent-success path by construction.
 
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
