@@ -1026,6 +1026,17 @@
         "method"
       ],
       "notes": "Inferred, not proved: it is a claim about search efficiency, supported by the fact that the method's first run (the 20 residuals of the tau^2 positive control) produced live-non-fundamental-close-pair without looking for it, while both sessions' multiplier-first sweeps produced candidate lists now refuted wholesale. Answers the open sentence in the parallel session's Note O -- 'no candidate-generation method known to select live configurations'. What it does NOT do is bound how many such configurations exist."
+    },
+    {
+      "id": "triple-question-upgrades-status-not-conclusion",
+      "status": "inferred",
+      "statement": "Proving 'no dyadic window holds three shared moduli' is exactly the uniform bound G' <= 2 on windows, so it would move rational-gram-bounded-on-windows from rigorous_finite to proved. It would NOT close gaussian-to-rational-bridge, whose inference concerns what Ford-Maynard's (II) quantifies over rather than the size of the constant. And it would change no conclusion: the argument uses only that a bounded count supplies no main term, which holds at 1, 2 or 3 alike.",
+      "experiment": "",
+      "tags": [
+        "type_ii",
+        "scope"
+      ],
+      "notes": "Recorded as a proportionality check after two sessions spent substantial effort on Conjecture O.2. The effort is justified -- selberg-nu-zero-binds rests on an inferred step and inferred is the class this repo has twice been burned by -- but the volume of work reads as though more is at stake than there is. A counterexample would not weaken the obstruction either, for the same reason. Prop L.1 cannot deliver the constant on its own since it bounds by the class count and that is unbounded, which is why the triple statement is the only route to the upgrade currently on the table."
     }
   ]
 }

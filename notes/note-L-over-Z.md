@@ -566,6 +566,39 @@ reads considerably broader than a statement mute on four fifths of the
 candidates and on the a = 1 family this note identifies as driving the full
 graph's growth.
 
+### What proving the triple statement would actually buy
+
+Two sessions have now spent substantial effort on "can a dyadic window hold
+three shared moduli", so it is worth stating what turns on the answer. It is
+load-bearing, but for the *status* of a step and not for any conclusion.
+
+**It is load-bearing.** "No dyadic window holds three" is exactly
+G′(n₁,n₂) restricted to a window ≤ 2, uniformly in X. That is the O(1) bound.
+It would move `rational-gram-bounded-on-windows` from `rigorous_finite`
+(measured, X ≤ 8000) to `proved`, and it is the only route to that upgrade
+currently on the table — Prop L.1 gives ≤ (number of classes), and the class
+count is unbounded, so the spacing argument alone cannot deliver a constant.
+
+**It would not close the bridge.** `gaussian-to-rational-bridge` is `inferred`
+for a second reason that has nothing to do with the constant: the step from
+"no main term over Z" to "ν = 0 in [FM]'s sense" concerns what their (II) is
+quantified over. Proving the triple statement makes the numerical input proved
+and leaves that inference exactly where it is.
+
+**And it would not change any conclusion.** The argument uses only that there is
+no main term to extract, and a bounded count supplies none at any constant —
+1, 2, or 3 alike. So the triple question cannot rescue a Type II estimate, and
+nothing in [Note C](note-C-requirements.md)'s placement moves either way.
+
+> **Proving it upgrades one claim's epistemic status. It does not weaken the
+> obstruction, and a counterexample would not weaken it either.**
+
+That is the right size for it, and it is worth recording because the recent work
+on Conjecture O.2 reads, from the volume of it, like something with more at
+stake. The reason to want it is that `selberg-nu-zero-binds` currently rests on
+an `inferred` step, and the repo's own rule is that inferred conclusions are the
+class it has twice been burned by.
+
 ## So Note F's conclusion transfers, and here is exactly how much is proved
 
 - **Proved, Z[i]:** G(n₁,n₂) ≤ 1, at every split and on the full graph
