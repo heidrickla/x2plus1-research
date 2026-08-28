@@ -1571,7 +1571,7 @@
         "note_o",
         "window"
       ],
-      "notes": "THE HYPOTHESIS IS OBSERVED, NOT PROVED, and that is the gap. Every in-window pair with M odd has gcd(V,M) = 1 -- 295 of 295 at X = 6000, 197 of 197 at X = 4000 -- but the window bound |V| < 0.57735 M/sqrt(D) bounds V without making it coprime to M. gcd(V,M) = 1 is EQUIVALENT to g = gcd(U,V) = 1 (g | M and g | V give g | gcd(V,M); conversely p | gcd(V,M) forces p | U since U^2 = M^2 + D V^2), so it is the same quantity Prop O.1's chain tracks, where all that is known in-window is a g^2 < M, which permits g > 1. TWO CONDITIONS, NOT ONE: coprimality is what separates swap from non-swap (every non-swap has gcd(V,M) > 1; none among 1333 coprime pairs), while squarefreeness is needed so the split is a dichotomy rather than partial -- M = 9 gives (3,3), neither p^e | S nor p^e | T. A first pass recorded the non-swaps as 'all at M = 9' from an example list; the distribution is M = 3, 9, 11, 15, 21, 23, mostly squarefree. M EVEN remains outside everything here: a, b both odd makes M and V both even, so gcd(V,M) >= 2 automatically."
+      "notes": "SUPERSEDED BY theorem-O9-pigeonhole, which reaches the same conclusion with NO hypothesis: the coprimality gcd(V,M) = 1 was not needed. Kept because the factorisation lemma it rests on is used by O.9, and because the conditional form was the step that made the unconditional one findable. THE HYPOTHESIS IS OBSERVED, NOT PROVED, and that is the gap. Every in-window pair with M odd has gcd(V,M) = 1 -- 295 of 295 at X = 6000, 197 of 197 at X = 4000 -- but the window bound |V| < 0.57735 M/sqrt(D) bounds V without making it coprime to M. gcd(V,M) = 1 is EQUIVALENT to g = gcd(U,V) = 1 (g | M and g | V give g | gcd(V,M); conversely p | gcd(V,M) forces p | U since U^2 = M^2 + D V^2), so it is the same quantity Prop O.1's chain tracks, where all that is known in-window is a g^2 < M, which permits g > 1. TWO CONDITIONS, NOT ONE: coprimality is what separates swap from non-swap (every non-swap has gcd(V,M) > 1; none among 1333 coprime pairs), while squarefreeness is needed so the split is a dichotomy rather than partial -- M = 9 gives (3,3), neither p^e | S nor p^e | T. A first pass recorded the non-swaps as 'all at M = 9' from an example list; the distribution is M = 3, 9, 11, 15, 21, 23, mostly squarefree. M EVEN remains outside everything here: a, b both odd makes M and V both even, so gcd(V,M) >= 2 automatically."
     },
     {
       "id": "p-divides-V-exactly-when-the-local-subcase-agrees",
@@ -1599,7 +1599,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "A third of the hypothesis comes off, and the shape of what remains is clearer: the open question is entirely whether gcd(V,M) = 1 holds on in-window pairs, which is a statement about PAIRS -- realised, 295 of 295 at X = 6000 -- and no longer about triples, which are not realised and so cannot be swept for at all. That is the distinction the parallel session drew about O.7's measurability, arriving one level down: the hypothesis is now entirely on the observable side of it.",
+      "notes": "A third of the hypothesis comes off, and the shape of what remains is clearer: the open question is entirely whether gcd(V,M) = 1 holds on in-window pairs, which is a statement about PAIRS -- realised, 295 of 295 at X = 6000 -- and no longer about triples, which are not realised and so cannot be swept for at all. That is the distinction the parallel session drew about O.7's measurability, arriving one level down: the hypothesis is now entirely on the observable side of it. SUBSUMED by the parallel session's Theorem O.9, which takes the same sign equivalence and needs no hypothesis at all: three signs in {+-1} cannot be pairwise distinct, so every p | M divides one of V_12, V_23, V_13 and M | V_12 V_23 V_13 for M squarefree, and the window bound then forces 3ab < M^{4/3}. My version cut the hypothesis from three steps to two; theirs removes it. Kept as true and not refuted, but it is not the live statement -- the live one is O.9.",
       "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_p_divides_V_exactly_when_the_local_subcase_agrees"
     },
     {
@@ -1628,6 +1628,49 @@
       ],
       "notes": "The cleanest form the O.8 hypothesis has taken: it is the single divisibility M | W. M | W holds 197/197 in-window at X = 4000 and only 680/767 = 88.7% out of window, so the window is doing real work rather than the divisibility being automatic. NOT proved, and the size argument does not reach it: |V| < 0.57735 M/sqrt(D), so gcd(V,M) > 1 is excluded by size only when every prime of M exceeds 0.57735 M/sqrt(D). At a = 1 that reads p > 0.577 sqrt(M), which fails for M = 33 among others -- so classes exist where nothing but the arithmetic forbids it.",
       "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_p_divides_V_exactly_when_the_local_subcase_agrees"
+    },
+    {
+      "id": "theorem-O9-pigeonhole",
+      "status": "proved",
+      "statement": "Theorem O.9. For M = b-a odd and squarefree, a dyadic window contains three shared moduli (with X_1 >= 1) only if 3ab < (b-a)^{4/3} -- equivalently a < (t-1)^2/(3t)^{3/2} for t = b/a, so asymptotically b > 27 a^3. Proof: for p | M, aY^2 = bX^2 + M gives Y^2 == X^2 mod p and p nmid X (else p | Y so p | S and p | T, while S T = -M m with v_p(M) = 1 forces v_p(S) + v_p(T) = 1), so each solution carries a sign sigma = +-1 with Y == sigma X. Then V_ij == X_i X_j (sigma_j - sigma_i) mod p, so p | V_ij iff sigma_i = sigma_j. Three signs in {+-1} cannot be pairwise distinct, so every p | M divides one of V_12, V_23, V_13; for M squarefree that is M | V_12 V_23 V_13. In a window |V| < M/sqrt(3D), so M <= |product| < M^3/(3D)^{3/2}. Recovers Theorem O.7 for M prime with NO hypothesis, and supersedes O.8's coprimality assumption.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O9_the_sign_is_well_defined_and_p_divides_V_iff_signs_agree; tests/test_note_o.py::test_O9_pigeonhole_forces_M_to_divide_the_product_of_the_three_Vs; tests/test_note_o.py::test_O9_the_window_bound_and_the_resulting_inequality; tests/test_note_o.py::test_O9_the_VW_identity_has_no_cofactor",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "ST-equals-minus-M-times-m"
+      ],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "NOT A WEAK CONDITION: at X = 4000, 499,188 of 503,054 classes with M odd squarefree (99.2%) fail 3ab < M^{4/3} and are excluded outright. With O.4's t > 133.875 the admissible a is tiny -- a <= 2 at the minimum admissible t, 6 at t = 1e3, 19 at t = 1e4. Verified at X = 4000: 0 failures over 1,588,226 sign determinations and 1317 (p,pair) equivalence checks; 0 failures of M | V12 V23 V13 over the realised triples; 0 failures of |V| < M/sqrt(3D) over 139 in-window pairs. THE CLEANER IDENTITY IS THE PARALLEL SESSION'S: V W = M (m_i - m_j) with W = X_j Y_i + X_i Y_j -- mine divided by a, and the cofactor cancels entirely (0 failures over 2747 pairs). It also gives gcd(V,M) = 1 <=> M | W for M odd squarefree. STILL OPEN: M even and M non-squarefree, where sigma is undefined -- at M = 9 the pair (gcd(M,S), gcd(M,T)) is (3,3) and p | X becomes possible."
+    },
+    {
+      "id": "V-is-even-whenever-M-is-odd",
+      "status": "proved",
+      "statement": "For M = b - a odd, V = X_i Y_j - X_j Y_i is always even. M odd means a and b are not both 2 mod 4. If a and b are both odd then m must be odd -- m even would give am and bm even, so X and Y both odd, so a = b = 2 mod 4 is not needed but M = b-a even, a contradiction -- and then X^2 = am-1 and Y^2 = bm-1 are both even, so X and Y are both even. If a = 2 mod 4 and b is odd then m is odd, X^2 = am-1 is odd and Y^2 = bm-1 is even, so X is odd and Y even. Either way every term of V has an even factor. Verified over all consecutive pairs at X = 4000: 0 odd |V| out of 2566.",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Small and load-bearing: it turns |V| < 4 into |V| = 2, which is what makes the Plucker threshold prove O.8's hypothesis rather than merely bound V.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_O8_hypothesis_is_proved_below_the_plucker_threshold"
+    },
+    {
+      "id": "O8-hypothesis-is-proved-below-the-plucker-threshold",
+      "status": "proved",
+      "statement": "O.8's hypothesis gcd(V,M) = 1 is a THEOREM, not an observation, whenever M/sqrt(D) <= 8/(sqrt r - 1/sqrt r) with r = 2 + 1/X_i^2 -- i.e. 4 sqrt 3 = 6.9282 at X_i = 1, rising to 8 sqrt 2 = 11.3137. Chain, all proved: the bound |V| < (M/2 sqrt D)(sqrt r - 1/sqrt r) from V W = M(m_i - m_j) and Y > X sqrt(b/a); V even for M odd; V nonzero. So below the threshold |V| < 4 forces |V| = 2, and gcd(2,M) = 1. Coverage at X = 4000: 234 of 498 in-window pairs (47.0%) are below the threshold and ALL have |V| = 2; 95 of those have M odd and all have gcd(V,M) = 1 by the argument rather than by measurement.",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "V-times-W-equals-M-times-the-modulus-gap",
+        "V-is-even-whenever-M-is-odd"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The Plucker bound and O.8's hypothesis turn out to be the same inequality read in opposite directions. The parallel session had just corrected the bound's derivation -- it gives 8 sqrt 2, not 11.484 -- and treated it as a constraint on TRIPLES; used as a constraint on a single step it proves the pair-level hypothesis outright below the threshold. Above it, |V| >= 4 becomes possible and the hypothesis is open: measured 0 counterexamples over 295 in-window M-odd pairs at X = 6000 and 451 at X = 9000, and the only in-window pairs with |V| > 2 anywhere in the data -- |V| = 24, 66, 182 at (53,423125), (1,51701), (1,423125) -- all have M EVEN, hence gcd(V,M) >= 2 automatically and nothing to prove.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_O8_hypothesis_is_proved_below_the_plucker_threshold"
     }
   ]
 }

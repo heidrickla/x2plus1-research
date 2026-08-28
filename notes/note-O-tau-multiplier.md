@@ -946,9 +946,65 @@ M = 3, 9, 11, 15, 21, 23 — most of them squarefree. The right invariant is
 gcd(V,M), not squarefreeness, and reading six examples instead of the counts is
 how the two got conflated.)*
 
-**What remains open is M even, M non-squarefree, and the coprimality.** The
-dichotomy and the sign both use that M is odd, and O.7 additionally uses that M
-is prime: U² ≡ (Va)² only gives M | A_VB_V in general, and the signs can differ
+### Theorem O.9 — the same conclusion with no hypothesis, by pigeonhole
+
+O.8's coprimality assumption turns out to be unnecessary, and dropping it makes
+the argument shorter. The mechanism is a **sign**, and the contradiction is that
+three signs cannot be pairwise distinct.
+
+> **The sign.** For p | M odd, aY² = bX² + M gives **Y² ≡ X² (mod p)**, and
+> p ∤ X: otherwise p | Y, so p | S and p | T, while S·T = −M·m with v_p(M) = 1
+> forces v_p(S) + v_p(T) = 1. So each solution carries
+> **σ_i = ±1 with Y_i ≡ σ_i X_i (mod p)**.
+>
+> **The equivalence.** V_ij = X_iY_j − X_jY_i ≡ X_iX_j(σ_j − σ_i) (mod p), and p
+> is odd with p ∤ X_iX_j, so
+>
+> **p | V_ij ⟺ σ_i = σ_j.**
+>
+> *(0 failures over 1,588,226 (p, solution) sign determinations and 1317
+> (p, pair) equivalence checks at X = 4000.)*
+>
+> **The pigeonhole.** Three values in {±1} cannot be pairwise distinct, so **at
+> every p | M some pair has σ_i = σ_j**, hence p divides one of V₁₂, V₂₃, V₁₃.
+> For M squarefree that is **M | V₁₂·V₂₃·V₁₃** — *unconditionally*.
+> *(0 failures over the realised triples.)*
+>
+> **The size.** In a window R² = X_j²/X_i² < 2 + 1/X₁² ≤ 3, so R − 1/R < 2/√3 and
+> **|V| < (M/2√D)(R − 1/R) < M/√(3D)**. With V ≠ 0,
+> M ≤ |V₁₂V₂₃V₁₃| < M³/(3D)^{3/2}. ∎
+
+> **Theorem O.9.** For M = b − a odd and squarefree, a dyadic window contains
+> three shared moduli (with X₁ ≥ 1) only if
+>
+> **3ab < (b − a)^{4/3}**,  equivalently  **a < (t−1)²/(3t)^{3/2}** for t = b/a,
+>
+> so asymptotically **b > 27a³**.
+
+**This supersedes Theorem O.8**, whose gcd(V, M) = 1 was not needed, and it
+recovers **O.7** as the case M prime: there step 3 gives M | V_ij for some pair,
+against 0 < |V_ij| < M/√(3D) < M. So O.7 holds with **no hypothesis at all**, not
+merely with one that happens to be observed.
+
+**It is not a weak condition.** At X = 4000, **499,188 of 503,054 classes with M
+odd squarefree (99.2%) fail 3ab < M^{4/3}** and so are excluded outright.
+Combined with O.4's t > 133.875, the admissible a is tiny: **a ≤ 2** at the
+minimum admissible t, 6 at t = 10³, 19 at t = 10⁴.
+
+**And the identity behind it is cleaner without the cofactor** — the parallel
+session's form, which is mine divided by a:
+
+> **V·W = M·(m_i − m_j)**,  W = X_jY_i + X_iY_j.
+
+*(0 failures over 2747 pairs.)* Since Y² = X² + Mm, VW = X_i²Y_j² − X_j²Y_i² =
+M(X_i²m_j − X_j²m_i) = M(m_i − m_j) using X² = am − 1. **The a cancels
+entirely**: the relation is between V, W, M and the modulus gap alone. It also
+gives the dual reading — for M odd squarefree, exactly one of V, W is divisible
+by each p | M, so **gcd(V,M) = 1 ⟺ M | W**.
+
+**What remains open is M even and M non-squarefree.** The sign and the exact
+splitting both use that M is odd and squarefree — at M = 9 the pair
+(gcd(M,S), gcd(M,T)) is (3,3), p | X becomes possible, and σ is undefined: U² ≡ (Va)² only gives M | A_VB_V in general, and the signs can differ
 across the prime factorisation of M — which is exactly the 2-adic gap O.3 already
 had. **M odd prime is 54 of the 379 realised close pairs (14%)**, so this is a
 real slice rather than a corner, and the surviving case is the composite one.

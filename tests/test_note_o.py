@@ -1199,3 +1199,104 @@ def test_the_plucker_constant_equals_O4s_and_the_route_gives_less():
     R = sqrt(2)
     assert abs(4 / ((R - 1 / R) / 2) - 8 * sqrt(2)) < 1e-9      # 11.3137
     assert 8 * sqrt(2) < 4 * (x + x**3)                          # O.4 is stronger
+
+
+def test_O9_the_VW_identity_has_no_cofactor():
+    """V W = M (m_i - m_j), with W = X_j Y_i + X_i Y_j.  The a cancels."""
+    n = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                V = xs[i] * ys[j] - xs[j] * ys[i]
+                W = xs[j] * ys[i] + xs[i] * ys[j]
+                assert V * W == M * (ms[i] - ms[j]), (a, b, ms[i], ms[j])
+                n += 1
+    assert n > 200, n
+
+
+def test_O9_the_sign_is_well_defined_and_p_divides_V_iff_signs_agree():
+    """sigma_i = +-1 with Y_i == sigma_i X_i mod p; p | V_ij <=> sigma_i = sigma_j."""
+    from sympy import factorint
+
+    n_sig = n_eq = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 3 or M % 2 == 0:
+            continue
+        fac = factorint(M)
+        if any(e > 1 for e in fac.values()):
+            continue
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        sig = []
+        for i in range(len(ms)):
+            d = {}
+            for p in fac:
+                assert xs[i] % p != 0, (a, b, ms[i], p)      # p nmid X
+                assert (ys[i] - xs[i]) % p == 0 or (ys[i] + xs[i]) % p == 0
+                d[p] = 1 if (ys[i] - xs[i]) % p == 0 else -1
+                n_sig += 1
+            sig.append(d)
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                V = xs[i] * ys[j] - xs[j] * ys[i]
+                for p in fac:
+                    assert (V % p == 0) == (sig[i][p] == sig[j][p]), (
+                        a, b, ms[i], ms[j], p)
+                    n_eq += 1
+    assert n_sig > 500 and n_eq > 100, (n_sig, n_eq)
+
+
+def test_O9_pigeonhole_forces_M_to_divide_the_product_of_the_three_Vs():
+    """Three signs in {+-1} collide, so every p | M divides one of the V's."""
+    from sympy import factorint
+
+    n = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 3 or M % 2 == 0:
+            continue
+        if any(e > 1 for e in factorint(M).values()):
+            continue
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                for k in range(j + 1, len(ms)):
+                    v12 = xs[i] * ys[j] - xs[j] * ys[i]
+                    v23 = xs[j] * ys[k] - xs[k] * ys[j]
+                    v13 = xs[i] * ys[k] - xs[k] * ys[i]
+                    assert abs(v12 * v23 * v13) % M == 0, (a, b, ms[i], ms[j], ms[k])
+                    n += 1
+    assert n > 5, n
+
+
+def test_O9_the_window_bound_and_the_resulting_inequality():
+    """|V| < M/sqrt(3D) in-window; hence 3ab < (b-a)^{4/3} for a triple."""
+    n, worst = 0, 0.0
+    for (a, b), ms in CLASSES.items():
+        M, D = b - a, a * b
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            if xs[i] < 1:
+                continue
+            for j in range(i + 1, len(ms)):
+                if ms[j] >= 2 * ms[i]:
+                    continue
+                V = abs(xs[i] * ys[j] - xs[j] * ys[i])
+                assert 0 < V < M / sqrt(3 * D), (a, b, ms[i], ms[j])
+                worst = max(worst, V * sqrt(3 * D) / M)
+                n += 1
+    assert n > 100 and worst < 1, (n, worst)
+    # M <= |V12 V23 V13| < (M/sqrt(3D))^3  <=>  (3D)^{3/2} < M^2  <=>  3D < M^{4/3}
+    for t in (133.875, 1000.0, 10000.0):
+        assert int((t - 1) ** 2 / (3 * t) ** 1.5) == {133.875: 2, 1000.0: 6,
+                                                      10000.0: 19}[t]

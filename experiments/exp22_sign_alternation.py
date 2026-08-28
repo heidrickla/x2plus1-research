@@ -314,6 +314,83 @@ def theorem_O8(X):
     print("     (3,3), which is neither p|S nor p|T.")
 
 
+def theorem_O9(X):
+    """The sign, the pigeonhole, and 3ab < (b-a)^{4/3} -- no hypothesis."""
+    from math import sqrt
+    from sympy import factorint
+    classes = ratio_classes(X)
+    n_vw = bad_vw = n_sig = bad_sig = n_eq = bad_eq = 0
+    n_tri = bad_tri = n_win = bad_win = 0
+    worst = 0.0
+    tot = fails = 0
+    for (a, b), ms in classes.items():
+        M, D = b - a, a * b
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                V = xs[i] * ys[j] - xs[j] * ys[i]
+                W = xs[j] * ys[i] + xs[i] * ys[j]
+                n_vw += 1
+                bad_vw += V * W != M * (ms[i] - ms[j])
+        if M < 3 or M % 2 == 0:
+            continue
+        fac = factorint(M)
+        if any(e > 1 for e in fac.values()):
+            continue
+        tot += 1
+        fails += 3 * a * b >= M ** (4 / 3)
+        sig = []
+        for i in range(len(ms)):
+            dd = {}
+            for p in fac:
+                n_sig += 1
+                if xs[i] % p == 0:
+                    bad_sig += 1
+                    dd[p] = 0
+                else:
+                    dd[p] = 1 if (ys[i] - xs[i]) % p == 0 else -1
+                    if (ys[i] - dd[p] * xs[i]) % p:
+                        bad_sig += 1
+            sig.append(dd)
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                V = xs[i] * ys[j] - xs[j] * ys[i]
+                for p in fac:
+                    n_eq += 1
+                    bad_eq += (V % p == 0) != (sig[i][p] == sig[j][p])
+                if xs[i] >= 1 and ms[j] < 2 * ms[i]:
+                    n_win += 1
+                    bad_win += not abs(V) < M / sqrt(3 * D)
+                    worst = max(worst, abs(V) * sqrt(3 * D) / M)
+                for k in range(j + 1, len(ms)):
+                    v12 = V
+                    v23 = xs[j] * ys[k] - xs[k] * ys[j]
+                    v13 = xs[i] * ys[k] - xs[k] * ys[i]
+                    n_tri += 1
+                    bad_tri += abs(v12 * v23 * v13) % M != 0
+    print(f"  V W = M (m_i - m_j), W = X_j Y_i + X_i Y_j: {n_vw} pairs,"
+          f" {bad_vw} failures  (no cofactor -- the a cancels)")
+    print(f"  sigma = +-1 with Y == sigma X mod p: {n_sig} determinations,"
+          f" {bad_sig} failures")
+    print(f"  p | V_ij  <=>  sigma_i = sigma_j   : {n_eq} (p,pair),"
+          f" {bad_eq} failures")
+    print(f"  PIGEONHOLE: M | V12 V23 V13        : {n_tri} triples,"
+          f" {bad_tri} failures")
+    print(f"  |V| < M/sqrt(3D) in-window         : {n_win} pairs,"
+          f" {bad_win} failures, max ratio {worst:.6f}")
+    print("  So M <= |V12 V23 V13| < (M/sqrt(3D))^3, i.e. 3ab < (b-a)^{4/3}.")
+    if tot:
+        print(f"  classes with M odd squarefree: {tot}; those FAILING that and so")
+        print(f"  provably unable to hold a triple: {fails} ({fails/tot:.1%})")
+    print("  With O.4's t = b/a > 133.875 the admissible a is tiny:")
+    for t in (133.875, 1000, 10**4):
+        print(f"     t = {t:>9}: a <= {int((t-1)**2/(3*t)**1.5)}")
+    print("  Recovers O.7 for M prime with NO hypothesis, and supersedes O.8's")
+    print("  coprimality assumption, which turned out not to be needed.")
+
+
 def main(X=3000):
     print("1. THE ALTERNATION")
     alternation(X)
@@ -331,6 +408,10 @@ def main(X=3000):
     print("5. THEOREM O.8 -- the same argument for M odd squarefree, on one")
     print("   hypothesis (gcd(V,M) = 1), which is observed but not proved.")
     theorem_O8(X)
+    print()
+    print("6. THEOREM O.9 -- the same conclusion with NO hypothesis, by")
+    print("   pigeonhole on a two-valued sign.")
+    theorem_O9(X)
 
 
 if __name__ == "__main__":
