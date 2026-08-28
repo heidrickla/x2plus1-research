@@ -1054,6 +1054,18 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   status** — and the general form is that any check with a "not applicable"
   branch has a silent-success path by construction.
 
+- **When you correct a recorded value, grep the registry for the old one.** The
+  43.79 → 34.0811 correction landed in the claim that made it and not in the
+  `proved` claim it corrects, so two live claims asserted different minima for
+  the same quantity. `grep -c "43.79" research_state/claims.json` returns **2**
+  and would have said so in one line. **The consistency test cannot catch this**:
+  it enforces the status ordering on `depends_on` edges and has no way to see two
+  claims disagreeing about a number, because nothing links them — `superseded_by`
+  is for whole claims and fires only on `refuted`, and there is no vocabulary for
+  *a claim that corrects one figure inside another that otherwise stands*. Do not
+  add a field for it; grep. Same instrument as **grep for the number before
+  deriving it**, aimed at the other end of the operation.
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified
