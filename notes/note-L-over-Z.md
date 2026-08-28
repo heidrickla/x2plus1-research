@@ -672,6 +672,21 @@ three.** So `classes-separate-across-windows` is stronger than it was, not
 weaker — the configurations the sweep could not see do not contain a triple
 either.
 
+**And it answers a question `gaussian-to-rational-bridge` had left open.** That
+entry's notes ask why the measured window constant is 2 when Dickson's class
+bound only gives O_ε(N^ε). The orbit picture answers it: **Dickson bounds the
+number of classes; a window sees the number of classes with a representative
+*in* that window**, and Prop L.1's spacing puts at most one member of each class
+in a window. So the windowed count is the number of distinct orbits meeting the
+window, and at {10, 17} that is two orbits meeting it once each — the constant 2
+and the unbounded total are the same structure at two scales.
+
+That closes the sub-gap and leaves the load-bearing one untouched: the transfer
+from "no main term over Z" to "ν = 0 in [FM]'s sense" is about what their (II)
+quantifies over, and no constant improves it. The two components of that entry
+are worth keeping apart, which is what `triple-question-upgrades-status-not-conclusion`
+records.
+
 ### What proving the triple statement would actually buy
 
 Two sessions have now spent substantial effort on "can a dyadic window hold
