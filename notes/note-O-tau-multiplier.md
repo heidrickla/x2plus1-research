@@ -257,8 +257,30 @@ three with |V| ∈ {24, 66, 182} are k = 12, 33, 91 and each satisfies it.
 **A triple needs a second multiplier**, because V = ±2 forces U = ±(a+b)
 uniquely — there is exactly one multiplier at k = 1. So one can *construct* the
 candidates instead of sweeping for them: admissible (a,b) with b/a ≥ 134, a k ≥ 2
-multiplier, and geometry permitting r₁·r_k < 2. **There are 95**, the tightest
-being (1, 115921) at k = 22 with r₁r_k = 1.309 — comfortably inside a window.
+multiplier, and geometry permitting r₁·r_k < 2. **There are 95** in the box
+a < 200, b < 200000, the tightest being (1, 115921) at k = 22 with
+r₁r_k = 1.309. *(The parallel session's census over a ≤ 60, b ≤ 300000 finds
+322, with (1, 226801) at k = 26 tighter still at 1.2540 — the population grows
+with the box, so quote the box.)*
+
+> **MULTIPLIER EXISTENCE IS NOT MODULUS EXISTENCE, and this list conflates
+> them.** A multiplier at index k is solvability of **U² − DV² = M²**; a shared
+> modulus is solvability of **Y² − DX² = aM**. Different equations. A multiplier
+> is the *ratio between two solution classes* and is well defined whether or not
+> any class is occupied. Measured: **42 of the 95 are occupied** (some shared
+> modulus with x ≤ 1.5×10⁶); the rest are configurations with no shared moduli
+> at all, for which "a triple could occur here" is meaningless.
+
+The point was made by the parallel session against its own drift measurement,
+and it applies to this list equally. Two pairs found here by a heuristic
+targeting ω(M) ≥ 6 — (1, 360361) and (37, 158377), each with two multipliers at
+r < 2 and r-product 1.83 — are **both unoccupied**, which is exactly the failure
+mode: they look like near-counterexamples and are not configurations at all.
+
+**Theorem O.3 is unaffected**, because it is conditional: *if* ξ exists and both
+multipliers act, contradiction. Vacuity is safe for a negative result. What needs
+the caveat is any statement of the form "there are N candidates where a triple
+could occur" — that N is a count of parameter configurations, not of live ones.
 
 The multiplier acts explicitly. From ξ = aY + X√D,
 
