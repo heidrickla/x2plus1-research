@@ -1526,6 +1526,17 @@ stops there unconditionally. *(Thresholds: u must exceed 4.7913 at D = 1 and
 2.3187 at D = 2, both above the 2 a band supplies; at D = 3 it is 1.7676, below
 it, and the argument fails.)*
 
+**|V| is even on this axis too**, so the second row is available: over D = 1…6,
+minimum |V| is 2, 4, 6, 4, 2, 4 and **no odd value occurs in 1,238 pairs**. Since
+V ≠ 0, evenness gives |V| ≥ 2 directly. *(`V-is-even-whenever-M-is-odd` is proved
+for D = 1; the general-D statement is observed here, not proved.)*
+
+> **So O.12 covers D = 1, 2 unconditionally and D = 3, 4 given evenness — and
+> x²+2 in particular can never fail.** That bears directly on the conjecture that
+> D = 1 is the unique survivor: at small D the bound is not merely tight but
+> **unsatisfiable**, so no number of candidate classes at larger X can produce a
+> configuration. The attrition argument reaches D > 4, not D > 1.
+
 **And this reconciles exactly with the line-family analysis above.** There D = c²,
 so |V| ≥ 2 covering D ≤ 4 is c ≤ 2 — precisely the earlier finding that |V| ≥ 2
 extends O.12 to c = 2 and no further. Two routes to the same boundary, computed

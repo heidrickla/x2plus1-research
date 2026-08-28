@@ -2039,7 +2039,7 @@
         "note_o",
         "gram"
       ],
-      "notes": "RECONCILES WITH THE LINE-FAMILY ANALYSIS, computed independently and before the M*D invariant was known: there D = c^2, so |V| >= 2 covering D <= 4 is c <= 2, which is exactly the earlier finding that |V| >= 2 extends O.12 to c = 2 and no further. Two routes to the same boundary. NOTE the gap between what the ARGUMENT covers (D <= 2, or <= 4 with parity) and what the PROPERTY appears to satisfy (D = 1..10 and beyond at the sizes swept) -- but 'appears' is doing real work there, since D = 35 held at X = 1500 and failed at X = 2500."
+      "notes": "V IS EVEN ON THIS AXIS TOO, so the |V| >= 2 row is available: over D = 1..6 the minimum |V| is 2, 4, 6, 4, 2, 4 and no odd value occurs in 1,238 pairs; with V != 0 that gives |V| >= 2 directly. (V-is-even-whenever-M-is-odd is proved for D = 1; the general-D statement is observed, not proved.) CONSEQUENCE FOR THE UNIQUENESS CONJECTURE: at small D the bound is not merely tight but UNSATISFIABLE -- no number of candidate classes at larger X can produce a configuration -- so the attrition argument reaches D > 4, not D > 1, and x^2+2 in particular can never fail. RECONCILES WITH THE LINE-FAMILY ANALYSIS, computed independently and before the M*D invariant was known: there D = c^2, so |V| >= 2 covering D <= 4 is c <= 2, which is exactly the earlier finding that |V| >= 2 extends O.12 to c = 2 and no further. Two routes to the same boundary. NOTE the gap between what the ARGUMENT covers (D <= 2, or <= 4 with parity) and what the PROPERTY appears to satisfy (D = 1..10 and beyond at the sizes swept) -- but 'appears' is doing real work there, since D = 35 held at X = 1500 and failed at X = 2500."
     }
   ]
 }
