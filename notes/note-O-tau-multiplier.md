@@ -735,6 +735,22 @@ modulus ratio r < 2:
 | with exactly one acting multiplier at r < 2 | 327 |
 | **with two or more at r < 2** | **0** |
 
+Extended by [`exp17`](../experiments/exp17_sharp_form.py), which restricts to the
+slice y/x ≥ 3+2√2 where a second in-window multiplier is geometrically possible
+at all, and bounds the k-loop by k < M/(4√2·√D) rather than by an arbitrary
+ceiling:
+
+| X | solutions with an acting multiplier | with exactly one at r < 2 | **with two** | smallest competing ratio |
+|---:|---:|---:|---:|---:|
+| 3 000 | 689 | 449 | **0** | 14.91 at (1, 901), m = 842 |
+| 14 000 | 2 583 | **2 093** | **0** | 14.15 at (1, 16133), m = 3970 |
+
+So the evidence base for the sharp form is **2 093 solutions that each carry
+exactly one in-window multiplier and could have carried a second** — not an
+absence measured over a vacuous population, which is the distinction
+`triples-cannot-be-settled-by-measurement` insists on. The margin drifts slowly
+(14.91 → 14.15) and stays a factor of 7 above the 2 a window needs.
+
 > **Sharp form of O.2.** On any ξ, at most one acting multiplier has r < 2.
 
 This is equivalent to O.2 — a third modulus in the window is exactly a second
