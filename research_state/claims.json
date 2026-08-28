@@ -1755,6 +1755,35 @@
       ],
       "notes": "Verified by re-deriving rather than re-running. The step worth checking was the maximisation, since 'all three R at the window edge' is exactly the over-count O.10 makes and the constraint R_12 R_23 = R_13 is what forbids it; the derivative sinh(u_13 - 2u_12) is clean and the equal split is a genuine maximum. I got 0.1421 on the first pass by using 0.5946 for 2^{1/4} - 2^{-1/4} instead of 0.34831 -- their number is right and mine was an arithmetic slip. Their trend caveat is the important half: the reach 97.7 -> 88.1% is FALLING over X = 1500 to 8000 with the admissible count doubling per doubling of X, so no limit is claimed and none should be.",
       "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py"
+    },
+    {
+      "id": "the-windowed-gram-bound-is-conjecture-O2",
+      "status": "proved",
+      "statement": "`rational-gram-bounded-on-windows` and Note O's Conjecture O.2 are the same statement. The off-diagonal Gram entry of the rational graph restricted to a dyadic window [N,2N) is the number of moduli in that window shared by a cofactor pair (a,b); O.2 says no dyadic window contains three shared moduli. So 'max windowed Gram entry is 2' IS 'no window holds three', with no translation. Verified directly: max shared moduli in one dyadic window is 2 at X = 2000 and 4000, attained at (1,41) with moduli 730 and 1370, and zero classes hold three.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "rational-gram-bounded-on-windows"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "This is why the Note O thread is not a side quest. `rational-gram-bounded-on-windows` is `rigorous_finite` -- 'uniformly for X <= 8000' -- and it is what Note L's conclusion rests on, that merging rows over Z thickens each side separately and never jointly. Theorems O.9 and O.11 prove exactly that bound on the classes satisfying 3ab < M^{4/3} and its sharpened form, so the Note O work is PROMOTING a central finite measurement of Note L toward a theorem for all X. Neither note said so, and I found it by checking whether the two notes were consistent about how many moduli a window can hold. Partial, not complete: O.11's measured reach is falling with X, so what is proved is a shrinking share of the classes, and the promotion is not yet available.",
+      "proof_site": "notes/note-L-over-Z.md; tests/test_arithmetic_facts.py"
+    },
+    {
+      "id": "O11-admits-only-unit-cofactor-in-range",
+      "status": "rigorous_finite",
+      "statement": "Every ratio class that Theorem O.11 admits, among those holding >= 3 shared moduli, has a = 1. Across X = 1500, 2000, 3000, 4000, 6000, 8000 there are 9, 12, 16, 19, 30, 33 informative classes with a >= 2 -- 119 in total -- and O.11 excludes EVERY one, while the a = 1 admitted counts are 1, 2, 3, 5, 8, 13. This matters because full-graph-growth-is-pell records that n1 = 1 cannot occur in a Type II hypothesis, where both variables are confined to ranges: so on the classes the Type II question actually ranges over, O.11 is currently exhaustive.",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "theorem-O11-coupled-ratios"
+      ],
+      "tags": [
+        "note_o",
+        "window",
+        "type_ii"
+      ],
+      "notes": "A RANGE EFFECT, NOT A LAW, and the law is easy to write down: O.11 admits (a,b) as soon as ab < c (b-a)^{4/3}, and for FIXED a the right side wins as b -> infinity. The crossover is b ~ 9.0e3 at a = 1, 7.0e4 at a = 2, 2.4e5 at a = 3, 1.1e6 at a = 5. So the a >= 2 column is empty because the sweep does not reach far enough in b, and it WILL fill in at larger X -- the a = 1 column is already filling. Recorded with the crossover values precisely so the finite reading cannot be mistaken for a structural one; this is the same failure the denominator correction was about, anticipated rather than repaired."
     }
   ]
 }

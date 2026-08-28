@@ -991,8 +991,9 @@ odd squarefree (99.2%) fail 3ab < M^{4/3}** and so are excluded outright.
 Combined with O.4's t > 133.875, the admissible a is tiny: **a ≤ 2** at the
 minimum admissible t, 6 at t = 10³, 19 at t = 10⁴.
 
-**And the identity behind it is cleaner without the cofactor** — the parallel
-session's form, which is mine divided by a:
+**And the pair-level identity is cleaner without the cofactor** — the parallel
+session's, and distinct from Lemma O.8.1 (S·T = −M·m is about a single modulus,
+V·W about a pair). It is mine divided by a:
 
 > **V·W = M·(m_i − m_j)**,  W = X_jY_i + X_iY_j.
 
@@ -1118,6 +1119,33 @@ Write R = e^u, so the exact per-pair bound |V_ij| < (M/2√D)(R_ij − 1/R_ij) r
 > well tend to 0, and **no claim is made about its limit.** What is proved is the
 > inequality; the percentages are a finite observation over a stated population,
 > which is the distinction the denominator correction above was about.
+
+**And every class O.11 admits has a = 1**, which is the cofactor the Type II
+question cannot see.
+
+| X | informative | a = 1 | a ≥ 2 | admitted, a = 1 | admitted, a ≥ 2 |
+|---:|---:|---:|---:|---:|---:|
+| 1500 | 43 | 34 | 9 | 1 | **0** |
+| 2000 | 48 | 36 | 12 | 2 | **0** |
+| 3000 | 60 | 44 | 16 | 3 | **0** |
+| 4000 | 70 | 51 | 19 | 5 | **0** |
+| 6000 | 96 | 66 | 30 | 8 | **0** |
+| 8000 | 109 | 76 | 33 | 13 | **0** |
+
+**119 informative classes with a ≥ 2 across the six sizes, and O.11 excludes
+every one.** That matters because `full-graph-growth-is-pell` already records
+that **n₁ = 1 cannot occur in a Type II hypothesis**, where both variables are
+confined to ranges — the unit cofactor is an artefact of the full graph, not a
+configuration the sieve ever meets. So on the classes the Type II question
+actually ranges over, O.11 is currently exhaustive.
+
+> **⚠ This is a range effect, not a law, and the law is easy to write down.**
+> O.11 admits (a, b) as soon as ab < c·(b−a)^{4/3}, and for **fixed a** the right
+> side wins as b → ∞. The crossover is b ≳ 9.0×10³ at a = 1, 7.0×10⁴ at a = 2,
+> 2.4×10⁵ at a = 3, 1.1×10⁶ at a = 5. So the a ≥ 2 column is empty because the
+> sweep does not reach far enough in b, and it **will** fill in at larger X. The
+> honest statement is the finite one: *no informative class with a ≥ 2 is admitted
+> for X ≤ 8000*, and the a = 1 column is already filling (1, 2, 3, 5, 8, 13).
 
 **What was M even and M non-squarefree** is now covered; the sign argument's
 apparent need for them was an artefact of working at e = 1: U² ≡ (Va)² only gives M | A_VB_V in general, and the signs can differ

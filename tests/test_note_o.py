@@ -1468,3 +1468,36 @@ def test_O11_is_never_weaker_than_O10_on_realised_classes():
         new += n
     assert inf >= 5, inf
     assert new > old, (old, new)
+
+
+def test_O11_admits_only_unit_cofactor_classes_in_this_range():
+    """No informative class with a >= 2 is admitted for X <= 8000.
+
+    A RANGE EFFECT, NOT A LAW: O.11 admits (a,b) as soon as ab < c (b-a)^{4/3},
+    and for fixed a the right side wins as b -> infinity.  The crossover is
+    b ~ 9.0e3 at a = 1, 7.0e4 at a = 2, 2.4e5 at a = 3.  The a >= 2 column is
+    empty because the sweep does not reach far enough in b.
+
+    It matters because `full-graph-growth-is-pell` records that n1 = 1 cannot
+    occur in a Type II hypothesis, where both variables are confined to ranges.
+    """
+    inf2 = adm2 = inf1 = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 2 or len(ms) < 3:
+            continue
+        X1 = max(1, isqrt(a * min(ms) - 1))
+        admitted = a * b < (_C(X1) / 8) ** (2 / 3) * M ** (4 / 3)
+        if a == 1:
+            inf1 += 1
+        else:
+            inf2 += 1
+            adm2 += admitted
+    assert inf1 > 0 and inf2 > 0, (inf1, inf2)
+    assert adm2 == 0, adm2
+    # and the law that says this must eventually fail
+    c = (_C(10 ** 6) / 8) ** (2 / 3)
+    for a, floor in ((1, 5000), (2, 40000), (3, 150000)):
+        b = next(b for b in range(a + 1, 3 * 10 ** 6, 97)
+                 if a * b < c * (b - a) ** (4 / 3))
+        assert b > floor, (a, b)      # admitted at large b for every a
