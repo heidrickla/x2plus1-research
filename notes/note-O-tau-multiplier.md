@@ -1250,6 +1250,25 @@ second half — over Z, on the configuration (II) quantifies over, **G′ ≤ 1 
 proved, for all X, and it matches the Z[i] bound exactly** rather than being a
 measured constant one larger.
 
+**And it caps Ford–Maynard's footnote-2 quantity.** `fm-barrier-range-is-small-moduli`
+records mean G = 2.000, 1.333, 0.810, 0.577 over N = 8, 16, 32, 64 at X = 12000
+and concludes the mean is ≥ 1 for ε ≲ 0.18. Those are the **moduli-unrestricted**
+figures — reproduced exactly here. But (II) bands n as well as m, so the
+footnote's quantity is doubly dyadic, and there O.12 forces max G ≤ 1:
+
+| N band | #cofactors | mean G, moduli free | max | mean G, doubly banded | max |
+|---|---:|---:|---:|---:|---:|
+| [8,16) | 2 | 2.0000 | 2 | **1.0000** | 1 |
+| [16,32) | 4 | 1.3333 | 3 | **0.6667** | 1 |
+| [32,64) | 7 | 0.8095 | 2 | **0.4762** | 1 |
+| [64,128) | 13 | 0.5769 | 2 | **0.4103** | 1 |
+| [128,256) | 24 | 0.3152 | 2 | **0.2319** | 1 |
+
+> **On the configuration (II) quantifies over the mean never exceeds 1**, and the
+> only band reaching 1 contains **two cofactors, i.e. a single pair** — which is
+> the informative-subset caveat that claim already carries, now binding on the
+> one value that mattered.
+
 > **What it does not close.** The bridge's remaining content is the *inference*
 > "both give no main term, so the conclusion is unchanged". That step is
 > untouched; O.12 removes the quantitative discrepancy and the finite floor, not

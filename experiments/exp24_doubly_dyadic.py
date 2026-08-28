@@ -141,5 +141,52 @@ def main(X=3000):
     print("  what a Type II hypothesis excludes.")
 
 
+def fm_footnote_quantity(X=12000):
+    """Ford-Maynard's footnote-2 mean, with and without the second band."""
+    inc = defaultdict(set)
+    for x in range(1, X + 1):
+        v = x * x + 1
+        d = 1
+        while d * d <= v:
+            if v % d == 0:
+                inc[v // d].add(d)
+                if d * d != v:
+                    inc[d].add(v // d)
+            d += 1
+    print()
+    print("FORD-MAYNARD FOOTNOTE 2, which averages G over m_1, m_2 ~ x^{1-2c+eps}.")
+    print("(II) bands n as well as m, so the quantity is DOUBLY dyadic and O.12")
+    print("caps it at 1.  The recorded figures are the moduli-unrestricted ones:")
+    print(f"{'N band':>13} {'#cof':>5} {'mean G free-m':>14} {'max':>4}"
+          f" | {'mean G banded-m':>16} {'max':>4}")
+    N = 8
+    while N <= 128:
+        ns = sorted(n for n in inc if N <= n < 2 * N)
+        if len(ns) < 2:
+            N *= 2
+            continue
+        tf = tb = npairs = mf = mb = 0
+        for i in range(len(ns)):
+            for j in range(i + 1, len(ns)):
+                npairs += 1
+                sh = inc[ns[i]] & inc[ns[j]]
+                tf += len(sh)
+                mf = max(mf, len(sh))
+                best = 0
+                W = 1
+                while W <= X * X:
+                    best = max(best, sum(1 for m in sh if W <= m < 2 * W))
+                    W *= 2
+                tb += best
+                mb = max(mb, best)
+        print(f"[{N:5},{2*N:6}) {len(ns):5} {tf/npairs:14.4f} {mf:4}"
+              f" | {tb/npairs:16.4f} {mb:4}")
+        N *= 2
+    print("  On the configuration (II) quantifies over the mean NEVER exceeds 1,")
+    print("  and the only band attaining 1 holds two cofactors -- a single pair.")
+
+
 if __name__ == "__main__":
-    main(int(sys.argv[1]) if len(sys.argv) > 1 else 3000)
+    XX = int(sys.argv[1]) if len(sys.argv) > 1 else 3000
+    main(XX)
+    fm_footnote_quantity(min(12000, max(2000, 4 * XX)))
