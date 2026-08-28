@@ -113,6 +113,22 @@ proves that object admits **zero** cancellation for A = {x+i} at every split.
 Note F is therefore not an obstacle *beside* the parity barrier; it is the
 statement that DFI's parity-breaking input does not exist here.
 
+> **Scope, which this note omitted and [Note L](note-L-over-Z.md) supplies.**
+> Note F's lemma — G(n₁,n₂) ≤ 1, C₄-freeness — is a statement about **ideals of
+> Z[i]**. DFI's (8) sums over **rational** m, n with (m,n) = 1, and the rational
+> incidence graph is **not** C₄-free: one rational modulus carries several
+> primitive Gaussian ideals, and merging those rows creates 4-cycles, so the
+> maximum off-diagonal Gram entry over Z is **2, not 1**. Applying Note F to (8)
+> is therefore a transfer, recorded as `gaussian-to-rational-bridge` and marked
+> **`inferred`**, not a direct citation.
+>
+> **The conclusion survives the transfer** — a Gram bounded by 2 is still
+> bounded, so an arbitrary-coefficient form still admits no cancellation beyond
+> the trivial, and nothing downstream of this paragraph changes. But the
+> sentence above states a Z[i] lemma about a Z object without saying so, which is
+> the same elision Note L had to correct in Note F, and it should not be read as
+> though the ring were the same on both sides.
+
 Note what they prove versus what they need: Proposition 2, the bilinear estimate
 they actually establish, opens "Suppose β_n are supported on primes" — a
 restricted class. The arbitrary class is what (8) asks for.
