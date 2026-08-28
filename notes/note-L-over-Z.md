@@ -755,6 +755,16 @@ of the two orbits — giving 2, which is the measured constant. The unbounded
 full-graph count and the bounded windowed count are the same orbit structure read
 at two scales, and neither is evidence about the other.
 
+**And the constant is 2 only because the cofactors are free.** Band them as well
+— which is what [FM]'s (II) does, being bilinear over m ∼ M *and* n ∼ N — and
+Theorem O.12 gives **1**: two cofactors within a factor (5+√21)/2 = 4.7913 share
+at most one modulus per dyadic window, proved, for all X. The orbits above have
+cofactor ratios far outside that; the K_{6,2} witness shares moduli 10 and 17
+across six cofactors spanning several orders. So the row-merging described here
+is real, is unbounded without a window, is bounded at 2 with a modulus window,
+and **is absent entirely once both variables are banded** — which is the only
+configuration a Type II hypothesis presents.
+
 **The triple statement survives the completer enumeration.** The repo's "no
 window holds three" was measured with the ratio-class sweep, which `exp14` has
 now shown misses configurations. Redone with the streaming enumeration at
