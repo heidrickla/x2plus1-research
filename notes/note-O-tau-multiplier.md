@@ -2795,3 +2795,53 @@ forms are right where re-reading them was not.
 while 4 and 6 are loose is nine points with no proposed mechanism. That D = 11
 is both the first failing D *and* near-tight is exactly the kind of near-miss
 this note has had refuted before.
+
+---
+
+## O.14 Below u = 53.6942, Conjecture O.2 is an explicit finite list
+
+O.13's V-family applies to the triple question, which is O.2 itself. A window
+holding three shared moduli needs the composite of two multiplier steps to fit:
+**τ_min⁴ < 2 + 1/X₁²**. With s = V√(ab)/M, the condition τ_V² < c is
+√u − 1/√u > 2√c·V/(c−1), so with c = √(2 + 1/X₁²):
+
+| X₁ | V = 1 (needs a²−ab+b² square) | V = 2 (always, U = a+b) |
+|---:|---:|---:|
+| 1 | 14.8609 | **53.6942** |
+| 10 | 34.4675 | 131.9783 |
+| → ∞ | 34.9419 | 133.8748 |
+
+**The V = 2 column is Theorem O.4, recovered independently** — this note records
+O.4 as "b/a > 53.69 at X₁ = 1, rising to 133.875", and the family gives
+133.874781 to six decimals from a different starting point.
+
+**So unconditionally in X₁: a windowed triple with u < 53.6942 forces
+a² − ab + b² to be a perfect square**, i.e. (a,b) is a 60-degree Pythagorean
+pair. Below 14.8609 no V is admissible at all.
+
+**That branch is finite and enumerable.** Both cofactors must also divide some
+x²+1 — 4 ∤ n and no prime factor ≡ 3 (mod 4) — and at a ≤ 3000 exactly **five**
+primitive pairs pass both filters:
+
+| pair | u | shared moduli (x ≤ 2×10⁷) | most in one window | local obstruction |
+|---|---:|---:|---:|---|
+| (25, 481) | 19.2400 | 2 — {2, 53546}, ratio 26773 | 1 | none |
+| (505, 7897) | 15.6376 | 1 | 1 | none |
+| (865, 22873) | 26.4428 | 1 — {74} | 1 | none |
+| (985, 29593) | 30.0437 | 0 | 0 | none |
+| (1345, 54937) | 40.8454 | 0 | 0 | none |
+
+**A triple needs three in one window; the maximum observed is one.** And every
+candidate is locally solvable at every modulus checked, so what empties the
+branch is **occupancy, not congruence** — the third independent confirmation of
+this note's position that O.2 is not a congruence statement.
+
+**What this does and does not do.** It is the first reduction of any part of O.2
+to a finite explicit list. It does **not** close the conjecture: above 53.6942
+the V = 2 branch is available to every pair, and that range is exactly what O.4
+already covers as a necessary condition without settling it.
+
+⚠ Bounded at a ≤ 3000 and x ≤ 2×10⁷; larger a may add candidates, and a bound's
+silence is not evidence about what lies outside it. The counts are size-dependent
+even where the conclusion is not — (505, 7897) shows 0 shared moduli at
+x ≤ 5×10⁶ and 1 at x ≤ 2×10⁷.

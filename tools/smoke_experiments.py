@@ -37,6 +37,8 @@ SIZES: dict[str, list[str]] = {
     # exp25 sieves x^2+D for five D and builds an incidence per band, so keep
     # X small; 900 still produces every row of both bands.
     "exp25_off_sees_D.py": ["900"],
+    # exp26 sieves progressions per candidate pair; keep both bounds small.
+    "exp26_triple_branch.py": ["600", "300000"],
     "exp02_bilinear_pilot.py": ["2000"],
     "exp03_density_ledger.py": ["100000"],
     "exp04_kappa_family.py": ["100000", "3"],

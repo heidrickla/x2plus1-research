@@ -2336,6 +2336,22 @@
         "gram"
       ],
       "notes": "Settles the residual that CLAUDE.md identified as what gaussian-to-rational-bridge actually carries -- 'the reading of what (II) quantifies over ... which COULD be settled by reading more carefully'. It could, and this is that reading. WHAT THIS DOES NOT SETTLE: the step from 'the count is 0/1' to 'nu = 0 in their sense' rests on the footnote's own four-word hedge, 'closely related to'. That is the source's hedge, not this repo's, and it is off the path: nu = 0 comes from selberg-nu-zero-binds, which is quoted with an empty depends_on. So the footnote is corroboration that we measure the object the literature names as the barrier, not a derivation step. Found by going to the paper for a question the notes had marked as answerable by going to the paper -- the flag was two months old and correct."
+    },
+    {
+      "id": "O2-below-53-69-is-an-explicit-finite-list",
+      "status": "rigorous_finite",
+      "statement": "Below u = 53.6942, Conjecture O.2 reduces to an explicit finite list, and every enumerated member is unoccupied. A window holding three shared moduli needs tau_min^4 < 2 + 1/X_1^2; with s = V sqrt(ab)/M, tau_V^2 < c is sqrt(u) - 1/sqrt(u) > 2 sqrt(c) V/(c-1). V = 2 is admissible for every pair (U = a+b), giving u > 53.6942 at X_1 = 1 and 133.8748 asymptotically -- this recovers Theorem O.4 independently. V = 1 requires a^2 - ab + b^2 to be a perfect square and gives u > 14.8609 at X_1 = 1. So UNCONDITIONALLY IN X_1 a windowed triple with u < 53.6942 forces the Eisenstein condition, and below 14.8609 no V is admissible at all. Requiring both cofactors to divide some x^2+1 (4 does not divide n, no prime factor 3 mod 4), exactly FIVE primitive pairs pass at a <= 3000: (25,481) u = 19.2400, (505,7897) u = 15.6376, (865,22873) u = 26.4428, (985,29593) u = 30.0437, (1345,54937) u = 40.8454. Walking x <= 2e7, their shared modulus counts are 2, 1, 1, 0, 0 and the most in any one window is 1 -- a triple needs three. (25,481)'s two moduli are 2 and 53546, a factor 26773 apart. All five are locally solvable at every modulus checked (3,4,5,7,8,9,11,13,16,17,25,27,32,49), so the branch is emptied by OCCUPANCY, not congruence.",
+      "experiment": "experiments/exp26_triple_branch.py",
+      "depends_on": [
+        "theorem-O4-composition-bound",
+        "tau1-window-threshold-is-exact"
+      ],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "The first reduction of any part of O.2 to a finite explicit list. It does not close the conjecture: above 53.6942 the V = 2 branch is available to every pair and nothing here touches it, which is the range O.4 already covers as a necessary condition. The V-family reproducing O.4's 133.874781 to six decimals from a different starting point is a check on both. BOUNDED, and a bound's silence is not evidence about what lies outside it: a <= 3000 and x <= 2e7. Larger a may add candidates. Note also that (505,7897) shows 0 shared moduli at x <= 5e6 and 1 at x <= 2e7, so the counts are size-dependent even though the conclusion -- at most one per window -- is not over this range. That the emptiness is occupancy rather than congruence is the third independent confirmation of Note O's position that O.2 is not a congruence statement."
     }
   ]
 }
