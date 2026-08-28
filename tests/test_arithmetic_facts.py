@@ -1424,3 +1424,47 @@ def test_kappa_is_blind_to_the_D_axis_which_decides_everything():
     X = 10**4
     assert abs(X * X / (X * X + 1) - 0.999999990) < 1e-9
     assert abs(X * X / (X * X + 39) - 0.999999610) < 1e-9
+
+
+def test_the_D_reach_has_two_versions_and_D_equals_eight_is_the_crossover():
+    """D <= 4 for all X_1; D <= 7 asymptotically; D = 8 exactly at the boundary.
+
+    With the invariant M*D, the threshold M/sqrt(ab) > 2 sqrt2 V becomes
+    M*D/sqrt(ab) > 2 sqrt2 V, i.e. (u-1)/sqrt(u) > 2 sqrt2 V / D -- **divided by
+    D**. A dyadic band supplies (u-1)/sqrt(u) < 1/sqrt2, so a banded pair needs
+    D > 4V. That is the asymptotic form, from R^2 < 2.
+
+    The worst-case form, from tau_V^2 < 3 at X_1 = 1, gives D > V sqrt6 instead.
+    So there are two reaches and they differ:
+
+        X_1 = 1, all X   |V| >= 1: D <= 2     |V| >= 2: D <= 4
+        asymptotic       |V| >= 1: D <= 3     |V| >= 2: D <= 7
+
+    and **D = 8 is exactly the crossover**: (u-1)/sqrt(u) = 4 sqrt2 / 8 =
+    1/sqrt2 at u = 2 on the nose.
+
+    That reconciles the measurements. D = 5, 6, 7 are asymptotically protected
+    but not protected at small X_1, which is precisely why they hold to X = 8000
+    without being proved -- a failure there would have to come from X_1 small.
+    D = 8, 9, 10 are permitted by both forms and unfallen: the
+    necessary-not-sufficient gap again. D = 11 is the first observed failure and
+    its threshold u_0 = 1.6632 sits well inside a band.
+    """
+    from math import sqrt
+
+    def u0(D, V=2):
+        r = 2 * sqrt(2) * V / D
+        return ((r + sqrt(r * r + 4)) / 2) ** 2
+
+    assert abs(u0(8) - 2.0) < 1e-12                    # exact crossover
+    assert u0(7) > 2 and u0(9) < 2                     # brackets it
+    for D in (5, 6, 7):
+        assert u0(D) > 2, D                            # banded impossible
+    for D in (8, 9, 10, 11, 39):
+        assert u0(D) <= 2, D                           # banded possible
+    assert abs(u0(11) - 1.6632) < 1e-4
+    assert abs(u0(39) - 1.1559) < 1e-4
+
+    # the two reaches
+    assert int(1 * sqrt(6)) == 2 and int(2 * sqrt(6)) == 4      # worst case
+    assert 4 * 1 == 4 and 4 * 2 == 8                            # asymptotic
