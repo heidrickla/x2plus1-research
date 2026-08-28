@@ -86,6 +86,26 @@ defensible on its stated grounds — but it was written before this result and
 should be re-argued explicitly rather than left standing. **Do not treat the
 exclusion as settled.**
 
+### 2026-08-27 (fourth pass) — DFI and Ford–Maynard read at source
+
+Both of the repo's load-bearing `inferred` claims resolved, and both corrected.
+
+- **[DFI]** Duke, Friedlander & Iwaniec, *Equidistribution of roots of a
+  quadratic congruence to prime moduli*, Ann. of Math. **141** (1995), 423–441.
+  Paywalled at the Annals, but the author posts a scan:
+  [math.ucla.edu/~wdduke/preprints/equidistribution.pdf](https://www.math.ucla.edu/~wdduke/preprints/equidistribution.pdf)
+  — independently re-fetched and verified byte-identical by a second reader.
+  Note the title: it is about roots of ν² + D ≡ 0, i.e. **this repo's own
+  residues**. Read: §6 (Theorem S, coefficient class p. 437), Lemma 2 p. 436,
+  Theorem p. 424, Propositions 1–2 pp. 425–426, §8 pp. 439–440.
+- **[FM]** Ford & Maynard, arXiv:2407.14368v1, 107 pp. Read in full, then
+  re-extracted page by page by an adversarial reader who verified every
+  quotation and overturned the first reading's conclusion.
+
+Three of the repo's four recorded DFI facts turned out to be Green–Sawhney's
+strengthening rather than DFI's, and the Ford–Maynard placement was one ε off in
+the direction that matters. Details in [Note C](../notes/note-C-requirements.md).
+
 ### Still not done
 
 - Reading the three unread arXiv items above, Green–Sawhney first.

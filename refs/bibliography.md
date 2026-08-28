@@ -89,10 +89,17 @@ either has an analogue over Z[i].
 
 ## Read during verification (2026-08-27)
 
-20. **Duke, Friedlander & Iwaniec**, *Ann. of Math.* **141** (1995), 423–441,
-    §6 — the sieve Green–Sawhney actually use. Type I needed only at level
-    X^{1/2}(log X)^{−C}; Type II with **arbitrary** 1-bounded coefficients.
-    **Not read directly; known at two removes.** Top priority.
+20. **Duke, Friedlander & Iwaniec**, "Equidistribution of roots of a quadratic
+    congruence to prime moduli", *Ann. of Math.* **141** (1995), 423–441.
+    **Read**, from the author's scan at
+    [math.ucla.edu/~wdduke/preprints/equidistribution.pdf](https://www.math.ucla.edu/~wdduke/preprints/equidistribution.pdf).
+    Load-bearing: §6 is *Combinatorial identities*, not a sieve; Theorem S
+    (p. 437) needs Type I at x^{1/2−ε} and concludes only o(π(x)); its Type II
+    coefficients satisfy "|α_m| ≤ ω(m), |β_n| ≤ 1 … β_n will be supported on
+    primes" (p. 437). **Lemma 2 (p. 436) is scale-free** and does reach a thin
+    sequence. The equidistribution theorem covers aX²+2bX+c with ac−b² > 0, so
+    ν²+1 ≡ 0 (mod p) is literally the case; Proposition 1 (p. 425) bounds those
+    residues in progressions.
 21. **Ford & Maynard**, "On the theory of prime producing sieves",
     [arXiv:2407.14368](https://arxiv.org/abs/2407.14368). Thm 4.16: C⁻ = 0 when
     γ < 1/2 and γ ∉ [θ, θ+ν]. Thm 2.4: at γ = 1/2 with ε losses C⁻ = 0, escape

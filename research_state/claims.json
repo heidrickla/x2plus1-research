@@ -248,8 +248,9 @@
     {
       "id": "ford-maynard-half-knife-edge",
       "status": "quoted",
-      "statement": "Ford-Maynard Theorem 4.16 gives C^-(gamma,theta,nu) = 0 whenever gamma < 1/2 and gamma not in [theta,theta+nu]; Theorem 2.4 gives C^-(P_eps) = 0 at gamma = 1/2 with eps losses, remarking that 'one cannot hope to obtain non-trivial lower bounds on primes without some additional assumptions'. The escape named is divisor-bounded weights. x^2+1 sits at gamma = 1/2 exactly.",
-      "citation": "Ford-Maynard, On the theory of prime producing sieves, arXiv:2407.14368, Thm 2.4 p.6 and Thm 4.16 p.17"
+      "statement": "Ford-Maynard Theorem 4.16 gives C^-(gamma,theta,nu) = 0 whenever gamma < 1/2 and gamma not in [theta,theta+nu]; Theorem 2.4 gives C^-(P_eps) = 0 at gamma = 1/2 with eps losses, remarking that 'one cannot hope to obtain non-trivial lower bounds on primes without some additional assumptions'. The escape named is divisor-bounded weights. This repo initially placed x^2+1 at gamma = 1/2 exactly; see x2plus1-sits-below-gamma-half, which corrects that to gamma = 1/2 - eps.",
+      "citation": "Ford-Maynard, On the theory of prime producing sieves, arXiv:2407.14368, Thm 2.4 p.6 and Thm 4.16 p.17",
+      "notes": "The gamma = 1/2 reading was wrong; the corrected placement is one epsilon below, inside the killed regime."
     },
     {
       "id": "merikoski-sparse-sets-off-chart",

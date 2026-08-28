@@ -32,12 +32,15 @@ Page references are to the Annals pagination printed in the arXiv preprints.
 > shows x^{2/3} is exactly the threshold below which the coefficient γ(n,C) in
 > (B) is annihilated, so within [ASP] the two hypotheses are one.
 >
-> **But x^{2/3} is [ASP]'s threshold, not prime detection's.** A level-1/2
-> prime-detecting sieve exists — Duke–Friedlander–Iwaniec, used by
-> Green–Sawhney — and x² + 1 *meets* its Type I hypothesis while failing its
-> Type II one outright. So the obstruction is Type II, and
-> [Note F](note-F-failure-localisation.md)'s C₄-free lemma is the whole of it.
-> See [§ The x^{2/3} is ASP's threshold](#the-x23-is-asps-threshold-not-prime-detections).
+> **But x^{2/3} is [ASP]'s threshold, not prime detection's** — and reading
+> Duke–Friedlander–Iwaniec directly shows the alternative is worse, not better.
+> DFI's own Theorem S is normalised to x and is **vacuous** on a sequence of
+> mass x^{1/2}; its Type II coefficients are supported on primes, not arbitrary.
+> Ford–Maynard then place x² + 1 at γ = 1/2 − ε, inside the regime their results
+> kill, with C⁻ = 0 following from Selberg once ν = 0. The obstruction is
+> Type II and [Note F](note-F-failure-localisation.md)'s C₄-free lemma is the
+> whole of it — but "x² + 1 meets DFI's Type I" was **wrong**, and is `refuted`
+> in the registry. See the two correction sections below.
 
 Friedlander and Iwaniec state the general principle themselves, p. 1044:
 
@@ -227,7 +230,9 @@ current use.** Green–Sawhney do not use [ASP]; they use the
 transplanted to ideals of O_K. Their Lemma 3.2 (p. 9) needs
 
 - **Type I at X^{1/2}(log X)^{−C}** — note: not x^{2/3}; and
-- **Type II with arbitrary 1-bounded α_a, β_b for N(b) ∈ [(log X)^C, X^{3/8}]**.
+- **Type II with arbitrary 1-bounded α_a, β_b for N(b) ∈ [(log X)^C, X^{3/8}]**
+  — *this is Green–Sawhney's strengthening; DFI's own β is supported on primes.
+  See the corrections below, which supersede this whole subsection.*
 
 They call their own Type I range "just barely enough" and record that
 "obtaining Type I information at level X^{1/2} in our setting remains an
@@ -337,7 +342,7 @@ Theorem 2.4 is the one that bites here, because **x² + 1 sits at γ = 1/2
 exactly**: with ε losses, C⁻(P_ε) = 0, and they comment that "one cannot hope to
 obtain non-trivial lower bounds on primes without some additional assumptions".
 The escape they name is divisor-bounded weights — which is precisely the
-Duke–Friedlander–Iwaniec setting. Maynard's ICM survey states that all current
+Duke–Friedlander–Iwaniec setting. *That escape is closed; see below.* Maynard's ICM survey states that all current
 approaches break down below x^{1/2} and asks (Question 21) whether adapting
 them is even plausible.
 

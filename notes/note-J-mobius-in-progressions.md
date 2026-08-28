@@ -13,9 +13,9 @@ arithmetic input? — and it turns out to have a recognisable answer.*
 [Note F](note-F-failure-localisation.md) proves the incidence graph of
 A = {x + i} is C₄-free, so a bilinear form over it with **arbitrary** bounded
 coefficients has no cancellation at any split. [Note C](note-C-requirements.md)
-shows that is fatal under Duke–Friedlander–Iwaniec, whose Type II hypothesis
-asks for exactly that — while its Type I hypothesis, at level x^{1/2}, x² + 1
-*meets*.
+shows that is fatal wherever an arbitrary-coefficient Type II hypothesis is
+asked for — which is Green–Sawhney's form of the Duke–Friedlander–Iwaniec
+sieve, and, in Ford–Maynard's axioms, is the statement that ν = 0.
 
 But the sieve's own coefficient is **μ**, and with β = μ the same sum does
 cancel. So the live question is not "does the bilinear form cancel" — it does —
@@ -99,7 +99,8 @@ Swept over prime moduli from X = 10⁴ to 10⁷ (`exp05`), fitting ρ ~ (log X)^
 
 **c → 0 as the statistics improve.** The scatter in the small bands is
 sample-size noise — 20 pairs cannot fit an exponent — and the two well-sampled
-bands both give |c| < 0.04. At fixed M the drift is flat to within 1%:
+bands both give |c| < 0.04 — but see the error bar below, which is four times
+larger. At fixed M the drift is flat to within 1%:
 ρ = 0.7221 → 0.7158 across X = 3×10⁵ → 10⁷.
 
 The fit is taken at **fixed M band**, not at fixed u = log M/log X. That matters:
@@ -181,8 +182,11 @@ barrier is a statement about provability, not about truth.
    it needs genuine arithmetic input, which is what nobody has at this density.
 2. A BV theorem for μ along a thin polynomial sequence is open **even at level
    1/2**, let alone 3/4.
-3. Ford–Maynard put γ = 1/2 with ε losses at C⁻ = 0 absent extra assumptions,
-   and x² + 1 sits at γ = 1/2 exactly.
+3. Ford–Maynard are worse than that. x² + 1 sits at **γ = 1/2 − ε**, not 1/2 —
+   their (I) needs a log-power saving at level exactly x^γ, and Note B's Type I
+   fails at x^{1/2}. That is the regime their Theorems 2.4 and 4.16 kill, and
+   with ν = 0 (Note F) C⁻ = 0 already follows from Selberg. See
+   [Note C](note-C-requirements.md).
 
 What it does change: it makes the required input a **statement about μ in
 progressions** rather than about Gaussian bilinear forms, and that is a
@@ -211,8 +215,9 @@ The registry claim `large-moduli-cannot-help` is scoped to Type I accordingly.
 - *Is the reduction novel?* Almost certainly not — the link between Type II sums
   and Möbius in progressions is routine. Do not present it as new. Its value
   here is naming the target and making it cheap to compute.
-- *Is c = 0 over-read?* The fit is consistent with c = 0 to |c| < 0.04 in the
-  best-sampled bands, over 1.5–3 decades of X. That is evidence about the
+- *Is c = 0 over-read?* It was: ±0.04 was one draw, not an error bar. The
+  phase-varied figure is c = −0.057 ± 0.19, i.e. c = 0 to a resolution of
+  |c| ≲ 0.2, over three decades of X. That is evidence about the
   **truth**, not about provability, and it is prime moduli only — the
   all-moduli cross-check is **[VERIFY]** and not yet run at scale.
 - *Is the X^{3/4} range right?* It comes from DFI's window, which this repo

@@ -90,7 +90,7 @@ already unsatisfiable — but it matters for any future sieve that might relax
 ## Caveats — read before quoting any of this
 
 - ~~**X = 2×10⁴ is small.**~~ Superseded: [Note J](note-J-mobius-in-progressions.md)
-  reaches X = 10⁷ and fits c = 0.00 ± 0.04, so √(MX) is separated from
+  reaches X = 10⁷ and fits c = −0.06 ± 0.19, so √(MX) is separated from
   √(MX)(log X)^c. What is still **not** distinguished is o(X) from X/(log X)^A —
   that is a statement about the constant and the log factors in the *aggregate*
   sum, and it remains the distinction that matters for the sieve.
@@ -124,7 +124,8 @@ already unsatisfiable — but it matters for any future sieve that might relax
   scatter in bands with only 20–138 pairs. At fixed M the drift is under 1%
   across two decades. **The law is √(MX) with no log-power correction**, and the
   caveat this note has carried from the beginning is discharged. Details and the
-  unexplained constant (ρ ≈ 0.655 against a predicted 0.755) are in Note J.
+  constant — an earlier ρ ≈ 0.655 was a normalisation artefact, corrected to
+  ≈ 0.72 — are in Note J.
 - Restrict n to Gaussian *primes* (the case the sieve actually applies to) and
   compare.
 - Repeat for a² + b⁴ at matched norm and diff against FI's proved Type II range
