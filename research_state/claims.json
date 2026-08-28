@@ -937,6 +937,19 @@
         "type_ii"
       ],
       "notes": "Recorded because it is a general trap and this repo walked into it twice in one day. A measurement of an absence supports any mechanism that predicts the absence, including wrong ones -- which is how an O(1) claim was adopted here on the strength of 379 verified pairs that could not reach the step that was wrong. The proved statement is Proposition O.1, covering a SINGLE multiplier; the general case is open. The count of informative configurations is the right measure of an absence, not the size of the sweep: 278,939 classes were examined and 278,908 of them could not have contradicted anything. Figure supplied by the parallel session; the framing is this entry's. CONCRETE DEMONSTRATION, run here and worth keeping. I proposed testing whether the coprime branch of Note O's argument always closes, by checking a*g*g'' < M over pairs of partners sharing a xi_i. First run: 426 of 624 FAILED, worst ratio 85 -- which looked like the route dying. Wrong population: it included partners NOT in a window with xi_i, where g is large by construction. Restricted to the pairs a triple would actually involve -- both partners inside a window with xi_i -- the population has size ZERO, because that is the configuration being asked about. The correctly-posed measurement is vacuous by construction, and the incorrectly-posed one gave a confident wrong answer."
+    },
+    {
+      "id": "xiao-generalises-the-form-not-the-density",
+      "status": "quoted",
+      "statement": "Xiao proves an asymptotic for primes f(m, l^2) for every irreducible primitive binary quadratic f with f(x,1) != x(x+1) mod 2: the count is nu_f S_f X^{3/4}/log X. Density X^{3/4} -- the SAME alpha = 3/4 as Friedlander-Iwaniec, Heath-Brown-Li and both of Merikoski's. He notes that before this paper 'there has yet to be a proof that f(x,y^2) takes on infinitely many prime values for any binary quadratic form f other than f(x,y) = x^2+y^2'. So the technology generalises the SHAPE freely while the density stays pinned at 3/4.",
+      "citation": "Xiao, Prime values of f(a,b^2) and f(a,p^2), f quadratic, arXiv:2111.04136v1, abstract and Theorem 1.1 pp.1-2",
+      "depends_on": [
+        "degree-determines-degeneracy"
+      ],
+      "tags": [
+        "ledger"
+      ],
+      "notes": "The last of the three candidates the first supersession scan spotted and did not read. It adds a fifth published sequence at alpha = 3/4 and none below it, which is the ledger's point stated from a fifth direction: what the technology can vary is the form, and what it cannot vary is the density. Every one of the five has two free variables."
     }
   ]
 }

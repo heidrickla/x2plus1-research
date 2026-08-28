@@ -228,9 +228,16 @@ well-factorable paper ([arXiv:2006.07088](https://arxiv.org/abs/2006.07088)).
 
 **Genuinely outstanding:**
 
-- **[arXiv:2111.04136](https://arxiv.org/abs/2111.04136)** — *Prime values of
-  f(a, b²) and f(a, p²), f quadratic.* Unread, and the last of the three
-  originally-spotted candidates still open.
+- ~~[arXiv:2111.04136](https://arxiv.org/abs/2111.04136), *Prime values of
+  f(a, b²) and f(a, p²)*~~ — **read**. Xiao proves an asymptotic
+  ν_f S_f X^{3/4}/log X for every irreducible primitive binary quadratic f with
+  f(x,1) ≢ x(x+1) (mod 2). Density **X^{3/4}**, the same α as FI,
+  Heath-Brown–Li and both Merikoskis, and he notes that before it "there has yet
+  to be a proof that f(x,y²) takes on infinitely many prime values for any
+  binary quadratic form f other than f(x,y) = x²+y²". So the technology
+  generalises the *shape* freely and the density stays pinned at 3/4 — a fifth
+  sequence at α = 3/4 and still none below it. That closes the last of the three
+  candidates the first scan spotted.
 - **Lemke Oliver**, *Acta Arith.* **151** (2012), 241–261 — the refereed
   generalisation of Iwaniec 1978. Unread. Reading it would move
   `iwaniec-1978-P2`'s *method* off second-hand; its *statement* is already
