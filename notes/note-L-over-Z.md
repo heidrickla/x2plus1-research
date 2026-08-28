@@ -561,6 +561,30 @@ Any extension of O.3 to even M must permit exactly two in a window at
 (53, 423125). That is a concrete falsifier, and this repo did not previously
 have one.
 
+**And the sharpest single object is (2, 8321)**, identified by the parallel
+session and verified here independently. M = 8319, D = 16642, and *every*
+ingredient a counterexample needs is present except the last:
+
+| | |
+|---|---|
+| live | shared moduli m = **8065** and **8581** |
+| a close pair | ratio **1.06398**, well inside one window |
+| τ₁ explains it | r₁² = 1.06398, agreeing to five decimals |
+| a second in-window multiplier exists | k = 9, U₉ = 8637, r₉² = **1.73542** < 2 |
+| the residues permit both | one of Note O's 21 residue-compatible pairs |
+| so a third would sit at | 8065 × 1.73542 ≈ **13996**, inside the window |
+
+**13996 is not a shared modulus, and nothing within ±6 of it is.** Checked here
+from the definition: a·m − 1 and b·m − 1 both square. So τ₉ does not act on this
+class, and **occupancy alone forbids the triple** — the residues, the geometry
+and the multiplier all permit it.
+
+That is why every route closed: each tried to rule out something the congruence
+data, the geometry and the multiplier existence all allow. Nothing is left for a
+bound or a construction to catch. (The two solutions are pretty enough to check
+by hand: a·8065 − 1 = 127² with 127 = 2⁷−1, and b·8065 − 1 = 2²⁶ = 8192², so
+Y = 2¹³ exactly.)
+
 ### Theorem O.3 survives this, and its hypothesis is narrower than it reads
 
 O.3 is **conditional** — if ξ exists and both τ₁ and τ_k act on it, contradiction
