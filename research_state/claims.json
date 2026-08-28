@@ -1406,6 +1406,21 @@
         "gram"
       ],
       "notes": "The finite term is load-bearing, not decoration: the modulus ratio is tau^2 only asymptotically, and the clean form m_{i+2}/m_i >= tau_1^4 is FALSE -- 9 violations in 110 gaps at X = 4000, tightest at (1,5) m 2 -> 65 where 32.50 sits under tau_1^4 = 46.98. With the correction, 0 violations in 110, and sharp: at (1,5) m 20737 -> 974170 the bound is 46.9765 against 46.9774. Step 2 must go through the automorph -- bounding |V| = M(X_j^2-X_i^2)/(X_j Y_i + X_i Y_j) instead yields tau at V/a, true but not sharp for a > 1. Slightly stronger than the determinant route (|V_13| >= 4 gives 8 sqrt2 = 11.3137) and rests on less, since that route needs the asymptotic |V| law. It is a NECESSARY condition, not a contradiction: O.2 stays open, and O.4 is not binding -- among classes clearing b/a > 133.87 with three moduli the smallest two-step ratio is 14.50 at (1,533), a factor 7.25 from a window."
+    },
+    {
+      "id": "theorem-O5-equal-multiplier-case-closed",
+      "status": "proved",
+      "statement": "Theorem O.5. No dyadic window contains (xi, tau_p xi, tau_p^2 xi), for any p >= 1, with no hypothesis on M, on a, or on which multipliers act. Proof: tau_p^2 = (U' + V' sqrt D)/M with U' = M + 8p^2 D/M, so tau_p^2 in T requires M | 8p^2 D; D = a(a+M) == a^2 mod M and gcd(a,M) = gcd(a,b) = 1 for a reduced class, so M | 8p^2 and M <= 8p^2. Theorem O.4 with X_1 >= 1 gives tau_p^4 < 3, hence p < 0.139060 M/sqrt(D) and 8p^2 < 0.154701 M^2/D, forcing D < M -- but M = b-a < b <= ab = D always. At p = 1 the divisibility is an equivalence: tau_1^2 in T <=> M | 8.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O5_tau_p_squared_in_T_forces_M_divides_8p_squared; tests/test_note_o.py::test_O5_at_p_one_it_is_an_equivalence_with_M_divides_8; tests/test_note_o.py::test_O5_the_window_contradicts_M_divides_8p_squared",
+      "experiment": "experiments/exp19_composition_bound.py",
+      "depends_on": [
+        "theorem-O4-composition-bound"
+      ],
+      "tags": [
+        "note_o",
+        "window"
+      ],
+      "notes": "SUPERSEDES Proposition O.1, which is the p = 1 case and needed the auxiliary a g^2 < M with g = gcd(U,V), a window hypothesis, and an escape clause. O.5 explains the escape instead of tolerating it: at (a,b) = (1,5), M = 4 | 8, so tau_1^2 genuinely IS in T -- O.1's inequality failing there by nothing (a g^2 = 4 = M exactly) was the symptom, and the cause is that the integrality is fine and the WINDOW is what fails. Verified: 0 failures over 555 occurrences of tau_p^2 in T with a <= 60, b <= 4000, p <= 30; the p = 1 equivalence over 133,670 coprime pairs. The two realised classes where tau_1^2 acts at X = 3000 are (1,5) with M = 4 and (1,2) with M = 1. WHAT IT DOES NOT REACH is p != q: the composite's integrality M | U_p U_q + 4pq D does not collapse -- multiplying by the conjugate returns M | M^2(M^2 + 4(p^2+q^2)D), true for free. So O.2's surviving case is exactly two DISTINCT multipliers, and nothing realised exhibits it."
     }
   ]
 }

@@ -114,6 +114,37 @@ def main(X=4000):
         print(f"  the exact bound is SHARP: at (a,b)=({a},{b}) m {mi}->{mk}"
               f" it gives {lo:.4f} against an observed {obs:.4f}")
 
+    # ---- Theorem O.5: the p = q case, closed outright ----------------------
+    from math import gcd
+    occ = viol = 0
+    for a in range(1, 40):
+        for b in range(a + 1, 2000):
+            if gcd(a, b) != 1:
+                continue
+            M, D = b - a, a * b
+            for p in range(1, 20):
+                t = M * M + 4 * p * p * D
+                U = isqrt(t)
+                if U * U != t:
+                    continue
+                if (8 * p * p * D) % M == 0 and (4 * p * U) % M == 0:
+                    occ += 1
+                    viol += (8 * p * p) % M != 0
+    print()
+    print("THEOREM O.5 (the p = q case).  tau_p^2 = (U' + V' sqrt D)/M with")
+    print(f"  U' = M + 8p^2 D/M, and D == a^2 mod M with gcd(a,M) = 1, so")
+    print(f"  tau_p^2 in T  =>  M | 8p^2.   Occurrences: {occ}, violations: {viol}")
+    c3 = 3 ** 0.25
+    w = (c3 * c3 - 1) / (2 * c3)
+    print(f"  O.4 with X_1 >= 1 gives tau_p^4 < 3, so p < {w/2:.6f} M/sqrt(D) and")
+    print(f"  8p^2 < {8*(w/2)**2:.6f} M^2/D.  With M <= 8p^2 that forces D < M --")
+    print(f"  but M = b-a < b <= ab = D always.  So NO window holds"
+          f" (xi, tau_p xi, tau_p^2 xi), for any p.")
+    print(f"  Supersedes Prop O.1: at (1,5), M = 4 | 8, so tau_1^2 IS in T --")
+    print(f"  the integrality is fine and it is the window that fails.")
+    print(f"  What survives of O.2 is exactly p != q: the composite's integrality")
+    print(f"  M | U_p U_q + 4pq D does not collapse the same way.")
+
     adm = [(a, b) for (a, b), ms in classes.items()
            if b > T_TRIPLE**2 * a and len(ms) >= 3]
     print(f"\n  classes clearing b/a > {T_TRIPLE**2:.2f} AND holding three moduli:"

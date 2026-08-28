@@ -696,6 +696,54 @@ ratio is **14.50** at (a, b) = (1, 533) — a factor 7.25 from the 2 a window
 needs. The live witness (53, 423125) has b/a = 7983.5 and is permitted, correctly,
 since it carries a pair and not a triple.
 
+### Theorem O.5 — the p = q case, closed outright
+
+O.4 bounds the composite from below by τ_min². When the **two steps carry the
+same multiplier** the composite is τ_p², and then the integrality of τ_p² is a
+divisibility on M alone — which closes that case completely.
+
+> τ_p² = (U_p + 2p√D)²/M² = (U' + V'√D)/M with
+> **U' = (M² + 8p²D)/M = M + 8p²D/M** and **V' = 4pU_p/M**.
+
+So τ_p² ∈ T requires M | 8p²D. Now D = ab = a(a + M) ≡ a² (mod M), and
+gcd(a, M) = gcd(a, b − a) = gcd(a, b) = 1 because the class is reduced. Hence
+
+> **τ_p² ∈ T  ⟹  M | 8p².**
+
+*(0 failures over the 555 occurrences of τ_p² ∈ T with a ≤ 60, b ≤ 4000,
+p ≤ 30. At p = 1 it reads M | 8, verified separately as an equivalence over
+133,670 coprime pairs.)*
+
+The window then contradicts it with no room at all. O.4 with X₁ ≥ 1 gives
+τ_p⁴ < 3, so τ_p < 3^{1/4}; τ_V < c forces Vs < (c²−1)/(2c) with s = √D/M, so
+with V = 2p
+
+> p < 0.139060·M/√D,  hence  **8p² < 0.154701·M²/D**.
+
+But M | 8p² gives M ≤ 8p², so D < 0.154701·M < M. And **M < D always** —
+M = b − a < b ≤ ab = D for a ≥ 1. Contradiction.
+
+> **Theorem O.5.** No dyadic window contains (ξ, τ_pξ, τ_p²ξ), for any p ≥ 1.
+> No hypothesis on M, on a, or on which multipliers act.
+
+**This supersedes Proposition O.1**, which is the p = 1 case and needed the
+auxiliary a·g² < M with g = gcd(U,V), a window hypothesis, and an escape clause.
+O.5 explains the escape rather than tolerating it: at (a,b) = (1,5) we have
+M = 4 | 8, so τ₁² genuinely **is** in T — O.1's inequality failing there by
+nothing (a·g² = 4 = M exactly) was the symptom, and the cause is that the
+integrality is fine and it is the *window* that fails. The two realised classes
+where τ₁² acts at X = 3000 are (1,5) with M = 4 and (1,2) with M = 1, both
+dividing 8.
+
+**What it does not reach is p ≠ q.** The two steps of a triple may carry
+different multipliers, and then the composite's integrality is
+M | U_pU_q + 4pqD, which does not collapse: multiplying by the conjugate returns
+M | M²(M² + 4(p²+q²)D), true for free. So **O.2's surviving case is exactly two
+*distinct* multipliers**, and that is now the whole of it — the equal case is
+closed and the τ₁-assuming cases were closed by O.3″. The live witness
+(53, 423125) at k = 12 is a pair, so it does not exhibit the surviving case
+either; nothing realised does.
+
 **And the candidate criterion in the withdrawn section was the wrong shape**,
 which matters only for reading that section's numbers. For three moduli
 m, r₁m, r_km all inside [m, 2m) the requirement is **r_k < 2** alone; the product

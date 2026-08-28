@@ -795,3 +795,59 @@ def test_O4_is_not_binding_on_realised_classes():
                for _a, _b, ms in adm)
     assert best > 2, best        # none is anywhere near a window
     assert best > 7              # in fact not within a factor of 7
+
+
+def test_O5_tau_p_squared_in_T_forces_M_divides_8p_squared():
+    """U' = M + 8p^2 D/M, and D == a^2 mod M with gcd(a,M) = 1."""
+    n = 0
+    for a in range(1, 40):
+        for b in range(a + 1, 2000):
+            if gcd(a, b) != 1:
+                continue
+            M, D = b - a, a * b
+            assert D % M == (a * a) % M          # D = a(a+M) == a^2 mod M
+            assert gcd(a, M) == 1                 # because the class is reduced
+            for p in range(1, 20):
+                t = M * M + 4 * p * p * D
+                U = isqrt(t)
+                if U * U != t:
+                    continue
+                if (8 * p * p * D) % M == 0 and (4 * p * U) % M == 0:
+                    assert (8 * p * p) % M == 0, (a, b, p)   # M | 8p^2
+                    n += 1
+    assert n > 100, n
+
+
+def test_O5_at_p_one_it_is_an_equivalence_with_M_divides_8():
+    """tau_1^2 in T  <=>  M | 8, exactly."""
+    n = 0
+    for a in range(1, 60):
+        for b in range(a + 1, 900):
+            if gcd(a, b) != 1:
+                continue
+            M = b - a
+            in_T = (4 * (a + b)) % M == 0 and ((a + b) ** 2 + 4 * a * b) % M == 0
+            assert in_T == (8 % M == 0), (a, b, M)
+            n += 1
+    assert n > 10000, n
+
+
+def test_O5_the_window_contradicts_M_divides_8p_squared():
+    """tau_p^4 < 3 forces 8p^2 < 0.1548 M^2/D, against M <= 8p^2 and M < D."""
+    c = 3 ** 0.25                      # O.4 with X_1 >= 1 gives tau_p^4 < 3
+    w = (c * c - 1) / (2 * c)          # tau_V < c  =>  V s < w
+    assert abs(w - 0.278119) < 1e-6
+    C = 8 * (w / 2) ** 2
+    assert abs(C - 0.154701) < 1e-6
+    assert C < 1                        # so D < C*M < M is the contradiction
+    # M < D always, for a >= 1 and b > a
+    for a in range(1, 60):
+        for b in range(a + 1, 300):
+            assert b - a < a * b, (a, b)
+
+
+def test_O5_realised_classes_where_tau_1_squared_acts_all_have_M_dividing_8():
+    """Recorded from the X = 3000 sweep in experiments/exp19_composition_bound.py."""
+    for a, b, M in [(1, 5, 4), (1, 2, 1)]:
+        assert b - a == M and 8 % M == 0
+        assert (4 * (a + b)) % M == 0      # tau_1^2 really is in T there
