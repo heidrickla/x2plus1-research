@@ -2977,3 +2977,39 @@ of one mechanism rather than three techniques.
 
 ⚠ Still does not close O.2: the criterion is satisfiable — 911 of the observed
 per-prime decisions go the integral way — so the configuration survives.
+
+### O.18 The alternation does not extend to odd composite M — route nine, closed
+
+O.17 shows the composite criterion is a **per-prime** sign, and O.6's alternation
+forces opposite signs, which is exactly why the integrality conditions carry no
+information. That suggests an extension: O.7 closes M an odd **prime** by parity
+— two steps flip twice, the one-step composite flips once, and the dichotomy
+forbids both. If the alternation held **per prime**, the same parity argument
+would run at each prime of any odd M and close O.2 for all odd M.
+
+**It does not.** At X = 3000, over classes with M odd composite, at least two
+shared moduli, and **unit-free** (a ≥ 2, since a = 1 is inadmissible anyway):
+
+| | count |
+|---|---:|
+| alternates at every step | 794 |
+| **does NOT always alternate** | **20** |
+| dichotomy fails at some solution | 18 |
+
+Counterexamples: (2, 65) M = 63 at r = 7 with subcase codes [1, 1, −1];
+(2, 925) M = 923 at r = 71 with [1, 1, −1]; (2, 5945) M = 5943 at r = 7 with
+[−1, −1]; (10, 673) M = 663 at r = 3 with [−1, −1]; (2, 185) M = 183 at r = 3
+with [1, 1].
+
+**And the dichotomy itself fails 18 times** — at those solutions neither or both
+of r | S, r | T hold, so the local sign is not even defined. O.6's proof that
+exactly one holds uses M prime (both would give M | 4pa, hence M | p); at a
+prime power dividing a composite M that step does not survive.
+
+So the ninth route on O.2's general case is closed, and for a reason worth
+keeping: **O.6's alternation is a statement about M prime, not a statement about
+each prime of M.** The per-prime structure that O.17 exposes for the *composite
+criterion* does not propagate to the *alternation*.
+
+⚠ Recorded so it is not retried. It is the natural move once O.17 is in hand, and
+it looks like it should work.

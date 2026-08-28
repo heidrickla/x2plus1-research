@@ -2437,6 +2437,22 @@
         "gram"
       ],
       "notes": "THE SIGN IS PER PRIME, and that is the content. A GLOBAL sign disagrees with the full test on 26 of the 68,820 triples, and every one of those has no global sign at all -- which is what led to the per-prime form. It is the same object O.9 uses to derive M | V_12 V_23 V_13 and O.10 upgrades to a valuation, so O.5, O.16 and the sign arguments are three faces of one mechanism rather than three techniques. STILL DOES NOT CLOSE O.2: the criterion is satisfiable -- 911 of the observed per-prime decisions go the integral way -- so the configuration survives. Generalises O.16, which is its (p,s) = (1,2) case."
+    },
+    {
+      "id": "O7-does-not-extend-to-odd-composite-M",
+      "status": "rigorous_finite",
+      "statement": "The route from O.17 to a per-prime version of O.7 is CLOSED. O.7 closes Conjecture O.2 for M an odd PRIME by parity: two steps flip the subcase twice, the one-step composite flips it once, and the dichotomy forbids both. O.17 shows the composite integrality criterion is a per-prime sign, which suggests the alternation is too, and that the parity argument would then run at each prime of any odd M. It does not. At X = 3000, over unit-free classes with M odd composite and at least two shared moduli, per prime r | M: 794 alternate at every step, 20 do NOT, and in 18 further cases the dichotomy itself fails so no local sign is defined. Counterexamples include (2,65) M = 63 at r = 7 with codes [1,1,-1], (2,925) M = 923 at r = 71, (2,5945) M = 5943 at r = 7, (10,673) M = 663 at r = 3, and (2,185) M = 183 at r = 3.",
+      "experiment": null,
+      "depends_on": [
+        "theorem-O7-M-odd-prime",
+        "O17-composite-criterion-is-a-per-prime-sign"
+      ],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "WHY IT FAILS, which is the part worth keeping: O.6's dichotomy -- exactly one of M | S, M | T -- is proved using M PRIME, since both holding would give M | 4pa hence M | p. At a prime power dividing a composite M that step does not survive, and the 18 dichotomy failures are exactly that. So the alternation is a statement about M prime, not about each prime of M, and the per-prime structure O.17 exposes for the COMPOSITE CRITERION does not propagate to the ALTERNATION. Recorded because it is the natural move once O.17 is in hand and it looks like it should work. Ninth route closed on O.2's general case."
     }
   ]
 }
