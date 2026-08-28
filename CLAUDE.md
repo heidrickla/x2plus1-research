@@ -35,6 +35,8 @@ finding; this table is a summary of it, not a second copy.
 | Weakest link | `gaussian-to-rational-bridge` (inferred): the Z[i]→Z transfer |
 | ⚠ Note O | is **BD₂(−1)**, bipartite Diophantine tuples (am−1, bm−1 squares). Tsang–Yip arXiv:2512.03441 Q1.3: *"when k = 2, we do not know any upper bound on ℓ"* — **open**, conjecturally ℓ ≤ 5 |
 | — measured here | ℓ = 3, **exhaustively**: every K₃,₃ contains a pair sharing ≥3 moduli, and all 218 such pairs at X = 9000 fail to extend. \|A\|=2 is unbounded. Measured, not proved |
+| — the citable form | O.12+O.13 in their variables: (A,B) with BD₂(−1), x<y, z<w — **if w/z < 2 then y/x > (1+√2)⁴ = 33.9706**. A *joint* ratio constraint; their Lemma 2.1 is **vacuous** at k = 2 (gives yw ≥ xz). See `note-Q-dictionary.md` |
+| — and the sets coincide | a is BD₂(−1)-admissible ⟺ a is a cofactor of some x²+1, so the O-thread is about BD₂(−1) **generally** |
 | — cutoff is sharp | 96 of 160 qualifying pairs reach K₃,₂, 64 reach K₃,₁, **none** reaches K₃,₃ — an obstruction, not sparsity. Unit-free K₃,₂ exists: {2,10,14365}×{5,1513} |
 | — side constraint | all even elements lie on one side (ab−1 square ⟹ ab ≢ 0 mod 4), 0 violations in 35,350 incidences |
 
