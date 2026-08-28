@@ -3013,3 +3013,50 @@ criterion* does not propagate to the *alternation*.
 
 ⚠ Recorded so it is not retried. It is the natural move once O.17 is in hand, and
 it looks like it should work.
+
+---
+
+## O.19 This whole thread is the D(−1)-tuple extension problem
+
+**The identification is exact and elementary.** m is a shared modulus of the
+cofactor pair (a, b) iff am − 1 and bm − 1 are both perfect squares — because
+am = X²+1 and bm = Y²+1. That is precisely the condition for m to be a common
+**D(−1)-extension** of a and b, in the sense of Diophantine m-tuples: a
+D(−1)-set is a set whose pairwise products are one more than a square.
+
+**Verified on this note's own running examples.** The pair (1, 5) at m = 2 — the
+counterexample that forced the window hypothesis into Proposition O.1 — is the
+classical D(−1)-triple **{1, 2, 5}**: 1·2−1 = 1², 1·5−1 = 2², 2·5−1 = 3². And
+the unit-free witness (2, 82) with moduli 365 and 685 has all four products
+square, though 2·82−1 = 163 is not, so {2, 82} is not itself a D(−1)-pair. **The
+configuration studied here requires two of the three products to be squares, not
+all three**, so it is the *extension* equation rather than the triple condition.
+
+**What the literature has that this note does not.**
+
+- The D(−1)-quadruple conjecture is **resolved**: there is no Diophantine
+  D(−1)-quadruple (Bonciocat–Cipu–Mignotte, arXiv:2010.09200).
+- **Gap principles are standard equipment** in that field — Dujella's gap
+  principle, `c > 4ab` for regular quadruples, and explicit extension counts of
+  a triple by ranges (at most 3, 7, 6 or 0 depending on where c sits relative to
+  b² and 200b⁴).
+- The technique is **linear forms in logarithms** (MSC 11J68), Baker's method
+  and Baker–Davenport reduction — not congruences, and not the size arguments
+  this note has been building.
+- The structural result that a D(−1)-quadruple {a,b,c,d} with a < b < c < d
+  forces **a = 1** independently mirrors this repo's finding that *every class
+  O.11 admits has a = 1*.
+
+**What this means for O.2.** This note records eight closed routes and a ninth
+(O.18), and concludes that "any proof must be about occupancy, not congruences"
+and that size arguments cannot reach it. Both may be true and both may be beside
+the point: **the field's answer to exactly this kind of question is linear forms
+in logarithms**, which is neither a congruence nor a size argument, and which
+this note has never attempted.
+
+⚠ **STATUS.** The identification and the two worked examples are verified here.
+The literature statements are from abstracts and search results, **not from the
+papers read in full**, and must be treated as `inferred` until someone reads
+them. In particular: whether the standard gap principles apply when {a,b} is not
+itself a D(−1)-pair, and whether O.2 is already a corollary of known results, are
+both **open questions about the literature**, not settled facts.

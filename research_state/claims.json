@@ -2453,6 +2453,19 @@
         "gram"
       ],
       "notes": "WHY IT FAILS, which is the part worth keeping: O.6's dichotomy -- exactly one of M | S, M | T -- is proved using M PRIME, since both holding would give M | 4pa hence M | p. At a prime power dividing a composite M that step does not survive, and the 18 dichotomy failures are exactly that. So the alternation is a statement about M prime, not about each prime of M, and the per-prime structure O.17 exposes for the COMPOSITE CRITERION does not propagate to the ALTERNATION. Recorded because it is the natural move once O.17 is in hand and it looks like it should work. Ninth route closed on O.2's general case."
+    },
+    {
+      "id": "note-O-is-the-D-minus-one-tuple-problem",
+      "status": "inferred",
+      "statement": "Note O's configuration is the D(-1)-tuple extension problem. VERIFIED HERE: m is a shared modulus of the cofactor pair (a,b) iff am-1 and bm-1 are both perfect squares, since am = X^2+1 and bm = Y^2+1 -- exactly the condition for m to be a common D(-1)-extension of a and b. The note's running example (1,5) at m = 2 IS the classical D(-1)-triple {1,2,5}: 1*2-1 = 1^2, 1*5-1 = 2^2, 2*5-1 = 3^2. The unit-free witness (2,82) with moduli 365 and 685 has all four products square while 2*82-1 = 163 is not, so the configuration requires TWO of the three pairwise products to be squares, not all three -- the extension equation rather than the triple condition. FROM THE LITERATURE, NOT YET READ IN FULL: the D(-1)-quadruple conjecture is resolved (no D(-1)-quadruple exists, Bonciocat-Cipu-Mignotte arXiv:2010.09200); gap principles are standard equipment (Dujella's gap principle, c > 4ab for regular quadruples, explicit extension counts of at most 3/7/6/0 by range); the technique is linear forms in logarithms (MSC 11J68) and Baker-Davenport reduction; and a D(-1)-quadruple with a < b < c < d forces a = 1, which independently mirrors this repo's finding that every class O.11 admits has a = 1.",
+      "citation": "arXiv:2010.09200 (abstract read); web search summaries of Dujella, Dujella-Filipin-Fuchs and related surveys -- NOT read in full",
+      "experiment": null,
+      "depends_on": [],
+      "tags": [
+        "note_o",
+        "literature"
+      ],
+      "notes": "WHAT IS MISSING, and it is most of the verification: the literature statements come from abstracts and search results, not from the papers. Two questions are open ABOUT THE LITERATURE rather than about the mathematics -- whether the standard gap principles apply when {a,b} is not itself a D(-1)-pair (the note's configuration only needs two of three products square), and whether Conjecture O.2 is already a corollary of known results. WHY IT MATTERS FOR DIRECTION: the note records nine closed routes and concludes that any proof must be about occupancy rather than congruences, and that size arguments cannot reach O.2. Both may be true and beside the point -- the field's answer to this kind of question is LINEAR FORMS IN LOGARITHMS, which is neither, and which this note has never attempted. It also bears directly on novelty: much of the O-thread may be re-deriving known results, which is the first thing to establish before any of it is written up."
     }
   ]
 }
