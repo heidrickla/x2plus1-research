@@ -507,34 +507,43 @@ empty parameter space. The other order cannot:
 > construction — occupancy is the input, not a filter applied later, and the
 > multiplier structure is the output.
 
-The 20 outliers of the positive control are exactly this method's first run.
-Most are small-m cases where the documented O(1/m) correction dominates. One is
-not, and it is the sharpest single object this repo has for the open question:
+The 20 outliers of the positive control are exactly this method's first run, and
+[`exp14`](../experiments/exp14_live_configurations.py) is that run made
+reproducible. At X = 3000: 379 close pairs, 367 explained by some multiplier
+index, **366 of them at k = 1**. One is not:
 
-> **(1, 423125).** Shared moduli **m = 10 and m = 17**, ratio **1.70** — inside
-> a dyadic window. τ₁² = 1.00617, so the fundamental multiplier does *not*
-> explain it; **k = 91 does**, with r₉₁² = 1.73765. The pair has exactly two
-> multipliers, k = 1 and k = 91.
+> **(53, 423125).** Shared moduli **m = 10 and m = 17**, ratio **1.70** — inside
+> a dyadic window. τ₁² = **1.045787**, so the fundamental multiplier does not
+> explain it. **k = 12 does**, with r₁₂² = 1.70066, a relative error of
+> 3.9×10⁻⁴. The pair's only multipliers below k = 4000 are k = 1 and k = 12.
 
-Verified independently of any parameterisation: 10 − 1 = 3², 423125·10 − 1 =
-2057², 17 − 1 = 4², 423125·17 − 1 = 2682². And enumerated exhaustively —
-**x ≤ 3×10⁸ yields those two moduli and nothing else**, from x = 3 and x = 4.
+Verified independently of any parameterisation: 53·10 − 1 = 23², 423125·10 − 1 =
+2057², 53·17 − 1 = 30², 423125·17 − 1 = 2682².
 
 Three things make it the right test case:
 
-1. **The close pair is realised at a non-fundamental multiplier.** Every other
-   live close pair examined here sits at k = 1. This is the shape Conjecture O.2
-   is about, occurring.
-2. **M = 423124 = 2²·13·79·103 is even, so Theorem O.3 is mute on it** — it is
-   in precisely the regime the parity extension would bring inside.
-3. **There is no third, and the reason is visible.** A third modulus at the
-   fundamental step would sit at 10 × 1.00617 = 10.06 or 17 × 1.00617 = 17.10;
-   neither is an integer. τ₁ does not act on either occupied modulus, which is
-   Prop O.1's conclusion appearing on a live configuration rather than a
-   hypothetical one.
+1. **The close pair is realised at a non-fundamental multiplier.** 366 of the
+   367 explained close pairs sit at k = 1; this one cannot, since τ₁² = 1.046
+   against an observed 1.70. The exclusion of k = 1 is the robust part and does
+   not depend on the k = 12 identification being the right one.
+2. **M = 423072 = 2⁵·3²·13·113 is even and not squarefree, so Theorem O.3 is
+   mute on it** — precisely the regime a parity extension would bring inside.
+3. **There is no third.** The shape Conjecture O.2 concerns is realised here and
+   stops at two.
 
-Any extension of O.3 to even M must permit exactly two in a window here. That is
-a concrete falsifier, and this repo did not previously have one.
+**A caution the same run supplies.** The sibling class **(1, 423125)** has the
+same two modulus *values*, 10 and 17, reached from different x — and for it *no*
+multiplier below k = 4000 explains the ratio: τ₁² = 1.00617 and the nearest,
+k = 91, gives 1.73765, out by 2.2%. It is one of the 12 unexplained. So the τ²
+identification degrades at small m exactly as `close_pairs` documents, and a
+single close pair should not be attributed to a multiplier index without
+checking the residual. An earlier draft of this section attributed the
+configuration to (1, 423125) at k = 91 on a looser tolerance; `exp14`, written
+to be run rather than trusted, corrected it.
+
+Any extension of O.3 to even M must permit exactly two in a window at
+(53, 423125). That is a concrete falsifier, and this repo did not previously
+have one.
 
 ### Theorem O.3 survives this, and its hypothesis is narrower than it reads
 

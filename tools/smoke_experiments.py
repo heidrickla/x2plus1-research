@@ -45,6 +45,7 @@ SIZES: dict[str, list[str]] = {
     "exp10_second_variable.py": ["1200"],
     "exp12_tau_multiplier.py": ["1500"],   # no pairs with m >= 1000 below ~1000
     "exp13_window_gap.py": ["400"],
+    "exp14_live_configurations.py": ["600"],  # ratio_classes is O(X^2)
 }
 
 TIMEOUT = 300
@@ -55,11 +56,12 @@ def main() -> int:
     if not scripts:
         print(f"no experiments found in {EXPERIMENTS}")
         return 1
-    failures = []
+    failures, skipped = [], 0
     for script in scripts:
         args = SIZES.get(script.name)
         if args is None:
             print(f"  {script.name:<34} SKIP -- no size recorded; add one to SIZES")
+            skipped += 1
             continue
         t0 = time.time()
         try:
@@ -83,7 +85,11 @@ def main() -> int:
     if failures:
         print(f"{len(failures)} failing: {', '.join(failures)}")
         return 1
-    print(f"all {len(scripts)} experiments run")
+    ran = len(scripts) - skipped
+    if skipped:
+        print(f"{ran} of {len(scripts)} experiments run; {skipped} skipped for want of a size")
+        return 1
+    print(f"all {ran} experiments run")
     return 0
 
 

@@ -1009,12 +1009,12 @@
     {
       "id": "live-non-fundamental-close-pair",
       "status": "rigorous_finite",
-      "statement": "(a,b) = (1, 423125) has exactly two shared moduli for x <= 3e8: m = 10 (x=3) and m = 17 (x=4), ratio 1.70, inside one dyadic window. tau_1^2 = 1.00617 does not explain that ratio; k = 91 does, with r_91^2 = 1.73765. The pair's only multipliers are k = 1 and k = 91. M = b-a = 423124 = 2^2*13*79*103 is EVEN, so Theorem O.3 is mute on it.",
-      "experiment": "QR-sieved exhaustive enumeration to x <= 3e8; arose as a residual of the tau^2 positive control. Note L, 'Generate from the realised side'",
+      "statement": "(a,b) = (53, 423125) has shared moduli m = 10 and m = 17, ratio 1.70, inside one dyadic window. tau_1^2 = 1.045787 does not explain that ratio; k = 12 does, with r_12^2 = 1.70066 (relative error 3.9e-4). Its only multipliers below k = 4000 are k = 1 and k = 12. M = b-a = 423072 = 2^5*3^2*13*113 is EVEN and not squarefree, so Theorem O.3 is mute on it. At X = 3000 it is the ONLY live non-fundamental close pair: of 379 close pairs, 367 are explained by a multiplier index and 366 of those sit at k = 1.",
+      "experiment": "experiments/exp14_live_configurations.py",
       "tags": [
         "type_ii"
       ],
-      "notes": "Verified without any parameterisation: 10-1 = 3^2, 423125*10-1 = 2057^2, 17-1 = 4^2, 423125*17-1 = 2682^2. The first live instance of a close pair realised at a NON-fundamental multiplier -- the shape Conjecture O.2 concerns -- and it sits in the even-M regime O.3 cannot reach. No third modulus exists: a fundamental step from either would land at 10.06 or 17.10, neither an integer, which is Prop O.1's conclusion on a live configuration. Any extension of O.3 to even M must permit exactly two in a window here, so this is a concrete falsifier for that lemma."
+      "notes": "Verified without any parameterisation: 53*10-1 = 23^2, 423125*10-1 = 2057^2, 53*17-1 = 30^2, 423125*17-1 = 2682^2. The first live instance of a close pair realised at a NON-fundamental multiplier -- the shape Conjecture O.2 concerns -- sitting in the regime O.3 cannot reach. The robust part is the EXCLUSION of k = 1 (tau_1^2 = 1.046 against an observed 1.70), which does not depend on k = 12 being the right index. CORRECTION: first recorded as (1, 423125) at k = 91. Wrong on both counts. That sibling class has the same two modulus VALUES from different x, and for it no multiplier below k = 4000 explains the ratio -- nearest is k = 91 at 2.2% off, so it is one of the 12 unexplained. The error came from reading a k-list printed next to an observed ratio as a match without checking the residual; exp14 applies the tolerance and caught it. Any extension of O.3 to even M must permit exactly two in a window here."
     },
     {
       "id": "generate-candidates-from-the-realised-side",
