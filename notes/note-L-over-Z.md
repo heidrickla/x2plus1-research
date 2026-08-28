@@ -208,6 +208,37 @@ Same cross-orbit step, same four-place agreement, **and no unit anywhere**. A
 reader meeting this structure at (2, 82) does not have to first dispose of the
 objection that the witness leans on a cofactor no Type II hypothesis admits.
 
+### And that makes O.2 countable: 43 classes at X = 3000
+
+If a window can hold only what τ reaches, then a **triple** needs a class
+admitting **two in-window multipliers** — indices k with M² + 4k²D a perfect
+square and τ_k² < 2. That is a finite condition on (a, b) alone, and it is met
+almost nowhere:
+
+| X | classes | 0 in-window mult. | 1 | **2** | 3+ |
+|---:|---:|---:|---:|---:|---:|
+| 1500 | 453,111 | 375,381 | 77,707 | **23** | 0 |
+| 3000 | 1,815,155 | 1,503,796 | 311,316 | **43** | 0 |
+| 6000 | 7,267,040 | 6,020,269 | 1,246,693 | **78** | 0 |
+
+The count grows 23 → 43 → 78 while the class population grows fourfold per
+doubling, so the **fraction halves each time**: 5.1×10⁻⁵, 2.4×10⁻⁵, 1.07×10⁻⁵.
+
+**And within that set the moduli never arrive.** Modulus counts over the
+chain-admitting classes are {1: 23}, then {1: 40, 2: 3}, then {1: 73, 2: 5} —
+**maximum two at every size**, against the three a triple requires.
+
+**The three that realise a k ≥ 2 step are exactly `exp14`'s live non-fundamental
+close pairs**: (1, 423125) with k = 1, 91 and moduli 10, 17; (1, 51701) with
+k = 1, 33 and moduli 82, 145; (53, 423125) with k = 1, 12 and moduli 10, 17.
+`exp14` found them by streaming the *realised* side; this finds them by counting
+multiplier indices against a Pell condition. **Two constructions with nothing in
+common, the same three configurations.**
+
+So the informative population for O.2 is *classes admitting two in-window
+multipliers* — **43** at X = 3000 — not classes with three moduli (60), and not
+all classes. No law is fitted to 23 → 43 → 78; the values are the statement.
+
 *(Recorded because the identification is tempting and wrong: assigning moduli to
 orbits by |V| = 2 — treating the fundamental multiplier as the fundamental
 automorph — produces "two moduli of one orbit in a window", which contradicts
