@@ -1069,6 +1069,30 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   sent each of us back to the derivation. A wrong invariant that happened to
   produce no violation would still be there.
 
+- **And when a retraction dies in transit it leaves a FALSE sentence standing,
+  which a correctly-applied hedge then disguises.** The other session found that
+  a *caveat* survives at the site that derives a number and is dropped by every
+  site that quotes it — quoting compresses, and the conditional clause is the
+  compressible part. The same happens to *retractions*, and there it is worse. The
+  D = 4 converse was withdrawn in Note O and in its claim, and CLAUDE.md went on
+  asserting *"D = 4's two sub-threshold cycles are non-τ₁, so above ⟺ τ₁
+  separates"* for hours — because after that correction the grep run was for the
+  **number** (`43.79`) and never for the **claim**. A shed caveat leaves a true
+  statement over-claimed; a shed retraction leaves a false one.
+  **And the hedge made it harder to see.** That sentence had already been softened
+  to "an observation, not a theorem", which is correct about evidence — but the
+  thing hedged had *no* evidence, so the hedge was protecting a claim with none
+  rather than one with little. **A correctly-applied hedge on a withdrawn premise
+  reads as due caution and is its opposite.** The two failures compose: the hedge
+  makes the sentence look already handled.
+  Removing D = 4 also left *above ⟺ τ₁* with no confirming instance at all — at
+  D = 1 and 2 every realised cycle is above threshold, so there is nothing to test
+  the converse on. **Untested, not merely unproved**, and the third empty
+  antecedent of the night wearing a populated-looking sentence.
+  **The operation is: grep for the retracted CLAIM after retracting it, not only
+  for the corrected number.** Both sessions ran the number version and missed the
+  claim version, on different retractions, the same night.
+
 - **When you correct a recorded value, grep the registry for the old one.** The
   43.79 → 34.0811 correction landed in the claim that made it and not in the
   `proved` claim it corrects, so two live claims asserted different minima for
