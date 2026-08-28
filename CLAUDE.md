@@ -391,6 +391,18 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     Q^{(1/2−θ)/2} = Q⁰, and wrong by **2.41** read as S = T. Neither is a false
     statement and neither would fail any guard. **Write the constant, or write
     "to within a constant" — never a bare ≍ that a reader will use numerically.**
+    A third instance sat in a `proved` claim: `type-I-level` gave Σ_{N(d)≤D}|r_d|
+    ≍ D while `admissible-density` gave (3/2π)·D admissible ideals — **the two
+    could not both carry constant 1**, and neither noticed. The constant is
+    forced and exact: r_d is triangular on (−1,1), so E|r_d| = 1/3 and the sum is
+    **D/(2π) = 0.159155·D** (measured 0.15895 at D = 5×10⁵, 0.13%).
+    **These are errors that *sit*, not errors that propagate.** A false conclusion
+    is caught by the next thing that uses it; a wrong constant inside a true
+    order-statement is used by nothing, so nothing objects — which is why all
+    three survived a green suite, two prose sweeps *and* a citation audit. The
+    conclusions were untouched in all three, at 2.4×, 4× and 6.3× off.
+    **Checkable form: wherever a note states an order for a quantity some
+    experiment computes, put the computed constant in.**
   Nothing checks a proposition's statement against its own proof, because the
   tests test the proof. The one checkable habit: **a correction that reaches only
   a claim's `notes` has not landed** — notes are where history goes, the statement
