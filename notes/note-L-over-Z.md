@@ -139,20 +139,38 @@ Both halves of the earlier table follow: within a class the spacing is ≥ φ⁴
 so windows see one; across all M the number of visible solutions is ≍ log X,
 which is the full graph's growth.
 
-**Status, twice corrected — and now superseded by a proof.**
-[Note O](note-O-tau-multiplier.md) closes this unconditionally: **no dyadic
-window contains three shared moduli, for any coprime a < b**, so the window Gram
-entry is **O(1) with no ε**. The route below — bound the class count, then bound
-the window by it — is not the route that worked, and the paragraph that follows
-records why, because the failure is instructive: the class count is the wrong
-quantity, since Dickson bounds how many classes *exist* and the question is how
-many are *populated in range*. Note O's argument uses g = gcd(U, V) and never
-mentions classes at all.
+**Status, and it has been wrong three times; this version is deliberately
+weaker than the last two.**
 
-The history below is kept rather than deleted; the first version of it claimed
-the constant 2, the second withdrew to N^ε, and neither reached the truth.
+The proved bound on the dyadic-window Gram entry is **O_ε(N^ε)**, and the
+measured constant 2 is `rigorous_finite` with no proof attached. An earlier
+draft of this section claimed the constant outright; a later one claimed
+[Note O](note-O-tau-multiplier.md) had made it **O(1) unconditionally**. Both
+are withdrawn.
 
-**Second status: the class count is unbounded, so the proposition does not
+What Note O does establish, and it is real, is
+**Proposition O.1: Q̄² ∤ (ξ₁), so τ²ξ₁ is never integral** — no window holds
+three moduli in geometric progression under a *single* multiplier. Its four
+links are verified here independently
+(`tests/test_polyseq.py::test_prop_O1_chain_holds_on_real_pairs`, zero
+violations over 379 close pairs): N(ξ) = aM, |V| < M/√D, g = gcd(U,V) divides M,
+and a g² < M with 8× to spare.
+
+What it does **not** establish is the general statement. A third modulus from a
+*different* multiplier gives ξ₃ = ±(Q″/Q̄″)ξ₁, so (ξ₁) must be divisible by both
+Q̄ and Q̄″; if those are coprime the contradiction lands, and whether they can
+share a prime ideal is open (Note O's Conjecture O.2). **That question cannot be
+settled by measurement**: it concerns a configuration that never occurs, so every
+sweep either of us has run contains zero instances of it. The absence of triples
+is the thing to be explained, not evidence about the mechanism proposed to
+explain it.
+
+So the honest position is: the *pair* structure is explained, the *triple*
+question is reduced to one ideal-theoretic statement, and the bound is not
+improved. The only unconditional constraint anyone has on a triple is the
+Plücker one below, which has no ideal theory in it.
+
+**Earlier status, kept: the class count is unbounded, so the proposition does not
 reach the constant 2.**
 
 The reduction to the conic is algebra and is proved. That ε ≥ φ² is

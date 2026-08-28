@@ -902,7 +902,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "A necessary condition for three in a window, not a sufficient one: the median M/sqrt(D) over close pairs is 11.96, so roughly half clear 11.3. Offered as a tool for Note O's Prop O.1 rather than as a route on its own. Verified exactly, zero violations over 65 consecutive triples at X = 1500."
+      "notes": "AFTER THE RETRACTION ON THE OTHER SIDE, this is no longer redundant: it is currently the ONLY unconditional constraint anyone has on a triple, and it contains no ideal theory, so it does not share the failure mode of Note O's composition step. A necessary condition for three in a window, not a sufficient one: the median M/sqrt(D) over close pairs is 11.96, so roughly half clear 11.3. Offered as a tool for Note O's Prop O.1 rather than as a route on its own. Verified exactly, zero violations over 65 consecutive triples at X = 1500."
     },
     {
       "id": "well-factorable-trades-away-the-absolute-value",
@@ -918,12 +918,25 @@
     {
       "id": "prop-O1-chain-verified-independently",
       "status": "rigorous_finite",
-      "statement": "Every link of Note O's unconditional argument checked here on real data, 379 close pairs at X = 3000, zero violations: (1) N(xi) = aM for xi = aY + X sqrt(D); (2) |V| < M/sqrt(D); (3) g = gcd(U,V) divides M; (4) a g^2 < M, which is what forbids a third modulus. Worst a g^2 / M observed is 0.121, so the final inequality has an order of magnitude of slack. And link (2) is loose by 2 sqrt 2: the sharp constant is 1/(2 sqrt 2) = 0.35355, from |V| = (M/2 sqrt D)(sqrt r - 1/sqrt r) with r < 2, and the worst observed ratio |V| sqrt(D)/M is 0.3529 -- within 0.2% of sharp.",
+      "statement": "Every link of Note O's argument checked here on real data, 379 close pairs at X = 3000, zero violations: (1) N(xi) = aM for xi = aY + X sqrt(D); (2) |V| < M/sqrt(D); (3) g = gcd(U,V) divides M; (4) a g^2 < M, which is what forbids a third modulus. Worst a g^2 / M observed is 0.121, so the final inequality has an order of magnitude of slack. And link (2) is loose by 2 sqrt 2: the sharp constant is 1/(2 sqrt 2) = 0.35355, from |V| = (M/2 sqrt D)(sqrt r - 1/sqrt r) with r < 2, and the worst observed ratio |V| sqrt(D)/M is 0.3529 -- within 0.2% of sharp.",
       "experiment": "tests/test_polyseq.py::test_prop_O1_chain_holds_on_real_pairs",
       "tags": [
         "type_ii"
       ],
-      "notes": "An independent check of a claim made unconditional by the parallel session, run before adopting it. The N(xi) = aM link is the one they corrected themselves late -- they had written N(xi) = +-M, and the factor a lands on the wrong side of the final inequality, surviving only because the bound on g carries both a and b. Verified here rather than taken."
+      "notes": "SCOPE, after a retraction on the other side: these four links are sound and they give Proposition O.1 -- Q-bar^2 does not divide (xi_1), so tau^2 xi_1 is never integral, and no window holds three moduli in geometric progression under a SINGLE multiplier. They do NOT give the general 'no window holds three'. A third modulus from a different multiplier needs (xi_1) divisible by both Q-bar and Q-bar'', and whether those can share a prime ideal is open (Note O's Conjecture O.2). That question cannot be settled by measurement: it concerns a configuration that never occurs, so every sweep contains zero instances. An independent check of a claim made unconditional by the parallel session, run before adopting it. The N(xi) = aM link is the one they corrected themselves late -- they had written N(xi) = +-M, and the factor a lands on the wrong side of the final inequality, surviving only because the bound on g carries both a and b. Verified here rather than taken."
+    },
+    {
+      "id": "triples-cannot-be-settled-by-measurement",
+      "status": "inferred",
+      "statement": "Whether a dyadic window can hold three shared moduli reduces, by Note O, to whether two distinct multipliers for the same xi_1 can have Q-bar and Q-bar'' sharing a prime ideal (Conjecture O.2). THAT QUESTION IS NOT DECIDABLE BY MEASUREMENT: it concerns a configuration that never occurs, so every sweep either session has run contains zero instances of it. The absence of triples is the thing to be explained, not evidence about the mechanism proposed to explain it.",
+      "depends_on": [
+        "classes-separate-across-windows",
+        "prop-O1-chain-verified-independently"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Recorded because it is a general trap and this repo walked into it twice in one day. A measurement of an absence supports any mechanism that predicts the absence, including wrong ones -- which is how an O(1) claim was adopted here on the strength of 379 verified pairs that could not reach the step that was wrong. The proved statement is Proposition O.1, covering a SINGLE multiplier; the general case is open."
     }
   ]
 }
