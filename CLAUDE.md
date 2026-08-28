@@ -298,11 +298,18 @@ line. **And the 7× has a cause, which is better than a constant.** A window nee
 modulus ratio < 2; if that ratio is τ₁² the condition is
 ((√u+1)/(√u−1))² < 2, i.e. **u > (3+2√2)² = (1+√2)⁴ = 33.970563** (Prop O.13,
 elementary). **All twelve smallest realised 4-cycles at D = 1 match τ₁² to five
-decimals**, so the minimum is 0.325% above that — and the converse separates:
-D = 4's two sub-threshold cases (19.2400 at (25,481), 19.7267 at
-(35113,692665)) are **non-τ₁**, ratio 0.632 and 0.640, both on the tiny modulus
-pair (5,8). **Above the threshold ⟺ τ₁.** So O.12 proves 4.7913 only because it
-must allow every V, and the missing **7.09×** is exactly that allowance.
+decimals**, so the minimum is 0.325% above that. Generally τ_V² < 2 gives
+**u > (√2V + √(2V²+1))²** — 9.8990 at V = 1, 33.9706 at V = 2 — and **V = 2 is
+always admissible** (U = a+b), while **V = 1 needs a²−ab+b² square**. So at
+D = 1 a windowed 4-cycle has u > 33.9706 or else sits on a 60-degree Pythagorean
+pair; **576 realised cycles at X = 4000, none below**, so the exceptional branch
+is available and never used — *and the Diophantine condition is therefore tested
+on zero cases, which is the vacuity, stated.* **⚠ A converse from D = 4 was
+claimed here and is WITHDRAWN**: at D = 4 the invariant is M·D, the V = 2
+threshold is 2+√3 = 3.7321, and its two "sub-threshold" cycles (19.24, 19.73)
+are *above* it — ordinary, compared against the D = 1 τ₁ by mistake. Caught by
+checking the derivation against the M·D section, not by a failure; it had
+already shipped.
 *(A minimum over a finite range: a bound's silence is not evidence about
 what lies outside it, and this does not prove x²+1 admits no non-τ₁ windowed
 4-cycle — the cross-orbit case multipliers famously do not predict.)* A genuine G′ = 2,

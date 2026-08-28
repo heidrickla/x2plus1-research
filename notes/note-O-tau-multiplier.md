@@ -2587,3 +2587,55 @@ cross-orbit case this note repeatedly records as the one multipliers do not
 predict (on (1, 115921) the multiplier product predicts a modulus ratio 1.31
 against an observed minimum 33.77). It is measured absence over a finite range,
 and a bound's silence is not evidence about what lies outside it.
+
+### O.13′ The threshold as a function of V, and what a sub-threshold cycle forces
+
+**For D = 1 only.** The M·D section applies: for x²+D the conic is
+aY² − bX² = M·D, so every formula below with M in it needs M → M·D. What
+follows is derived and checked at D = 1 and is **not** transferred.
+
+Write s = √(ab)/M. Then τ_V = √(1 + V²s²) + Vs, and τ_V² < 2 ⟺
+√(1+V²s²) < √2 − Vs ⟺ **Vs < 1/(2√2)**, i.e. (u−1)/√u > 2√2·V, i.e.
+
+  **u > (√2·V + √(2V² + 1))²**
+
+| V | threshold | admissible when |
+|---:|---|---|
+| 1 | (√2+√3)² = **5 + 2√6 = 9.898979** | a² − ab + b² is a perfect square |
+| 2 | (2√2+3)² = **17 + 12√2 = 33.970563** | **always** |
+| 3 | (3√2+√19)² = **73.986484** | — |
+
+**V = 2 is always admissible**, since U = a+b gives U² − abV² = (a+b)² − 4ab = M²
+identically — that is τ₁, and it is why O.13's threshold is the generic one.
+**V = 1 requires U² = M² + ab = a² − ab + b² to be a perfect square**, the
+Eisenstein norm form: (a, b) must be a *60-degree Pythagorean pair*. Thresholds
+**increase** with V, so no V ≥ 3 can rescue a configuration that V = 2 rejects.
+
+**Proposition O.13′ (D = 1).** *A windowed 4-cycle satisfies either
+u > (1+√2)⁴ = 33.9706, or 5 + 2√6 = 9.8990 < u < 33.9706 with a² − ab + b² a
+perfect square. Below 9.8990 no V is admissible at all.*
+
+**Measured, and the vacuity stated rather than hidden:** at X = 4000 there are
+**576** realised unit-free windowed 4-cycles and **none** is below 33.9706, so
+the exceptional branch is available and **never used** — which also means the
+Diophantine condition is tested on **zero** cases here. *A conditional verified
+over an empty antecedent is verified of nothing;* the content is the theorem,
+not the check.
+
+> **⚠ An earlier version of this section claimed D = 4 supplies the converse** —
+> its two sub-threshold cycles, u = 19.2400 at (25,481) and 19.7267 at
+> (35113,692665), do have a² − ab + b² a perfect square (219961 = 469²). **That
+> reading is withdrawn.** At D = 4 the invariant is M·D, so the threshold is
+> (u−1)·D/√u > 2√2·V, giving **u > 2 + √3 = 3.7321** at V = 2 — and 19.24 and
+> 19.73 are *above* it. They are ordinary configurations, not exceptions, and the
+> perfect-square coincidence is not evidence of V = 1: the correct V = 1 test at
+> D = 4 is whether (M·D)² + ab is square, and for (25,481) it is **3339001,
+> which is not**. Caught by checking my own derivation against the M·D section
+> before committing, not by anything failing. **The D-generalisation of this
+> proposition is not done, and the D = 4 numbers are observations without an
+> interpretation.**
+
+⚠ The thresholds above are the **asymptotic** ones (τ_V² < 2). O.12 proves its
+bound with τ_V² < 3, which is why 4.7913 is below even the V = 1 value of
+9.8990: it is not merely covering V = 1, it is also carrying the finite
+correction. The two allowances are separate and multiply.

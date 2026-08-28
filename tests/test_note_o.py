@@ -1647,3 +1647,40 @@ def test_O13_tau1_window_threshold_is_seventeen_plus_twelve_root_two():
     tau2 = lambda v: ((v ** 0.5 + 1) / (v ** 0.5 - 1)) ** 2
     assert tau2(t * 1.001) < 2.0      # above the threshold: fits a window
     assert tau2(t * 0.999) > 2.0      # below it: cannot
+
+
+def test_O13prime_threshold_family_and_the_V_equals_one_condition():
+    """O.13': u > (sqrt2 V + sqrt(2V^2+1))^2, and V=1 needs a^2-ab+b^2 square.
+
+    Checks the closed forms symbolically (V = 1 and V = 2 collapse to
+    5 + 2 sqrt 6 and 17 + 12 sqrt 2), that V = 2 is ALWAYS admissible via
+    U = a+b, and that the identity U^2 = M^2 + D equals a^2 - ab + b^2 -- which
+    is what turns the V = 1 case into a Diophantine condition.
+    """
+    from math import isqrt
+    from sympy import simplify, sqrt as ssqrt
+
+    thr = lambda V: (ssqrt(2) * V + ssqrt(2 * V ** 2 + 1)) ** 2
+    assert simplify(thr(1) - (5 + 2 * ssqrt(6))) == 0
+    assert simplify(thr(2) - (17 + 12 * ssqrt(2))) == 0
+    assert simplify(thr(2) - (1 + ssqrt(2)) ** 4) == 0
+
+    for a, b in ((37, 1261), (25, 481), (13, 449), (2, 82)):
+        M, D = b - a, a * b
+        # V = 2 is admissible for every pair, with U = a + b
+        assert (a + b) ** 2 - D * 2 ** 2 == M * M
+        # V = 1 needs U^2 = M^2 + D, and that quantity IS a^2 - ab + b^2
+        assert M * M + D == a * a - a * b + b * b
+
+    # thresholds increase with V, so no V >= 3 rescues what V = 2 rejects
+    vals = [float(thr(V)) for V in (1, 2, 3)]
+    assert vals == sorted(vals), vals
+
+    # WITHDRAWN READING, pinned so it cannot come back: (25,481) at D = 4 has
+    # a^2-ab+b^2 = 469^2, which was read as "V = 1, hence sub-threshold".  At
+    # D = 4 the invariant is M*D, so the V = 1 test is whether (M*D)^2 + ab is
+    # square -- and it is not.  The D-generalisation is not done.
+    a, b, Ds = 25, 481, 4
+    M, Dc = b - a, a * b
+    assert isqrt(a * a - a * b + b * b) ** 2 == a * a - a * b + b * b
+    assert isqrt((M * Ds) ** 2 + Dc) ** 2 != (M * Ds) ** 2 + Dc

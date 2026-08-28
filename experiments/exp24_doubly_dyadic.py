@@ -451,11 +451,12 @@ def tau1_extremal(D=1, X=6000, top=8):
     = (1+sqrt2)^4 = 33.970563.
 
     Measured: at D = 1 and D = 2 every realised windowed 4-cycle matches tau_1^2
-    to five decimals and the minimum is 0.33% / 0.25% above the threshold.  At
-    D = 4 two fall BELOW it -- 19.2400 at (25,481) and 19.7267 at
-    (35113,692665) -- and both are non-tau_1 (ratio 0.632, 0.640), both on the
-    tiny modulus pair (5,8).  Above the threshold <=> tau_1.  So O.12's 4.7913
-    is short by 7.09x precisely because it must allow every V.
+    to five decimals and the minimum is 0.33% / 0.25% above the threshold.
+
+    D != 1 IS NOT INTERPRETED HERE.  For x^2+D the invariant is M*D, so tau_1
+    and every threshold change; running this at D = 4 compares against the D = 1
+    tau_1 and the output is an observation without a reading.  An earlier
+    version drew a converse from it and was wrong.
     """
     from collections import defaultdict
     from math import sqrt
@@ -508,3 +509,74 @@ def tau1_extremal(D=1, X=6000, top=8):
     print("  Measured absence over a finite range: this does NOT prove x^2+1 admits")
     print("  no non-tau_1 windowed 4-cycle.  That is the cross-orbit case this note")
     print("  records as the one multipliers do not predict.")
+
+
+def threshold_family(X=6000, D=1):
+    """O.13' -- the threshold as a function of V, and what a sub-threshold cycle forces.
+
+    tau_V^2 < 2  <=>  V sqrt(D)/M < 1/(2 sqrt 2)  <=>  u > (sqrt2 V + sqrt(2V^2+1))^2.
+
+    V = 2 is admissible for EVERY pair (U = a+b gives U^2 - D V^2 = M^2
+    identically) -- that is tau_1, threshold (1+sqrt2)^4.  V = 1 needs
+    U^2 = M^2 + D = a^2 - ab + b^2 to be a perfect square, the Eisenstein norm
+    form, so the pair must be a 60-degree Pythagorean pair.
+
+    Hence at D = 1: a windowed 4-cycle has u > 33.9706, or else 9.8990 < u with
+    a^2 - ab + b^2 square.  Checked against every realised windowed 4-cycle --
+    and note the check is VACUOUS wherever nothing falls below the threshold,
+    which is the case at D = 1.  The content is the theorem, not the count.
+    D != 1 needs M -> M*D throughout and is not covered.
+    """
+    from collections import defaultdict
+    from math import isqrt, sqrt
+    print("  thresholds u > (sqrt2 V + sqrt(2V^2+1))^2, from tau_V^2 < 2:")
+    for V in (1, 2, 3):
+        t = (sqrt(2) * V + sqrt(2 * V * V + 1)) ** 2
+        who = ("a^2-ab+b^2 a perfect square" if V == 1 else
+               "ALWAYS (U = a+b)" if V == 2 else "-")
+        print(f"    V = {V}:  u > {t:>10.6f}   admissible when {who}")
+    print(f"    O.12 proves {(5 + 21 ** 0.5) / 2:.6f}, below even the V = 1 value,"
+          " because it also carries")
+    print("    the finite correction (tau^2 < 3 rather than < 2).  The two"
+          " allowances multiply.")
+
+    thr2 = (1 + sqrt(2)) ** 4
+    inc = defaultdict(list)
+    for x in range(1, X + 1):
+        v = x * x + D
+        d = 1
+        while d * d <= v:
+            if v % d == 0:
+                inc[v // d].append(d)
+                if d * d != v:
+                    inc[d].append(v // d)
+            d += 1
+    key = defaultdict(list)
+    for n, ms in inc.items():
+        ms = sorted(set(ms))
+        for i, m1 in enumerate(ms):
+            for m2 in ms[i + 1:]:
+                if m2 >= 2 * m1:
+                    break
+                key[(m1, m2)].append(n)
+    tot = sub = viol = 0
+    for (m1, m2), nsl in key.items():
+        if len(nsl) < 2:
+            continue
+        nsl.sort()
+        for i in range(len(nsl) - 1):
+            a, b = nsl[i], nsl[i + 1]
+            if a == 1:
+                continue
+            tot += 1
+            if b / a < thr2:
+                sub += 1
+                q = a * a - a * b + b * b
+                if isqrt(q) ** 2 != q:
+                    viol += 1
+                    print(f"    VIOLATION: ({a},{b}) u={b/a:.4f} below"
+                          f" {thr2:.4f} with a^2-ab+b^2 = {q} not square")
+    print(f"\n  x^2+{D}, X = {X}: {tot} realised windowed 4-cycles (unit-free),"
+          f" {sub} below (1+sqrt2)^4,")
+    print(f"  of which {viol} violate O.13' (a^2-ab+b^2 not a perfect square).")
+    print("  Measured absence over a finite range -- not a proof that none exists.")
