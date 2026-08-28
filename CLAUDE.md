@@ -335,6 +335,16 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   right. Only reading past the clause finds them. The normalisation convention
   behind the second was inside the very sentence `fm-no-admissible-theta-at-
   density-half` is built on.
+- **The informative subset is never the one the loop naturally counts.** An
+  absence is evidence only in proportion to the configurations that *could* have
+  contradicted it, and the natural loop counts everything it visited. Three times
+  in one session: 278 939 ratio classes above threshold of which **31** could
+  hold a triple; 379 "candidates where a triple could occur" of which most were
+  unoccupied; 2 093 solutions carrying one in-window multiplier of which **9**
+  had a second to pair with. Each time the loop was correct and its total was
+  the wrong number, and the third happened *after* the rule was written into the
+  README by the session that then broke it. Report the informative count, and
+  refuse to conclude when it is zero.
 - **Every string edit asserts its anchor.** A `replace` whose anchor text has
   moved writes back identical content and reports success; `git commit` then says
   "nothing to commit, working tree clean", which is easy to misread as a
