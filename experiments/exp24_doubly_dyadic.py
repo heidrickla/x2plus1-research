@@ -101,8 +101,40 @@ def main(X=3000):
         worst_banded = max(worst_banded, banded)
         print(f"[{M:9},{2*M:10})  {banded:18} {free:16}")
         M *= 4
-    print(f"\n  worst banded Gram entry anywhere: {worst_banded}"
+    # Positive control.  A "max of 1" over pairs that share nothing would look
+    # identical to O.12 holding, so count how many banded pairs share ONE, and
+    # check the forbidden configuration occurs once the banding is dropped.
+    n_pairs = n_one = n_free2 = 0
+    M = 8
+    while M * 2 <= (X * X + 1):
+        ms = [m for m in range(M, 2 * M) if m in inc]
+        if ms:
+            cof = defaultdict(set)
+            for m in ms:
+                for n in inc[m]:
+                    cof[n].add(m)
+            ns_all = list(cof)
+            N = 1
+            while N <= X * X:
+                band = [n for n in ns_all if N <= n < 2 * N]
+                for i in range(len(band)):
+                    for j in range(i + 1, len(band)):
+                        n_pairs += 1
+                        n_one += len(cof[band[i]] & cof[band[j]]) == 1
+                N *= 2
+            for i in range(len(ns_all)):
+                for j in range(i + 1, len(ns_all)):
+                    n_free2 += len(cof[ns_all[i]] & cof[ns_all[j]]) >= 2
+        M *= 4
+
+    print()
+    print(f"  worst banded Gram entry anywhere: {worst_banded}"
           f"  -- C_4-free, as O.12 requires.")
+    print(f"  POSITIVE CONTROL: {n_pairs} banded pairs examined, of which"
+          f" {n_one} share")
+    print(f"  exactly one modulus; and {n_free2} FREE pairs share two.  So the")
+    print("  forbidden configuration occurs the moment the banding is dropped,")
+    print("  and the banded population is large enough to have shown it.")
     print("  The free column reaching 2 is genuine and is NOT a counterexample:")
     print("  (1,41) shares 730 and 1370, and 41/1 = 41 > 4.79, so the two")
     print("  cofactors are nowhere near one band.  That configuration is exactly")

@@ -1225,6 +1225,14 @@ window from [8,16) to [2^23, 2^24) at X = 3000 and 6000:
 | both in one dyadic band | **1** |
 | free | **2** |
 
+**And the sweep carries its own positive control**, which is the check that
+distinguishes a real result from a vacuous one. At X = 3000 over 300,026 banded
+cofactor pairs: **57,132 share exactly one modulus, 0 share two or more** — while
+**127 *free* pairs share two**. So the forbidden configuration genuinely occurs
+the moment the banding is dropped, and the banded population is large enough to
+have shown it. *(A "max of 1" over pairs that share nothing would look
+identical and mean nothing.)*
+
 **Why this matters outside Note O.** `gaussian-to-rational-bridge` is `inferred`,
 and its stated gap is: *"What is proved over Z[i] is G ≤ 1; what is measured over
 Z is G′ ≤ 2 on every dyadic window for X ≤ 8000."* O.12 closes that sentence's
