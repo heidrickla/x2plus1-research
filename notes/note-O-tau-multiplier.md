@@ -1225,6 +1225,16 @@ window from [8,16) to [2^23, 2^24) at X = 3000 and 6000:
 | both in one dyadic band | **1** |
 | free | **2** |
 
+**O.12 is not knife-edge, which matters if "range" is read loosely.** The proved
+threshold is 4.7913 using only |V| ≥ 1; with |V| ≥ 2 — which the parity lemma
+gives whenever M is odd — it rises to **13.9282** at X₁ = 1 and **33.9706**
+asymptotically. And empirically nothing happens far above even that: over 125
+cofactor pairs sharing two moduli in one window at X = 3000, the **minimum
+n₂/n₁ observed is 43.79**, at (34, 1489) with moduli 1073 and 1973 — **9.1× the
+proved bound**. So the theorem covers any reasonable reading of "both variables
+in ranges", not just the dyadic one, and a range as wide as a factor 4.79 is
+already inside it unconditionally.
+
 **And the sweep carries its own positive control**, which is the check that
 distinguishes a real result from a vacuous one. At X = 3000 over 300,026 banded
 cofactor pairs: **57,132 share exactly one modulus, 0 share two or more** — while

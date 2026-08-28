@@ -1561,3 +1561,17 @@ def test_O12_banded_cofactors_share_at_most_one_modulus_per_window():
     assert windows >= 4, windows
     assert worst_banded == 1, worst_banded
     assert worst_free >= 2, worst_free      # and free cofactors DO reach 2
+
+
+def test_O12_has_slack_so_the_range_may_be_read_loosely():
+    """4.7913 uses only |V| >= 1; |V| >= 2 gives 13.93 / 33.97, observed min 43.79."""
+    thr1 = (5 + sqrt(21)) / 2
+    # |V| >= 2: tau(2) = (t+1)/(t-1) with t = sqrt(b/a); tau^2 < 2 + 1/X1^2
+    for X1, want in ((1, 13.9282), (10 ** 9, 33.9706)):
+        r = (2 + 1 / X1 ** 2) ** 0.25
+        t = (r + 1) / (r - 1)
+        assert abs(t * t - want) < 1e-3, (X1, t * t)
+    assert thr1 < 13.9282 < 33.9706
+    # and the smallest ratio actually realised, recorded from exp24's sweep
+    assert 1489 / 34 > 43.7 and abs(1489 / 34 - 43.7941) < 1e-3
+    assert (1489 / 34) / thr1 > 9        # 9.1x the proved bound
