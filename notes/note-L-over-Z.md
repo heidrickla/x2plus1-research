@@ -844,10 +844,15 @@ measured is that the argmin stays in the same band *relative to X*.
 > strongest precisely at the split the sieve uses, and it strengthens as the
 > problem grows.
 
-The two arms have different variables, which is what makes the U structural
-rather than descriptive: the left is controlled by N/X, the right by N/X². The
-tail values 0.345, 0.514, 0.891 appear at both X, shifted by the factor 4 between
-their X². At N ≪ X the cofactors are small, so each carries many moduli and pairs
+**The right arm is a function of N/X², to three or four digits** — 0.09041 and
+0.09041, 0.23767 and 0.23830, 0.51416 and 0.51446 at equal N/X² for X = 3000 and
+6000. **The left arm is not a function of N/X**: at N/X = 0.34 it is 0.0466
+against 0.0296, which the table above already shows. Nor of N alone — at fixed N
+it grows about 11% per doubling of X. **No scaling variable is claimed for the
+left arm**, and this is the third law fitted to this one decay and the third to
+fail. Each time the values reproduced exactly between two independent
+constructions and the law did not; the quantity is reproducible and
+unparameterised, and naming its shape has cost four corrections. At N ≪ X the cofactors are small, so each carries many moduli and pairs
 collide; at N ≫ X the moduli are few and tiny, so every pair shares them; the
 balanced split is where both sides are maximally spread.
 
