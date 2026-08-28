@@ -1315,6 +1315,17 @@
         "type_ii"
       ],
       "notes": "Ties the-main-term-is-smaller-than-the-granularity to the hypothesis it bears on, rather than leaving it as a fact about arbitrary bands. The n in G(n_1,n_2) IS (B)'s inner variable: dispersion opens the square over m and produces sum over n_1, n_2 of G(n_1,n_2), so (B1) is exactly the constraint on those n. Delta and delta are absorbed as constants, hence 'roughly'. The point is that no part of the admissible range escapes: mean G is below 0.16 across all of it and an integer count has no decomposition into main term plus smaller error anywhere in there. The rise at N >> X and the max of 3 at small N both sit outside, which is why fm-barrier-range-is-small-moduli's corrections do not reach this."
+    },
+    {
+      "id": "mean-G-crosses-one-where-kappa-does-not",
+      "status": "rigorous_finite",
+      "statement": "At Q = 4e6 over the band N in [2048,4096): x^2+1 has kappa 1.00 and mean G 0.0219 (max 2); a^2+b^6 has kappa 115.4 and mean G 0.5590 (max 22); a^2+b^4 has kappa 1297.5 and mean G 3.592 (max 107); a^2+(b^2+1)^2 has kappa 1269.3 and mean G 12.809 (max 97). So mean G exceeds 1 for both sequences KNOWN to capture their primes and falls below 1 for x^2+1, while kappa does not separate them: a^2+b^6 has kappa >> 1 with mean below 1, and a^2+b^4 and a^2+(b^2+1)^2 have nearly equal kappa (1297 vs 1269) with means differing by 3.6x. Max G does not separate them either -- 2, 22, 107, 97 puts a^2+b^6 between the captured pair.",
+      "experiment": "experiments/exp13_window_gap.py",
+      "tags": [
+        "type_ii",
+        "comparison"
+      ],
+      "notes": "Gives Note K's 'kappa is necessary and not sufficient' a candidate for the sufficient part, with the interpretation from the-main-term-is-smaller-than-the-granularity: mean G > 1 says a main term exists for dispersion to decompose. A PREDICTION, NOT A CONFIRMATION -- four sequences, one band, one Q, and two of the four are the pair the observation was built from (mean-G-separates-x2plus1-from-a2b4). The content is the other two. a^2+b^6 sits at 0.559, below the line, and THIS REPO HAS READ NO SOURCE ON ITS STATUS: kappa-invariant covers a^2+b^{2k} for k = 2..6 as a kappa measurement only, and the repo's non-negotiable forbids asserting a literature outcome from memory. If a^2+b^6 is captured somewhere, this is refuted; if open, it is one point of independent support. Someone should read a source before this is quoted as more than a pattern in four numbers."
     }
   ]
 }

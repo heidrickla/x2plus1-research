@@ -150,6 +150,40 @@ detects the difference at all. The cycles that appear at |B| = 2 are created by
 arithmetic, not by density, which is exactly why a density statistic like κ
 cannot see where they start.
 
+## Mean G separates them where κ does not
+
+[Note L](note-L-over-Z.md) finds that the *mean* of G over cofactor bands, not
+its maximum, is what decides whether dispersion has anything to decompose: a
+bounded integer-valued count with mean o(1) has no *count = main term + error*.
+Run across this note's family at Q = 4×10⁶, band N ∈ [2048, 4096):
+
+| sequence | κ | mean G | max G | status |
+|---|---:|---:|---:|---|
+| x² + 1 | 1.00 | **0.0219** | 2 | open |
+| a² + b⁶ | 115.4 | **0.5590** | 22 | no result known to this repo |
+| a² + b⁴ | 1297.5 | **3.592** | 107 | captured — Friedlander–Iwaniec |
+| a² + (b²+1)² | 1269.3 | **12.809** | 97 | captured — Merikoski |
+
+> **mean G > 1 for both sequences known to capture their primes, and < 1 for
+> x² + 1 — while κ does not separate them**: a² + b⁶ has κ = 115 ≫ 1 and a mean
+> below 1, and a² + b⁴ and a² + (b²+1)² have almost equal κ (1297 vs 1269) but
+> means differing by 3.6×.
+
+That is this note's own headline — *κ is necessary and not sufficient* — with a
+candidate for the sufficient part. The interpretation is the one Note L gives:
+mean G > 1 says a main term exists for dispersion to work with, and the captured
+sequences have one.
+
+**Read as a prediction, not a confirmation.** Four sequences, one band, one Q. Two
+of the four are the ones the classifier was built from, so the content is the
+other two: a² + b⁶ sits at 0.559, below the line, and this repo has **not** read a
+source on its status — the `kappa-invariant` family runs k = 2…6 for the κ
+measurement only. If a² + b⁶ is captured somewhere in the literature, the
+classifier is refuted; if it is open, that is one point of independent support.
+Someone should look it up before this is quoted as more than a pattern in four
+numbers. And max G does *not* separate them — 2, 22, 107, 97 puts a² + b⁶ between
+the captured pair — so it is the mean specifically.
+
 ## What actually separates them: the curve desingularises
 
 [MER] p. 4 gives the reduction. After Cauchy–Schwarz the task is a count over
