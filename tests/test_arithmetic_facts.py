@@ -1140,3 +1140,69 @@ def test_x2_plus_39_has_a_banded_triple_so_O2_is_special_to_D_equals_one():
         ms = sorted(m for m in ms if m > 1)
         for i in range(len(ms) - 2):
             assert ms[i + 2] >= 2 * ms[i], (a, b, ms[i:i + 3])
+
+
+def test_the_whole_note_O_apparatus_generalises_with_M_replaced_by_M_times_D():
+    """Why x^2+1 is special: it is the D = 1 end where every bound is tightest.
+
+    For f(x) = x^2 + D with a m = X^2 + D and b m = Y^2 + D:
+
+        b(X^2+D) = abm = a(Y^2+D)   =>   a Y^2 - b X^2 = (b-a) D = M D
+
+    so the invariant Note O calls M is really **M D**, and every bound built on
+    it weakens by a factor of D. In particular:
+
+        invariant   a Y^2 - b X^2 = M D
+        identity    V W = D M (m_i - m_j)          (0 failures / 5354 pairs)
+        O.9 bound   3ab < (M D)^{4/3}
+
+    That explains every D-result at once rather than leaving them as a list of
+    coincidences. At cofactors (5,8), M = 3:
+
+        D = 39:  3ab = 120 < (117)^{4/3} = 572   -- permitted, AND IT OCCURS
+        D =  1:  3ab = 120 vs (3)^{4/3} = 4.33   -- forbidden, and none occurs
+
+    Same bound; D is the whole difference. It also subsumes the c-family, where
+    D = c^2 and the |V| bound weakens by exactly c^2, and the 4-cycle family
+    D = k^2+3k+1.
+
+    So x^2+1 is not special in an arbitrary way. It is the extreme member of a
+    one-parameter family, the end at which every bound in the Note O apparatus is
+    at its tightest -- which is why the conclusions hold there and nowhere else.
+    """
+    from math import gcd, isqrt
+    from collections import defaultdict
+
+    X = 400
+    checked = 0
+    for D in (1, 2, 5, 11, 39):
+        vals = [x * x + D for x in range(1, X + 1)]
+        cls = defaultdict(set)
+        for i in range(len(vals)):
+            for j in range(i + 1, len(vals)):
+                g = gcd(vals[i], vals[j])
+                if g > 1:
+                    a, b = vals[i] // g, vals[j] // g
+                    if a < b:
+                        cls[(a, b)].add(g)
+        assert len(cls) > 100, (D, len(cls))
+        for (a, b), ms in cls.items():
+            M = b - a
+            ms = sorted(ms)
+            for i in range(len(ms) - 1):
+                q = [a * ms[i], a * ms[i + 1], b * ms[i], b * ms[i + 1]]
+                r = [isqrt(v - D) for v in q]
+                if any(t * t != v - D for t, v in zip(r, q)) or r[0] < 1:
+                    continue
+                Xi, Xj, Yi, Yj = r
+                assert a * Yi * Yi - b * Xi * Xi == M * D, (D, a, b, ms[i])
+                V = Xi * Yj - Xj * Yi
+                W = Xj * Yi + Xi * Yj
+                assert V * W == D * M * (ms[i] - ms[i + 1]), (D, a, b)
+                checked += 1
+    assert checked > 500, checked
+
+    # the bound at (5,8) separates D = 39 from D = 1
+    a, b, M = 5, 8, 3
+    assert 3 * a * b < (M * 39) ** (4 / 3)      # permitted at D = 39
+    assert 3 * a * b > (M * 1) ** (4 / 3)       # forbidden at D = 1
