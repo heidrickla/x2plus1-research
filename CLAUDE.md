@@ -346,7 +346,12 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   - *a hypothesis dropped from a statement while remaining in its proof* — Note O's
     Prop O.1 stated without the window, with a counterexample inside the same note
     ((1,5) at m = 2, where a g² = 4 = M exactly, so the *strict* inequality the
-    proof turns on fails by nothing at all).
+    proof turns on fails by nothing at all);
+  - *a correct result cited across a scope boundary the citing note never mentions*
+    — Note F's **Z[i]** lemma equated to ν = 0 in [FM]'s **rational** axioms, in
+    Notes G, J and M, none of which named the transfer. Nothing in those sentences
+    is false; the error is entirely in which object a reader takes them to be
+    about. The transfer is `gaussian-to-rational-bridge`, `inferred`.
   Nothing checks a proposition's statement against its own proof, because the
   tests test the proof. The one checkable habit: **a correction that reaches only
   a claim's `notes` has not landed** — notes are where history goes, the statement

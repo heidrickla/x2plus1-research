@@ -113,7 +113,11 @@ Two things are needed to make it unconditional, and both are hard:
 
 1. **the μ-Type II as a theorem**, not a measurement; and
 2. **a sieve that needs only μ-coefficients** — [FM]'s footnote 1 expects the
-   traffic to run the other way, and [Note F] proves that here it cannot.
+   traffic to run the other way, and [Note F] proves that here it cannot. (Scope:
+   Note F is a statement about **ideals of Z[i]** and [FM]'s (II) quantifies over
+   **rational** m, n; the step is `gaussian-to-rational-bridge`, `inferred`.
+   Bounded either way, so the conclusion holds, but it is reached through the
+   bridge.)
 
 ## Condition 1 is not a technicality: its easiest case is a named open problem
 
