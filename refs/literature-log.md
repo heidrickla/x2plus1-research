@@ -209,18 +209,47 @@ available for this sequence and its Type II is not, and its θ+ν = 1/3 matches
 Ford–Maynard's Table 1 entry for DFI exactly — two papers read separately landing
 on the same triple.
 
-### Still not done
+### Still not done — rewritten 2026-08-28, the old list was stale
 
-- Reading the three unread arXiv items above, Green–Sawhney first.
-- The scan was three searches, not a database sweep. It is enough to say
-  nothing obvious supersedes Iwaniec 1978; it is not a literature review.
-- Candidates spotted in passing and not read:
-  - [arXiv:2112.03617](https://arxiv.org/abs/2112.03617) — *X²+(Y²+1)² and
-    X²+(Y³+Z³) also capture their primes*. Note the inner **y²+1**. Most
-    directly relevant of the three; α is still 3/4, so it is not the same
-    problem, but its handling of a one-variable inner polynomial may transfer.
-  - [arXiv:2111.04136](https://arxiv.org/abs/2111.04136) — *Prime values of
-    f(a,b²) and f(a,p²), f quadratic*.
-  - [arXiv:2407.14368](https://arxiv.org/abs/2407.14368) — *On the theory of
-    prime producing sieves*. The likeliest place for a restated or relaxed
-    version of (R1).
+*The previous version of this section listed as unread three papers that had
+since been read, including two of the day's load-bearing sources. Recording that
+because a stale "not done" list is worse than none: it invites re-doing finished
+work and hides what is actually outstanding.*
+
+**Read since, and struck from this list:** Green–Sawhney
+([arXiv:2410.04189](https://arxiv.org/abs/2410.04189), → Note N),
+Merikoski's a²+(b²+1)² ([arXiv:2112.03617](https://arxiv.org/abs/2112.03617),
+→ Note K), Merikoski's sparse sets
+([arXiv:2302.11331](https://arxiv.org/abs/2302.11331)), Ford–Maynard
+([arXiv:2407.14368](https://arxiv.org/abs/2407.14368), three times), DFI (from
+page images), Pintz, Teräväinen, Granville–Shao, Xiannan Li
+([arXiv:2111.05403](https://arxiv.org/abs/2111.05403)), and Maynard's
+well-factorable paper ([arXiv:2006.07088](https://arxiv.org/abs/2006.07088)).
+
+**Genuinely outstanding:**
+
+- **[arXiv:2111.04136](https://arxiv.org/abs/2111.04136)** — *Prime values of
+  f(a, b²) and f(a, p²), f quadratic.* Unread, and the last of the three
+  originally-spotted candidates still open.
+- **Lemke Oliver**, *Acta Arith.* **151** (2012), 241–261 — the refereed
+  generalisation of Iwaniec 1978. Unread. Reading it would move
+  `iwaniec-1978-P2`'s *method* off second-hand; its *statement* is already
+  sourced from Pintz §19.
+- **Iwaniec 1978** in the original — paywalled, and no longer load-bearing.
+- **Dickson**, *Introduction to the Theory of Numbers* (1929), §46 and §71 —
+  read by the parallel session for the class-count bound, **not by this one**.
+  `one-solution-per-class-per-window` cites it second-hand.
+- **The 2026 modular-square-roots cluster** — Baier, Shparlinski–Xiao, Pascadi.
+  Filed as adjacent from **abstracts only**; the judgement that they bilinearise
+  over the radicand rather than the modulus has not been checked against the
+  papers.
+- **BFI I–III** and *Opera de Cribro* Ch. 24–25 — unobtained, and **no longer
+  wanted**: the well-factorable question they were held for is closed
+  negatively (`well-factorable-trades-away-the-absolute-value`).
+
+**And the standing caveat, unchanged:** the supersession scan was a handful of
+searches, not a database sweep. It is enough to say nothing obvious supersedes
+Iwaniec 1978; it is not a literature review. Two folklore sweeps this session
+both missed Maynard's ICM Question 21 until one was aimed specifically at it,
+which is the calibration to keep in mind when reading any "not found in the
+literature" statement in these notes.
