@@ -798,7 +798,10 @@ X = 3000 the mean of G(n₁,n₂) over pairs in a dyadic band [N, 2N):
 | mean G | 2.000 | 0.667 | 0.254 | 0.0865 | **0.0243** |
 | max G | 2 | 2 | 2 | 2 | 2 |
 
-The mean falls like **1/N** while the maximum stays at 2. So for N ≫ 1 the
+The mean falls like **(log X)/N** while the maximum stays at 2 — at fixed
+N = 128 it is 0.2246, 0.2536, 0.2754 for X = 1500, 3000, 6000, with mean·N/log X
+flat at 3.93, 4.05, 4.05. (An earlier version of this paragraph said 1/N, from a
+single X. The log matters for the shape and not for the argument.) So for N ≫ 1 the
 expected Gram entry is far below 1 **while G is an integer taking only the values
 0, 1, 2**. At N ≈ 2048 the mean is 0.024 against a granularity of 1:
 

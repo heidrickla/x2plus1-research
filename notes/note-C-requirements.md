@@ -693,8 +693,8 @@ as "typically very difficult" is, for this sequence, not difficult but empty.**
 **And the footnote's own precision requirement can be evaluated.** It asks for
 "an error term better than O(1) on average over m₁, m₂ ∼ x^{1−2c+ε}", which at
 c = 1/2 is **m₁, m₂ ∼ x^ε**. [Note L](note-L-over-Z.md) measures the mean of G
-over a cofactor band [N, 2N) to fall like **1/N**, so at N = x^ε the mean is
-**x^{−ε}** — while G is a non-negative integer, equal to 0 for almost every pair.
+over a cofactor band [N, 2N) to fall like **(log X)/N**, so at N = x^ε the mean is
+**(log x)·x^{−ε}**, still → 0 for every fixed ε > 0 — while G is a non-negative integer, equal to 0 for almost every pair.
 
 > So "an error term better than O(1)" is, here, a request to determine G
 > **exactly**: the main term is x^{−ε}, the quantity is an integer, and any
