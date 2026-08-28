@@ -488,6 +488,37 @@ identically. That is how this was first got wrong.)*
 a banded pair needs only u > 1.1559, and the witness (5, 8) has u = 1.6 with
 (u−1)/√u = 0.4743 against a threshold of 0.1450.
 
+**And the failures survive both variables being large, which is the objection
+that would otherwise sink the axis.** Every witness above has one variable tiny —
+D = 11 at cofactors (3,4), D = 39 at (5,8) — and a Type II split has *both*
+large, so the natural reading is that the whole D axis lives in the corner the
+hypothesis excludes. It does not. Requiring **cofactors ≥ 200 and moduli ≥ 200**
+at X = 4000, four of D ≤ 40 still fail:
+
+| D | cofactors | ratio | moduli | ratio |
+|---:|---|---:|---|---:|
+| 23 | (1131, 1432) | 1.266 | (6672, 9617) | 1.441 |
+| 31 | (1055, 1808) | 1.714 | (625, 1120) | 1.792 |
+| 35 | (2249, 3756) | 1.670 | (459, 879) | 1.915 |
+| **39** | **(781, 1180)** | **1.511** | **(688, 880)** | **1.279** |
+
+banded on both axes, sixteen products verified, and **D = 1 is not among them**.
+The D = 39 case in full: 781·688 = 733²+39, 781·880 = 829²+39,
+1180·688 = 901²+39, 1180·880 = 1019²+39.
+
+*(Two restricted measurements nearly retired this. The singly-windowed cofactor
+Gram is flat in D, and the canonical incidence with its default cofactor floor
+gives max G = 1 for every D — both correct, both agreeing, and neither ranging
+over the configuration the claim is about. Thirteen of forty D fail with both
+**cofactors** large, but those have tiny **moduli**; only requiring both scales
+settles it.)*
+
+**Which makes O.12's configuration load-bearing rather than convenient.** The
+structure's D-sensitivity requires both variables banded *and* both large — window
+the moduli alone and it vanishes entirely. So the doubly-dyadic configuration is
+not adopted because [FM]'s (II) happens to band both; **it is the only
+configuration in which the structure sees D at all**.
+
 The 5…10 gap is the interesting one and it is not a gap in the sweep: the bound
 permits failure there and no failure is found, which is the same
 necessary-not-sufficient gap as [Note O](note-O-tau-multiplier.md)'s 39 of 60
