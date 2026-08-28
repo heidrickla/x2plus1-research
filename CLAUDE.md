@@ -403,6 +403,16 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
     conclusions were untouched in all three, at 2.4×, 4× and 6.3× off.
     **Checkable form: wherever a note states an order for a quantity some
     experiment computes, put the computed constant in.**
+  - *a count of chances mistaken for a count of **informative** chances* — three
+    times in one night, and the informative subset is **never** the one a loop
+    naturally counts. `triples-cannot-be-settled-by-measurement` says an absence
+    over a vacuous population is not evidence; the trap is that the population
+    looks populated. O.2's class count was 31 informative of **278 939** above
+    threshold; exp17's solution count was **9** informative of **2 093** carrying
+    an in-window multiplier, because a solution whose (a,b) has only one such
+    multiplier has nothing to pair with. Both were quoted at the inflated figure,
+    the second by the session that had just written the first correction into the
+    README. **Before quoting N, ask what the N−k silent ones were silent about.**
   Nothing checks a proposition's statement against its own proof, because the
   tests test the proof. The one checkable habit: **a correction that reaches only
   a claim's `notes` has not landed** — notes are where history goes, the statement
