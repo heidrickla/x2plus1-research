@@ -626,6 +626,20 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   comparison; derivation supplies the property; **and here the measurement was
   the misleading one.**
 
+- **Before asking whether a gap is real, ask what depends on it.** A hedge was
+  found in Ford–Maynard's footnote 2 — "closely related to", not *equivalent to*
+  — and read as the residual inference under `gaussian-to-rational-bridge`.
+  Settling whether the paper makes the relation precise elsewhere would need a
+  re-read the repo cannot do from what it holds. **One registry query settled it
+  instead**: `fm-footnote2-is-note-F-G` has exactly one dependent, and
+  `selberg-nu-zero-binds` is `quoted` with an empty `depends_on` — ν = 0 comes
+  from Selberg via p.2 and Theorem 2.1, so the inference the hedge would block is
+  one this repo never makes. The hedge is real, is the source's, and is **off the
+  path**. This is what the dependency graph is *for*, and it had not been used
+  this way before: **the question "is this gap real?" is often harder than "does
+  anything stand on it?", and the second question answers the first whenever the
+  answer is nothing.**
+
 - **Paraphrases of a source drift toward whatever makes the local argument
   work, and only re-reading the sentence catches it.** `fm-barrier-range-is-
   small-moduli` was read — by the other session, quoting it back — as recording
