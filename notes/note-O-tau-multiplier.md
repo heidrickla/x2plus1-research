@@ -1532,7 +1532,16 @@ V ≠ 0, evenness gives |V| ≥ 2 directly. *(`V-is-even-whenever-M-is-odd` is p
 for D = 1; the general-D statement is observed here, not proved.)*
 
 > **So O.12 covers D = 1, 2 unconditionally and D = 3, 4 given evenness — and
-> x²+2 in particular can never fail.** That bears directly on the conjecture that
+> x²+2 in particular can never fail.**
+>
+> **And the two sides are consistent with nothing to spare.** Every failure
+> observed on this axis — D = 11, 14, 19, 20, 21, 23, 24, 26, 27, 29, 31, 32, 34,
+> 35, 36, 37, 38, 39, 40 — lies **outside** the reach, and **no D inside it has
+> ever failed**. The smallest observed failure is **11**, against a boundary of
+> 4.899. What is unexplained is the strip **D = 5…10** (plus scattered larger
+> survivors): outside the proof, not yet fallen. **D = 5 sits 0.101 past the
+> boundary**, so if the argument's reach is the real boundary, D = 5 is where a
+> counterexample should first appear. That bears directly on the conjecture that
 > D = 1 is the unique survivor: at small D the bound is not merely tight but
 > **unsatisfiable**, so no number of candidate classes at larger X can produce a
 > configuration. The attrition argument reaches D > 4, not D > 1.
