@@ -1539,9 +1539,35 @@ for D = 1; the general-D statement is observed here, not proved.)*
 > 35, 36, 37, 38, 39, 40 — lies **outside** the reach, and **no D inside it has
 > ever failed**. The smallest observed failure is **11**, against a boundary of
 > 4.899. What is unexplained is the strip **D = 5…10** (plus scattered larger
-> survivors): outside the proof, not yet fallen. **D = 5 sits 0.101 past the
-> boundary**, so if the argument's reach is the real boundary, D = 5 is where a
-> counterexample should first appear. That bears directly on the conjecture that
+> survivors): outside the proof, not yet fallen. **D = 5 sits 0.101 past the boundary.**
+>
+> ### ⚠ CORRECTED — "so D = 5 should fall first" inverts the mechanism
+>
+> A first version of this passage predicted that D = 5, being the smallest
+> unprotected value, would be the first survivor to fall. **That is backwards**:
+> a larger D gives a **looser** bound, so if looseness drove the timing D = 10
+> would fall *before* D = 5. And the timing is not monotone in D at all — it is
+> arithmetic, governed by whether a witness exists at accessible cofactors:
+>
+> | D | first falls at | cofactors |
+> |---|---|---|
+> | 11, 14, 19 | X ≤ 1200 | below 6 |
+> | 35 | X = 2500 | (2249, 3756) |
+> | 20 | X = 4000 | (47, 63) |
+> | 5–10 | **not by X = 8000** | — |
+>
+> **D = 11 falls far earlier than D = 20 despite having the tighter bound**,
+> because 11 and 19 lie in the k²+3k+1 family, which hands over a witness at four
+> *consecutive* arguments. The tiny-cofactor witnesses are **the family's, not
+> failure's** — which is the same phenomenon that produced the retracted caution
+> above, seen a second time.
+>
+> **So the honest answer is neither.** The argument's boundary (D ≤ 4) is *not*
+> the empirical boundary — that is at least 10 — but it is *not* an artefact of
+> the technique either: it is the only **proved** boundary, and 5…10 is
+> **unfallen rather than protected**. That gap is the same
+> necessary-but-not-sufficient gap as the 39 of 60 admissible classes that hold no
+> triple, one level down: the bound permits failure and no failure is found. That bears directly on the conjecture that
 > D = 1 is the unique survivor: at small D the bound is not merely tight but
 > **unsatisfiable**, so no number of candidate classes at larger X can produce a
 > configuration. The attrition argument reaches D > 4, not D > 1.
