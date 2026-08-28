@@ -826,3 +826,37 @@ def test_the_sign_argument_needs_only_an_odd_prime_exactly_dividing_M():
                 assert (V % p == 0) == (si == sj), (a, b, p)  # p | V iff signs agree
                 checked += 1
     assert checked > 200
+
+
+def test_the_sign_arguments_blind_spot_is_enriched_among_rich_classes():
+    """M = 2^e carries no odd prime, so the sign argument says nothing there --
+    and those classes are exactly the modulus-rich ones.
+
+    The sign needs an odd p | M. When M is a pure power of two there is none, at
+    any exponent, so O.9 and its generalisation are silent on the whole class.
+    That looks negligible by class count and is not:
+
+        X = 3000    all classes  0.013%     >=3 moduli  8.3%    >=5 moduli  50.0%
+        X = 6000    all classes  0.004%     >=3 moduli  6.2%    >=5 moduli  33.3%
+
+    a 600x to 4000x enrichment, stable across a doubling of X. The single
+    richest class in the data -- (1,5), M = 4, eight shared moduli 2, 10, 65,
+    442, 3026, 20737, 142130, 974170 -- is one of them, and so are (1,17) and
+    (1,65). These are b = 2^e + 1 with a = 1: the Pell chains, which are the
+    structurally deepest configurations in the problem.
+
+    So the blind spot is not a small uniform residue. It is concentrated on the
+    configurations where a triple is most likely to be found if one exists.
+    """
+    from x2plus1.polyseq import ratio_classes
+
+    rows = [(len(ms), (b - a) & (b - a - 1) == 0)
+            for (a, b), ms in ratio_classes(3000).items() if b - a >= 3]
+    base = sum(1 for n, p in rows if p) / len(rows)
+    rich = [r for r in rows if r[0] >= 5]
+    rich_rate = sum(1 for n, p in rich if p) / len(rich)
+    assert base < 0.001                       # negligible by class count
+    assert rich_rate > 0.3                    # dominant among the rich ones
+    assert rich_rate / base > 500             # and the enrichment is enormous
+    mid = [r for r in rows if r[0] >= 3]
+    assert sum(1 for n, p in mid if p) / len(mid) > 0.05
