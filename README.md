@@ -326,10 +326,16 @@ The column that separates every solved case from this one is ν.
   Σ_d |Σ_m ρ_h(dm)| — precisely the shape Note F obstructs. ~~Whether a
   well-factorable decomposition can reach it is the live question.~~ **Closed,
   negatively** — see the BFI bullet below.
-- Iwaniec 1978's **statement** is now sourced from Pintz's survey (§19); its
-  **method** is still second-hand. Lemke Oliver, *Acta Arith.* **151** (2012),
-  241–261 is the refereed generalisation and is unread. BFI I–III and *Opera de
-  Cribro* Ch. 24–25 unobtained.
+- Iwaniec 1978's **statement** is sourced from Pintz's survey (§19), and its
+  **method** is now sourced too: ~~Lemke Oliver unread~~ — **read**, and it
+  records that Iwaniec "obtained a new form of the error in the linear sieve"
+  plus an equidistribution result for the roots of x²+1 ≡ 0 (mod m), so
+  Iwaniec's P₂, DFI's theorem and Note A are one object rather than three
+  resembling ones. Its Remark 3 adds a third degree-uniform statement: at degree
+  3 the analogue of its condition (IV) is Hooley's and is **conditional on
+  Hypothesis R\*** on short Kloosterman sums — so the arithmetic input every
+  route needs is already conditional one degree above us, independently of κ.
+  *Opera de Cribro* Ch. 24–25 unobtained; BFI I–III no longer wanted (below).
 - [Note G](notes/note-G-spectral.md) now carries the **Step 2 checkpoint**
   (plan §2.5): the shortfall comes out as *two incommensurable units*, not one
   number — the **norm** (Prop 1's signed 1/20 saving against an absolute-value
@@ -348,6 +354,17 @@ The column that separates every solved case from this one is ν.
   [refs/literature-log.md](refs/literature-log.md) from abstracts only. It
   bilinearises over the radicand, not the modulus, so it is filed as adjacent —
   but that judgement rests on abstracts, not readings.
+- **Conjecture O.2 — no dyadic window holds three shared moduli — is the one
+  open question the repo is not merely blocked on.** Its sharp form is
+  measurable: *on any solution ξ, at most one acting multiplier has modulus
+  ratio < 2*. Theorem O.3′ proves the case where one of the two is the trivial
+  multiplier τ₁; the gap is p, q ≥ 2, which is realised — (53, 423125) has its
+  close pair at k = 12 with τ₁ excluded — but only once in 379 close pairs at
+  X = 3000. Proving it upgrades `rational-gram-bounded-on-windows` from
+  `rigorous_finite` to `proved`. **It changes no conclusion**: a bounded count
+  supplies no main term at 1, 2 or 3 alike, so a counterexample would not weaken
+  the obstruction either. Worth doing for the status; worth knowing that is all
+  it is. [Note O](notes/note-O-tau-multiplier.md).
 - **The well-factorable question is closed, negatively.** BFI I–III remain
   unobtained in the original and are no longer wanted for it: read at source in Maynard's
   arXiv:2006.07088, every theorem in that line buys its level by giving up the
