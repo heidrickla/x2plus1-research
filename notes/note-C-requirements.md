@@ -36,11 +36,21 @@ Page references are to the Annals pagination printed in the arXiv preprints.
 > Duke–Friedlander–Iwaniec directly shows the alternative is worse, not better.
 > DFI's own Theorem S is normalised to x and is **vacuous** on a sequence of
 > mass x^{1/2}; its Type II coefficients are supported on primes, not arbitrary.
-> Ford–Maynard then place x² + 1 at γ = 1/2 − ε, inside the regime their results
-> kill, with C⁻ = 0 following from Selberg once ν = 0. The obstruction is
-> Type II and [Note F](note-F-failure-localisation.md)'s C₄-free lemma is the
-> whole of it — but "x² + 1 meets DFI's Type I" was **wrong**, and is `refuted`
-> in the registry. See the two correction sections below.
+> Restated relative to |A|, its Type I (D = x^{1/2−ε}) is **available** and its
+> Type II (short variable to x^{1/3−ε}) is not — **the level is never the
+> obstruction**.
+>
+> **Ford–Maynard's binding parameter is ν, not γ.** ν = 0 here gives C⁻ = 0 by
+> Selberg and their Theorem 2.1, and there is no admissible (γ, θ, ν) triple at
+> density x^{1/2} at all. And DFI say outright (p. 425) that the
+> arbitrary-coefficient bilinear form **is** the parity-breaking input, so
+> [Note F](note-F-failure-localisation.md)'s C₄-free lemma is the statement that
+> their parity-breaking input does not exist for this sequence.
+>
+> Four readings of this material have been `refuted` and are kept in the
+> registry: "x² + 1 meets DFI's Type I", the γ = 1/2 − ε placement, "Lemma 2's
+> reach is capped at P₂", and a log-power level deficit. The sections below
+> record each where it was made, with the correction after it.
 
 Friedlander and Iwaniec state the general principle themselves, p. 1044:
 

@@ -46,6 +46,14 @@ python experiments/exp04_kappa_family.py 10000000 6
 python experiments/exp08_merikoski_ledger.py 10000000
 ```
 
+```bash
+python experiments/exp09_degree_ladder.py 4000
+```
+
+```bash
+python experiments/exp11_window_gap.py 2500
+```
+
 No installation needed — the scripts put the repo root on `sys.path`. Requires
 Python ≥ 3.11 with `sympy` and `numpy`.
 

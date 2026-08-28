@@ -257,18 +257,28 @@ at all, but a tight pair (m = 17, 26, ratio 1.53) plus a distant third (m = 2).
 **And the extremals are exactly the configurations a Type II split excludes.**
 a = 1 means n₁ = d, so at d = 1 it is the *unit cofactor* — the same degenerate
 case that drives the full graph's log X growth. Restricting to pairs that can
-actually occur, both cofactors ≥ 2, changes the floor by a factor of five:
+actually occur, both cofactors ≥ 2:
 
-| population | classes | triples | min two-step ratio | margin over the threshold 2 |
-|---|---:|---:|---:|---:|
-| all | 3 319 | 157 | 13.00 at (1, 85) | 6.5× |
-| **both cofactors ≥ 2** | 2 996 | 59 | **66.49** at (5, 4033) | **33×** |
+| X | triples (all / restricted) | min two-step, all | min two-step, restricted |
+|---:|---:|---:|---:|
+| 1 500 | 79 / 23 | 13.0000 (1, 85) | 73.0000 (5, 481) |
+| 2 500 | 97 / 32 | 13.0000 (1, 85) | 73.0000 (5, 481) |
+| 3 500 | 124 / 43 | 13.0000 (1, 85) | 73.0000 (5, 481) |
+| 5 000 | 157 / 59 | 13.0000 (1, 85) | **66.4923** (5, 4033) |
 
-with window maximum 2 in both. Fifty-nine triples is not a small sample, so the
-a = 1 concentration is structural and not an artefact of counting: the
-application-relevant floor is 66.5, five times the unrestricted one, and the
-restricted extremals are (5, 4033), (5, 481), (2, 145), (2, 925), (2, 65),
-(5, 442), (13, 6161), (2, 5) — small a, and every odd one ≡ 1 (mod 4).
+Fifty-nine restricted triples is not a small sample, so the a = 1 concentration
+is structural and not an artefact of counting. Window maximum is 2 in both
+populations.
+
+**But the two floors behave differently, and this note should not blur them.**
+The unrestricted 13 is *pinned* — the same minimiser at four sizes, while the
+triple count doubles. The restricted floor held at 73 for three sizes and then
+**stepped down to 66.5** when (5, 4033) appeared. One step of 9% is not a drift
+toward the threshold — the margin is still 33× against 2 — but it is not the
+same kind of evidence as a pinned minimum, and an earlier draft of this section
+stated 66.5 as though it were. The restricted extremals so far are (5, 4033),
+(5, 481), (2, 145), (2, 925), (2, 65), (5, 442), (13, 6161), (2, 5) — small a,
+every odd one ≡ 1 (mod 4).
 
 That is the reduction worth attacking: a **gap principle** separating distinct
 proper classes of a fixed binary quadratic form. Neither session has the
