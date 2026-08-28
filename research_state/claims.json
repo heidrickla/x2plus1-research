@@ -243,9 +243,9 @@
     {
       "id": "parity-broken-below-two-thirds",
       "status": "quoted",
-      "statement": "Two sieves break parity below x^{2/3}: Xiannan Li unconditionally, to exponential density 2/3 - gamma/3 for gamma < 5/67 (approx x^{0.6418}), and Merikoski conditionally on exceptional characters at 5/8. Neither reaches x^{1/2}.",
-      "citation": "Li, as reported with Maynard ICM survey Question 21; Merikoski arXiv:2108.01355",
-      "notes": "Quoted via subagent extraction with verbatim checks by an adversarial reviewer; the papers were not read in this repo."
+      "statement": "Xiannan Li breaks parity below x^{2/3} unconditionally: Theorem 1 gives, for all 0 < gamma < 5/67, an asymptotic of the right order for primes x^3 + 2y^3 with y in (Y, Y(1+eta)], Y = X^{1-gamma}, so exponential density 2/3 - gamma/3, i.e. down to 43/67 = 0.641791. Merikoski reaches 5/8 CONDITIONALLY on exceptional characters. Neither reaches x^{1/2}.",
+      "citation": "Xiannan Li, Prime values of a sparse polynomial sequence, arXiv:2111.05403v1, Theorem 1 p.2 and the density remark p.2 (READ AT SOURCE); Merikoski arXiv:2108.01355 (NOT read -- the 5/8 figure is second-hand)",
+      "notes": "The Li half is now read at source and its figure is exact: 2/3 - 5/201 = 43/67 = 0.641791, which Merikoski's sparse-sets paper also quotes as X^{43/67+eps}. The Merikoski-5/8 half remains second-hand and is flagged inside the citation rather than left to the notes field. The previous citation read 'Li, as reported with Maynard ICM survey Question 21', which is not a quotation and was caught by auditing quoted claims for page/result locators."
     },
     {
       "id": "ford-maynard-half-knife-edge",
@@ -964,6 +964,16 @@
         "type_i"
       ],
       "notes": "A THIRD degree-uniform statement for Note L's table, and one that degrades at d = 3 for a reason unrelated to density: the root-equidistribution input itself becomes conditional. So the degree ladder is not only about Type I/II admissibility -- the arithmetic input every route needs also weakens with the degree, and it does so one degree above where this repo sits."
+    },
+    {
+      "id": "orbit-walk-covers-a-small-part-of-the-candidates",
+      "status": "rigorous_finite",
+      "statement": "Reconstructing Note O's candidate criterion independently -- (a,b) admissible, some k >= 2 with a^2 + (4k^2-2)ab + b^2 a perfect square, and r_1 * r_k < 2 -- gives 322 candidates for a <= 60, b <= 300000, with D from 12,352 to 16,897,024 and median 1,651,620. The parallel session's orbit walk covers 44. Its stated tightest candidate (1,115921) at k = 22, r_1 r_k = 1.3093, is reproduced exactly here but is not the tightest: (1,226801) at k = 26 gives 1.2540.",
+      "experiment": "candidate reconstruction in-session from the criterion in Note O; see Note L",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Bears on the scope of the 44-of-44 orbit result. If their 95 is the full candidate list then the box matters enormously; if it is the seed-reachable subset then 44 walked out of >= 322 existing is about 14% coverage. Either way the population is larger than 95 and grows with the box, so '44 of 44' should be quoted with the box and the reachability filter attached. Not a criticism of the mechanism, which is sound and decidable -- a statement about how much of the space it has been run on."
     }
   ]
 }

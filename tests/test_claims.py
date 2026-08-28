@@ -124,3 +124,21 @@ def test_registry_is_stably_serialised():
     import json
     raw = REGISTRY_PATH.read_text(encoding="utf-8")
     assert json.dumps(json.loads(raw), indent=2) + "\n" == raw
+
+
+@pytest.mark.parametrize("claim", [c for c in CLAIMS if c.status is Status.QUOTED],
+                         ids=lambda c: c.id)
+def test_quoted_claims_name_a_locator(claim):
+    """A `quoted` claim must cite a page, section or numbered result.
+
+    `REQUIRES_CITATION` only checks the field is non-empty, which let through
+    "Li, as reported with Maynard ICM survey Question 21" -- a report, not a
+    quotation, and the one entry in 36 that had no locator. The registry's whole
+    point is that a citation and an inference read alike in prose; a citation
+    without a locator is an inference wearing a citation's clothes.
+    """
+    pattern = (r"\bp{1,2}\.\s*\d|\bpage\b|sec(tion)?\.?\s*\d|Thm|Theorem|Lemma|"
+               r"Prop|Def|Remark|Table|\(\d|footnote|abstract")
+    assert re.search(pattern, claim.citation, re.I), (
+        f"{claim.id}: citation names no page or result -- {claim.citation!r}"
+    )

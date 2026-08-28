@@ -371,6 +371,24 @@ question rests on 31 informative classes, and 278,908 of the rest could not have
 contradicted anything. "Verified over hundreds of thousands of ratio classes"
 would have been true and thoroughly misleading.
 
+### How much of the candidate space the orbit walk covers
+
+[Note O](note-O-tau-multiplier.md)'s decidable criterion — (a, b) admissible,
+some k ≥ 2 with a² + (4k²−2)ab + b² a perfect square, and r₁·r_k < 2 — was
+reconstructed here independently to check its coverage. In the box a ≤ 60,
+b ≤ 300 000 it gives **322 candidates**, with D from 12 352 to 16 897 024 and
+median 1 651 620. Note O's stated tightest, (1, 115921) at k = 22 with
+r₁r_k = 1.3093, is reproduced exactly — but is not the tightest: **(1, 226801)
+at k = 26 gives 1.2540**.
+
+The orbit walk covers 44. So "44 of 44 orbits, no triple" should be quoted with
+its box and its seed-reachability filter attached: the candidate population is
+larger than the 95 the walk was drawn from and keeps growing with the box, and
+seed-reachability correlates with small D, which is also where the orbit is
+shortest. None of that is a criticism of the mechanism, which is decidable and
+negative on every instance it has been run on — it is a statement about how much
+of the space that is.
+
 ## So Note F's conclusion transfers, and here is exactly how much is proved
 
 - **Proved, Z[i]:** G(n₁,n₂) ≤ 1, at every split and on the full graph
