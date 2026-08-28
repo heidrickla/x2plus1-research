@@ -207,16 +207,25 @@ steps sit in that quotation and only the first is exact:
    not write *equivalent to*, and the hedge is theirs, not a looseness in this
    note's reading of them.
 
-> So the step from "the count is 0 or 1, so the error term is O(1) and
-> unimprovable" to "**ν = 0 in Ford–Maynard's sense**" rests on a four-word phrase
-> in the source. That is why `gaussian-to-rational-bridge` and
-> `fm-barrier-is-unconditional-at-density-half` are `inferred` and why **no amount
-> of further computation here can promote them** — the missing link is a precise
-> statement of the relation, which would have to come from the literature or from
-> a direct argument, not from measuring this sequence more carefully.
+> **The hedge is real but off the path, which is the part that took a dependency
+> trace to see.** `fm-footnote2-is-note-F-G` has exactly **one** dependent in the
+> registry, and ν = 0 is established **independently**: `selberg-nu-zero-binds` is
+> `quoted`, with an empty `depends_on`, from Selberg via [FM] p. 2 and their
+> Theorem 2.1. **This repo never derives ν = 0 from the counting function.** What
+> footnote 2 supplies is corroboration that the object measured here is the object
+> the literature's own survey names as the barrier — corroboration of *relevance*,
+> not a step in a derivation.
+>
+> The hedge binds exactly one claim, `fm-barrier-is-unconditional-at-density-half`,
+> where the footnote **is** the source.
 
-*Naming it matters because the two steps had been read as one.* The first is now
-proved on both sides; the second was never ours to close.
+*Naming the two steps matters because they had been read as one.* The first is now
+proved on both sides. The second is not ours — and, it turns out, not anyone's
+here, since no conclusion passes through it. *(A first version of this passage
+called step 2 "the residual inference" in the bridge and concluded no further
+computation could promote it. The bridge's `inferred` status carries the reading
+of what (II) quantifies over, a different sentence — which could in principle be
+settled by reading more carefully.)*
 
 Two consequences worth stating separately:
 

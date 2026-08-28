@@ -310,11 +310,16 @@ on exactly the configuration their average runs over, so that step needs neither
 an inference nor the transfer. (2) The implication from that object to (θ, ν) is
 stated by them as **"closely related to"**, not as an equivalence. So
 "count is 0/1, error O(1) unimprovable" ⟹ **ν = 0 in their sense** rests on a
-four-word hedge *in the source*. **That is why `gaussian-to-rational-bridge` and
-`fm-barrier-is-unconditional-at-density-half` cannot be promoted by more work of
-the kind this repo does** — what is missing is a precise statement of the
-relation, which must come from the literature or a direct argument, not from
-measuring this sequence more carefully. The two steps had been read as one.
+four-word hedge *in the source*. **But the hedge is off the path**, which a dependency trace shows and re-reading
+the paper cannot: `fm-footnote2-is-note-F-G` has exactly **one** dependent, and
+ν = 0 comes from `selberg-nu-zero-binds` — `quoted`, empty `depends_on`, from
+Selberg via [FM] p. 2 and Theorem 2.1. **This repo never derives ν = 0 from the
+counting function.** Footnote 2 corroborates that we measure the object the
+literature names as the barrier — *relevance*, not a derivation step. It binds
+only `fm-barrier-is-unconditional-at-density-half`, where the footnote **is** the
+source. What `gaussian-to-rational-bridge` actually carries is the reading of
+what (II) quantifies over, a different sentence, which **could** be settled by
+reading more carefully.
 
 **Positive control — the 0/1 property is not generic.** Doubly-dyadic max Gram at
 Q = 2.5×10⁴ / 5×10⁴ / 10⁵: **x²+1 = 1, 1, 1** (proved, 0 banded pairs sharing
@@ -337,10 +342,17 @@ is 1 for c = 1…5, over 146k–648k banded pairs each, free 2 throughout). Both
 repairs are shut: the bound is **saturated** (max |V|/bound = 1.0000, 3.9999,
 8.9998 = exactly c²) and min |V| is 2, 4, 6 — i.e. 2c, not c². **And that makes
 the line family a test bed for the bridge**: A_c is C₄-free over Z[i] for every c
-(proved), while O.12 covers Z only at c = 1, so **c = 2…5 are four instances where
-the transfer's conclusion holds and only the Z[i] side is proved** — it had
-previously been tested on the one case it was formulated from. *Not* evidence for
-the bridge's other half, the inference to ν = 0.
+(proved), while O.12 covers Z only at c = 1, so **And the family BOUNDS the transfer rather than
+supporting it**: doubly-dyadic C₄-freeness over Z **fails at c = 6** — cofactors
+(5,8), ratio 1.6, sharing moduli 9 and 17, ratio 1.889, since 5·9 = 3²+6²,
+8·9 = 6²+6², 5·17 = 7²+6², 8·17 = 10²+6². Over c ≤ 8 it holds at 1,2,3,4,5,7 and
+fails at 6,8. **The mechanism is the Z[i]→Z coarsening exactly**:
+(3+6i)(10+6i) = −6+78i and (6+6i)(7+6i) = 6+78i are **conjugate, not associate**,
+so A₆ *is* C₄-free over Z[i] while the norms agree at 6120 and the rational cycle
+is real. ⚠ **"Any dyadic window" means any ratio < 2, NOT a window anchored at a
+power of two** — [8,16) and [16,32) between them miss (9,17), so an anchored
+sweep passes on the counterexample, and mine did. It does **not** refute the
+bridge for x²+1, where the Z side is *proved* by O.12 rather than transferred.
 
 **What is left of O.2.** Nothing structural — no hypothesis on M survives. What
 remains is quantitative: at X = 8000, 13 of 109 informative classes clear O.11,

@@ -1384,10 +1384,28 @@ bridge describes — Z[i] side proved, Z side not — and it can be checked:
 | banded pairs | 158,708 | 496,495 | 392,970 | 648,160 | 146,128 |
 | banded pairs sharing ≥ 2 | 0 | 0 | 0 | 0 | 0 |
 
-**Four instances (c = 2…5) where the transfer's conclusion holds and only the
-Z[i] side is proved** — and the free column reaching 2 throughout is the positive
-control that the banded result is not vacuous. Before this, the transfer had been
-tested on the one case it was formulated from.
+> ### ⚠ CORRECTED — the family **bounds** the transfer, it does not support it
+>
+> This table stopped at c = 5 and read as four supporting instances. **Extend the
+> axis by one and it fails**: at **c = 6**, cofactors **(5, 8)** — ratio 1.6 — share
+> moduli **9 and 17** — ratio 1.889 — both doubly dyadic, since 5·9 = 3²+6²,
+> 8·9 = 6²+6², 5·17 = 7²+6², 8·17 = 10²+6². Over c ≤ 8 the property **holds at
+> 1, 2, 3, 4, 5, 7 and fails at 6 and 8**.
+>
+> **The mechanism is the Z[i]→Z coarsening in its purest form**:
+> (3+6i)(10+6i) = **−6+78i** and (6+6i)(7+6i) = **6+78i** are **conjugate, not
+> associate** — so A₆ *is* C₄-free over Z[i], as the line argument requires, while
+> the norms agree at 6120 and the rational 4-cycle is real.
+>
+> **And my sweep would have missed it even at c = 6.** It tested windows
+> **anchored at powers of two**, which is strictly weaker than "any dyadic
+> window": [8,16) and [16,32) between them miss the pair (9,17). Corrected to test
+> by **ratio** on both axes. *An anchored sweep would have passed on a
+> counterexample, and did.*
+>
+> **It does not refute the bridge for x²+1**, where the Z side is *proved* by O.12
+> rather than transferred. What it removes is any reading of the c-family as
+> evidence that the transfer is reliable.
 
 > **What that is and is not.** It is evidence for the **transfer** — "C₄-free
 > over Z[i] ⟹ G′ ≤ 1 over Z on the banded configuration" — at cases it was not
