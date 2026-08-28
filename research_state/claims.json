@@ -1743,6 +1743,18 @@
         "gram"
       ],
       "notes": "COVERAGE, WITH ITS POPULATION AND ITS TREND. Over classes with >= 3 shared moduli -- the only ones that could host a triple -- O.11 excludes 42/43, 46/48, 57/60, 65/70, 88/96, 96/109 at X = 1500, 2000, 3000, 4000, 6000, 8000, i.e. 97.7%, 95.8%, 95.0%, 92.9%, 91.7%, 88.1%. DO NOT READ THAT AS AN ASYMPTOTIC: O.10's ~35% is flat in X while O.11's falls monotonically, and the admissible count roughly doubles as X doubles (1, 2, 3, 5, 8, 13) while the informative population grows only 2.5x over that range. The reach may tend to 0 and no claim is made about its limit. The equal-split maximisation was confirmed numerically to eight digits over a 4000-point grid at four values of w."
+    },
+    {
+      "id": "theorem-O11-constant-verified-independently",
+      "status": "proved",
+      "statement": "Theorem O.11's constant, re-derived and cross-checked. With R_ij = e^{u_ij} the bound |V_ij| < (M/2 sqrt D)(R - 1/R) is |V_ij| < (M/sqrt D) sinh(u_ij), and R_12 R_23 = R_13 means u_12 + u_23 = u_13, so sinh(u_12) sinh(u_23) is maximised at the equal split -- the derivative is sinh(u_13 - 2 u_12), zero exactly at u_12 = u_13/2 and changing sign there. Hence the triple product is < (M/sqrt D)^3 * 2 sinh^3(u/2) cosh(u/2) = (M/sqrt D)^3 K/8 with K = (sqrt rho - 1/sqrt rho)^3 (sqrt rho + 1/sqrt rho), rho = sqrt(2 + 1/X_1^2). M <= product then gives ab < (K/8)^{2/3} M^{4/3}. Computed: K/8^{2/3} = 0.125873 at X_1 = 1, 0.049344 at X_1 = 10, 0.048628 asymptotically; against O.10's 1/3 that is 6.855x. The sinh form and the sqrt-rho form agree to 6 places (0.010723 both).",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Verified by re-deriving rather than re-running. The step worth checking was the maximisation, since 'all three R at the window edge' is exactly the over-count O.10 makes and the constraint R_12 R_23 = R_13 is what forbids it; the derivative sinh(u_13 - 2u_12) is clean and the equal split is a genuine maximum. I got 0.1421 on the first pass by using 0.5946 for 2^{1/4} - 2^{-1/4} instead of 0.34831 -- their number is right and mine was an arithmetic slip. Their trend caveat is the important half: the reach 97.7 -> 88.1% is FALLING over X = 1500 to 8000 with the admissible count doubling per doubling of X, so no limit is claimed and none should be.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py"
     }
   ]
 }
