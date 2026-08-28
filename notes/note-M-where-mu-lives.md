@@ -376,14 +376,21 @@ ten doublings:
 So the (log M)^{1/4} accounts for essentially all of the residual drift, and the
 refined law fits to 5% where the plain one fits to 13%.
 
-**This does not promote anything.** The upper-bound half now has a proof shape —
-Cauchy–Schwarz is exact, the diagonal is a divisor count, the modulus count is
-Landau–Ramanujan, and only the off-diagonal cancellation is measured — but
-`sqrt-MX-law` stays `extrapolated` because that last input is the whole
-difficulty. What changes is its *shape*: the missing step is cancellation in
-Σ_{x≠y} μ(x²+1)μ(y²+1)·G_M(x,y), where G_M is this repo's own Gram entry, rather
-than an exponent fitted over four decades. That is the first place the θ-axis and
-the Gram axis meet.
+**This does not promote anything, and §5 above settles how little it buys.**
+The upper-bound half has a proof shape — Cauchy–Schwarz is exact, the diagonal is
+a divisor count, the modulus count is Landau–Ramanujan, and only the off-diagonal
+cancellation is measured — but that last input is **Chowla for this polynomial**:
+for fixed m the solutions of m | x²+1 are progressions, so every pair in OFF is
+y = x + h and the inner object is a two-point correlation of μ(x²+1). So
+
+> **the reduction is a restatement, not a route.** It travels through the Gram
+> axis and arrives at the same blocker as everything else here, and
+> `sqrt-MX-law` stays `extrapolated`. Do not quote it as progress on the θ axis.
+
+What survives is structural and is not diminished by that: **OFF is literally
+built from the G_M(x,y) that Prop L.1 bounds and Theorem O.3′ constrains**, so
+the θ axis and the Gram axis are the same object. That was not true before, and
+it means a result on either side is no longer obviously irrelevant to the other.
 
 ## Adversarial review
 
