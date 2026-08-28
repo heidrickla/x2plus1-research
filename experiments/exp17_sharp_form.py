@@ -141,5 +141,62 @@ def main(X=3000):
         print(f"          a window needs, so the nearest miss is a factor {r / 2:.1f} away.")
 
 
+def chain_census(X=1500):
+    """How many classes admit TWO in-window multipliers?  That is O.2's population.
+
+    A triple needs a CHAIN: two indices k with M^2 + 4k^2 D a perfect square and
+    tau_k^2 < 2.  This counts them over every reduced ratio class, which is the
+    right denominator for O.2 -- not classes above a threshold, not classes with
+    three shared moduli.
+
+    CAUTION: "realises two moduli" is NOT "realises two moduli in one window".
+    The two first diverge at X = 6000, where (13,27145) has moduli 2 and 530, a
+    ratio of 265.  Both are reported.
+    """
+    from math import isqrt, sqrt
+    from x2plus1.polyseq import ratio_classes
+    cls = ratio_classes(X)
+    hist = {}
+    two = []
+    for (a, b), ms in cls.items():
+        M, D = b - a, a * b
+        ks = []
+        for k in range(1, int(M / (4 * sqrt(2) * sqrt(D))) + 1):
+            t = M * M + 4 * k * k * D
+            U = isqrt(t)
+            if U * U == t:
+                ks.append(k)
+        hist[len(ks)] = hist.get(len(ks), 0) + 1
+        if len(ks) >= 2:
+            two.append((a, b, ks, sorted(ms)))
+    print()
+    print(f"CHAIN CENSUS at X = {X}: {len(cls)} reduced ratio classes")
+    for k in sorted(hist):
+        print(f"   in-window multipliers = {k}: {hist[k]:>9}")
+    print(f"  classes admitting a CHAIN (>= 2): {len(two)}  <- O.2's population")
+    nm = {}
+    inwin = 0
+    for _a, _b, _k, ms in two:
+        nm[len(ms)] = nm.get(len(ms), 0) + 1
+        if len(ms) >= 2 and any(ms[j] < 2 * ms[i]
+                                for i in range(len(ms)) for j in range(i + 1, len(ms))):
+            inwin += 1
+    print(f"  moduli realised by those: {dict(sorted(nm.items()))}")
+    print(f"  of them, with two moduli IN ONE WINDOW: {inwin}")
+    for a, b, ks, ms in two:
+        if len(ms) >= 2:
+            r = ms[1] / ms[0]
+            print(f"     (a,b)=({a},{b})  k={ks}  moduli={ms}  ratio {r:.3f}"
+                  f"  {'in one window' if r < 2 else 'NOT in one window'}")
+    mx = max(nm) if nm else 0
+    print(f"  Maximum moduli realised at THIS X: {mx}, against the three a triple")
+    print(f"  needs.  Across X = 1500/3000/6000 the maxima are 1/2/2.")
+    print("  A chain needs u = b/a > 129.9923 = (4sqrt2+sqrt33)^2, while the")
+    print("  modulus supply FALLS with u -- the two requirements pull opposite")
+    print("  ways, which is why this set is empty.")
+
+
 if __name__ == "__main__":
-    main(int(sys.argv[1]) if len(sys.argv) > 1 else 3000)
+    XX = int(sys.argv[1]) if len(sys.argv) > 1 else 3000
+    main(XX)
+    chain_census(min(1500, XX))

@@ -260,10 +260,74 @@ def discriminant_axis(X=900):
     print("  degenerate, and not a member of the family.")
 
 
+def invariant_and_D_reach(Dmax=6, amax=30, bmax=200, mmax=3000):
+    """The M*D invariant, and O.12's exact reach on the D axis.
+
+    For A = {x^2 + D}: a m = X^2 + D and b m = Y^2 + D give b(X^2+D) = abm =
+    a(Y^2+D), hence a Y^2 - b X^2 = (b-a) D = M*D.  So the quantity Note O calls
+    M is really M*D and every bound built on it weakens by a factor of D.
+
+    O.12's pair condition tau(V)^2 < 3 becomes V*s < 1/sqrt3 with
+    s = sqrt(ab)/(M D) = sqrt(u)/((u-1) D), i.e. (u-1) D / sqrt(u) > V sqrt3,
+    while a dyadic band supplies only (u-1)/sqrt(u) < 1/sqrt2.  So O.12 covers
+    D <= V sqrt6.
+    """
+    from math import gcd, isqrt, sqrt
+    print()
+    print("THE INVARIANT IS M*D, NOT M.")
+    n = bad = 0
+    minV = {}
+    for D in range(1, Dmax + 1):
+        for a in range(1, amax + 1):
+            for b in range(a + 1, bmax + 1):
+                if gcd(a, b) != 1:
+                    continue
+                M = b - a
+                sols = []
+                for m in range(1, mmax):
+                    v1, v2 = a * m - D, b * m - D
+                    if v1 < 1 or v2 < 1:
+                        continue
+                    X, Y = isqrt(v1), isqrt(v2)
+                    if X * X == v1 and Y * Y == v2:
+                        sols.append((X, Y))
+                        n += 1
+                        if a * Y * Y - b * X * X != M * D:
+                            bad += 1
+                for i in range(len(sols)):
+                    for j in range(i + 1, len(sols)):
+                        V = abs(sols[i][0] * sols[j][1] - sols[j][0] * sols[i][1])
+                        if V:
+                            minV[D] = min(minV.get(D, 10 ** 9), V)
+    print(f"  a Y^2 - b X^2 = M*D over {n} solutions, D = 1..{Dmax}: {bad} failures")
+    print(f"  min |V| by D: {dict(sorted(minV.items()))}"
+          f"   all even? {all(v % 2 == 0 for v in minV.values())}")
+    print()
+    print("O.12's REACH ON THE D AXIS: it covers D <= V sqrt6.")
+    print(f"{'input':>26} {'bound':>12} {'covers D'}")
+    for V0, lab in ((1, "|V| >= 1, unconditional"), (2, "|V| >= 2, from evenness")):
+        print(f"{lab:>26} {V0 * sqrt(6):12.4f}   D = 1..{int(V0 * sqrt(6))}")
+    print("  thresholds on u = b/a, from (u-1) D / sqrt(u) > V sqrt3:")
+    for D in (1, 2, 3):
+        r = sqrt(3) / D
+        uu = (2 + r * r + r * sqrt(r * r + 4)) / 2
+        band = 1 / sqrt(2)
+        print(f"     D = {D}: need u > {uu:8.4f}; a band gives u < 2 -> "
+              f"{'COVERED' if uu >= 2 else 'not covered'}")
+    print("  So x^2+2 in particular can never fail, which bounds the conjecture")
+    print("  that D = 1 is the unique survivor: at small D the condition is not")
+    print("  merely tight but UNSATISFIABLE, and no number of candidate classes")
+    print("  at larger X can change that.")
+
+
 if __name__ == "__main__":
     XX = int(sys.argv[1]) if len(sys.argv) > 1 else 1200
     main(XX)
     control(min(60000, max(20000, XX * XX // 20)))
     fm_footnote_quantity(min(12000, max(2000, 4 * XX)))
     line_family(min(1200, max(400, XX)))
+    invariant_and_D_reach(Dmax=6 if XX >= 900 else 3,
+                          amax=30 if XX >= 900 else 10,
+                          bmax=200 if XX >= 900 else 80,
+                          mmax=3000 if XX >= 900 else 800)
     discriminant_axis(min(900, max(400, XX)))
