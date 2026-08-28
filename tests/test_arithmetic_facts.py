@@ -1083,3 +1083,60 @@ def test_c4_freeness_holds_at_the_B1_relevant_top_of_the_range():
         assert max_offdiagonal_gram(C) <= 1, (lo, hi)
         checked += 1
     assert checked == 4, checked
+
+
+def test_x2_plus_39_has_a_banded_triple_so_O2_is_special_to_D_equals_one():
+    """Conjecture O.2's analogue is FALSE for x^2+39, in the strongest form.
+
+        cofactors (5, 8)        ratio 1.6  -- one dyadic BAND
+        moduli    8, 11, 15     15 < 16    -- one dyadic WINDOW
+
+        5*8  =  40 = 1^2+39     8*8  =  64 = 5^2+39
+        5*11 =  55 = 4^2+39     8*11 =  88 = 7^2+39
+        5*15 =  75 = 6^2+39     8*15 = 120 = 9^2+39
+
+    Three shared moduli in one window, with the two cofactors inside one band.
+    That refutes the analogue of Conjecture O.2 (no window holds three) AND of
+    Theorem O.12 (banded cofactors share at most one) simultaneously, for D = 39.
+
+    Over D <= 60 there are seven such unit-free triples -- D = 29, 39, 42, 44, 52,
+    53, 59 -- and D = 1 is not among them. So the triple question, like the
+    4-cycle question, has an answer special to x^2+1 rather than a general one
+    about degree-2 sequences.
+
+    This does NOT refute O.2 or O.12 for x^2+1. Both remain exactly as they were:
+    O.12 proved, O.2 open with no counterexample to X = 8000. What it removes is
+    any reading of them as instances of something general -- the same correction
+    the D = k^2+3k+1 family makes for the 4-cycle, one level up.
+    """
+    from math import isqrt
+
+    for cof in (5, 8):
+        for m in (8, 11, 15):
+            v = cof * m
+            x = isqrt(v - 39)
+            assert x * x + 39 == v, (cof, m, v)
+    assert 8 / 5 < 2                     # cofactors banded
+    assert 15 < 2 * 8                    # moduli in one window
+
+    # and the same configuration does not occur for D = 1 at this size
+    from math import gcd
+    from collections import defaultdict
+
+    X = 600
+    vals = [x * x + 1 for x in range(1, X + 1)]
+    cls = defaultdict(set)
+    for i in range(len(vals)):
+        for j in range(i + 1, len(vals)):
+            g = gcd(vals[i], vals[j])
+            if g > 1:
+                a, b = vals[i] // g, vals[j] // g
+                if a < b:
+                    cls[(a, b)].add(g)
+    assert len(cls) > 200, len(cls)
+    for (a, b), ms in cls.items():
+        if a < 2:
+            continue
+        ms = sorted(m for m in ms if m > 1)
+        for i in range(len(ms) - 2):
+            assert ms[i + 2] >= 2 * ms[i], (a, b, ms[i:i + 3])
