@@ -451,3 +451,31 @@ def test_second_moment_decomposition_is_exact():
     assert diag > 0, "no incidences -- test vacuous"
     assert Q2 == pytest.approx(diag + off, rel=1e-9)
     assert abs(off) < diag, (off, diag)              # |OFF| << DIAG, the measured input
+
+
+def test_the_tightest_near_counterexample_to_O2():
+    """(2, 8321): everything a triple needs except occupancy.
+
+    Live close pair at m = 8065, 8581 explained exactly by tau_1; a second
+    in-window multiplier k = 9 exists; route 8 showed the residues permit both.
+    The third modulus would land at ~13996 and is simply not there.
+    """
+    a, b = 2, 8321
+    M, D = b - a, a * b
+    for m in (8065, 8581):
+        assert isqrt(a * m - 1) ** 2 == a * m - 1
+        assert isqrt(b * m - 1) ** 2 == b * m - 1
+    assert 8581 < 2 * 8065                                   # one window
+    ratios = {}
+    for k in (1, 9):
+        t_ = M * M + 4 * k * k * D
+        U = isqrt(t_)
+        assert U * U == t_, k                                # both multipliers exist
+        sk = 4 * k * sqrt(D) / M
+        ratios[k] = ((sk + sqrt(sk * sk + 4)) / 2) ** 2
+    assert ratios[1] == pytest.approx(8581 / 8065, rel=1e-4)  # tau_1 explains the pair
+    assert ratios[9] < 2                                      # tau_9 would fit too
+    third = round(8065 * ratios[9])
+    for c in range(third - 4, third + 5):                     # and it is not there
+        assert not (isqrt(a * c - 1) ** 2 == a * c - 1
+                    and isqrt(b * c - 1) ** 2 == b * c - 1), c

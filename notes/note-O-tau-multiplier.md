@@ -856,7 +856,25 @@ argument, reached without it.
    | (74, 21389) | 1, 2 | *none* | — |
 
    Every occupied class carries **at most one** of the two, and the residue class
-   carrying both is occupied in none of them. This is the sharpest statement of
+   carrying both is occupied in none of them.
+
+   ### The tightest near-counterexample, fully characterised
+
+   **(a, b) = (2, 8321)**, M = 8319, D = 16642. Everything a counterexample needs
+   is present except the last step:
+
+   - it is **live**: shared moduli m = 8065 and 8581 (8065·2 − 1 = 127², etc.);
+   - they are a **close pair**: ratio 1.06398, inside a window;
+   - τ₁ **explains it exactly**: r₁ = 1.06398, agreeing to five decimals;
+   - a **second in-window multiplier exists**: k = 9, U₉ = 8637, r₉ = 1.73542 < 2;
+   - the **residues permit both** — this pair is one of route 8's 21;
+   - so a third modulus at 8065 × 1.73542 ≈ 13996 would sit inside the window.
+
+   **13996 is not a shared modulus, and neither is anything within ±4 of it.**
+   τ₉ simply does not act on this class. Every ingredient lines up and occupancy
+   alone forbids the triple — which is the whole of Conjecture O.2 in a single
+   configuration, and the object to hold in mind when reading the eight closed
+   routes above. This is the sharpest statement of
    the evidence available: not "no triple was found", but *"for the pairs where a
    triple is residue-possible, the occupied classes systematically avoid the
    residue that would produce it."*
