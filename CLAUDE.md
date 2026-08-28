@@ -78,7 +78,15 @@ of a delta is 1 − o(1), so the conclusion is *information-free*. O identifies 
 multiplier τ = (√b+√a)/(√b−√a) behind the close-pair structure and proves it
 cannot act twice on one element. **The general "no window holds three" is NOT
 proved** — it was claimed unconditionally and retracted; the window Gram bound
-stays O_ε(N^ε).
+stays O_ε(N^ε). Three things to know before reopening it. The ideal-theoretic
+route is **closed, not merely incomplete**: it needs Q̄ and Q̄″ coprime, and over
+the only regime where that is observable (triples in *wide* windows) coprimality
+holds in 5 of 65 cases — it is the exception. The only unconditional constraint
+on a triple is the Plücker–parity one, **M/√D ≥ 11.484** against 5.657 for a
+pair, and its virtue is that it contains no ideal theory. And the empirical
+support is **31 informative classes**, not the 278,939 above threshold — a class
+is silent unless it has three shared moduli at all, so "verified over hundreds of
+thousands" would be true and misleading.
 
 **Two closures, both negative and both durable.** The well-factorable route is
 dead: every theorem in the BFI line buys its level by giving up the absolute
