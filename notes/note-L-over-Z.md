@@ -852,7 +852,32 @@ it grows about 11% per doubling of X. **No scaling variable is claimed for the
 left arm**, and this is the third law fitted to this one decay and the third to
 fail. Each time the values reproduced exactly between two independent
 constructions and the law did not; the quantity is reproducible and
-unparameterised, and naming its shape has cost four corrections. At N ≪ X the cofactors are small, so each carries many moduli and pairs
+unparameterised, and naming its shape has cost four corrections.
+
+**But the right arm's variable has a mechanism, and it is exact.** For a cofactor
+n ∈ [N, 2N) the modulus is m = (x²+1)/n with x ≤ X, so **m ≤ (X²+1)/N** — and
+N/X² is precisely the reciprocal of the modulus ceiling. Checked directly:
+
+| N/X² | ceiling X²/N | largest m seen | distinct m | mean G |
+|---:|---:|---:|---:|---:|
+| 0.0146 | 68.7 | 65 | 17 | 0.0904 |
+| 0.0583 | 17.2 | 17 | 6 | 0.2377 |
+| 0.2330 | 4.29 | 2 | 2 | 0.5142 |
+| 0.4660 | 2.15 | 2 | 2 | 0.8911 |
+
+The largest modulus tracks the ceiling. So the right arm is a function of **how
+many moduli exist at all**, and that is a function of N/X² alone — which is why
+the collapse is exact rather than approximate. The direction follows too: with
+only two distinct moduli available, a pair of cofactors shares one 89% of the
+time; with seventeen, 9%.
+
+**And the same reasoning says the left arm cannot have such a variable.** There
+both counts matter, and the modulus count carries its own X-dependence — G counts
+shared moduli *up to X*, so a larger X finds more of them at the same N. Hence no
+collapse under N/X and none under N alone. The U has a mechanism on both arms: a
+clean scaling variable where one can exist, and a reason why it cannot on the
+other. *(Mechanism identified by the parallel session; the ceiling table verified
+here.)* At N ≪ X the cofactors are small, so each carries many moduli and pairs
 collide; at N ≫ X the moduli are few and tiny, so every pair shares them; the
 balanced split is where both sides are maximally spread.
 
