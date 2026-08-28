@@ -197,6 +197,17 @@ together by τ and not by ε.**
 > guarantees at most one member per orbit; Conjecture O.2 is the statement that
 > τ never reaches three.
 
+**And the unit-free witness carries the same τ, so it is strictly the better one
+to quote.** (2, 82) = 2·(1, 41) scales the conic — M = 80, D = 164, U² = 7056 =
+84² — and gives
+
+> τ₁ = (84 + 2√164)/80 = **1.370156**, identical to (1,41)'s, with the same
+> τ₁² = 1.877328 against the same observed 1.876712.
+
+Same cross-orbit step, same four-place agreement, **and no unit anywhere**. A
+reader meeting this structure at (2, 82) does not have to first dispose of the
+objection that the witness leans on a cofactor no Type II hypothesis admits.
+
 *(Recorded because the identification is tempting and wrong: assigning moduli to
 orbits by |V| = 2 — treating the fundamental multiplier as the fundamental
 automorph — produces "two moduli of one orbit in a window", which contradicts
