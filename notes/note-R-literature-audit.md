@@ -43,10 +43,39 @@ what was searched and what was found.
 
 | item | grade | evidence |
 |---|---|---|
-| O.4: three moduli in a window need τ_min⁴ < 2 + 1/X₁² | **NOT CHECKED** | the *form* (a ratio bound rather than an absolute one) does not match the literature's `c > 4ab` style; whether it is equivalent is unchecked |
-| O.13: pair threshold (1+√2)⁴ = 33.9706 | **NOT CHECKED** | |
-| O.15: triple threshold 82.5571 / 117.4171 via O.5 forcing V ≠ W | **NOT CHECKED** | |
 | Gap principles exist in the area generally | **KNOWN** | Dujella's gap principle; c > 4ab for regular quadruples; by-range extension counts |
+| **The standard one is VACUOUS at k = 2** | **KNOWN, and it is the key fact** | see below |
+| O.4: three moduli in a window need τ_min⁴ < 2 + 1/X₁² | **NOT SUPERSEDED** by the standard gap principle, which gives nothing here |
+| O.13: pair threshold (1+√2)⁴ = 33.9706 | **NOT SUPERSEDED**, same reason |
+| O.15: triple threshold 82.5571 / 117.4171 via O.5 forcing V ≠ W | **NOT SUPERSEDED**, same reason |
+
+### The standard gap principle is vacuous at k = 2, and that is why this case is open
+
+Tsang–Yip Lemma 2.1 (their [31, Lemma 3.6]) is **exactly the K₂,₂ configuration**:
+
+> *Let k ≥ 3 and n ≠ 0. Let x < y, z < w with xz ≥ 2|n|, and suppose xz+n, yz+n,
+> xw+n, yw+n are k-th powers. Then yw ≥ k^k (xz)^{k−1} / (4^{k−1}|n|^k).*
+
+Evaluate the constant and the exponent at k = 2, n = −1:
+
+| k | bound |
+|---:|---|
+| 2 | yw ≥ **1.0000 · (xz)¹** |
+| 3 | yw ≥ 1.6875 · (xz)² |
+| 4 | yw ≥ 4.0000 · (xz)³ |
+| 5 | yw ≥ 12.207 · (xz)⁴ |
+
+At k = 2 it says **yw ≥ xz**, which is true for free since y > x and w > z. The
+lemma is stated for k ≥ 3 precisely because it degenerates. **This is why
+min{|A|,|B|} is settled for k ≥ 3 and open for k = 2** — the standard tool
+returns nothing.
+
+**Consequence for this audit.** The O-thread's gap principles are *ratio* bounds
+derived from the Pell/multiplier structure (τ_V, the automorph ε, the window
+condition τ² < 2 + D/X₁²), not absolute bounds of the `c > 4ab` type. Since the
+absolute one is vacuous at k = 2, **they are not superseded by it.** That is a
+weaker statement than "new" — no search has been run for the specific thresholds
+— but it removes the most obvious way they could already be known.
 
 ## The arithmetic lemmas
 
