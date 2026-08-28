@@ -97,10 +97,17 @@ The proposition below is about that, and the per-class count is unbounded.
 *Proof.* Since gcd(a,b) = 1 we have gcd(M, a) = gcd(b−a, a) = gcd(b, a) = 1 and
 likewise gcd(M, b) = 1, so **M is coprime to D**.
 
-A shared modulus corresponds to an element ξ of the order of K = Q(√D) with
-N(ξ) = ±M. Two shared moduli in one window give ξ₁, ξ₂ with
+A shared modulus corresponds to an element of K = Q(√D). **The norm is aM, not
+M** — an earlier draft of this note wrote ±M and the difference is load-bearing,
+so it is derived here. Put
 
-> ξ₂/ξ₁ = (U + V√D)/M =: P/(M),  N(P) = U² − DV² = M² = N((M)).
+> **ξ_k = a Y_k + X_k √D**,  N(ξ_k) = a²Y_k² − D X_k² = a(a Y_k² − b X_k²) = **aM**,
+
+using aY² − bX² = b − a = M. Two shared moduli in one window then give
+
+> ξ₂ ξ̄₁ = −a(U + V√D) = −a·P,  so  ξ₂/ξ₁ = −P/(M),  N(P) = U² − DV² = M².
+
+Both identities verified exactly, 379/379 close pairs at X = 3000.
 
 Put **g = gcd(U, V)**. Since g² | M² we have g | M; write **M′ = M/g**. Then
 P = g·P′ with P′ = (U/g) + (V/g)√D of norm M′², and P′ is divisible by no
@@ -112,17 +119,17 @@ part is rational. Hence
 
 > **P′ = Q² with N(Q) = M′, and τ = P/(M) = P′/(M′) = Q²/(Q Q̄) = Q/Q̄.**
 
-Now N(ξ₁) = ±M, so the ideal (ξ₁) has norm M. Integrality of ξ₂ = τ ξ₁ requires
-Q̄ | (ξ₁), which is possible since N(Q̄) = M′ ≤ M.
+The ideal (ξ₁) has norm aM. Integrality of ξ₂ = ±τ ξ₁ requires Q̄ | (ξ₁), which
+is possible since N(Q̄) = M′ ≤ aM.
 
 Suppose a third shared modulus ξ₃ lay in the same window. Then ξ₃/ξ₂ = Q′/Q̄′
-by the same argument, so ξ₃ = (Q′/Q̄′)(Q/Q̄) ξ₁, whose integrality requires
+by the same argument, so ξ₃ = ±(Q′/Q̄′)(Q/Q̄) ξ₁, whose integrality requires
 Q̄′ Q̄ | (ξ₁) — of norm M′² — unless the factors cancel, i.e. Q′ = Q̄, which is
 τ′ = τ^{-1} and returns ξ₃ = ξ₁. So a third modulus requires
 
-> M′² ≤ M,  i.e.  **M ≤ g².**
+> M′² ≤ aM,  i.e.  **M ≤ a g².**
 
-**It remains to show M > g², which is where the window hypothesis enters.**
+**It remains to show M > a g², which is where the window hypothesis enters.**
 Write u = m_i, v = m_j, A = (au−1)(bv−1), B = (av−1)(bu−1). Then
 
 > A − B = (abuv − au − bv + 1) − (abuv − av − bu + 1) = (v−u)(a−b) = −(v−u)M,
@@ -137,8 +144,16 @@ bu − 1 ≥ bu/2, so the root is at least u√D/2 and
 
 > **|V| < M/√D.**
 
-Finally g | V gives g ≤ |V| < M/√D, so g² < M²/D < M, because
-M = b − a < b ≤ ab = D. This contradicts M ≤ g². ∎
+Finally g | V gives g ≤ |V| < M/√D = M/√(ab), so g² < M²/(ab) and hence
+
+> **a g² < M²/b < M**,
+
+the last step because M = b − a < b. This contradicts M ≤ a g². ∎
+
+The factor a that the corrected norm introduces is absorbed exactly because the
+bound on g carries **both** a and b in its denominator. Had N(ξ) been ±M the
+same chain would have read g² < M with room to spare; had the bound been
+M/√b alone it would have failed. Verified 379/379 at X = 3000.
 
 **No hypothesis on V is used.** An earlier draft of this note derived
 P = Q² from |V| = 2 and carried "|V| = 2" and "M odd" as two named gaps. Both
@@ -155,6 +170,10 @@ of mine:
   gives; it comes out 2 for pairs near the minimal-separation configuration,
   which is merely most of them. So "|V| = 2 with three anomalies" was the wrong
   picture, and a proof resting on it would have rested on nothing.
+- *The norm of ξ is aM, not ±M.* Caught while checking the bookkeeping before
+  reporting the proposition as unconditional. The conclusion survives, but only
+  because a g² < M²/b < M uses M < b; with the wrong norm the final inequality
+  was being read off the wrong quantity.
 - *|V| ≥ 2 is parity, in two lines.* For a, b both odd: m odd makes am, bm odd,
   so X², Y² are even and X, Y both even; m even makes both odd. Either way
   X_k ≡ Y_k (mod 2), so V = X_i Y_j − X_j Y_i ≡ 0 (mod 2). Verified over 825

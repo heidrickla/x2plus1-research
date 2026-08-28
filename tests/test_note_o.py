@@ -111,8 +111,28 @@ def test_V_is_below_M_over_sqrt_D():
         assert abs(V) < (b - a) / sqrt(a * b), (a, b, mi, mj, V)
 
 
-def test_M_exceeds_gcd_UV_squared():
-    """The single inequality Prop O.1 turns on, with no hypothesis on V."""
+def test_solution_element_has_norm_a_times_M():
+    """N(xi) = aM, NOT +-M.  The factor a is load-bearing in Prop O.1."""
+    for a, b, mi, _mj, _V, _t in PAIRS:
+        Xi, Yi = isqrt(a * mi - 1), isqrt(b * mi - 1)
+        assert a * a * Yi * Yi - (a * b) * Xi * Xi == a * (b - a), (a, b, mi)
+
+
+def test_ratio_of_solutions_is_P_over_M():
+    """xi_2 conj(xi_1) = -a (U + V sqrt D), so xi_2/xi_1 = -P/M."""
+    for a, b, mi, mj, V, _t in PAIRS:
+        Xi, Yi = isqrt(a * mi - 1), isqrt(b * mi - 1)
+        Xj, Yj = isqrt(a * mj - 1), isqrt(b * mj - 1)
+        U = b * Xi * Xj - a * Yi * Yj
+        assert a * a * Yi * Yj - (a * b) * Xi * Xj == -a * U, (a, b, mi, mj)
+        assert a * (Yi * Xj - Yj * Xi) == -a * V, (a, b, mi, mj)
+
+
+def test_M_exceeds_a_times_gcd_UV_squared():
+    """The single inequality Prop O.1 turns on, with no hypothesis on V.
+
+    A third modulus needs M <= a g^2; the window forces a g^2 < M^2/b < M.
+    """
     from math import gcd
     for a, b, mi, mj, V, _t in PAIRS:
         Xi, Yi = isqrt(a * mi - 1), isqrt(b * mi - 1)
@@ -120,7 +140,7 @@ def test_M_exceeds_gcd_UV_squared():
         g = gcd(abs(b * Xi * Xj - a * Yi * Yj), abs(V))
         M = b - a
         assert M % g == 0, "g must divide M"
-        assert M > g * g, (a, b, mi, mj, M, g)
+        assert M > a * g * g, (a, b, mi, mj, M, a, g)
 
 
 def test_V_is_even_when_a_and_b_are_both_odd():
