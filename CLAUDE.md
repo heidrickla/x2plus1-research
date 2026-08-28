@@ -587,6 +587,17 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   "the mean is U-shaped", "κ crosses 1 where C₄-freeness does", and the Plücker
   constant are each a *relation between two numbers* standing in for a
   *statement about one object*, and each time the relation was the weaker claim.
+  **And a derivation that predicts falsely still establishes something a sweep
+  cannot.** Generalising O.12 to x²+c² gives V·W = c²·M·(m_i − m_j), hence a
+  bound weaker by c², hence a threshold below what a dyadic band supplies at
+  c ≥ 2 — predicting O.12 fails there. It does not: banded cofactors still share
+  at most one in-window modulus at c = 2, 3. The prediction was wrong and the
+  derivation was not wasted, because what it established is **which step uses
+  c = 1 essentially**: the *argument* is special to x²+1, the *fact* is not known
+  to be. A sweep would have shown max Gram 1 for every c and read as "O.12
+  generalises", which is exactly what is not established. Measurement offers the
+  comparison; derivation supplies the property; **and here the measurement was
+  the misleading one.**
 
 - **Paraphrases of a source drift toward whatever makes the local argument
   work, and only re-reading the sentence catches it.** `fm-barrier-range-is-
