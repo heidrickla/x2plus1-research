@@ -1064,7 +1064,12 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   is for whole claims and fires only on `refuted`, and there is no vocabulary for
   *a claim that corrects one figure inside another that otherwise stands*. Do not
   add a field for it; grep. Same instrument as **grep for the number before
-  deriving it**, aimed at the other end of the operation.
+  deriving it**, aimed at the other end of the operation. **And grep
+  *everywhere*, not only where you were working**: running this over the registry
+  and this session's own notes found nothing further, and extending it to the
+  other session's note found their `τ_V² < 3` premise carrying the same D = 1
+  specialisation my window condition had — the third instance of that family in
+  an hour, and the one nobody was looking for.
 
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
