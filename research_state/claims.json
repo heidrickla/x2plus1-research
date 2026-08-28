@@ -1128,6 +1128,26 @@
         "type_ii"
       ],
       "notes": "Quantitatively: the primitive-ideal count per admissible modulus grows like sqrt(log M), so S_mu(M) = S_prog/sqrt(mean roots) ~ sqrt(MX)/(log M)^{1/4}. Measured at X = 1e6, S_mu*(log M)^{1/4}/sqrt(MX) drifts by x1.052 across ten doublings against x0.873 for the plain sqrt(MX) -- the log factor accounts for essentially all the residual. The parallel session reaches the identical form from Cauchy-Schwarz with #{m ~ M} ~ M/sqrt(log M) by Landau-Ramanujan, i.e. S_mu << sqrt(MX/sqrt(log M)). Two independent routes, same exponent."
+    },
+    {
+      "id": "c-minus-is-the-lower-bound-constant",
+      "status": "quoted",
+      "statement": "Ford-Maynard p.2 define C+- as the smallest and largest constants with (C^- + o(1)) sum_p b_p <= sum_p a_p <= (C^+ + o(1)) sum_p b_p for any non-negative a_n with w_n = a_n - b_n satisfying (I) and (II), and state: 'We have an asymptotic formula for sum_p a_p whenever C^-(gamma,theta,nu) = C^+(gamma,theta,nu) = 1 and a non-trivial LOWER BOUND for primes whenever C^-(gamma,theta,nu) > 0.'",
+      "citation": "Ford-Maynard, On the theory of prime producing sieves, arXiv:2407.14368, p.2 (definition of C^+ and C^-)",
+      "tags": [
+        "literature"
+      ],
+      "notes": "Load-bearing and previously only implicit. Landau's problem needs INFINITUDE, not an asymptotic, so the natural objection to this repo's position is that a lower-bound method might survive where an asymptotic one fails. It cannot: C^- IS the lower-bound constant, so C^- = 0 closes the weaker goal too. Every C^- = 0 entry in the registry -- selberg-nu-zero-binds, ford-maynard-half-knife-edge, divisor-bounded-escape-unavailable -- should be read as closing infinitude, not merely the asymptotic. Source is born-digital (check_sources: 0.21), so the text layer is trustworthy."
+    },
+    {
+      "id": "fm-subsumes-harman-iteration",
+      "status": "quoted",
+      "statement": "Ford-Maynard p.2: 'In contrast with the largely ad hoc methods of many previous works, especially those relying on the iterative techniques of the Harman sieve, we argue directly, deploying all of the Type I and Type II information at once. As a consequence, we are able to determine the precise value of the constants in various regimes, thereby both improving previous estimates and demonstrating general limitations of the Type I/Type II setup.'",
+      "citation": "Ford-Maynard, arXiv:2407.14368, p.2",
+      "tags": [
+        "literature"
+      ],
+      "notes": "Closes the Harman question at source. Their C^+ and C^- are the precise values over all methods whose inputs are (I) and (II), Harman-style Buchstab iteration included -- which is why Merikoski's Harman-sieve lower bound appears as a Table 1 ENTRY rather than an exception. Stronger than the coverage previously recorded, which rested on Xiannan Li's remark that ASP and 'Harman's alternative sieve as used in Heath-Brown's work' fail below exponential density 2/3: Li's statement is about ASYMPTOTIC estimates and FM's is about lower bounds, which is what was at issue. See c-minus-is-the-lower-bound-constant."
     }
   ]
 }

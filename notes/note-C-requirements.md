@@ -367,6 +367,47 @@ Duke–Friedlander–Iwaniec setting. *That escape is closed; see below.* Maynar
 approaches break down below x^{1/2} and asks (Question 21) whether adapting
 them is even plausible.
 
+### C⁻ = 0 closes infinitude, not just the asymptotic — and it covers Harman
+
+The obvious objection to everything below is that **Landau's problem needs only
+infinitude**, so a method delivering a lower bound rather than an asymptotic
+might survive. It does not, and [FM] say why on p. 2, defining the constants:
+
+> "we let C⁺(γ, θ, ν) and C⁻(γ, θ, ν) be the smallest and largest constants such
+> that (C⁻(γ, θ, ν) + o(1)) Σ_p b_p ≤ Σ_p a_p ≤ (C⁺(γ, θ, ν) + o(1)) Σ_p b_p for
+> any non-negative sequence a_n with w_n = a_n − b_n satisfying (I) and (II) …
+> We have an asymptotic formula for Σ_p a_p whenever C⁻(γ, θ, ν) = C⁺(γ, θ, ν) = 1
+> and **a non-trivial lower bound for primes whenever C⁻(γ, θ, ν) > 0**."
+
+So **C⁻ is the lower-bound constant, not the asymptotic one.** C⁻ = 0 says no
+non-trivial lower bound is available from (I) and (II) — strictly stronger than
+"no asymptotic", and it is the weaker goal that Landau's problem actually needs.
+The repo's position therefore closes infinitude within these axioms, and every
+`C⁻ = 0` entry in the registry should be read that way.
+
+**And it covers the Harman sieve, at source rather than by inference.** [FM] p. 2
+again, on the same page:
+
+> "In contrast with the largely ad hoc methods of many previous works,
+> **especially those relying on the iterative techniques of the Harman sieve**,
+> we argue directly, deploying all of the Type I and Type II information at once.
+> As a consequence, we are able to determine the precise value of the constants
+> in various regimes, thereby both improving previous estimates and
+> **demonstrating general limitations of the Type I/Type II setup**."
+
+Their constants are the *precise* values over all methods whose inputs are
+(I) and (II), Harman-style Buchstab iteration included — which is why Merikoski's
+Harman-sieve lower bound appears as an entry in their Table 1 rather than as an
+exception to it. Note that [Note L](note-L-over-Z.md)'s degree ladder and this
+are independent: the ladder says no single-variable polynomial of degree ≥ 2 has
+an admissible triple at all, and this says that within the triple's parameters
+the limitation is method-independent.
+
+This is stronger than the previously recorded coverage, which rested on Xiannan
+Li's remark that [ASP] and "Harman's alternative sieve as used in Heath-Brown's
+work" fail below exponential density 2/3. Li's statement is about **asymptotic
+estimates**; [FM]'s is about lower bounds, and lower bounds are what was at issue.
+
 ### Ford–Maynard read directly — and it is worse than the knife-edge
 
 *Read in full (arXiv:2407.14368v1, 107 pp.), then adversarially re-extracted
