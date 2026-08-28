@@ -523,7 +523,9 @@ def test_every_single_line_is_c4_free_and_has_kappa_one():
         n = isqrt(Q - c * c)
         assert abs(n * n / Q - (1 - c * c / Q)) < 2e-3       # kappa -> 1
         A = [(a, c) for a in range(1, isqrt(40000 - c * c) + 1)]
-        seen: dict[tuple[int, int], tuple[int, int]] = {}
+        assert len(A) > 150, (c, len(A))     # floor: absurd at zero, so the
+        seen: dict[tuple[int, int], tuple[int, int]] = {}   # C4 half cannot
+        pairs = 0                                           # pass vacuously
         for i, z in enumerate(A):
             for j in range(i, len(A)):
                 pr = mul(z, A[j])
@@ -531,6 +533,8 @@ def test_every_single_line_is_c4_free_and_has_kappa_one():
                     k = mul(u, pr)
                     assert seen.get(k, (i, j)) == (i, j), (c, k)
                 seen[pr] = (i, j)
+                pairs += 1
+        assert pairs > 15000, (c, pairs)
 
 
 def test_two_lines_always_admit_a_four_cycle():
