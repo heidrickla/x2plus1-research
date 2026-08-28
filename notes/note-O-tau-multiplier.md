@@ -789,6 +789,43 @@ And it recovers O.3′'s constant from an independent route: the geometry gives
 **M/d_p > 16.48, i.e. ≥ 17** — the same 17 as the integer-in-(c, 1.06066c)
 argument, reached without it.
 
+### Routes tried on O.2's general case, and why each fails
+
+*Recorded so they are not re-run. All concern the remaining case: two multipliers
+τ_p, τ_q with p, q ≥ 2 both acting on one ξ with modulus ratio < 2.*
+
+1. **Ideal coprimality.** O.2 follows if Q̄ and Q̄″ are coprime. True, but the
+   hypothesis is usually false — coprimality holds in **5 of 65** cases where it
+   can be observed. *Closed, not incomplete.*
+2. **A local obstruction.** All 95 constructed candidates satisfy the acting
+   congruences together with the conic **mod M**. O.2 is not a congruence
+   statement.
+3. **Walking the automorph orbit.** Superseded rather than failed: mod M the
+   automorph diagonalises S, T with **unit** eigenvalues, so acting is
+   orbit-invariant and every point of an orbit gives the same answer. Walking was
+   never going to find anything.
+4. **Nagell as a lower bound on fundamental solutions.** Wrong direction —
+   Nagell bounds a class representative from **above** (V ≤ M(√ε−1/√ε)/2√D). The
+   general case needs a *lower* bound on non-trivial fundamental solutions, and
+   none is standard because in general it is false: k = 12, 33, 91 are exactly
+   such small solutions.
+5. **The exact divisibility with S·T = −Mm.** Acting gives (M/g_T) | T and
+   (M/g_S) | S with g_T = gcd(δ_p, δ_q, M), g_S = gcd(δ_p+4pa, δ_q+4qa, M), so
+   m ≥ M/(g_Tg_S). **No contradiction**, because O.2 puts no upper bound on m —
+   the window constrains the *ratio*, not the height.
+6. **(5) plus a Nagell upper bound on the smallest m.** Orbit-invariance means
+   the two multipliers act on the smallest member too, and Nagell bounds it by
+   ≈ εM/2D. A contradiction would need ε < 2D/(g_Tg_S) ≈ 543a/b. Measured:
+   ε = 3.6×10³ against a bound of 0.60 for (1, 901); 4.4×10⁵⁵ against 0.005 for
+   (1, 115921). **Fails by tens of orders.**
+7. **Constructing candidates from multipliers.** Invalid in principle, not just
+   in practice — see the withdrawal above: the r-product is a ratio between
+   solution *classes* and does not predict the spacing of the *occupied* moduli.
+
+The common shape of 5 and 6 is that every bound available constrains M, a, b and
+the *ratio*, while a triple is unconstrained in **height**. Any proof will have
+to use something that does not scale with m.
+
 **Open.** Conjecture O.2, with no mechanism. It does now have a
 candidate-generation method that cannot produce a dead configuration, due to the
 parallel session and recorded here because it inverts everything above:
