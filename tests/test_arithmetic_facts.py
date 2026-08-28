@@ -602,3 +602,111 @@ def test_two_points_destroy_c4_freeness_without_moving_kappa():
                     cycles += 1
             seen[pr] = (i, j)
     assert cycles > 0
+
+
+def test_odd_squarefree_M_always_has_a_prime_not_dividing_V():
+    """The pigeonhole that removes O.7's primality hypothesis.
+
+    O.7 needs a prime p | M with p not dividing V, so that p | A_V and p | B_V
+    cannot both hold (they give p | A_V - B_V = 2Va, and p is odd with
+    gcd(a,M) = 1). For M an odd PRIME that is immediate from |V| < M. For M odd
+    SQUAREFREE it is still immediate: if every p | M divided V then their
+    product, which is M, would divide V, and 0 < |V| < 0.40825 M forbids it.
+
+    So the hypothesis is free on all odd squarefree M, not just primes -- 29.0%
+    of realised close pairs at X = 6000 rather than 12.0%. Non-squarefree M
+    needs rad(M) not dividing V, which is not automatic (rad(M) can be far below
+    |V|'s ceiling) but held on 77/77 realised in-window pairs.
+    """
+    from math import gcd, isqrt
+
+    from sympy import factorint
+
+    from x2plus1.polyseq import ratio_classes
+
+    checked = squarefree = 0
+    for (a, b), ms in ratio_classes(3000).items():
+        M = b - a
+        if M < 2 or M % 2 == 0:
+            continue
+        ms = sorted(ms)
+        rad = 1
+        for p in factorint(M):
+            rad *= p
+        for i in range(len(ms) - 1):
+            if ms[i + 1] >= 2 * ms[i]:
+                continue
+            X1, Y1 = isqrt(a * ms[i] - 1), isqrt(b * ms[i] - 1)
+            X2, Y2 = isqrt(a * ms[i + 1] - 1), isqrt(b * ms[i + 1] - 1)
+            if X1 < 1:
+                continue
+            V = abs(X1 * Y2 - X2 * Y1)
+            assert 0 < V < M                      # the in-window bound
+            assert gcd(a, M) == 1                 # needed for p | 2Va => p | V
+            checked += 1
+            if rad == M:                          # squarefree: forced
+                squarefree += 1
+                assert any(V % p for p in factorint(M)), (a, b, M, V)
+            assert V % rad or rad < M             # rad | V only if M is not squarefree
+    assert checked > 50 and squarefree > 20
+
+
+def test_p_divides_V_exactly_when_the_local_subcase_agrees():
+    """p | V <=> the two moduli sit in the SAME local subcase at p.
+
+    For M odd squarefree and p | M, with gcd(a,M) = 1:
+
+      aY^2 - bX^2 = M and b = a+M give a(Y^2 - X^2) = 0 mod p, so p | S or p | T
+      where S = X+Y, T = X-Y. Not both: p | S and p | T give p | 2X and p | 2Y,
+      so p | X (p odd), so am = X^2+1 = 1 mod p and p does not divide m; then
+      S T = -M m forces v_p(S) + v_p(T) = 1 + 0 = 1, while both being positive
+      makes it >= 2. So EXACTLY one holds, and p does not divide X.
+
+      Write Y = eps X mod p, eps = -1 in subcase p | S and +1 in p | T. Then
+      V = X_i Y_j - X_j Y_i = X_i X_j (eps_j - eps_i) mod p. Same subcase gives
+      V = 0; different gives V = +-2 X_i X_j, nonzero since p is odd and p does
+      not divide either X.
+
+    So Prop O.6's alternation and the gcd(V,M) = 1 hypothesis are the SAME
+    statement, not two independent ones: the subcase flips at a step precisely
+    when p does not divide that step's V.
+
+    Consequence, and it costs one hypothesis less than Theorem O.8 assumes: if
+    gcd(V_12, M) = gcd(V_23, M) = 1 then the subcase differs across 1-2 and
+    across 2-3, so 1 and 3 AGREE, so every p | M divides V_13, so M | V_13 for M
+    squarefree -- contradicting 0 < |V_13| < M. Two consecutive steps suffice;
+    the third is implied.
+    """
+    from math import isqrt
+    from sympy import factorint
+    from x2plus1.polyseq import ratio_classes
+
+    tot = same_div = diff_ndiv = 0
+    for (a, b), ms in ratio_classes(3000).items():
+        M = b - a
+        if M < 3 or M % 2 == 0:
+            continue
+        f = factorint(M)
+        if any(e > 1 for e in f.values()):
+            continue
+        ms = sorted(ms)
+        dat = [(isqrt(a * m - 1), isqrt(b * m - 1)) for m in ms]
+        for i in range(len(ms) - 1):
+            Xi, Yi = dat[i]
+            Xj, Yj = dat[i + 1]
+            if Xi < 1:
+                continue
+            V = Xi * Yj - Xj * Yi
+            for p in f:
+                assert Xi % p and Xj % p                 # p never divides X
+                si, ti = (Xi + Yi) % p == 0, (Xi - Yi) % p == 0
+                sj, tj = (Xj + Yj) % p == 0, (Xj - Yj) % p == 0
+                assert si != ti and sj != tj             # exactly one subcase
+                tot += 1
+                if si == sj:
+                    assert V % p == 0, (a, b, p)
+                    same_div += 1
+                else:
+                    assert V % p, (a, b, p)
+                    diff_ndiv += 1
+    assert same_div > 10 and diff_ndiv > 100 and tot > 500

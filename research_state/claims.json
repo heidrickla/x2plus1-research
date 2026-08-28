@@ -1572,6 +1572,35 @@
         "window"
       ],
       "notes": "THE HYPOTHESIS IS OBSERVED, NOT PROVED, and that is the gap. Every in-window pair with M odd has gcd(V,M) = 1 -- 295 of 295 at X = 6000, 197 of 197 at X = 4000 -- but the window bound |V| < 0.57735 M/sqrt(D) bounds V without making it coprime to M. gcd(V,M) = 1 is EQUIVALENT to g = gcd(U,V) = 1 (g | M and g | V give g | gcd(V,M); conversely p | gcd(V,M) forces p | U since U^2 = M^2 + D V^2), so it is the same quantity Prop O.1's chain tracks, where all that is known in-window is a g^2 < M, which permits g > 1. TWO CONDITIONS, NOT ONE: coprimality is what separates swap from non-swap (every non-swap has gcd(V,M) > 1; none among 1333 coprime pairs), while squarefreeness is needed so the split is a dichotomy rather than partial -- M = 9 gives (3,3), neither p^e | S nor p^e | T. A first pass recorded the non-swaps as 'all at M = 9' from an example list; the distribution is M = 3, 9, 11, 15, 21, 23, mostly squarefree. M EVEN remains outside everything here: a, b both odd makes M and V both even, so gcd(V,M) >= 2 automatically."
+    },
+    {
+      "id": "p-divides-V-exactly-when-the-local-subcase-agrees",
+      "status": "proved",
+      "statement": "For M odd squarefree, p | M, gcd(a,M) = 1: p | V if and only if the two moduli sit in the SAME local subcase at p. Proof: a(Y^2 - X^2) = 0 mod p forces p | S or p | T; not both, since p | S and p | T give p | X, hence am = X^2+1 = 1 mod p and p does not divide m, and then S T = -M m forces v_p(S) + v_p(T) = 1 while both positive makes it >= 2. So exactly one holds and p does not divide X. Writing Y = eps X mod p with eps = -1 on p | S and +1 on p | T, V = X_i Y_j - X_j Y_i = X_i X_j (eps_j - eps_i) mod p: zero when the subcases agree, +-2 X_i X_j and nonzero when they differ. Verified: 949 (a,b,p) instances at X = 3000, 0 violations, both directions exercised (30 agree-and-divide, 919 differ-and-not), and p | X occurred 0 times.",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "ST-equals-minus-M-times-m"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Collapses two things that were being carried separately. Proposition O.6's alternation and Theorem O.8's gcd(V,M) = 1 hypothesis are the SAME statement: the subcase flips at a step precisely when p does not divide that step's V. So O.6 is not independent evidence for O.8 -- it is O.8's hypothesis, observed on the pairs where it can be observed. Built on the parallel session's S T = -M m, which is what makes the not-both step work.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_p_divides_V_exactly_when_the_local_subcase_agrees"
+    },
+    {
+      "id": "O8-needs-two-steps-not-three",
+      "status": "proved",
+      "statement": "Theorem O.8's hypothesis can be cut from three pairwise steps to two consecutive ones. If gcd(V_12, M) = gcd(V_23, M) = 1 with M odd squarefree, then by the subcase equivalence the local subcase differs across 1-2 and across 2-3, hence AGREES across 1-3, hence every p | M divides V_13, hence M | V_13 since M is squarefree -- contradicting 0 < |V_13| < 0.40825 M from the in-window bound. So no dyadic window holds three shared moduli, and nothing need be assumed about V_13.",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "p-divides-V-exactly-when-the-local-subcase-agrees",
+        "theorem-O7-identity-and-bound-verified-independently"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "A third of the hypothesis comes off, and the shape of what remains is clearer: the open question is entirely whether gcd(V,M) = 1 holds on in-window pairs, which is a statement about PAIRS -- realised, 295 of 295 at X = 6000 -- and no longer about triples, which are not realised and so cannot be swept for at all. That is the distinction the parallel session drew about O.7's measurability, arriving one level down: the hypothesis is now entirely on the observable side of it.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_p_divides_V_exactly_when_the_local_subcase_agrees"
     }
   ]
 }
