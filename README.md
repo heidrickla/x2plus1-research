@@ -65,7 +65,25 @@ Python ≥ 3.11 with `sympy` and `numpy` (and `pymupdf` for
 ## State of play
 
 **The obstruction is Type II, and it is [Note F](notes/note-F-failure-localisation.md)'s
-C₄-free lemma.** That took three revisions to get right; the earlier framings
+C₄-free lemma.**
+
+**And the objection is stronger than C₄-freeness, in a way that does not depend
+on the constant.** Measured at X = 3000, the *mean* of G(n₁,n₂) over pairs in a
+dyadic band [N, 2N) falls like **1/N** — 2.000, 0.667, 0.254, 0.0865, 0.0243 at
+N = 8, 32, 128, 512, 2048 — while the **maximum stays at 2**. So for large N the
+expected Gram entry is far below 1 while G is an integer taking only the values
+0, 1, 2. At N ≈ 2048 the mean is 0.024 against a granularity of 1:
+
+> **what dispersion would call the error is forty times what it would call the
+> main term.**
+
+C₄-freeness says the count is *small*. This says there is **nothing for the
+argument to be about**: a bounded integer-valued count with mean o(1) admits no
+decomposition into a main term plus a smaller error, **whatever the bound is**.
+So the objection survives a bound of 2, 3, or any constant — and the Z[i] → Z
+transfer is correspondingly less load-bearing than it looks. *(The 1/N shape is
+the content; the constant is not claimed, since a naive independence heuristic is
+off by a stable 5–6×.)* That took three revisions to get right; the earlier framings
 are kept as `refuted` entries in
 [`research_state/claims.json`](research_state/claims.json).
 
