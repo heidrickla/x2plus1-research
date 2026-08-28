@@ -622,6 +622,56 @@ ratio is τ², then a window holding ξ, τ₁ξ, τ_kξ needs (r₁r_k)² < 2, 
 generous by that factor. They are withdrawn on other grounds, so nothing rests
 on it, but the criterion should not be requoted in the loose form.
 
+### The sharper form of the Z-vs-Z[i] gap: K_{6,2}, and it is infinite
+
+The note has been saying the rational graph differs from the Gaussian one by
+"max Gram 2 instead of 1". There is a cleaner statement, and it came out of the
+census as the argmax rather than being looked for.
+
+**Six cofactors share both of the moduli 10 and 17:**
+
+| n | 10n | 17n |
+|---:|---|---|
+| 1 | 3²+1 | 4²+1 |
+| 53 | 23²+1 | 30²+1 |
+| 423 125 | 2057²+1 | 2682²+1 |
+| 24 326 641 | 15597²+1 | 20336²+1 |
+| 194 502 909 745 | 1394643²+1 | 1818392²+1 |
+| 11 182 518 951 605 | 10574743²+1 | 13787778²+1 |
+
+So the incidence graph over Z contains **K_{6,2}** — and the family is infinite,
+because it is a Prop L.1 orbit read on the dual side. The dual conic for a
+modulus pair is 17x² − 10y² = −7, the same form with (a,b) replaced by (m₁,m₂),
+so Prop L.1 applies verbatim with the roles swapped. Here D = m₁m₂ = 170 has
+ε = 13 + √170 of norm −1, so the fundamental norm-one unit is
+ε² = 339 + 26√170 = 678.0, and the six above fall into two interleaved orbits
+whose two-step ratios converge to **459 682 = (ε²)²**:
+
+    consecutive:      53.0,  7983.49,  57.49,  7995.47,  57.49
+    two steps apart:  423125,  458993,  459682,  459682
+
+> **Over Z[i], Note F's lemma forbids K_{2,2} — a single 4-cycle. Over Z the same
+> configuration extends to K_{s,2} for every s.**
+
+That is the same row-merging mechanism `rational-graph-not-c4-free` already
+records, at a scale that makes the point unmistakable: it is not that the
+rational bound is 2 rather than 1, it is that the *unwindowed* bound does not
+exist at all.
+
+**And it is exactly why the window is doing the work.** Consecutive members of
+one orbit are spaced by ~4.6×10⁵, so a dyadic window admits at most one from each
+of the two orbits — giving 2, which is the measured constant. The unbounded
+full-graph count and the bounded windowed count are the same orbit structure read
+at two scales, and neither is evidence about the other.
+
+**The triple statement survives the completer enumeration.** The repo's "no
+window holds three" was measured with the ratio-class sweep, which `exp14` has
+now shown misses configurations. Redone with the streaming enumeration at
+X = 4000: **595 first-solutions with two moduli in one window, and zero with
+three.** So `classes-separate-across-windows` is stronger than it was, not
+weaker — the configurations the sweep could not see do not contain a triple
+either.
+
 ### What proving the triple statement would actually buy
 
 Two sessions have now spent substantial effort on "can a dyadic window hold

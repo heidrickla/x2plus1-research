@@ -1047,6 +1047,26 @@
         "type_ii"
       ],
       "notes": "The theorem is sound; the prose naming its hypothesis was not. r_k^2 < 2 is the correct window condition because the modulus ratio is tau^2 not tau -- settled three ways: close_pairs' docstring, the positive control (observed = tau_1^2, median rel err 1.7e-5, see tau-squared-law-exact-on-realised-close-pairs), and (53,423125) at observed 1.70000 vs r_12^2 = 1.70066. And r_k^2 < 2 is algebraically identical to the note's own derived constant M > 4 sqrt2 k sqrt(ab), picking out the same 73 multipliers, whereas r_k < 2 gives only M > (8/3) k sqrt(ab) (measured min 2.66829 vs 8/3 = 2.66667). Cost of the correction is reach: 73 of 1455 rather than 277. Consequence: a window holding three needs r_1 r_k < sqrt(2), so both sessions' withdrawn candidate lists were generous by that factor. Test case reproduces exactly: (53,423125) has c = 2 at m=10 and c = 12 at m=17, both <= 16, so O.3' permits the two observed moduli and forbids a third."
+    },
+    {
+      "id": "rational-graph-contains-K-s-2",
+      "status": "rigorous_finite",
+      "statement": "The incidence graph over Z contains K_{6,2}: the six cofactors n = 1, 53, 423125, 24326641, 194502909745, 11182518951605 each have both 10n and 17n of the form t^2+1. The family is infinite -- it is a Prop L.1 orbit read on the dual side, whose conic 17x^2 - 10y^2 = -7 has D = 170 with fundamental norm-one unit eps^2 = 339 + 26 sqrt(170) = 678.0, and the six fall into two interleaved orbits with two-step ratios converging to 459682 = (eps^2)^2.",
+      "experiment": "direct enumeration of n with 10n-1 and 17n-1 both square, to 10n <= 1.6e15; orbit structure verified against the Pell unit",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The sharp form of the Z-vs-Z[i] gap. Note F forbids K_{2,2} over Z[i]; over Z the same configuration extends to K_{s,2} for every s, so the UNWINDOWED rational bound does not exist rather than merely being 2 instead of 1. Same row-merging mechanism as rational-graph-not-c4-free, at a scale that makes it unmistakable. It is also why the window is load-bearing: orbit members are spaced by ~4.6e5, so a dyadic window admits at most one from each of the two orbits, giving the measured constant 2. The unbounded full count and the bounded windowed count are one orbit structure at two scales; neither is evidence about the other. Found as the argmax of the exp14 census, not looked for."
+    },
+    {
+      "id": "no-triple-survives-the-complete-enumeration",
+      "status": "rigorous_finite",
+      "statement": "Redone with exp14's streaming enumeration, which is strictly more complete than a ratio-class sweep at the same X (449 close pairs vs 379 at X = 3000): at X = 4000 there are 595 first-solutions with two shared moduli inside one dyadic window and ZERO with three. Max window multiplicity 2.",
+      "experiment": "experiments/exp14_live_configurations.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Run via the streaming enumeration exp14 defines. classes-separate-across-windows measured the same thing with the ratio-class sweep, which exp14 showed misses configurations -- the second modulus is accepted on b*m2-1 being square whether or not its own y2 falls below X. The extra configurations contain no triple either, so the earlier claim is strengthened rather than undercut. Worth keeping distinct from the earlier one because it is a different enumeration, not a larger X."
     }
   ]
 }
