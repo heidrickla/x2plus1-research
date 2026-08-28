@@ -18,8 +18,8 @@ theorem about the sequence and survives any change of sieve.
 
 **And there is a stronger form that does not depend on the bound being 1.** At
 X = 3000 the mean of G over pairs in a dyadic band [N,2N) is 2.000, 0.667, 0.254,
-0.0865, **0.0243** at N = 8, 32, 128, 512, 2048 — falling like 1/N — while max G
-stays at 2. So for N ≫ 1 the expected Gram entry is far below 1 *while G is an
+0.0865, **0.0243** at N = 8, 32, 128, 512, 2048 — falling like **(log X)/N**,
+checked against X as well as N — while max G stays at 2. So for N ≫ 1 the expected Gram entry is far below 1 *while G is an
 integer taking only 0, 1, 2*: at N ≈ 2048, a mean of 0.024 against a granularity
 of 1, so **what dispersion would call the error is forty times what it would call
 the main term.** Any bounded integer-valued count with mean o(1) has no
@@ -113,7 +113,7 @@ pair. FM say the obstruction is bilinear cancellation in the error term for G;
 Note F says G ∈ {0,1}, so there is no main term and no error term to cancel.
 Their "typically very difficult" is, here, empty. **And the footnote's precision
 requirement evaluates**: at c = 1/2 its range is m₁,m₂ ∼ x^ε, where mean G is
-x^{−ε} against an integer that is 0 for almost every pair — so "an error better
+(log x)·x^{−ε} → 0 against an integer that is 0 for almost every pair — so "an error better
 than O(1)" **pins the value**. At this density it is not an estimation problem
 but a request to determine G exactly. The control keeps that honest: at a²+b⁴'s
 density the same footnote asks for error below 1 against a mean of **3.59**, an
