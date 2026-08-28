@@ -107,7 +107,8 @@ def main(X=1200):
     print(f"THEOREM O.12.  Two cofactors within a factor {THRESHOLD:.6f} share at")
     print("most one modulus in any dyadic window.  A dyadic band gives u < 2, a")
     print(f"factor {THRESHOLD/2:.4f} inside it.  |V| >= 2 raises it to 13.9282 at")
-    print("X_1 = 1 and 33.9706 asymptotically; the smallest ratio realised is 43.79.")
+    print("X_1 = 1 and 33.9706 asymptotically; the smallest ratio realised is")
+    print("34.0811, at (37,1261) with moduli 866 and 1730 -- 0.33% above it.")
 
     vals = {x * x + 1 for x in range(1, X + 1)}
     band, free, npairs, p2 = survey(vals)
@@ -116,7 +117,7 @@ def main(X=1200):
           f" and {p2} share two.")
     print("  A 'max of 1' over pairs that share nothing would look identical.")
     print("  The free column reaching 2 is genuine and not a counterexample:")
-    print("  (1,41) shares 730 and 1370, and 41/1 is nowhere near one band --")
+    print("  (2,82) shares 365 and 685, and 82/2 is nowhere near one band --")
     print("  exactly the configuration a Type II hypothesis excludes.")
 
 
@@ -318,20 +319,6 @@ def invariant_and_D_reach(Dmax=6, amax=30, bmax=200, mmax=3000):
     print("  that D = 1 is the unique survivor: at small D the condition is not")
     print("  merely tight but UNSATISFIABLE, and no number of candidate classes")
     print("  at larger X can change that.")
-
-
-if __name__ == "__main__":
-    XX = int(sys.argv[1]) if len(sys.argv) > 1 else 1200
-    main(XX)
-    control(min(60000, max(20000, XX * XX // 20)))
-    fm_footnote_quantity(min(12000, max(2000, 4 * XX)))
-    line_family(min(1200, max(400, XX)))
-    invariant_and_D_reach(Dmax=6 if XX >= 900 else 3,
-                          amax=30 if XX >= 900 else 10,
-                          bmax=200 if XX >= 900 else 80,
-                          mmax=3000 if XX >= 900 else 800)
-    discriminant_axis(min(900, max(400, XX)))
-
 
 def banding_sees_D(sizes=(1500, 2500), Ds=(1, 2, 3, 4, 5, 6, 11, 39)):
     """Banding the SECOND variable is what makes the C_4 structure see D.
@@ -743,3 +730,24 @@ def general_D_threshold(X=1500, Ds=(1, 2, 3, 4, 5, 6, 7, 8, 11)):
             print(f"  {D:>3} {u:>14.4f} {f'({a},{b})':>16} {V:>5} {X1:>5}"
                   f" {th:>10.4f} {u/th:>6.2f}x {str(auto):>9}")
     print("  slack < 1 would be a violation; none occurs.")
+
+
+if __name__ == "__main__":
+    XX = int(sys.argv[1]) if len(sys.argv) > 1 else 1200
+    main(XX)
+    control(min(60000, max(20000, XX * XX // 20)))
+    fm_footnote_quantity(min(12000, max(2000, 4 * XX)))
+    line_family(min(1200, max(400, XX)))
+    invariant_and_D_reach(Dmax=6 if XX >= 900 else 3,
+                          amax=30 if XX >= 900 else 10,
+                          bmax=200 if XX >= 900 else 80,
+                          mmax=3000 if XX >= 900 else 800)
+    discriminant_axis(min(900, max(400, XX)))
+    # added later in the file, so the guard must come last for these to exist
+    banding_sees_D(sizes=(min(1500, max(400, XX)),))
+    extremal_four_cycle(1, sizes=(min(3000, max(800, XX)),))
+    tau1_extremal(1, X=min(3000, max(800, XX)))
+    threshold_family(X=min(3000, max(800, XX)))
+    exceptional_branch(AMAX=min(1200, max(300, XX)),
+                       XMAX=min(2_000_000, max(200_000, XX * 700)))
+    general_D_threshold(X=min(1500, max(500, XX)))

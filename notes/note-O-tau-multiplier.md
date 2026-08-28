@@ -1471,6 +1471,21 @@ the pair identity with D in place of the c² found earlier along the line family
 > The **asymptotic** statements (τ_V² < 2, reach D ≤ 4V) are the exception: both
 > window forms tend to 2 as X₁ grows, so those transfer unchanged.
 >
+> **Worked example — one pair, three roles, three formulas, one of them right.**
+> The cofactor pair **(25, 481)** appeared three times in one night:
+>
+> 1. as a *"non-τ₁ converse"* at D = 4, because a² − ab + b² = 219961 = 469² —
+>    which is the **D = 1** test for V = 1. **Withdrawn.** The correct test is
+>    whether (M·D)² + ab is square, and 3339001 is not.
+> 2. as an inhabitant of O.13′'s exceptional branch — correct, because there the
+>    ambient D **is** 1 and the Eisenstein condition is the right one.
+> 3. as D = 4's extremal pair in O.13‴, minimal V = 4, threshold 9.5150 against a
+>    realised 19.2400 — correct, because every formula was taken in its M·D form.
+>
+> Same pair, same arithmetic, three readings; only the one that carried the D is
+> right. If a formula here is being applied at D ≠ 1, find it in the table above
+> before using it.
+>
 > **The failure mode is not carelessness.** Each of the three was found by
 > checking a derivation against *this* section, never by a test failing and never
 > by re-reading the formula itself — because the D = 1 form is what the

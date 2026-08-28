@@ -141,10 +141,6 @@ def main() -> int:
     return 0
 
 
-if __name__ == "__main__":
-    sys.exit(main())
-
-
 def anchored_vs_ratio(Q=9_000_000):
     """The bands above are ANCHORED; "one dyadic band" means ratio < 2.
 
@@ -195,3 +191,10 @@ def anchored_vs_ratio(Q=9_000_000):
                   f" | {nr:>11} {rm:>9.4f} {mr:>4}")
         N *= 4
     print("  No law is fitted to either column; three were tried and all failed.")
+
+
+if __name__ == "__main__":
+    _rc = main()
+    # the faithful (ratio) reading of the same decay -- the claims quote BOTH
+    anchored_vs_ratio(min(9_000_000, max(250_000, (int(sys.argv[1]) if len(sys.argv) > 1 else 9_000_000))))
+    sys.exit(_rc)
