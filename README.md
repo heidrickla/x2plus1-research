@@ -338,12 +338,17 @@ sign by a valuation split s + t ≥ e — the sign is its e = 1 shadow — so
 **M | V₁₂V₂₃V₁₃ for any M** and **3ab < (b−a)^{4/3}** unconditionally. With O.4's
 t > 133.875 the admissible a is tiny: **a ≤ 2** at the minimum t, 6 at 10³.
 
-**Read its coverage over the right denominator.** A class with fewer than three
+**O.11 sharpens the constant 6.85×** by noticing the three ratios are coupled:
+R₁₂·R₂₃ = R₁₃, and sinh(u₁₂)sinh(u₂₃) at fixed u₁₃ peaks at the *equal* split, so
+**ab < 0.048628·(b−a)^{4/3}**.
+
+**Read the coverage over the right denominator.** A class with fewer than three
 shared moduli cannot host a triple, and at X = 3000 only **60 of 1,815,154**
-classes have three at all. Over the informative population the bound excludes
-**~35%** — 17/48, 21/60, 24/70, 34/96 at X = 2000, 3000, 4000, 6000 — not the
-99% a sweep over all classes reports. *(Both sessions published the vacuous
-figure first.)* For M prime it recovers O.7 with nothing
+classes have three at all — so the 99% a sweep over all classes reports is
+measuring vacuity. Over the informative population O.10 excludes **~35%** (flat
+in X) and O.11 **88–98%** — but O.11's figure **falls monotonically** (97.7 →
+88.1 over X = 1500–8000) and no claim is made about its limit. *(Both sessions
+published the vacuous figure first.)* For M prime it recovers O.7 with nothing
 assumed. The load-bearing identities are **S·T = −M·m** and the cofactor-free
 **V·W = M(m_i − m_j)**, W = X_jY_i + X_iY_j.
 

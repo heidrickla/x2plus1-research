@@ -275,7 +275,17 @@ a class with fewer than three shared moduli cannot host a triple, and only **60
 of 1,815,154** classes at X = 3000 have three at all — so the bound excludes
 **~35%** (17/48, 21/60, 24/70, 34/96 at X = 2000–6000), **not the 99% a sweep
 over all classes reports**. Both sessions published the vacuous figure first; a
-percentage here must carry its population in the same sentence. It recovers O.7 for M prime with nothing assumed and supersedes
+percentage here must carry its population in the same sentence, and **a coverage
+figure above ~90% on an open question is evidence the denominator is wrong**.
+**Theorem O.11 then sharpens the constant 6.85×** — R₁₂R₂₃ = R₁₃ couples the
+three bounds, and sinh(u₁₂)sinh(u₂₃) at fixed u₁₃ peaks at the *equal* split, so
+f·f·f ≤ (√ρ−1/√ρ)³(√ρ+1/√ρ) and **ab < 0.048628·(b−a)^{4/3}**. It excludes
+88–98% of informative classes, **but that figure falls monotonically with X**
+(97.7 → 88.1 over 1500–8000) while O.10's ~35% is flat, so it must not be read
+as an asymptotic. **Quantifier warning**: the per-prime form
+v_p(V₁₂)+v_p(V₂₃) ≥ e does *not* give M | V_aV_b for a fixed pair — the ordering
+is computed per prime and 5 of 216 realised triples admit no uniform pair. That
+reduction would prove O.2 in one line and is blocked. It recovers O.7 for M prime with nothing assumed and supersedes
 O.8. The load-bearing identities are **S·T = −M·m** and the cofactor-free
 **V·W = M(m_i − m_j)** with W = X_jY_i + X_iY_j (the parallel session's form;
 mine had a spurious a). **Theorem O.8, now superseded, pushed it from prime to
