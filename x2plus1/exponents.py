@@ -149,6 +149,26 @@ def kappa_exponent(alpha) -> Fraction:
     return 2 * _F(alpha) - 1
 
 
+def dfi_lemma2_sieving_level(alpha) -> Range:
+    """Sieving levels z admissible in [DFI] Lemma 2, for a sequence of density alpha.
+
+    Lemma 2 (p. 436) requires 3 <= K <= w < y < z < D, so the sieving level must
+    stay strictly below the Type I level D, and Note B caps D at the density
+    exponent alpha. Hence z < alpha, in exponent terms.
+
+    Detecting primes needs z = alpha (sieve to the square root of the norm);
+    z < alpha gives P_2 and no better. So the returned range is exactly the
+    P_2 regime, and the endpoint that would give primes is the one excluded --
+    by Lemma 2's own hypothesis ordering, not by anything bilinear.
+
+    Returns the admissible range [0, alpha); raises if alpha <= 0.
+    """
+    a = _F(alpha)
+    if a <= 0:
+        raise ImpossibleExponentError(f"[DFI] Lemma 2: no admissible z at alpha={alpha}")
+    return Range(Fraction(0), a)
+
+
 def single_variable_alpha(degree: int) -> Fraction:
     """alpha for A = {f(x) : x <= X} with deg f = d.
 

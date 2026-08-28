@@ -425,6 +425,67 @@ would collapse the distinction the repo is relying on. Here it demonstrably does
 not upgrade — Note F is a proof that it cannot — so this sequence is a genuine
 counterexample to their expectation. That is the sharpest thing the repo has.
 
+### DFI's Lemma 2, re-normalised to X = |A| — the standing item, closed
+
+*Read from [Duke's scan](https://www.math.ucla.edu/~wdduke/preprints/equidistribution.pdf),
+p. 436. The repo has been saying "Lemma 2 is scale-free and does apply; nobody
+has written down what its hypotheses become at X = |A|". Here they are.*
+
+Lemma 2 assumes, for 3 ≤ K ≤ w < y < z < D:
+
+> (27) Σ_{n ≡ 0 (d)} |c_n| ≤ γ(d)·X, γ submultiplicative; (29) γ(p) ≤ c/p.
+
+and concludes S(C,z) − ΣΣ_{y<p<q<z} S(C_{pq},p) equals a linear sum over
+d | P(z), d < D, plus bilinear terms, plus
+
+> θ·X·G(z)²·( 2^{−log(D/z)/log w} + cK^{−1} log y ),  G(z) = ∏_{p<z}(1+γ(p)),
+> |θ| ≤ 1.
+
+**The hypotheses, instantiated.** For A = {x+i} with c_n = 1_A, divisibility is
+a congruence ([Note A](note-A-dictionary.md)), so
+#{x ≤ X : d | x²+1} = ρ(d)X/d + O(ρ(d)) and (27) holds with
+
+> **γ(d) = 2ρ(d)/d**, **X = |A| = Q^{1/2}**, and **c = 4** in (29),
+
+γ submultiplicative because ρ is multiplicative. Since ρ(p) = 2 for p ≡ 1 (4)
+and 0 for p ≡ 3 (4), Σ_{p<z} γ(p) ~ 2 log log z and
+
+> **G(z) ≍ log z** — one power, not two.
+
+**The error term is cheap in D.** Writing D = z·w^L, the first bracket term is
+2^{−L}, so o(1/log Q) needs only L ≫ log log Q, i.e.
+
+> D ≥ z · exp(C (log log Q)²)
+
+— a *quasi-polynomial in log Q*, not a power. The second needs
+K ≫ (log y)(log z)² log Q, so w ≥ (log Q)⁴ suffices. **Lemma 2 itself costs
+essentially nothing in level.** That is what "scale-free" cashes out to, and it
+is a real point in its favour: the machinery genuinely reaches a sequence of
+mass Q^{1/2}.
+
+**And it lands exactly on the known record, for a reason internal to its own
+hypothesis ordering.** Lemma 2 requires **D > z**. [Note B](note-B-type-I.md)
+caps the Type I level at D = o(|A|) = o(Q^{1/2}). Therefore
+
+> **z < D = o(Q^{1/2}).**
+
+Sieving A to level z = Q^{1/2−ε} leaves elements of norm ≤ Q with no prime
+factor below Q^{1/2−ε}, hence with at most two prime factors — **P₂, which is
+Iwaniec 1978.** Prime detection needs z ≍ Q^{1/2}, which needs D > Q^{1/2},
+which Note B forbids.
+
+So the answer to the standing question is not that Lemma 2 fails to apply. It
+applies, cleanly, with explicit constants, and **it reproduces the record and
+stops there** — the binding constraint reaching it is Note B's ceiling, arriving
+through the hypothesis D > z rather than through anything bilinear. Everything
+past that point is in Lemma 2's own output: the special bilinear forms (32)
+Σ_{d<D} λ_d Σ_m c_{dm} and the general ones (33)
+Σ_{w<n<y} β_n Σ_{(m,n)=1} α_m c_{mn}. **(33) is the object of
+[Note F](note-F-failure-localisation.md), and (32) is the object of
+[Note J](note-J-mobius-in-progressions.md).**
+
+Computed rather than argued: `x2plus1.exponents.dfi_lemma2_sieving_level`.
+
 ### The Ford–Maynard placement, corrected again
 
 *Third reading of arXiv:2407.14368v1, prompted by reading Merikoski

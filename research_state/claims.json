@@ -707,6 +707,21 @@
         "type_ii"
       ],
       "notes": "Explains why a density statistic like kappa cannot locate the threshold: the constraint that bites is not an edge count. The a^2+b^4 row is the control that the measure detects the difference at all."
+    },
+    {
+      "id": "dfi-lemma2-reaches-P2-and-stops",
+      "status": "quoted",
+      "statement": "DFI Lemma 2 (p.436) instantiated at X = |A| = Q^{1/2}: (27) holds with gamma(d) = 2 rho(d)/d, (29) with c = 4, and G(z) = prod_{p<z}(1+gamma(p)) ~ log z (one power). Its error X G(z)^2 (2^{-log(D/z)/log w} + c K^{-1} log y) is o(|A|/log Q) once D >= z exp(C (log log Q)^2) and w >= (log Q)^4 -- quasi-polynomial in log Q, not a power, so Lemma 2 costs essentially nothing in level. But it requires D > z ('3 <= K <= w < y < z < D'), and Note B caps D at o(Q^{1/2}); hence z = o(Q^{1/2}), which sieves A only to the P_2 regime. Prime detection needs z ~ Q^{1/2}, i.e. D > Q^{1/2}, which Note B forbids.",
+      "citation": "Duke-Friedlander-Iwaniec, Ann. of Math. 141 (1995), Lemma 2 p.436, hypotheses (27) and (29) p.435; bilinear forms (32),(33) p.436",
+      "depends_on": [
+        "dfi-lemma2-is-scale-free",
+        "type-I-level"
+      ],
+      "tags": [
+        "type_i",
+        "type_ii"
+      ],
+      "notes": "Closes the standing 'not yet done' item. The answer is NOT that Lemma 2 fails to apply -- it applies cleanly with explicit constants and genuinely reaches a sequence of mass Q^{1/2}, which is what scale-free cashes out to. It reproduces Iwaniec 1978's P_2 and stops, and the constraint that stops it arrives through Lemma 2's own hypothesis ordering D > z rather than through anything bilinear. What is left is its output: the special bilinear forms (32), which are Note J's object, and the general ones (33), which are Note F's."
     }
   ]
 }

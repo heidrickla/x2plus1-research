@@ -103,12 +103,14 @@ whether x² + 1 is prime infinitely often.
 
 ### What survives, and it is narrow
 
-- **DFI's Lemma 2 is scale-free.** It assumes only Σ_{n≡0(d)}|c_n| ≤ γ(d)X with
-  γ submultiplicative and γ(p) ≤ c/p — which A = {x+i} satisfies with
-  γ(d) = ρ(d)/d and X ≍ x^{1/2}. The machinery *does* reach a thin sequence;
-  the hypotheses must then be re-normalised to X = |A|, and it is at that level
-  that Note F's obstruction bites. Neither DFI nor Green–Sawhney writes the
-  thin-sequence version down.
+- **DFI's Lemma 2 is scale-free, and the re-normalisation is now written down**
+  ([Note C](notes/note-C-requirements.md)). At X = |A| = Q^{1/2} it holds with
+  γ(d) = 2ρ(d)/d, c = 4, G(z) ≍ log z, and an error that is o(|A|/log Q) once D
+  exceeds z by exp(C(log log Q)²) — quasi-polynomial in log, not a power. So the
+  machinery genuinely reaches a sequence of mass Q^{1/2}. But Lemma 2 requires
+  **D > z**, and Note B caps D at o(Q^{1/2}), so z = o(Q^{1/2}) — which sieves
+  only to **P₂, i.e. Iwaniec 1978**. It reproduces the record and stops, and what
+  stops it is the hypothesis ordering, not anything bilinear.
 - **DFI's equidistribution theorem is about this repo's residues.** It covers
   aX²+2bX+c with ac−b² > 0, so ν²+1 ≡ 0 (mod p) is literally the case, and
   their Weyl sum ρ_h(n) is the sum over the r_d of [Note A](notes/note-A-dictionary.md).
@@ -220,8 +222,6 @@ The column that separates every solved case from this one is ν.
   shows the difficulty is entirely in the absolute values, so what is needed is
   Σ_d |Σ_m ρ_h(dm)| — precisely the shape Note F obstructs. Whether a
   well-factorable decomposition can reach it is the live question.
-- **DFI's Lemma 2 re-normalised to a thin sequence.** It is scale-free and does
-  apply; nobody has written down what its hypotheses become at X = |A|.
 - Iwaniec 1978 is second-hand (paywalled); BFI I–III and *Opera de Cribro*
   Ch. 24–25 unobtained.
 - [Note G](notes/note-G-spectral.md) is still marked a skeleton, though its

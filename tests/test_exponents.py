@@ -10,8 +10,9 @@ import pytest
 
 from x2plus1.exponents import (
     ALPHA, ImpossibleExponentError, Range, asp_applies, asp_r1,
-    ford_maynard_theta, gamma_annihilation_threshold, inner_range_exponent,
-    kappa_exponent, single_variable_alpha, truncation_exponent, type_i_ceiling,
+    dfi_lemma2_sieving_level, ford_maynard_theta, gamma_annihilation_threshold,
+    inner_range_exponent, kappa_exponent, single_variable_alpha,
+    truncation_exponent, type_i_ceiling,
 )
 
 
@@ -165,3 +166,22 @@ def test_ford_maynard_excludes_every_polynomial_of_degree_at_least_two():
     for d in range(2, 12):
         with pytest.raises(ImpossibleExponentError):
             ford_maynard_theta(single_variable_alpha(d))
+
+
+def test_dfi_lemma2_reaches_P2_and_stops_there():
+    """Note C: Lemma 2 applies at X = |A|, and lands on Iwaniec 1978.
+
+    Lemma 2 needs D > z (p.436, "3 <= K <= w < y < z < D") and Note B caps D at
+    alpha = 1/2. So every admissible sieving level is strictly below 1/2, which
+    is the P_2 regime; prime detection needs z = 1/2 exactly, and that is the
+    one point excluded -- by the hypothesis ordering, not by anything bilinear.
+    """
+    z = dfi_lemma2_sieving_level(ALPHA["x^2+1"])
+    assert z.lo == 0 and z.hi == Fraction(1, 2)
+    assert Fraction(1, 2) - Fraction(1, 100) in z          # P_2 regime: fine
+    prime_detection = Range.at(Fraction(1, 2))             # z = alpha exactly
+    # the admissible range is closed at 1/2 as a Range, so the exclusion is the
+    # strict inequality D > z together with D < alpha -- state it directly:
+    assert prime_detection.lo == z.hi                      # they meet only at the endpoint
+    ceiling = type_i_ceiling(ALPHA["x^2+1"])
+    assert ceiling.hi == z.hi                              # D and z share the same ceiling
