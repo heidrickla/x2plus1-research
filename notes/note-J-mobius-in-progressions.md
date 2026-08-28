@@ -17,6 +17,16 @@ shows that is fatal wherever an arbitrary-coefficient Type II hypothesis is
 asked for — which is Green–Sawhney's form of the Duke–Friedlander–Iwaniec
 sieve, and, in Ford–Maynard's axioms, is the statement that ν = 0.
 
+> **Scope, and this sentence crosses a boundary.** Note F's lemma is about
+> **ideals of Z[i]**; [ASP], [DFI] and [FM] quantify their Type II hypotheses
+> over **rational** m and n. The step between them is
+> `gaussian-to-rational-bridge`, `inferred` — over Z the graph is *not* C₄-free
+> (max windowed Gram 2, not 1, and the unwindowed count is unbounded: see
+> [Note L](note-L-over-Z.md)). Bounded is all the argument uses, so the
+> conclusion does not move; but "ν = 0" is reached through the bridge and not
+> directly from Note F. The rest of this note names A = {x + i} where it means
+> the Gaussian object, and says so where it does not.
+
 But the sieve's own coefficient is **μ**, and with β = μ the same sum does
 cancel. So the live question is not "does the bilinear form cancel" — it does —
 but "what is the statement that would have to be proved, and is it recognisable?"
@@ -198,6 +208,10 @@ over signs ε_q, i.e.
 
 which is **exactly an arbitrary outer coefficient** — the thing
 [Note F](note-F-failure-localisation.md) proves this sequence cannot support.
+*(The q here are **rational** moduli, while Note F's lemma is about ideals of
+Z[i], where the rational graph's Gram entry is 2 rather than 1. The transfer is
+`gaussian-to-rational-bridge`, `inferred`; the conclusion survives because
+bounded is bounded, and [Note G](note-G-spectral.md) states it in full.)*
 So it is worth measuring what the absolute values cost. Against the signed sum
 (same arithmetic, sup removed), at X = 3×10⁶ (`exp07`):
 
