@@ -670,7 +670,25 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   (corrected count: **0**); and the other session's own floor audit at 27 of 40,
   covered by module-level `assert PAIRS` guards it did not model. A detector that
   fires on a third of its population is describing itself. **The one real hole was
-  found by reading a test, not by any of the three sweeps.**
+  found by reading a test, not by any of the three sweeps.** And the reason both
+  audits failed is sharper than "audits are noisy": **each regex missed the
+  *idiomatic* form of the construct it was searching for**, because the idiomatic
+  form is the one written without thinking about how it would be matched. A
+  pattern-matcher written by the same hand that wrote the pattern systematically
+  misses the unmarked case.
+
+- **The informative-subset rule names a class, and each instance wears a
+  different statistic.** It fired three times on a single claim within one hour,
+  twice *after* being written down: a percentage over a population 99.997% of
+  which was vacuous; a sweep whose target set was empty by construction (the
+  configuration a theorem forbids cannot be measured); and a bound checked
+  against **max** ε where the worst case needs **min** ε — max was exactly c²,
+  which would have restored a threshold, and min was 10⁻⁸, which restores
+  nothing. Percentage, population, extremum: three costumes, one error. Restating
+  the rule more clearly does not help, because the difficulty is not in the rule
+  but in recognising an instance as one. **The operational form is a question,
+  not a principle: *which subset does the claim range over, and is that the
+  subset I computed?*** — asked out loud, before the number is read.
 
 - **When a recorded number does not reproduce, read the paragraph it sits in
   before looking for a bug.** Note M's squarefree densities did not match a fresh
