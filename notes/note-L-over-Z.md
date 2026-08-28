@@ -271,6 +271,14 @@ reformulation claimed:
 The proper-class spacing explains at most one modulus per proper class; the
 improper pairing explains a second; **nothing explains the absence of a third.**
 
+## The triple question — what is proved, what is measured, what is withdrawn
+
+*Everything from here to the Z-vs-Z[i] section concerns one question: can a
+dyadic window hold **three** shared moduli? It is the only route on the table to
+promoting the window bound from measured to proved. Two sessions worked it in
+parallel; the subsections below are in the order the work happened, including the
+parts that were withdrawn, because the withdrawals are most of what was learned.*
+
 ### The absence of a third has a mechanism, and the "floors" are not floors
 
 Three moduli in one window is exactly m_{i+2}/m_i < 2, so the two-step ratio is
@@ -662,7 +670,7 @@ ratio is τ², then a window holding ξ, τ₁ξ, τ_kξ needs (r₁r_k)² < 2, 
 generous by that factor. They are withdrawn on other grounds, so nothing rests
 on it, but the criterion should not be requoted in the loose form.
 
-### The sharper form of the Z-vs-Z[i] gap: K_{6,2}, and it is infinite
+## The sharper form of the Z-vs-Z[i] gap: K_{6,2}, and it is infinite
 
 The note has been saying the rational graph differs from the Gaussian one by
 "max Gram 2 instead of 1". There is a cleaner statement, and it came out of the
@@ -745,7 +753,7 @@ quantifies over, and no constant improves it. The two components of that entry
 are worth keeping apart, which is what `triple-question-upgrades-status-not-conclusion`
 records.
 
-### What proving the triple statement would actually buy
+## What proving the triple statement would actually buy
 
 Two sessions have now spent substantial effort on "can a dyadic window hold
 three shared moduli", so it is worth stating what turns on the answer. It is
