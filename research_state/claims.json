@@ -1382,6 +1382,16 @@
         "window"
       ],
       "notes": "This measures the HYPOTHESIS on configurations that do occur, not the conclusion on configurations that never do, so it is not blocked by triples-cannot-be-settled-by-measurement. What it shows is negative for the theorem's relevance: the constraint that actually forbids triples in nature is not this one."
+    },
+    {
+      "id": "kappa-is-a-reparameterisation-of-alpha",
+      "status": "proved",
+      "statement": "kappa carries no information beyond the density exponent. With |A| = Q^alpha, kappa = |A|^2/Q = Q^{2 alpha - 1} identically, so kappa > 1 <=> alpha > 1/2, kappa = 1 <=> alpha = 1/2, and sqrt(kappa) = Q^{alpha - 1/2}. Every kappa threshold is an alpha threshold in different units.",
+      "proof_site": "notes/note-D-comparison-ledger.md; tests/test_arithmetic_facts.py::test_kappa_is_exactly_Q_to_the_two_alpha_minus_one",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Recorded because the repo presents alpha and 'kappa > 1?' as SEPARATE columns in Note D's ledger, and Note K's headline 'kappa > 1 is necessary and not sufficient' reads as a finding about kappa when it is the statement 'density above 1/2 is necessary and not sufficient' -- which is the literature's own boundary, and Xiannan Li's record is 0.6418. This does not weaken any argument: kappa = 1 => forest is a real statement about the incidence graph at alpha = 1/2, and sqrt-kappa-is-the-poisson-length gives kappa a second reading as the Poisson range. What it forbids is treating a kappa observation as INDEPENDENT evidence for a density conclusion or vice versa. Prompted by the note-K adversarial-review bullet observing that kappa, like the refuted mean-G classifier, is a statistic fitted to a handful of sequences with known outcomes -- the difference being that kappa's threshold is an identity rather than a fit, which is why it survives and the classifier did not."
     }
   ]
 }

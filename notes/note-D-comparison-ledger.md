@@ -81,6 +81,12 @@ the four problems on it himself: Dirichlet at α = 1, FI at α = 3/4, his own
 theorem at α = 2/3, "while the conjecture that x² + 1 takes infinitely many
 prime values has α = 1/2". So this ledger's frame is the literature's.
 
+*Note that the first two columns are **the same condition**: with |A| = Q^α,
+κ = |A|²/Q = Q^{2α−1} identically, so κ > 1 ⟺ α > 1/2. They are printed
+separately because κ is the form the incidence argument uses and α the form
+the literature quotes, but a sequence cannot satisfy one and fail the other,
+and neither is independent evidence for the other.*
+
 | sequence | α = \|A\| exponent | κ > 1? (Type II non-degenerate) | (R1): D > Q^{2/3}? | level achieved |
 |---|---|---|---|---|
 | a² + b⁴ | 3/4 | ✅ | ✅ met | Q^{3/4−5ε} ([X2Y4] Prop. 3.5) |

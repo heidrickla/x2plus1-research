@@ -478,3 +478,23 @@ def test_the_full_graph_growth_slope_is_one_over_log_phi_squared():
         got = sum(1 for a, b in family if a <= X and b <= X)
         assert got == expected, (X, got, expected)
         assert -1.0 < got - slope * log(X) < 0.0, (X, got - slope * log(X))
+
+
+def test_kappa_is_exactly_Q_to_the_two_alpha_minus_one():
+    """kappa = |A|^2/Q = Q^{2 alpha - 1}, so kappa > 1 is exactly alpha > 1/2.
+
+    Note D's ledger prints alpha and "kappa > 1?" as separate columns and Note K's
+    headline reads as a finding about kappa. It is a finding about density: the
+    two conditions are identical, not merely correlated. Checked on the four
+    sequences the ledger carries.
+    """
+    from fractions import Fraction
+
+    for alpha in (Fraction(3, 4), Fraction(2, 3), Fraction(1, 2), Fraction(5, 6)):
+        for logQ in (10, 20, 40):
+            size = 2.0 ** (float(alpha) * logQ)      # |A| = Q^alpha
+            Q = 2.0 ** logQ
+            kappa = size * size / Q
+            assert abs(kappa - 2.0 ** (float(2 * alpha - 1) * logQ)) < 1e-6 * kappa
+            assert (kappa > 1) == (alpha > Fraction(1, 2))
+            assert (kappa == 1) == (alpha == Fraction(1, 2))
