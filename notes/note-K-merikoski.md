@@ -430,8 +430,8 @@ no purchase on the second.
 |---|---|
 | ≤ 2 | **proved for all X₁**, unconditional |
 | 3, 4 | **proved for all X₁** on \|V\| ≥ 2 (evenness) |
-| 5, 6, 7 | **proved asymptotically**, unprotected at small X₁ |
-| 8, 9, 10 | **permitted by both forms**, unfallen to X = 8000 |
+| 5, 6, 7, 8 | **proved asymptotically**, unprotected at small X₁ |
+| 9, 10 | **permitted by both forms**, unfallen to X = 8000 |
 | 11, 14, 19, 20, 21, 23, … | **fallen**, with witnesses |
 
 **There are two reaches, and that is what the middle rows were waiting for.**
@@ -443,12 +443,21 @@ gives **D > V√6** instead:
 | | \|V\| ≥ 1 | \|V\| ≥ 2 |
 |---|---|---|
 | X₁ = 1, all X | D ≤ 2 | **D ≤ 4** |
-| asymptotic | D ≤ 3 | **D ≤ 7** |
+| asymptotic | D ≤ 4 | **D ≤ 8** |
 
-and **D = 8 is exactly the crossover**: (u−1)/√u = 4√2/8 = 1/√2 at u = 2 on the
-nose. So D = 5, 6, 7 hold to X = 8000 **because they are asymptotically
-protected** — a failure there would have to come from X₁ small — while 8, 9, 10
-are permitted by both forms and simply have not fallen.
+both **inclusive**, because a band gives u < 2 **strictly**: at D = 4V the
+requirement is exactly 1/√2 and no banded u attains it. So **D = 8 is the last
+covered value, not the crossover** — (u−1)/√u = 4√2/8 = 1/√2 at u = 2 on the
+nose, and u < 2 never reaches it. The first *uncovered* value is **D = 9**,
+witnessed at u = 1.9 where 0.6529 clears a threshold of 0.6285.
+
+So D = 5, 6, 7, 8 hold to X = 8000 **because they are asymptotically protected** —
+a failure there would have to come from X₁ small — while 9 and 10 are permitted
+by both forms and simply have not fallen.
+
+*(There is a float trap here: `u0(8)` evaluates to 1.9999999998, so a bare `< 2`
+test reports D = 8 as uncovered. The exact value is 2, since (2−1)/√2 = 1/√2
+identically. That is how this was first got wrong.)*
 
 **It also predicts the x²+39 banded triple rather than recording it.** At D = 39
 a banded pair needs only u > 1.1559, and the witness (5, 8) has u = 1.6 with
