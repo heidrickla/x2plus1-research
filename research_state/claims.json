@@ -3,11 +3,12 @@
     {
       "id": "type-I-level",
       "status": "proved",
-      "statement": "For A = {x+i : x <= X}, |r_d| <= 1 for every admissible ideal and this is sharp, so sum_{N(d)<=D}|r_d| ~ D and Type I holds exactly for D = o(X) = o(Q^{1/2}).",
+      "statement": "For A = {x+i : x <= X}, |r_d| <= 1 for every admissible ideal and this is sharp, so sum_{N(d)<=D}|r_d| is of ORDER D -- the constant is 1/(2 pi) = 0.15915, not 1, see typeI-constant-is-one-over-two-pi -- and Type I holds exactly for D = o(X) = o(Q^{1/2}).",
       "proof_site": "notes/note-B-type-I.md; tests/test_arithmetic_facts.py::test_type_i_error_per_modulus_is_at_most_one",
       "tags": [
         "type_i"
-      ]
+      ],
+      "notes": " CONSTANT PINNED. The statement's '~ D' is an order statement; read as an equality it overstates by 2 pi. Nothing downstream moves, since the argument needs only that the sum is of order D and no constant turns D = o(X) into anything else."
     },
     {
       "id": "admissible-density",
@@ -1220,6 +1221,16 @@
         "type_ii"
       ],
       "notes": "Refines sqrt-MX-law's 'saturating at ~|A| for M >= X'. That is right to within a constant, since 0.253 X is of order X, but the ceiling is DIAG rather than |A| and the constant is 0.25 rather than 1 -- so 'saturating at |A|' read literally is wrong by a factor of four, in the same way 'the saving is exactly zero' read as S = T is wrong by 2.41. Both are true statements about orders whose literal readings are false, in one sentence of the same claim. Predicted before measuring, from the observation that a modulus with one x contributes |mu| in {0,1}; the prediction is what the run tested."
+    },
+    {
+      "id": "typeI-constant-is-one-over-two-pi",
+      "status": "proved",
+      "statement": "sum_{N(d)<=D} |r_d| ~ D/(2 pi) = 0.15915 D for A = {x+i : x <= X}, not ~ D. The constant is forced: r_d = 1 - r/q - theta with r/q and theta both roughly uniform, so r_d is triangular on (-1,1) and E|r_d| = int_0^1 2t(1-t) dt = 1/3; admissible (q,root) pairs of norm <= D number ~ (3/2pi) D; hence the sum is (1/3)(3/2pi) D = D/(2 pi). Measured 0.15895 at D = 5e5 against 0.159155 predicted, and per-ideal 0.33289 against 1/3 -- 0.13%.",
+      "proof_site": "notes/note-B-type-I.md; tests/test_arithmetic_facts.py::test_the_type_I_sum_constant_is_one_over_two_pi",
+      "tags": [
+        "type_i"
+      ],
+      "notes": "Third instance of 'claims stated to an order, read as equalities', and the first in a `proved` claim: type-I-level said 'sum |r_d| ~ D', which is right about the order and off by 2 pi literally. Nothing downstream moves -- the argument needs the sum to be of order D, and a constant cannot turn D = o(X) into anything else -- so this pins the constant rather than correcting a conclusion. The two ingredients were already in the registry separately (|r_d| <= 1 and sharp, from type-I-level; the (3/2pi) density, from admissible-density) and neither claim could have carried constant 1 given the other."
     }
   ]
 }

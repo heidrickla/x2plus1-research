@@ -406,3 +406,38 @@ def test_ratio_classes_agrees_with_an_independent_construction():
     for key in mine:
         assert sorted(mine[key]) == sorted(theirs[key]), key
     assert len(mine) > 5000, f"only {len(mine)} classes; range too small to mean much"
+
+
+def test_the_type_I_sum_constant_is_one_over_two_pi():
+    """sum_{N(d)<=D} |r_d| ~ D/(2 pi), not ~ D.
+
+    `type-I-level` states the sum as "~ D", which is right about the ORDER and
+    wrong by a factor of 2 pi read as an equality. The constant is forced:
+
+      r_d = 1 - r/q - theta with r/q and theta both roughly uniform, so r_d is
+      triangular on (-1,1) and E|r_d| = int_0^1 2t(1-t) dt = 1/3;
+      admissible (q, root) pairs of norm <= D number ~ (3/2 pi) D;
+      hence sum |r_d| ~ (1/3)(3/2 pi) D = D/(2 pi) = 0.159155.
+
+    Nothing downstream moves -- the argument needs the sum to be of order D, and
+    a constant cannot change D = o(X) into anything else. This pins the constant
+    so the claim cannot be read as an equality.
+    """
+    import math
+
+    from x2plus1.factorization import admissible_roots_upto
+
+    X, D = 400_000, 40_000
+    table = admissible_roots_upto(D)
+    total = 0.0
+    pairs = 0
+    for q, roots in table.items():
+        if q < 2:
+            continue
+        for r in roots:
+            count = (X - r) // q + 1 if r <= X else 0
+            total += abs(count - X / q)
+            pairs += 1
+    assert pairs > 15_000, f"only {pairs} pairs; range too small"
+    assert total / pairs == pytest.approx(1 / 3, rel=0.02), total / pairs
+    assert total / D == pytest.approx(1 / (2 * math.pi), rel=0.02), total / D
