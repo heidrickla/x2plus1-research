@@ -2096,6 +2096,20 @@
       ],
       "notes": "Makes the whole structure legible and explains why the two notes never collided: the windowed Gram entry counts ORBITS that tau reaches inside one window, with eps guaranteeing at most one member per orbit, and Conjecture O.2 is the statement that tau never reaches three. I nearly got this backwards -- I assigned moduli to orbits by |V| = 2, reasoning that the fundamental multiplier is the fundamental automorph, and measured 'two moduli of one orbit in a window', which would have contradicted Prop L.1. The arithmetic at (1,41) is what separated them: 1.877 against 1.7e7 is not a near miss. Prop L.1's own hedge stands -- its spacing is asymptotic ('x'/x -> eps') and the note already records the proved bound as O_eps(N^eps) with the constant 2 rigorous_finite.",
       "proof_site": "notes/note-L-over-Z.md; tests/test_arithmetic_facts.py::test_tau_moves_between_orbits_and_epsilon_within_them"
+    },
+    {
+      "id": "O2-reduces-to-43-classes-at-X-3000",
+      "status": "rigorous_finite",
+      "statement": "A triple needs a class admitting at least TWO in-window multipliers -- indices k with M^2 + 4k^2 D a perfect square and tau_k^2 < 2 -- and at X = 3000 only 43 of 1,815,155 classes do. The distribution is 1,503,796 admitting none, 311,316 admitting one, 43 admitting two, none admitting three. Of the 43, FORTY have exactly one realised modulus and THREE have exactly two; none has three, so no chain is realised. The three are (1,423125) with k = 1,91 and moduli 10,17; (1,51701) with k = 1,33 and moduli 82,145; (53,423125) with k = 1,12 and moduli 10,17 -- exactly the live non-fundamental close pairs identified independently much earlier by exp14.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "tau-moves-between-orbits-epsilon-within-them"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Makes O.2's content at a given X completely explicit, and the reduction is severe: 1.8 million classes down to 43, then to 3 once the moduli have to exist, then to 0 because none of the 3 has a third modulus. The population that matters is 'classes admitting two in-window multipliers', which is 43 -- not classes with three moduli (60) and not all classes (1.8M). And the three that realise a k >= 2 step are the SAME three exp14 found as the live non-fundamental close pairs, from a completely different construction: exp14 searched the realised side by streaming enumeration, this counts multiplier indices satisfying a Pell condition. Two routes, same three configurations, which is the strongest confirmation either has.",
+      "proof_site": ""
     }
   ]
 }
