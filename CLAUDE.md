@@ -111,7 +111,13 @@ that barrier is unconditional**: its hypothesis is θ + ν ≥ 1 − 2c, and |J|
 x^{1/2} gives c = 1/2, so 1 − 2c = 0 and θ + ν ≥ 0 holds for every admissible
 pair. FM say the obstruction is bilinear cancellation in the error term for G;
 Note F says G ∈ {0,1}, so there is no main term and no error term to cancel.
-Their "typically very difficult" is, here, empty. Their Theorem 2.4 never
+Their "typically very difficult" is, here, empty. **And the footnote's precision
+requirement evaluates**: at c = 1/2 its range is m₁,m₂ ∼ x^ε, where mean G is
+x^{−ε} against an integer that is 0 for almost every pair — so "an error better
+than O(1)" **pins the value**. At this density it is not an estimation problem
+but a request to determine G exactly. The control keeps that honest: at a²+b⁴'s
+density the same footnote asks for error below 1 against a mean of **3.59**, an
+ordinary estimation problem — and the one FI actually solved. Their Theorem 2.4 never
 applied here, and the γ = 1/2 − ε argument is `refuted`; the clean placement is
 that θ > c = 1/2 collides with (1.1)'s θ < 1/2, so there is no admissible triple
 at all (`x2plus1.exponents.ford_maynard_theta`). **C⁻ is the LOWER-BOUND constant** — [FM] p. 2 at
