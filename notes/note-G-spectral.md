@@ -123,13 +123,21 @@ statement that DFI's parity-breaking input does not exist here.
 > **`inferred`**, not a direct citation.
 >
 > **The conclusion survives the transfer, and by a wider margin than "bounded by
-> 2" suggests.** Measured at X = 3000, the *mean* of G over pairs in a dyadic band
-> [N, 2N) falls like 1/N — 2.000, 0.667, 0.254, 0.0865, 0.0243 at
-> N = 8, 32, 128, 512, 2048 — while the **maximum stays at 2**. So for large N the
-> expected Gram entry is far below 1 while G is an integer taking only the values
-> 0, 1, 2: at N ≈ 2048 the mean is 0.024 against a granularity of 1, so
-> **what dispersion would call the error is forty times what it would call the
-> main term.**
+> 2" suggests.** Over cofactor pairs in a dyadic band [N, 2N), the *mean* of G is
+> small against an integer-valued count throughout **the range the sieve uses**.
+> At X = 6000: 0.0956, 0.0296, 0.0083 at N = 512, 2048, 8192. So the expected Gram
+> entry is far below 1 while G is an integer, and **what dispersion would call the
+> error is more than thirty times what it would call the main term.**
+>
+> *Three qualifications, from re-measuring rather than reading.* The decay is
+> **not 1/N** — the fitted exponent is ≈ 0.8. The mean is **U-shaped**, bottoming
+> out near N ≈ X and climbing back to 0.51 by N ≈ X²/4, where cofactors are large
+> enough that only a few tiny moduli exist and every pair shares them. And the
+> maximum is **3**, not 2: G(17, 26) = 3 with shared moduli 1, 85, 2 966 965 —
+> consistent with the *window* bound, since those span seven orders, but "max 2"
+> is about windows, not about G. **None of it touches the argument**, because
+> (B1) forces M ≥ √x = X and hence the cofactor n ≤ X, which is exactly the range
+> where the mean is small and falling.
 >
 > That is a stronger objection than C₄-freeness and a differently-shaped one.
 > C₄-freeness says the count is *small*; this says there is **nothing for the
