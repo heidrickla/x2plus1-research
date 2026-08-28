@@ -89,9 +89,17 @@ moduli 10 and 17, in an infinite Pell orbit, so over Z the graph contains
 **K_{s,2} for every s** where Note F forbids K_{2,2}. The *unwindowed* rational
 bound does not exist. What supplies the constant 2 is the window — orbit members
 are ~4.6×10⁵ apart, so a dyadic window admits one from each of two orbits.
-Bounded is all the argument uses, so nothing downstream changes; but the
-transfer is `inferred`, not proved, and it is now a registry entry
-(`gaussian-to-rational-bridge`) rather than an invisible step.
+**But (II) bands the cofactors too**, and there the coarsening
+does not survive: [FM]'s (II) is bilinear over m ∼ M *and* n ∼ N, and **Theorem
+O.12** proves that cofactors within a factor (5+√21)/2 = 4.7913 — a dyadic band
+is a factor 2 — share at most one modulus per dyadic window. So over Z, on the
+configuration the hypotheses actually quantify over, **G′ ≤ 1 is proved for all
+X**, matching the Gaussian bound exactly. The K_{s,2} orbits and the free-cofactor
+Gram 2 are real and are simply out of range: the witness 4-cycle needs
+n₂/n₁ = 60.5. Bounded is all the argument uses, so nothing downstream changes;
+what remains `inferred` in `gaussian-to-rational-bridge` is the reading of their
+quantifier, and no longer a discrepancy between the two rings or a floor from a
+finite sweep.
 
 **And it was never about x² + 1.** For A = {f(x)} with deg f = d, α = 1/d and
 κ = X^{2−d}, so κ > 1 only at d = 1. No single-variable polynomial of degree ≥ 2
