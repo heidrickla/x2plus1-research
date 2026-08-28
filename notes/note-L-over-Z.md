@@ -257,6 +257,30 @@ v = √u:
 against O.4's asymptotic **triple** threshold of 133.8748. The chain threshold
 sits 3.88 below, as it must — a triple needs a chain and something more.
 
+**And the pair and chain thresholds are one formula.** |V| ≥ V₀ requires
+M/√D > 2√2·V₀, so
+
+> **u > (√2·V₀ + √(2V₀² + 1))²**
+
+| V₀ | M/√D > | u > | |
+|---:|---:|---:|---|
+| **2** | 4√2 = 5.6569 | **33.9706** | = (1+√2)⁴, the **pair** threshold |
+| **4** | 8√2 = 11.3137 | **129.9923** | = (4√2+√33)², the **chain** |
+| 6 | 16.9706 | 289.9966 | |
+| 8 | 22.6274 | 513.9981 | |
+
+It checks at the seam: √2·2 + √9 = 2√2 + 3 = (1+√2)² exactly. **So the doubling
+4√2 → 8√2 is precisely |V| ≥ 2 → |V| ≥ 4** — one input read twice, not two
+constants that happen to agree. Expanding, u = 4V₀² + 1 + 2√2·V₀·√(2V₀²+1),
+which approaches **8V₀² + 2 from below** with the gap falling 0.029, 0.008,
+0.003, 0.002.
+
+**The triple threshold is not in this family**, and that is the honest part:
+133.8748 comes from O.4's *composite* τ₁² < √2 rather than from a |V| bound,
+which is why it sits 3.88 above the chain instead of at a lattice point. Two of
+the three rows are one mechanism; the third is a different one, and their
+interleaving is a consistency check rather than a pattern.
+
 **And that is why the set is empty, because the two requirements pull opposite
 ways.** A chain needs u > 130; but the maximum modulus count *falls* with u:
 
