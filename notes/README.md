@@ -17,6 +17,7 @@ the structure is in place and the content is not.
 | [I](note-I-a2b4-replay.md) | a²+b⁴ replay | §2.4.5 | draft — harness calibrated |
 | [J](note-J-mobius-in-progressions.md) | Möbius in progressions | *added* | draft — names the missing input, and localises the difficulty to the absolute values |
 | [K](note-K-merikoski.md) | Merikoski's a²+(b²+1)² | *added* | draft — the fourth published sequence; κ is necessary, not sufficient |
+| [L](note-L-over-Z.md) | The same question over Z, and over every degree | *added* | draft — Note F's scope, and the degree ladder |
 
 ## Read Note C first
 
@@ -62,6 +63,20 @@ so never applied here, and the weight put on γ = 1/2 − ε versus 1/2, a
 distinction their own Table 1 caption discards. What binds is ν = 0, by Selberg
 and by their Theorem 2.1; every entry in their Table 1 has ν > 0, and their
 footnote 2 p. 7 names Note F's G(n₁,n₂) as the barrier.
+
+**Note F's lemma is Z[i]-scoped, and [Note L](note-L-over-Z.md) says so.** The
+Type II hypotheses of [ASP], [DFI] and [FM] quantify over *rational* m and n,
+and the rational incidence graph of the same sequence is a coarsening of the
+Gaussian one — it has 4-cycles, with max Gram 2 rather than 1. Bounded is all
+the argument uses, so nothing downstream changes; but the transfer is
+`inferred`, not proved, and it is now a registry entry
+(`gaussian-to-rational-bridge`) rather than an invisible step.
+
+**And it was never about x² + 1.** For A = {f(x)} with deg f = d, α = 1/d and
+κ = X^{2−d}, so κ > 1 only at d = 1. No single-variable polynomial of degree ≥ 2
+has an admissible Ford–Maynard triple, and d = 1 — Dirichlet — is the only
+single-variable degree with anything for a bilinear form to cancel. x² + 1 is
+the least degenerate member of a degenerate class. [Note L](note-L-over-Z.md).
 
 **Checkpoints.** Step 1 closes when Note C states a precise bilinear inequality
 whose proof implies the theorem (plan §1.5). Step 2 closes when Notes F and G

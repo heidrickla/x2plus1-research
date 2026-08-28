@@ -149,6 +149,20 @@ def kappa_exponent(alpha) -> Fraction:
     return 2 * _F(alpha) - 1
 
 
+def single_variable_alpha(degree: int) -> Fraction:
+    """alpha for A = {f(x) : x <= X} with deg f = d.
+
+    Q ~ X^d and |A| = X, so |A| = Q^{1/d}. Nothing about f enters beyond its
+    degree, which is the point of Note L: the exponents that place x^2+1
+    outside every framework in the literature place *every* single-variable
+    polynomial of degree >= 2 outside them, and x^2+1 is only the least
+    degenerate case.
+    """
+    if degree < 1:
+        raise ValueError("degree must be >= 1")
+    return Fraction(1, degree)
+
+
 def ford_maynard_theta(alpha) -> Range:
     """The admissible Type II start theta for a sequence of density x^alpha.
 

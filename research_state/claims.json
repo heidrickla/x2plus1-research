@@ -24,14 +24,15 @@
     {
       "id": "c4-free",
       "status": "proved",
-      "statement": "For A = {x+i}, the bilinear incidence graph contains no 4-cycle, so G(n1,n2) = #{m : mn1, mn2 in A} <= 1 for n1 != n2. Holds from both sides, in m and in n alike.",
+      "statement": "For A = {x+i}, the bilinear incidence graph OVER Z[i] contains no 4-cycle, so G(n1,n2) = #{m : mn1, mn2 in A} <= 1 for n1 != n2, with m and n ranging over IDEALS. Holds from both sides, in m and in n alike, at every split and on the full graph.",
       "proof_site": "notes/note-F-failure-localisation.md; tests/test_bilinear.py::test_incidence_graph_of_the_line_is_c4_free",
       "depends_on": [
         "divisibility-is-a-congruence"
       ],
       "tags": [
         "type_ii"
-      ]
+      ],
+      "notes": "Scope is Z[i]. The rational graph of the same sequence is NOT C4-free -- see rational-graph-not-c4-free -- because one rational modulus merges several Gaussian ideals. Any use of this claim against a hypothesis stated over Z passes through gaussian-to-rational-bridge, which is `inferred`."
     },
     {
       "id": "asp-R1",
@@ -364,15 +365,13 @@
     {
       "id": "selberg-nu-zero-binds",
       "status": "quoted",
-      "statement": "With no arbitrary-coefficient Type II range (nu = 0 in Ford-Maynard's sense, which Note F proves for this sequence), the Type I/II framework returns C^- = 0 by Selberg's example: 'whenever nu = 0, there are examples of a_n with b_n = 1 for all n which satisfy (I) for arbitrary gamma < 1 but with sum_p a_p = 0'. Ford-Maynard Theorem 2.1 is the quantitative version.",
+      "statement": "Ford-Maynard, p.2, quoting Selberg [28]: 'whenever nu = 0, there are examples of a_n with b_n = 1 for all n which satisfy (I) for arbitrary gamma < 1 but with sum_p a_p = 0, so non-trivial Type II information is necessary to detect primes'. Their Theorem 2.1 (p.3) is the quantitative version: for all gamma < 1 there is nu_0(gamma) > 0 with C^- = 0 whenever nu <= nu_0(gamma).",
       "citation": "Ford-Maynard, arXiv:2407.14368v1, p.2 (Selberg [28]) and Theorem 2.1 p.3",
-      "depends_on": [
-        "c4-free"
-      ],
+      "depends_on": [],
       "tags": [
         "type_ii"
       ],
-      "notes": "C^- = 0 is a statement about what these axioms can prove -- there exists an admissible sequence with no primes -- NOT about whether x^2+1 is prime infinitely often. Do not conflate."
+      "notes": "This entry is now the QUOTE only. Applying it to x^2+1 needs nu = 0 for this sequence, which is c4-free plus gaussian-to-rational-bridge -- the latter `inferred`. The claim used to assert 'which Note F proves for this sequence' inside a `quoted` entry, which is exactly the conflation the registry exists to prevent: their (II) quantifies over rational m, n, and Note F's lemma is about Gaussian ideals. C^- = 0 is a statement about what these axioms can prove -- there exists an admissible sequence with no primes -- NOT about whether x^2+1 is prime infinitely often. Do not conflate."
     },
     {
       "id": "x2plus1-sits-below-gamma-half",
@@ -523,6 +522,80 @@
         "type_ii"
       ],
       "notes": "The deduction is the repo's; FM state the two ingredients but never draw the conclusion for c >= 1/2, and 'one can only hope' is an informal remark inside their discussion of the family P_theta, not a theorem. What it replaces is the gamma = 1/2 - eps argument, which turned on a distinction FM's own Table 1 caption discards. Also worth noting: their 'gamma < 1 - c' is Note B's ceiling, reached independently."
+    },
+    {
+      "id": "rational-graph-not-c4-free",
+      "status": "proved",
+      "statement": "The incidence graph of A = {x^2+1} over Z is NOT C4-free, unlike its Z[i] counterpart. Explicit: n1 = 1189, n2 = 71978 share the moduli m = 65 and m = 109, with 65*1189 = 278^2+1, 65*71978 = 2163^2+1, 109*1189 = 360^2+1, 109*71978 = 2801^2+1. The mechanism is row merging: 65 carries four Gaussian ideals (roots 8,18,47,57) where the Gaussian graph keeps them apart. Equivalently a rational 4-cycle IS a multiplicative coincidence (x1^2+1)(x4^2+1) = (x2^2+1)(x3^2+1) -- a1a4 and a2a3 of equal norm without being associates, which Note F's lemma does not exclude and cannot.",
+      "proof_site": "notes/note-L-over-Z.md; tests/test_polyseq.py::test_rational_graph_has_four_cycles_where_the_gaussian_one_does_not",
+      "depends_on": [
+        "c4-free"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Not a refutation of c4-free, which is proved and true over Z[i]. It is a statement of that claim's SCOPE. Conjugation alone does not explain the coincidences either: of 504 with x <= 1200, only 332 have a1*conj(a4) ~ a2a3."
+    },
+    {
+      "id": "rational-gram-bounded-on-windows",
+      "status": "rigorous_finite",
+      "statement": "Over Z the max off-diagonal Gram entry is 2 on every dyadic window [M,2M), uniformly for X <= 8000, while the full graph grows: 6, 7, 7, 8, 9 at X = 500, 1000, 2000, 4000, 8000. Multiplicative coincidences are sparse -- excess representations 131, 256, 497, 916 at X = 300, 600, 1200, 2400, against X^2/2 pairs.",
+      "experiment": "experiments/exp09_degree_ladder.py; tests/test_polyseq.py",
+      "depends_on": [
+        "rational-graph-not-c4-free"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The excess roughly doubles as X doubles (ratios 1.95, 1.94, 1.84), consistent with ~X over the measured range, but the implied exponent drifts 0.96 -> 0.88 and NO asymptotic law is claimed -- that would be `extrapolated` and this is not. Reproduced independently by a second session before recording."
+    },
+    {
+      "id": "full-graph-growth-is-pell",
+      "status": "proved",
+      "statement": "The full rational graph's Gram maximum is attained at (n1,n2) = (1,5), and G'(1,5) counts solutions of y^2+1 = 5(x^2+1), i.e. the Pell equation y^2 - 5x^2 = 4, whose solutions are x = F_{2k}, y = L_{2k}. Consecutive moduli m = x^2+1 = 2, 10, 65, 442, 3026, ... have ratios converging to phi^4 = 6.8541, so at most one lies in any dyadic window. That is why the full graph grows like log X while every window stays bounded.",
+      "proof_site": "notes/note-L-over-Z.md; tests/test_polyseq.py::test_the_full_graph_maximum_is_a_pell_equation",
+      "depends_on": [],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The Pell identity is arithmetic and depends on nothing measured; the measurement in rational-gram-bounded-on-windows is what pointed at the pair, not what supports the claim. (The dependency guard rejected the other ordering, correctly.) n1 = 1 cannot occur in a Type II hypothesis, where both variables are confined to ranges, so the log-growth is an artefact of admitting a unit cofactor -- which makes the windowed statement the faithful one rather than a patch."
+    },
+    {
+      "id": "gaussian-to-rational-bridge",
+      "status": "inferred",
+      "statement": "The step from c4-free (a statement about Z[i]) to nu = 0 in Ford-Maynard's sense (a statement about Z, where their (II) is quantified over rational m, n) is an inference, not a proof. What is proved over Z[i] is G <= 1; what is measured over Z is G' <= 2 on every dyadic window for X <= 8000. Both give no main term, so the conclusion is unchanged and only the constant moves -- but the transfer is reasoning.",
+      "depends_on": [
+        "c4-free",
+        "rational-gram-bounded-on-windows"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "What would close it: a uniform bound on integer points of the conic n2 x^2 - n1 y^2 = n1 - n2 in a box of side X. Classical Pell theory, but this repo has NOT read a source for it and will not assert the exponent from memory. Until then every use of 'nu = 0' against a Z-stated hypothesis passes through here."
+    },
+    {
+      "id": "degree-determines-degeneracy",
+      "status": "proved",
+      "statement": "For A = {f(x) : x <= X} with deg f = d, Q ~ c X^d and |A| = X, so alpha = 1/d and kappa = |A|^2/Q = X^{2-d}/c. The exponent depends only on the degree. Hence kappa > 1 only at d = 1, kappa = 1 exactly at d = 2, and kappa < 1 for every d >= 3 -- x^2+1 is the least degenerate member of a degenerate class, not a special case, and d = 1 (Dirichlet) is the only single-variable degree with bilinear structure. Measured max Gram at X = 4000, sweeping dyadic windows: 32 for 2x+1, 2 for x^2+1 and x^2+x+1, 1 for x^3+2 and x^4+1.",
+      "proof_site": "notes/note-L-over-Z.md; tests/test_exponents.py::test_degree_one_is_the_only_single_variable_case_with_room; tests/test_polyseq.py::test_alpha_and_kappa_exponents_depend_only_on_the_degree",
+      "tags": [
+        "type_ii",
+        "ledger"
+      ],
+      "notes": "The exponent half is arithmetic and proved; the Gram column is measured at fixed X across degrees, not extrapolated in X. The ladder recovers the solved case at d = 1, which is the check that matters -- a classification that did not return Dirichlet there would be evidence against itself."
+    },
+    {
+      "id": "no-triple-for-any-degree-at-least-two",
+      "status": "inferred",
+      "statement": "No single-variable polynomial sequence of degree >= 2 has an admissible Ford-Maynard triple. For A = {f(x)}, |J| = Q^{1/d}, so c = 1 - 1/d >= 1/2 for every d >= 2, and [FM] p.7's 'one can only hope for (II) for theta > c' collides with (1.1)'s theta < 1/2. Computed by x2plus1.exponents.ford_maynard_theta, which returns a range at d = 1 and raises for every d >= 2.",
+      "depends_on": [
+        "fm-no-admissible-theta-at-density-half",
+        "degree-determines-degeneracy"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Same inferential status as the d = 2 case it generalises: [FM] state the ingredients and never draw the conclusion, and 'one can only hope' is an informal remark inside their discussion of the family P_theta. This is a claim about what the Type I/II framework can EXPRESS, never about whether any of these polynomials takes infinitely many prime values."
     }
   ]
 }

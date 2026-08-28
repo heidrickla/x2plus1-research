@@ -146,7 +146,12 @@ evaluate:
 > {x₁,x₄} = {x₂,x₃}, which collapses the cycle. ∎
 
 So there is no congruence to detect, no exponential sum, no Weil bound — the
-count is already 0 or 1. Measured dispersion exponent: **θ = 1.00–1.03 at every
+count is already 0 or 1. **That lemma is about Z[i].** Over Z, where the
+literature's Type II hypotheses actually live, the same graph is *not* C₄-free —
+one rational modulus merges several Gaussian ideals — and the Gram entries are 2
+rather than 1 on every dyadic window. Bounded either way, so the conclusion is
+unchanged and only the constant moves, but the transfer is `inferred`.
+[Note L](notes/note-L-over-Z.md). Measured dispersion exponent: **θ = 1.00–1.03 at every
 split, worse than trivial.** From the density side, mean degrees satisfy
 D_m·d_n ≍ |A|²/Q =: κ independent of the split, so max over splits of
 min(D_m, d_n) ≍ √κ = |A|/Q^{1/2} — **exactly 1** for x² + 1 and ≍ Q^{1/4} for
@@ -160,6 +165,33 @@ the repo's derived invariant and the paper's stated hypothesis. In the window
 (B1) actually requires, the measured bilinear sum shows **no saving at all**
 (S_μ/A(x) = 0.93, 1.00, 1.01), which corrects the earlier reading in
 [Note H](notes/note-H-numerical-pilot.md).
+
+### It was never about x² + 1
+
+For A = {f(x) : x ≤ X} with deg f = d, the norm bound is Q ≍ X^d and |A| = X, so
+
+> **α = 1/d**  and  **κ = |A|²/Q = X^{2−d}**,
+
+with no dependence on f beyond its degree. κ > 1 only at d = 1, κ = 1 exactly at
+d = 2, κ < 1 above. And Ford–Maynard's c = 1 − 1/d is ≥ 1/2 for every d ≥ 2,
+colliding with their (1.1)'s θ < 1/2. Measured over Z at X = 4000, sweeping
+dyadic windows ([exp09](experiments/exp09_degree_ladder.py)):
+
+| f | d | α | κ | max Gram |
+|---|---:|---:|---:|---:|
+| 2x + 1 | 1 | 1.000 | 2000 | **32** |
+| x² + 1 | 2 | 0.500 | 1 | 2 |
+| x² + x + 1 | 2 | 0.500 | 0.9998 | 2 |
+| x³ + 2 | 3 | 0.333 | 0.00025 | 1 |
+| x⁴ + 1 | 4 | 0.250 | 6.25 × 10⁻⁸ | 1 |
+
+> **No single-variable polynomial sequence of degree ≥ 2 has an admissible
+> Ford–Maynard triple, and d = 1 — Dirichlet — is the only single-variable
+> degree with anything for a bilinear form to cancel.**
+
+x² + 1 is the *least degenerate member of a degenerate class*, not a special
+case. The ladder recovers the solved case at d = 1, which is the check that
+matters. [Note L](notes/note-L-over-Z.md).
 
 ### The density ledger
 

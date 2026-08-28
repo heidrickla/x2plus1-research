@@ -22,6 +22,18 @@ difficulty is in the absolute values** — the signed sum is under 2% of the
 absolute-value sum, and |·| per modulus *is* the arbitrary coefficient. Notes F
 and J describe one obstruction from two sides.
 
+**Note L** does two things. It scopes Note F: that lemma is about **Z[i]**, and
+the rational graph — where [ASP]/[DFI]/[FM]'s Type II hypotheses actually live —
+is *not* C₄-free (max Gram 2, not 1, because one rational modulus merges several
+Gaussian ideals). Bounded either way, so nothing downstream changes, but the
+transfer is now the registry entry `gaussian-to-rational-bridge`, `inferred`.
+And it generalises everything: for A = {f(x)} with deg f = d, **α = 1/d and
+κ = X^{2−d}**, so κ > 1 only at d = 1. **No single-variable polynomial of degree
+≥ 2 has an admissible Ford–Maynard triple**; x²+1 is the least degenerate member
+of a degenerate class, and d = 1 (Dirichlet) is the only degree with bilinear
+structure. The ladder recovering Dirichlet at d = 1 is the check that it means
+something.
+
 **Note K** adds the fourth published sequence with a known outcome: Merikoski's
 a²+(b²+1)², which has the *same density and the same κ* as a²+b⁴ and a Type II
 range a sixth of an exponent shorter. **So κ > 1 is necessary and not

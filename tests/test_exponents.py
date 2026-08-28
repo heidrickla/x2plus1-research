@@ -11,7 +11,7 @@ import pytest
 from x2plus1.exponents import (
     ALPHA, ImpossibleExponentError, Range, asp_applies, asp_r1,
     ford_maynard_theta, gamma_annihilation_threshold, inner_range_exponent,
-    kappa_exponent, truncation_exponent, type_i_ceiling,
+    kappa_exponent, single_variable_alpha, truncation_exponent, type_i_ceiling,
 )
 
 
@@ -138,3 +138,30 @@ def test_the_literature_sits_at_theta_equal_to_c():
         assert theta == Fraction(1) - alpha, name         # theta = c
         assert theta in ford_maynard_theta(alpha), name
         assert nu > 0, name                               # (1.1) needs nu > 0
+
+
+def test_degree_one_is_the_only_single_variable_case_with_room():
+    """Note L, as exponents. A = {f(x)} with deg f = d has alpha = 1/d.
+
+    kappa's exponent is 2 alpha - 1 = 2/d - 1, so kappa > 1 only at d = 1,
+    kappa = 1 exactly at d = 2, and kappa < 1 for every higher degree. d = 1 is
+    primes in arithmetic progressions, which is Dirichlet -- so the only
+    single-variable degree with bilinear structure to cancel is the solved one.
+    """
+    assert kappa_exponent(single_variable_alpha(1)) == 1
+    assert kappa_exponent(single_variable_alpha(2)) == 0
+    for d in range(3, 12):
+        assert kappa_exponent(single_variable_alpha(d)) < 0, d
+
+
+def test_ford_maynard_excludes_every_polynomial_of_degree_at_least_two():
+    """The same statement through [FM] p.7 rather than through kappa.
+
+    For A = {f(x)}, |J| = Q^{1/d}, so c = 1 - 1/d, which is >= 1/2 for every
+    d >= 2 and collides with (1.1)'s theta < 1/2. Degree 1 is the only degree
+    admitting a triple, and it admits theta in [0, 1/2).
+    """
+    assert ford_maynard_theta(single_variable_alpha(1)).lo == 0
+    for d in range(2, 12):
+        with pytest.raises(ImpossibleExponentError):
+            ford_maynard_theta(single_variable_alpha(d))

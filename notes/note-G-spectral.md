@@ -1,8 +1,12 @@
 # Note G — Spectral attempt
 
-*Plan §2.4.3. Status: **skeleton.** Nothing here is done. This note plus
-[Note F](note-F-failure-localisation.md) form the Step 2 checkpoint (plan §2.5),
-so the checkpoint is not met.*
+*Plan §2.4.3. Status: **premise corrected, deliverable not written.** The note's
+original blocker — that the spectral route has nothing to act on — is refuted
+below: Duke–Friedlander–Iwaniec's proof is spectral and is about exactly this
+repo's residues. What is *not* done is the plan's actual deliverable, a
+conjectural inequality with a quantitative statement of how far current bounds
+fall short. This note plus [Note F](note-F-failure-localisation.md) form the
+Step 2 checkpoint (plan §2.5), so the checkpoint is still not met.*
 
 ## What this note is supposed to do
 

@@ -140,12 +140,35 @@ DEFAULT_NOGO_RULES = [
         ),
         trigger_tags={"level_of_distribution", "type_i"},
         trigger_phrases=[
-            "well-factorable",
+            "well-factorable level",
+            "well-factorable weights to raise the level",
             "level of distribution beyond",
             "bombieri-vinogradov for this sequence",
             "raise the level past",
         ],
         basis="notes/note-B-type-I.md (proved); ASP p.1044 (quoted)",
+    ),
+    NoGoRule(
+        id="well-factorable-for-the-absolute-values",
+        message=(
+            "OPEN, not ruled out. Well-factorable weights are the standard route "
+            "from a signed bound to a bound with absolute values over moduli (BFI), "
+            "and Note J shows the absolute values are the whole Type II difficulty "
+            "here. This rule exists to stop the Type I no-go from swallowing it: "
+            "'well-factorable' used to trigger level-beyond-sequence-size on wording "
+            "alone, which blocked the repo's own stated live question. Two things "
+            "must be checked before relying on it -- BFI I-III are unobtained, and "
+            "Note F says the bilinear structure a well-factorable decomposition "
+            "would exploit is absent at every split."
+        ),
+        trigger_tags={"well_factorable", "absolute_values"},
+        trigger_phrases=[
+            "well-factorable decomposition",
+            "absolute values over moduli",
+            "signed to absolute",
+        ],
+        fatal=False,
+        basis="README 'Not yet done'; notes/note-J-mobius-in-progressions.md; notes/note-F-failure-localisation.md",
     ),
     NoGoRule(
         id="asp-below-two-thirds",
