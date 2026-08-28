@@ -151,15 +151,17 @@ DEFAULT_NOGO_RULES = [
     NoGoRule(
         id="well-factorable-for-the-absolute-values",
         message=(
-            "OPEN, not ruled out. Well-factorable weights are the standard route "
-            "from a signed bound to a bound with absolute values over moduli (BFI), "
-            "and Note J shows the absolute values are the whole Type II difficulty "
-            "here. This rule exists to stop the Type I no-go from swallowing it: "
-            "'well-factorable' used to trigger level-beyond-sequence-size on wording "
-            "alone, which blocked the repo's own stated live question. Two things "
-            "must be checked before relying on it -- BFI I-III are unobtained, and "
-            "Note F says the bilinear structure a well-factorable decomposition "
-            "would exploit is absent at every split."
+            "CLOSED, and the earlier wording of this rule had it backwards. "
+            "Well-factorable weights are NOT a route from a signed bound to an "
+            "absolute-value one: every theorem in the BFI line TRADES THE ABSOLUTE "
+            "VALUE AWAY to buy the level. Bombieri-Vinogradov has sup_a |.| at level "
+            "1/2; BFI Theorem 10 reaches x^{4/7-eps} and Maynard Theorem 1.1 reaches "
+            "x^{3/5-eps}, both with a well-factorable weight and a FIXED residue "
+            "class and no absolute value. Beyond level 1/2 the literature has no "
+            "absolute-value statement at all. Note J's object needs moduli to "
+            "Q^{1/3-eps}, which against X = Q^{1/2} terms is level 2/3 -- exactly "
+            "where only well-factorable statements exist. No improvement in the "
+            "exponent reopens this."
         ),
         trigger_tags={"well_factorable", "absolute_values"},
         trigger_phrases=[
@@ -168,7 +170,7 @@ DEFAULT_NOGO_RULES = [
             "signed to absolute",
         ],
         fatal=False,
-        basis="README 'Not yet done'; notes/note-J-mobius-in-progressions.md; notes/note-F-failure-localisation.md",
+        basis="Maynard arXiv:2006.07088 Thm A, 1.1, 1.2 and (1.1), read at source; notes/note-J-mobius-in-progressions.md",
     ),
     NoGoRule(
         id="asp-below-two-thirds",

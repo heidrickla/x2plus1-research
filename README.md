@@ -282,6 +282,13 @@ The column that separates every solved case from this one is ν.
   [refs/literature-log.md](refs/literature-log.md) from abstracts only. It
   bilinearises over the radicand, not the modulus, so it is filed as adjacent —
   but that judgement rests on abstracts, not readings.
+- BFI I–III are still unobtained in the original, but **the well-factorable
+  question they were wanted for is closed**: read at source in Maynard's
+  arXiv:2006.07088, every theorem in that line buys its level by giving up the
+  absolute value — BV has sup_a |·| at level 1/2, BFI reaches x^{4/7−ε} and
+  Maynard x^{3/5−ε} with a well-factorable weight and a *fixed* residue class.
+  Beyond 1/2 there is no absolute-value statement to appeal to.
+  [Note J](notes/note-J-mobius-in-progressions.md).
 
 ## Conventions
 

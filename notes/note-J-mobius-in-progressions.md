@@ -274,6 +274,47 @@ be relevant after all — applied to μ(x²+1), not to primes.
 
 The registry claim `large-moduli-cannot-help` is scoped to Type I accordingly.
 
+## The well-factorable route does not deliver absolute values
+
+*The repo has carried "whether a well-factorable decomposition can reach
+Σ_d |Σ_m ρ_h(dm)| is the live question" since the first draft of this note. Read
+at source, the answer is no, and the reason is structural rather than
+quantitative.*
+
+Every theorem in the BFI line trades the absolute value away to buy the level.
+From Maynard, [arXiv:2006.07088](https://arxiv.org/abs/2006.07088):
+
+- **Bombieri–Vinogradov** (his (1.1)): Σ_{q ≤ x^{1/2}/(log x)^B}
+  **sup_{(a,q)=1} |π(x;q,a) − π(x)/φ(q)|** ≪ x/(log x)^A. Absolute value, and a
+  maximum over residue classes — at level **1/2**.
+- **BFI Theorem 10**, quoted there as Theorem A: λ_q **well-factorable** of
+  level Q ≤ x^{4/7−ε} ⟹ Σ_{q≤Q} λ_q(π(x;q,a) − π(x)/φ(q)) ≪ x/(log x)^A. No
+  absolute value; a **fixed** residue class a.
+- **Maynard Theorem 1.1**: the same with *triply* well-factorable at
+  Q ≤ x^{3/5−ε}. **Theorem 1.2**: linear-sieve weights λ⁺ at D ≤ x^{7/12−ε}.
+
+> **Beyond level 1/2 the literature has no absolute-value statement at all.**
+> Every gain above x^{1/2} is bought by replacing |·| with a well-factorable
+> weight and fixing the residue class.
+
+Well-factorable is not a device for converting a signed bound into an
+absolute-value one — it is the *structure a sieve's weights happen to have*,
+and Iwaniec's theorem is that the linear sieve's upper-bound weights are a
+linear combination of well-factorable sequences. An arbitrary sign pattern,
+which is what |·| per modulus amounts to, is not well-factorable and there is no
+result saying it can be made so.
+
+**What that means here.** This note's object needs moduli to Q^{1/3−ε}, which
+against a sequence of X = Q^{1/2} terms is level **2/3** — beyond BV. So it needs
+an absolute-value statement in exactly the range where the literature offers only
+well-factorable ones. The route is closed, and closed for a reason that no
+improvement in the exponent would reopen.
+
+That also connects to [Note F](note-F-failure-localisation.md) from the other
+side: the absolute value per modulus *is* the arbitrary outer coefficient, and
+Note F proves that coefficient admits no cancellation here. Two different
+literatures decline the same object.
+
 ## Adversarial review
 
 - *Two-parameter freedom smuggled in?* No. The reduction uses only that
