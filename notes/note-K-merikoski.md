@@ -188,6 +188,31 @@ opposite directions along the only axis κ resolves.
 > **Through D, κ is blind. Through k, κ is inverted. That is everything κ can see
 > of a degree-2 sequence, and neither component carries the property.**
 
+**And the μ side is blind to D as well, which makes it both of them.**
+|Σ_{x≤X} μ(x²+D)| / √X at X = 20000 and 40000:
+
+| D | 20000 | 40000 | structure |
+|---:|---:|---:|---|
+| 1 | 0.4950 | 0.2100 | **holds** (proved) |
+| 2 | 0.2546 | 0.4450 | **holds** (proved) |
+| 6 | **1.3506** | **0.9200** | holds (asymptotically protected) |
+| 11 | 0.2687 | 0.0250 | **fails** |
+| 39 | **1.5698** | **1.0800** | **fails**, banded triple |
+
+Every value O(1) — square-root cancellation **uniformly in D** — and the ordering
+matches the structure at neither size: the two largest are D = 6, which holds,
+and D = 39, which fails worst.
+
+> **So the parameter that decides the C₄ structure completely is invisible to
+> both analytic measures this repo has.**
+
+Which is [Note F](note-F-failure-localisation.md)'s *arithmetic, not density* and
+[Note J](note-J-mobius-in-progressions.md)'s *the difficulty is in the absolute
+values*, turned into a measurement: the two notes were saying the same thing
+about different objects, and the D axis is where that becomes checkable. No law
+is fitted — the point is the **absence** of a relation, and O(1) fluctuation is
+what square-root cancellation predicts for every D alike.
+
 **What this does not show.** It is about the binary property. One 4-cycle moves
 max G from 1 to 2 and leaves mean G at O(1/X), and [this note's own refuted
 classifier](#mean-g-separates-them-where-κ-does-not--refuted-by-the-test-built-to-confirm-it)

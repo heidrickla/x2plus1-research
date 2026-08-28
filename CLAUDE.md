@@ -879,7 +879,12 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   anything new. That makes it a different and cheaper operation than the
   duplicated computation that catches errors: this one needs a second
   **placement**, not a second run, and the material already exists. It has paid
-  four times and costs nothing.
+  four times by accident and three times on demand. **And the productive pairs
+  are across halves, not within them**: τ/ε bridged Notes L and O, D against κ
+  bridged structure and density, μ against D bridged structure and cancellation.
+  The within-half pairs tried — the 43 classes against mean G, θ against D — went
+  nowhere. **Place results that were recorded by different arguments, not results
+  that are about the same object.**
 
 - **A float landing on a strict/non-strict boundary is invisible to the eye and
   to the test.** The asymptotic D-reach turns on whether a band's u < 2 attains
