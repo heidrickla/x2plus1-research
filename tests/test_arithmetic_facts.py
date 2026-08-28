@@ -136,3 +136,109 @@ def test_bulk_root_table_reproduces_the_admissible_ideal_density():
     table = admissible_roots_upto(Q)
     ideals = sum(len(v) for v in table.values())
     assert ideals / Q == pytest.approx(3 / (2 * math.pi), rel=0.002)
+
+
+def _multipliers_in_box(a_max, b_max, k_max):
+    """(a, b, k, M, D, U, B) for every multiplier with k >= 2 in a box.
+
+    A multiplier is a solution of U^2 - D V^2 = M^2 with V = 2k, D = ab,
+    M = b - a -- a ratio between solution CLASSES of the modulus equation
+    Y^2 - D X^2 = aM. The two are different equations; see Note L.
+    """
+    from math import gcd, isqrt
+    from x2plus1.factorization import roots_of_minus_one
+
+    def admissible(n):
+        return n % 4 != 0 and bool(roots_of_minus_one(n))
+
+    out = []
+    for a in range(1, a_max + 1):
+        if not admissible(a):
+            continue
+        for b in range(a + 1, b_max + 1):
+            if not admissible(b) or gcd(a, b) != 1:
+                continue
+            M, D = b - a, a * b
+            for k in range(2, k_max + 1):
+                v = M * M + 4 * k * k * D
+                u = isqrt(v)
+                if u * u == v:
+                    out.append((a, b, k, M, D, u, u - 2 * k * a))
+    return out
+
+
+def test_O3prime_identity_is_exact():
+    """M(rho^2 - 1) = 4ka(k - rho) with rho = B_k/M -- Note O's Theorem O.3'.
+
+    Substituting U_k = rho M + 2ka into U_k^2 = M^2 + 4k^2 a(a+M) cancels the
+    M^2 and 4k^2 a^2 terms and leaves this. Checked in exact rationals, because
+    the whole point of rho is that its denominator is what the theorem counts.
+    """
+    from fractions import Fraction
+    rows = _multipliers_in_box(40, 12000, 30)
+    assert rows, "the box must contain multipliers or the test proves nothing"
+    for a, b, k, M, D, U, B in rows:
+        rho = Fraction(B, M)
+        assert M * (rho * rho - 1) == 4 * k * a * (k - rho), (a, b, k)
+
+
+def test_window_condition_is_r_squared_not_r():
+    """The modulus ratio is tau^2, so a dyadic window needs r_k^2 < 2.
+
+    Note O first stated Theorem O.3' under 'r_k < 2'. That is a different and
+    weaker condition -- r_k^2 < 2 is equivalent to M > 4 sqrt2 k sqrt(D), the
+    constant the proof actually uses, while r_k < 2 gives only M > (8/3) k
+    sqrt(D). The rho bound below holds under the first and fails under the
+    second, so the distinction decides the theorem.
+    """
+    from math import sqrt
+    rows = _multipliers_in_box(40, 12000, 30)
+    for a, b, k, M, D, U, B in rows:
+        r = (U + 2 * k * sqrt(D)) / M
+        assert (r * r < 2) == (M > 4 * sqrt(2) * k * sqrt(D)), (a, b, k)
+
+
+def test_O3prime_rho_bound_holds_exactly_on_the_right_hypothesis():
+    """rho < sqrt(9/8) under r_k^2 < 2, and NOT under r_k < 2.
+
+    sqrt(9/8) = 1.06066 is what forces c = gcd(M, 2X) >= 17: c*rho is an integer
+    in (c, 1.06066c), which is empty until 1.06066c >= c+1. The bound is the
+    theorem, so both halves are asserted -- the second half is what caught the
+    misstated hypothesis.
+    """
+    from math import sqrt
+    bound = sqrt(9 / 8)
+    rows = _multipliers_in_box(40, 12000, 30)
+    tight = loose = 0
+    for a, b, k, M, D, U, B in rows:
+        r = (U + 2 * k * sqrt(D)) / M
+        rho = B / M
+        if r * r < 2:
+            tight += 1
+            assert 1 < rho < bound, (a, b, k, rho)
+        elif r < 2 and rho >= bound:
+            loose += 1
+    assert tight, "no multiplier satisfies the window condition; box too small"
+    assert loose, "the loose hypothesis must admit violations, else nothing was shown"
+
+
+def test_O3prime_permits_the_two_observed_moduli_of_the_live_pair():
+    """(53, 423125) has moduli 10 and 17 in one window; O.3' must allow both.
+
+    M = 423072 is even and non-squarefree, so the earlier Theorem O.3 is mute on
+    it. This is the concrete falsifier for any extension: c = gcd(M, 2X) must
+    come out <= 16 at both moduli, or the extension forbids a configuration that
+    demonstrably exists.
+    """
+    from math import gcd, isqrt
+    a, b = 53, 423125
+    M = b - a
+    assert M % 2 == 0 and M % 9 == 0                   # even and non-squarefree
+    for m, expected_c in ((10, 2), (17, 12)):
+        x2 = a * m - 1
+        x = isqrt(x2)
+        assert x * x == x2, m                          # a*m is in the sequence
+        y2 = b * m - 1
+        y = isqrt(y2)
+        assert y * y == y2, m                          # and so is b*m
+        assert gcd(M, 2 * x) == expected_c <= 16, m

@@ -566,6 +566,62 @@ reads considerably broader than a statement mute on four fifths of the
 candidates and on the a = 1 family this note identifies as driving the full
 graph's growth.
 
+### Theorem O.3′ removes the hypothesis on M, and the window condition is r_k² < 2
+
+[Note O](note-O-tau-multiplier.md) replaced O.3's *M squarefree and odd* with a
+checkable gcd. Verified here independently, and the verification corrected the
+statement of the hypothesis.
+
+**The identity.** With ρ = B_k/M, substituting U_k = ρM + 2ka into
+U_k² = M² + 4k²a(a+M) cancels the M² and 4k²a² terms and leaves
+
+> **M(ρ² − 1) = 4ka(k − ρ)**,  so M = 4kaΛ with Λ = (k−ρ)/(ρ²−1).
+
+Checked in exact `Fraction` arithmetic over 1455 multipliers with k ≥ 2:
+**zero violations**.
+
+**The window condition is r_k² < 2, not r_k < 2** — because the modulus ratio is
+τ², not τ. That is settled three ways in this repo: `close_pairs` documents it,
+the positive control above measures observed = τ₁² to a median 1.7×10⁻⁵, and
+(53, 423125) has observed 1.70000 against r₁₂² = 1.70066. The distinction is not
+cosmetic, because the ρ bound depends on it:
+
+| hypothesis | n | ρ range | ρ ≥ √(9/8) |
+|---|---:|---|---:|
+| r_k < 2 | 277 | 1.007937 … **1.237522** | **193** |
+| r₁·r_k < 2 | 242 | 1.007937 … 1.228571 | 159 |
+| **r_k² < 2** | 73 | 1.007937 … **1.057143** | **0** |
+| M > 4√2·k√(ab) | 73 | 1.007937 … 1.057143 | 0 |
+
+The last two rows are the same 73 multipliers, and they are the same condition:
+r_k² < 2 ⟺ M² + 4k²D < 2M² − 4√2·Mk√D + 4k²D ⟺ **M > 4√2·k√(ab)**. Whereas
+r_k < 2 gives only M > (8/3)·k√(ab) — measured minimum of M/(k√(ab)) on that set
+is 2.66829 against 8/3 = 2.66667, confirming the weaker constant.
+
+So the theorem is sound and its reach is narrower than the looser hypothesis
+suggests: 73 of 1455 multipliers here, not 277.
+
+> **Theorem O.3′.** If gcd(M, 2X) ≤ 16, no dyadic window contains
+> (ξ, τ₁ξ, τ_kξ) with k ≥ 2 — **no hypothesis on M**.
+
+The mechanism: ρ ∈ (1, √(9/8)) and integrality forces cρ ∈ ℤ with c = gcd(M, 2X),
+so cρ lies in (c, 1.06066c), which contains an integer only when 1.06066c ≥ c+1,
+i.e. c ≥ 17. M squarefree forces c | 2, recovering O.3 — so the right hypothesis
+was never about parity or squarefreeness but about how much of M the *solution*
+shares.
+
+**It reaches the live pair O.3 could not.** For (53, 423125), M = 423072 =
+2⁵·3²·13·113: at m = 10, 53·10−1 = 23², so X = 23 and c = gcd(M, 46) = **2**; at
+m = 17, 53·17−1 = 30², so X = 30 and c = gcd(M, 60) = **12**. Both ≤ 16, so O.3′
+**permits the two observed moduli and forbids a third** — the behaviour the test
+case was set up to demand.
+
+**One consequence for anything still quoting the old criterion.** If the modulus
+ratio is τ², then a window holding ξ, τ₁ξ, τ_kξ needs (r₁r_k)² < 2, i.e.
+**r₁·r_k < √2**, not < 2. Both sessions' candidate lists used < 2 and were
+generous by that factor. They are withdrawn on other grounds, so nothing rests
+on it, but the criterion should not be requoted in the loose form.
+
 ### What proving the triple statement would actually buy
 
 Two sessions have now spent substantial effort on "can a dyadic window hold

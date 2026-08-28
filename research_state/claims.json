@@ -1037,6 +1037,16 @@
         "scope"
       ],
       "notes": "Recorded as a proportionality check after two sessions spent substantial effort on Conjecture O.2. The effort is justified -- selberg-nu-zero-binds rests on an inferred step and inferred is the class this repo has twice been burned by -- but the volume of work reads as though more is at stake than there is. A counterexample would not weaken the obstruction either, for the same reason. Prop L.1 cannot deliver the constant on its own since it bounds by the class count and that is unbounded, which is why the triple statement is the only route to the upgrade currently on the table."
+    },
+    {
+      "id": "theorem-O3prime-verified-hypothesis-corrected",
+      "status": "rigorous_finite",
+      "statement": "Note O's Theorem O.3' (if gcd(M,2X) <= 16 then no dyadic window holds (xi, tau_1 xi, tau_k xi) with k >= 2, with NO hypothesis on M) verified independently. Its identity M(rho^2-1) = 4ka(k-rho), rho = B_k/M, holds with 0 violations in exact Fraction arithmetic over 1455 multipliers with k >= 2. Its rho bound rho < sqrt(9/8) = 1.06066 holds with 0 violations under the hypothesis r_k^2 < 2 (n=73, rho max 1.057143), and FAILS under the hypothesis as originally stated, r_k < 2 (n=277, rho reaching 1.237522, 193 violations).",
+      "experiment": "in-session regeneration of all multipliers from the Pell condition; Note L, 'Theorem O.3-prime removes the hypothesis on M'",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The theorem is sound; the prose naming its hypothesis was not. r_k^2 < 2 is the correct window condition because the modulus ratio is tau^2 not tau -- settled three ways: close_pairs' docstring, the positive control (observed = tau_1^2, median rel err 1.7e-5, see tau-squared-law-exact-on-realised-close-pairs), and (53,423125) at observed 1.70000 vs r_12^2 = 1.70066. And r_k^2 < 2 is algebraically identical to the note's own derived constant M > 4 sqrt2 k sqrt(ab), picking out the same 73 multipliers, whereas r_k < 2 gives only M > (8/3) k sqrt(ab) (measured min 2.66829 vs 8/3 = 2.66667). Cost of the correction is reach: 73 of 1455 rather than 277. Consequence: a window holding three needs r_1 r_k < sqrt(2), so both sessions' withdrawn candidate lists were generous by that factor. Test case reproduces exactly: (53,423125) has c = 2 at m=10 and c = 12 at m=17, both <= 16, so O.3' permits the two observed moduli and forbids a third."
     }
   ]
 }
