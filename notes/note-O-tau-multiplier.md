@@ -3054,6 +3054,24 @@ the point: **the field's answer to exactly this kind of question is linear forms
 in logarithms**, which is neither a congruence nor a size argument, and which
 this note has never attempted.
 
+**⚠ And do not over-read the transfer.** Dujella's Lemmas 2–3 intersect **two**
+Pellian equations, because he extends a *triple* {a,b,c} by d, giving his (4) and
+(5). Note O's configuration is a cofactor **pair** with one equation and three
+solutions in a window, so the two-recurrence intersection has no analogue here.
+What would transfer is the **gap principle** — and this note already has one,
+O.4's τ_min⁴. The literature's are absolute (c > 4ab); O.4's is a ratio, and O.2
+is open precisely where a ratio bound goes weak, at large u where τ_min → 1. So
+the transfer is genuinely uncertain, and this section must not be read as "the
+tools exist, just apply them".
+
+**What was confirmed by reading it** (22pp, via pymupdf — the fetcher could not
+parse the PDF): the elimination gives a z² − c x² = a − c, the same shape as
+A Y² − B X² = M; the solution classes come from **Nagell Theorem 108a**, the same
+Nagell this note tried and recorded as "running the wrong way"; and Lemma 2 works
+**modulo 2c**, twice the larger element, where this note tested congruences
+modulo M = b − a and found none. Different moduli — **mod 2b was never tried
+here.**
+
 ⚠ **STATUS.** The identification and the two worked examples are verified here.
 The literature statements are from abstracts and search results, **not from the
 papers read in full**, and must be treated as `inferred` until someone reads
