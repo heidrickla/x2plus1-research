@@ -206,6 +206,25 @@ ingredient lines up and **occupancy alone forbids the triple**. That is why all
 eight recorded routes fail: each tries to rule out something the residues, the
 geometry and the multiplier existence all permit. Pinned by a test.
 
+**O.2 is self-dual.** A cofactor pair sharing a modulus and a modulus pair shared
+by a cofactor satisfy *the same conic with the roles swapped*, so "at most two
+moduli per window for a fixed cofactor pair" and "at most two cofactors per
+window for a fixed modulus pair" are one theorem — measured max 2 both ways at
+X = 5000. That also dissolves an apparent tension: K_{s,2} is unbounded (six
+cofactors share {10, 17}, infinitely many do) precisely because those cofactors
+are 1, 53, 423125, … with ratios 53 and 7983, so **no window holds two of them**.
+Unbounded totals and a bounded window count are one structure at two scales.
+Structurally the rational graph is unbounded in K_{2,s} *and* in K_{s,2} but has
+**no K₃,₃** — the row-merging thickens each side separately and neither jointly.
+That buys nothing via Kővári–Sós–Turán (the bound is 2–4 orders loose here);
+freeness matters only through the Gram structure, never through edge counts.
+
+**The literature side is closed.** Every load-bearing quotation has been read in
+its paragraph, not just its clause — DFI (300 dpi) and Li on one side,
+Ford–Maynard, Merikoski, Teräväinen, Maynard's well-factorable, ASP and
+Granville–Shao on the other. Eight findings, of which **three strengthened a
+claim rather than correcting one**. The remaining risk is not in the citations.
+
 **Eight routes on O.2's general case are closed with reasons** (Note O). The two
 that most look worth retrying and are not: **there is no residue obstruction at
 all** — the exact four linear conditions plus the conic are simultaneously
