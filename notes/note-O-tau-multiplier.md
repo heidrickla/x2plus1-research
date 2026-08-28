@@ -397,10 +397,28 @@ The class of the trivial solution (a+b, 2) jumps straight past every small V. So
 > **every k ≥ 2 multiplier is the fundamental solution of its own class**,
 
 and the general case of O.2 reduces to a bound on how small the fundamental
-solutions of U² − DV² = M² can be — a Nagell-type question about a specific
-Pell-with-square-right-hand-side, not about x²+1 at all. That is a well-posed
-question in a studied area, which is a better place to leave it than the
-factor of 3.91.
+solutions of U² − DV² = M² can be.
+
+**And that is the wrong way round from the standard theory, which is worth
+saying plainly because the first version of this paragraph got it backwards.**
+Nagell's bound is an *upper* bound: a class representative can be normalised to
+√N ≤ ξ ≤ √(Nε₁), whence with N = M²
+
+> V = (ξ − N/ξ)/(2√D) ≤ M(√ε₁ − 1/√ε₁)/(2√D).
+
+That says a fundamental solution's V cannot be *large*. The general case of O.2
+needs the opposite — that V cannot be *small* for any class other than the
+trivial one — and no such bound is standard, because in general it is false:
+distinct classes can have small fundamental solutions, which is exactly what the
+k = 12, 33, 91 multipliers are.
+
+So the reduction is real but it does **not** land in a solved area. The honest
+statement is that the general case turns on a lower bound for non-trivial
+fundamental solutions of U² − DV² = M², that no such bound is available off the
+shelf, and that the measured factor of 3.91 is currently the only evidence it
+holds at all. Whether that factor is stable or decaying with the box is the
+question that decides whether a theorem is there to find, and it is being
+measured rather than assumed.
 
 *Caveat, stated because it is the only thing keeping this from being a flat
 refutation:* the 110 triples live in wide windows (ratio ≥ 13), not dyadic ones.
