@@ -221,6 +221,28 @@ So it is worth measuring what the absolute values cost. Against the signed sum
 | [10⁴, 10⁵) | 8 348 | 53 408 | −460 | **0.009** | 815 |
 | [10⁵, 10⁶) | 68 784 | 138 889 | +525 | **0.004** | 738 |
 
+**Measured across M as well as at one band, which is what the claim needs.** The
+table above fixes X and varies the band; the ratio it reports is one number.
+Sweeping M over a factor of 1024 at X = 10⁶:
+
+| M | signed | S_abs | signed/S_abs | \|signed\|/√T |
+|---:|---:|---:|---:|---:|
+| 512 | −337 | 3 505 | 0.096 | 0.59 |
+| 2 048 | 588 | 6 942 | 0.085 | 1.02 |
+| 8 192 | −22 | 13 308 | 0.002 | 0.04 |
+| 32 768 | −750 | 26 438 | 0.028 | 1.30 |
+| 131 072 | 127 | 50 915 | 0.002 | 0.22 |
+| 524 288 | −497 | 97 875 | 0.005 | 0.86 |
+
+with T flat at 3.3×10⁵ = 0.33·X throughout. **The signed sum has full
+square-root cancellation relative to the incidence count, uniformly in M** —
+|signed|/√T is O(1) at every band, and its fluctuation between 0.04 and 1.30 is
+what a random-sign sum of that size does. Meanwhile S_abs grows 28-fold.
+
+So the ratio is not a constant 2%: it **decays as M grows**, 0.096 → 0.005. The
+absolute value costs more the further into the Type II range one goes — which is
+the direction that matters, since [ASP]'s (B1) wants M large.
+
 > **The signed sum is under 2% of the absolute-value sum, and is itself below
 > √(terms).** So the signed side already cancels better than square-root, while
 > the absolute-value side does not cancel at all beyond the per-progression

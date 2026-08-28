@@ -1241,6 +1241,16 @@
         "type_ii"
       ],
       "notes": "Measured with exp16's sieve, which is cross-checked against sympy value by value. Scopes the sentence in Note M that the trivial bound 'has never been beaten by any amount, at any level, signed or absolute': that is about what is PROVED, and this is about what is TRUE. The estimate the repo needs at theta = 0 is not merely plausible but visibly correct, and the whole difficulty is that nobody can prove it -- which is a materially different position from a sequence that misbehaves. A reader taking the proof statement for a truth statement would conclude the opposite. Does NOT bear on chowla-for-x2plus1-is-open, which remains open: two decades of data is not an asymptotic, and this is exactly the extrapolation the `rigorous_finite` versus `extrapolated` distinction exists to prevent -- so no law is fitted here and none should be."
+    },
+    {
+      "id": "signed-sum-has-square-root-cancellation-uniformly-in-M",
+      "status": "rigorous_finite",
+      "statement": "At X = 1e6, the SIGNED Type II sum sum_x mu(x^2+1) d_M(x) is -337, 588, -22, -750, 127, -497 over M = 512, 2048, 8192, 32768, 131072, 524288 -- a factor of 1024 in M -- giving |signed|/sqrt(T) = 0.59, 1.02, 0.04, 1.30, 0.22, 0.86, all O(1), with T essentially constant at 3.3e5 = 0.33 X. Over the same bands S_abs grows 3505 -> 97875, so signed/S_abs falls 0.096 -> 0.005.",
+      "experiment": "experiments/exp16_m_exponent.py",
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Quantifies difficulty-is-the-absolute-values across a factor of 1024 in M, where that claim rested on a single 2% ratio at one band. The signed sum has FULL square-root cancellation relative to the incidence count, uniformly in M; the absolute-value sum has only the sqrt(X/M) saving and grows like sqrt(MX)/(log M)^{1/4}. So the ratio between them is not a constant 2% but a quantity that DECAYS as M grows -- the absolute value costs more the further into the Type II range one goes, which is the direction that matters since ASP's (B1) wants M large. T constant at 0.33 X independently reproduces saving-law-measured-through-theta-half's 0.331 X at a different X. The fluctuation of |signed|/sqrt(T) between 0.04 and 1.30 is what a random-sign sum of that size does and is not evidence of structure."
     }
   ]
 }
