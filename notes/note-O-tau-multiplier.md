@@ -850,6 +850,28 @@ gives
 - Since 2M + δ_p + 4pa > 2M, the identity gives the exact bound
   **δ_p < 2ap(p−1)** for p ≥ 2.
 
+**Two small lemmas the identity gives in the window regime**, both proved from it
+and both verified over the 50 strictly in-window multipliers with k ≥ 2 in
+a < 60, b < 80000:
+
+- **Distinct in-window multipliers never share a δ.** If δ_p = δ_q, subtracting
+  the two identities gives δ(p−q) = M(p−q)(p+q−1), so δ = M(p+q−1) ≥ 2M — against
+  δ < 0.06066M. *(0 same-δ pairs observed.)*
+- **δ_p is pinned to within 8% of 2ap(p−1).** The window gives
+  4pa/M < (1/√2)√(a/b) ≤ 0.121 and δ_p/M < 0.06066, so the identity's denominator
+  2M + δ_p + 4pa is under 2.182M and
+
+  > **0.917 · 2ap(p−1) < δ_p < 2ap(p−1).**
+
+  *(Measured 0.9655 … 0.9929; minimiser (29, 9605) at k = 3, where δ/M = 0.0351
+  and 4ka/M = 0.0363 against the bounds 0.06066 and 0.121.)*
+
+  A first check reported a minimum of 0.8000, apparently violating the bound. The
+  filter was `k ≤ M/(4√2√D) + 2`, whose "+2" admits multipliers just *outside* the
+  window, where the derivation does not apply. Same shape as everything else
+  today — a correct computation over the wrong population — this time in a check
+  written to test a bound derived minutes earlier.
+
 And it recovers O.3′'s constant from an independent route: the geometry gives
 ρ_p < 1.06066, i.e. δ_p < 0.06066M; then d_p = gcd(δ_p, M) ≤ δ_p < 0.06066M, so
 **M/d_p > 16.48, i.e. ≥ 17** — the same 17 as the integer-in-(c, 1.06066c)
