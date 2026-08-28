@@ -394,7 +394,11 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   below, one level down — and the aggravating factor is that *a plausible
   explanation for the anomaly is what stops you checking the implausible one*.
   Verify by grepping HEAD for the new text, not by trusting the script or the
-  git output. (A related near-miss: a two-branch `replace` here would have
+  git output. **And one edit per block**: a script with two `replace` calls
+  whose first raises dies before the second, prints only the second's success
+  line, and reads as a full success. That happened here — the anchor an earlier
+  commit of mine had moved — and the resulting commit message described a
+  correction that never applied, while the registry recorded it as done. (A related near-miss: a two-branch `replace` here would have
   written a literal `PLACEHOLDER` into `claims.json` had its first branch
   matched. It did not, so the result was correct by luck. `tools/` has no guard
   for this; the sweep for `PLACEHOLDER`, duplicated sentences and unbalanced
