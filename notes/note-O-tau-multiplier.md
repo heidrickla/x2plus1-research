@@ -1272,6 +1272,28 @@ footnote's quantity is doubly dyadic, and there O.12 forces max G ≤ 1:
 > the informative-subset caveat that claim already carries, now binding on the
 > one value that mattered.
 
+> ### ⚠ The "mean ≥ 1" line is this repo's paraphrase, not Ford–Maynard's
+>
+> Checked at source (arXiv:2407.14368v1, footnote 2, p. 7): the footnote asks for
+> **"an error term better than O(1)"** on #{n : nm₁, nm₂ ∈ J}, averaged over
+> m₁, m₂ ∼ x^{1−2c+ε}. It says nothing about a mean exceeding one. So the table
+> above is evidence about *how often the count is 1*, **not** about a threshold
+> being crossed, and it should not be read as defeating the barrier.
+>
+> **And the real requirement makes the result stronger, not weaker.** Note F has
+> had the correct reading since it was written: the count is 0 or 1, so the error
+> term **is** O(1) and no averaging can improve it. That is pointwise, and it is
+> immune to the objection that would sink a mean argument ("your band holds two
+> cofactors"). **Theorem O.12 is that statement, now proved over Z**: on the
+> doubly-dyadic configuration the footnote's counting function is a **0/1
+> indicator**, over Z as well as over Z[i] — and "better than O(1)" for a 0/1
+> integer means knowing it exactly.
+>
+> *(Found by asking whether the number in our claim is the number in their paper —
+> the same "why do these two agree" question that caught the Plücker constant,
+> aimed at a citation rather than a derivation. Paraphrases drift in the direction
+> that makes the local argument work.)*
+
 > **What it does not close.** The bridge's remaining content is the *inference*
 > "both give no main term, so the conclusion is unchanged". That step is
 > untouched; O.12 removes the quantitative discrepancy and the finite floor, not

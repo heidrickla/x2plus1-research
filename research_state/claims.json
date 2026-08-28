@@ -1843,7 +1843,7 @@
     {
       "id": "fm-barrier-mean-at-most-one-when-both-bands-apply",
       "status": "rigorous_finite",
-      "statement": "Ford-Maynard's footnote-2 quantity is doubly dyadic -- (II) bands n as well as m -- and there Theorem O.12 forces max G <= 1, hence mean G <= 1. At X = 12000 over N = 8, 16, 32, 64, 128 the recorded moduli-unrestricted means 2.0000, 1.3333, 0.8095, 0.5769, 0.3152 (reproduced exactly) become 1.0000, 0.6667, 0.4762, 0.4103, 0.2319 with max 1 throughout. So on the configuration (II) quantifies over the mean NEVER exceeds 1, and the only band attaining 1 contains two cofactors, i.e. a single pair.",
+      "statement": "On Ford-Maynard's footnote-2 configuration -- (II) bands n as well as m -- Theorem O.12 makes #{n : n m_1, n m_2 in J} a 0/1 INDICATOR over Z, not merely bounded. The footnote (arXiv:2407.14368v1 p.7) asks for that count with 'an error term better than O(1)' on average over m_1, m_2 ~ x^{1-2c+eps}; for a 0/1 integer that means knowing it exactly. Note F's reading -- the count is 0 or 1, so the error term IS O(1) and no averaging can improve it -- is therefore now available over Z and not only over Z[i]. Measured at X = 12000, mean G over N = 8, 16, 32, 64, 128 falls from the moduli-unrestricted 2.0000, 1.3333, 0.8095, 0.5769, 0.3152 to 1.0000, 0.6667, 0.4762, 0.4103, 0.2319 with max 1 throughout.",
       "experiment": "experiments/exp24_doubly_dyadic.py",
       "depends_on": [
         "theorem-O12-doubly-dyadic-c4-free"
@@ -1853,7 +1853,7 @@
         "gram",
         "note_o"
       ],
-      "notes": "REFINES fm-barrier-range-is-small-moduli rather than refuting it: that claim's numbers are correct for the moduli-unrestricted graph and are reproduced here to four places. What changes is which configuration they describe. Its conclusion 'the mean is >= 1 for eps <~ 0.18' holds for the free-modulus reading and NOT for the doubly-banded one, where the cap is structural. And the one value still reaching 1 is a mean over a single pair, which is exactly the informative-subset caution that claim already carries -- now binding on the value that mattered. The max <= 1 half is proved (O.12), not measured; the means are the finite part."
+      "notes": "THE 'MEAN >= 1' LINE IS THIS REPO'S PARAPHRASE, NOT THE FOOTNOTE'S. Checked at source by the parallel session: the footnote is a condition on the ERROR TERM, and says nothing about a mean exceeding one. So the means below are evidence about how often the count is 1, NOT about a threshold being crossed, and this claim must not be read as defeating the barrier. The real requirement makes the result stronger: pointwise 0/1 is immune to the objection that would sink a mean argument (that a band may hold only two cofactors). REFINES fm-barrier-range-is-small-moduli rather than refuting it: that claim's numbers are correct for the moduli-unrestricted graph and are reproduced here to four places. What changes is which configuration they describe. Its conclusion 'the mean is >= 1 for eps <~ 0.18' holds for the free-modulus reading and NOT for the doubly-banded one, where the cap is structural. And the one value still reaching 1 is a mean over a single pair, which is exactly the informative-subset caution that claim already carries -- now binding on the value that mattered. The max <= 1 half is proved (O.12), not measured; the means are the finite part."
     }
   ]
 }
