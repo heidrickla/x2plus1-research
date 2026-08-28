@@ -649,6 +649,15 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   the base rate said so. **Three faces of one error in one night** — wrong
   denominator, missing direction of travel, absent base rate — and each time the
   number was correct and the inference drawn from it was not.
+  **A high hit rate from an audit is the signal to check the audit.** Three
+  instances the same night, and in all three the *audit* was what was broken: an
+  orphan-claim sweep at 27 of 28 (id-citation is not the convention — base rate
+  20%); a missing-floor audit at 11 of 34 whose regex could not parse
+  `assert len(x) > N`, which is how the floors it was hunting are written
+  (corrected count: **0**); and the other session's own floor audit at 27 of 40,
+  covered by module-level `assert PAIRS` guards it did not model. A detector that
+  fires on a third of its population is describing itself. **The one real hole was
+  found by reading a test, not by any of the three sweeps.**
 
 - **When a recorded number does not reproduce, read the paragraph it sits in
   before looking for a bug.** Note M's squarefree densities did not match a fresh
