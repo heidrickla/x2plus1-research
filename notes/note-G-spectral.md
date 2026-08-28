@@ -143,7 +143,14 @@ DFI record what would be *plausible* and what they *achieve*:
 Two gaps in one line. The saving is M^{−1/20} against a conjectured M^{−1/2} —
 a factor of ten in the exponent — and, more importantly, **both are signed
 bounds**. [`exp07`](../experiments/exp07_absolute_values.py) measures that for
-this sequence the signed sum is under 2% of the absolute-value sum, so the
+this sequence the signed sum is under 2% of the absolute-value sum — **and that
+figure is a single band, understating the shortfall everywhere the sieve
+actually needs it.** Swept over a factor 1024 in M at X = 10⁶ the ratio *decays*,
+0.096 → 0.005, while S_abs grows 28-fold; the signed sum meanwhile keeps full
+square-root cancellation relative to the incidence count, |signed|/√T = O(1)
+uniformly, swinging 0.04–1.30 exactly as a random-sign sum of that size does. So
+the absolute value costs **more** the further into the Type II range one goes,
+and (B1) wants M large. The
 entire difficulty lives in a norm neither the achieved nor the plausible bound
 addresses.
 
