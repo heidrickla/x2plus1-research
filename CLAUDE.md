@@ -78,15 +78,33 @@ of a delta is 1 − o(1), so the conclusion is *information-free*. O identifies 
 multiplier τ = (√b+√a)/(√b−√a) behind the close-pair structure and proves it
 cannot act twice on one element. **The general "no window holds three" is NOT
 proved** — it was claimed unconditionally and retracted; the window Gram bound
-stays O_ε(N^ε). Three things to know before reopening it. The ideal-theoretic
-route is **closed, not merely incomplete**: it needs Q̄ and Q̄″ coprime, and over
-the only regime where that is observable (triples in *wide* windows) coprimality
-holds in 5 of 65 cases — it is the exception. The only unconditional constraint
-on a triple is the Plücker–parity one, **M/√D ≥ 11.484** against 5.657 for a
-pair, and its virtue is that it contains no ideal theory. And the empirical
-support is **31 informative classes**, not the 278,939 above threshold — a class
-is silent unless it has three shared moduli at all, so "verified over hundreds of
-thousands" would be true and misleading.
+stays O_ε(N^ε).
+
+**Theorem O.3 is the real result there.** A multiplier with |V| = 2k exists iff
+a² + (4k²−2)ab + b² is a perfect square — at k = 1 that is (a+b)², a square
+*identically*, which is why the trivial multiplier always exists and why |V| = 2
+dominates. A triple needs a **second** multiplier, since V = ±2 forces
+U = ±(a+b) uniquely. Mod M we have b ≡ a, so in S = X+Y, T = X−Y the automorph
+diagonalises with **unit** eigenvalues — hence each integrality condition holds
+for a whole orbit or none. τ₁ acting is exactly M | S; then τ_k forces
+M | 2B_k with B_k = U_k − 2ka, so M = 8ka(2k−j)/(j²−4) for j = 2B_k/M ≥ 3, and
+the geometry r_k < 2 needs M > 2√2·k√(ab). Together those give
+e² + 4jwe + 2w²(2e−1) < 0 with every term positive. **So for M odd squarefree no
+window holds (ξ, τ₁ξ, τ_kξ).** Divisibility wants M small, geometry wants it
+large; 199 configurations satisfy one and 0 the other, and vice versa for 95.
+
+**O.2 — no window holds three, at all — is still open**, and the gap is p, q ≥ 2
+where the M = M₁M₂ factorisation is not forced. Measured there: 274 two-multiplier
+pairs, 0 fitting a window, the binding ratio q/(√(b/a)/4√2) never below **3.91**
+when it must be under 1. A factor of four, not a contradiction.
+
+Two dead ends worth not repeating. The ideal route (Q̄, Q̄″ coprime) is **closed**:
+coprimality holds in 5 of 65 cases where it can be observed. And there is **no
+local obstruction** — all 95 candidates are satisfiable mod M — so O.2 is not a
+congruence statement. Finally, the empirical support for O.2 is **31 informative
+classes** at X = 4000 (208 at X = 60000), not the 278,939 above threshold: a
+class is silent unless it has three shared moduli at all, so "verified over
+hundreds of thousands" would be true and misleading.
 
 **Two closures, both negative and both durable.** The well-factorable route is
 dead: every theorem in the BFI line buys its level by giving up the absolute
