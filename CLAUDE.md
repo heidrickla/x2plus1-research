@@ -3,6 +3,35 @@
 Research repo, not a product. The output is *notes* — code exists to keep the
 notes honest.
 
+## Where things stand
+
+*This section is the compaction fallback. `tools/session_primer.py` prints a
+live version of it via a SessionStart/compact hook, but that hook only binds in
+sessions that start with `.claude/settings.json` already present — so this file,
+which is always loaded, carries the same state by hand. Keep it current; a stale
+version here is worse than none.*
+
+**The obstruction is Type II, and it is Note F's C₄-free lemma**: for
+A = {x+i}, G(n₁,n₂) = #{m : mn₁, mn₂ ∈ A} ≤ 1, so a bilinear form with
+arbitrary bounded coefficients admits no cancellation at any split. That is a
+theorem about the sequence and survives any change of sieve.
+
+**Note J** reduces the Type II input to a Bombieri–Vinogradov statement for
+μ(x²+1) in arithmetic progressions, and then measures that **the whole
+difficulty is in the absolute values** — the signed sum is under 2% of the
+absolute-value sum, and |·| per modulus *is* the arbitrary coefficient. Notes F
+and J describe one obstruction from two sides.
+
+**Position against the literature** (all read at source): ASP needs D > x^{2/3}
+and this sequence caps at x^{1/2}; DFI's Theorem S is normalised to x and is
+*vacuous* on a sequence of mass x^{1/2}; Ford–Maynard place x²+1 at γ = 1/2 − ε,
+inside the regime their results kill, with C⁻ = 0 already following from Selberg
+once ν = 0. C⁻ = 0 is about **what these axioms can prove**, never about whether
+x²+1 is prime infinitely often — do not conflate them.
+
+Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
+`python -m pytest -q` before trusting any measurement.
+
 ## Non-negotiables
 
 - **Normalisation.** Q (or N) = norm bound; X = √Q = range of x; |A| = X.
