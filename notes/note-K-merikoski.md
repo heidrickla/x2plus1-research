@@ -129,7 +129,94 @@ there is no nearby line with more room, and the escape has to leave the family
 entirely. Machine-checked in `test_every_single_line_is_c4_free_and_has_kappa_one`
 and `test_two_lines_always_admit_a_four_cycle`.
 
-### The same family refutes the Z[i] → Z transfer, at c = 6
+### And two points are enough — so κ does not see it even at the threshold
+
+The A_B family ties κ to the line count, so nothing measured *inside* it can
+separate the two conditions. Step outside by two elements:
+
+> A = {x+i : x ≤ X} ∪ {2+2i, 4+2i},  κ = (X+2)²/(X²+1)
+
+κ = **1.000004** at X = 10⁶, against **0.999999** for the bare line — the same
+number to five places — and
+
+> **(1+i)(4+2i) = 2+6i = (2+i)(2+2i)**
+
+so it is not C₄-free. **O(1) elements flip C₄-freeness at fixed κ.** The
+threshold coincidence above is therefore a fact about the parameterisation, and
+"κ is sharp at the threshold" should be read as *κ is not violated there*, never
+as *κ locates it*.
+
+**What this does not show.** It is about the binary property. One 4-cycle moves
+max G from 1 to 2 and leaves mean G at O(1/X), and [this note's own refuted
+classifier](#mean-g-separates-them-where-κ-does-not--refuted-by-the-test-built-to-confirm-it)
+plus Note L's mean-G work both say the mean is the load-bearing statistic and the
+max is not. So the Type II obstruction — a statement about the whole graph — is
+untouched. The tempting stronger reading, "κ is blind to the obstruction", is the
+same over-reach that already put two claims in the registry as `refuted`, and is
+not made here.
+
+### The conjecture was testing the wrong object, and the right one answers it
+
+The question "how insufficient is κ?" has an answer, and it is a power of X —
+just not on the axis the conjecture looked at. κ and C₄-freeness are properties
+of the *graph*, and they fire at |B| = 2. What a *method* needs is a different
+quantity entirely, and Merikoski's other paper states it. From
+[arXiv:2302.11331v3](https://arxiv.org/abs/2302.11331) (Compositio Math. **161**
+(2025), 181–243):
+
+> **Theorem 1.2.** There is some (computable) δ > 0 such that the following
+> holds for any small η > 0. For all sufficiently large X and for all
+> B ⊆ [ηX^{1/2}, (1−η)X^{1/2}] ∩ ℤ with **|B| ≥ X^{1/2−δ}** we have for any
+> ε > 0, Σ_{p = a²+b² ≤ X} 1_B(b) ≫_ε X^{1/2−ε}|B|.
+
+So B must be within X^δ of the *entire* available range, and Merikoski notes
+this is the first unconditional power saving in the density of B at all —
+before it, Fouvry–Iwaniec needed density (log X)^{−C}. Putting the two axes
+side by side, with κ = |B|²:
+
+| | |B| | κ |
+|---|---|---|
+| κ > 1, and 4-cycles appear | **2** | 4 |
+| best available method (Merikoski Thm 1.2) | **X^{1/2−δ}** | X^{1−2δ} |
+| x² + 1 | 1 | 1 |
+
+> **κ > 1 is satisfied a full power of X before any method applies.** That is
+> the quantitative content of "necessary, not sufficient", and it is a statement
+> about methods rather than about the incidence graph — which is exactly where
+> the refuted conjecture went wrong: it tested the graph and the graph was
+> innocent.
+
+Merikoski also states the repo's own position in his first paragraph — "A key
+motivating question is Landau's fourth problem, which asks if there are
+infinitely many prime numbers of the form n²+1. **This is far beyond the current
+methods as the set is very sparse** – the number of integers up to X of this
+form is of order X^{1/2}" — and gives Li's record exactly: the sparsest
+polynomial sequence with primes has size **X^{43/67+ε}** (43/67 = 0.641791…,
+which is the 0.6418 this repo had been carrying).
+
+**And C₄-freeness is arithmetic, not a density constraint.** For a C₄-free
+bipartite graph, Σ_n C(d_n, 2) ≤ C(R, 2). Measured at Q = 10⁶:
+
+| window | x²+1 (col-side ratio) | a²+b⁴ |
+|---|---:|---:|
+| [16, 64) | 0.048 | **29.0** |
+| [64, 256) | 0.016 | **7.71** |
+| [256, 1024) | 0.005 | **1.95** |
+
+x²+1 sits 20× to 400× *below* the ceiling C₄-freeness imposes, so the lemma is
+nowhere near binding as an edge count — the graph is far sparser than it would
+have to be. a²+b⁴ exceeds 1, as it must, which is the control that the measure
+detects the difference at all. The cycles that appear at |B| = 2 are created by
+arithmetic, not by density, which is exactly why a density statistic like κ
+cannot see where they start.
+
+## The line family and the discriminant axis
+
+*Four results that are not about κ at all. They belong here because they
+grew out of the line result above, and they end by locating x²+1 inside a
+one-parameter family rather than leaving it an isolated special case.*
+
+### The family refutes the Z[i] → Z transfer, at c = 6
 
 A_c is C₄-free over Z[i] for **every** c. Over **Z**, on the doubly-dyadic
 configuration where Theorem O.12 proves C₄-freeness at c = 1, the property holds
@@ -272,89 +359,32 @@ set would look completely different.
 > is at its tightest — which is why those conclusions hold there and essentially
 > nowhere else.** The twelve theorems are not weakened by this. They are located.
 
+**And the located version is sharper than "x²+1 is the tight end", because the
+argument reaches further than one value.** Run O.12 with the M·D invariant:
+s = √(ab)/(M·D) = √u/((u−1)D), so τ(V)² < 3 reads V·s < 1/√3 and **a banded pair
+in one window requires (u−1)·D/√u > V·√3** — against a band's
+(u−1)/√u < 1/√2. So **D ≤ V·√6 makes the condition unsatisfiable**:
+
+| input | bound | covers |
+|---|---|---|
+| \|V\| ≥ 1, unconditional | D ≤ √6 = 2.4495 | **D = 1, 2** |
+| \|V\| ≥ 2, from evenness | D ≤ 2√6 = 4.8990 | **D = 1, 2, 3, 4** |
+
+At D = 2 the arithmetic is 1.41421 < 1.73205 — a 22% margin, not a near miss. V
+is even for every D measured (0 odd out of 15,084 pairs across D = 1…6 at
+X = 2500), though that is *proved* only for D = 1.
+
+**The two regimes differ in kind, and that is the point.** For D ≥ 5 the bound is
+merely *satisfiable* and larger X eventually supplies a class meeting it —
+D = 35 fell at X = 2500, D = 20 at X = 4000. For D ≤ 4 no cofactor class can
+satisfy it at all, so no amount of X helps. A conjecture that "every D > 1
+eventually fails" was filed here and is **refuted at D = 2** for exactly that
+reason: it rested on counting classes, which describes the first regime and has
+no purchase on the second.
+
 Machine-checked in
 `test_the_whole_note_O_apparatus_generalises_with_M_replaced_by_M_times_D`.
 
-### And two points are enough — so κ does not see it even at the threshold
-
-The A_B family ties κ to the line count, so nothing measured *inside* it can
-separate the two conditions. Step outside by two elements:
-
-> A = {x+i : x ≤ X} ∪ {2+2i, 4+2i},  κ = (X+2)²/(X²+1)
-
-κ = **1.000004** at X = 10⁶, against **0.999999** for the bare line — the same
-number to five places — and
-
-> **(1+i)(4+2i) = 2+6i = (2+i)(2+2i)**
-
-so it is not C₄-free. **O(1) elements flip C₄-freeness at fixed κ.** The
-threshold coincidence above is therefore a fact about the parameterisation, and
-"κ is sharp at the threshold" should be read as *κ is not violated there*, never
-as *κ locates it*.
-
-**What this does not show.** It is about the binary property. One 4-cycle moves
-max G from 1 to 2 and leaves mean G at O(1/X), and [this note's own refuted
-classifier](#mean-g-separates-them-where-κ-does-not--refuted-by-the-test-built-to-confirm-it)
-plus Note L's mean-G work both say the mean is the load-bearing statistic and the
-max is not. So the Type II obstruction — a statement about the whole graph — is
-untouched. The tempting stronger reading, "κ is blind to the obstruction", is the
-same over-reach that already put two claims in the registry as `refuted`, and is
-not made here.
-
-### The conjecture was testing the wrong object, and the right one answers it
-
-The question "how insufficient is κ?" has an answer, and it is a power of X —
-just not on the axis the conjecture looked at. κ and C₄-freeness are properties
-of the *graph*, and they fire at |B| = 2. What a *method* needs is a different
-quantity entirely, and Merikoski's other paper states it. From
-[arXiv:2302.11331v3](https://arxiv.org/abs/2302.11331) (Compositio Math. **161**
-(2025), 181–243):
-
-> **Theorem 1.2.** There is some (computable) δ > 0 such that the following
-> holds for any small η > 0. For all sufficiently large X and for all
-> B ⊆ [ηX^{1/2}, (1−η)X^{1/2}] ∩ ℤ with **|B| ≥ X^{1/2−δ}** we have for any
-> ε > 0, Σ_{p = a²+b² ≤ X} 1_B(b) ≫_ε X^{1/2−ε}|B|.
-
-So B must be within X^δ of the *entire* available range, and Merikoski notes
-this is the first unconditional power saving in the density of B at all —
-before it, Fouvry–Iwaniec needed density (log X)^{−C}. Putting the two axes
-side by side, with κ = |B|²:
-
-| | |B| | κ |
-|---|---|---|
-| κ > 1, and 4-cycles appear | **2** | 4 |
-| best available method (Merikoski Thm 1.2) | **X^{1/2−δ}** | X^{1−2δ} |
-| x² + 1 | 1 | 1 |
-
-> **κ > 1 is satisfied a full power of X before any method applies.** That is
-> the quantitative content of "necessary, not sufficient", and it is a statement
-> about methods rather than about the incidence graph — which is exactly where
-> the refuted conjecture went wrong: it tested the graph and the graph was
-> innocent.
-
-Merikoski also states the repo's own position in his first paragraph — "A key
-motivating question is Landau's fourth problem, which asks if there are
-infinitely many prime numbers of the form n²+1. **This is far beyond the current
-methods as the set is very sparse** – the number of integers up to X of this
-form is of order X^{1/2}" — and gives Li's record exactly: the sparsest
-polynomial sequence with primes has size **X^{43/67+ε}** (43/67 = 0.641791…,
-which is the 0.6418 this repo had been carrying).
-
-**And C₄-freeness is arithmetic, not a density constraint.** For a C₄-free
-bipartite graph, Σ_n C(d_n, 2) ≤ C(R, 2). Measured at Q = 10⁶:
-
-| window | x²+1 (col-side ratio) | a²+b⁴ |
-|---|---:|---:|
-| [16, 64) | 0.048 | **29.0** |
-| [64, 256) | 0.016 | **7.71** |
-| [256, 1024) | 0.005 | **1.95** |
-
-x²+1 sits 20× to 400× *below* the ceiling C₄-freeness imposes, so the lemma is
-nowhere near binding as an edge count — the graph is far sparser than it would
-have to be. a²+b⁴ exceeds 1, as it must, which is the control that the measure
-detects the difference at all. The cycles that appear at |B| = 2 are created by
-arithmetic, not by density, which is exactly why a density statistic like κ
-cannot see where they start.
 
 ## ~~Mean G separates them where κ does not~~ — refuted by the test built to confirm it
 
