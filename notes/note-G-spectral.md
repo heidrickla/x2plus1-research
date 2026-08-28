@@ -159,10 +159,22 @@ statement that DFI's parity-breaking input does not exist here.
 > minimum itself falls with X, so the obstruction strengthens as the problem
 > grows.
 >
-> **The U is structural, not descriptive: its two arms are controlled by
-> different variables.** The left arm scales with **N/X**, the right with
-> **N/X²** — the tail values 0.345, 0.514, 0.891 recur at both X = 3000 and
-> X = 6000, shifted by the factor 4 between their X². So at N ≪ X the cofactors
+> **The U is structural, not descriptive — but only one arm has a clean scaling
+> variable, and it is not the one first reported.** The **right** arm collapses
+> under **N/X²**, verified across two X to three or four digits:
+>
+> | N/X² | X = 3000 | X = 6000 |
+> |---:|---:|---:|
+> | 0.0146 | 0.09041 | 0.09041 |
+> | 0.0583 | 0.23767 | 0.23830 |
+> | 0.2331 | 0.51416 | 0.51446 |
+>
+> The **left** arm does **not** collapse under N/X — at N/X = 0.34 it is 0.0466
+> against 0.0296 — and it is not a function of N alone either: at fixed N it
+> *grows* about 11% per doubling of X (ratios 1.111, 1.105, 1.191, 1.215 at
+> N = 256 … 2048). So it depends on both, and **no scaling variable is claimed
+> for it.** An earlier version of this paragraph asserted N/X; that was checked
+> and is false. So at N ≪ X the cofactors
 > are small, each carries many moduli, and pairs collide; at N ≫ X the moduli are
 > few and tiny and every pair shares them; the balanced split is where both sides
 > are maximally spread. That is *why* the minimum sits there rather than
