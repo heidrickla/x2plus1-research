@@ -615,6 +615,32 @@ it means a result on either side is no longer obviously irrelevant to the other.
   out reading Question F as "an estimate someone could plausibly supply", which
   earlier drafts came close to doing, and it says where the difficulty sits
   relative to the rest of the subject.
+- *The Chowla sum shows clean square-root cancellation — is the θ → 0 endpoint
+  therefore nearly proved?* No, and the two facts should never be quoted
+  together without this sentence. |S|/√X ∈ [0.21, 1.34] over two decades says
+  the estimate is **true**; it says nothing about provability, and the gap
+  between them is the whole subject. A reader who takes the measurement as
+  progress toward the proof has the situation exactly backwards: it is *because*
+  the truth is not in doubt that the difficulty is purely one of method.
+- *Does the 0.7% agreement validate the Cauchy–Schwarz reduction?* It validates
+  the **decomposition**, given four measured constants. It does not make the
+  reduction a route — §5 settles that separately, and negatively, since
+  OFF = o(DIAG) is Chowla. Quantitative accuracy in a chain whose last link is
+  an open problem is not progress on the open problem, and the temptation to
+  read it that way is exactly why §5 says "do not quote as progress" in as many
+  words.
+- *The saving at θ = 1/2 is 2.41, not 1 — does the axis still vanish there?* The
+  **exponent** vanishes; that is what Q^{(1/2−θ)/2} = Q⁰ means and it is the only
+  thing the argument uses. The constant 2.41 is not a saving in any sense a
+  sieve can spend, and reading "no saving" as S = T is wrong by a factor of two
+  and a half in the other direction. Both misreadings are available from one
+  sentence, which is why the section states the exponent and the constant apart.
+- *Which grouping does the sieve actually need, and does the note commit?* Per
+  **modulus** — [ASP]'s (B) puts one absolute value per rational m, spanning
+  every root. The note commits, and it matters: the two groupings have different
+  exponents (0.4803 against 0.5046) and the per-progression one, which has four
+  decades behind it, is **not** the quantity (B) asks for. Any future use of
+  exp05's range must carry that.
 - *Both new sources were located by a parallel session.* Both were then fetched
   and read here before being quoted; neither is recorded on the strength of the
   other session's report.
