@@ -108,9 +108,12 @@ whether x² + 1 is prime infinitely often.
   γ(d) = 2ρ(d)/d, c = 4, G(z) ≍ log z, and an error that is o(|A|/log Q) once D
   exceeds z by exp(C(log log Q)²) — quasi-polynomial in log, not a power. So the
   machinery genuinely reaches a sequence of mass Q^{1/2}. But Lemma 2 requires
-  **D > z**, and Note B caps D at o(Q^{1/2}), so z = o(Q^{1/2}) — which sieves
-  only to **P₂, i.e. Iwaniec 1978**. It reproduces the record and stops, and what
-  stops it is the hypothesis ordering, not anything bilinear.
+  **D > z**, and Note B caps D at o(Q^{1/2}), so z = o(Q^{1/2}) — so at no
+  admissible parameter choice can it distinguish a prime from a product of two
+  primes. **Its ceiling is P₂**, which is where the subject stands, and what
+  puts it there is the hypothesis ordering, not anything bilinear. Lemma 2 is an
+  identity, not a lower bound, so this is a *coinciding ceiling* and not a
+  re-derivation of Iwaniec 1978.
 - **DFI's equidistribution theorem is about this repo's residues.** It covers
   aX²+2bX+c with ac−b² > 0, so ν²+1 ≡ 0 (mod p) is literally the case, and
   their Weyl sum ρ_h(n) is the sum over the r_d of [Note A](notes/note-A-dictionary.md).
@@ -168,6 +171,34 @@ the repo's derived invariant and the paper's stated hypothesis. In the window
 (S_μ/A(x) = 0.93, 1.00, 1.01), which corrects the earlier reading in
 [Note H](notes/note-H-numerical-pilot.md).
 
+### Three things that came out right without being aimed at
+
+A repo that only produces obstructions is hard to trust. These are the checks
+that the apparatus returns known answers where it should, and none was
+engineered:
+
+1. **The degree ladder recovers Dirichlet.** α = 1/d and κ = X^{2−d} give κ > 1
+   only at d = 1, which is primes in arithmetic progressions — solved, and the
+   only single-variable degree with bilinear structure. A classification that
+   did not return the solved case there would be evidence against itself.
+   [Note L](notes/note-L-over-Z.md).
+2. **DFI's Lemma 2 is capped exactly at the known record.** Instantiated at
+   X = |A| it applies cleanly, and its own hypothesis ordering D > z against
+   Note B's ceiling forces z = o(Q^{1/2}) — so at no admissible parameter choice
+   can it distinguish a prime from a product of two primes. Its ceiling is P₂,
+   and P₂ is where the subject stands (Iwaniec 1978). Lemma 2 is an identity,
+   not a lower bound, so this is a coinciding ceiling and **not** a re-derivation
+   — worth exactly that much. [Note C](notes/note-C-requirements.md).
+3. **Lemma 2's two output objects are the repo's two notes.** Its special
+   bilinear forms (32) are [Note J](notes/note-J-mobius-in-progressions.md)'s
+   object and its general forms (33) are
+   [Note F](notes/note-F-failure-localisation.md)'s. The DFI apparatus
+   decomposes along the seam the repo had already found.
+
+A fourth, from the other direction: Ford–Maynard's footnote 2 (p. 7) names
+Note F's counting function as the barrier, in their own words, having been
+derived here from the Gaussian structure rather than read out of a paper.
+
 ### It was never about x² + 1
 
 For A = {f(x) : x ≤ X} with deg f = d, the norm bound is Q ≍ X^d and |A| = X, so
@@ -222,8 +253,10 @@ The column that separates every solved case from this one is ν.
   shows the difficulty is entirely in the absolute values, so what is needed is
   Σ_d |Σ_m ρ_h(dm)| — precisely the shape Note F obstructs. Whether a
   well-factorable decomposition can reach it is the live question.
-- Iwaniec 1978 is second-hand (paywalled); BFI I–III and *Opera de Cribro*
-  Ch. 24–25 unobtained.
+- Iwaniec 1978's **statement** is now sourced from Pintz's survey (§19); its
+  **method** is still second-hand. Lemke Oliver, *Acta Arith.* **151** (2012),
+  241–261 is the refereed generalisation and is unread. BFI I–III and *Opera de
+  Cribro* Ch. 24–25 unobtained.
 - [Note G](notes/note-G-spectral.md) is still marked a skeleton, though its
   premise has been corrected: DFI's method *is* spectral and does reach these
   residues without dispersion — it just lands on Proposition 1, i.e. the signed

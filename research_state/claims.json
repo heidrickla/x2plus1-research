@@ -179,9 +179,10 @@
     },
     {
       "id": "iwaniec-1978-P2",
-      "status": "inferred",
+      "status": "quoted",
       "statement": "Iwaniec (1978) proved that irreducible an^2+bn+c with a>0 and c odd takes P_2 values infinitely often, via a lower-bound weighted sieve; this remains the record for x^2+1.",
-      "notes": "The original is paywalled; statement taken from an MSc exposition (arXiv:1910.02885), so it is second-hand and classed accordingly."
+      "notes": "Upgraded from `inferred` to `quoted`: a refereed survey stating the theorem is a better source than the MSc essay the repo had been relying on. The STATEMENT is now sourced; the METHOD remains second-hand until Iwaniec's original (paywalled) or Lemke Oliver, Acta Arith. 151 (2012) 241-261 is read. Pintz also gives the degree-uniform hierarchy: p(f) <= 4 deg f - 1 (Rademacher 1924), 3 deg f - 1 (Ricci 1936), deg f + c log deg f (Kuhn), deg f + 1 (Bukhstab 1967).",
+      "citation": "Pintz, 'Landau's problems on primes', J. Theor. Nombres Bordeaux 21 (2009), 357-404, section 19: 'Theorem (Iwaniec (1978)). If deg f = 2 and f(0) is odd, then p(f) <= 2. Corollary. n^2+1 = P_2 infinitely often.'"
     },
     {
       "id": "typeI-poisson-in-b",
@@ -711,7 +712,7 @@
     {
       "id": "dfi-lemma2-reaches-P2-and-stops",
       "status": "quoted",
-      "statement": "DFI Lemma 2 (p.436) instantiated at X = |A| = Q^{1/2}: (27) holds with gamma(d) = 2 rho(d)/d, (29) with c = 4, and G(z) = prod_{p<z}(1+gamma(p)) ~ log z (one power). Its error X G(z)^2 (2^{-log(D/z)/log w} + c K^{-1} log y) is o(|A|/log Q) once D >= z exp(C (log log Q)^2) and w >= (log Q)^4 -- quasi-polynomial in log Q, not a power, so Lemma 2 costs essentially nothing in level. But it requires D > z ('3 <= K <= w < y < z < D'), and Note B caps D at o(Q^{1/2}); hence z = o(Q^{1/2}), which sieves A only to the P_2 regime. Prime detection needs z ~ Q^{1/2}, i.e. D > Q^{1/2}, which Note B forbids.",
+      "statement": "DFI Lemma 2 (p.436) instantiated at X = |A| = Q^{1/2}: (27) holds with gamma(d) = 2 rho(d)/d, (29) with c = 4, and G(z) = prod_{p<z}(1+gamma(p)) ~ log z (one power). Its error X G(z)^2 (2^{-log(D/z)/log w} + c K^{-1} log y) is o(|A|/log Q) once D >= z exp(C (log log Q)^2) and w >= (log Q)^4 -- quasi-polynomial in log Q, not a power, so Lemma 2 costs essentially nothing in level. But it requires D > z ('3 <= K <= w < y < z < D'), and Note B caps D at o(Q^{1/2}); hence z = o(Q^{1/2}). So Lemma 2's REACH IS CAPPED AT P_2: at no admissible parameter choice can the quantity it computes distinguish a prime from a product of two primes. Prime detection needs z ~ Q^{1/2}, i.e. D > Q^{1/2}, which Note B forbids.",
       "citation": "Duke-Friedlander-Iwaniec, Ann. of Math. 141 (1995), Lemma 2 p.436, hypotheses (27) and (29) p.435; bilinear forms (32),(33) p.436",
       "depends_on": [
         "dfi-lemma2-is-scale-free",
@@ -721,7 +722,20 @@
         "type_i",
         "type_ii"
       ],
-      "notes": "Closes the standing 'not yet done' item. The answer is NOT that Lemma 2 fails to apply -- it applies cleanly with explicit constants and genuinely reaches a sequence of mass Q^{1/2}, which is what scale-free cashes out to. It reproduces Iwaniec 1978's P_2 and stops, and the constraint that stops it arrives through Lemma 2's own hypothesis ordering D > z rather than through anything bilinear. What is left is its output: the special bilinear forms (32), which are Note J's object, and the general ones (33), which are Note F's."
+      "notes": "Closes the standing 'not yet done' item. The answer is NOT that Lemma 2 fails to apply -- it applies cleanly with explicit constants and genuinely reaches a sequence of mass Q^{1/2}, which is what scale-free cashes out to. CAREFUL: Lemma 2 is an identity with an error term, not a lower bound, so it does NOT re-derive Iwaniec's P_2 and this repo does not claim to. What the instantiation gives is a CEILING, and the constraint producing it is Note B's Type I bound arriving through the hypothesis ordering D > z rather than through anything bilinear. That the ceiling coincides with the actual record is worth exactly as much as a coinciding ceiling. What is left is Lemma 2's output: the special bilinear forms (32), Note J's object, and the general forms (33), Note F's."
+    },
+    {
+      "id": "primes-unknown-every-degree-almost-primes-known",
+      "status": "quoted",
+      "statement": "'There is no single non-linear polynomial for which we would know the answer for Schinzel's conjecture, even for k = 1. However, if primes are substituted by almost primes, then Schinzel's conjecture is true in case of k = 1 for an arbitrary polynomial f.' So: primes unknown for EVERY degree >= 2, almost-primes known for every degree -- the degree-uniform phenomenon that Note L's degree ladder supplies a mechanism for.",
+      "citation": "Pintz, 'Landau's problems on primes', J. Theor. Nombres Bordeaux 21 (2009), p.5; hierarchy at section 19",
+      "depends_on": [
+        "degree-determines-degeneracy"
+      ],
+      "tags": [
+        "ledger"
+      ],
+      "notes": "Pintz states the phenomenon degree-uniformly and states no mechanism. Note L supplies a mechanism (alpha = 1/d, kappa = X^{2-d}, no Ford-Maynard triple for d >= 2) and no phenomenon. Neither substitutes for the other, and the ladder should not be described as explaining Pintz's sentence -- it is consistent with it, which is weaker."
     }
   ]
 }

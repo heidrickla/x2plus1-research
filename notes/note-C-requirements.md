@@ -470,19 +470,53 @@ caps the Type I level at D = o(|A|) = o(Q^{1/2}). Therefore
 > **z < D = o(Q^{1/2}).**
 
 Sieving A to level z = Q^{1/2−ε} leaves elements of norm ≤ Q with no prime
-factor below Q^{1/2−ε}, hence with at most two prime factors — **P₂, which is
-Iwaniec 1978.** Prime detection needs z ≍ Q^{1/2}, which needs D > Q^{1/2},
-which Note B forbids.
+factor below Q^{1/2−ε}, hence with at most two prime factors. Prime detection
+needs z ≍ Q^{1/2}, which needs D > Q^{1/2}, which Note B forbids.
 
-So the answer to the standing question is not that Lemma 2 fails to apply. It
-applies, cleanly, with explicit constants, and **it reproduces the record and
-stops there** — the binding constraint reaching it is Note B's ceiling, arriving
-through the hypothesis D > z rather than through anything bilinear. Everything
-past that point is in Lemma 2's own output: the special bilinear forms (32)
-Σ_{d<D} λ_d Σ_m c_{dm} and the general ones (33)
+> **So Lemma 2's reach is capped at P₂: at no admissible parameter choice can
+> the quantity it computes distinguish a prime from a product of two primes.**
+
+**Stated carefully, because the obvious stronger version is false.** Lemma 2 is
+an *identity with an error term*, not a lower bound. It does not by itself prove
+P₂ — that is Iwaniec 1978, by other means — and this note does not re-derive it.
+What the instantiation gives is a **ceiling**: the best conclusion available
+through Lemma 2 at this density is P₂, and the constraint producing that ceiling
+is Note B's Type I bound arriving through the hypothesis ordering D > z, not
+through anything bilinear.
+
+That the ceiling coincides with the actual record is the check worth having, and
+it is worth exactly as much as a coinciding ceiling — no more.
+
+Everything past that point is in Lemma 2's own output: the special bilinear forms
+(32) Σ_{d<D} λ_d Σ_m c_{dm} and the general ones (33)
 Σ_{w<n<y} β_n Σ_{(m,n)=1} α_m c_{mn}. **(33) is the object of
 [Note F](note-F-failure-localisation.md), and (32) is the object of
 [Note J](note-J-mobius-in-progressions.md).**
+
+**And the record is now sourced.** Pintz's survey, *Landau's problems on primes*,
+J. Théor. Nombres Bordeaux **21** (2009), §19, states it as a theorem:
+
+> "**Theorem (Iwaniec (1978)).** If deg f = 2 and f(0) is odd, then p(f) ≤ 2.
+> **Corollary.** n² + 1 = P₂ infinitely often."
+
+where p(f) is the least r with f representing P_r infinitely often. That
+replaces this repo's reliance on an MSc essay for the *statement*; the *method*
+remains second-hand until the original or Lemme Oliver is read.
+
+Pintz also gives the hierarchy degree-uniformly — p(f) ≤ 4 deg f − 1
+(Rademacher 1924), 3 deg f − 1 (Ricci 1936), deg f + c log deg f (Kuhn), and
+**deg f + 1 (Bukhstab 1967)** — and states the phenomenon
+[Note L](note-L-over-Z.md) explains, on p. 5:
+
+> "There is no single non-linear polynomial for which we would know the answer
+> for Schinzel's conjecture, even for k = 1. However, if primes are substituted
+> by almost primes, then Schinzel's conjecture is true in case of k = 1 for an
+> arbitrary polynomial f."
+
+Primes unknown for every degree ≥ 2; almost-primes known for every degree.
+That is the degree-uniform *phenomenon*; Note L supplies a degree-uniform
+*mechanism* for it. Neither is a substitute for the other, and Pintz states no
+mechanism.
 
 Computed rather than argued: `x2plus1.exponents.dfi_lemma2_sieving_level`.
 

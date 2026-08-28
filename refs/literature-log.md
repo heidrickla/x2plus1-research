@@ -160,6 +160,22 @@ here? **No.** Recording it so the question is not re-opened from headlines.
   there are no Kloosterman sums here to bound. Logged as adjacent, not
   applicable, and **unread** — if that is ever leaned on, read them first.
 
+### 2026-08-27 (sixth pass) — Pintz read, and one of my own claims corrected
+
+- **[Pintz]** *Landau's problems on primes*, J. Théor. Nombres Bordeaux **21**
+  (2009), 357–404 — **read** (§19, p. 5). Use
+  [users.renyi.hu/~pintz/pjapr.pdf](https://users.renyi.hu/~pintz/pjapr.pdf);
+  the bare `renyi.hu` path returns HTML and numdam times out. It sources the
+  record — "Theorem (Iwaniec (1978)). If deg f = 2 and f(0) is odd, then
+  p(f) ≤ 2" — from a refereed survey rather than an MSc essay, and gives the
+  degree-uniform almost-prime hierarchy up to Bukhstab's p(f) ≤ deg f + 1.
+- **A correction to this session's own work.** Reading Pintz made clear that
+  the claim "DFI's Lemma 2 re-derives the known record", committed an hour
+  earlier, was an overclaim. Lemma 2 is an identity with an error term, not a
+  lower bound; what the instantiation gives is a *ceiling* of P₂, and that the
+  ceiling coincides with the record is worth exactly as much as a coinciding
+  ceiling. Corrected in Note C, the README, and the registry entry.
+
 ### Still not done
 
 - Reading the three unread arXiv items above, Green–Sawhney first.

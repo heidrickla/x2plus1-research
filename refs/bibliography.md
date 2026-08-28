@@ -88,9 +88,22 @@ either has an analogue over Z[i].
 18. **"The polynomials X²+(Y²+1)² and X²+(Y³+Z³)² also capture their primes"**,
     [arXiv:2112.03617](https://arxiv.org/abs/2112.03617). Note the inner
     y² + 1; α is still 3/4. Unread.
-19. **Pintz**, "Landau's problems on primes" — survey,
-    [renyi.hu](https://www.renyi.hu/~pintz/pjapr.pdf). Not read; the obvious
-    place to check the state of the art on all four problems at once.
+19. **Pintz**, "Landau's problems on primes", *J. Théor. Nombres Bordeaux*
+    **21** (2009), 357–404 — survey. **Read** (§19 and p. 5), from
+    [users.renyi.hu/~pintz/pjapr.pdf](https://users.renyi.hu/~pintz/pjapr.pdf)
+    (note `users.`; the bare `renyi.hu` path returns HTML, and numdam times
+    out). Load-bearing: §19 states **"Theorem (Iwaniec (1978)). If deg f = 2
+    and f(0) is odd, then p(f) ≤ 2. Corollary. n²+1 = P₂ infinitely often."** —
+    which sources the record from a refereed survey instead of an MSc essay.
+    Also the degree-uniform hierarchy p(f) ≤ 4 deg f − 1 (Rademacher 1924),
+    3 deg f − 1 (Ricci 1936), deg f + c log deg f (Kuhn), **deg f + 1
+    (Bukhstab 1967)**; Hooley's P(n²+1) > n^{1.1} and Deshouillers–Iwaniec's
+    n^{1.202468…}; and the Hardy–Littlewood asymptotic (19.6). On p. 5:
+    "There is no single non-linear polynomial for which we would know the
+    answer for Schinzel's conjecture, even for k = 1. However, if primes are
+    substituted by almost primes, then Schinzel's conjecture is true in case of
+    k = 1 for an arbitrary polynomial f." That is the degree-uniform
+    phenomenon [Note L](../notes/note-L-over-Z.md) gives a mechanism for.
 
 ## Read during verification (2026-08-27)
 
