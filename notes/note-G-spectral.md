@@ -174,7 +174,20 @@ statement that DFI's parity-breaking input does not exist here.
 > *grows* about 11% per doubling of X (ratios 1.111, 1.105, 1.191, 1.215 at
 > N = 256 … 2048). So it depends on both, and **no scaling variable is claimed
 > for it.** An earlier version of this paragraph asserted N/X; that was checked
-> and is false. So at N ≪ X the cofactors
+> and is false.
+>
+> **The left arm's X-dependence does have an explanation, even without a law.**
+> G(n₁,n₂) counts shared moduli *up to X*, and Prop L.1 gives at most one per
+> class per ε² step — so for a fixed pair the count grows like log X, and the mean
+> at fixed N grows with it. Measured it grows slightly faster: the observed ratios
+> are flat at 1.111 and 1.115 across X = 3000 → 6000 → 12000 while the
+> corresponding log-ratios *decrease* (1.087, 1.080). **Two doublings cannot
+> separate log X from a small power, and this decay has already defeated three
+> proposed laws — 1/N, (log X)/N, and N/X — so neither is claimed.** The values
+> reproduce exactly between two independent constructions every time; the laws
+> never do. That is itself the finding: **this quantity is reproducible and
+> unparameterised**, and the reflex to name its shape has cost four corrections in
+> one night. So at N ≪ X the cofactors
 > are small, each carries many moduli, and pairs collide; at N ≫ X the moduli are
 > few and tiny and every pair shares them; the balanced split is where both sides
 > are maximally spread. That is *why* the minimum sits there rather than
