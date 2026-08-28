@@ -53,6 +53,8 @@ by Green–Sawhney, so re-argue rather than obey.
 
 ## Rules
 
+Evidence for each: `notes/note-P-method.md`.
+
 ### Inference
 
 - A result much better than the problem is hard: attack it before using it.

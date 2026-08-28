@@ -1066,8 +1066,8 @@ odd non-squarefree 39, even non-squarefree 216.)*
 >
 > *(The parallel session made this move an hour after establishing the two-term
 > form, and caught it only because the conclusion 3ab < b − a is false by
-> inspection. A slightly weaker over-reach would have shipped. Recorded here, not
-> only in CLAUDE.md, because Note O is where someone works on O.2.)*
+> inspection. A slightly weaker over-reach would have shipped. Recorded here, and in
+> `note-P-method.md`; CLAUDE.md now carries only the one-line rule.)*
 
 
 **The sign was the e = 1 shadow of this.** At v_p(M) = 1, s and t lie in {0,1}
