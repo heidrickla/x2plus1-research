@@ -134,3 +134,51 @@ def main(amax=3000, xmax=20_000_000):
 if __name__ == "__main__":
     main(int(sys.argv[1]) if len(sys.argv) > 1 else 3000,
          int(sys.argv[2]) if len(sys.argv) > 2 else 20_000_000)
+
+
+def o15_coverage(sizes=(3000, 6000)):
+    """How much of the LIVE population does O.15's threshold remove?
+
+    O.15: a windowed triple needs u > 82.5571 (117.4171 if a, b both odd).  The
+    question is what that excludes, and the answer depends entirely on the
+    denominator -- which is the trap this repo records most often.
+
+      all unit-free classes            millions; a coverage figure over these is
+                                       meaningless, since almost none can host a
+                                       triple at all
+      >= 3 shared moduli ANYWHERE      the informative population: a class with
+                                       fewer cannot hold three in a window
+      2 in one window                  the near-miss population
+
+    Reported with the direction of travel, because a reach that FALLS with X is a
+    different object from one that is flat, and this one falls.
+    """
+    from x2plus1.polyseq import ratio_classes
+
+    def win(ms):
+        ms = sorted(ms)
+        return max((sum(1 for q in ms if p <= q < 2 * p) for p in ms), default=0)
+
+    print("  O.15 threshold u > 82.5571 (unconditional branch)")
+    print(f"  {'X':>6} {'all':>10} {'>=3 moduli':>11} {'excluded':>10}"
+          f" {'2 in window':>12} {'excluded':>10}")
+    for X in sizes:
+        cls = ratio_classes(X)
+        tot = three = three_hi = two = two_hi = 0
+        for (a, b), ms in cls.items():
+            if a == 1:                     # unit cofactor: no Type II hypothesis admits it
+                continue
+            tot += 1
+            u = b / a
+            if len(ms) >= 3:
+                three += 1
+                three_hi += u > 82.5571
+            if win(ms) >= 2:
+                two += 1
+                two_hi += u > 82.5571
+        e3 = f"{100*(three-three_hi)/three:.0f}%" if three else "-"
+        e2 = f"{100*(two-two_hi)/two:.0f}%" if two else "-"
+        print(f"  {X:>6} {tot:>10} {three:>11} {e3:>10} {two:>12} {e2:>10}")
+    print("  The informative reach FALLS with X (88% -> 70%), so no claim is made")
+    print("  about its limit.  Quoting the figure over all classes instead would")
+    print("  give ~99% and mean nothing.")

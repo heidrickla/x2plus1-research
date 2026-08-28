@@ -2388,6 +2388,21 @@
         "gram"
       ],
       "notes": "Values cross-checked by bisection and by an independent symbolic solve, both to four decimals; the (2,2) row reproduces O.4's 53.6942 and 133.8748, which checks that the composite formula is the one those results use. NECESSARY, not sufficient, and it does not touch O.2: nothing here forbids a triple above 117.4171, which is where the conjecture lives. What it does is remove the range O.14 had to enumerate -- every candidate O.14 found sits below 53.6942 and is now excluded twice over, by the threshold and by V = 1 being impossible."
+    },
+    {
+      "id": "O15-coverage-over-the-informative-population",
+      "status": "rigorous_finite",
+      "statement": "O.15's threshold u > 82.5571 removes 88% of the informative population at X = 3000 and 70% at X = 6000. THE DENOMINATOR IS THE POINT: the informative population is unit-free classes with at least three shared moduli ANYWHERE, since a class with fewer cannot hold three in a window -- 16 classes at X = 3000 and 30 at X = 6000, of which 2 and 9 have u > 82.5571. On the near-miss population (2 shared moduli in one window) it removes 43% of 275 and 40% of 593. Over all unit-free classes -- 1,810,256 and 7,256,966 -- the figure would be ~99% and would mean nothing. No class at either size holds three moduli in a window. THE REACH FALLS WITH X on both populations, 88% to 70% and 43% to 40%, so no claim is made about its limit.",
+      "experiment": "experiments/exp26_triple_branch.py",
+      "depends_on": [
+        "O15-triple-threshold-rises-with-distinct-multipliers"
+      ],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "The threshold is BINDING rather than vacuous: the median u among realised windowed 4-cycles is 95.46 at X = 3000 and 107.79 at X = 6000, so 82.5571 cuts through the middle of the live distribution rather than sitting below or above it. Recorded with its direction of travel because this repo has twice quoted a coverage figure without one, and a falling reach is a different object from a flat one. The 16 and 30 are the unit-free counts; including a = 1 gives 60 at X = 3000, which is the figure the notes carry elsewhere."
     }
   ]
 }
