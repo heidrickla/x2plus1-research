@@ -219,8 +219,44 @@ reformulation claimed:
 
 The proper-class spacing explains at most one modulus per proper class; the
 improper pairing explains a second; **nothing explains the absence of a third.**
-That is the one place in this note where a measurement might still become a
-theorem, and neither session has it.
+
+### The absence of a third is a gap, not a scarcity
+
+Three moduli in one window is exactly m_{i+2}/m_i < 2, so the statistic to look
+at is the *two-step* ratio. Over every ratio class:
+
+| X | classes with ≥2 m | with ≥3 m | min m_{i+1}/m_i | min m_{i+2}/m_i |
+|---:|---:|---:|---:|---:|
+| 1 500 | 1 025 | 55 | 1.0783 | **13.0000** |
+| 3 000 | 2 014 | 74 | 1.0547 | **13.0000** |
+| 5 000 | 3 319 | 109 | 1.0412 | **13.0000** |
+
+Consecutive ratios get arbitrarily tight — 1.041 at X = 5000, and falling — while
+the two-step minimum sits at **exactly 13** and does not move as the triple count
+doubles. The threshold for a violation is 2. That is a margin of 6.5, stable.
+
+**And the lower tail is a cluster, not an approach.** The nine smallest two-step
+ratios at X = 5000 are
+
+> 13.00, 14.50, 14.80, 14.90, 15.16, 16.40, 17.06, 17.55, 18.02
+
+and then the next is **32.5**. Nothing in (18.02, 32.5); nothing below 13; median
+819. So there is a floor with a cluster resting on it, which is the shape a
+theorem makes, not the shape chance makes. Both sessions independently reached a
+probability model predicting that three-in-a-window should be merely improbable;
+a gap pinned at 13.0000 across a doubling of the triple count is not improbability.
+
+**Every one of the twenty smallest two-step ratios has a = 1.** That is
+n₁ = d and n₂ = db — *one cofactor divides the other*. The b values are 85, 533,
+901, 65, 5, 325, 365, 1450, 2465: all products of primes ≡ 1 (mod 4), as
+admissibility forces. So whatever bounds the two-step ratio from below is a
+statement about the conic **y² − b x² = b − 1**, and the extremal case is
+(a, b) = (1, 85) with x = 1, 4, 5 — which is not three near-coincident solutions
+at all, but a tight pair (m = 17, 26, ratio 1.53) plus a distant third (m = 2).
+
+That is the reduction worth attacking: a **gap principle** separating distinct
+proper classes of a fixed binary quadratic form. Neither session has the
+citation, and the measurement stands on its own until one turns up.
 
 **Dickson's side condition does not recover it.** The condition that would force
 the class bound to 2 is |a−b| odd with at most one odd prime factor. Of the
