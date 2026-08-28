@@ -47,6 +47,28 @@ saving ≈ **2.3·√(X/M)**, with a constant the repo did not have. And **above
 boundary the ratio departs** — 2.53, 3.09, 4.01 — so √(X/M) genuinely stops
 applying at θ = 1/2 rather than degrading through it.
 
+**And [Note L](note-L-over-Z.md)'s Gram-mean minimum is at the same place, which
+neither note observes.** Note L measures mean G over cofactor bands as U-shaped
+with its minimum at **N = 1.37 X**, from a divisor-built incidence table — an
+entirely different computation from the μ sums here. Converting to this note's
+coordinate: with m·n = Q ≍ X², a cofactor N = 1.37X is a modulus m = Q/N, so
+
+| X | 3000 | 6000 | 10⁵ | 10⁶ |
+|---|---:|---:|---:|---:|
+| θ at the Gram minimum | 0.48034 | 0.48191 | 0.48633 | 0.48861 |
+
+rising to **1/2** — exactly where the saving Q^{(1/2−θ)/2} vanishes.
+
+> **The scale where no cancellation is available is the scale where there are
+> fewest edges to cancel over.**
+
+The mechanism is not mysterious and should be stated: both are governed by the
+balanced split m = n = √Q, where the saving exponent vanishes *by construction*
+and the Gram U-shape bottoms for structural reasons. What is worth recording is
+that the two were measured by completely different routes and land together. The
+convergence is **from below** and still 0.4886 at X = 10⁶, so the coincidence is
+asymptotic rather than exact at any measured size.
+
 **One precision the numbers force.** "Exactly zero at θ = 1/2" is about the
 *power*, and is correct: Q^{(1/2−θ)/2} = Q⁰. It does **not** mean S_μ reaches the
 trivial bound there — at M = X the measured saving is **2.41**, a constant factor,
