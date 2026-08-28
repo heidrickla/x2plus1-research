@@ -561,3 +561,44 @@ def test_two_lines_always_admit_a_four_cycle():
             if found:
                 break
         assert found, (c1, c2)
+
+
+def test_two_points_destroy_c4_freeness_without_moving_kappa():
+    """kappa cannot see C4-freeness even AT the threshold Note K called sharp.
+
+    Adjoin exactly two Gaussian integers to the line: A = {x+i : x <= X} u
+    {2+2i, 4+2i}. Then kappa = (X+2)^2/(X^2+1) -> 1, indistinguishable from the
+    pure line, while
+
+        (1+i)(4+2i) = 2+6i = (2+i)(2+2i)
+
+    is a 4-cycle. So the A_B family's coincidence of thresholds is a property of
+    that PARAMETERISATION, not of kappa: O(1) elements flip C4-freeness at fixed
+    kappa.
+
+    Stated narrowly on purpose. This shows kappa cannot see the BINARY property.
+    It does not show kappa fails to track the QUANTITY of 4-cycles -- one cycle
+    moves max G from 1 to 2 and leaves mean G at O(1/X), and this repo's own
+    measurements say mean G is the load-bearing statistic, not max G. The
+    refinement is to Note K's "must not be demoted on these grounds", not to the
+    Type II obstruction, which is about the whole graph.
+    """
+    from x2plus1.gaussian import UNITS, mul
+
+    assert mul((1, 1), (4, 2)) == (2, 6) == mul((2, 1), (2, 2))
+    for X in (10**3, 10**4, 10**5):
+        Q = X * X + 1
+        kappa = (X + 2) ** 2 / Q
+        assert 1.0 < kappa < 1.0 + 5.0 / X          # -> 1, as for the bare line
+        assert abs(kappa - X * X / Q) < 5.0 / X     # and indistinguishable from it
+    A = [(x, 1) for x in range(1, 200)] + [(2, 2), (4, 2)]
+    seen: dict[tuple[int, int], tuple[int, int]] = {}
+    cycles = 0
+    for i, z in enumerate(A):
+        for j in range(i, len(A)):
+            pr = mul(z, A[j])
+            for u in UNITS:
+                if seen.get(mul(u, pr), (i, j)) != (i, j):
+                    cycles += 1
+            seen[pr] = (i, j)
+    assert cycles > 0

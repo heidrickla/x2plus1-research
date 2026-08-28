@@ -128,6 +128,32 @@ there is no nearby line with more room, and the escape has to leave the family
 entirely. Machine-checked in `test_every_single_line_is_c4_free_and_has_kappa_one`
 and `test_two_lines_always_admit_a_four_cycle`.
 
+### And two points are enough — so κ does not see it even at the threshold
+
+The A_B family ties κ to the line count, so nothing measured *inside* it can
+separate the two conditions. Step outside by two elements:
+
+> A = {x+i : x ≤ X} ∪ {2+2i, 4+2i},  κ = (X+2)²/(X²+1)
+
+κ = **1.000004** at X = 10⁶, against **0.999999** for the bare line — the same
+number to five places — and
+
+> **(1+i)(4+2i) = 2+6i = (2+i)(2+2i)**
+
+so it is not C₄-free. **O(1) elements flip C₄-freeness at fixed κ.** The
+threshold coincidence above is therefore a fact about the parameterisation, and
+"κ is sharp at the threshold" should be read as *κ is not violated there*, never
+as *κ locates it*.
+
+**What this does not show.** It is about the binary property. One 4-cycle moves
+max G from 1 to 2 and leaves mean G at O(1/X), and [this note's own refuted
+classifier](#mean-g-separates-them-where-κ-does-not--refuted-by-the-test-built-to-confirm-it)
+plus Note L's mean-G work both say the mean is the load-bearing statistic and the
+max is not. So the Type II obstruction — a statement about the whole graph — is
+untouched. The tempting stronger reading, "κ is blind to the obstruction", is the
+same over-reach that already put two claims in the registry as `refuted`, and is
+not made here.
+
 ### The conjecture was testing the wrong object, and the right one answers it
 
 The question "how insufficient is κ?" has an answer, and it is a power of X —

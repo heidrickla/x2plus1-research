@@ -1489,6 +1489,19 @@
         "gram"
       ],
       "notes": "THE HYPOTHESIS IS SHARP AND THE ESCAPE IS OBSERVED. M nmid V is all the proof needs, and every realised M-odd-prime class holding three moduli has M | V on its two-step: (2,13) M=11 V=110; (2,5) M=3 V=18; (2,25) M=23 V=322. Those triples sit at ratios of 1e4 and up, which is how |V| gets past 0.57735 M/sqrt(D). Over all pairs with M odd prime at X = 6000, 454 of 459 flip the subcase and ALL 5 that do not have M | V. Verified at X = 6000: identity 0 failures over 4033 pairs; in-window bound 0 failures over 751 pairs with max |V|sqrt(D)/M = 0.3529; M | V occurs 0 times in-window; dichotomy and flip 0 failures over 90 in-window M-odd-prime pairs. THE FACTOR a IN THE IDENTITY IS LOAD-BEARING and I dropped it first -- 3389 of 4033 pairs failed until it was restored, and with it the bound comes out with no a at all. WHAT REMAINS OPEN IS M COMPOSITE: the dichotomy and the sign both use primality, since U^2 == (Va)^2 gives only M | A_V B_V in general and the signs can differ across the factorisation -- the same 2-adic gap O.3 had. M odd prime is 54 of the 379 realised close pairs (14%), so this is a real slice."
+    },
+    {
+      "id": "kappa-cannot-see-c4-freeness-even-at-the-threshold",
+      "status": "proved",
+      "statement": "Adjoining exactly two Gaussian integers to the line destroys C4-freeness without moving kappa. For A = {x+i : x <= X} u {2+2i, 4+2i}, kappa = (X+2)^2/(X^2+1) -> 1 -- 1.000004 at X = 1e6, indistinguishable from the bare line's 0.999999 -- while (1+i)(4+2i) = 2+6i = (2+i)(2+2i) is a 4-cycle. So the coincidence of thresholds in Note K's A_B family is a property of that parameterisation, not of kappa: O(1) elements flip C4-freeness at fixed kappa.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "kappa-counts-lines-and-c4-freeness-permits-one"
+      ],
+      "tags": [],
+      "notes": "STATED NARROWLY ON PURPOSE, and the narrowing is the honest part. This shows kappa cannot see the BINARY property C4-free/not. It does NOT show kappa fails to track the QUANTITY of 4-cycles: one cycle moves max G from 1 to 2 and leaves mean G at O(1/X), and this repo's own measurements (mean-G-does-not-classify, gram-mean-is-minimal-at-the-balanced-split) say mean G is the load-bearing statistic and max G is not. So this refines Note K's 'must not be demoted on these grounds' -- it supplies other grounds -- and leaves the Type II obstruction untouched, which is a statement about the whole graph. Recorded this way because the tempting version, 'kappa is blind to the obstruction', would be the same over-reading that put two claims in this registry as refuted.",
+      "proof_site": "notes/note-K-merikoski.md; tests/test_arithmetic_facts.py::test_two_points_destroy_c4_freeness_without_moving_kappa",
+      "superseded_by": ""
     }
   ]
 }
