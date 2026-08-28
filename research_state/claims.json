@@ -2100,7 +2100,7 @@
     {
       "id": "O2-reduces-to-43-classes-at-X-3000",
       "status": "rigorous_finite",
-      "statement": "A triple needs a class admitting at least TWO in-window multipliers -- indices k with M^2 + 4k^2 D a perfect square and tau_k^2 < 2 -- and at X = 3000 only 43 of 1,815,155 classes do. The distribution is 1,503,796 admitting none, 311,316 admitting one, 43 admitting two, none admitting three. Of the 43, FORTY have exactly one realised modulus and THREE have exactly two; none has three, so no chain is realised. The three are (1,423125) with k = 1,91 and moduli 10,17; (1,51701) with k = 1,33 and moduli 82,145; (53,423125) with k = 1,12 and moduli 10,17 -- exactly the live non-fundamental close pairs identified independently much earlier by exp14.",
+      "statement": "A triple needs a class admitting at least TWO in-window multipliers -- indices k with M^2 + 4k^2 D a perfect square and tau_k^2 < 2 -- and at X = 3000 only 43 of 1,815,155 classes do. The distribution is 1,503,796 admitting none, 311,316 admitting one, 43 admitting two, none admitting three. Of the 43, FORTY have exactly one realised modulus and THREE have exactly two; none has three, so no chain is realised. The three are (1,423125) with k = 1,91 and moduli 10,17; (1,51701) with k = 1,33 and moduli 82,145; (53,423125) with k = 1,12 and moduli 10,17 -- exactly the live non-fundamental close pairs identified independently much earlier by exp14. AND IT SCALES, measured at three sizes: chain-admitting classes are 23 of 453,111 at X = 1500, 43 of 1,815,155 at X = 3000, 78 of 7,267,040 at X = 6000. The count grows 23 -> 43 -> 78 while the class population grows 4x per doubling, so the FRACTION halves each time -- 5.1e-5, 2.4e-5, 1.07e-5. Within the chain-admitting set the modulus counts are {1: 23} at 1500, {1: 40, 2: 3} at 3000, {1: 73, 2: 5} at 6000. None has three moduli at any size.",
       "experiment": "experiments/exp23_prose_claims_made_runnable.py",
       "depends_on": [
         "tau-moves-between-orbits-epsilon-within-them"
@@ -2108,7 +2108,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "Makes O.2's content at a given X completely explicit, and the reduction is severe: 1.8 million classes down to 43, then to 3 once the moduli have to exist, then to 0 because none of the 3 has a third modulus. The population that matters is 'classes admitting two in-window multipliers', which is 43 -- not classes with three moduli (60) and not all classes (1.8M). And the three that realise a k >= 2 step are the SAME three exp14 found as the live non-fundamental close pairs, from a completely different construction: exp14 searched the realised side by streaming enumeration, this counts multiplier indices satisfying a Pell condition. Two routes, same three configurations, which is the strongest confirmation either has.",
+      "notes": "Makes O.2's content at a given X completely explicit, and the reduction is severe: 1.8 million classes down to 43, then to 3 once the moduli have to exist, then to 0 because none of the 3 has a third modulus. The population that matters is 'classes admitting two in-window multipliers', which is 43 -- not classes with three moduli (60) and not all classes (1.8M). And the three that realise a k >= 2 step are the SAME three exp14 found as the live non-fundamental close pairs, from a completely different construction: exp14 searched the realised side by streaming enumeration, this counts multiplier indices satisfying a Pell condition. Two routes, same three configurations, which is the strongest confirmation either has. No law is fitted to 23 -> 43 -> 78; the values are recorded, per the repo's rule about order-statements read as equalities. What is worth stating without a fit is the DIRECTION: the chain-admitting fraction halves per doubling of X while the absolute count roughly doubles, so the set where a triple is even structurally possible is growing far more slowly than the classes are. And the moduli needed to use a chain never materialise -- the maximum over all three sizes is two, against the three a triple requires.",
       "proof_site": ""
     },
     {
@@ -2124,6 +2124,18 @@
       ],
       "notes": "Recorded as an obstacle rather than a result, because the parallel session asked for a measurement that needs this grouping -- the minimum ratio spanning three populated orbits, and whether that margin shrinks as the orbit count grows -- and I would rather report that I cannot compute it reliably than produce a number from a wrong grouping. That is the near-miss recorded one claim earlier, arriving again within the hour: a plausible identification between two pieces of machinery, which here would have silently mis-partitioned the moduli and produced a margin that measures nothing. The correct criterion is the automorph of the FORM, which depends on the discriminant and on which order the relevant unit lives in, and is a real computation rather than a one-line test.",
       "proof_site": ""
+    },
+    {
+      "id": "O2-content-lives-on-43-classes",
+      "status": "rigorous_finite",
+      "statement": "A triple needs a class admitting TWO in-window multipliers (indices k with M^2 + 4k^2 D a perfect square and tau_k^2 < 2). At X = 3000, over 1,815,155 reduced ratio classes: 1,503,796 with none, 311,316 with one, 43 with two, ZERO with three or more. Of the 43, forty realise exactly one modulus, three realise two, none three. So O.2's entire content at this X lives on 43 classes, and in 40 of them the moduli do not exist to use the multipliers they admit. The three realising a k >= 2 step are exactly exp14's live non-fundamental close pairs: (1,423125) k = 1,91 moduli 10,17; (1,51701) k = 1,33 moduli 82,145; (53,423125) k = 1,12 moduli 10,17.",
+      "experiment": "experiments/exp17_sharp_form.py",
+      "depends_on": [],
+      "tags": [
+        "note_o",
+        "window"
+      ],
+      "notes": "THREE INDEPENDENT CONSTRUCTIONS, SAME THREE CONFIGURATIONS: exp14 streaming the realised side; the parallel session counting multiplier indices against a Pell condition; and a re-derivation here reproducing 1,503,796 / 311,316 / 43 and the same k values exactly. FOURTH REFINEMENT OF O.2's DENOMINATOR, each correct against its predecessor: 278,939 above threshold -> 31 informative -> 60 with three shared moduli -> 43 admitting two in-window multipliers. Each shrank because a necessary condition was noticed, not because the data changed. IT REPLACES an orbit-margin measurement that could not be computed: partitioning moduli into automorph orbits has no cheap criterion and both obvious ones fail in opposite directions -- the order's fundamental unit is wrong (at (1,5) the automorph is phi^2, in the maximal order Z[phi], not Z[sqrt5]'s 9+4sqrt5 = 17.94, which would predict 322 and shatter one orbit into many), and M | V is wrong the other way (at (1,5), m = 2 and 10 lie in the SAME orbit with M nmid V, which the subcase alternation forces for consecutive members). A mis-partition produces a margin that measures nothing and looks exactly like a margin."
     }
   ]
 }
