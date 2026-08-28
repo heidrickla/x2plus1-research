@@ -294,8 +294,18 @@ ratio realising a windowed 4-cycle is **34.0811, at (37, 1261) sharing moduli
 of 8, with no smaller witness appearing. So **O.12's (5+√21)/2 is loose by
 7.11× and shows no sign of being approached**, which is the size-argument theme
 of the whole thread made quantitative on the one theorem that touches the main
-line. *(A minimum over a finite range: a bound's silence is not evidence about
-what lies outside it.)* A genuine G′ = 2,
+line. **And the 7× has a cause, which is better than a constant.** A window needs
+modulus ratio < 2; if that ratio is τ₁² the condition is
+((√u+1)/(√u−1))² < 2, i.e. **u > (3+2√2)² = (1+√2)⁴ = 33.970563** (Prop O.13,
+elementary). **All twelve smallest realised 4-cycles at D = 1 match τ₁² to five
+decimals**, so the minimum is 0.325% above that — and the converse separates:
+D = 4's two sub-threshold cases (19.2400 at (25,481), 19.7267 at
+(35113,692665)) are **non-τ₁**, ratio 0.632 and 0.640, both on the tiny modulus
+pair (5,8). **Above the threshold ⟺ τ₁.** So O.12 proves 4.7913 only because it
+must allow every V, and the missing **7.09×** is exactly that allowance.
+*(A minimum over a finite range: a bound's silence is not evidence about
+what lies outside it, and this does not prove x²+1 admits no non-τ₁ windowed
+4-cycle — the cross-orbit case multipliers famously do not predict.)* A genuine G′ = 2,
 with 41/1 far outside any band.
 
 **And O.12 makes Ford–Maynard's footnote-2 counting function a 0/1 indicator over

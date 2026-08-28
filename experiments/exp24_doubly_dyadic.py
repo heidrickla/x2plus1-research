@@ -436,3 +436,75 @@ def extremal_four_cycle(D=1, sizes=(1500, 3000, 6000, 12000)):
         print(f"  {X:>7} | {fmt(best)} | {fmt(bestuf)} {sl:>8}")
     print("  A bound's silence is not evidence about what lies outside it: this is")
     print("  a minimum over a finite range, not a proof that none is smaller.")
+
+
+def tau1_extremal(D=1, X=6000, top=8):
+    """Prop O.13 -- the true threshold is (1+sqrt2)^4, and the extrema are tau_1.
+
+    Occupancy is the INPUT: enumerate realised windowed 4-cycles and read off
+    which multiplier explains each ratio.  Never generate candidates from
+    multipliers and test occupancy afterwards -- that searches a mostly empty
+    space and produced every withdrawn r-product statistic in this note.
+
+    A window needs the modulus ratio below 2.  If that ratio is tau_1^2, then
+    ((sqrt u + 1)/(sqrt u - 1))^2 < 2, i.e. u > (3+2 sqrt2)^2 = 17 + 12 sqrt 2
+    = (1+sqrt2)^4 = 33.970563.
+
+    Measured: at D = 1 and D = 2 every realised windowed 4-cycle matches tau_1^2
+    to five decimals and the minimum is 0.33% / 0.25% above the threshold.  At
+    D = 4 two fall BELOW it -- 19.2400 at (25,481) and 19.7267 at
+    (35113,692665) -- and both are non-tau_1 (ratio 0.632, 0.640), both on the
+    tiny modulus pair (5,8).  Above the threshold <=> tau_1.  So O.12's 4.7913
+    is short by 7.09x precisely because it must allow every V.
+    """
+    from collections import defaultdict
+    from math import sqrt
+    thr = (1 + sqrt(2)) ** 4
+    inc = defaultdict(list)
+    for x in range(1, X + 1):
+        v = x * x + D
+        d = 1
+        while d * d <= v:
+            if v % d == 0:
+                inc[v // d].append(d)
+                if d * d != v:
+                    inc[d].append(v // d)
+            d += 1
+    key = defaultdict(list)
+    for n, ms in inc.items():
+        ms = sorted(set(ms))
+        for i, m1 in enumerate(ms):
+            for m2 in ms[i + 1:]:
+                if m2 >= 2 * m1:
+                    break
+                key[(m1, m2)].append(n)
+    found = []
+    for (m1, m2), nsl in key.items():
+        if len(nsl) < 2:
+            continue
+        nsl.sort()
+        for i in range(len(nsl) - 1):
+            n1, n2 = nsl[i], nsl[i + 1]
+            if n1 == 1:
+                continue                       # unit cofactor: inadmissible
+            found.append((n2 / n1, n1, n2, m1, m2))
+    found.sort()
+    print(f"  x^2+{D}, X = {X}.  (1+sqrt2)^4 = {thr:.6f};"
+          f" O.12 proves {(5 + 21 ** 0.5) / 2:.4f}.")
+    print(f"  {'u':>11} {'cofactors':>18} {'moduli':>18} {'m2/m1':>9}"
+          f" {'tau_1^2':>9} {'ratio':>8} {'u/thr':>8}")
+    for r, n1, n2, m1, m2 in found[:top]:
+        t1 = ((sqrt(n2) + sqrt(n1)) / (sqrt(n2) - sqrt(n1))) ** 2
+        print(f"  {r:>11.4f} {f'({n1},{n2})':>18} {f'({m1},{m2})':>18}"
+              f" {m2/m1:>9.5f} {t1:>9.5f} {(m2/m1)/t1:>8.5f} {r/thr:>8.5f}")
+    below = [f for f in found if f[0] < thr]
+    print(f"  realised BELOW the threshold: {len(below)}"
+          + ("" if not below else
+             "  <- all non-tau_1, which is the mechanism"))
+    for r, n1, n2, m1, m2 in below[:4]:
+        t1 = ((sqrt(n2) + sqrt(n1)) / (sqrt(n2) - sqrt(n1))) ** 2
+        print(f"     u = {r:.4f} at ({n1},{n2}) m=({m1},{m2}),"
+              f" m2/m1 / tau_1^2 = {(m2/m1)/t1:.5f}")
+    print("  Measured absence over a finite range: this does NOT prove x^2+1 admits")
+    print("  no non-tau_1 windowed 4-cycle.  That is the cross-orbit case this note")
+    print("  records as the one multipliers do not predict.")

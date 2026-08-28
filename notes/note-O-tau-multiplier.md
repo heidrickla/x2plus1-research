@@ -2529,3 +2529,61 @@ realised **once**. Rare, not absent.
 - *Does this rescue the theorem?* No, and it should not be read that way. It
   sharpens one bookkeeping constant inside Note L. The parity barrier and Note F
   are where the problem lives, and neither moves.
+
+---
+
+## O.13 The true threshold is (1+√2)⁴, and O.12 is short only on non-τ₁ configurations
+
+O.12 proves that two shared moduli of a banded cofactor pair cannot lie in one
+window, via τ_V² < 3 with |V| ≥ 1, giving **u > (5+√21)/2 = 4.7913**. That is a
+*bound*; it says nothing about how much room is left. The extremal realised
+configuration says.
+
+**Proposition O.13.** *A 4-cycle whose two shared moduli are related by the
+fundamental multiplier τ₁ lies in one dyadic window only if*
+
+  **u = b/a > (1+√2)⁴ = 17 + 12√2 = 33.970563…**
+
+*Proof.* The modulus ratio is τ₁², and a window requires τ₁² < 2, i.e.
+(√u+1)/(√u−1) < √2. Rearranging, √u (√2−1) > √2+1, so
+√u > (√2+1)/(√2−1) = (√2+1)² = 3+2√2, and u > (3+2√2)² = 17+12√2. ∎
+
+Elementary — but it is a statement about **τ₁ configurations only**, and O.12
+must cover every V, which is exactly the factor it gives up.
+
+**The realised extrema are all τ₁.** Enumerating realised windowed 4-cycles and
+reading off which multiplier explains each ratio — the direction this note
+insists on, occupancy as input — at X = 6000 for D = 1, the twelve smallest
+unit-free cofactor ratios are:
+
+| u | cofactors | moduli | m₂/m₁ | τ₁² | ratio | u/(1+√2)⁴ |
+|---:|---|---|---:|---:|---:|---:|
+| **34.0811** | (37, 1261) | (866, 1730) | 1.99769 | 1.99771 | 0.99999 | **1.00325** |
+| 34.0984 | (193, 6581) | (1130, 2257) | 1.99735 | 1.99735 | 1.00000 | 1.00376 |
+| 34.1882 | (85, 2906) | (1997, 3985) | 1.99549 | 1.99550 | 1.00000 | 1.00641 |
+| 34.3400 | (50, 1717) | (1181, 2353) | 1.99238 | 1.99239 | 1.00000 | 1.01088 |
+| 34.4340 | (53, 1825) | (314, 625) | 1.99045 | 1.99048 | 0.99998 | 1.01364 |
+| 34.5385 | (13, 449) | (7730, 15370) | 1.98836 | 1.98836 | 1.00000 | 1.01672 |
+
+**Twelve of twelve match τ₁² to five decimals**, and the minimum sits **0.325%
+above** the Proposition's threshold. D = 2 behaves identically: minimum 34.0548
+at (73, 2486), 0.248% above.
+
+**And the converse separates cleanly, which is what makes this a mechanism
+rather than a coincidence.** D = 4 has realised windowed 4-cycles *below* the
+threshold — u = 19.2400 at (25, 481) and 19.7267 at (35113, 692665) — and both
+have m₂/m₁ ÷ τ₁² = **0.632** and **0.640**, i.e. they are **not** τ₁. Both sit
+on the same tiny modulus pair **(5, 8)**. Every configuration at or above the
+threshold is τ₁; every one below it is not.
+
+**So the 7× gap has a cause.** O.12 proves 4.7913 because it must cover non-τ₁
+configurations. Those exist — D = 4 has two — but at D = 1 and D = 2 none is
+realised, so the effective threshold is (1+√2)⁴ and the extremum attains it to a
+third of a percent. **The theorem buys 2.40× of margin over a band's 2 where
+17.04× is true, and the missing factor 7.09 is exactly the non-τ₁ allowance.**
+
+⚠ This does **not** prove x²+1 admits no non-τ₁ windowed 4-cycle; that is the
+cross-orbit case this note repeatedly records as the one multipliers do not
+predict (on (1, 115921) the multiplier product predicts a modulus ratio 1.31
+against an observed minimum 33.77). It is measured absence over a finite range,
+and a bound's silence is not evidence about what lies outside it.

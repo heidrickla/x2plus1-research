@@ -1624,3 +1624,26 @@ def test_windowed_gram_bound_holds_for_UNANCHORED_windows_too():
     assert pairs > 50, pairs
     assert anchored == 2, anchored
     assert unanchored == 2, unanchored       # the stronger statement holds too
+
+
+def test_O13_tau1_window_threshold_is_seventeen_plus_twelve_root_two():
+    """Prop O.13: tau_1^2 < 2 <=> u > (1+sqrt2)^4 = 17 + 12 sqrt 2.
+
+    Guards the closed form against both algebra slips and the float-boundary
+    trap: the threshold is exact, so it is checked symbolically, and the
+    equivalence is checked strictly on both sides of it.
+    """
+    from sympy import Rational, nsimplify, simplify, sqrt as ssqrt, symbols, solve
+
+    u = symbols("u", positive=True)
+    thr = (1 + ssqrt(2)) ** 4
+    assert simplify(thr - (17 + 12 * ssqrt(2))) == 0
+
+    # tau_1^2 = ((sqrt u + 1)/(sqrt u - 1))^2 = 2  has the threshold as its root
+    roots = solve(((ssqrt(u) + 1) / (ssqrt(u) - 1)) ** 2 - 2, u)
+    assert any(simplify(r - thr) == 0 for r in roots), roots
+
+    t = float(thr)
+    tau2 = lambda v: ((v ** 0.5 + 1) / (v ** 0.5 - 1)) ** 2
+    assert tau2(t * 1.001) < 2.0      # above the threshold: fits a window
+    assert tau2(t * 0.999) > 2.0      # below it: cannot

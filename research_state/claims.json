@@ -2235,6 +2235,48 @@
       "depends_on": [],
       "tags": [],
       "notes": "The size-argument theme of the O-thread made quantitative on the one theorem that touches the main line. CLAUDE.md already said 'the size arguments are sharp enough to state and still nowhere near what is true'; this is that gap as a number, 7.11x, for O.12 specifically. Found by asking for the MINIMUM where the notes had recorded an EXAMPLE -- the integer max Gram says only whether the bound is violated, while the extremal ratio says how much room is left, and nobody had asked. The stability is the finding rather than the value: a minimum that does not move across a factor of 8 in X is evidence the extremal configuration is not drifting toward the bound. CAVEAT, per this repo's own rule: this is a minimum over a finite range and a bound's silence is not evidence about what lies outside it. X = 12000 reaches values 1.44e8; a smaller-ratio witness beyond that is not excluded. THE UNIT COFACTOR IS THE MINIMISER FOR SOME D and the experiment reports both columns because of it: at D = 2 the overall minimum is 33.0000 at (1, 33) with moduli 6, 11 -- inadmissible for any Type II hypothesis -- while the unit-free minimum is 34.0548 at (73, 2486) with moduli 1707, 3411, slack 7.11x. At D = 1 the minimum is already unit-free. Recording the two unit-free values, 34.0811 and 34.0548, as VALUES: they give the same slack to three figures, and with two points no law is fitted and none should be. The margin is also worth stating the other way round: a banded pair needs ratio < 2, O.12 proves > 4.7913 (a factor 2.40 of margin), and nature supplies 34.08 (a factor 17.04). The theorem buys 2.4x where 17x is true."
+    },
+    {
+      "id": "tau1-window-threshold-is-exact",
+      "status": "proved",
+      "statement": "Proposition O.13. A 4-cycle whose two shared moduli are related by the fundamental multiplier tau_1 lies in one dyadic window only if the cofactor ratio satisfies u = b/a > (1+sqrt2)^4 = 17 + 12*sqrt2 = 33.970563... . Proof: the modulus ratio is tau_1^2 and a window needs tau_1^2 < 2, i.e. (sqrt u + 1)/(sqrt u - 1) < sqrt 2, hence sqrt u > (sqrt2+1)/(sqrt2-1) = (sqrt2+1)^2 = 3+2*sqrt2 and u > (3+2*sqrt2)^2. This is a statement about tau_1 configurations ONLY; O.12 must cover every V, which is exactly the factor it gives up.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O13_tau1_window_threshold_is_seventeen_plus_twelve_root_two",
+      "experiment": "experiments/exp24_doubly_dyadic.py",
+      "depends_on": [],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "Elementary, and checked symbolically rather than by evaluating a float, because the threshold is exact and this repo has a recorded instance of a strict comparison at an exact boundary being decided by which algebraically equivalent expression was evaluated."
+    },
+    {
+      "id": "extremal-four-cycles-are-tau1",
+      "status": "rigorous_finite",
+      "statement": "The realised extremal windowed 4-cycles are the tau_1 ones, so O.13's threshold and not O.12's bound is what nature respects. At X = 6000 for D = 1 the twelve smallest unit-free cofactor ratios all have modulus ratio equal to tau_1^2 to five decimals, and the minimum 34.0811 at (37,1261) with moduli (866,1730) is 0.325% above (1+sqrt2)^4 = 33.970563. D = 2 likewise: minimum 34.0548 at (73,2486), 0.248% above. The converse separates cleanly: D = 4 has two realised windowed 4-cycles BELOW the threshold, u = 19.2400 at (25,481) and 19.7267 at (35113,692665), and both are non-tau_1 -- modulus ratio divided by tau_1^2 is 0.632 and 0.640 -- both on the tiny modulus pair (5,8). Above the threshold <=> tau_1, below it <=> not. So O.12's proved 4.7913 is short by a factor 7.09 precisely because it must allow non-tau_1 configurations; those exist at D = 4 but none is realised at D = 1 or D = 2.",
+      "experiment": "experiments/exp24_doubly_dyadic.py",
+      "depends_on": [
+        "tau1-window-threshold-is-exact",
+        "O12-is-loose-by-a-factor-seven"
+      ],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "Produced in the direction this note insists on -- enumerate realised configurations and read off which multiplier explains the ratio, occupancy as INPUT. Generating candidates from multipliers and testing occupancy afterwards is what produced every withdrawn r-product statistic in the O-thread. This converts the 7.11x looseness from an unexplained constant into an identified mechanism, which is the stronger form: 7.09x of it is the non-tau_1 allowance and 0.33% is how far the extremum sits above the tau_1 threshold. CAVEAT: this does NOT prove x^2+1 admits no non-tau_1 windowed 4-cycle. That is the cross-orbit case Note O repeatedly records as the one multipliers do not predict -- on (1, 115921) the multiplier product predicts a modulus ratio 1.31 against an observed minimum 33.77. Measured absence over a finite range, and a bound's silence is not evidence about what lies outside it."
+    },
+    {
+      "id": "extremal-cofactor-ratio-verified-independently",
+      "status": "rigorous_finite",
+      "statement": "The minimum unit-free cofactor ratio for x^2+1 is 34.0811 at (37, 1261) sharing moduli 866 and 1730, verified independently and unmoved at X = 3000 and 6000. All four products check: 37*866 = 179^2+1, 37*1730 = 253^2+1, 1261*866 = 1045^2+1, 1261*1730 = 1477^2+1. For x^2+1 the overall minimum is the same witness, so units do not enter -- unlike D = 2, where the overall minimum is 33.0000 at (1,33), the unit cofactor, against a unit-free 34.0548 at (73,2486). Against a dyadic band's 2, O.12 proves > 4.7913 (2.40x) where nature supplies >= 34.0811 (17.04x), so the theorem is loose by 7.11x with no sign of the bound being approached.",
+      "experiment": "experiments/exp24_doubly_dyadic.py",
+      "depends_on": [],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Found by the parallel session; verified here by an independent search over ratio_classes rather than by re-running theirs, at two sizes. ONE DETAIL WORTH ADDING: the extremal witness's MODULUS ratio is 1.99769 -- within 0.12% of the window's own bound of 2. So the configuration that is most extreme on the cofactor axis is nearly marginal on the modulus axis, which is the sort of thing that would matter if anyone tried to push the cofactor bound down by tightening the window. Recorded as a value, not a law: 34.0811 for D = 1 and 34.0548 for D = 2 agree to three figures and that is two points, on which this repo has a specific record of fitting laws it later withdrew.",
+      "proof_site": ""
     }
   ]
 }
