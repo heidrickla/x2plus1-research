@@ -1,4 +1,4 @@
-"""Experiment 11 -- why no dyadic window ever holds three shared moduli.
+"""Experiment 12 -- why no dyadic window ever holds three shared moduli.
 
 BACKGROUND.  For coprime a < b, a shared modulus is an m with
 
@@ -47,7 +47,7 @@ which returns xi_3 = xi_1.
 The prediction is sharp and falsifiable: whenever tau^4 < 2 a third modulus
 WOULD fit inside the window, so every such pair is a chance to see three.
 
-Usage:  python experiments/exp11_tau_multiplier.py [X]
+Usage:  python experiments/exp12_tau_multiplier.py [X]
 """
 
 import sys
