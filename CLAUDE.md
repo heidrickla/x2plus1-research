@@ -18,7 +18,7 @@ theorem about the sequence and survives any change of sieve.
 
 **And there is a stronger form that does not depend on the bound being 1.** At
 X = 3000 the mean of G over pairs in a dyadic band [N,2N) is 2.000, 0.667, 0.254,
-0.0865, **0.0243** at N = 8, 32, 128, 512, 2048. So over the range the sieve uses
+0.0865, **0.0243** at N = 8, 32, 128, 512, 2048 — but the first two are over **1 and 21 pairs**, so read them as barely defined rather than as data. So over the range the sieve uses
 the expected Gram entry is far below 1 *while G is integer-valued*: at N ≈ 2048,
 a mean of 0.024 against a granularity of 1, so **what dispersion would call the
 error is tens of times what it would call the main term.**
