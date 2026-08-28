@@ -382,6 +382,30 @@ eventually fails" was filed here and is **refuted at D = 2** for exactly that
 reason: it rested on counting classes, which describes the first regime and has
 no purchase on the second.
 
+**Where the D thread ends, with each row's status attached.**
+
+| D | status |
+|---|---|
+| ≤ 2 | **proved**, unconditional — (u−1)D/√u < 1.41421 < √3 |
+| 3, 4 | **proved** on \|V\| ≥ 2, i.e. on evenness — observed for D ≤ 6, proved only at D = 1 |
+| 5 … 10 | **unfallen** to X = 7000, unprotected, unexplained |
+| 11, 14, 19, 20, 21, 23, … | **fallen**, with witnesses |
+
+The 5…10 gap is the interesting one and it is not a gap in the sweep: the bound
+permits failure there and no failure is found, which is the same
+necessary-not-sufficient gap as [Note O](note-O-tau-multiplier.md)'s 39 of 60
+admissible classes that hold no triple. **The argument's boundary is not the
+empirical boundary — and it is not an artefact either**, since it is the only
+proved one.
+
+**And the timing of the failures is arithmetic, not monotone in D.** D = 11, 14,
+19 fail by X = 1200 at cofactors below 6, while D = 20 needs X = 4000 at
+(47, 63) and D = 35 needs X = 2500 at (2249, 3756) — so **D = 11 fails far
+earlier than D = 20 despite having the tighter bound**. The early ones are the
+k²+3k+1 family, which supplies a witness at four consecutive arguments and
+therefore announces itself immediately. Small-cofactor witnesses are that
+family's signature, not failure's.
+
 Machine-checked in
 `test_the_whole_note_O_apparatus_generalises_with_M_replaced_by_M_times_D`.
 
