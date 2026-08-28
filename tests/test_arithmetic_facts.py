@@ -860,3 +860,58 @@ def test_the_sign_arguments_blind_spot_is_enriched_among_rich_classes():
     assert rich_rate / base > 500             # and the enrichment is enormous
     mid = [r for r in rows if r[0] >= 3]
     assert sum(1 for n, p in mid if p) / len(mid) > 0.05
+
+
+def test_the_VW_identity_generalises_with_a_factor_c_squared():
+    """V W = c^2 M (m_i - m_j) for x^2 + c^2, and O.12's proof does NOT survive it.
+
+    Derivation, done before measuring. With a m = X^2 + c^2 and b m = Y^2 + c^2,
+
+        V W = X_i^2 Y_j^2 - X_j^2 Y_i^2
+            = (a m_i - c^2)(b m_j - c^2) - (a m_j - c^2)(b m_i - c^2)
+            = c^2 (b - a)(m_i - m_j) = c^2 M (m_i - m_j),
+
+    the c = 1 case being the identity Note O uses. Y > X sqrt(b/a) still holds
+    (Y^2/X^2 = (bm - c^2)/(am - c^2) > b/a exactly when b > a), so the same route
+    gives |V| < c^2 (M/2 sqrt D)(R - 1/R) -- a factor c^2 WEAKER.
+
+    So O.12's threshold scales as 1/c^2: at X_1 = 1 it is M/sqrt(D) > 1.7321/c^2,
+    which drops below what a dyadic band supplies as soon as c >= 2. **The proof
+    does not extend.** The conclusion appears to anyway -- banded cofactors share
+    at most one in-window modulus at c = 2 and c = 3, measured to X = 3000 -- so
+    what fails is the argument, not the fact.
+
+    And the obvious repair fails too: the bound is SATURATED (max |V| divided by
+    the bound is 1.0000, 3.9997, 8.9993 at c = 1,2,3), so it cannot be tightened,
+    and min |V| is 2, 4, 6, 4, 6 at c = 1..5 -- not c^2, so no lower bound on |V|
+    of that shape restores the threshold.
+    """
+    from math import gcd, isqrt
+    from collections import defaultdict
+
+    X = 700
+    for c in (1, 2, 3):
+        sq = [x * x + c * c for x in range(X + 1)]
+        cls = defaultdict(set)
+        for x in range(1, X + 1):
+            for y in range(x + 1, X + 1):
+                g = gcd(sq[x], sq[y])
+                if g > 1:
+                    a, b = sq[x] // g, sq[y] // g
+                    if a < b:
+                        cls[(a, b)].add(g)
+        seen = 0
+        for (a, b), ms in cls.items():
+            M = b - a
+            ms = sorted(ms)
+            for i in range(len(ms) - 1):
+                sqs = [a * ms[i], a * ms[i + 1], b * ms[i], b * ms[i + 1]]
+                rt = [isqrt(v - c * c) for v in sqs]
+                if any(r * r != v - c * c for r, v in zip(rt, sqs)) or rt[0] < 1:
+                    continue
+                Xi, Xj, Yi, Yj = rt[0], rt[1], rt[2], rt[3]
+                V = Xi * Yj - Xj * Yi
+                W = Xj * Yi + Xi * Yj
+                assert V * W == c * c * M * (ms[i] - ms[i + 1]), (c, a, b)
+                seen += 1
+        assert seen > 20, (c, seen)

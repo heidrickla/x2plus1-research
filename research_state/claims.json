@@ -1869,6 +1869,21 @@
         "note_o"
       ],
       "notes": "NOT A CLASSIFIER, AND THE ORDERING IS NOT EVEN STABLE: a^2+b^6 (not known captured) reads 6, 7, 11 against the CAPTURED x^3+2y^3 at 5, 9, 15 -- above at Q = 2.5e4 and below at 5e4 and 1e5. A statistic whose ordering moves with Q cannot separate captured from open, and reading the table as 'low implies hard' would be mean-G-does-not-classify again. x^3+2y^3 is in the table because it is what killed that classifier, and it was run before anything was written. WHAT IS CLAIMED is a difference in KIND, not a position in an ordering: x^2+1 is at 1 with the value a theorem, everything else grows. It also explains the footnote's hedge that bilinear cancellation is difficult 'outside of special situations': for a count ranging over 0..67 there is something to average, for a 0/1 indicator there is not."
+    },
+    {
+      "id": "O12-does-not-extend-off-c-equals-one-and-the-repair-fails",
+      "status": "rigorous_finite",
+      "statement": "For x^2 + c^2 the identity generalises to V W = c^2 M (m_i - m_j) -- derived from a m = X^2 + c^2 and b m = Y^2 + c^2, verified 0 failures over 803, 1112, 1563 pairs at c = 1,2,3 -- and Y > X sqrt(b/a) still holds, so the same route gives |V| < c^2 (M/2 sqrt D)(R - 1/R), a factor c^2 WEAKER. Hence Theorem O.12's threshold scales as 1/c^2: at X_1 = 1 it is M/sqrt(D) > 1.7321/c^2, which falls below what a dyadic band supplies as soon as c >= 2, so THE PROOF DOES NOT EXTEND. The conclusion appears to hold anyway -- banded cofactors share at most one in-window modulus at c = 2 and c = 3, over 530,973 and 617,940 banded pairs at X = 3000. And the two obvious repairs both fail: the bound is SATURATED (max |V| over the bound is 1.0000, 3.9997, 8.9993 at c = 1,2,3, i.e. exactly c^2, so it cannot be tightened), and min |V| is 2, 4, 6, 4, 6 at c = 1..5 -- not c^2, so no |V| >= c^2 lower bound restores the threshold.",
+      "experiment": "experiments/exp23_prose_claims_made_runnable.py",
+      "depends_on": [
+        "V-times-W-equals-M-times-the-modulus-gap",
+        "theorem-O12-doubly-dyadic-c4-free"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "A NEGATIVE result, recorded because it saves the attempt and because of how it was produced: derived first, then measured, which is the order the repo's own rule about sweeps and derivations argues for -- and the derivation predicted something FALSE. It said O.12 should fail for c >= 2; measurement says the conclusion holds at c = 2 and 3. So what the derivation actually established is narrower and more useful than the prediction it made: O.12's ARGUMENT is special to c = 1, and the fact is not known to be. That distinction is invisible to measurement alone -- a sweep showing max Gram 1 for all c would have read as 'O.12 generalises', which is exactly what is not established. It also sharpens the parallel session's genericity control from the other side: their table shows the 0/1 property failing badly OFF the line family (>= 11 for a^2+b^4 and the rest), and this shows the PROOF failing within it while the property survives.",
+      "proof_site": "tests/test_arithmetic_facts.py::test_the_VW_identity_generalises_with_a_factor_c_squared"
     }
   ]
 }
