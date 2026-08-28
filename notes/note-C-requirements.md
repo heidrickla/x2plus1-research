@@ -674,6 +674,22 @@ improved. This is the closest thing the repo has to an external statement that
 it is measuring the right object, and it was found on the third pass through the
 paper.
 
+**And at this density the barrier is not a condition, it is everything.** The
+footnote's hypothesis is θ + ν ≥ 1 − 2c. Here |J| = x^{1/2} gives c = 1/2, so
+
+> **1 − 2c = 0, and θ + ν ≥ 0 holds for every admissible (θ, ν).**
+
+So Ford–Maynard's "natural barrier" is not something x² + 1 runs into for large
+Type II ranges — **every** Type II range one could seek is on its far side,
+including the θ = ν = 0 boundary this sequence actually sits at. Their footnote's
+averaging range is m₁, m₂ ∼ x^{1−2c+ε} = **x^ε**, and Note F's bound holds at
+every split, that one included.
+
+Read together: [FM] say the obstruction to any Type II estimate here is
+bilinear cancellation in the error term for G; Note F says G ∈ {0,1}, so there
+is no main term and hence no error term to cancel. **The barrier they describe
+as "typically very difficult" is, for this sequence, not difficult but empty.**
+
 **What the table shows.** [FM] Table 1, p. 3, caption *"Examples from the
 literature (epsilons omitted)"* — eight entries, and **every one has ν > 0**.
 The smallest is Merikoski's Theorem 1 at (γ, θ, ν) = (3/4, 1/4, **1/12**), a

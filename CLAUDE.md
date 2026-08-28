@@ -73,7 +73,12 @@ Type I (D = x^{1/2−ε}) is **available** while its Type II (short variable to
 x^{1/3−ε}, β on primes) is not, so the level is never the obstruction;
 Ford–Maynard's binding parameter is **ν, not γ** — every entry in their Table 1 has ν > 0 (smallest: Merikoski's
 1/12), and ν = 0 here gives C⁻ = 0 by Selberg and their Theorem 2.1. Their
-footnote 2 p. 7 names Note F's G(n₁,n₂) as the barrier. Their Theorem 2.4 never
+footnote 2 p. 7 names Note F's G(n₁,n₂) as the barrier — **and at this density
+that barrier is unconditional**: its hypothesis is θ + ν ≥ 1 − 2c, and |J| =
+x^{1/2} gives c = 1/2, so 1 − 2c = 0 and θ + ν ≥ 0 holds for every admissible
+pair. FM say the obstruction is bilinear cancellation in the error term for G;
+Note F says G ∈ {0,1}, so there is no main term and no error term to cancel.
+Their "typically very difficult" is, here, empty. Their Theorem 2.4 never
 applied here, and the γ = 1/2 − ε argument is `refuted`; the clean placement is
 that θ > c = 1/2 collides with (1.1)'s θ < 1/2, so there is no admissible triple
 at all (`x2plus1.exponents.ford_maynard_theta`). **C⁻ is the LOWER-BOUND constant** — [FM] p. 2 at

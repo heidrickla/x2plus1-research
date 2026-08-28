@@ -1158,6 +1158,17 @@
         "literature"
       ],
       "notes": "Every premise is now QUOTED with a locator -- (4.1) p.13, the normalisation p.1 and p.7, the rescaling warning p.14 -- leaving only elementary arithmetic, so the status is `inferred` for the deduction rather than for any missing reading. The [VERIFY] this carried for an hour, on whether sparse sequences are normalised to mass ~ x, is discharged: FM say so on p.1 and p.7, and the p.7 sentence is one this repo already quotes in fm-no-admissible-theta-at-density-half for a different purpose -- the normalisation was sitting inside a quote already in the registry. CONSEQUENCE: the general class Psi and Theorem 2.1's C^- = 0 are untouched, and p.14 says why -- C^+- tolerates log-sized rescalings and bounds no |w_n| at all. Only appeals to the divisor-bounded THEOREMS (2.5, 2.7) are misplaced for this sequence, including one this repo made in mu-typeII-would-land-above-dfi and has struck."
+    },
+    {
+      "id": "fm-barrier-is-unconditional-at-density-half",
+      "status": "inferred",
+      "statement": "Ford-Maynard's footnote 2 (p.7) makes theta + nu >= 1 - 2c the condition under which establishing (II) meets a 'natural barrier', namely estimating #{n : n m_1, n m_2 in J} with an error term better than O(1) on average over m_1, m_2 ~ x^{1-2c+eps}. For a set J of x^{1-c} elements with |J| = x^{1/2} we have c = 1/2, so 1 - 2c = 0 and theta + nu >= 0 holds for EVERY admissible pair. The barrier therefore applies to every Type II range this sequence could have, not only to large ones, and its averaging range is m_1, m_2 ~ x^eps.",
+      "experiment": "",
+      "tags": [
+        "literature",
+        "type_ii"
+      ],
+      "notes": "The footnote is quoted verbatim in Note C and the identification of its counting function with Note F's G(n_1,n_2) was already recorded. What is new is the arithmetic at c = 1/2, which makes the hypothesis vacuous and so the barrier unconditional. Inferred, not quoted: FM state the condition and this repo evaluates it at its own density. Read with c4-free: FM say the obstruction is bilinear cancellation in the error term for G, and Note F proves G is identically 0 or 1, so there is no main term and no error term to cancel -- the barrier is not difficult here but empty. Found by reading the whole p.7 paragraph rather than the clause already in use, which is also how fm-divisor-bounded-class-is-dense and c-minus-is-the-lower-bound-constant were found."
     }
   ]
 }
