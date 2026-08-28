@@ -430,6 +430,28 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
 
 - **Normalisation.** Q (or N) = norm bound; X = √Q = range of x; |A| = X.
   State which one every exponent is relative to. "Level N^{1/2}" = "level X".
+- **When a recorded number does not reproduce, read the paragraph it sits in
+  before looking for a bug.** Note M's squarefree densities did not match a fresh
+  exact sieve. I proposed inconsistent rounding (a story fitted to two rows that
+  happened to land near a rounding of the exact value, and true of neither),
+  tested a p ≤ √X cutoff in code, and then — correctly refusing to fit a cause —
+  recorded the last row as *unexplained*. It was explained: **"a sieve truncated
+  at P = 20 000", three lines above the table**, in the file the claim cites. The
+  truncated column reproduces every digit to six places and its stated error bound
+  holds, so the numbers were never wrong; my correction was. Refusing to invent a
+  cause is the right instinct and is not a substitute for reading. This repo
+  already says *pull the paragraph, not the clause* about the literature; it
+  applies with more force to its own notes, where the paragraph is three lines
+  away. **The failure mode is searching the code for what the prose already says.**
+  And note the shape: an approximation with a documented error bound reads exactly
+  like an error once the sentence documenting it is out of view — which is the
+  same thing `inferred` exists to stop, one level down.
+
+- **Gate the claims diff with `tools/check_claims_diff.py <id> ...`, chained.**
+  It parses `HEAD` and the working tree, compares claim dicts by id, and exits
+  non-zero on anything unnamed. `python tools/check_claims_diff.py <ids> && git
+  commit ...` — the `&&` is the whole point; see the shared-file entry below.
+
 - **Never assert a literature exponent from memory.** The hypotheses of the
   Friedlander–Iwaniec asymptotic sieve (Annals 1998; *Opera de Cribro* Ch. 25)
   must be quoted from the source with a page reference. Unverified slots in the
