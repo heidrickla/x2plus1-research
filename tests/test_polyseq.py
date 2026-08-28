@@ -228,3 +228,48 @@ def test_three_term_determinant_identity():
             assert Vij * Yk - Vik * Yj + Vjk * Yi == 0, (a, b)
             checked += 1
     assert checked > 20, f"only {checked} triples exercised"
+
+
+def test_prop_O1_chain_holds_on_real_pairs():
+    """Independent check of every link of Note O's unconditional chain.
+
+    (1) N(xi) = aM for xi = aY + X sqrt(D), since a^2 Y^2 - abX^2 = a(aY^2-bX^2)
+        and aY^2 - bX^2 = b - a = M.
+    (2) |V| < M/sqrt(D), the only place the window is used.
+    (3) g = gcd(U, V) divides M, since g^2 | M^2.
+    (4) a g^2 < M, which is what forbids a third modulus.
+
+    Zero violations over 379 close pairs at X = 3000; this runs a smaller range.
+    The (2) bound is loose by 2sqrt2: the sharp constant is 1/(2 sqrt 2) =
+    0.35355, from |V| = (M/2 sqrt D)(sqrt r - 1/sqrt r) with r < 2, and the
+    worst observed ratio is 0.3529.
+    """
+    from math import gcd, sqrt
+    from x2plus1.polyseq import ratio_classes
+    checked, worst = 0, 0.0
+    for (a, b), ms in ratio_classes(1200).items():
+        if len(ms) < 2:
+            continue
+        M, D = b - a, a * b
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                if ms[j] >= 2 * ms[i]:
+                    break
+                u, v = ms[i], ms[j]
+                Xi, Yi = isqrt(a * u - 1), isqrt(b * u - 1)
+                Xj, Yj = isqrt(a * v - 1), isqrt(b * v - 1)
+                if Xi * Xi != a * u - 1 or Yi * Yi != b * u - 1:
+                    continue
+                if Xj * Xj != a * v - 1 or Yj * Yj != b * v - 1:
+                    continue
+                checked += 1
+                assert a * a * Yi * Yi - D * Xi * Xi == a * M          # (1)
+                V = Xi * Yj - Xj * Yi
+                U = b * Xi * Xj - a * Yi * Yj
+                assert abs(V) < M / sqrt(D)                            # (2)
+                worst = max(worst, abs(V) * sqrt(D) / M)
+                g = gcd(abs(U), abs(V))
+                assert M % g == 0                                      # (3)
+                assert a * g * g < M                                   # (4)
+    assert checked > 100, f"only {checked} close pairs exercised"
+    assert worst < 0.3536, worst        # the sharp constant 1/(2 sqrt 2)
