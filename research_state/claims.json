@@ -1502,6 +1502,18 @@
       "notes": "STATED NARROWLY ON PURPOSE, and the narrowing is the honest part. This shows kappa cannot see the BINARY property C4-free/not. It does NOT show kappa fails to track the QUANTITY of 4-cycles: one cycle moves max G from 1 to 2 and leaves mean G at O(1/X), and this repo's own measurements (mean-G-does-not-classify, gram-mean-is-minimal-at-the-balanced-split) say mean G is the load-bearing statistic and max G is not. So this refines Note K's 'must not be demoted on these grounds' -- it supplies other grounds -- and leaves the Type II obstruction untouched, which is a statement about the whole graph. Recorded this way because the tempting version, 'kappa is blind to the obstruction', would be the same over-reading that put two claims in this registry as refuted.",
       "proof_site": "notes/note-K-merikoski.md; tests/test_arithmetic_facts.py::test_two_points_destroy_c4_freeness_without_moving_kappa",
       "superseded_by": ""
+    },
+    {
+      "id": "theorem-O7-identity-and-bound-verified-independently",
+      "status": "proved",
+      "statement": "Theorem O.7's two load-bearing steps, derived from scratch and re-measured. IDENTITY: a*V*(X_j Y_i + X_i Y_j) = M(X_i^2 - X_j^2). Proof: V(X_j Y_i + X_i Y_j) = X_i^2 Y_j^2 - X_j^2 Y_i^2; substituting Y^2 = X^2 + M m (from b m - a m = M m) gives M(X_i^2 m_j - X_j^2 m_i), and m = (X^2+1)/a turns that into M(X_i^2 - X_j^2)/a. BOUND: Y > X sqrt(b/a) since Y^2 = (b/a)(X^2+1) - 1 > (b/a)X^2, so X_j Y_i + X_i Y_j > 2 X_i X_j sqrt(b/a) and |V| < M(R - 1/R)/(2 sqrt D) with R = X_j/X_i. In-window with X_i >= 1, R^2 < 2 + 1/X_i^2 <= 3, giving |V| < 0.57735 M/sqrt(D), and sqrt(D) >= sqrt 2 gives |V| < 0.40825 M < M, so M does not divide V. Measured at X = 6000: identity 0 failures / 3814 consecutive pairs; in-window bound 0 failures / 751 with max |V| sqrt(D)/M = 0.3529; M | V in-window for M an odd prime occurs 0 times; and 0 in-window triples with M an odd prime, which is O.7's conclusion.",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "Verified from the other side: I derived the identity algebraically before running anything, which is what makes this independent rather than a re-run. The three escape triples reproduce exactly -- (2,13) M=11, m 5 -> 48985, V13 = 110 = 10M; (2,5) M=3, 13 -> 18241, V13 = 18 = 6M; (2,25) M=23, 13 -> 499001, V13 = 322 = 14M -- and they escape at modulus ratios of 1e4 and up, which is exactly how |V| gets past a bound that is only valid in-window. My pair count is 3814 against their 4033; I skip X_i = 0 and they appear not to, and the conclusion is unaffected either way. The factor a in the identity is load-bearing -- they report 3389 of 4033 failing without it -- and it cancels out of the final bound entirely, which is the kind of thing that looks like an error until derived. No dependency on O.4, though I listed one and the guard rejected it: R^2 < 2 + 1/X_i^2 follows from the window condition alone -- m_j < 2 m_i gives a m_j - 1 < 2(a m_i - 1) + 1 -- and O.4 is not needed. Second time tonight the dependency guard caught me listing a neighbouring result as a premise; both times the claim was proved and the neighbour was not, which is exactly the ordering it enforces.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py"
     }
   ]
 }
