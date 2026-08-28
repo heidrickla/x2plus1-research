@@ -542,3 +542,28 @@ def test_rational_gram_reaches_three_outside_a_window():
     # and no dyadic window holds two of them
     for i in range(len(shared) - 1):
         assert shared[i + 1] >= 2 * shared[i], shared
+
+
+def test_O3_geometry_reduction_is_an_algebraic_identity():
+    """Theorem O.3's key step, verified symbolically rather than numerically.
+
+    Substituting M = 8kaw/e, b = a+M, k = (j+w)/2 into the geometry M^2 - 32k^2ab
+    and clearing by e^2/a^2 gives exactly -8(j+w)^2 (e^2 + 4ejw + 2w^2(2e-1)).
+    The ratio to the displayed quantity is 8(j+w)^2, positive -- so "geometry
+    holds" and "that quantity is negative" are the SAME statement, as algebra.
+    """
+    from sympy import expand, factor, simplify, symbols
+
+    k, a, j, w, e = symbols("k a j w e", positive=True)
+    M = 8 * k * a * w / e
+    b = a + M
+    geom = expand(M**2 - 32 * k**2 * a * b).subs(k, (j + w) / 2)
+    geom = simplify(expand(geom * e**2 / a**2))
+    target = -(e**2 + 4 * e * j * w + 2 * w**2 * (2 * e - 1))
+    assert simplify(factor(geom / target) - 8 * (j + w) ** 2) == 0
+
+    # and the quantity is strictly positive on the admissible integer region
+    for jj in range(3, 40):
+        ee = jj * jj - 4
+        for ww in range(1, 40):
+            assert ee**2 + 4 * ee * jj * ww + 2 * ww**2 * (2 * ee - 1) > 0

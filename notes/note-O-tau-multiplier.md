@@ -452,6 +452,16 @@ k = (j+w)/2, this becomes
 
 For j ≥ 3 we have e ≥ 5, so every term is positive. Contradiction. ∎
 
+**The reduction is verified symbolically, not just numerically.** Substituting
+M = 8kaw/e, b = a + M and k = (j+w)/2 into the geometry M² − 32k²ab and clearing
+by e²/a², `sympy` returns
+
+> M² − 32k²ab  ≡  **−8(j+w)²·(e² + 4ejw + 2w²(2e−1))**  (up to the positive factor e²/a²),
+
+so the ratio to the displayed quantity is exactly **8(j+w)²** — positive for
+j, w > 0. The equivalence is therefore an algebraic identity rather than a
+numerical coincidence, and the contradiction is exact.
+
 **Robust to the constant.** An earlier draft printed the weaker M > 2√2·k√(ab)
 at this step. Carrying that through instead gives
 
