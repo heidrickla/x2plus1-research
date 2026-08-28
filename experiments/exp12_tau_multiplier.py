@@ -51,36 +51,12 @@ Usage:  python experiments/exp12_tau_multiplier.py [X]
 """
 
 import sys
-from collections import Counter, defaultdict
-from math import gcd, isqrt, sqrt
+from collections import Counter
+from math import isqrt, sqrt
 
 import _bootstrap  # noqa: F401
 
-
-def ratio_classes(X):
-    """Bucket every reduced ratio (y^2+1)/(x^2+1); value list = shared moduli."""
-    sq = [x * x + 1 for x in range(X + 1)]
-    out = defaultdict(set)
-    for x in range(1, X + 1):
-        sx = sq[x]
-        for y in range(x + 1, X + 1):
-            g = gcd(sx, sq[y])
-            if g > 1:
-                out[(sx // g, sq[y] // g)].add(g)
-    return {k: sorted(v) for k, v in out.items()}
-
-
-def close_pairs(classes):
-    """(a, b, m_i, m_j, V, tau) for every pair of shared moduli inside a window."""
-    for (a, b), ms in classes.items():
-        tau = (sqrt(b) + sqrt(a)) / (sqrt(b) - sqrt(a))
-        for i, mi in enumerate(ms):
-            for mj in ms[i + 1:]:
-                if mj >= 2 * mi:
-                    break
-                Xi, Yi = isqrt(a * mi - 1), isqrt(b * mi - 1)
-                Xj, Yj = isqrt(a * mj - 1), isqrt(b * mj - 1)
-                yield a, b, mi, mj, Xi * Yj - Xj * Yi, tau
+from x2plus1.polyseq import close_pairs, ratio_classes
 
 
 def main(X=4000):

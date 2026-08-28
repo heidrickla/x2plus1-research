@@ -194,3 +194,49 @@ LADDER = [
 
 def ladder(X: int) -> list[PolySequence]:
     return [PolySequence(p.name, p.coeffs, X) for p in LADDER]
+
+
+# --- shared moduli of a ratio class -----------------------------------------
+#
+# For coprime a < b, m is a SHARED MODULUS of (a, b) when a*m = x^2+1 and
+# b*m = y^2+1 -- i.e. a solution of the conic b x^2 - a y^2 = a - b.  Bucketing
+# the reduced ratios (y^2+1)/(x^2+1) finds each (a, b) together with all of its
+# shared moduli in one pass, without reference to the incidence graph, so it
+# sees configurations a dyadic window would hide.  See Note L and Note O.
+
+
+def ratio_classes(X: int) -> dict[tuple[int, int], list[int]]:
+    """{(a, b): sorted shared moduli} over every reduced ratio with x < y <= X."""
+    from collections import defaultdict
+    from math import gcd
+
+    sq = [x * x + 1 for x in range(X + 1)]
+    out: dict[tuple[int, int], set[int]] = defaultdict(set)
+    for x in range(1, X + 1):
+        sx = sq[x]
+        for y in range(x + 1, X + 1):
+            g = gcd(sx, sq[y])
+            if g > 1:
+                out[(sx // g, sq[y] // g)].add(g)
+    return {k: sorted(v) for k, v in out.items()}
+
+
+def close_pairs(classes: dict[tuple[int, int], list[int]]):
+    """Yield (a, b, m_i, m_j, V, tau) for shared moduli inside one dyadic window.
+
+    V = X_i Y_j - X_j Y_i is the invariant of Note O: it vanishes exactly when
+    the two solutions are proportional, and it satisfies U^2 - D V^2 = M^2 with
+    D = ab, M = b - a.  tau = (sqrt b + sqrt a)/(sqrt b - sqrt a) is the
+    multiplier; the modulus ratio of a close pair is tau^2 up to O(1/m).
+    """
+    from math import isqrt, sqrt
+
+    for (a, b), ms in classes.items():
+        tau = (sqrt(b) + sqrt(a)) / (sqrt(b) - sqrt(a))
+        for i, mi in enumerate(ms):
+            for mj in ms[i + 1:]:
+                if mj >= 2 * mi:
+                    break
+                Xi, Yi = isqrt(a * mi - 1), isqrt(b * mi - 1)
+                Xj, Yj = isqrt(a * mj - 1), isqrt(b * mj - 1)
+                yield a, b, mi, mj, Xi * Yj - Xj * Yi, tau
