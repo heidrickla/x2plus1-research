@@ -710,3 +710,62 @@ def test_p_divides_V_exactly_when_the_local_subcase_agrees():
                     assert V % p, (a, b, p)
                     diff_ndiv += 1
     assert same_div > 10 and diff_ndiv > 100 and tot > 500
+
+
+def test_O8_hypothesis_is_proved_below_the_plucker_threshold():
+    """O.8's open hypothesis gcd(V,M) = 1 is a THEOREM when M/sqrt(D) is small.
+
+    Three ingredients, all proved, no measured input:
+
+    1. The |V| bound. From V W = M(m_i - m_j) with W = X_j Y_i + X_i Y_j, and
+       Y > X sqrt(b/a) since Y^2 = (b/a)(X^2+1) - 1, we get W > 2 X_i X_j
+       sqrt(b/a) and hence |V| < (M/2 sqrt D)(R - 1/R) with R = X_j/X_i. In a
+       window R^2 < r := 2 + 1/X_i^2, so |V| < (M/2 sqrt D)(sqrt r - 1/sqrt r).
+
+    2. V is EVEN whenever M is odd. M odd means a, b are not both = 2 mod 4, so:
+       if a and b are both odd then m must be odd (m even would force X and Y
+       both odd, making M = b - a even), so X^2 = am-1 and Y^2 = bm-1 are both
+       even and X, Y are both even; if a = 2 mod 4 and b is odd then m is odd, X
+       is odd and Y is even. Either way X_i Y_j - X_j Y_i is even.
+
+    3. V != 0, since V = 0 forces the two solutions proportional.
+
+    So |V| < 4 gives |V| = 2, and gcd(V,M) = gcd(2,M) = 1 for M odd. And
+    |V| >= 4 requires M/sqrt(D) > 8/(sqrt r - 1/sqrt r) -- which is exactly the
+    Plucker threshold, 4 sqrt 3 = 6.9282 at X_i = 1 rising to 8 sqrt 2 = 11.3137.
+
+    Below that threshold O.8 applies unconditionally: 95 of the in-window M-odd
+    pairs at X = 4000, 47.0% of all in-window pairs.
+    """
+    from math import gcd, isqrt, sqrt
+
+    from x2plus1.polyseq import ratio_classes
+
+    below = odd_below = 0
+    for (a, b), ms in ratio_classes(3000).items():
+        M = b - a
+        if M < 3:
+            continue
+        D = a * b
+        ms = sorted(ms)
+        dat = [(isqrt(a * m - 1), isqrt(b * m - 1)) for m in ms]
+        for i in range(len(ms) - 1):
+            Xi, Yi = dat[i]
+            Xj, Yj = dat[i + 1]
+            if Xi < 1 or ms[i + 1] >= 2 * ms[i]:
+                continue
+            V = Xi * Yj - Xj * Yi
+            W = Xj * Yi + Xi * Yj
+            assert V * W == M * (ms[i] - ms[i + 1])          # the identity
+            assert V != 0
+            if M % 2:
+                assert V % 2 == 0, (a, b, M, V)              # parity, for M odd
+            r = 2 + 1.0 / (Xi * Xi)
+            assert abs(V) < (M / (2 * sqrt(D))) * (sqrt(r) - 1 / sqrt(r)) + 1e-9
+            if M / sqrt(D) <= 8.0 / (sqrt(r) - 1 / sqrt(r)):
+                below += 1
+                assert abs(V) == 2, (a, b, M, V)             # forced
+                if M % 2:
+                    odd_below += 1
+                    assert gcd(V, M) == 1                    # therefore proved
+    assert below > 100 and odd_below > 40
