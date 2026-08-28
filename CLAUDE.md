@@ -194,160 +194,117 @@ r₁ = 6.854 is nowhere near a window). **The general "no window holds three" is
 proved** — it was claimed unconditionally and retracted; the window Gram bound
 stays O_ε(N^ε).
 
-**Theorem O.3 is the real result there.** A multiplier with |V| = 2k exists iff
-a² + (4k²−2)ab + b² is a perfect square — at k = 1 that is (a+b)², a square
-*identically*, which is why the trivial multiplier always exists and why |V| = 2
-dominates. A triple needs a **second** multiplier, since V = ±2 forces
-U = ±(a+b) uniquely. Mod M we have b ≡ a, so in S = X+Y, T = X−Y the automorph
-diagonalises with **unit** eigenvalues — hence each integrality condition holds
-for a whole orbit or none. τ₁ acting is exactly M | S; then τ_k forces
-M | 2B_k with B_k = U_k − 2ka, so M = 8ka(2k−j)/(j²−4) for j = 2B_k/M ≥ 3, and
-the geometry needs M > 2√2·k√(ab). Together those give
-e² + 4jwe + 2w²(2e−1) < 0 with every term positive. **So for M odd squarefree no
-window holds (ξ, τ₁ξ, τ_kξ)** — and **Theorem O.3′ supersedes that**: with
-ρ = B_k/M the identity M(ρ²−1) = 4ka(k−ρ) plus the geometry force ρ < 1.06066,
-while integrality makes c·ρ an integer for c = gcd(M, 2X); an integer in
-(c, 1.06066c) needs c ≥ 17. **So the conclusion holds whenever gcd(M, 2X) ≤ 16,
-with no hypothesis on M at all** — reaching the even, non-squarefree cases O.3
-was mute on. **And O.3″ sharpens O.3′ into a joint (c,k) region**: the
-chain discards a term at ρ² < 9/8 − ρ/(8k), and ρ > 1 is free (U_k > 2k√(ab) >
-2ka; Λ > 0 with ρ² < 1 forces ρ > k ≥ 1). Keeping it, with g = cρ ∈ ℤ the
-identity reads M(g−c)(g+c) = 4kac(kc−g) and a triple needs
-**(4k+√(16k²+2))(2c+1) < c(kc−c−1)**. k → ∞ gives back c ≥ 17, so **O.3′ is the
-k-free shadow of O.3″**, while **k = 2 is excluded for every c ≤ 33**. k = 1 is
-the boundary that hid it — U₁ = a+b, ρ = 1 exactly, Λ = 0/0. Reading "cρ ∈ ℤ
-needs 1/(ρ−1)" off the ρ bound gives 33 not 34 at k = 2; **that route spends
-ρ > 1 on the −ρ term while the region form substitutes ρ ≥ (c+1)/c in both**, so
-the region form is the parent and the ρ bound its weaker corollary. O.3″ leaves
-O.2's p,q ≥ 2 gap untouched and is far from binding: every realised acting
-in-window multiplier with k ≥ 2 has c ∈ {2,4} against a threshold of 17.
+**Note O's thread — twelve results, in order.** All concern *shared moduli*: for
+a cofactor pair with d = gcd, a = n₁/d, b = n₂/d, the moduli both divide are
+solutions of aY² − bX² = M, M = b − a, D = ab, and m = (X²+1)/a. Multipliers
+τ_V = (U + V√D)/M with U² − DV² = M² move between solutions.
 
-**Theorem O.4 is the first that assumes nothing about which multiplier acts**, so
-it is the one reaching the p,q ≥ 2 gap. Three moduli are two steps, so the window
-must fit τ_min²; the automorph X_j = (UX_i + VaY_i)/M with aY_i > X_i√D gives the
-**exact** X_j > τ_V X_i, and m = (X²+1)/a turns it into
-m₃/m₁ > (τ_min⁴X₁²+1)/(X₁²+1). **A window holds three only if τ_min⁴ < 2 + 1/X₁²**
-— b/a > 53.69 at X₁ = 1, rising to **b/a > [(1+√2)(1+√2+2^{5/4})]² = 133.875**,
-against the pair threshold (1+√2)⁴ = 33.971. **The finite term is load-bearing**:
-the clean form m_{i+2}/m_i ≥ τ₁⁴ is FALSE (9 of 110 gaps; at (1,5), m = 2 → 65
-gives 32.50 against 46.98) because the modulus ratio is τ² only asymptotically.
-**Step 2 must go through the map** — bounding
-|V| = M(X_j²−X_i²)/(X_jY_i + X_iY_j) instead gives τ at V/a, true but not sharp
-for a > 1. Still only necessary, and not binding: the nearest realised
-configuration clearing the threshold is a factor 7.25 from a window.
+- **O.3 / O.3′ / O.3″** — triples of the form (ξ, τ₁ξ, τ_kξ), so they *assume τ₁
+  acts*. O.3: M odd squarefree. O.3′: gcd(M,2X) ≤ 16, no hypothesis on M, from
+  M(ρ²−1) = 4ka(k−ρ) with ρ = B_k/M and ρ < 1.06066. **O.3″** keeps a term O.3′
+  discards (ρ > 1 is free) and gives the joint region
+  **(4k+√(16k²+2))(2c+1) < c(kc−c−1)**; k → ∞ recovers c ≥ 17, and **k = 2 is
+  excluded for every c ≤ 33**. Reading "cρ ∈ ℤ needs 1/(ρ−1)" off the ρ bound
+  gives 33 not 34 at k = 2 — that route spends ρ > 1 on the −ρ term, the region
+  form substitutes ρ ≥ (c+1)/c in both. Parent and corollary, not a conflict.
+- **O.4** — first to assume *nothing* about which multiplier acts. The automorph
+  X_j = (UX_i + VaY_i)/M with aY_i > X_i√D gives the exact X_j > τ_V X_i, and
+  m = (X²+1)/a turns it into m₃/m₁ > (τ_min⁴X₁²+1)/(X₁²+1), so a window needs
+  **τ_min⁴ < 2 + 1/X₁²** — b/a > 53.69 at X₁ = 1, rising to
+  **133.875 = [(1+√2)(1+√2+2^{5/4})]²**. **The finite term is load-bearing**: the
+  clean m_{i+2}/m_i ≥ τ₁⁴ is FALSE (9 of 110 gaps; (1,5) m 2→65 gives 32.50 vs
+  46.98). **Step 2 must go through the map** — the symmetric route gives τ at V/a.
+- **O.5** — τ_p² ∈ T forces **M | 8p²** (since D ≡ a² mod M, gcd(a,M) = 1), and
+  the window forces D < M against M < D always. So **no window holds
+  (ξ, τ_pξ, τ_p²ξ)** for any p, given X₁ ≥ 1. **Supersedes Prop O.1** and explains
+  its (1,5) escape: M = 4 | 8, so τ₁² really is integral there and it is the
+  *window* that fails.
+- **O.6** — for M an odd prime the subcase (M | S vs M | T) **alternates at every
+  step** when M ∤ V, via M·S′ = A_pS + V_p·M·X (*not* S′ = A_pS/M, which fails on
+  246 of 246). I first wrote this up as "the integrality route cannot close O.2";
+  **too strong** — it shows only that the composite's two integrality conditions
+  are vacuous, and the alternation itself closes the case an hour later.
+- **O.7** — hence **no window holds three when M is an odd prime**: two steps flip
+  twice, the one-step composite flips once, and the dichotomy forbids both.
+- **O.8** (superseded) — M odd squarefree on the hypothesis gcd(V,M) = 1, via
+  **S·T = −M·m** ⟹ gcd(M,S)·gcd(M,T) = M.
+- **O.9** — the mechanism is a **sign**: Y² ≡ X² (mod p) gives σ = ±1 with
+  Y ≡ σX, and V_ij ≡ X_iX_j(σ_j − σ_i), so **p | V_ij ⟺ σ_i = σ_j**. Three signs
+  in {±1} cannot be pairwise distinct, so **M | V₁₂V₂₃V₁₃** and, with
+  |V| < M/√(3D), **3ab < (b−a)^{4/3}**.
+- **O.10** — **no hypothesis on M at all.** The sign becomes a valuation split:
+  s = min(e, v_p(S)), t = min(e, v_p(T)) satisfy s + t ≥ e; either p^s | S or
+  p^t | T kills V, so v_p(V_ij) ≥ max(min(s_i,s_j), min(t_i,t_j)); ordering
+  s₁ ≤ s₂ ≤ s₃ gives v_p(V₁₂) + v_p(V₂₃) ≥ e. **The sign is its e = 1 shadow.**
+- **O.11** — R₁₂R₂₃ = R₁₃ couples the three bounds, and sinh(u₁₂)sinh(u₂₃) at
+  fixed u₁₃ peaks at the **equal** split, so ab < (C(X₁)/8)^{2/3}(b−a)^{4/3} with
+  C = (√ρ−1/√ρ)³(√ρ+1/√ρ) — **0.048628 vs O.10's 1/3, 6.85× stronger**.
+- **O.12** — the one that touches the main line. See below.
 
-**Conjecture O.2 moved three of its four cases tonight.** τ₁-assuming triples go
-to **O.3″**; the equal-multiplier case (ξ, τ_pξ, τ_p²ξ) goes to **O.5** — τ_p² ∈ T
-forces M | 8p², and the window forces D < M against M < D always; the general
-threshold is **O.4**. What is left is **two distinct multipliers** — and
-**Proposition O.6 proves that case is unreachable by congruences.** For M an odd
-prime exactly one of M | S, M | T holds and it forces the sign of U_p ≡ ±2pa; the
-exact identity **M·S′ = A_pS + V_p·M·X** (*not* S′ = A_pS/M, which fails on 246 of
-246 pairs — the first version of the argument was built on it) together with
-β ≡ p (mod M) makes **the subcase alternate at every step**, 246 times with 0
-exceptions. So ε_p = +1 forces ε_q = −1, and both composite integrality
-conditions become **automatic**: 0 failures over 493 opposite-sign (p,q) pairs,
-against **40 of 246 same-sign pairs failing both** — the conditions have content
-and the alternation is what removes it. so the composite's integrality
-conditions carry no information.
+**Read every coverage figure over the informative population.** A class with
+fewer than three shared moduli cannot host a triple, and only **60 of 1,815,154**
+classes at X = 3000 have three at all. O.10 excludes **~35%** of informative
+classes (flat in X); O.11 **88–98%** — **but O.11's falls monotonically** (97.7 →
+88.1 over X = 1500–8000) while the admissible count doubles per doubling of X, so
+it may tend to 0 and no claim is made about its limit. Both sessions first
+published the ~99%-of-all-classes figure. **A coverage figure above ~90% on an
+open question is evidence the denominator is wrong.**
 
-**But the alternation is a CONSISTENCY constraint, and Theorem O.7 closes the
-case with it.** A triple makes ξ₁ → ξ₂ → ξ₃ flip **twice** (ξ₃ back in subcase A)
-while ξ₁ → ξ₃ is itself a single step and flips **once** (ξ₃ in B) — and the
-dichotomy says exactly one. **So for M = b−a an odd prime, no dyadic window holds
-three shared moduli: Conjecture O.2 on 14% of realised close pairs, assuming
-nothing about which multipliers act.** Its only hypothesis is M ∤ V, supplied by
-the window through the exact **a·|V|(X_jY_i + X_iY_j) = M(X_j²−X_i²)** — *the
-factor a is load-bearing, and dropping it fails 3389 of 4033 pairs* — giving
-|V| < 0.57735·M/√D < M. The hypothesis is sharp: every realised M-odd-prime class
-with three moduli has M | V on its two-step, at ratios of 10⁴ and up. **Theorem O.9 does it for all M odd squarefree with NO
-hypothesis, by pigeonhole**: for p | M, aY² = bX² + M gives Y² ≡ X² (mod p), so
-each solution has a **sign** σ = ±1 with Y ≡ σX, and V_ij ≡ X_iX_j(σ_j − σ_i)
-makes **p | V_ij ⟺ σ_i = σ_j**. Three values in {±1} cannot be pairwise
-distinct, so **M | V₁₂V₂₃V₁₃**; with |V| < M/√(3D) in a window that forces
-**3ab < (b−a)^{4/3}**. **Theorem O.10 then drops the odd/squarefree hypothesis
-entirely**: replace the sign by the valuation split s_i + t_i ≥ e with
-s = min(e, v_p(S)), t = min(e, v_p(T)); either p^{s} | S or p^{t} | T kills V, so
-v_p(V_ij) ≥ max(min(s_i,s_j), min(t_i,t_j)), and ordering s₁ ≤ s₂ ≤ s₃ gives
-v_p(V₁₂) + v_p(V₂₃) ≥ e. **The sign is the e = 1 shadow**, where S·T = −M·m
-forces s + t = 1 exactly. **READ THE COVERAGE OVER THE INFORMATIVE POPULATION**:
-a class with fewer than three shared moduli cannot host a triple, and only **60
-of 1,815,154** classes at X = 3000 have three at all — so the bound excludes
-**~35%** (17/48, 21/60, 24/70, 34/96 at X = 2000–6000), **not the 99% a sweep
-over all classes reports**. Both sessions published the vacuous figure first; a
-percentage here must carry its population in the same sentence, and **a coverage
-figure above ~90% on an open question is evidence the denominator is wrong**.
-**Theorem O.11 then sharpens the constant 6.85×** — R₁₂R₂₃ = R₁₃ couples the
-three bounds, and sinh(u₁₂)sinh(u₂₃) at fixed u₁₃ peaks at the *equal* split, so
-f·f·f ≤ (√ρ−1/√ρ)³(√ρ+1/√ρ) and **ab < 0.048628·(b−a)^{4/3}**. It excludes
-88–98% of informative classes, **but that figure falls monotonically with X**
-(97.7 → 88.1 over 1500–8000) while O.10's ~35% is flat, so it must not be read
-as an asymptotic. **Theorem O.12 is the one that touches the main line.** The rest of Note O
-windows the *moduli* and lets cofactors range free; **FM's (II) bands both**
-(m ~ M, n ~ N; footnote 2 averages over m₁,m₂ ~ x^{1−2c+ε}). Banded cofactors
-give u = n₂/n₁ < 2, while two shared moduli in one window need τ_V² < 3, i.e.
-M/√D > √3, i.e. **u > (5+√21)/2 = 4.7913** — a factor 2.4 out of reach. So
-**the rational graph on the doubly-dyadic configuration is C₄-free, proved, all
-X** (measured: banded Gram 1, free Gram 2, every window at X = 2000/3000/6000).
-That closes the second half of `gaussian-to-rational-bridge`'s stated gap —
-"what is measured over Z is G′ ≤ 2" becomes proved G′ ≤ 1, matching Z[i]. It does
-**not** close the bridge's inference ("both give no main term…"), and says
-nothing about O.2, which is the free-cofactor question. **Quantifier warning**:
-the per-prime form
-v_p(V₁₂)+v_p(V₂₃) ≥ e does *not* give M | V_aV_b for a fixed pair — the ordering
-is computed per prime and 5 of 216 realised triples admit no uniform pair. That
-reduction would prove O.2 in one line and is blocked. It recovers O.7 for M prime with nothing assumed and supersedes
-O.8. The load-bearing identities are **S·T = −M·m** and the cofactor-free
-**V·W = M(m_i − m_j)** with W = X_jY_i + X_iY_j (the parallel session's form;
-mine had a spurious a). **Theorem O.8, now superseded, pushed it from prime to
-squarefree**, on an identity worth having alone: **S·T = −M·m** (from
-a(Y²−X²) = M(X²+1) = M·am), whence **gcd(M,S)·gcd(M,T) = M** for M odd — so the
-dichotomy is a *factorisation* M = M⁺M⁻ that swaps at each step. Its one
-hypothesis is **gcd(V,M) = 1**, which holds on every in-window pair observed
-(295 of 295 at X = 6000) but is **not proved**; it is equivalent to
-g = gcd(U,V) = 1, the quantity Prop O.1's chain tracks, where in-window only
-a·g² < M is known. **Two conditions, not one**: coprimality separates swap from
-non-swap (every non-swap has gcd(V,M) > 1), while squarefreeness makes the split
-a *dichotomy* rather than partial — M = 9 gives (3,3), neither p^e | S nor
-p^e | T. **M even is outside all of it**: a, b both odd makes M and V both even,
-so gcd(V,M) ≥ 2 automatically.
+**⚠ Two hazards recorded because each nearly shipped.** (i) The per-prime form
+v_p(V₁₂)+v_p(V₂₃) ≥ e does **not** give M | V_aV_b for a fixed pair — the ordering
+is computed per prime, and 5 of 216 realised triples admit no uniform pair
+((1,481) M=480, (1,925) M=924, (1,106) M=105, (1,2465) M=2464, (1,1450) M=1449,
+all with ≥3 distinct primes). That reduction would prove O.2 in one line.
+(ii) Every class O.11 admits has a = 1, and a = 1 is the unit cofactor no Type II
+hypothesis admits — so *"O.11 is exhaustive on exactly the Type II classes"* is
+true of every number in the sweep and **false**: the largest b among informative
+a ≥ 2 classes is 8321 at X = 6000 against an a = 2 crossover of 7×10⁴, so the
+data cannot test it.
 
-**I first wrote O.6 up as "the integrality route cannot close O.2" and that was
-too strong** — the evidence showed only that those two *composite* conditions are
-vacuous. Generalising "sub-route X′ is dead" to "route X is dead" is this repo's
-most repeated error, and here the very proposition I declared insufficient is
-what closes the case an hour later. **The geometry there is r_k² < 2, equivalently M > 4√2·k√(ab), and
-the distinction decides the theorem**: the modulus ratio is τ², not τ, so r_k² < 2
-is what "both fit one dyadic window" means. Under the weaker r_k < 2 (which is
-M > (8/3)·k√(ab)) the ρ bound is **false** — 193 violations in 277, ρ reaching
-1.2375. Verified with the identity exact in rationals over 1455 multipliers; the
-correct hypothesis leaves 73 of them, so O.3′ reaches less than the loose form
-suggests. Machine-checked in `tests/test_arithmetic_facts.py`. A corollary for
-any surviving text: a window holding three needs **r₁·r_k < √2**, not < 2.
+**Theorem O.12 is the one that touches the main line.** The rest of Note O
+windows the *moduli* and lets cofactors range free; **Ford–Maynard's (II) bands
+both** (m ~ M, n ~ N; footnote 2 averages over m₁,m₂ ~ x^{1−2c+ε}). Banded
+cofactors give u = n₂/n₁ < 2, while two shared moduli in one window need
+τ_V² < 3, i.e. M/√D > √3, i.e. **u > (5+√21)/2 = 4.7913** — a factor 2.4 out of
+reach, using |V| ≥ 1 so it does not depend on parity. **So the rational graph on
+the doubly-dyadic configuration is C₄-free, proved, for all X.** Measured: banded
+Gram 1, free Gram 2, at every window at X = 2000/3000/6000, with a positive
+control — 57,132 of 300,026 banded pairs share exactly one modulus and 0 share
+two, while 127 free pairs share two. **This closes the second half of
+`gaussian-to-rational-bridge`'s stated gap** — "what is measured over Z is
+G′ ≤ 2" becomes a proved G′ ≤ 1, matching Z[i] exactly. It does **not** close the
+bridge's inference ("both give no main term, so the conclusion is unchanged"),
+and says **nothing** about O.2: (1,41) shares 730 and 1370, a genuine G′ = 2,
+with 41/1 far outside any band.
 
-**O.2 — no window holds three, at all — is still open**, and the gap is p, q ≥ 2:
-a close pair can be realised at a **non-fundamental** multiplier. `exp14` finds
-**four** at X = 9000 (1332 of 1336 explained close pairs sit at k = 1):
-(17, 593393) k=20; (53, 423125) k=12; (37, 26245) k=4; (37, 1635517) k=35.
-**All four have M even, so O.3 is mute on all four, and O.3′ permits both moduli
-and forbids a third in all four** — c = gcd(M,2X) is 2, 4 or 12 throughout.
-Rare, not absent, and they are the falsifiers any extension must survive.
+**What is left of O.2.** Nothing structural — no hypothesis on M survives. What
+remains is quantitative: at X = 8000, 13 of 109 informative classes clear O.11,
+all with a = 1, and none holds three moduli in a window. **The bounds are not
+what forbids triples in nature.** And closing O.2 would move
+`rational-gram-bounded-on-windows` from `rigorous_finite` to `proved` and change
+no conclusion — Note L says so directly, and the volume of the O-thread should
+not be read as stakes.
 
-**The sharp form of O.2, and the identity behind the 17.** Asking which
-multipliers *act* on a realised ξ (occupancy as input) shows they act freely —
-18,116 solutions admit one, 215 admit two, some six, and the acting set can be a
-cyclic semigroup: (1,5) at m = 2 admits k = 1, 3, 8, 21, 55, 144, i.e. τ₁, τ₁²,
-τ₁³. **So "τ² is never integral" is false in general**; O.3′ forbids it only in
-the window regime. But **never two inside a window**: 13,840 ξ with an acting
-multiplier, 327 with exactly one at r < 2, **zero with two**, and the smallest
-second ratio over 53 cases is 14.91 against the 2 a window needs. That is O.2 in
-measurable form — *on any ξ, at most one acting multiplier has r < 2* — and
-acting is orbit-invariant because the automorph diagonalises S = X+Y, T = X−Y
-with **unit** eigenvalues mod M. Behind it: with B_p = M + δ_p,
-**δ_p(2M + δ_p + 4pa) = 4paM(p−1)** exactly (0 violations in 1,002,709), so
-δ_p = 0 **iff** p = 1 — the same fact as j = 2 ⟺ k = 1 and M₂ = 1 — and
-δ_p < 2ap(p−1); with δ_p < 0.06066M from the geometry, gcd(δ_p,M) ≤ δ_p gives
-M/d_p ≥ 17, recovering O.3′'s constant by a second route.
+**The load-bearing identities**, all exact and machine-checked: **S·T = −M·m**;
+**V·W = M(m_i − m_j)** with W = X_jY_i + X_iY_j (the parallel session's, with no
+cofactor); **a·|V|(X_jY_i + X_iY_j) = M(X_j²−X_i²)**, giving
+|V| < (M/2√D)(R − 1/R) with no asymptotics; **U² − DV² = M²**; and
+**δ_p(2M + δ_p + 4pa) = 4paM(p−1)** (0 violations in 1,002,709), so δ_p = 0 iff
+p = 1 — the same fact as j = 2 ⟺ k = 1 — and M/d_p ≥ 17, recovering O.3′'s
+constant by a second route.
+
+**The geometry is r_k² < 2, i.e. M > 4√2·k√(ab), and the distinction decides the
+theorems**: the modulus ratio is τ², not τ. Under the weaker r_k < 2 the ρ bound
+is **false** — 193 violations in 277, ρ reaching 1.2375.
+
+**The four non-fundamental close pairs are the falsifiers any extension must
+survive.** `exp14` at X = 9000 finds four (1332 of 1336 explained close pairs sit
+at k = 1): (17, 593393) k=20; (53, 423125) k=12; (37, 26245) k=4;
+(37, 1635517) k=35. **All four have M even**, so O.3 is mute on all four and O.3′
+permits both moduli while forbidding a third — c = gcd(M,2X) is 2, 4 or 12
+throughout. Multipliers **act freely**: (1,5) at m = 2 admits k = 1, 3, 8, 21,
+55, 144, i.e. τ₁, τ₁², τ₁³ — so "τ² is never integral" is false in general and
+the *window* is the content.
 
 **The θ axis and the Gram axis are the same object.** S_μ(M)² ≤ #{m∼M}·Q₂ with
 **Q₂ = DIAG + OFF** exactly, DIAG ≍ X the squarefree incidence count and
@@ -555,6 +512,25 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   reach is *falling* with X (O.11: 97.7% → 88.1%, admissible count doubling per
   doubling of X) is a different object from one that is flat (O.10: ~35%), and
   "6.85× better" alone tells a reader the opposite of what the data says.
+
+- **Before believing a sweep's headline, ask what its output would look like if
+  the finding were absent. If that looks the same, the sweep measured nothing.**
+  (The parallel session's formulation; five instances here in one night, and it
+  subsumes all of them.) *Consistency vs silence*: a grep for contradictions
+  returns nothing whether both notes agree or only one speaks. *Vacuous
+  denominator*: 95.68% excluded reads the same whether the theorem is strong or
+  99.997% of the classes cannot host the configuration anyway. *Absent base
+  rate*: 27-of-28 uncited claims reads the same whether the notes are negligent
+  or id-citation is simply not the convention (it is not — 20%). *The a ≥ 2
+  column*: a column of zeros looks the same whether it is a law or a range the
+  sweep cannot reach (largest available b is 8321 against a 7×10⁴ crossover).
+  *Fixed windows across sequences*: comparing x²+c² on [64,256) gives Gram
+  2,3,3,3,4,5,6 across c = 1…13 — "the Z-vs-Z[i] gap widens with c" — and
+  normalising each window to that sequence's own √Q gives **2 throughout**, since
+  x²+c² starts at 1+c² and a fixed window sits at a different depth in each.
+  Every one of these produced a correct number and an unlicensed inference, and
+  every one would have been caught by the single question above, asked *before*
+  the sweep rather than after.
 
 - **Consistency and silence look identical from a grep.** Notes L and O were
   cross-checked for contradictions about how many moduli a dyadic window can
