@@ -859,6 +859,28 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   outward only. `$TMP` and `%TEMP%` resolve to the same shared directory as
   `/tmp` here; six files from three *other* sessions were sitting in it.
 
+- **A citation to the nearest script you own is invisible to every check but
+  running it.** The prose-citation defect (`experiment` naming a sentence) is
+  visible in the string and a guard catches it. Its successor is not: **eleven
+  claims here cited `exp23` — a real, running, correct experiment — which
+  computed none of their numbers.** Every one named it because it was the nearest
+  file the author owned, not because it contained anything. **A valid-looking
+  citation to a working file passes the guard, passes the eye, and fails only on
+  `python experiments/… | grep <the number>`.** Committed eleven times in one
+  night against the very file written to fix the earlier version of the same
+  defect. When adding a claim, run its cited experiment and find its number in
+  the output, or extend the experiment until you can.
+
+- **Put finished results next to each other on purpose.** Four findings tonight
+  came from adjacency alone — the τ/ε split, the three-scale gap, |V| ≥ 2
+  appearing in both the D family and the line family, and the pair/chain
+  thresholds turning out to be one formula. In **every** case both results were
+  already correct and already recorded; nothing was discovered by computing
+  anything new. That makes it a different and cheaper operation than the
+  duplicated computation that catches errors: this one needs a second
+  **placement**, not a second run, and the material already exists. It has paid
+  four times and costs nothing.
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified
