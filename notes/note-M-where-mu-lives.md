@@ -72,10 +72,29 @@ is what (I) and (II) having right-hand side x/log^B x requires — and then
 |w_n| ≍ x^{1/2} on A, violating the first condition. Unnormalised, |w_n| ≤ 1
 satisfies the first and fails the second. **The two halves of (4.1) cannot both
 hold for a sequence of density x^{1/2}**, so "the indicator is divisor-bounded"
-was true in a sense (4.1) does not use. **[VERIFY]** — the normalisation step is
-read off the x/log^B x scaling in (I), (II), (b.1) and Lemma 4.6's
-b_n = xq/(2yφ(q))·1[·], not from a sentence in [FM] stating it; that inference is
-the one thing here not quoted.
+was true in a sense (4.1) does not use.
+
+**The normalisation is not an inference — [FM] state it, twice.** p. 1: "we
+consider a sequence (a_n)_{x/2<n≤x} of non-negative weights, **normalized to have
+average value about 1** … A typical example would be when a_n is the *normalized
+indicator function* of a set of positive integers." And p. 7, in the sentence
+this repo already quotes for a different purpose: "If a_n is the **normalized
+indicator function of a set J ⊆ (x/2, x] containing x^{1−c} elements**, then one
+can only hope for (I) to hold for γ < 1 − c and (II) for θ > c." At c = 1/2 the
+normalised indicator is x^{1/2} on A, which is the rescaling that breaks the
+first half of (4.1).
+
+**And [FM] flag the consequence themselves**, p. 14:
+
+> "our hypotheses for C± are **not** sensitive to logarithmic-sized rescalings of
+> the sequences. **In contrast, the hypotheses for C±_bd are very sensitive to
+> unbounded rescalings.**"
+
+An x^{1/2} rescaling is exactly an unbounded one. So the error was appealing to
+C_bd for a sequence that reaches [FM]'s frame only through the rescaling their
+own remark warns about — and the same remark is why **C± is safe**: the main
+position goes through Ψ and Theorem 2.1, which tolerate log-sized rescalings and
+need no bound on |w_n| at all.
 
 This removes a support, not the conditional. The parameters still land above
 DFI's row, which is all §2 ever claimed.
