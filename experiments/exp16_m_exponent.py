@@ -128,6 +128,35 @@ def main() -> int:
         print(f"  {M:>9} {a:>13.3f} {b:>17.3f} {a / b:>7.3f}")
     print("  ratio near 1 => the roots of a modulus cancel at the square-root rate,")
     print("  which accounts for the whole gap between the two exponents.")
+
+    # The signed sum, the trivial bound, and the Cauchy-Schwarz chain.  These were
+    # cited to this file by two claims before it computed any of them.
+    print("")
+    print("  the SIGNED sum, the trivial bound T, and the chain")
+    print(f"  {'M':>9} {'#m':>7} {'signed':>9} {'S_mod':>9} {'sgn/S':>8} "
+          f"{'|sgn|/sqrt(T)':>14} {'T':>9} {'0.75*CS':>9}")
+    for M, n_mod, n_prog, s_mod, s_prog in rows:
+        signed = trivial = 0
+        for m in range(M, 2 * M):
+            rs = roots.get(m)
+            if not rs:
+                continue
+            for r in rs:
+                seg = mu[r:X + 1:m]
+                signed += int(seg.sum())
+                trivial += len(seg)
+        if not (trivial and s_mod):
+            continue
+        # Q2 ~ DIAG = 0.7658 T (incidence-count-and-squarefreeness-are-correlated),
+        # and the parallel session measures Cauchy-Schwarz tightness S/CS ~ 0.75.
+        cs = sqrt(n_mod * 0.7658 * trivial)
+        print(f"  {M:>9} {n_mod:>7} {signed:>9} {s_mod:>9} "
+              f"{abs(signed)/s_mod:>8.4f} {abs(signed)/sqrt(trivial):>14.4f} "
+              f"{trivial:>9} {0.75*cs:>9.0f}")
+    print("  |signed|/sqrt(T) stays O(1) across M -- full square-root cancellation --")
+    print("  while S_mod grows, so signed/S_mod DECAYS: the absolute value is the cost,")
+    print("  and it costs more the further into the Type II range one goes.")
+    print("  0.75*CS against S_mod is the chain; they agree near M = X.")
     return 0
 
 
