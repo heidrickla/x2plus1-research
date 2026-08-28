@@ -1826,7 +1826,7 @@
       "superseded_by": ""
     },
     {
-      "id": "the-c4-free-obstruction-does-not-depend-on-the-ring",
+      "id": "the-c4-free-input-is-available-in-both-rings",
       "status": "inferred",
       "statement": "The C4-free obstruction holds in BOTH formulations on the configuration a Type II hypothesis quantifies over, so it does not depend on the choice of ring. Note F proves G <= 1 over Z[i] for all cofactor pairs; Theorem O.12 proves G' <= 1 over Z for cofactors within a factor 4.7913, in particular within one dyadic band, on every dyadic modulus window. [FM]'s (II) is bilinear over m ~ M and n ~ N, so only banded pairs occur in it. Hence the numerical input to nu = 0 is available over Z directly and does not have to be carried across from Z[i]. The repo's headline -- the obstruction is a theorem about the sequence and survives any change of sieve -- extends to: it survives the change of ring as well, on the configuration that matters.",
       "depends_on": [
@@ -1836,7 +1836,7 @@
       "tags": [
         "type_ii"
       ],
-      "notes": "INFERRED, and the inferred part is narrow and named: that [FM]'s (II) sees only banded cofactor pairs. That is a reading of their quantifier, the same reading `gaussian-to-rational-bridge` rests on, and it is not proved here. Everything else is proved -- Note F by the two-line argument over Z[i], O.12 by the Pell/window argument over Z. SCOPE, since 'the Gaussian formulation is not needed' would be too strong: it is not needed FOR THIS STEP. Z[i] remains the repo's working setting for the Type I analysis, the factorisation machinery, and the sieve setup, and O.12's own proof runs on x^2+1's Pell structure rather than on anything ring-free. What changes is that the C4-free input to the Type II conclusion no longer arrives through a bridge; it is available on both sides. NEITHER PROOF IMPLIES THE OTHER, and the id could be read as claiming they do. O.12 gives the 0/1 property over Z on the doubly-dyadic configuration by a Pell/window argument; Note F gives it over Z[i] for all cofactor pairs by the two-line multiplicative argument. The Z statement is NOT a corollary of the Z[i] one -- deducing it is exactly what `gaussian-to-rational-bridge` was for -- and the Z[i] statement is not a special case of the Z one, since O.12 is restricted to banded cofactors and Note F is not. What O.12 removes is the NEED for the transfer on the configuration that matters, not the transfer's content. 'Now proved over Z' must not be read as 'the bridge is closed': the bridge's inference about what (II) ranges over is exactly as it was, and is the whole of this claim's `inferred` status. Raised by the parallel session as the kind of distinction that gets merged later.",
+      "notes": "INFERRED, and the inferred part is narrow and named: that [FM]'s (II) sees only banded cofactor pairs. That is a reading of their quantifier, the same reading `gaussian-to-rational-bridge` rests on, and it is not proved here. Everything else is proved -- Note F by the two-line argument over Z[i], O.12 by the Pell/window argument over Z. SCOPE, since 'the Gaussian formulation is not needed' would be too strong: it is not needed FOR THIS STEP. Z[i] remains the repo's working setting for the Type I analysis, the factorisation machinery, and the sieve setup, and O.12's own proof runs on x^2+1's Pell structure rather than on anything ring-free. What changes is that the C4-free input to the Type II conclusion no longer arrives through a bridge; it is available on both sides. NEITHER PROOF IMPLIES THE OTHER, and the id could be read as claiming they do. O.12 gives the 0/1 property over Z on the doubly-dyadic configuration by a Pell/window argument; Note F gives it over Z[i] for all cofactor pairs by the two-line multiplicative argument. The Z statement is NOT a corollary of the Z[i] one -- deducing it is exactly what `gaussian-to-rational-bridge` was for -- and the Z[i] statement is not a special case of the Z one, since O.12 is restricted to banded cofactors and Note F is not. What O.12 removes is the NEED for the transfer on the configuration that matters, not the transfer's content. 'Now proved over Z' must not be read as 'the bridge is closed': the bridge's inference about what (II) ranges over is exactly as it was, and is the whole of this claim's `inferred` status. Raised by the parallel session as the kind of distinction that gets merged later. RENAMED from `the-c4-free-obstruction-does-not-depend-on-the-ring`, which asserted in its id the thing its own notes deny -- that one formulation gives the other. 'Available in both' is what is true. An id is the shortest paraphrase in the repo and the one most often read without the claim attached, so it is where drift costs most.",
       "proof_site": "",
       "experiment": "experiments/exp24_doubly_dyadic.py"
     },
@@ -1854,6 +1854,21 @@
         "note_o"
       ],
       "notes": "THE 'MEAN >= 1' LINE IS THIS REPO'S PARAPHRASE, NOT THE FOOTNOTE'S. Checked at source by the parallel session: the footnote is a condition on the ERROR TERM, and says nothing about a mean exceeding one. So the means below are evidence about how often the count is 1, NOT about a threshold being crossed, and this claim must not be read as defeating the barrier. The real requirement makes the result stronger: pointwise 0/1 is immune to the objection that would sink a mean argument (that a band may hold only two cofactors). REFINES fm-barrier-range-is-small-moduli rather than refuting it: that claim's numbers are correct for the moduli-unrestricted graph and are reproduced here to four places. What changes is which configuration they describe. Its conclusion 'the mean is >= 1 for eps <~ 0.18' holds for the free-modulus reading and NOT for the doubly-banded one, where the cap is structural. And the one value still reaching 1 is a mean over a single pair, which is exactly the informative-subset caution that claim already carries -- now binding on the value that mattered. The max <= 1 half is proved (O.12), not measured; the means are the finite part."
+    },
+    {
+      "id": "doubly-dyadic-c4-freeness-is-not-generic",
+      "status": "rigorous_finite",
+      "statement": "POSITIVE CONTROL for theorem-O12-doubly-dyadic-c4-free. At Q = 1e5 the max Gram entry on the doubly-dyadic configuration (cofactors banded, moduli windowed) is: x^2+1 = 1 with 0 banded pairs sharing two (proved, O.12); a^2+b^6 = 11 with 1752; x^3+2y^3 = 15 with 511; a^2+b^4 = 66 with 33411; a^2+(b^2+1)^2 = 67 with 27890. So x^2+1 is alone at 1 while every other sequence measured is >= 11 -- the 0/1 property is NOT generic.",
+      "experiment": "experiments/exp24_doubly_dyadic.py",
+      "depends_on": [
+        "theorem-O12-doubly-dyadic-c4-free"
+      ],
+      "tags": [
+        "type_ii",
+        "gram",
+        "note_o"
+      ],
+      "notes": "NOT A CLASSIFIER, and the ordering is what says so: a^2+b^6, which is NOT known captured, sits at 11 -- BELOW the captured x^3+2y^3 at 15. So the statistic does not separate captured from open, and reading the table as 'low implies hard' would be mean-G-does-not-classify all over again. x^3+2y^3 is in the table precisely because it is the sequence that killed that classifier, and it was run before anything was written. WHAT IS CLAIMED is only that the property is not generic and that x^2+1 is qualitatively alone in having it -- with its value a theorem rather than a measurement. It also explains the footnote's own hedge that bilinear cancellation is difficult 'outside of special situations': for a count ranging over 0..66 there is something to average, for a 0/1 indicator there is not."
     }
   ]
 }
