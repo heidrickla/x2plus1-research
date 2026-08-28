@@ -105,9 +105,27 @@ suggests. Machine-checked in `tests/test_arithmetic_facts.py`. A corollary for
 any surviving text: a window holding three needs **r₁·r_k < √2**, not < 2.
 
 **O.2 — no window holds three, at all — is still open**, and the gap is p, q ≥ 2:
-a close pair can be realised at a **non-fundamental** multiplier, witnessed by
-(53, 423125) with m = 10, 17 at k = 12 (τ₁ excluded, 1.046 against 1.700).
-Realised once in 379 close pairs at X = 3000 — rare, not absent.
+a close pair can be realised at a **non-fundamental** multiplier. `exp14` finds
+**four** at X = 9000 (1332 of 1336 explained close pairs sit at k = 1):
+(17, 593393) k=20; (53, 423125) k=12; (37, 26245) k=4; (37, 1635517) k=35.
+**All four have M even, so O.3 is mute on all four, and O.3′ permits both moduli
+and forbids a third in all four** — c = gcd(M,2X) is 2, 4 or 12 throughout.
+Rare, not absent, and they are the falsifiers any extension must survive.
+
+**Measurement cannot settle the triple question but it can kill a proposed
+theorem.** `triples-cannot-be-settled-by-measurement` still holds for the triple
+itself — the configuration never occurs, so every sweep is vacuous. Live
+*close pairs* are a different matter: they exist, they are enumerable, and a
+proposed extension that forbade one would be refuted on the spot. That is the
+only measurement-shaped leverage on O.2 and it is worth using.
+
+**K_{6,2}, and infinite.** Six cofactors — 1, 53, 423125, 24326641,
+194502909745, 11182518951605 — each have both 10n and 17n of the form t²+1, and
+the family is a Prop L.1 orbit on the dual side (D = 170, ε² = 678, two-step
+ratios → 459682). So the Z-vs-Z[i] gap is **not** "2 instead of 1": Note F
+forbids K_{2,2} over Z[i], while over Z the *unwindowed* bound does not exist.
+The window is what supplies the constant — orbit members are ~4.6×10⁵ apart, so
+a dyadic window admits one from each of the two orbits, which is the measured 2.
 
 **The big methodological finding, which cost both sessions a day of work.**
 Generating candidates from *multipliers* and testing occupancy afterwards
