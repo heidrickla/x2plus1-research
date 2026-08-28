@@ -260,7 +260,16 @@ nothing about which multipliers act.** Its only hypothesis is M ∤ V, supplied 
 the window through the exact **a·|V|(X_jY_i + X_iY_j) = M(X_j²−X_i²)** — *the
 factor a is load-bearing, and dropping it fails 3389 of 4033 pairs* — giving
 |V| < 0.57735·M/√D < M. The hypothesis is sharp: every realised M-odd-prime class
-with three moduli has M | V on its two-step, at ratios of 10⁴ and up. **Theorem O.8 pushes it from prime to
+with three moduli has M | V on its two-step, at ratios of 10⁴ and up. **Theorem O.9 does it for all M odd squarefree with NO
+hypothesis, by pigeonhole**: for p | M, aY² = bX² + M gives Y² ≡ X² (mod p), so
+each solution has a **sign** σ = ±1 with Y ≡ σX, and V_ij ≡ X_iX_j(σ_j − σ_i)
+makes **p | V_ij ⟺ σ_i = σ_j**. Three values in {±1} cannot be pairwise
+distinct, so **M | V₁₂V₂₃V₁₃**; with |V| < M/√(3D) in a window that forces
+**3ab < (b−a)^{4/3}** — excluding **99.2%** of such classes, and leaving a ≤ 2 at
+O.4's minimum t. It recovers O.7 for M prime with nothing assumed and supersedes
+O.8. The load-bearing identities are **S·T = −M·m** and the cofactor-free
+**V·W = M(m_i − m_j)** with W = X_jY_i + X_iY_j (the parallel session's form;
+mine had a spurious a). **Theorem O.8, now superseded, pushed it from prime to
 squarefree**, on an identity worth having alone: **S·T = −M·m** (from
 a(Y²−X²) = M(X²+1) = M·am), whence **gcd(M,S)·gcd(M,T) = M** for M odd — so the
 dichotomy is a *factorisation* M = M⁺M⁻ that swaps at each step. Its one

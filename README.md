@@ -302,8 +302,8 @@ fourth was proved *unreachable by congruences*:
 | (ξ, τ_pξ, τ_p²ξ), any p | closed by **O.5**: τ_p² ∈ T ⟹ M \| 8p², against M < D |
 | any triple, threshold | **O.4**: b/a > 133.875, assuming nothing about which multiplier acts |
 | two **distinct** multipliers, M odd prime | closed by **O.7** |
-| M odd squarefree, gcd(V,M) = 1 | closed by **O.8** (hypothesis observed, not proved) |
-| M even, M non-squarefree, or gcd(V,M) > 1 | open |
+| M odd squarefree | **O.9** cuts it to 3ab < (b−a)^{4/3}, **no hypothesis** — 99.2% of such classes excluded outright |
+| M even or non-squarefree | open |
 
 **O.7 is the result; O.6 is the lemma under it.** For M an odd prime, exactly one of M \| S,
 M \| T holds at each solution and it forces the sign of U_p ≡ ±2pa. The exact
@@ -326,13 +326,18 @@ Its only hypothesis is M ∤ V, and the window supplies it via the exact
 **a·|V|(X_jY_i + X_iY_j) = M(X_j² − X_i²)** — the factor a is load-bearing —
 which gives |V| < 0.57735·M/√D < M. And the hypothesis is sharp: **every**
 realised M-odd-prime class with three moduli has M | V on its two-step, at ratios
-of 10⁴ and up. **O.8 pushes it from prime to squarefree** on the back of an identity worth
-having by itself: **S·T = −M·m**, whence gcd(M,S)·gcd(M,T) = M for M odd. The
-dichotomy is really a *factorisation* M = M⁺M⁻ that swaps at each step. Its one
-hypothesis, gcd(V,M) = 1, holds on **every** in-window pair observed (295 of 295)
-but is **not proved** — it is equivalent to g = gcd(U,V) = 1, the quantity Prop
-O.1 tracks, where in-window only a·g² < M is known. **M even is outside all of
-it**: a, b both odd makes M and V both even.
+of 10⁴ and up. **O.9 is the clean form, and it needs no hypothesis at all.** For p | M odd,
+aY² = bX² + M gives Y² ≡ X² (mod p), so every solution carries a **sign**
+σ = ±1 with Y ≡ σX — and V_ij ≡ X_iX_j(σ_j − σ_i), so **p | V_ij ⟺ σ_i = σ_j**.
+Three values in {±1} cannot be pairwise distinct, so at every p some pair agrees:
+
+> **M | V₁₂·V₂₃·V₁₃**, and in a window |V| < M/√(3D), forcing **3ab < (b−a)^{4/3}**.
+
+At X = 4000 that excludes **499,188 of 503,054** M-odd-squarefree classes (99.2%)
+outright, and with O.4's t > 133.875 the admissible a is tiny: **a ≤ 2** at the
+minimum t, 6 at 10³, 19 at 10⁴. For M prime it recovers O.7 with nothing
+assumed. The load-bearing identities are **S·T = −M·m** and the cofactor-free
+**V·W = M(m_i − m_j)**, W = X_jY_i + X_iY_j.
 
 *(I first wrote O.6 up as "the integrality route cannot close O.2". That was too
 strong — the evidence only showed those two conditions are vacuous — and the
