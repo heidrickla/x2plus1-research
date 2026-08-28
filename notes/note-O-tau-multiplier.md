@@ -1,10 +1,12 @@
-# Note O — The multiplier τ, and why no window holds three
+# Note O — The multiplier τ, and the three-in-a-window question
 
 *Not in the plan's deliverable list. Written because
 [Note L](note-L-rational-graph.md)'s Proposition L.1 proves a bound of
 O_ε(N^ε) on the dyadic-window Gram entry while the measured value is 2, and
 because both sessions independently proposed — and both had refuted — a
-probability model for the gap. This note supplies a mechanism and a proof.*
+probability model for the gap. This note supplies the mechanism for the **pairs**
+and proves it; it reduces the **triple** question to a statement it does not
+settle, and closes the one route it proposed for settling it.*
 
 *Status: **Proposition O.1 proved (τ² ξ is never integral). Conjecture O.2 — the
 statement the measurements actually make — is OPEN.** A draft of this note
@@ -23,8 +25,12 @@ every ratio class up to X = 8000:
 
 - pairs of shared moduli inside one dyadic window get **arbitrarily tight** —
   smallest ratio 1.0783 → 1.0547 → 1.0412 as X grows, and 1.0036 at D = 2×10⁸;
-- **no window ever holds three**, and the two-step ratio m_{i+2}/m_i has a
-  *floor* at 13.0 with an empty bin below it, not a tail approaching 2.
+- **no window is ever observed to hold three**, and the two-step ratio
+  m_{i+2}/m_i has a search minimum pinned at 13.0 across X = 1500, 3000, 5000
+  with the bin [6.85, 13) empty — populated on one side, empty on the other.
+  *Search minimum, not floor:* Prop O.1 bounds the two-step ratio below only by
+  2, so 13.0 and the restricted 66.49 are where finite search has reached and
+  should be expected to drift down.
 
 Dickson bounds the number of classes by 2^{ω(|a−b|)+O(1)}, which is 32 or more
 for many pairs and 128 for the pair below, so the class count does not explain
@@ -41,11 +47,12 @@ Write **M = b − a**, **D = ab**. Two shared moduli m_i < m_j give solutions
 Then **U² − D V² = M²** identically, and V = 0 exactly when the two solutions
 are proportional.
 
-**The gap principle.** For a pair inside one window, r = X_j/X_i ≤ √2 and
+**The gap principle.** Throughout, **r = m_j/m_i** is the *modulus* ratio, so a
+pair inside one window has r < 2. Then
 
-> |V| ≈ (M / 2√D) · (r − 1/r),
+> |V| ≈ (M / 2√D) · (√r − 1/√r),
 
-so |V| ≥ 1 forces M ≥ 2.83 √D. The minimum of |V| over every class attaining a
+and |V| ≥ 1 forces M ≥ 2.83 √D, since √r − 1/√r < √2 − 1/√2 = 0.7071. The minimum of |V| over every class attaining a
 pair is **2**, never 1, so the operative threshold is 5.657 — against an
 **observed minimum M/√D of 5.667**. Agreement to 0.2%.
 
@@ -139,7 +146,7 @@ Write u = m_i, v = m_j, A = (au−1)(bv−1), B = (av−1)(bu−1). Then
 
 an identity. Since V = √A − √B,
 
-> |V| = (v−u)M / (√A + √B) ≤ u M / (2√((au−1)(bu−1))),
+> |V| = (v−u)M / (√A + √B) ≤ u M / (2√((au−1)(bu−1))),   [v, u are m_j, m_i]
 
 using v − u < u — *this is the window hypothesis, and the only place it is
 used* — and √A, √B ≥ √((au−1)(bu−1)). For u ≥ 2 we have au − 1 ≥ au/2 and
@@ -270,11 +277,13 @@ of mine:
   X_k ≡ Y_k (mod 2), so V = X_i Y_j − X_j Y_i ≡ 0 (mod 2). Verified over 825
   pairs with a, b odd at X = 2000. Not needed above, but it explains g = 2.
 
-## The falsifiable prediction, and its test
+## The falsifiable test — evidence for O.2, not proof of it
 
-The proposition is not vacuous: τ⁴ < 2 means a third modulus **would fit inside
-the window**, so every such pair is a chance to observe three. At X = 4000 there
-are **258 such chances**, and a third occurs in **none** of them.
+τ⁴ < 2 means a third modulus **would fit inside the window**, so every such pair
+is a chance to observe three. At X = 4000 there are **258 such chances**, and a
+third occurs in **none** of them. Read this as evidence for **Conjecture O.2**,
+which is open — not as support for Proposition O.1, which is proved by the
+inequality chain and needs none.
 
 | population | chances (τ⁴ < 2) | thirds found |
 |---|---|---|
@@ -287,20 +296,31 @@ raises the worry that the phenomenon might be confined to the family the
 application never sees. **It is not**: 152 of the 258 chances have both
 cofactors non-trivial, and the mechanism above is uniform in a.
 
+Note the calibration above, though: 258 *chances* is not 258 *informative*
+classes. The count that matters is 31.
+
 ## Consequence for Proposition L.1
 
 Prop L.1 proves the spacing half (one modulus per class) and cites Dickson for a
 count of 2^{ω(M)+O(1)}, giving G′ ≪_ε N^ε, with the measured 2 recorded as
-`rigorous_finite`. Proposition O.1 replaces the count entirely: the bound is not
-"few classes exist" but "**τ has no room to act twice on one solution**", and it gives **2**
-directly, with no ε.
+`rigorous_finite`.
 
-**This does not yet give O(1).** O.1 rules out one shape of triple — three
-moduli in geometric progression under a single τ — and Prop L.1's O_ε(N^ε)
-stands as the best proved bound on the window entry. The measured 2 remains
-`rigorous_finite`. What has changed is that the pair structure is now explained
-(τ, and the exact bound a g² < M) and the residue is a single sharp question
-about two ideals, rather than an unexplained empirical 2.
+**Nothing here improves that bound.** Prop L.1's O_ε(N^ε) stands, and the
+measured 2 stays `rigorous_finite`. O.1 rules out one shape of triple — three
+moduli in geometric progression under a single τ — which is not the general
+statement.
+
+What has changed is narrower and worth stating exactly:
+
+- the **pair** structure is explained, by τ and the exact chain ending a g² < M;
+- the **triple** question has a proved unconditional constraint, M/√D ≥ 11.484,
+  which is the parallel session's Plücker–parity argument and contains no ideal
+  theory;
+- the one ideal-theoretic route proposed for closing it is **closed**, because
+  its coprimality hypothesis is the exception rather than the rule;
+- and the empirical support is **31 classes**, not the sweep size.
+
+That is a better-understood 2 than yesterday's, and it is still a measurement.
 
 **What it does not do.** It bounds the *dyadic-window* entry. Note L's full
 rational graph still grows (6 → 9 as X goes 500 → 8000) because it sums over all
