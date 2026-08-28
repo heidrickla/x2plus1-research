@@ -1761,13 +1761,11 @@
       "status": "proved",
       "statement": "`rational-gram-bounded-on-windows` and Note O's Conjecture O.2 are the same statement. The off-diagonal Gram entry of the rational graph restricted to a dyadic window [N,2N) is the number of moduli in that window shared by a cofactor pair (a,b); O.2 says no dyadic window contains three shared moduli. So 'max windowed Gram entry is 2' IS 'no window holds three', with no translation. Verified directly: max shared moduli in one dyadic window is 2 at X = 2000 and 4000, attained at (1,41) with moduli 730 and 1370, and zero classes hold three.",
       "experiment": "experiments/exp23_prose_claims_made_runnable.py",
-      "depends_on": [
-        "rational-gram-bounded-on-windows"
-      ],
+      "depends_on": [],
       "tags": [
         "type_ii"
       ],
-      "notes": "This is why the Note O thread is not a side quest. `rational-gram-bounded-on-windows` is `rigorous_finite` -- 'uniformly for X <= 8000' -- and it is what Note L's conclusion rests on, that merging rows over Z thickens each side separately and never jointly. Theorems O.9 and O.11 prove exactly that bound on the classes satisfying 3ab < M^{4/3} and its sharpened form, so the Note O work is PROMOTING a central finite measurement of Note L toward a theorem for all X. Neither note said so, and I found it by checking whether the two notes were consistent about how many moduli a window can hold. Partial, not complete: O.11's measured reach is falling with X, so what is proved is a shrinking share of the classes, and the promotion is not yet available.",
+      "notes": "This is why the Note O thread is not a side quest. `rational-gram-bounded-on-windows` is `rigorous_finite` -- 'uniformly for X <= 8000' -- and it is what Note L's conclusion rests on, that merging rows over Z thickens each side separately and never jointly. Theorems O.9 and O.11 prove exactly that bound on the classes satisfying 3ab < M^{4/3} and its sharpened form, so the Note O work is PROMOTING a central finite measurement of Note L toward a theorem for all X. Neither note said so, and I found it by checking whether the two notes were consistent about how many moduli a window can hold. Partial, not complete: O.11's measured reach is falling with X, so what is proved is a shrinking share of the classes, and the promotion is not yet available. The identification is definitional -- it is about what the two statements SAY -- so it does not depend on the measurement, and the dependency guard rejected the edge I first wrote to `rational-gram-bounded-on-windows`. That is the third time tonight it has caught the same habit: listing the neighbouring result as a premise because it is the thing the claim is ABOUT. A claim about X is not a claim resting on X, and the ordering rule is what keeps the two apart.",
       "proof_site": "notes/note-L-over-Z.md; tests/test_arithmetic_facts.py"
     },
     {
