@@ -119,26 +119,26 @@ something.
 a²+(b²+1)², which has the *same density and the same κ* as a²+b⁴ and a Type II
 range a sixth of an exponent shorter. **So κ > 1 is necessary and not
 sufficient** — only the direction κ = 1 ⟹ forest is load-bearing. √κ is the
-length of the Poisson sum in [MER] p. 4; for x²+1 it is 1. **And mean G is a candidate
-for the sufficient part**, since it separates where κ does not. At Q = 4×10⁶,
-band N ∈ [2048, 4096):
+length of the Poisson sum in [MER] p. 4; for x²+1 it is 1. **And mean G is NOT the
+sufficient part** — a classifier proposed and refuted within the hour by the test
+built to check it. At Q = 4×10⁶, band N ∈ [2048, 4096):
 
-| | κ | mean G | max G | status |
-|---|---:|---:|---:|---|
-| x²+1 | 1.00 | 0.0219 | 2 | open |
-| a²+b⁶ | 115.4 | 0.5590 | 22 | ? |
-| a²+b⁴ | 1297.5 | 3.592 | 107 | captured (FI) |
-| a²+(b²+1)² | 1269.3 | 12.809 | 97 | captured (MER) |
+| | κ | mean G | status |
+|---|---:|---:|---|
+| x²+1 | 1.00 | 0.0219 | open |
+| **x³+2y³** | **75.1** | **0.1888** | **captured (Heath-Brown)** |
+| a²+b⁶ | 115.4 | 0.5590 | not known captured |
+| a²+b⁴ | 1297.5 | 3.592 | captured (FI) |
+| a²+(b²+1)² | 1269.3 | 12.809 | captured (MER) |
 
-**mean G > 1 for both captured sequences and < 1 for x²+1**, while κ separates
-none of it (a²+b⁶ has κ = 115 with mean < 1; the two captured have κ 1297 vs 1269
-and means 3.6× apart) and max G separates none either. **A prediction, not a
-confirmation** — four sequences, one band, one Q, and two of the four are the pair
-it was built from. Its one below-the-line unknown is a²+b⁶, and FI flag exactly
-that shape as unfinished in their own a²+b⁴ paper, p. 952: *"there is some hope
-to produce such primes"* for 27a²+4b⁶. That does not settle the current status.
-**A single literature lookup on 27a²+4b⁶ either refutes this or gives it its
-first independent point**, and neither session has done it.
+Without x³+2y³ it reads as a law — mean G > 1 exactly for the captured ones. With
+it: **captured sequences at 0.19, 3.59, 12.81 and non-captured at 0.02, 0.56,
+interleaved.** The row was chosen because x³+2y³ and a²+b⁶ share κ ≍ Q^{1/3}, so κ
+cannot distinguish them and a real classifier had to. **What survives is only the
+two-sequence control** (`mean-G-separates-x2plus1-from-a2b4`): the mean-o(1)
+argument does not prove too much, since a²+b⁴ has mean 3.59 where x²+1 has 0.022.
+Generalising a control into a classifier — from two points, "confirmed" on two
+more of which one had no known outcome — is the error.
 
 **Position against the literature** (all read at source): ASP needs D > x^{2/3}
 and this sequence caps at x^{1/2}; DFI's Theorem S is normalised to x and is

@@ -150,53 +150,39 @@ detects the difference at all. The cycles that appear at |B| = 2 are created by
 arithmetic, not by density, which is exactly why a density statistic like κ
 cannot see where they start.
 
-## Mean G separates them where κ does not
+## ~~Mean G separates them where κ does not~~ — refuted by the test built to confirm it
 
-[Note L](note-L-over-Z.md) finds that the *mean* of G over cofactor bands, not
-its maximum, is what decides whether dispersion has anything to decompose: a
-bounded integer-valued count with mean o(1) has no *count = main term + error*.
-Run across this note's family at Q = 4×10⁶, band N ∈ [2048, 4096):
+*Written and refuted within the hour. Kept because the refutation is the useful
+part and the shape of the error is worth the space.*
+
+Note L's mean-G statistic looked like a candidate for the *sufficient* part of
+this note's headline. At Q = 4×10⁶, band N ∈ [2048, 4096):
 
 | sequence | κ | mean G | max G | status |
 |---|---:|---:|---:|---|
-| x² + 1 | 1.00 | **0.0219** | 2 | open |
-| a² + b⁶ | 115.4 | **0.5590** | 22 | no result known to this repo |
-| a² + b⁴ | 1297.5 | **3.592** | 107 | captured — Friedlander–Iwaniec |
-| a² + (b²+1)² | 1269.3 | **12.809** | 97 | captured — Merikoski |
+| x² + 1 | 1.00 | 0.0219 | 2 | open |
+| **x³ + 2y³** | **75.1** | **0.1888** | **79** | **captured — Heath-Brown** |
+| a² + b⁶ | 115.4 | 0.5590 | 22 | not known captured |
+| a² + b⁴ | 1297.5 | 3.592 | 107 | captured — Friedlander–Iwaniec |
+| a² + (b²+1)² | 1269.3 | 12.809 | 97 | captured — Merikoski |
 
-> **mean G > 1 for both sequences known to capture their primes, and < 1 for
-> x² + 1 — while κ does not separate them**: a² + b⁶ has κ = 115 ≫ 1 and a mean
-> below 1, and a² + b⁴ and a² + (b²+1)² have almost equal κ (1297 vs 1269) but
-> means differing by 3.6×.
+Without the second row it reads as a clean law: mean G > 1 for both captured
+sequences, < 1 for x²+1, and κ separating none of it. **With it the law is dead.**
+x³+2y³ is captured and sits at **0.1888** — below 1, and *below* the sequence with
+no known outcome. Captured sequences land at 0.19, 3.59 and 12.81; non-captured at
+0.02 and 0.56. **Interleaved.**
 
-That is this note's own headline — *κ is necessary and not sufficient* — with a
-candidate for the sufficient part. The interpretation is the one Note L gives:
-mean G > 1 says a main term exists for dispersion to work with, and the captured
-sequences have one.
+The second row was chosen because it was decisive rather than convenient:
+x³+2y³ and a²+b⁶ both have |A| ≍ Q^{2/3}, hence κ ≍ Q^{1/3}, so **κ cannot
+distinguish them and any real classifier had to.** Mean G does not.
 
-**Read as a prediction, not a confirmation.** Four sequences, one band, one Q. Two
-of the four are the ones the classifier was built from, so the content is the
-other two: a² + b⁶ sits at 0.559, below the line, and this repo has **not** read a
-source on its status — the `kappa-invariant` family runs k = 2…6 for the κ
-measurement only. If a² + b⁶ is captured somewhere in the literature, the
-classifier is refuted; if it is open, that is one point of independent support.
-One point of support, found by
-searching the sources rather than asserting from memory: **Friedlander–Iwaniec
-themselves flag the b⁶ family as unfinished**, in the a²+b⁴ paper, p. 952:
-
-> "Further interesting connections to elliptic curves hold for primes of the form
-> **27a² + 4b⁶** and there is **some hope to produce such primes** using our
-> arguments in the domain Z[ζ₃]."
-
-"Some hope to produce" is not a result — as of that paper the b⁶ shape was a
-target they thought their method might reach and had not. The density matches:
-a ≪ Q^{1/2}, b ≪ Q^{1/6} gives |A| ≍ Q^{2/3}, hence κ ≍ Q^{1/3} = 158 at
-Q = 4×10⁶, against the 115 measured. **This does not settle the current status**
-— 27a²+4b⁶ is not literally a²+b⁶, and a 1998 remark says nothing about 2026 —
-so the prediction stands as a prediction. But the one sequence the classifier
-puts below the line is one the authors of the method that captured its neighbour
-singled out as *not yet done*. And max G does *not* separate them — 2, 22, 107, 97 puts a² + b⁶ between
-the captured pair — so it is the mean specifically.
+**What survives is the narrow original**, which was never a classifier: the
+argument that a bounded integer-valued count with mean o(1) leaves dispersion
+nothing to decompose does not prove too much, because a²+b⁴ has mean 3.59 at the
+band where x²+1 has 0.022. That is a *two-sequence control*. Generalising it into
+a four-sequence law — built from two points and "confirmed" on two more, one of
+which had no known outcome — is the error, and the FI quotation below was
+gathered as support for something already false.
 
 ## What actually separates them: the curve desingularises
 
