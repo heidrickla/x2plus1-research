@@ -96,7 +96,12 @@ windows, not about G.
 
 **None of that touches the argument, because the sieve only uses N ≤ X.** ASP's
 (B1) forces the modulus M ≥ √x = X, so the cofactor n = (x²+1)/m is at most X —
-exactly the range where the mean is small and falling. The rise and the drop in
+exactly the range where the mean is small and falling. And the U-shape's **minimum
+sits at the balanced split** n = m = √(x²+1) = X — argmin/X = 1.37 at X = 3000,
+6000 and 12000 alike, with the minimum deepening (0.0132, 0.0083, 0.0050). So the
+Gram mean is smallest **exactly where the Type II sum lives**: the obstruction is
+not merely present in the relevant range, it is *strongest* there, and it
+strengthens as X grows. The rise and the drop in
 the maximum both happen well beyond it. *(The constant is not claimed either: a
 naive independence heuristic is off by a stable 5–6×.)* That took three revisions to get right; the earlier framings
 are kept as `refuted` entries in
