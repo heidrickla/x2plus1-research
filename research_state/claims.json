@@ -1614,6 +1614,20 @@
         "window"
       ],
       "notes": "Kept so it cannot be silently re-asserted. THE VALUE 11.484 IS CORRECT -- Theorem O.4 proves it by composition, where 2^(1/4) enters from the composite tau_1^2 < sqrt2 rather than from |V| >= 4 -- and the two expressions are algebraically identical: 4/(2^(1/4) - 2^(-1/4)) = 4(2^(1/4) + 2^(3/4)) = 11.48400. So this is a right answer with a wrong route attached, which is harder to catch than a wrong answer and was found only by deriving the same constant independently and asking why they agreed."
+    },
+    {
+      "id": "V-times-W-equals-M-times-the-modulus-gap",
+      "status": "proved",
+      "statement": "V * W = M * (m_i - m_j), where V = X_i Y_j - X_j Y_i and W = X_j Y_i + X_i Y_j. Proof: V W = X_i^2 Y_j^2 - X_j^2 Y_i^2, and Y^2 = X^2 + M m turns that into M(X_i^2 m_j - X_j^2 m_i), which with m = (X^2+1)/a is M(X_i^2 - X_j^2)/a = M(m_i - m_j) since X^2 = a m - 1. The cofactor a cancels entirely. 0 failures over 964 consecutive pairs with M odd at X = 4000. Consequences: for M odd squarefree, exactly one of V, W is divisible by each p | M, so gcd(V,M) = 1 if and only if M | W -- verified 0 failures over 744 pairs -- and the valuations are exact: v_p(V) = 1 + v_p(m_i - m_j) when the subcases agree, v_p(W) = 1 + v_p(m_i - m_j) when they differ (30 and 919 instances at X = 3000, 0 failures).",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "theorem-O7-identity-and-bound-verified-independently"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The cleanest form the O.8 hypothesis has taken: it is the single divisibility M | W. M | W holds 197/197 in-window at X = 4000 and only 680/767 = 88.7% out of window, so the window is doing real work rather than the divisibility being automatic. NOT proved, and the size argument does not reach it: |V| < 0.57735 M/sqrt(D), so gcd(V,M) > 1 is excluded by size only when every prime of M exceeds 0.57735 M/sqrt(D). At a = 1 that reads p > 0.577 sqrt(M), which fails for M = 33 among others -- so classes exist where nothing but the arithmetic forbids it.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_p_divides_V_exactly_when_the_local_subcase_agrees"
     }
   ]
 }
