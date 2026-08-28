@@ -85,6 +85,8 @@ Evidence for each: `notes/note-P-method.md`.
 
 - Duplicated computation on independent axes is the only safeguard that works
   unattended. Overlap the computations, not the reviews; disagreement is the alarm.
+- A guard that is not on the path is not a guard — and it can be on the path and
+  still be invoked in a mode that has no verdict.
 - A guard is not verified until it has failed on an injected violation.
 - Every way a check has failed here was silent: it could not fail; it checked a weaker
   proposition than its name; it skipped and returned success; its pattern was too

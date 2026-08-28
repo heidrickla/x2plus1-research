@@ -13,6 +13,14 @@ CLAUDE.md was cut to rules and facts. Nothing here is new; nothing was lost.
 
 ---
 
+## Provenance
+
+The claim registry's enforced-status pattern is adapted from the sibling repo
+`rh-research-engine` (`core/models.py`, `core/nogo.py`,
+`docs/EPISTEMIC_BOUNDARIES.md`), whose governing rule applies here too:
+
+> A guard that is not on the path is not a guard.
+
 ## The rules, with their evidence
 
 - **Normalisation.** Q (or N) = norm bound; X = √Q = range of x; |A| = X.
