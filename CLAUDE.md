@@ -200,6 +200,18 @@ Experiments take a size argument and print a table; they are meant to be read,
 not imported. Each one names the note it feeds in its docstring. Results are
 gitignored — rerun rather than commit output.
 
+The suite covers `x2plus1/` and not the experiments, so after changing a library
+module run
+
+```bash
+python tools/smoke_experiments.py
+```
+
+which executes all twelve at reduced sizes in about 20 seconds. Green means
+"still runs", not "reproduces the recorded numbers". And
+`python tools/check_sources.py` flags which source PDFs are scans whose text
+layer must not be quoted.
+
 ## Scope discipline
 
 The plan rules these out; they stay ruled out unless the plan is amended:

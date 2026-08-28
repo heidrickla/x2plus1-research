@@ -54,8 +54,13 @@ python experiments/exp09_degree_ladder.py 4000
 python experiments/exp13_window_gap.py 2500
 ```
 
+```bash
+python tools/smoke_experiments.py
+```
+
 No installation needed — the scripts put the repo root on `sys.path`. Requires
-Python ≥ 3.11 with `sympy` and `numpy`.
+Python ≥ 3.11 with `sympy` and `numpy` (and `pymupdf` for
+`tools/check_sources.py`).
 
 ## State of play
 
