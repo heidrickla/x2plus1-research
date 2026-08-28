@@ -1062,3 +1062,120 @@ def test_O7_realised_prime_triples_escape_exactly_by_M_dividing_V():
         x1, y1 = isqrt(a * m1 - 1), isqrt(b * m1 - 1)
         x3, y3 = isqrt(a * m3 - 1), isqrt(b * m3 - 1)
         assert abs(x1 * y3 - x3 * y1) == V, (a, b)
+
+
+def test_O8_the_ST_identity():
+    """S T = -M m, from a(Y^2 - X^2) = M(X^2+1) = M a m."""
+    n = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        for m in ms:
+            x, y = isqrt(a * m - 1), isqrt(b * m - 1)
+            assert (x + y) * (x - y) == -M * m, (a, b, m)
+            n += 1
+    assert n > 1000, n
+
+
+def test_O8_factorisation_lemma_and_the_step_it_turns_on():
+    """gcd(M,S) gcd(M,T) = M for M odd; and p|S, p|T => p|X => p nmid m."""
+    from sympy import factorint
+
+    n = both = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 3 or M % 2 == 0:
+            continue
+        primes = list(factorint(M))
+        for m in ms:
+            x, y = isqrt(a * m - 1), isqrt(b * m - 1)
+            S, T = x + y, x - y
+            assert gcd(M, S) * gcd(M, T) == M, (a, b, m)
+            for p in primes:
+                if S % p == 0 and T % p == 0:
+                    assert x % p == 0 and m % p != 0, (a, b, m, p)
+                    both += 1
+            n += 1
+    assert n > 1000 and both > 0, (n, both)
+
+
+def test_O8_local_flip_for_squarefree_M_under_coprimality():
+    """gcd(V,M)=1 makes the subcase flip at EVERY p | M, hence the pair swaps."""
+    from sympy import factorint
+
+    n = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 3 or M % 2 == 0:
+            continue
+        fac = factorint(M)
+        if any(e > 1 for e in fac.values()):
+            continue
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                V = abs(xs[i] * ys[j] - xs[j] * ys[i])
+                if gcd(V, M) != 1:
+                    continue
+                for p in fac:
+                    assert ((xs[i] + ys[i]) % p == 0) != (
+                        (xs[j] + ys[j]) % p == 0
+                    ), (a, b, ms[i], ms[j], p)
+                # and therefore the whole pair swaps
+                assert (gcd(M, xs[i] + ys[i]), gcd(M, xs[i] - ys[i])) == (
+                    gcd(M, xs[j] - ys[j]), gcd(M, xs[j] + ys[j])
+                ), (a, b, ms[i], ms[j])
+                n += 1
+    assert n > 100, n
+
+
+def test_O8_coprimality_is_equivalent_to_gcd_U_V_being_one():
+    """gcd(V,M) = 1 <=> g = gcd(U,V) = 1, so it is Prop O.1's quantity."""
+    n = 0
+    for (a, b), ms in CLASSES.items():
+        M, D = b - a, a * b
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            for j in range(i + 1, len(ms)):
+                U = abs(b * xs[i] * xs[j] - a * ys[i] * ys[j])
+                V = abs(xs[i] * ys[j] - xs[j] * ys[i])
+                assert U * U - D * V * V == M * M
+                g = gcd(U, V)
+                assert M % g == 0                      # g | M, the known step
+                assert (gcd(V, M) == 1) == (g == 1), (a, b, ms[i], ms[j])
+                n += 1
+    assert n > 200, n
+
+
+def test_O8_in_window_pairs_are_observed_coprime_but_it_is_not_proved():
+    """Every in-window pair has gcd(V,M)=1 here -- recorded as measured.
+
+    The window bound |V| < 0.57735 M/sqrt(D) bounds V without making it coprime
+    to M, and all that is known in-window about g = gcd(U,V) is a g^2 < M, which
+    permits g > 1.  So this is the hypothesis of O.8 and not a consequence.
+
+    M ODD IS REQUIRED and is not a convenience: if a and b are both odd then M is
+    even and so is V, so gcd(V,M) >= 2 automatically.  Dropping the filter fails
+    this test, which is how the condition was pinned down.
+    """
+    n = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M % 2 == 0:
+            continue
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i in range(len(ms)):
+            if xs[i] < 1:
+                continue
+            for j in range(i + 1, len(ms)):
+                if ms[j] >= 2 * ms[i]:
+                    continue
+                V = abs(xs[i] * ys[j] - xs[j] * ys[i])
+                assert gcd(V, M) == 1, (a, b, ms[i], ms[j], V, M)
+                n += 1
+    assert n > 50, n

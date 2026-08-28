@@ -869,7 +869,65 @@ Those triples are real and far outside any window — ratios of 10⁴ and up —
 is precisely how |V| gets past 0.577·M/√D. *(Over all pairs with M odd prime at
 X = 6000: 454 of 459 flip the subcase, and **all 5 that do not have M | V**.)*
 
-**What remains open is M composite.** The dichotomy and the sign both use that M
+### Theorem O.8 — the same argument for M odd squarefree, on one hypothesis
+
+The dichotomy generalises, and it comes from an identity that is worth having on
+its own.
+
+> **Lemma O.8.1.** For any shared modulus m of the class (a, b), with S = X + Y
+> and T = X − Y: **S·T = −M·m**.
+>
+> *Proof.* aY² − bX² = M with b = a + M gives a(Y² − X²) = M(X² + 1) = M·am, so
+> Y² − X² = Mm. ∎  *(0 failures over 822,349 solutions at X = 4000.)*
+
+> **Lemma O.8.2.** For M odd, **gcd(M, S)·gcd(M, T) = M**.
+>
+> *Proof.* Let p^e ‖ M. By O.8.1, v_p(S) + v_p(T) = e + v_p(m). If p ∤ S then
+> v_p(T) = e + v_p(m) ≥ e, so the two contributions are 0 and e; symmetrically for
+> p ∤ T. If p divides **both** then p | 2X and p | 2Y, so p | X, so
+> am = X² + 1 ≡ 1 (mod p) and **p ∤ m** — whence v_p(S) + v_p(T) = e with both
+> terms ≤ e, and the min-sum is again e. ∎  *(0 failures over the same 822,349;
+> and the p | S, p | T ⟹ p | X ⟹ p ∤ m step checked on all 141,277 instances.)*
+
+So the dichotomy of O.7 is really a **factorisation** M = M⁺·M⁻ with M⁺ | S and
+M⁻ | T. For M **squarefree** each e = 1, so the split is exact prime by prime —
+exactly one of p | S, p | T — and O.6's alternation localises.
+
+> **Theorem O.8.** For M odd and squarefree, if **gcd(V, M) = 1** on each of the
+> three pairwise steps, no dyadic window contains three shared moduli.
+>
+> *Proof.* gcd(V,M) = 1 makes the local sign defined at every p | M, so the local
+> subcase flips at each prime, i.e. the pair (gcd(M,S), gcd(M,T)) **swaps**. Two
+> steps restore it, one step swaps it, and M⁺ = M⁻ is impossible for M squarefree
+> > 1. ∎
+
+*(The local flip holds at every p | M on all 710 qualifying pairs at X = 4000,
+0 failures; and the swap holds on **1333 of 1333** pairs with gcd(V,M) = 1 over
+all odd M — 1089 of 1089 restricted to squarefree.)*
+
+**The coprimality hypothesis is observed, not proved, and that is the honest
+gap.** Every in-window pair at X = 6000 has gcd(V, M) = 1 — **295 of 295, no
+exceptions** — but the window bound |V| < 0.57735·M/√D bounds V without making it
+coprime to M. Note gcd(V,M) = 1 is **equivalent to g = gcd(U,V) = 1**: g | M and
+g | V give g | gcd(V,M), and conversely p | gcd(V,M) forces p | U since
+U² = M² + DV². So this is the same quantity Proposition O.1's chain already
+tracks, where all that is known in-window is a·g² < M — which permits g > 1.
+
+**Two separate things are being asked of M, and it is worth not conflating
+them.** *Coprimality* is what separates swap from non-swap: **every** observed
+non-swap has gcd(V, M) > 1, and there are none among the 1333 pairs with
+gcd(V, M) = 1. *Squarefreeness* is needed for a different reason — it makes
+O.8.2 a **dichotomy** per prime rather than a partial split. At M = 9 the pair is
+(3, 3): neither p^e | S nor p^e | T, so there is no local subcase to flip.
+
+*(A first pass here recorded the non-swaps as "all at M = 9", from an example
+list that happened to show only those. Printing the distribution gives
+M = 3, 9, 11, 15, 21, 23 — most of them squarefree. The right invariant is
+gcd(V,M), not squarefreeness, and reading six examples instead of the counts is
+how the two got conflated.)*
+
+**What remains open is M even, M non-squarefree, and the coprimality.** The
+dichotomy and the sign both use that M is odd, and O.7 additionally uses that M
 is prime: U² ≡ (Va)² only gives M | A_VB_V in general, and the signs can differ
 across the prime factorisation of M — which is exactly the 2-adic gap O.3 already
 had. **M odd prime is 54 of the 379 realised close pairs (14%)**, so this is a

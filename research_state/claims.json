@@ -1514,6 +1514,64 @@
       ],
       "notes": "Verified from the other side: I derived the identity algebraically before running anything, which is what makes this independent rather than a re-run. The three escape triples reproduce exactly -- (2,13) M=11, m 5 -> 48985, V13 = 110 = 10M; (2,5) M=3, 13 -> 18241, V13 = 18 = 6M; (2,25) M=23, 13 -> 499001, V13 = 322 = 14M -- and they escape at modulus ratios of 1e4 and up, which is exactly how |V| gets past a bound that is only valid in-window. My pair count is 3814 against their 4033; I skip X_i = 0 and they appear not to, and the conclusion is unaffected either way. The factor a in the identity is load-bearing -- they report 3389 of 4033 failing without it -- and it cancels out of the final bound entirely, which is the kind of thing that looks like an error until derived. No dependency on O.4, though I listed one and the guard rejected it: R^2 < 2 + 1/X_i^2 follows from the window condition alone -- m_j < 2 m_i gives a m_j - 1 < 2(a m_i - 1) + 1 -- and O.4 is not needed. Second time tonight the dependency guard caught me listing a neighbouring result as a premise; both times the claim was proved and the neighbour was not, which is exactly the ordering it enforces.",
       "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py"
+    },
+    {
+      "id": "odd-squarefree-M-always-admits-a-prime-not-dividing-V",
+      "status": "proved",
+      "statement": "For M odd SQUAREFREE and any in-window consecutive pair, some prime p | M has p not dividing V. Proof: if every p | M divided V then M = rad(M) would divide V, and O.7's in-window bound gives 0 < |V| < 0.40825 M. Immediate. For M an odd prime this is the hypothesis O.7 already uses; squarefree costs nothing extra. Verified over realised in-window pairs at X = 3000 and 6000, together with gcd(a,M) = 1 (0 classes violate it), which is what the step p | A_V - B_V = 2Va => p | V needs.",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "theorem-O7-identity-and-bound-verified-independently"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "The whole content is that |V| < M turns 'p does not divide V for some p' from a hypothesis into a pigeonhole, and squarefreeness is exactly what makes rad(M) = M. Measured coverage of realised close pairs at X = 6000: odd prime 90/751 = 12.0%, odd squarefree 128/751 = 17.0%, so the extension takes O.7 from 12.0% to 29.0%. Odd non-squarefree is a further 10.3% and satisfied the hypothesis on 77/77, but is NOT free -- rad(M) can sit far below the |V| ceiling -- so it is measured, not proved. Even M is 60.7% and is out of reach of this route entirely, since p | 2Va => p | V needs p odd.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_arithmetic_facts.py::test_odd_squarefree_M_always_has_a_prime_not_dividing_V"
+    },
+    {
+      "id": "O7-should-extend-to-odd-squarefree-M",
+      "status": "inferred",
+      "statement": "O.7's conclusion -- no dyadic window holds three shared moduli -- should extend from M an odd prime to M odd squarefree, and the dichotomy step does so cleanly. Run the argument at a prime power p^e || M rather than at M. Exactly one of p^e | A_V, p^e | B_V holds: p^e | A_V B_V since p^e | M | A_V B_V; and p | A_V with p | B_V would give p | A_V - B_V = 2Va hence p | V, excluded by the pigeonhole above, so p misses one of them, say A_V, whence p^e | B_V and p^e does not divide A_V. Both-divide is also killed directly: p^e | S and p^e | T give p^e | X and p^e | Y, so p^{2e} | aY^2 - bX^2 = M, contradicting p^e || M.",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "odd-squarefree-M-always-admits-a-prime-not-dividing-V"
+      ],
+      "tags": [
+        "type_ii"
+      ],
+      "notes": "INFERRED, and what is missing is precise: Proposition O.6, the sign alternation, is stated and verified mod M and I have not checked that it runs mod p^e. The dichotomy step above I did derive. So this is two thirds of an extension, and the remaining third is somebody re-running O.6's argument with p^e in place of M -- which is the parallel session's note, so it is theirs to confirm or refute rather than mine to assert. Filed as `inferred` rather than `proved` for exactly that gap; the last time a conclusion was over-read from a derivation that covered most of the steps, it went into this registry as `refuted`.",
+      "proof_site": "",
+      "superseded_by": ""
+    },
+    {
+      "id": "ST-equals-minus-M-times-m",
+      "status": "proved",
+      "statement": "For any shared modulus m of the class (a,b), with S = X+Y and T = X-Y: S*T = -M*m. Proof: aY^2 - bX^2 = M with b = a+M gives a(Y^2 - X^2) = M(X^2+1) = M a m. Consequently, for M odd, gcd(M,S)*gcd(M,T) = M: with p^e || M, v_p(S) + v_p(T) = e + v_p(m); if p divides both S and T then p | X, so am = X^2+1 == 1 mod p and p nmid m, leaving v_p(S) + v_p(T) = e with both terms <= e.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O8_the_ST_identity; tests/test_note_o.py::test_O8_factorisation_lemma_and_the_step_it_turns_on",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [],
+      "tags": [
+        "note_o",
+        "window"
+      ],
+      "notes": "0 failures over 822,349 solutions at X = 4000 for both the identity and the factorisation, and the p|S, p|T => p|X => p nmid m step checked on all 141,277 instances. This turns O.7's dichotomy into a FACTORISATION M = M+ M- with M+ | S and M- | T, which is what lets the argument localise to composite M."
+    },
+    {
+      "id": "theorem-O8-M-odd-squarefree-conditional",
+      "status": "proved",
+      "statement": "Theorem O.8. For M odd and SQUAREFREE, if gcd(V,M) = 1 on each of the three pairwise steps, no dyadic window contains three shared moduli. Squarefreeness makes gcd(M,S) gcd(M,T) = M a dichotomy per prime; gcd(V,M) = 1 makes the local sign defined at every p | M, so the local subcase flips at each prime and the pair (gcd(M,S), gcd(M,T)) SWAPS. Two steps restore it, one step swaps it, and M+ = M- is impossible for M squarefree > 1. Extends Theorem O.7 from M odd prime to M odd squarefree, at the cost of one hypothesis.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O8_local_flip_for_squarefree_M_under_coprimality; tests/test_note_o.py::test_O8_coprimality_is_equivalent_to_gcd_U_V_being_one",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "ST-equals-minus-M-times-m",
+        "theorem-O7-M-odd-prime"
+      ],
+      "tags": [
+        "note_o",
+        "window"
+      ],
+      "notes": "THE HYPOTHESIS IS OBSERVED, NOT PROVED, and that is the gap. Every in-window pair with M odd has gcd(V,M) = 1 -- 295 of 295 at X = 6000, 197 of 197 at X = 4000 -- but the window bound |V| < 0.57735 M/sqrt(D) bounds V without making it coprime to M. gcd(V,M) = 1 is EQUIVALENT to g = gcd(U,V) = 1 (g | M and g | V give g | gcd(V,M); conversely p | gcd(V,M) forces p | U since U^2 = M^2 + D V^2), so it is the same quantity Prop O.1's chain tracks, where all that is known in-window is a g^2 < M, which permits g > 1. TWO CONDITIONS, NOT ONE: coprimality is what separates swap from non-swap (every non-swap has gcd(V,M) > 1; none among 1333 coprime pairs), while squarefreeness is needed so the split is a dichotomy rather than partial -- M = 9 gives (3,3), neither p^e | S nor p^e | T. A first pass recorded the non-swaps as 'all at M = 9' from an example list; the distribution is M = 3, 9, 11, 15, 21, 23, mostly squarefree. M EVEN remains outside everything here: a, b both odd makes M and V both even, so gcd(V,M) >= 2 automatically."
     }
   ]
 }

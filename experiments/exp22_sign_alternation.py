@@ -259,6 +259,61 @@ def theorem_O7(X):
               f" M | V ? {d}  (V/M = {V // M if d else '-'})")
 
 
+def theorem_O8(X):
+    """M odd squarefree: the dichotomy becomes a factorisation that swaps."""
+    from sympy import factorint
+    classes = ratio_classes(X)
+    n_st = bad_st = n_f = bad_f = 0
+    n_loc = bad_loc = 0
+    n_win = bad_win = 0
+    noswap = {}
+    for (a, b), ms in classes.items():
+        M = b - a
+        if M < 3 or M % 2 == 0:
+            continue
+        fac = factorint(M)
+        sqfree = all(e == 1 for e in fac.values())
+        ms = sorted(ms)
+        xs = [isqrt(a * m - 1) for m in ms]
+        ys = [isqrt(b * m - 1) for m in ms]
+        for i, m in enumerate(ms):
+            S, T = xs[i] + ys[i], xs[i] - ys[i]
+            n_st += 1
+            bad_st += S * T != -M * m
+            n_f += 1
+            bad_f += gcd(M, S) * gcd(M, T) != M
+        f = [(gcd(M, xs[i] + ys[i]), gcd(M, xs[i] - ys[i])) for i in range(len(ms))]
+        for i in range(len(ms)):
+            if xs[i] < 1:
+                continue
+            for j in range(i + 1, len(ms)):
+                V = abs(xs[i] * ys[j] - xs[j] * ys[i])
+                sw = f[i] == (f[j][1], f[j][0])
+                if gcd(V, M) == 1 and sqfree:
+                    n_loc += 1
+                    bad_loc += not sw
+                if not sw:
+                    noswap[M] = noswap.get(M, 0) + 1
+                if ms[j] < 2 * ms[i]:
+                    n_win += 1
+                    bad_win += gcd(V, M) != 1
+    print(f"  S T = -M m                : {n_st} solutions, {bad_st} failures")
+    print(f"  gcd(M,S) gcd(M,T) = M     : {n_f} solutions, {bad_f} failures")
+    print(f"  M squarefree & gcd(V,M)=1 : {n_loc} pairs, {bad_loc} swap failures")
+    print(f"  IN-WINDOW pairs (M odd)   : {n_win}, of which gcd(V,M) != 1:"
+          f" {bad_win}")
+    print("  -- so the coprimality O.8 assumes is OBSERVED without exception")
+    print("     in-window, and is NOT proved: the bound |V| < 0.57735 M/sqrt(D)")
+    print("     bounds V without making it coprime to M.")
+    print(f"  non-swaps by M: {dict(sorted(noswap.items())[:6])}")
+    print("     -- these are NOT confined to non-squarefree M (3, 11, 15, 21, 23")
+    print("     all appear).  EVERY non-swap has gcd(V,M) > 1; that, and not")
+    print("     squarefreeness, is what separates them.  Squarefreeness is")
+    print("     needed for a different reason: it makes gcd(M,S) gcd(M,T) = M a")
+    print("     dichotomy per prime rather than a partial split.  M = 9 gives")
+    print("     (3,3), which is neither p|S nor p|T.")
+
+
 def main(X=3000):
     print("1. THE ALTERNATION")
     alternation(X)
@@ -272,6 +327,10 @@ def main(X=3000):
     print("4. THEOREM O.7 -- and the composite conditions being vacuous does NOT")
     print("   mean the route is dead; the ALTERNATION itself closes it.")
     theorem_O7(X)
+    print()
+    print("5. THEOREM O.8 -- the same argument for M odd squarefree, on one")
+    print("   hypothesis (gcd(V,M) = 1), which is observed but not proved.")
+    theorem_O8(X)
 
 
 if __name__ == "__main__":
