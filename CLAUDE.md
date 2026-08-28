@@ -404,7 +404,15 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   `git add` ran anyway, and the commit carried the *other* session's paragraph
   under a message that did not describe it. Nothing was lost and the content was
   correct; the attribution and the message were not. **Look at what is staged,
-  not at what you meant to stage.** **And one edit per block**: a script with two `replace` calls
+  not at what you meant to stage.** But a check cannot close a race — the same
+  collision happened *while* that check was being run, the other session
+  committing in the window between the check and the commit. **So commit with a
+  pathspec: `git commit -F - -- <paths>`** takes the working-tree content of
+  exactly those paths and ignores the index for everything else, so it cannot
+  sweep the other session's staged work even if you forget to look. (Options
+  before the `--`; `git commit -- <paths> -F -` parses `-F` as a pathspec and
+  fails.) The check is then a backstop rather than the only defence.
+  **And one edit per block**: a script with two `replace` calls
   whose first raises dies before the second, prints only the second's success
   line, and reads as a full success. That happened here — the anchor an earlier
   commit of mine had moved — and the resulting commit message described a
