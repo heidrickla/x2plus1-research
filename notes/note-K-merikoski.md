@@ -236,6 +236,45 @@ degenerate member of a failing family and here is simply not in the failing set.
 Machine-checked in
 `test_x2_plus_39_has_a_banded_triple_so_O2_is_special_to_D_equals_one`.
 
+### The mechanism: the invariant is M·D, and x²+1 is the tight end
+
+All of the above is one statement. For f(x) = x² + D with a·m = X²+D and
+b·m = Y²+D, b(X²+D) = abm = a(Y²+D) gives
+
+> **aY² − bX² = (b−a)·D = M·D**
+
+so **the invariant Note O calls M is really M·D**, and every bound built on it
+weakens by a factor of D. Verified together with
+
+> **V·W = D·M·(m_i − m_j)** — 0 failures over 5354 pairs, D = 1, 2, 5, 11, 29, 39, 52
+
+which is the identity above with D in place of the c² found first. O.9's bound
+becomes **3ab < (M·D)^{4/3}**, and at cofactors (5, 8) with M = 3:
+
+| D | 3ab | (MD)^{4/3} | |
+|---:|---:|---:|---|
+| 39 | 120 | **572** | permitted — **and the triple occurs** |
+| 1 | 120 | **4.33** | forbidden — and none occurs |
+
+**Same bound; D is the whole difference.** This subsumes every D-result in this
+note: the c-family break at c = 6 (there D = c², and the |V| bound weakens by
+exactly c²), the 4-cycle family D = k²+3k+1, and the seven unit-free triples at
+D ≤ 60.
+
+**And the density confirms the mechanism rather than merely agreeing with it.**
+Over D ≤ 160 at X = 900, **51 of 160 (31.9%) admit a unit-free triple, none with
+D ≤ 25**, and D = 1 does not. A bound loosening like D^{4/3} predicts exactly
+that shape — nothing until D is large enough, then a positive density. A sporadic
+set would look completely different.
+
+> **So x²+1 is not special in an arbitrary way. It is the D = 1 end of a
+> one-parameter family — the point at which every bound in the Note O apparatus
+> is at its tightest — which is why those conclusions hold there and essentially
+> nowhere else.** The twelve theorems are not weakened by this. They are located.
+
+Machine-checked in
+`test_the_whole_note_O_apparatus_generalises_with_M_replaced_by_M_times_D`.
+
 ### And two points are enough — so κ does not see it even at the threshold
 
 The A_B family ties κ to the line count, so nothing measured *inside* it can

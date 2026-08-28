@@ -564,7 +564,13 @@ cofactors (5,8) — one band — sharing three moduli 8, 11, 15 — one window**
 the analogues of Conjecture O.2 *and* O.12 both fail there; seven unit-free
 triples over D ≤ 60, and D = 1 in none of them. Neither result touches x²+1,
 where O.12 is proved and O.2 has no counterexample to X = 8000; what they remove
-is any reading of the Note O theorems as general facts about degree-2 sequences.
+is any reading of the Note O theorems as general facts about degree-2 sequences. **And there is one mechanism under all of it**: a·m = X²+D and
+b·m = Y²+D give **aY² − bX² = M·D**, so the invariant Note O calls M is really
+M·D and every bound weakens by a factor D — O.9 becomes 3ab < (M·D)^{4/3}, which
+at cofactors (5,8) reads 120 < 572 at D = 39 (permitted, and the triple occurs)
+against 120 vs 4.33 at D = 1 (forbidden, and none occurs). **x²+1 is the D = 1
+end where every bound is tightest**, which locates the Note O theorems rather
+than weakening them.
 It also explains Note K's κ threshold as a coincidence of
 parameterisation — κ = |B|² counts lines, C₄-freeness permits one, so both are
 functions of the same integer. **Two points settle that κ is not doing the work**:
