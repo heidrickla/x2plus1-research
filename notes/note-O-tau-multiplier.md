@@ -1073,6 +1073,52 @@ of two times a powerful odd part. The valuation form covers those too.
 > so sweeping every class is what one writes. **A percentage here must carry its
 > population in the same sentence.**
 
+### Theorem O.11 — the three ratios are not independent, and that is worth 6.85×
+
+O.10 bounds all three |V| by the same extreme, as if R₁₂, R₂₃ and R₁₃ could each
+sit at the window's edge. They cannot: **R₁₂·R₂₃ = R₁₃**, so pushing two of them
+out pushes the third past the window.
+
+Write R = e^u, so the exact per-pair bound |V_ij| < (M/2√D)(R_ij − 1/R_ij) reads
+**|V_ij| < (M/√D)·sinh(u_ij)**, with u₁₂ + u₂₃ = u₁₃ ≤ ln ρ, ρ = √(2 + 1/X₁²).
+
+> For fixed u₁₃, **sinh(u₁₂)·sinh(u₂₃) is maximised at u₁₂ = u₂₃ = u₁₃/2** — the
+> derivative is sinh(u₁₃ − 2u₁₂), and the second derivative is negative there.
+> *(Confirmed numerically: the maximum of sinh(u)sinh(w−u) over a 2000-point grid
+> sits at u = w/2 to eight digits.)* So, all three factors increasing in u₁₃,
+>
+> f(R₁₂)f(R₂₃)f(R₁₃) ≤ 16 sinh³(u₁₃/2)cosh(u₁₃/2) = **(√ρ − 1/√ρ)³(√ρ + 1/√ρ)**
+>
+> — call it C(X₁). Then M ≤ |V₁₂V₂₃V₁₃| < (M/2√D)³·C gives (2√D)³ < C·M².
+
+> **Theorem O.11.** A dyadic window contains three shared moduli only if
+> **ab < (C(X₁)/8)^{2/3}·(b − a)^{4/3}**, C(X₁) = (√ρ − 1/√ρ)³(√ρ + 1/√ρ),
+> ρ = √(2 + 1/X₁²). Asymptotically **ab < 0.048628·(b−a)^{4/3}**, against O.10's
+> 0.333 — **6.85× stronger**.
+
+| X₁ | 1 | 2 | 3 | 5 | 10 | → ∞ |
+|---|---|---|---|---|---|---|
+| ab < c·M^{4/3}, c = | 0.1259 | 0.0670 | 0.0567 | 0.0515 | 0.0493 | **0.04863** |
+
+**Coverage, over the informative population — and the trend is the point.**
+
+| X | informative classes | O.10 excludes | O.11 excludes |
+|---:|---:|---:|---:|
+| 1500 | 43 | 14 (32.6%) | 42 (**97.7%**) |
+| 2000 | 48 | 17 (35.4%) | 46 (95.8%) |
+| 3000 | 60 | 21 (35.0%) | 57 (95.0%) |
+| 4000 | 70 | 24 (34.3%) | 65 (92.9%) |
+| 6000 | 96 | 34 (35.4%) | 88 (91.7%) |
+| 8000 | 109 | 37 (33.9%) | 96 (**88.1%**) |
+
+> **⚠ Do not read 88–98% as an asymptotic.** O.10's ~35% is flat in X; **O.11's
+> is falling monotonically** — 97.7, 95.8, 95.0, 92.9, 91.7, 88.1 — and the
+> admissible count is roughly doubling as X doubles (1, 2, 3, 5, 8, 13) while the
+> informative population grows only 2.5× over the same range. So the reach may
+> well tend to 0, and **no claim is made about its limit.** What is proved is the
+> inequality; the percentages are a finite observation over a stated population,
+> which is the distinction the denominator correction above was about.
+
 **What was M even and M non-squarefree** is now covered; the sign argument's
 apparent need for them was an artefact of working at e = 1: U² ≡ (Va)² only gives M | A_VB_V in general, and the signs can differ
 across the prime factorisation of M — which is exactly the 2-adic gap O.3 already

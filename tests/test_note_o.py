@@ -1419,3 +1419,52 @@ def test_O10_coverage_is_measured_over_the_informative_population():
     assert inf / allc < 0.001, (inf, allc)          # the denominator is vacuous
     assert exc_all / allc > 0.95                    # the misleading figure
     assert 0.2 < exc_inf / inf < 0.6, (exc_inf, inf)  # the honest one, ~35%
+
+
+def _C(X1):
+    """(sqrt rho - 1/sqrt rho)^3 (sqrt rho + 1/sqrt rho), rho = sqrt(2+1/X1^2)."""
+    r = sqrt(sqrt(2 + 1 / X1**2))
+    return (r - 1 / r) ** 3 * (r + 1 / r)
+
+
+def test_O11_the_equal_split_maximises_the_product():
+    """sinh(u) sinh(w-u) is maximised at u = w/2, so the three R's interact."""
+    from math import sinh
+
+    for w in (0.2, 0.34657359, 0.5, 1.0):
+        grid = [(sinh(u) * sinh(w - u), u) for u in
+                [i * w / 4000 for i in range(1, 4000)]]
+        best_v, best_u = max(grid)
+        assert abs(best_u - w / 2) < w / 1000, (w, best_u)
+        assert abs(best_v - sinh(w / 2) ** 2) < 1e-12
+
+
+def test_O11_constant_and_that_it_beats_O10_by_the_stated_factor():
+    """C(X1)/8 to the 2/3; asymptotically 0.048628 against O.10's 1/3."""
+    assert abs((_C(10**6) / 8) ** (2 / 3) - 0.048628) < 1e-5
+    assert abs((_C(1) / 8) ** (2 / 3) - 0.125873) < 1e-5
+    assert abs((1 / 3) / ((_C(10**6) / 8) ** (2 / 3)) - 6.855) < 0.01
+    # monotone in X1, and always stronger than O.10
+    prev = 1.0
+    for X1 in (1, 2, 3, 5, 10, 100, 10**6):
+        c = (_C(X1) / 8) ** (2 / 3)
+        assert c < prev and c < 1 / 3
+        prev = c
+
+
+def test_O11_is_never_weaker_than_O10_on_realised_classes():
+    """Every class O.10 excludes, O.11 excludes -- and strictly more."""
+    old = new = inf = 0
+    for (a, b), ms in CLASSES.items():
+        M = b - a
+        if M < 2 or len(ms) < 3:
+            continue
+        inf += 1
+        X1 = max(1, isqrt(a * min(ms) - 1))
+        o = 3 * a * b >= M ** (4 / 3)
+        n = a * b >= (_C(X1) / 8) ** (2 / 3) * M ** (4 / 3)
+        assert not (o and not n), (a, b)      # O.11 never weaker
+        old += o
+        new += n
+    assert inf >= 5, inf
+    assert new > old, (old, new)

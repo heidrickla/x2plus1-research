@@ -1700,7 +1700,7 @@
         "window",
         "gram"
       ],
-      "notes": "THE SIGN IS THE e = 1 SHADOW: at v_p(M) = 1, S T = -M m forces s + t = 1 exactly, so (s,t) is (1,0) or (0,1), which is sigma = -+1. 'Three signs in {+-1} collide' becomes 'order by s and take the middle two', and that is the only step that changes. NO CASE REMAINS: O.9 needed M odd squarefree and the parallel session's intermediate M_1 = prod{odd p || M} form left 1.02% of classes silent (M a power of two times a powerful odd part); the valuation form covers those and excludes 99.2% of them. COVERAGE, WITH ITS DENOMINATOR. A first version reported '99.26% of classes excluded', which is over EVERY ratio class -- and a class with fewer than three shared moduli cannot host a triple at all. At X = 3000 only 60 of 1,815,154 classes have three shared moduli, so that figure measured vacuity, not reach. On the INFORMATIVE population it is ~35% and stable: 17/48 (35.4%) at X = 2000, 21/60 (35.0%) at 3000, 24/70 (34.3%) at 4000, 34/96 (35.4%) at 6000. The gain over the M_1 form survives: on the same 60 classes it excludes 21 with none silent, against 9 excluded and 21 silent. Found by the parallel session in its own figures and applying identically here. Verified 0 failures at X = 4000 over 12,447,219 checks of s + t >= e, 6266 of the v_p(V) bound, 224 of the ordered two-term sum, and M | V12 V23 V13 on every realised triple in all categories (odd squarefree 23, odd non-squarefree 39, even non-squarefree 216)."
+      "notes": "SHARPENED BY theorem-O11-coupled-ratios, which uses R_12 R_23 = R_13 to replace the constant 1/3 by 0.048628 -- 6.85x -- and lifts the informative coverage from ~35% to 88-98%. O.10's divisibility M | V12 V23 V13 is what O.11 rests on. THE SIGN IS THE e = 1 SHADOW: at v_p(M) = 1, S T = -M m forces s + t = 1 exactly, so (s,t) is (1,0) or (0,1), which is sigma = -+1. 'Three signs in {+-1} collide' becomes 'order by s and take the middle two', and that is the only step that changes. NO CASE REMAINS: O.9 needed M odd squarefree and the parallel session's intermediate M_1 = prod{odd p || M} form left 1.02% of classes silent (M a power of two times a powerful odd part); the valuation form covers those and excludes 99.2% of them. COVERAGE, WITH ITS DENOMINATOR. A first version reported '99.26% of classes excluded', which is over EVERY ratio class -- and a class with fewer than three shared moduli cannot host a triple at all. At X = 3000 only 60 of 1,815,154 classes have three shared moduli, so that figure measured vacuity, not reach. On the INFORMATIVE population it is ~35% and stable: 17/48 (35.4%) at X = 2000, 21/60 (35.0%) at 3000, 24/70 (34.3%) at 4000, 34/96 (35.4%) at 6000. The gain over the M_1 form survives: on the same 60 classes it excludes 21 with none silent, against 9 excluded and 21 silent. Found by the parallel session in its own figures and applying identically here. Verified 0 failures at X = 4000 over 12,447,219 checks of s + t >= e, 6266 of the v_p(V) bound, 224 of the ordered two-term sum, and M | V12 V23 V13 on every realised triple in all categories (odd squarefree 23, odd non-squarefree 39, even non-squarefree 216)."
     },
     {
       "id": "the-sign-arguments-blind-spot-is-enriched-among-rich-classes",
@@ -1727,6 +1727,22 @@
       ],
       "notes": "Recorded because the two-term version would CLOSE Conjecture O.2 outright and it is the obvious next move. If M | V_a V_b for a fixed in-window pair, then M <= |V_a V_b| < M^2/(3D) gives 3ab < M = b - a, which is impossible for a >= 1 since 3ab >= 3b > b - a. I derived exactly that and was one step from asserting the conjecture proved. The quantifier is what fails: the pair depends on p. The three-term product gives only 3ab < M^{4/3}, which is satisfiable. This is the 'right answer with a wrong route' shape caught before the assertion rather than after -- and it was caught by asking which objects the quantifier ranges over, not by any number coming out wrong, since every number in the per-prime check was correct.",
       "proof_site": ""
+    },
+    {
+      "id": "theorem-O11-coupled-ratios",
+      "status": "proved",
+      "statement": "Theorem O.11. Since R_12 R_23 = R_13, the three per-pair bounds |V_ij| < (M/sqrt D) sinh(u_ij) cannot all sit at the window's edge. For fixed u_13, sinh(u_12) sinh(u_23) is maximised at the equal split u_12 = u_23 = u_13/2 (derivative sinh(u_13 - 2u_12)), so f(R_12) f(R_23) f(R_13) <= 16 sinh^3(u/2) cosh(u/2) = (sqrt rho - 1/sqrt rho)^3 (sqrt rho + 1/sqrt rho) =: C(X_1) with rho = sqrt(2 + 1/X_1^2). With M <= |V12 V23 V13| that gives ab < (C(X_1)/8)^{2/3} (b-a)^{4/3}: 0.125873 at X_1 = 1 falling to 0.048628 asymptotically, against O.10's 1/3 -- 6.85x stronger.",
+      "proof_site": "notes/note-O-tau-multiplier.md; tests/test_note_o.py::test_O11_the_equal_split_maximises_the_product; tests/test_note_o.py::test_O11_constant_and_that_it_beats_O10_by_the_stated_factor; tests/test_note_o.py::test_O11_is_never_weaker_than_O10_on_realised_classes",
+      "experiment": "experiments/exp22_sign_alternation.py",
+      "depends_on": [
+        "theorem-O10-valuation"
+      ],
+      "tags": [
+        "note_o",
+        "window",
+        "gram"
+      ],
+      "notes": "COVERAGE, WITH ITS POPULATION AND ITS TREND. Over classes with >= 3 shared moduli -- the only ones that could host a triple -- O.11 excludes 42/43, 46/48, 57/60, 65/70, 88/96, 96/109 at X = 1500, 2000, 3000, 4000, 6000, 8000, i.e. 97.7%, 95.8%, 95.0%, 92.9%, 91.7%, 88.1%. DO NOT READ THAT AS AN ASYMPTOTIC: O.10's ~35% is flat in X while O.11's falls monotonically, and the admissible count roughly doubles as X doubles (1, 2, 3, 5, 8, 13) while the informative population grows only 2.5x over that range. The reach may tend to 0 and no claim is made about its limit. The equal-split maximisation was confirmed numerically to eight digits over a 4000-point grid at four values of w."
     }
   ]
 }

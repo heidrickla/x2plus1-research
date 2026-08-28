@@ -466,6 +466,45 @@ def theorem_O10(X):
     print("  s + t = 1 exactly, so (s,t) is (1,0) or (0,1).")
 
 
+def theorem_O11(X):
+    """The three ratios are not independent: R_12 R_23 = R_13."""
+    from math import sqrt as _s
+    classes = ratio_classes(X)
+
+    def C(X1):
+        r = _s(_s(2 + 1 / X1**2))
+        return (r - 1 / r) ** 3 * (r + 1 / r)
+
+    print("  |V_ij| < (M/sqrt D) sinh(u_ij) with u_12 + u_23 = u_13 <= ln rho.")
+    print("  For fixed u_13, sinh(u_12) sinh(u_23) peaks at the EQUAL split, so")
+    print("  f f f <= 16 sinh^3(u/2) cosh(u/2) = (sqrt rho - 1/sqrt rho)^3")
+    print("                                      (sqrt rho + 1/sqrt rho) =: C.")
+    print("  Hence ab < (C/8)^(2/3) M^(4/3).")
+    print("     X_1        c = (C/8)^(2/3)")
+    for X1 in (1, 2, 3, 5, 10, 10**6):
+        print(f"     {X1:8}   {(C(X1)/8)**(2/3):.6f}"
+              f"{'   (O.10 has 0.333333)' if X1 == 10**6 else ''}")
+    inf = e10 = e11 = 0
+    for (a, b), ms in classes.items():
+        M = b - a
+        if M < 2 or len(ms) < 3:
+            continue
+        inf += 1
+        X1 = max(1, isqrt(a * min(ms) - 1))
+        e10 += 3 * a * b >= M ** (4 / 3)
+        e11 += a * b >= (C(X1) / 8) ** (2 / 3) * M ** (4 / 3)
+    if inf:
+        print(f"  At X = {X}, over the {inf} INFORMATIVE classes (>= 3 shared")
+        print(f"  moduli -- the only ones that could host a triple):")
+        print(f"     O.10 excludes {e10} ({e10/inf:.1%}); O.11 excludes"
+              f" {e11} ({e11/inf:.1%})")
+    print("  DO NOT read O.11's percentage as an asymptotic.  O.10's ~35% is flat")
+    print("  in X; O.11's falls monotonically -- 97.7, 95.8, 95.0, 92.9, 91.7,")
+    print("  88.1 at X = 1500..8000 -- with the admissible count roughly doubling")
+    print("  as X doubles.  The inequality is proved; the percentage is a finite")
+    print("  observation over a stated population.")
+
+
 def main(X=3000):
     print("1. THE ALTERNATION")
     alternation(X)
@@ -491,6 +530,10 @@ def main(X=3000):
     print("7. THEOREM O.10 -- the sign becomes a VALUATION, and then there is no")
     print("   hypothesis on M at all, and no remaining case.")
     theorem_O10(X)
+    print()
+    print("8. THEOREM O.11 -- R_12 R_23 = R_13, so the three bounds cannot all")
+    print("   be at the window's edge.  Worth 6.85x.")
+    theorem_O11(X)
 
 
 if __name__ == "__main__":
