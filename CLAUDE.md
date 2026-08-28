@@ -1,21 +1,24 @@
 # x2plus1-research
 
-Landau's fourth problem (infinitely many primes x²+1), via the Friedlander–Iwaniec
-asymptotic sieve reformulated over Z[i]. Research repo: the output is `notes/`;
-code exists to keep the notes honest. Charter: `x2plus1-research-plan.md`.
+| | |
+|---|---|
+| Problem | Landau's fourth: infinitely many primes x²+1 |
+| Method | Friedlander–Iwaniec asymptotic sieve, reformulated over Z[i] |
+| Output | `notes/` — code exists to keep the notes honest |
+| Charter | `x2plus1-research-plan.md` |
+| State | `research_state/claims.json` |
 
 ## Run
 
     python -m pytest -q                 # before trusting any measurement
     python tools/smoke_experiments.py   # after changing x2plus1/ — all experiments, small
     python tools/check_sources.py       # which source PDFs are scans
-
-Experiments take a size argument and print a table. Results are gitignored — rerun.
+    python experiments/expNN_*.py [size]  # each takes a size, prints a table, gitignored
 
 ## State
 
-`research_state/claims.json` is the state, statuses enforced by `tests/test_claims.py`.
-Read it before writing a finding. Summary:
+Statuses enforced by `tests/test_claims.py`. Read the registry before writing a
+finding; this table is a summary of it, not a second copy.
 
 | | |
 |---|---|
@@ -134,8 +137,8 @@ by Green–Sawhney, so re-argue rather than obey.
 - Normalisation: Q (or N) = norm bound; X = √Q = range of x; |A| = X. State which one
   every exponent is relative to. "Level N^{1/2}" = "level X".
 - The invariant is **M·D**: a·m = X²+D and b·m = Y²+D give aY² − bX² = M·D. Every Note O
-  formula written with M is its D = 1 form; see the table at its definition for which
-  downstream formulas carry the D.
+  formula written with M is its D = 1 form. `notes/note-O-tau-multiplier.md` carries a
+  table of which downstream formulas take the D; check it before reusing one at D ≠ 1.
 - Note L's ε (automorph) moves within an orbit; Note O's τ (multiplier) moves between
   orbits. At (1,41): ε² = 1.679×10⁷ against τ₁² = 1.877.
 - The modulus ratio is τ², not τ. A window is **ratio < 2**, never a power-of-two-anchored
