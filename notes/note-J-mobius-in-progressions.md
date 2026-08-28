@@ -432,6 +432,21 @@ literatures decline the same object.
   anything**, which is tighter than the prime-moduli figure of −0.057 ± 0.19 and
   independent of it. Still finite data, and still evidence about the **truth**,
   not about provability.
+- *The signed/absolute ratio decays 0.096 → 0.005 — does that strengthen or
+  weaken "the difficulty is the absolute values"?* Strengthens, and the note
+  should not be read as merely quantifying the old 2%. The old figure was one
+  band; the decay says the absolute value costs **more** the further into the
+  Type II range one goes, and (B1) wants M large. But the same table shows
+  |signed|/√T swinging 0.04 to 1.30, which is what a random-sign sum of that size
+  does — **the 0.04 is not structure** and nothing should be built on the band
+  where the ratio is smallest.
+- *Does the signed sum's square-root cancellation make the Type II input look
+  closer than it is?* It is the opposite risk from the one this note usually
+  guards against. The signed sum cancels beautifully and is **not what any sieve
+  asks for**; (B) has the absolute value outside. A reader who takes the signed
+  measurement as evidence about the difficulty of (B) has read the wrong
+  quantity, which is precisely the error `difficulty-is-the-absolute-values`
+  exists to name.
 - *Is the X^{3/4} range right?* **No — [VERIFY] discharged, against this note.**
   DFI's page images render cleanly at 300 dpi even though the scan's OCR layer
   does not, and the range as stated here does not survive reading them.
