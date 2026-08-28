@@ -694,6 +694,21 @@ Read [README.md](README.md) and [notes/README.md](notes/README.md) first. Run
   form: not a second reading, a second *computation* whose disagreement was
   itself the signal.
 
+- **Duplicated computation is the only safeguard here that works while nobody is
+  paying attention.** Every other countermeasure in this file requires someone to
+  remember to apply it, and the record shows all of them being written down and
+  then broken by their own authors within the hour — the `&&` that could not gate
+  because of a pipe, the enumeration floor missing from a test written after the
+  floor rule, the vacuous denominator, the quantifier question, the informative
+  subset three times on one claim. **What actually caught the two largest errors
+  was two sessions computing the same thing on different axes and getting
+  different answers.** Neither was reviewing the other. Nobody had to be
+  vigilant: the disagreement did the work by existing. That is a property of the
+  arrangement rather than a practice, and it is the argument for **overlapping
+  the computations, not the reviews** — redundancy at the identities *and* at the
+  sweeps, on different axes, with disagreement as the alarm. Three of tonight's
+  findings arrived this way, including both that reframed the O-thread.
+
 - **Extend the axis nobody extended.** Two results in one night came from the
   same move, and both overturned a conclusion that had been checked at five or
   six values and read as general. The doubly-dyadic C₄-free property was verified
