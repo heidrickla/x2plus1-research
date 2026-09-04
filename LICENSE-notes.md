@@ -38,6 +38,4 @@ changes were made.
 ## Attribution
 
 > Heidrick, L. *x² + 1 — research repo.* CC BY 4.0.
-> https://github.com/<owner>/<repo>
-
-*(Fill in the URL once the repository is published.)*
+> https://github.com/heidrickla/x2plus1-research

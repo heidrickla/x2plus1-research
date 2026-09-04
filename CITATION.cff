@@ -11,6 +11,8 @@ abstract: >-
   Diophantine tuple with property BD₂(−1). Every claim carries an enforced
   epistemic status checked by the test suite.
 type: software
+repository-code: "https://github.com/heidrickla/x2plus1-research"
+url: "https://github.com/heidrickla/x2plus1-research"
 authors:
   - family-names: Heidrick
     given-names: Lewis
