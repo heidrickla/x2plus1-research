@@ -139,6 +139,11 @@ Evidence for each: `notes/note-P-method.md`.
 - Every string edit asserts its anchor; a silent no-op reports success.
 - One edit per script block: a later `replace` masks an earlier failure.
 - Commit with a pathspec, options before `--`. It isolates files, not authors.
+- **But a pathspec also discards the index for those paths**: `git commit -- <p>`
+  commits the *working tree* state of `<p>`, so a staged `git rm --cached` is
+  silently overridden and the file is re-added instead of removed. Untracking a
+  file therefore needs `git commit` with **no** pathspec, committing the index.
+  Cost one wrong commit that reported success while doing the opposite.
 - On a file two sessions edit, the danger is your own stale copy. Re-read immediately
   before writing, and read the diff's **deletions**.
 - Use the session scratchpad, never `$TMP` — it is shared between sessions.
