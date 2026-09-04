@@ -1,0 +1,28 @@
+# Deterministic line endings for a repo that is developed on Windows and tested
+# on Linux CI. Without this, behaviour depends on each clone's core.autocrlf and
+# diffs can appear that are pure line-ending churn.
+#
+# Everything text-like is normalised to LF in the index and checked out native.
+* text=auto eol=lf
+
+# Explicit for the types actually present, so no heuristic is involved.
+*.py    text eol=lf diff=python
+*.md    text eol=lf
+*.json  text eol=lf
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.toml  text eol=lf
+*.cff   text eol=lf
+*.txt   text eol=lf
+.gitignore      text eol=lf
+.gitattributes  text eol=lf
+
+# Never touched, and never distributed here anyway (refs/pdf/ is gitignored).
+*.pdf   binary
+*.png   binary
+*.npz   binary
+*.pkl   binary
+
+# The notes are the deliverable; give GitHub the right language stats and let
+# `git diff` find Markdown section headers as hunk context.
+*.md    linguist-documentation

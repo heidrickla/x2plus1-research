@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you refer to this work, please cite it as below."
+title: "x² + 1 — research repo"
+abstract: >-
+  Instrumentation and notes for an attack on Landau's fourth problem (infinitely
+  many primes of the form x²+1) via the Friedlander–Iwaniec asymptotic sieve
+  reformulated over the Gaussian integers. The repository records a located
+  structural obstruction — the Type I/II sieve framework cannot capture x²+1,
+  because the relevant off-diagonal counting function is a 0/1 indicator — and a
+  body of Diophantine results on the underlying incidence, which is a bipartite
+  Diophantine tuple with property BD₂(−1). Every claim carries an enforced
+  epistemic status checked by the test suite.
+type: software
+authors:
+  - family-names: Heidrick
+    given-names: Lewis
+license: MIT
+keywords:
+  - Landau's problems
+  - analytic number theory
+  - asymptotic sieve
+  - Gaussian integers
+  - Diophantine tuples
+  - bipartite Diophantine tuples
