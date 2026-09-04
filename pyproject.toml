@@ -3,13 +3,16 @@ name = "x2plus1"
 version = "0.1.0"
 description = "Computational scaffolding for the x^2+1 prime problem via the Friedlander-Iwaniec asymptotic sieve over Z[i]"
 requires-python = ">=3.11"
+license = "MIT"
+license-files = ["LICENSE"]
 dependencies = ["sympy>=1.12", "numpy>=1.26"]
 
 [project.optional-dependencies]
 dev = ["pytest>=8"]
 
 [build-system]
-requires = ["setuptools>=68"]
+# PEP 639 license/license-files metadata needs 77+.
+requires = ["setuptools>=77"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools]

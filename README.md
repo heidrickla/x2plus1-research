@@ -680,6 +680,20 @@ The column that separates every solved case from this one is ν.
   Beyond 1/2 there is no absolute-value statement to appeal to.
   [Note J](notes/note-J-mobius-in-progressions.md).
 
+## Licence
+
+Two licences, because this repository is mostly prose with supporting code.
+
+| what | licence |
+|---|---|
+| code — `x2plus1/`, `experiments/`, `tests/`, `tools/`, `.github/` | MIT — [`LICENSE`](LICENSE) |
+| written material — `notes/`, this README, the charter, `research_state/claims.json`, `refs/` | CC BY 4.0 — [`LICENSE-notes.md`](LICENSE-notes.md) |
+
+No third-party papers are distributed here: `refs/pdf/` is gitignored because
+published articles are copyrighted by their publishers, and `refs/bibliography.md`
+cites them instead. Passages quoted in the notes remain their authors' property
+and appear as short attributed quotations.
+
 ## Conventions
 
 Fix one normalisation and keep it. Throughout:
