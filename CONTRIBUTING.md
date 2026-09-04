@@ -51,6 +51,16 @@ this repository have silently failed. It is written as operating instructions
 rather than prose, and it is the fastest way to see what the project considers a
 mistake.
 
+## How pull requests land
+
+`master` carries a ruleset, so a PR merges only when all four CI checks are
+green: `tests (py3.11)`, `tests (py3.12)`, `tests (py3.13)`, and
+`experiments run`. Force-pushes and branch deletion are blocked.
+
+Merges are **squash-only** and the branch is deleted afterwards. The history here
+is written to be read — each commit message says what changed and, where it
+matters, what was wrong before — so one commit per change keeps that legible.
+
 ## Scope
 
 The charter is `x2plus1-research-plan.md`. Steps 1 and 2 are complete — the Type
