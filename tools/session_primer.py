@@ -1,6 +1,15 @@
 """Print priming context for a session resumed after compaction.
 
-Wired to a SessionStart hook with a "compact" matcher in .claude/settings.json.
+Intended for a SessionStart hook with a "compact" matcher. The hook config is
+NOT in this repository -- .claude/ is gitignored, because it holds
+machine-specific absolute paths and local tooling rather than research. To wire
+it up locally, add to your own .claude/settings.json:
+
+    {"hooks": {"SessionStart": [{"matcher": "compact", "hooks": [
+      {"type": "command", "command": "python tools/session_primer.py"}]}]}}
+
+The script resolves the repository from its own location, so it does not care
+what the working directory is.
 Emits JSON with hookSpecificOutput.additionalContext, which Claude Code injects
 back into the model's context, so a compacted session recovers the state that
 matters instead of the state that happened to survive summarisation.

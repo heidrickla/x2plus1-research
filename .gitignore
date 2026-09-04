@@ -23,3 +23,7 @@ cache/
 # Papers are copyrighted; keep refs/ to bibliography + notes only.
 refs/pdf/
 *.pdf
+
+# Local Claude Code config: hooks with machine-specific absolute paths, and
+# hook scripts that are tooling rather than research. Not part of the artifact.
+.claude/
