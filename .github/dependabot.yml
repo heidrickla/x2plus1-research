@@ -1,0 +1,26 @@
+# Keeps the workflow's actions current on its own. The alternative is noticing
+# by hand that a pinned major has gone stale -- which is how this repository
+# arrived at the question in the first place.
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "ci"
+    labels:
+      - dependencies
+
+  - package-ecosystem: pip
+    directory: /
+    schedule:
+      interval: monthly
+    commit-message:
+      prefix: "deps"
+    labels:
+      - dependencies
+    # sympy and numpy are the only runtime dependencies; a major bump should be
+    # looked at rather than merged, since the arithmetic is exact and the tests
+    # assert specific values.
+    open-pull-requests-limit: 3
