@@ -270,7 +270,22 @@ PROSE_EXPERIMENT_FIELDS = {
 
 
 def _resolve_experiment(field):
-    """The file an `experiment` field names, or None if it names prose."""
+    """The file an `experiment` field names, or None if it names prose.
+
+    KNOWN GAP, found by a CI check written against the same rule and left here
+    deliberately rather than papered over: this reads only the FIRST
+    semicolon-separated token, while the field is a LIST. So a claim naming one
+    real script plus any amount of prose passes -- e.g.
+    `tau-multiplier-verified`, whose field is
+    "experiments/exp13_window_gap.py; tau check in-session against
+    exp12_tau_multiplier's law". The head resolves; the tail names nothing
+    rerunnable. The guard's name promises the field names a runnable artefact,
+    and it does -- plus prose it never looks at. That is the "weaker proposition
+    than its name" failure this repo catalogues, in its own test suite.
+
+    Not fixed here because tightening it changes which claims pass, which is a
+    registry decision rather than a test decision.
+    """
     head = field.split("::")[0].split(";")[0].strip()
     if " " in head:          # a sentence, not a path
         return None

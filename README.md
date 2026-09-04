@@ -13,7 +13,7 @@ x^{1/2}.** Everything here is instrumentation for that search.
 | path | what it is |
 |---|---|
 | [x2plus1-research-plan.md](x2plus1-research-plan.md) | the charter. Not edited by work; amended only deliberately. |
-| [notes/](notes/) | Notes A–O. A–I are the deliverables named in the plan; J–O were added by the work. |
+| [notes/](notes/) | Notes A–R. A–I are the deliverables named in the plan; J–R were added by the work. |
 | [x2plus1/](x2plus1/) | the library: Z[i] arithmetic, sieving, Type I and Type II harnesses. |
 | [experiments/](experiments/) | runnable scripts; each names the note it supports. |
 | [tests/](tests/) | unit tests, plus `test_arithmetic_facts.py` — machine-checked statements of the lemmas the notes rely on. |
@@ -63,6 +63,14 @@ Python ≥ 3.11 with `sympy` and `numpy` (and `pymupdf` for
 `tools/check_sources.py`).
 
 ## State of play
+
+> **Where this stands.** Steps 1 and 2 of the charter are complete: the
+> obstruction is located and it is structural, so the Type I/II framework cannot
+> capture x²+1. That is a theorem about the method, never about whether x²+1 is
+> prime infinitely often. **Step 3 is the live work**, and it turns out to be a
+> question in someone else's field — see [Note Q](notes/note-Q-dictionary.md):
+> the incidence studied here is exactly a *bipartite Diophantine tuple* with
+> property BD₂(−1), whose basic finiteness question is open for k = 2.
 
 **The obstruction is Type II, and it is [Note F](notes/note-F-failure-localisation.md)'s
 C₄-free lemma** — which, as of **Theorem O.12**, holds **over Z as well as over
