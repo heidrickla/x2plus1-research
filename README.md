@@ -8,6 +8,23 @@ The plan's working principle governs this repo too: **do not try to prove the
 theorem — locate the exact lemma in the a² + b⁴ argument that fails at density
 x^{1/2}.** Everything here is instrumentation for that search.
 
+## Contents
+
+- [Layout](#layout)
+- [Quick start](#quick-start)
+- [State of play](#state-of-play)
+  - [The obstruction, as the sources actually state it](#the-obstruction-as-the-sources-actually-state-it)
+  - [What survives, and it is narrow](#what-survives-and-it-is-narrow)
+  - [The two supporting results](#the-two-supporting-results)
+  - [The one thing that moved, and exactly how far](#the-one-thing-that-moved-and-exactly-how-far)
+  - [Three things that came out right without being aimed at](#three-things-that-came-out-right-without-being-aimed-at)
+  - [What the Z[i] → Z transfer actually costs](#what-the-zi-z-transfer-actually-costs)
+  - [It was never about x² + 1](#it-was-never-about-x²-1)
+  - [The density ledger](#the-density-ledger)
+  - [Not yet done](#not-yet-done)
+- [Licence](#licence)
+- [Conventions](#conventions)
+
 ## Layout
 
 | path | what it is |
