@@ -1,5 +1,9 @@
 # x² + 1 — research repo
 
+[![CI](https://github.com/heidrickla/x2plus1-research/actions/workflows/ci.yml/badge.svg)](https://github.com/heidrickla/x2plus1-research/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/code-MIT-blue.svg)](LICENSE)
+[![License: CC BY 4.0](https://img.shields.io/badge/notes-CC%20BY%204.0-lightgrey.svg)](LICENSE-notes.md)
+
 Working repo for the programme in [x2plus1-research-plan.md](x2plus1-research-plan.md):
 attack Landau's fourth problem via the Friedlander–Iwaniec asymptotic sieve,
 reformulated over **Z[i]**.
