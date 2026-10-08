@@ -726,3 +726,5 @@ Fix one normalisation and keep it. Throughout:
   norm normalisation.
 - Gaussian integers are `(a, b)` int pairs meaning a + bi. Ideals are named by
   their unit-normalised generator (Re > 0, Im ≥ 0).
+
+The claim registry, how a change lands, the code conventions and the domain notes are in [`docs/working-here.md`](docs/working-here.md).

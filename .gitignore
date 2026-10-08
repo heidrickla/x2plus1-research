@@ -31,3 +31,5 @@ refs/pdf/
 # Agent and local files stay out of the repository.
 .codex/
 AGENTS.md
+CLAUDE.md
+CONTRIBUTING.md
