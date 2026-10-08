@@ -27,3 +27,7 @@ refs/pdf/
 # Local Claude Code config: hooks with machine-specific absolute paths, and
 # hook scripts that are tooling rather than research. Not part of the artifact.
 .claude/
+
+# Agent and local files stay out of the repository.
+.codex/
+AGENTS.md
