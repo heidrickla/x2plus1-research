@@ -23,9 +23,15 @@ import subprocess
 import sys
 from pathlib import Path
 
+import pytest
+
 REPO = Path(__file__).resolve().parent.parent
 PRIMER = REPO / "tools" / "session_primer.py"
 CLAUDE = REPO / "CLAUDE.md"
+
+#: CLAUDE.md is a local agent file and stays out of the repository, so a clone (CI)
+#: has none. These guards run wherever it exists, which is where it is read.
+needs_claude_md = pytest.mark.skipif(not CLAUDE.exists(), reason="CLAUDE.md is local only; absent from a clone")
 
 #: CLAUDE.md is read in full at the start of every session. Prose is what made it
 #: unreadable, so the budget is in WORDS. It was 18,657; it is now ~1,400.
@@ -44,6 +50,7 @@ def _context() -> str:
 
 # --------------------------------------------------------------- CLAUDE.md
 
+@needs_claude_md
 def test_claude_md_stays_short_enough_to_actually_read():
     words = len(CLAUDE.read_text(encoding="utf-8").split())
     assert words <= CLAUDE_WORD_BUDGET, (
@@ -54,6 +61,7 @@ def test_claude_md_stays_short_enough_to_actually_read():
     )
 
 
+@needs_claude_md
 def test_claude_md_is_rules_and_facts_not_prose():
     """Narrative paragraphs are what made it unreadable. Bullets and tables are not."""
     text = CLAUDE.read_text(encoding="utf-8")
@@ -86,6 +94,7 @@ def test_primer_is_small_enough_to_be_delivered():
     )
 
 
+@needs_claude_md
 def test_primer_does_not_reproduce_claude_md():
     """CLAUDE.md is already injected as project instructions; copying it is waste."""
     ctx, text = _context(), CLAUDE.read_text(encoding="utf-8")
@@ -104,6 +113,7 @@ def test_primer_carries_the_live_material_claude_md_cannot():
         assert marker in ctx, f"primer lost its live section: {marker}"
 
 
+@needs_claude_md
 def test_both_guards_can_actually_fail():
     """Injected violation: a guard is not verified until it has failed on one."""
     text = CLAUDE.read_text(encoding="utf-8")
