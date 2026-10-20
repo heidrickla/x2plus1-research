@@ -15,9 +15,11 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
+# The forge holds main and GitHub mirrors it; these jobs run on GitHub only.
 jobs:
   tests:
     name: tests (py${{ matrix.python-version }})
+    if: github.server_url == 'https://github.com'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -42,6 +44,7 @@ jobs:
 
   experiments:
     name: experiments run
+    if: github.server_url == 'https://github.com'
     runs-on: ubuntu-latest
     # The suite guards the computation; this guards that every experiment still
     # executes. A skipped experiment used to look exactly like a passing one.
