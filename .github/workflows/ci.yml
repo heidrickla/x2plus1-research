@@ -15,11 +15,12 @@ concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
-# The forge holds main and GitHub mirrors it; these jobs run on GitHub only.
+# The forge holds main and GitHub mirrors it; both run these jobs. The forge's setup-python toolcache is
+# shared between jobs, so installs go into a job venv, and it ignores a job's timeout-minutes, so steps
+# carry their own.
 jobs:
   tests:
     name: tests (py${{ matrix.python-version }})
-    if: github.server_url == 'https://github.com'
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -35,16 +36,18 @@ jobs:
           cache: pip
 
       - name: Install
+        timeout-minutes: 10
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install -e ".[dev]"
+          python -m venv .venv
+          .venv/bin/python -m pip install --quiet --upgrade pip
+          .venv/bin/python -m pip install --quiet -e ".[dev]"
 
       - name: Test suite
-        run: python -m pytest -q
+        timeout-minutes: 20
+        run: .venv/bin/python -m pytest -q
 
   experiments:
     name: experiments run
-    if: github.server_url == 'https://github.com'
     runs-on: ubuntu-latest
     # The suite guards the computation; this guards that every experiment still
     # executes. A skipped experiment used to look exactly like a passing one.
@@ -57,9 +60,12 @@ jobs:
           cache: pip
 
       - name: Install
+        timeout-minutes: 10
         run: |
-          python -m pip install --upgrade pip
-          python -m pip install -e ".[dev]"
+          python -m venv .venv
+          .venv/bin/python -m pip install --quiet --upgrade pip
+          .venv/bin/python -m pip install --quiet -e ".[dev]"
 
       - name: Smoke-run every experiment
-        run: python tools/smoke_experiments.py
+        timeout-minutes: 20
+        run: .venv/bin/python tools/smoke_experiments.py
